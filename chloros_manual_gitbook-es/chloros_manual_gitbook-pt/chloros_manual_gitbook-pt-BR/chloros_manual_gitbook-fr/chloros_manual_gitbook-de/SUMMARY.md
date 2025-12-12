@@ -1,34 +1,34 @@
-# Table of contents
+# İçindekiler
 
-* [Getting Started](README.md)
-* [GUI : Navigation](navigation.md)
-* [GUI : Projects](projects.md)
-* [CLI : Command Line](CLI.md)
-* [API : Python SDK](api-python-sdk.md)
-* [Supported Cameras](supported-cameras.md)
-* [Output Image Formats](output-image-formats.md)
-* [Chloros+ Login](chloros+-login.md)
-* [Calibration Targets](calibration-targets.md)
-* [Supported Languages](supported-languages.md)
-* [Download](download.md)
-* [FAQ](faq.md)
+* [Başlarken](README.md)
+* [GUI : Gezinme](navigation.md)
+* [GUI : Projeler](projects.md)
+* [CLI : Komut Satırı](CLI.md)
+* [API: Python SDK'sı](api-python-sdk.md)
+* [Desteklenen Kameralar](supported-cameras.md)
+* [Çıktı Görüntü Formatları](output-image-formats.md)
+* [Kloros+ Giriş](chloros+-login.md)
+* [Kalibrasyon Hedefleri](calibration-targets.md)
+* [Desteklenen Diller](supported-languages.md)
+* [İndirmek](download.md)
+* [SSS](faq.md)
 
-## Processing Images (GUI)
+## Görüntüleri İşleme (GUI)
 
-* [Adjusting Project Settings](processing-images-gui/adjusting-project-settings.md)
-* [Adding Files to a Project](processing-images-gui/page-1.md)
-* [Choosing Target Images](processing-images-gui/choosing-target-images.md)
-* [Starting the Processing](processing-images-gui/starting-the-processing.md)
-* [Monitoring the Processing](processing-images-gui/monitoring-the-processing.md)
-* [Finishing the Processing](processing-images-gui/finishing-the-processing.md)
+* [Proje Ayarlarını Düzenleme](processing-images-gui/adjusting-project-settings.md)
+* [Bir Projeye Dosya Ekleme](processing-images-gui/page-1.md)
+* [Hedef Görsellerin Seçilmesi](processing-images-gui/choosing-target-images.md)
+* [İşlemeyi Başlatma](processing-images-gui/starting-the-processing.md)
+* [İşlemenin İzlenmesi](processing-images-gui/monitoring-the-processing.md)
+* [İşlemeyi Bitirmek](processing-images-gui/finishing-the-processing.md)
 
-## PROJECT SETTINGS
+## PROJE AYARLARI
 
-* [Project Settings](project-settings/page-2.md)
-* [Multispectral Index Formulas](project-settings/multispectral-index-formulas.md)
+* [Proje Ayarları](project-settings/page-2.md)
+* [Multispektral İndeks Formülleri](project-settings/multispectral-index-formulas.md)
 
-## IMAGE VIEWER (GUI)
+## GÖRÜNTÜ GÖRÜNTÜLEYİCİ (GUI)
 
-* [Opening an Image Full Screen](image-viewer-gui/page-3.md)
-* [Image Layers](image-viewer-gui/image-layers.md)
-* [Index/LUT Sandbox](image-viewer-gui/index-lut-sandbox.md)
+* [Bir Görüntüyü Tam Ekran Açma](image-viewer-gui/page-3.md)
+* [Görüntü Katmanları](image-viewer-gui/image-layers.md)
+* [Dizin/LUT Korumalı Alanı](image-viewer-gui/index-lut-sandbox.md)

@@ -1,17 +1,17 @@
-# Projects
+# Projeler
 
-Chloros allows you to create projects which can be reopened in the future.
+Chloros gelecekte yeniden açılabilecek projeler oluşturmanıza olanak tanır.
 
-## New Project
+## Yeni Proje
 
 <figure><img src=".gitbook/assets/project_new.JPG" alt=""><figcaption></figcaption></figure>
 
-Select "New Project" from the main menu and enter a unique name for your project.
+Ana menüden "Yeni Proje"yi seçin ve projeniz için benzersiz bir ad girin.
 
-## Open Project
+## Projeyi Aç
 
 <figure><img src=".gitbook/assets/project_open.JPG" alt=""><figcaption></figcaption></figure>
 
-Select "Open Project" to see a list of existing projects in the Project Folder. If no projects exist the secondary side menu will not open. You can see some GUI created projects (t1, t2, t3) listed in the above photo. The DATE\_TIME projects were created by the CLI using the default project naming scheme. Clicking any project name will open it.
+Proje Klasöründeki mevcut projelerin listesini görmek için "Projeyi Aç"ı seçin. Hiçbir proje yoksa ikincil yan menü açılmayacaktır. Yukarıdaki fotoğrafta listelenen bazı GUI tarafından oluşturulan projeleri (t1, t2, t3) görebilirsiniz. DATE\_TIME projeleri, CLI tarafından varsayılan proje adlandırma şeması kullanılarak oluşturuldu. Herhangi bir proje adına tıkladığınızda açılacaktır.
 
-Clicking the "Open Project Folder" button opens your computer's file explorer at the project path. You can adjust the project path in the [Project Settings](project-settings/page-2.md).
+"Proje Klasörünü Aç" düğmesine tıklamak, proje yolunda bilgisayarınızın dosya gezginini açar. Proje yolunu [Proje Ayarları](project-settings/page-2.md)'da ayarlayabilirsiniz.
