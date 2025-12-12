@@ -1,64 +1,85 @@
 # Desteklenen Diller
 
-Chloros, **dünya çapında 38 dilde** tam arayüz desteği sağlayarak, dünyanın her yerindeki kullanıcıların erişimine açıktır. Tüm arayüzlerde anında dil değiştirebilirsiniz: Masaüstü, Tarayıcı, CLI ve Python SDK.
+Chloros, **dünya çapında 38 dilde** tam arayüz desteği sunarak, dünyanın her yerindeki kullanıcıların erişimine açıktır. Tüm arayüzlerde anında dil değiştirebilirsiniz: Masaüstü, Tarayıcı, CLI ve Python SDK.
 
 Chloros aşağıdaki dilleri destekler:
 
-1. 🇺🇸 **İngilizce**
-2. 🇪🇸 **Español** (İspanyolca)
-3. 🇵🇹 **Português** (Portekizce)
-4. 🇫🇷 **Français** (Fransızca)
-5. 🇩🇪 **Deutsch** (Almanca)
-6. 🇮🇹 **Italiano** (İtalyanca)
-7. 🇯🇵 **日本語** (Japonca)
-8. 🇰🇷 **한국어** (Korece)
-9. 🇨🇳 **简体中文** (Basitleştirilmiş Çince)
-10. 🇹🇼 **繁體中文** (Geleneksel Çince)
-11. 🇷🇺 **Русский** (Rusça)
-12. 🇳🇱 **Nederlands** (Hollandaca)
-13. 🇸🇦 **العربية** (Arapça)
-14. 🇵🇱 **Polski** (Lehçe)
-15. 🇹🇷 **Türkçe** (Türkçe)
-16. 🇮🇳 **हिंदी** (Hintçe)
-17. 🇮🇩 **Bahasa Indonesia** (Endonezyaca)
-18. 🇻🇳 **Tiếng Việt** (Vietnamca)
-19. 🇹🇭 **ไทย** (Tayca)
-20. 🇸🇪 **Svenska** (İsveççe)
-21. 🇩🇰 **Dansk** (Danca)
-22. 🇳🇴 **Norsk** (Norveççe)
-23. 🇫🇮 **Suomi** (Fince)
-24. 🇬🇷 **Ελληνικά** (Yunanca)
-25. 🇨🇿 **Čeština** (Çekçe)
-26. 🇭🇺 **Magyar** (Macarca)
-27. 🇷🇴 **Română** (Romence)
-28. 🇺🇦 **Українська** (Ukraynaca)
-29. 🇧🇷 **Português Brasileiro** (Brezilya Portekizcesi)
-30. 🇭🇰 **粵語** (Kantonca)
-31. 🇲🇾 **Bahasa Melayu** (Malayca)
-32. 🇸🇰 **Slovenčina** (Slovakça)
-33. 🇧🇬 **Български** (Bulgarca)
-34. 🇭🇷 **Hrvatski** (Hırvatça)
-35. 🇱🇹 **Lietuvių** (Litvanyaca)
-36. 🇱🇻 **Latviešu** (Letonca)
-37. 🇪🇪 **Eesti** (Estonca)
-38. 🇸🇮 **Slovenščina** (Slovence)
+| # | Dil | Yerel Ad | CLI Kodu |
+|---|----------|-------------|----------|
+| 1 | 🇺🇸 İngilizce | İngilizce | `en` |
+| 2 | 🇪🇸 İspanyolca | Español | `es` |
+| 3 | 🇵🇹 Portekizce | Português | `pt` |
+| 4 | 🇫🇷 Fransızca | Français | `fr` |
+| 5 | 🇩🇪 Almanca | Deutsch | `de` |
+| 6 | 🇮🇹 İtalyanca | Italiano | `it` |
+| 7 | 🇯🇵 Japonca | 日本語 | `ja` |
+| 8 | 🇰🇷 Korece | 한국어 | `ko` |
+| 9 | 🇨🇳 Çince (Basitleştirilmiş) | 简体中文 | `zh` |
+| 10 | 🇹🇼 Çince (Geleneksel) | 繁體中文 | `zh-TW` |
+| 11 | 🇷🇺 Rusça | Русский | `ru` |
+| 12 | 🇳🇱 Felemenkçe | Nederlands | `nl` |
+| 13 | 🇸🇦 Arapça | العربية | `ar` |
+| 14 | 🇵🇱 Lehçe | Polski | `pl` |
+| 15 | 🇹🇷 Türkçe | Türkçe | `tr` |
+| 16 | 🇮🇳 Hintçe | हिंदी | `hi` |
+| 17 | 🇮🇩 Endonezyaca | Bahasa Indonesia | `id` |
+| 18 | 🇻🇳 Vietnamca | Tiếng Việt | `vi` |
+| 19 | 🇹🇭 Tayca | ไทย | `th` |
+| 20 | 🇸🇪 İsveççe | Svenska | `sv` |
+| 21 | 🇩🇰 Danca | Dansk | `da` |
+| 22 | 🇳🇴 Norveççe | Norsk | `no` |
+| 23 | 🇫🇮 Fince | Suomi | `fi` |
+| 24 | 🇬🇷 Yunanca | Ελληνικά | `el` |
+| 25 | 🇨🇿 Çekçe | Čeština | `cs` |
+| 26 | 🇭🇺 Macarca | Magyar | `hu` |
+| 27 | 🇷🇴 Romence | Română | `ro` |
+| 28 | 🇺🇦 Ukraynaca | Українська | `uk` |
+| 29 | 🇧🇷 Brezilya Portekizcesi | Português Brasileiro | `pt-BR` |
+| 30 | 🇭🇰 Kantonca | 粵語 | `zh-HK` |
+| 31 | 🇲🇾 Malayca | Bahasa Melayu | `ms` |
+| 32 | 🇸🇰 Slovakça | Slovenčina | `sk` |
+| 33 | 🇧🇬 Bulgarca | Български | `bg` |
+| 34 | 🇭🇷 Hırvatça | Hrvatski | `hr` |
+| 35 | 🇱🇹 Litvanya | Lietuvių | `lt` |
+| 36 | 🇱🇻 Letonya | Latviešu | `lv` |
+| 37 | 🇪🇪 Estonca | Eesti | `et` |
+| 38 | 🇸🇮 Slovence | Slovenščina | `sl` |
 
 ## Dil Nasıl Değiştirilir
 
-### Chloros Masaüstü/Tarayıcı
+### Chloros Masaüstü/Tarayıcı&#x27;da
 
 1. Uygulama ayarlarını açın.
 2. Dil seçim menüsüne gidin.
 3. Listeden tercih ettiğiniz dili seçin.
 4. Arayüz anında güncellenecektir.
 
-### Chloros CLI&#x27;te
+### Chloros CLI&#x27;da
 
-Arayüz dilini ayarlamak için komutlarınızla birlikte dil parametresini kullanın.
+`language` komutunu kullanarak CLI arayüz dilini görüntüleyin veya değiştirin:
 
-### Chloros Python SDK&#x27;te
+```bash
+# View current language
+chloros-cli language
 
-SDK&#x27;i başlatırken dil parametresini ayarlayın, böylece mesajları ve çıktıları tercih ettiğiniz dilde alabilirsiniz.
+# Change to Spanish
+chloros-cli language es
+
+# Change to Chinese (Simplified)
+chloros-cli language zh
+
+# Change to Brazilian Portuguese
+chloros-cli language pt-BR
+
+# List all available languages
+chloros-cli language --list
+```
+
+Daha fazla ayrıntı için [CLI belgelerine](CLI.md) bakın.
+
+### Chloros Python SDK
+
+SDK&#x27;i başlatırken dil parametresini ayarlayarak mesajları ve çıktıları tercih ettiğiniz dilde alabilirsiniz.
 
 ## Kapsam
 
