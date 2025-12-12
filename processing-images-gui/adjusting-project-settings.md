@@ -1,234 +1,234 @@
-# Adjusting Project Settings
+# Proje Ayarlarını Düzenleme
 
-Before processing your images, it's important to configure your project settings to match your workflow requirements. The Project Settings <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> panel provides comprehensive control over calibration, processing options, multispectral indices, and export formats.
+Görüntülerinizi işlemeden önce, iş akışı gereksinimlerinize uygun şekilde proje ayarlarınızı yapılandırmanız önemlidir. Proje Ayarları <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> paneli, kalibrasyon, işleme seçenekleri, multispektral indeksler ve dışa aktarma formatları üzerinde kapsamlı kontrol sağlar.
 
-## Accessing Project Settings
+## Proje Ayarlarına Erişim
 
-1. Open your project in Chloros
-2. Click the **Project Settings** <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> icon in the left sidebar
-3. The Project Settings panel displays all configuration options
+1. Projenizi Chloros&#x27;te açın
+2. Sol kenar çubuğundaki **Proje Ayarları** <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> simgesine tıklayın
+3. Proje Ayarları paneli tüm yapılandırma seçeneklerini görüntüler
 
-{% hint style="info" %}
-**Settings are saved automatically** with your project. When you reopen a project, all settings are restored.
+{% hint style=&quot;info&quot; %}
+**Ayarlar, projenizle birlikte otomatik olarak kaydedilir**. Bir projeyi yeniden açtığınızda, tüm ayarlar geri yüklenir.
 {% endhint %}
 
 ***
 
-## Quick Setup for Common Workflows
+## Yaygın İş Akışları için Hızlı Kurulum
 
-### Default Settings (Recommended for Most Users)
+### Varsayılan Ayarlar (Çoğu Kullanıcı için Önerilir)
 
-For typical MAPIR Survey3 camera workflows, the default settings work well:
+Tipik MAPIR Survey3 kamera iş akışları için varsayılan ayarlar iyi sonuç verir:
 
-* ✅ **Vignette correction**: Enabled
-* ✅ **Reflectance calibration**: Enabled (requires images of MAPIR targets)
-* ✅ **Debayer method**: High Quality (Faster)
-* ✅ **Export format**: TIFF (16-bit)
+* ✅ **Vinyet düzeltme**: Etkin
+* ✅ **Yansıma kalibrasyonu**: Etkin (MAPIR hedeflerinin görüntüleri gerekir)
+* ✅ **Debayer yöntemi**: Yüksek Kalite (Daha Hızlı)
+* ✅ **Dışa aktarma biçimi**: TIFF (16 bit)
 
-Simply import your images and start processing with these defaults.
-
-***
-
-## Project Settings Overview
-
-The Project Settings panel is organized into several categories. Below is a summary of each section. For complete documentation, see [Project Settings](../project-settings/page-2.md).
-
-### Target Detection
-
-Controls how Chloros identifies calibration targets in your images.
-
-**Key settings:**
-
-* **Minimum calibration sample area**: Size threshold for target detection (default: 25 pixels)
-* **Minimum target clustering**: Similarity threshold for grouping target regions (default: 60)
-
-**When to adjust:**
-
-* Increase sample area if getting false detections
-* Decrease if targets aren't being detected
-* Adjust clustering if targets are being split into multiple detections
-
-### Processing
-
-Main image processing and calibration options.
-
-**Key settings:**
-
-* **Vignette correction**: Compensates for lens darkening at edges ✅ Recommended
-* **Reflectance calibration**: Normalizes values using calibration targets ✅ Recommended
-* **Debayer method**: Algorithm for converting RAW to 3-channels multi-spectral
-* **Minimum recalibration interval**: Time between using calibration targets (0 = use all)
-
-**Advanced settings:**
-
-* **Light sensor timezone offset**: For PPK time synchronization (default: 0)
-* **Apply PPK corrections**: Uses GPS/exposure pin data from .daq files
-* **Exposure Pin 1/2**: Assigns cameras to exposure pins for dual-camera setups
-
-### Index (Multispectral Indices)
-
-Configure which vegetation indices to calculate and export.
-
-**How to add indices:**
-
-1. Click **"Add index"** button
-2. Select an index from the dropdown menu (NDVI, NDRE, GNDVI, etc.)
-3. Configure visualization settings (LUT colors, value ranges)
-4. Add multiple indices as needed
-
-**Popular indices:**
-
-* **NDVI**: General vegetation health (most common)
-* **NDRE**: Early stress detection with RedEdge
-* **GNDVI**: Chlorophyll concentration sensitive
-* **OSAVI**: Works well with visible soil
-* **EVI**: High leaf area index (LAI) regions
-
-**Custom formulas (Chloros+ only):**
-
-* Create custom multispectral index formulas
-* Use band math with all image channels
-* Save custom formulas for reuse
-
-For all available indices and formulas, see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md).
-
-### Export
-
-Controls output file format and quality.
-
-**Available formats:**
-
-* **TIFF (16-bit)**: Recommended for GIS and scientific analysis (0-65,535 range)
-* **TIFF (32-bit, Percent)**: Floating-point reflectance values (0.0-1.0 range)
-* **PNG (8-bit)**: Lossless compression for visualization (0-255 range)
-* **JPG (8-bit)**: Smallest files, lossy compression (0-255 range)
+Görüntülerinizi içe aktarın ve bu varsayılan ayarlarla işlemeye başlayın.
 
 ***
 
-## Saving and Loading Settings
+## Proje Ayarlarına Genel Bakış
 
-### Save Project Template
+Proje Ayarları paneli birkaç kategoriye ayrılmıştır. Aşağıda her bölümün özeti bulunmaktadır. Tam dokümantasyon için [Proje Ayarları](../project-settings/project-settings.md) bölümüne bakın.
 
-Create reusable templates for consistent workflows:
+### Hedef Algılama
 
-1. Configure all desired settings in the Project Settings panel
-2. Scroll to **"Save Project Template"** section at the bottom
-3. Enter a descriptive template name (e.g., "Survey3N\_RGN\_Agriculture")
-4. Click the save icon
+Chloros&#x27;in görüntülerinizdeki kalibrasyon hedeflerini nasıl tanımladığını kontrol eder.
 
-**Benefits:**
+**Anahtar ayarlar:**
 
-* Apply identical settings across multiple projects
-* Share configurations with team members
-* Maintain consistency for repeated surveys
+* **Minimum kalibrasyon örnek alanı**: Hedef algılama için boyut eşiği (varsayılan: 25 piksel)
+* **Minimum hedef kümeleme**: Hedef bölgeleri gruplandırmak için benzerlik eşiği (varsayılan: 60)
 
-### Load Template on New Project
+**Ne zaman ayarlanmalı:**
 
-When creating a new project:
+* Yanlış algılamalar varsa örnek alanını artırın.
+* Hedefler algılanmıyorsa azaltın.
+* Hedefler birden fazla algılamaya bölünüyorsa kümelemeyi ayarlayın.
 
-1. Select **"New Project"** from main menu
-2. Choose **"Load from template"** option
-3. Select your saved template
-4. All settings are automatically applied
+### İşleme
 
-### Working Directory
+Ana görüntü işleme ve kalibrasyon seçenekleri.
 
-The **"Save Project Folder"** setting specifies where new projects are created by default:
+**Anahtar ayarlar:**
 
-* **Default location**: `C:\Users\[Username]\Chloros Projects`
-* **Change location**: Click edit icon and select new folder
-* **When to change**:
-  * Network drive for team collaboration
-  * Different drive with more storage space
-  * Organized folder structure by year/client
+* **Vinyet düzeltme**: Kenarlarda lens karartmasını telafi eder ✅ Önerilir
+* **Yansıma kalibrasyonu**: Kalibrasyon hedeflerini kullanarak değerleri normalleştirir ✅ Önerilir
+* **Debayer yöntemi**: RAW&#x27;ı 3 kanallı multispektral&#x27;e dönüştürmek için algoritma
+* **Minimum yeniden kalibrasyon aralığı**: Kalibrasyon hedeflerinin kullanılması arasındaki süre (0 = tümünü kullan)
+
+**Gelişmiş ayarlar:**
+
+* **Işık sensörü saat dilimi ofseti**: PPK zaman senkronizasyonu için (varsayılan: 0)
+* **PPK düzeltmelerini uygula**: .daq dosyalarından GPS/pozlama pimi verilerini kullanır
+* **Pozlama Pimi 1/2**: Çift kamera kurulumları için kameraları pozlama pimlerine atar
+
+### Endeks (Çok Spektral Endeksler)
+
+Hangi bitki örtüsü endekslerinin hesaplanıp dışa aktarılacağını yapılandırın.
+
+**Endeks ekleme:**
+
+1. **&quot;Endeks ekle&quot;** düğmesini tıklayın
+2. Açılır menüden bir endeks seçin (NDVI, NDRE, GNDVI vb.)
+3. Görselleştirme ayarlarını yapılandırın (LUT renkleri, değer aralıkları)
+4. Gerektiği kadar birden fazla endeks ekleyin
+
+**Popüler endeksler:**
+
+* **NDVI**: Genel bitki sağlığı (en yaygın)
+* **NDRE**: RedEdge ile erken stres tespiti
+* **GNDVI**: Klorofil konsantrasyonuna duyarlı
+* **OSAVI**: Görünür toprakla iyi çalışır
+* **EVI**: Yüksek yaprak alanı indeksi (LAI) bölgeleri
+
+**Özel formüller (yalnızca Chloros+):**
+
+* Özel multispektral indeks formülleri oluşturun
+* Tüm görüntü kanallarında bant matematiği kullanın
+* Yeniden kullanım için özel formülleri kaydedin
+
+Mevcut tüm indeksler ve formüller için [Multispektral İndeks Formülleri](../project-settings/multispectral-index-formulas.md) bölümüne bakın.
+
+### Dışa Aktarma
+
+Çıktı dosyasının formatını ve kalitesini kontrol eder.
+
+**Mevcut formatlar:**
+
+* **TIFF (16 bit)**: GIS ve bilimsel analiz için önerilir (0-65.535 aralığı)
+* **TIFF (32 bit, Yüzde)**: Kayan nokta yansıma değerleri (0,0-1,0 aralığı)
+* **PNG (8 bit)**: Görselleştirme için kayıpsız sıkıştırma (0-255 aralığı)
+* **JPG (8 bit)**: En küçük dosyalar, kayıplı sıkıştırma (0-255 aralığı)
 
 ***
 
-## PPK (Post-Processed Kinematic) Setup
+## Ayarları Kaydetme ve Yükleme
 
-If using MAPIR DAQ recorders with GPS for precise geolocation:
+### Proje Şablonunu Kaydetme
 
-### Prerequisites
+Tutarlı iş akışları için yeniden kullanılabilir şablonlar oluşturun:
 
-* MAPIR DAQ with GPS (GNSS) module
-* .daq log file with exposure pin entries
-* Camera connected to DAQ exposure pins during capture session
+1. Proje Ayarları panelinde istediğiniz tüm ayarları yapılandırın.
+2. Alt kısımdaki **&quot;Proje Şablonunu Kaydet&quot;** bölümüne gidin.
+3. Açıklayıcı bir şablon adı girin (ör. &quot;Survey3N\_RGN\_Agriculture&quot;).
+4. Kaydet simgesine tıklayın.
 
-### Configuration Steps
+**Avantajlar:**
 
-1. Place the .daq log file in your project folder
-2. In Project Settings, enable **"Apply PPK corrections"** checkbox
-3. Set **"Light sensor timezone offset"** if needed (default: 0 for UTC)
-4. Assign cameras to exposure pins:
-   * **Single camera**: Automatically assigned to Pin 1
-   * **Dual cameras**: Manually assign each camera to correct pin
+* Birden fazla projeye aynı ayarları uygulayın.
+* Yapılandırmaları ekip üyeleriyle paylaşın.
+* Tekrarlanan anketlerde tutarlılığı koruyun.
 
-**Exposure Pin Assignment:**
+### Yeni Projeye Şablon Yükleme
 
-* **Exposure Pin 1**: Select camera model from dropdown
-* **Exposure Pin 2**: Select second camera or "Do Not Use"
-* Same camera cannot be assigned to both pins
+Yeni bir proje oluştururken:
 
-{% hint style="warning" %}
-**Important**: Exposure pins must be correctly assigned to their respective cameras. Incorrect assignment will result in wrong geolocation data.
+1. Ana menüden **&quot;Yeni Proje&quot;** seçeneğini seçin.
+2. **&quot;Şablondan yükle&quot;** seçeneğini seçin.
+3. Kaydettiğiniz şablonu seçin.
+4. Tüm ayarlar otomatik olarak uygulanır.
+
+### Çalışma Dizini
+
+**&quot;Proje Klasörünü Kaydet&quot;** ayarı, yeni projelerin varsayılan olarak nerede oluşturulacağını belirler:
+
+* **Varsayılan konum**: `C:\Users\[Username]\Chloros Projects`
+* **Konumu değiştir**: Düzenle simgesine tıklayın ve yeni klasörü seçin
+* **Ne zaman değiştirilir**:
+  * Ekip işbirliği için ağ sürücüsü
+  * Daha fazla depolama alanına sahip farklı bir sürücü
+  * Yıllara/müşterilere göre düzenlenmiş klasör yapısı
+
+***
+
+## PPK (Sonrası İşlemli Kinematik) Kurulumu
+
+Hassas coğrafi konum belirleme için GPS özellikli MAPIR DAQ kaydediciler kullanılıyorsa:
+
+### Ön Koşullar
+
+* GPS (GNSS) modüllü MAPIR DAQ
+* Pozlama pimi girişleri içeren .daq günlük dosyası
+* Yakalama oturumu sırasında DAQ pozlama pinlerine bağlı kamera
+
+### Yapılandırma Adımları
+
+1. .daq günlük dosyasını proje klasörünüze yerleştirin.
+2. Proje Ayarları&#x27;nda **&quot;PPK düzeltmelerini uygula&quot;** onay kutusunu etkinleştirin.
+3. Gerekirse **&quot;Işık sensörü saat dilimi farkı&quot;** ayarını yapın (varsayılan: UTC için 0).
+4. Kameraları pozlama pinlerine atayın:
+   * **Tek kamera**: Otomatik olarak Pin 1&#x27;e atanır
+   * **Çift kamera**: Her kamerayı doğru pime manuel olarak atayın
+
+**Pozlama Pimi Ataması:**
+
+* **Pozlama Pimi 1**: Açılır menüden kamera modelini seçin
+* **Pozlama Pimi 2**: İkinci kamerayı veya &quot;Kullanma&quot; seçeneğini seçin
+* Aynı kamera her iki pime de atanamaz
+
+{% hint style=&quot;warning&quot; %}
+**Önemli**: Pozlama pimleri ilgili kameralara doğru şekilde atanmalıdır. Yanlış atama, yanlış coğrafi konum verilerine neden olur.
 {% endhint %}
 
 ***
 
-## Advanced Scenarios
+## Gelişmiş Senaryolar
 
-### Multi-Camera Projects
+### Çoklu Kamera Projeleri
 
-When processing images from multiple MAPIR cameras in one project:
+Bir projede birden fazla MAPIR kameradan gelen görüntüleri işlerken:
 
-1. Chloros automatically detects each camera model
-2. Each camera gets appropriate processing profile
-3. PPK: Manually assign each camera to correct exposure pin
-4. All cameras use same export format and indices
+1. Chloros her kamera modelini otomatik olarak algılar
+2. Her kamera uygun işleme profilini alır
+3. PPK: Her kamerayı doğru pozlama pimine manuel olarak atayın
+4. Tüm kameralar aynı dışa aktarma formatını ve indeksleri kullanır
 
-**Example**: Survey3W RGN + Survey3N OCN dual-camera rig
+**Örnek**: Survey3W RGN + Survey3N OCN çift kamera donanımı
 
-### Time-Lapse or Multi-Date Surveys
+### Zaman Aralıklı veya Çoklu Tarihli Anketler
 
-For repeated surveys of the same area over time:
+Aynı alanın zaman içinde tekrar tekrar anketleri için:
 
-1. Create a template with your standard settings
-2. Use consistent calibration target setup each session
-3. Process each date as a separate project
-4. Use identical settings for comparable results
-5. Export in same format for temporal analysis
+1. Standart ayarlarınızla bir şablon oluşturun
+2. Her oturumda tutarlı kalibrasyon hedefi kurulumu kullanın
+3. Her tarihi ayrı bir proje olarak işleyin
+4. Karşılaştırılabilir sonuçlar için aynı ayarları kullanın
+5. Zamansal analiz için aynı formatta dışa aktarın
 
-### Large Datasets
+### Büyük Veri Kümeleri
 
-For projects with many images (500+):
+Çok sayıda görüntü içeren projeler için (500+):
 
-* Consider breaking into smaller projects by date or area
-* Use Chloros+ parallel processing for faster results
-* Consider CLI or API for batch automation
-* Adjust minimum recalibration interval to reduce target detection time
-
-***
-
-## Verifying Your Settings
-
-Before starting to process, review these key settings:
-
-* [ ] Camera model correctly detected in File Browser
-* [ ] Vignette correction enabled
-* [ ] Reflectance calibration enabled
-* [ ] At least one calibration target image imported
-* [ ] Desired multispectral indices added
-* [ ] Export format appropriate for your workflow
-* [ ] PPK settings configured (if using .daq with expposure events)
+* Tarihe veya alana göre daha küçük projelere bölmeyi düşünün.
+* Daha hızlı sonuçlar için Chloros+ paralel işlemeyi kullanın.
+* Toplu otomasyon için CLI veya API&#x27;i düşünün.
+* Hedef algılama süresini azaltmak için minimum yeniden kalibrasyon aralığını ayarlayın.
 
 ***
 
-## Next Steps
+## Ayarlarınızı Doğrulama
 
-Once your settings are configured:
+İşlemeye başlamadan önce şu önemli ayarları gözden geçirin:
 
-1. **Mark calibration target images** - See [Choosing Target Images](choosing-target-images.md)
-2. **Start processing** - See [Starting the Processing](starting-the-processing.md)
-3. **Monitor progress** - See [Monitoring the Processing](monitoring-the-processing.md)
+* [ ] Dosya Tarayıcı&#x27;da kamera modeli doğru algılanmış
+* [ ] Vinyet düzeltme etkinleştirilmiş
+* [ ] Yansıma kalibrasyonu etkinleştirilmiş
+* [ ] En az bir kalibrasyon hedef görüntüsü içe aktarılmış
+* [ ] İstenen multispektral indeksler eklenmiş
+* [ ] İş akışınıza uygun dışa aktarma formatı
+* [ ] PPK ayarları yapılandırılmış (pozlama olaylarıyla .daq kullanılıyorsa)
 
-For complete details on all available settings, see the [Project Settings](../project-settings/page-2.md) reference documentation.
+***
+
+## Sonraki Adımlar
+
+Ayarlarınız yapılandırıldıktan sonra:
+
+1. **Kalibrasyon hedef görüntülerini işaretleyin** - Bkz. [Hedef Görüntüleri Seçme](choosing-target-images.md)
+2. **İşleme başlayın** - Bkz. [İşleme Başlama](starting-the-processing.md)
+3. **İlerlemeyi izleyin** - Bkz. [İşlemeyi İzleme](monitoring-the-processing.md)
+
+Kullanılabilir tüm ayarlarla ilgili ayrıntılı bilgi için [Proje Ayarları](../project-settings/project-settings.md) referans belgesine bakın.

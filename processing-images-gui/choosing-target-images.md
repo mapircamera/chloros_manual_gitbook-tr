@@ -1,221 +1,221 @@
-# Choosing Target Images
+# Hedef Görüntüleri Seçme
 
-Marking which images contain calibration targets is a crucial step that significantly speeds up the Chloros processing pipeline. By pre-selecting target images, you eliminate the need for Chloros to scan every image in your dataset for calibration targets.
+Hangi görüntülerin kalibrasyon hedefleri içerdiğini işaretlemek, Chloros işleme sürecini önemli ölçüde hızlandıran çok önemli bir adımdır. Hedef görüntüleri önceden seçerek, Chloros&#x27;in veri setinizdeki her görüntüyü kalibrasyon hedefleri için taramasına gerek kalmaz.
 
-## Why Mark Target Images?
+## Neden Hedef Görüntüleri İşaretlemelisiniz?
 
-### Processing Speed
+### İşlem Hızı
 
-Without marking target images, Chloros must:
+Hedef görüntüleri işaretlemeden, Chloros şunları yapmak zorundadır:
 
-* Scan every single image in your project
-* Run target detection algorithms on each image
-* Check hundreds or thousands of images unnecessarily
+* Projenizdeki her bir görüntüyü taramak
+* Her görüntüde hedef algılama algoritmaları çalıştırmak
+* Yüzlerce veya binlerce görüntüyü gereksiz yere kontrol etmek
 
-**Result**: Processing can take significantly longer, especially for large datasets.
+**Sonuç**: İşlem, özellikle büyük veri kümeleri için önemli ölçüde daha uzun sürebilir.
 
-### With Marked Target Images
+### İşaretlenmiş Hedef Görüntülerle
 
-When you check the Target column for specific images:
+Belirli görüntüler için Hedef sütununu işaretlediğinizde:
 
-* Chloros only scans the checked images for targets
-* Target detection completes much faster
-* Overall processing time is greatly reduced
+* Chloros yalnızca işaretlenen görüntüleri hedefler için tarar
+* Hedef algılama çok daha hızlı tamamlanır
+* Genel işlem süresi büyük ölçüde azalır
 
-{% hint style="success" %}
-**Speed Improvement**: Marking 2-3 target images in a 500-image dataset can reduce target detection time from 30+ minutes to under 1 minute.
+{% hint style=&quot;success&quot; %}
+**Hız Artışı**: 500 görüntülük bir veri kümesinde 2-3 hedef görüntüyü işaretlemek, hedef algılama süresini 30 dakikadan 1 dakikanın altına düşürebilir.
 {% endhint %}
 
 ***
 
-## How to Mark Target Images
+## Hedef Görüntüleri İşaretleme
 
-### Step 1: Identify Your Target Images
+### Adım 1: Hedef Görüntülerinizi Belirleyin
 
-Look through your imported images in the File Browser and identify which images contain calibration targets.
+Dosya Tarayıcı&#x27;da içe aktardığınız görüntüleri inceleyin ve hangi görüntülerin kalibrasyon hedefleri içerdiğini belirleyin.
 
-**Common scenarios:**
+**Yaygın senaryolar:**
 
-* **Pre-capture target**: Captured before starting the session
-* **Post-capture target**: Captured after completing the session
-* **In-field targets**: Targets placed within the capture area
-* **Multiple targets**: 2-3 target images per session (recommended)
+* **Ön çekim hedefi**: Oturum başlamadan önce çekilen
+* **Son çekim hedefi**: Oturum tamamlandıktan sonra çekilen
+* **Saha içi hedefler**: Çekim alanına yerleştirilen hedefler
+* **Birden fazla hedef**: Oturum başına 2-3 hedef görüntü (önerilir)
 
-### Step 2: Check the Target Column
+### Adım 2: Hedef Sütununu Kontrol Edin
 
-For each image containing a calibration target:
+Kalibrasyon hedefi içeren her görüntü için:
 
-1. Locate the image in the File Browser table
-2. Find the **Target** column (rightmost column)
-3. Click the checkbox in the Target column for that image
-4. Repeat for all images containing targets
+1. Dosya Tarayıcı tablosunda görüntüyü bulun.
+2. **Hedef** sütununu (en sağdaki sütun) bulun.
+3. O görüntünün Hedef sütunundaki onay kutusunu tıklayın.
+4. Hedef içeren tüm görüntüler için bu işlemi tekrarlayın.
 
-### Step 3: Verify Your Selection
+### Adım 3: Seçiminizi Doğrulayın
 
-Before processing, double-check:
+İşlemeden önce şunları iki kez kontrol edin:
 
-* [ ] All images with calibration targets are checked
-* [ ] No non-target images are accidentally checked
-* [ ] Targets are clearly visible in checked images
-
-***
-
-## Best Practices for Target Images
-
-### Target Capture Guidelines
-
-**Timing:**
-
-* Capture target images immediately before and throughout your capture session
-* Within the same lighting conditions as your DAQ light sensor
-* Ideally capture target images as often as possible for the best results. Otherwise, the light sensor data will be used to adjust the calibration over time.
-
-**Camera Position:**
-
-* Hold camera above target such that is is centered and fills around 40-60% of the image center.
-* Keep camera parallel/nadir to target surface
-
-**Lighting:**
-
-* Same ambient lighting as your DAQ light sensor
-* Avoid shadows on the target surfaces
-* Don't block your light source with your body, vehicle or vegetation
-* Overcast conditions provide most consistent results
-
-**Target Condition:**
-
-* Keep target panels clean and dry
-* All 4 panels should be clearly visible and unobstructed
-* Targets perpendicular/nadir to the light source if possible
-
-### How Many Target Images?
-
-**Minimum:** 1 target image per session. **Recommended:** 3-5 target images per session.
-
-**Best practice schedule:**
-
-* 3-5 images captured shortly after the light sensor is recording
-* Rotate the camera between captures for the best results
-* Optional: periodically mid-session if lighting conditions change constantly
+* [ ] Kalibrasyon hedefleri içeren tüm görüntüler işaretlenmiştir
+* [ ] Hedef olmayan görüntüler yanlışlıkla işaretlenmemiştir
+* [ ] Hedefler, işaretlenen görüntülerde açıkça görülebilir
 
 ***
 
-## Working with Multiple Cameras
+## Hedef Görüntüler için En İyi Uygulamalar
 
-### Dual-Camera Setups
+### Hedef Yakalama Yönergeleri
 
-If using two MAPIR cameras simultaneously (e.g., Survey3W RGN + Survey3N OCN):
+**Zamanlama:**
 
-1. Capture target images with **both cameras** at the same time
-2. Use the **same physical target** for both cameras
-3. Mark target images for **both camera types** in the File Browser
-4. Chloros will use appropriate targets for each camera's calibration
+* Hedef görüntüleri, yakalama oturumunuzdan hemen önce ve oturum boyunca yakalayın
+* DAQ ışık sensörünüzle aynı aydınlatma koşullarında
+* En iyi sonuçlar için ideal olarak hedef görüntüleri mümkün olduğunca sık yakalayın. Aksi takdirde, ışık sensörü verileri zaman içinde kalibrasyonu ayarlamak için kullanılacaktır.
 
-### Camera Model Column
+**Kamera Konumu:**
 
-The **Camera Model** column helps identify which images came from which camera:
+* Kamerayı, merkezde olacak ve görüntü merkezinin yaklaşık %40-60&#x27;ını dolduracak şekilde hedefin üzerinde tutun.
+* Kamerayı hedef yüzeye paralel/nadir tutun
+
+**Aydınlatma:**
+
+* DAQ ışık sensörünüzle aynı ortam aydınlatması
+* Hedef yüzeylerde gölge oluşmasını önleyin
+* Işık kaynağını vücudunuz, araç veya bitki örtüsü ile engellemeyin
+* Bulutlu hava koşulları en tutarlı sonuçları sağlar
+
+**Hedef Koşulu:**
+
+* Hedef panelleri temiz ve kuru tutun
+* 4 panelin tümü açıkça görülebilir ve engelsiz olmalıdır
+* Mümkünse hedefler ışık kaynağına dik/nadir olmalıdır
+
+### Kaç Hedef Görüntü?
+
+**Minimum:** Her oturumda 1 hedef görüntü. **Önerilen:** Her oturumda 3-5 hedef görüntü.
+
+**En iyi uygulama programı:**
+
+* Işık sensörü kayıt yapmaya başladıktan kısa bir süre sonra 3-5 görüntü yakalayın.
+* En iyi sonuçları elde etmek için çekimler arasında kamerayı döndürün.
+* İsteğe bağlı: Aydınlatma koşulları sürekli değişiyorsa, oturumun ortasında periyodik olarak yapın.
+
+***
+
+## Birden Fazla Kamera ile Çalışma
+
+### Çift Kamera Kurulumları
+
+İki MAPIR kamerayı aynı anda kullanıyorsanız (ör. Survey3W RGN + Survey3N OCN):
+
+1. **Her iki kamera** ile aynı anda hedef görüntüleri yakalayın
+2. Her iki kamera için **aynı fiziksel hedef** kullanın
+3. Dosya Tarayıcı&#x27;da **her iki kamera türü** için hedef görüntüleri işaretleyin
+4. Chloros, her kameranın kalibrasyonu için uygun hedefleri kullanacaktır
+
+### Kamera Modeli Sütunu
+
+**Kamera Modeli** sütunu, hangi görüntünün hangi kameradan geldiğini belirlemeye yardımcı olur:
 
 * Survey3W\_RGN
 * Survey3N\_OCN
 * Survey3W\_RGB
-* etc.
+* vb.
 
-Use this column to verify you've marked targets for each camera type in your project.
-
-***
-
-## Target Detection Settings
-
-### Adjusting Detection Sensitivity
-
-If Chloros isn't detecting your targets correctly, adjust these settings in [Project Settings](adjusting-project-settings.md):
-
-**Minimum calibration sample area:**
-
-* **Default**: 25 pixels
-* **Increase** if getting false detections on small artifacts
-* **Decrease** if targets aren't being detected
-
-**Minimum target clustering:**
-
-* **Default**: 60
-* **Increase** if targets are being split into multiple detections
-* **Decrease** if targets with color variation aren't fully detected
+Bu sütunu, projenizdeki her kamera türü için hedefleri işaretlediğinizi doğrulamak için kullanın.
 
 ***
 
-## Common Target Image Issues
+## Hedef Algılama Ayarları
 
-### Problem: No Targets Detected
+### Algılama Hassasiyetini Ayarlama
 
-**Possible causes:**
+Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-project-settings.md) içindeki bu ayarları değiştirin:
 
-* Target images not marked in File Browser
-* Target too small in frame (< 30% of image)
-* Poor lighting (shadows, glare)
-* Target detection settings too strict
+**Minimum kalibrasyon örnek alanı:**
 
-**Solutions:**
+* **Varsayılan**: 25 piksel
+* Küçük nesnelerde yanlış algılamalar varsa **artırın**.
+* Hedefler algılanmıyorsa **azaltın**.
 
-1. Verify Target column is checked for correct images
-2. Review target image quality in preview
-3. Recapture targets if quality is poor
-4. Adjust target detection settings if needed
+**Minimum hedef kümeleme:**
 
-### Problem: False Target Detections
-
-**Possible causes:**
-
-* White buildings, vehicles, or ground cover mistaken for targets
-* Bright patches in vegetation
-* Detection sensitivity too low
-
-**Solutions:**
-
-1. Mark only actual target images to limit detection scope
-2. Increase minimum calibration sample area
-3. Increase minimum target clustering value
-4. Ensure target images show only the target (minimal background clutter)
+* **Varsayılan**: 60
+* Hedefler birden fazla algılamaya bölünüyorsa **artırın**.
+* Renk varyasyonu olan hedefler tam olarak algılanmıyorsa **azaltın**.
 
 ***
 
-## Verification Checklist
+## Yaygın Hedef Görüntü Sorunları
 
-Before starting processing, verify your target image selection:
+### Sorun: Hedef Algılanmadı
 
-* [ ] At least 1 target image marked per session
-* [ ] Target column checkboxes are checked for all target images
-* [ ] Target images captured within same timeframe as survey
-* [ ] Targets clearly visible in preview when clicked
-* [ ] All 4 calibration panels visible in each target image
-* [ ] No shadows or obstructions on targets
-* [ ] For dual-camera: Targets marked for both camera types
+**Olası nedenler:**
+
+* Hedef görüntüler Dosya Tarayıcı&#x27;da işaretlenmemiş
+* Hedef çerçevede çok küçük (&lt; görüntünün %30&#x27;u)
+* Yetersiz aydınlatma (gölgeler, parlama)
+* Hedef algılama ayarları çok katı
+
+**Çözümler:**
+
+1. Hedef sütununun doğru görüntüler için işaretli olduğunu doğrulayın
+2. Önizlemede hedef görüntü kalitesini inceleyin
+3. Kalite düşükse hedefleri yeniden yakalayın
+4. Gerekirse hedef algılama ayarlarını değiştirin
+
+### Sorun: Yanlış Hedef Algılamaları
+
+**Olası nedenler:**
+
+* Beyaz binalar, araçlar veya zemin kaplaması hedeflerle karıştırılıyor
+* Bitki örtüsünde parlak lekeler var
+* Algılama hassasiyeti çok düşük
+
+**Çözümler:**
+
+1. Algılama kapsamını sınırlamak için yalnızca gerçek hedef görüntüleri işaretleyin
+2. Minimum kalibrasyon örnek alanını artırın
+3. Minimum hedef kümeleme değerini artırın
+4. Hedef görüntülerin yalnızca hedefi gösterdiğinden emin olun (minimum arka plan karmaşası)
 
 ***
 
-## Target-Free Processing
+## Doğrulama Kontrol Listesi
 
-### Processing Without Calibration Targets
+İşlemeye başlamadan önce hedef görüntü seçiminizi doğrulayın:
 
-While not recommended for scientific work, you can process without targets:
+* [ ] Her oturumda en az 1 hedef görüntü işaretlendi
+* [ ] Tüm hedef görüntüler için hedef sütunu onay kutuları işaretlendi
+* [ ] Hedef görüntüler, anketle aynı zaman diliminde yakalandı
+* [ ] Tıklandığında hedefler önizlemede açıkça görünüyor
+* [ ] Her hedef görüntüde 4 kalibrasyon paneli de görünüyor
+* [ ] Hedeflerde gölge veya engel yok
+* [ ] Çift kamera için: Her iki kamera türü için de hedefler işaretlendi
 
-1. Leave all Target column checkboxes unchecked
-2. **Disable** "Reflectance calibration" in Project Settings
-3. Vignette correction will still be applied
-4. Output will not be calibrated for absolute reflectance
+***
 
-{% hint style="warning" %}
-**Not Recommended**: Without reflectance calibration, pixel values represent relative brightness only, not scientific reflectance measurements. Use calibration targets for accurate, repeatable results.
+## Hedefsiz İşleme
+
+### Kalibrasyon Hedefleri Olmadan İşleme
+
+Bilimsel çalışmalar için önerilmese de, hedefler olmadan işleme yapabilirsiniz:
+
+1. Tüm Hedef sütunu onay kutularını işaretlemeyin
+2. Proje Ayarlarında &quot;Yansıma kalibrasyonu&quot;nu **devre dışı bırakın**
+3. Vinyet düzeltmesi yine de uygulanacaktır
+4. Çıktı, mutlak yansıma için kalibre edilmeyecektir
+
+{% hint style=&quot;warning&quot; %}
+**Önerilmez**: Yansıma kalibrasyonu olmadan, piksel değerleri yalnızca göreceli parlaklığı temsil eder, bilimsel yansıma ölçümlerini temsil etmez. Doğru ve tekrarlanabilir sonuçlar için kalibrasyon hedeflerini kullanın.
 {% endhint %}
 
 ***
 
-## Next Steps
+## Sonraki Adımlar
 
-Once you've marked your target images:
+Hedef görüntülerinizi işaretledikten sonra:
 
-1. **Review your settings** - See [Adjusting Project Settings](adjusting-project-settings.md)
-2. **Start processing** - See [Starting the Processing](starting-the-processing.md)
-3. **Monitor progress** - See [Monitoring the Processing](monitoring-the-processing.md)
+1. **Ayarlarınızı gözden geçirin** - Bkz. [Proje Ayarlarını Ayarlama](adjusting-project-settings.md)
+2. **İşlemeyi başlatın** - [İşleme Başlama](starting-the-processing.md) bölümüne bakın.
+3. **İlerlemeyi izleyin** - [İşlemeyi İzleme](monitoring-the-processing.md) bölümüne bakın.
 
-For more information about calibration targets themselves, see [Calibration Targets](../calibration-targets.md).
+Kalibrasyon hedefleri hakkında daha fazla bilgi için [Kalibrasyon Hedefleri](../calibration-targets.md) bölümüne bakın.

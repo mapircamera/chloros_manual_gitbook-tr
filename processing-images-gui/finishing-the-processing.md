@@ -1,306 +1,306 @@
-# Finishing the Processing
+# İşlemi Tamamlama
 
-Once Chloros completes processing, it's time to review your results, verify output quality, and prepare your processed images for use in your workflow. This page guides you through the final steps and next actions.
+Chloros işlemi tamamlandığında, sonuçlarınızı gözden geçirme, çıktı kalitesini doğrulama ve iş akışınızda kullanmak üzere işlenmiş görüntülerinizi hazırlama zamanı gelmiştir. Bu sayfa, son adımları ve sonraki eylemleri size gösterir.
 
-## Processing Complete Indication
+## İşleme Tamamlandı Göstergesi
 
-When processing finishes successfully, you'll see several indicators:
+İşleme başarıyla tamamlandığında, birkaç gösterge göreceksiniz:
 
-* ✅ **Progress bar**: Reaches 100% completion
-* ✅ **Debug Log**: Shows "Processing Complete" message
-* ✅ **Start button**: Becomes enabled again (ready for next processing run)
-* ✅ **Output files**: All processed images saved to camera model subfolder
-
-***
-
-## Locating Your Processed Images
-
-### Opening the Output Folder
-
-1. Click the **Main Menu** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> icon (top left)
-2. Select **"Open Project Folder"**
-3. Your file explorer opens to the project directory
-4. Locate your project by name
+* ✅ **İlerleme çubuğu**: %100 tamamlanma oranına ulaşır
+* ✅ **Hata Ayıklama Günlüğü**: &quot;İşleme Tamamlandı&quot; mesajını gösterir
+* ✅ **Başlat düğmesi**: Tekrar etkin hale gelir (bir sonraki işleme çalıştırması için hazır)
+* ✅ **Çıktı dosyaları**: İşlenen tüm görüntüler kamera modeli alt klasörüne kaydedilir
 
 ***
 
-## Reviewing Processed Images
+## İşlenen Görüntülerinizi Bulma
 
-### Quick Preview in File Explorer
+### Çıktı Klasörünü Açma
 
-**Windows built-in preview:**
-
-1. Navigate to camera model subfolder
-2. Select an image file
-3. Preview appears in Windows Explorer preview pane
-4. Use arrow keys to browse through images
-
-### Preview in External Image Viewers
-
-**Recommended viewers:**
-
-* **QGIS** - Free GIS software (best for georeferenced multispectral analysis)
-* **IrfanView** - Fast, lightweight image viewer (supports TIFF)
-* **Adobe Photoshop** - Professional editing (TIFF support)
-* **GIMP** - Free alternative to Photoshop
-* **Windows Photos** - Basic viewing (may not support 16-bit TIFF)
-
-### Preview in Chloros Image Viewer
-
-Use Chloros's built-in Image Viewer for advanced visualization:
-
-1. Click an image thumbnail in the File Browser
-2. Image opens in the main preview area
-3. Click **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab in left sidebar
-4. Use [Index/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) for interactive analysis
-
-See [Image Viewer](../image-viewer-gui/page-3.md) for detailed instructions.
+1. **Ana Menü** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> simgesine tıklayın (sol üst)
+2. **&quot;Proje Klasörünü Aç&quot;** seçeneğini seçin
+3. Dosya gezgininiz proje dizininde açılır
+4. Projenizi adına göre bulun
 
 ***
 
-## Reviewing the Debug Log
+## İşlenmiş Görüntüleri İnceleme
 
-### Check for Warnings or Errors
+### Dosya Gezgini&#x27;nde Hızlı Önizleme
 
-1. Open **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> tab
-2. Scroll through messages
-3. Look for yellow warnings or red errors
-4. Review any issues noted
-5. Contact MAPIR support for assistance
+**Windows yerleşik önizleme:**
 
-### Saving the Log
+1. Kamera modeli alt klasörüne gidin
+2. Bir görüntü dosyası seçin
+3. Önizleme, Windows Explorer önizleme bölmesinde görünür
+4. Ok tuşlarını kullanarak görüntüler arasında gezinin
 
-To keep a record of processing or to send to MAPIR Support:
+### Harici Görüntü Görüntüleyicilerinde Önizleme
 
-1. Click **"Copy"** or **"Download"** button
-2. Save as text file in project folder
-3. Include with project documentation
-4. Send to MAPIR support if issues encountered
+**Önerilen görüntüleyiciler:**
 
-***
+* **QGIS** - Ücretsiz GIS yazılımı (coğrafi referanslı multispektral analiz için en iyisi)
+* **IrfanView** - Hızlı, hafif görüntü görüntüleyici (TIFF&#x27;i destekler)
+* **Adobe Photoshop** - Profesyonel düzenleme (TIFF desteği)
+* **GIMP** - Photoshop&#x27;a ücretsiz alternatif
+* **Windows Photos** - Temel görüntüleme (16 bit TIFF&#x27;i desteklemeyebilir)
 
-## Common Output Issues and Solutions
+### Chloros Görüntü Görüntüleyicide Önizleme
 
-### Issue: Missing Output Files
+Gelişmiş görselleştirme için Chloros&#x27;in yerleşik Görüntü Görüntüleyicisini kullanın:
 
-**Possible causes:**
+1. Dosya Tarayıcısında bir görüntü küçük resmini tıklayın
+2. Görüntü ana önizleme alanında açılır
+3. Sol kenar çubuğundaki **Görüntü Görüntüleyicisi** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesine tıklayın.
+4. Etkileşimli analiz için [Dizin/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) kullanın.
 
-* Files didn't meet processing criteria
-* Target-only images (excluded from export)
-* Disk space ran out during export
-* File corruption during processing
-
-**Solutions:**
-
-1. Check Debug Log for skip/error messages
-2. Verify disk space was sufficient
-3. Count files: Should match (original count - target count) × (indices + 1)
-4. Re-import and reprocess any missing files
-
-### Issue: Dark or Bright Edges (Vignetting Still Visible)
-
-**Possible causes:**
-
-* Vignette correction disabled
-* Camera/lens not in Chloros profile database
-* Extreme vignetting beyond correction capability
-
-**Solutions:**
-
-1. Verify vignette correction was enabled in Project Settings
-2. Check camera model correctly detected
-3. Contact MAPIR support if vignetting persists
-
-### Issue: Incorrect Colors or Values
-
-**Possible causes:**
-
-* No calibration targets detected
-* Wrong calibration target model selected
-* Reflectance calibration disabled
-* Poor quality target images
-
-**Solutions:**
-
-1. Verify reflectance calibration was enabled
-2. Check "Target found" messages in Debug Log
-3. Review target image quality
-4. Reprocess with proper targets marked
-
-### Issue: NDVI Values Seem Wrong
-
-**Expected NDVI ranges:**
-
-* **Water, rocks, soil**: -0.1 to 0.2
-* **Sparse/unhealthy vegetation**: 0.2 to 0.4
-* **Moderate vegetation**: 0.4 to 0.6
-* **Healthy, dense vegetation**: 0.6 to 0.9
-
-**If values are outside these ranges:**
-
-1. Verify reflectance calibration was applied
-2. Verify light sensor log was included
-3. Check calibration targets were detected
-4. Ensure correct camera model was detected
-5. Review target image capture timing and conditions
+Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/opening-an-image-full-screen.md) bölümüne bakın.
 
 ***
 
-## Using Your Processed Images
+## Hata Ayıklama Günlüğünü İnceleme
 
-### For Photogrammetry / Orthomosaic Creation
+### Uyarıları veya Hataları Kontrol Edin
 
-**Recommended workflow:**
+1. **Hata Ayıklama Günlüğü** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> sekmesini açın
+2. Mesajları kaydırın
+3. Sarı uyarıları veya kırmızı hataları arayın
+4. Belirtilen sorunları inceleyin
+5. Yardım için MAPIR desteğine başvurun
 
-1. **Import calibrated reflectance images** into photogrammetry software:
+### Günlüğü Kaydetme
+
+İşleme kaydını tutmak veya MAPIR Desteğine göndermek için:
+
+1. **&quot;Kopyala&quot;** veya **&quot;İndir&quot;** düğmesini tıklayın.
+2. Proje klasörüne metin dosyası olarak kaydedin.
+3. Proje belgelerine ekleyin.
+4. Sorunla karşılaşırsanız MAPIR desteğine gönderin.
+
+***
+
+## Yaygın Çıktı Sorunları ve Çözümleri
+
+### Sorun: Eksik Çıktı Dosyaları
+
+**Olası nedenler:**
+
+* Dosyalar işleme kriterlerini karşılamadı
+* Yalnızca hedef görüntüler (dışa aktarımdan hariç tutuldu)
+* Dışa aktarım sırasında disk alanı doldu
+* İşleme sırasında dosya bozuldu
+
+**Çözümler:**
+
+1. Hata ayıklama günlüğünde atlama/hata mesajlarını kontrol edin
+2. Disk alanının yeterli olduğunu doğrulayın
+3. Dosyaları sayın: (orijinal sayı - hedef sayı) × (endeksler + 1)
+4. Eksik dosyaları yeniden içe aktarın ve yeniden işleyin
+
+### Sorun: Koyu veya Parlak Kenarlar (Vinyet Hala Görünür)
+
+**Olası nedenler:**
+
+* Vinyet düzeltme devre dışı bırakılmış
+* Kamera/lens Chloros profil veritabanında yok
+* Düzeltme kapasitesinin ötesinde aşırı vinyet
+
+**Çözümler:**
+
+1. Proje Ayarları&#x27;nda vinyet düzeltmesinin etkinleştirildiğini doğrulayın.
+2. Kamera modelinin doğru algılandığını kontrol edin.
+3. Vinyetleme devam ederse MAPIR desteğine başvurun.
+
+### Sorun: Yanlış Renkler veya Değerler
+
+**Olası nedenler:**
+
+* Kalibrasyon hedefi algılanmadı.
+* Yanlış kalibrasyon hedefi modeli seçildi.
+* Yansıma kalibrasyonu devre dışı bırakıldı.
+* Hedef görüntülerin kalitesi düşük.
+
+**Çözümler:**
+
+1. Yansıma kalibrasyonunun etkinleştirildiğini doğrulayın.
+2. Hata Ayıklama Günlüğünde &quot;Hedef bulundu&quot; mesajlarını kontrol edin.
+3. Hedef görüntü kalitesini gözden geçirin.
+4. Uygun hedefler işaretlenerek yeniden işleyin.
+
+### Sorun: NDVI Değerleri Yanlış Görünüyor
+
+**Beklenen NDVI aralıkları:**
+
+* **Su, kayalar, toprak**: -0,1 ila 0,2
+* **Seyrek/sağlıksız bitki örtüsü**: 0,2 ila 0,4
+* **Orta derecede bitki örtüsü**: 0,4 ila 0,6
+* **Sağlıklı, yoğun bitki örtüsü**: 0,6 ila 0,9
+
+**Değerler bu aralıkların dışındaysa:**
+
+1. Yansıma kalibrasyonunun uygulandığını doğrulayın.
+2. Işık sensörü günlüğünün dahil edildiğini doğrulayın.
+3. Kalibrasyon hedeflerinin algılandığını kontrol edin.
+4. Doğru kamera modelinin algılandığından emin olun.
+5. Hedef görüntü yakalama zamanlamasını ve koşullarını gözden geçirin.
+
+***
+
+## İşlenmiş Görüntülerinizi Kullanma
+
+### Fotogrametri / Orto-mozaik Oluşturma için
+
+**Önerilen iş akışı:**
+
+1. **Kalibre edilmiş yansıma görüntülerini** fotogrametri yazılımına içe aktarın:
    * Pix4Dmapper
    * Agisoft Metashape
    * DroneDeploy
    * WebODM
-2. **Keep EXIF metadata**: Ensure GPS data preserved for geotagging
-3. **Calibrated workflows**: Use reflectance images for scientific accuracy
-4. **Process index mosaics**: Create NDVI orthomosaics from individual index images
-5. **Export georeferenced GeoTIFF**: For use in GIS applications
+2. **EXIF meta verilerini saklayın**: Coğrafi etiketleme için GPS verilerinin korunmasını sağlayın
+3. **Kalibre edilmiş iş akışları**: Bilimsel doğruluk için yansıma görüntülerini kullanın
+4. **Dizin mozaiklerini işleyin**: Tek tek indeks görüntülerinden NDVI ortomozaikler oluşturun
+5. **Coğrafi referanslı GeoTIFF&#x27;i dışa aktarın**: GIS uygulamalarında kullanmak için
 
-### For GIS Analysis
+### GIS Analizi için
 
-**Recommended workflow:**
+**Önerilen iş akışı:**
 
-1. **Load into QGIS, ArcGIS, or similar**
-2. **Use 16-bit TIFF** reflectance images for multi-band analysis
-3. **Use index images** (NDVI, NDRE) as ready-to-use vegetation layers
-4. **Raster calculator**: Combine bands for custom analysis
-5. **Export**: Create classification maps, change detection, vegetation health maps
+1. **QGIS, ArcGIS veya benzeri bir programa yükleyin**
+2. **16 bit TIFF** yansıma görüntülerini çok bantlı analiz için kullanın
+3. **Dizin görüntülerini** (NDVI, NDRE) kullanıma hazır bitki örtüsü katmanları olarak kullanın
+4. **Raster hesaplayıcı**: Özel analiz için bantları birleştirin
+5. **Dışa aktarma**: Sınıflandırma haritaları oluşturun, değişiklikleri tespit edin, bitki örtüsü sağlık haritaları oluşturun
 
-### For Direct Analysis / Reporting
+### Doğrudan Analiz / Raporlama için
 
-**Recommended workflow:**
+**Önerilen iş akışı:**
 
-1. **Use index images with LUT colors** for visual reports
-2. **Extract statistics**: Mean NDVI per field/plot
-3. **Time series**: Compare indices across multiple sessions
-4. **Generate reports**: Include maps, statistics, and visualizations
-
-***
-
-## Archiving and Backup
-
-### Recommended Backup Strategy
-
-**What to save:**
-
-* ✅ **Original RAW/JPG images** - Archive on separate drive/cloud
-* ✅ **Processed outputs** - Keep calibrated images and indices
-* ✅ **Project file** - Contains all settings for reprocessing if needed
-* ✅ **Debug Log** - Documents processing details
-* ✅ **Calibration target images** - For verification and reprocessing
-
-**Storage recommendations:**
-
-* **Immediate backup**: External hard drive
-* **Long-term archive**: Cloud storage (Google Drive, Dropbox, etc.)
-* **Critical data**: Keep 2-3 copies in different locations
+1. Görsel raporlar için **LUT renkli indeks görüntüleri** kullanın
+2. **İstatistikleri çıkarın**: Alan/parsel başına ortalama NDVI
+3. **Zaman serisi**: Birden fazla oturumda indeksleri karşılaştırın
+4. **Raporlar oluşturun**: Haritalar, istatistikler ve görselleştirmeler ekleyin
 
 ***
 
-## Next Processing Runs
+## Arşivleme ve Yedekleme
 
-### Reusing Project Settings
+### Önerilen Yedekleme Stratejisi
 
-If processing similar datasets in the future:
+**Kaydedilecekler:**
 
-1. **Save Project Template** (if not already done)
-2. **Create new project** using saved template
-3. **Import new images**
-4. **Process** with identical settings for consistency
+* ✅ **Orijinal RAW/JPG görüntüler** - Ayrı bir sürücüde/bulutta arşivleyin
+* ✅ **İşlenmiş çıktılar** - Kalibre edilmiş görüntüleri ve endeksleri saklayın
+* ✅ **Proje dosyası** - Gerekirse yeniden işleme için tüm ayarları içerir
+* ✅ **Hata ayıklama günlüğü** - İşleme ayrıntılarını belgeler
+* ✅ **Kalibrasyon hedef görüntüleri** - Doğrulama ve yeniden işleme için
 
-### Batch Processing Multiple Sessions
+**Depolama önerileri:**
 
-For multiple sessions/datasets:
-
-**Option 1: GUI - Multiple Projects**
-
-* Create separate project for each session
-* Use consistent template settings
-* Process one at a time
-
-**Option 2: Chloros CLI (Chloros+ only)**
-
-* Automate batch processing
-* Process multiple folders with scripts
-* See [CLI Documentation](../CLI.md)
-
-**Option 3: Python SDK (Chloros+ only)**
-
-* Programmatic control
-* Integration with analysis pipelines
-* See [API Documentation](../api-python-sdk.md)
+* **Anında yedekleme**: Harici sabit sürücü
+* **Uzun vadeli arşiv**: Bulut depolama (Google Drive, Dropbox vb.)
+* **Önemli veriler**: Farklı konumlarda 2-3 kopya saklayın
 
 ***
 
-## Troubleshooting Post-Processing
+## Sonraki İşleme Çalıştırmaları
 
-### Re-Processing with Different Settings
+### Proje Ayarlarını Yeniden Kullanma
 
-If results aren't satisfactory:
+Gelecekte benzer veri kümelerini işleyecekseniz:
 
-1. Keep original images (never delete)
-2. Open same project in Chloros
-3. Adjust settings in Project Settings panel
-4. Process again - outputs will overwrite previous results
+1. **Proje Şablonunu Kaydedin** (henüz yapılmadıysa)
+2. Kaydedilen şablonu kullanarak **yeni proje oluşturun**
+3. **Yeni görüntüleri içe aktarın**
+4. Tutarlılık için aynı ayarlarla **işleyin**
 
-### Processing Subset of Images
+### Birden Çok Oturumu Toplu İşleme
 
-To reprocess only specific images:
+Birden çok oturum/veri kümesi için:
 
-1. Create new project
-2. Import only the images needing reprocessing
-3. Use same settings template
-4. Process smaller dataset
+**Seçenek 1: GUI - Birden Çok Proje**
 
-### Getting Help
+* Her oturum için ayrı bir proje oluşturun
+* Tutarlı şablon ayarları kullanın
+* Tek tek işleyin
 
-If you encounter issues:
+**Seçenek 2: Chloros CLI (yalnızca Chloros+)**
 
-* 📧 **Email**: info@mapir.camera (include Debug Log)
-* 🌐 **Support**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* 📚 **FAQ**: [Frequently Asked Questions](../faq.md)
-* 📖 **Documentation**: [Chloros Manual](../)
+* Toplu işlemeyi otomatikleştirin
+* Komut dosyalarıyla birden fazla klasörü işleyin
+* [CLI Belgeleri](../CLI.md) bölümüne bakın.
 
-***
+**Seçenek 3: Python SDK (yalnızca Chloros+)**
 
-## Summary: Complete Workflow
-
-You've now completed the full Chloros processing workflow:
-
-1. ✅ **Created project** - See [Projects](../projects.md)
-2. ✅ **Added files** - See [Adding Files](page-1.md)
-3. ✅ **Adjusted settings** - See [Adjusting Project Settings](adjusting-project-settings.md)
-4. ✅ **Marked targets** - See [Choosing Target Images](choosing-target-images.md)
-5. ✅ **Started processing** - See [Starting the Processing](starting-the-processing.md)
-6. ✅ **Monitored progress** - See [Monitoring the Processing](monitoring-the-processing.md)
-7. ✅ **Reviewed results** - This page
-
-**Your calibrated, reflectance-corrected multispectral images are ready for analysis!**
+* Programlı kontrol
+* Analiz boru hatlarıyla entegrasyon
+* Bkz. [API Belgeleri](../api-python-sdk.md)
 
 ***
 
-## Additional Resources
+## Son İşleme Sorun Giderme
 
-### Advanced Features
+### Farklı Ayarlarla Yeniden İşleme
 
-* [**Image Viewer**](../image-viewer-gui/page-3.md) - Interactive visualization and analysis
-* [**Index/LUT Sandbox**](../image-viewer-gui/index-lut-sandbox.md) - Custom index testing
-* [**Multispectral Index Formulas**](../project-settings/multispectral-index-formulas.md) - Complete index reference
+Sonuçlar tatmin edici değilse:
 
-### Automation & Integration
+1. Orijinal görüntüleri saklayın (asla silmeyin)
+2. Chloros&#x27;te aynı projeyi açın
+3. Proje Ayarları panelinde ayarları değiştirin
+4. Tekrar işleyin - çıktılar önceki sonuçların üzerine yazacaktır
 
-* [**CLI Documentation**](../CLI.md) - Command-line batch processing
-* [**Python SDK**](../api-python-sdk.md) - Programmatic automation
-* [**Chloros+ Features**](../#chloros) - Advanced processing capabilities
+### Görüntülerin Alt Kümesi İşleme
 
-### Support & Learning
+Yalnızca belirli görüntüleri yeniden işlemek için:
 
-* [**FAQ**](../faq.md) - Common questions answered
-* [**Calibration Targets**](../calibration-targets.md) - Understanding reflectance calibration
-* [**Supported Cameras**](../supported-cameras.md) - Compatible hardware
+1. Yeni proje oluşturun
+2. Yalnızca yeniden işlenmesi gereken görüntüleri içe aktarın
+3. Aynı ayar şablonunu kullanın
+4. Daha küçük veri kümesini işleyin
+
+### Yardım Alma
+
+Sorunla karşılaşırsanız:
+
+* 📧 **E-posta**: info@mapir.camera (Hata Ayıklama Günlüğünü ekleyin)
+* 🌐 **Destek**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
+* 📚 **SSS**: [Sık Sorulan Sorular](../faq.md)
+* 📖 **Belgeler**: [Chloros Kılavuzu](../)
+
+***
+
+## Özet: Tam İş Akışı
+
+Chloros işleme iş akışını tamamladınız:
+
+1. ✅ **Proje oluşturuldu** - Bkz. [Projeler](../projects.md)
+2. ✅ **Dosya ekleme** - Bkz. [Dosya Ekleme](adding-files-to-a-project.md)
+3. ✅ **Ayarları değiştirme** - Bkz. [Proje Ayarlarını Değiştirme](adjusting-project-settings.md)
+4. ✅ **Hedefler işaretlendi** - Bkz. [Hedef Görüntüleri Seçme](choosing-target-images.md)
+5. ✅ **İşleme başlandı** - Bkz. [İşleme Başlama](starting-the-processing.md)
+6. ✅ **İlerlemeyi izleme** - Bkz. [İşlemeyi İzleme](monitoring-the-processing.md)
+7. ✅ **Sonuçları inceleme** - Bu sayfa
+
+**Kalibre edilmiş, yansıma düzeltmesi yapılmış multispektral görüntüleriniz analiz için hazır!**
+
+***
+
+## Ek Kaynaklar
+
+### Gelişmiş Özellikler
+
+* [**Görüntü Görüntüleyici**](../image-viewer-gui/opening-an-image-full-screen.md) - Etkileşimli görselleştirme ve analiz
+* [**Dizin/LUT Sandbox**](../image-viewer-gui/index-lut-sandbox.md) - Özel dizin testi
+* [**Çok Spektral Dizin Formülleri**](../project-settings/multispectral-index-formulas.md) - Tam dizin referansı
+
+### Otomasyon ve Entegrasyon
+
+* [**CLI Belgeleri**](../CLI.md) - Komut satırı toplu işleme
+* [**Python SDK**](../api-python-sdk.md) - Programlı otomasyon
+* [**Chloros+ Özellikleri**](../#chloros) - Gelişmiş işleme yetenekleri
+
+### Destek ve Öğrenme
+
+* [**SSS**](../faq.md) - Sık sorulan soruların yanıtları
+* [**Kalibrasyon Hedefleri**](../calibration-targets.md) - Yansıma kalibrasyonunu anlama
+* [**Desteklenen Kameralar**](../supported-cameras.md) - Uyumlu donanım

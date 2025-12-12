@@ -1,34 +1,34 @@
 # İçindekiler
 
-* [Başlarken](README.md)
+* [Başlangıç](README.md)
 * [GUI : Gezinme](navigation.md)
 * [GUI : Projeler](projects.md)
 * [CLI : Komut Satırı](CLI.md)
-* [API: Python SDK'sı](api-python-sdk.md)
+* [API : Python SDK](api-python-sdk.md)
 * [Desteklenen Kameralar](supported-cameras.md)
 * [Çıktı Görüntü Formatları](output-image-formats.md)
-* [Kloros+ Giriş](chloros+-login.md)
+* [Chloros+ Giriş](chloros+-login.md)
 * [Kalibrasyon Hedefleri](calibration-targets.md)
 * [Desteklenen Diller](supported-languages.md)
-* [İndirmek](download.md)
+* [İndir](download.md)
 * [SSS](faq.md)
 
 ## Görüntüleri İşleme (GUI)
 
 * [Proje Ayarlarını Düzenleme](processing-images-gui/adjusting-project-settings.md)
-* [Bir Projeye Dosya Ekleme](processing-images-gui/page-1.md)
-* [Hedef Görsellerin Seçilmesi](processing-images-gui/choosing-target-images.md)
+* [Projeye Dosya Ekleme](processing-images-gui/adding-files-to-a-project.md)
+* [Hedef Görüntüleri Seçme](processing-images-gui/choosing-target-images.md)
 * [İşlemeyi Başlatma](processing-images-gui/starting-the-processing.md)
-* [İşlemenin İzlenmesi](processing-images-gui/monitoring-the-processing.md)
-* [İşlemeyi Bitirmek](processing-images-gui/finishing-the-processing.md)
+* [İşlemeyi İzleme](processing-images-gui/monitoring-the-processing.md)
+* [İşlemeyi Bitirme](processing-images-gui/finishing-the-processing.md)
 
 ## PROJE AYARLARI
 
-* [Proje Ayarları](project-settings/page-2.md)
-* [Multispektral İndeks Formülleri](project-settings/multispectral-index-formulas.md)
+* [Proje Ayarları](project-settings/project-settings.md)
+* [Çok Spektral İndeks Formülleri](project-settings/multispectral-index-formulas.md)
 
 ## GÖRÜNTÜ GÖRÜNTÜLEYİCİ (GUI)
 
-* [Bir Görüntüyü Tam Ekran Açma](image-viewer-gui/page-3.md)
+* [Görüntüyü Tam Ekran Açma](image-viewer-gui/opening-an-image-full-screen.md)
 * [Görüntü Katmanları](image-viewer-gui/image-layers.md)
-* [Dizin/LUT Korumalı Alanı](image-viewer-gui/index-lut-sandbox.md)
+* [Endeks/LUT Sandbox](image-viewer-gui/index-lut-sandbox.md)

@@ -1,165 +1,165 @@
-# Monitoring the Processing
+# İşlemenin İzlenmesi
 
-Once processing has started, Chloros provides several ways to monitor progress, check for issues, and understand what's happening with your dataset. This page explains how to track your processing and interpret the information Chloros provides.
+İşleme başladıktan sonra, Chloros ilerlemeyi izlemek, sorunları kontrol etmek ve veri kümenizde neler olup bittiğini anlamak için çeşitli yollar sunar. Bu sayfada, işleminizi nasıl takip edeceğiniz ve Chloros&#x27;in sağladığı bilgileri nasıl yorumlayacağınız açıklanmaktadır.
 
-## Progress Bar Overview
+## İlerleme Çubuğu Genel Bakış
 
-The progress bar in the top header shows real-time processing status and completion percentage.
+Üst başlıktaki ilerleme çubuğu, gerçek zamanlı işleme durumunu ve tamamlanma yüzdesini gösterir.
 
-### Free Mode Progress Bar
+### Serbest Mod İlerleme Çubuğu
 
-For users without Chloros+ license:
+Chloros+ lisansı olmayan kullanıcılar için:
 
-**2-Stage Progress Display:**
+**2 Aşamalı İlerleme Göstergesi:**
 
-1. **Target Detect** - Finding calibration targets in images
-2. **Processing** - Applying corrections and exporting
+1. **Hedef Algılama** - Görüntülerde kalibrasyon hedeflerini bulma
+2. **İşleme** - Düzeltmeleri uygulama ve dışa aktarma
 
-**Progress bar shows:**
+**İlerleme çubuğu şunları gösterir:**
 
-* Overall completion percentage (0-100%)
-* Current stage name
-* Simple horizontal bar visualization
+* Genel tamamlanma yüzdesi (0-100%)
+* Mevcut aşama adı
+* Basit yatay çubuk görselleştirme
 
-### Chloros+ Progress Bar
+### Chloros+ İlerleme Çubuğu
 
-For users with Chloros+ license:
+Chloros+ lisansına sahip kullanıcılar için:
 
-**4-Stage Progress Display:**
+**4 Aşamalı İlerleme Göstergesi:**
 
-1. **Detecting** - Finding calibration targets
-2. **Analyzing** - Examining images and preparing pipeline
-3. **Calibrating** - Applying vignette and reflectance corrections
-4. **Exporting** - Saving processed files
+1. **Algılama** - Kalibrasyon hedeflerini bulma
+2. **Analiz** - Görüntüleri inceleme ve iş akışını hazırlama
+3. **Kalibrasyon** - Vinyet ve yansıma düzeltmeleri uygulama
+4. **Dışa aktarma** - İşlenmiş dosyaları kaydetme
 
-**Interactive Features:**
+**Etkileşimli Özellikler:**
 
-* **Hover over** progress bar to see expanded 4-stage panel
-* **Click** progress bar to freeze/pin the expanded panel
-* **Click again** to unfreeze and auto-hide on mouse leave
-* Each stage shows individual progress (0-100%)
-
-***
-
-## Understanding Each Processing Stage
-
-### Stage 1: Detecting (Target Detection)
-
-**What's happening:**
-
-* Chloros scans images marked with Target checkbox
-* Computer vision algorithms identify the 4 calibration panels
-* Reflectance values extracted from each panel
-* Target timestamps recorded for proper calibration scheduling
-
-**Duration:**
-
-* With marked targets: 10-60 seconds
-* Without marked targets: 5-30+ minutes (scans all images)
-
-**Progress indicator:**
-
-* Detecting: 0% → 100%
-* Number of images scanned
-* Targets found count
-
-**What to watch for:**
-
-* Should complete quickly if targets properly marked
-* If taking too long, targets may not be marked
-* Check Debug Log for "Target found" messages
-
-### Stage 2: Analyzing
-
-**What's happening:**
-
-* Reading image EXIF metadata (timestamps, exposure settings)
-* Determining calibration strategy based on target timestamps
-* Organizing image processing queue
-* Preparing parallel processing workers (Chloros+ only)
-
-**Duration:** 5-30 seconds
-
-**Progress indicator:**
-
-* Analyzing: 0% → 100%
-* Fast stage, usually completes quickly
-
-**What to watch for:**
-
-* Should progress steadily without pauses
-* Warnings about missing metadata will appear in Debug Log
-
-### Stage 3: Calibrating
-
-**What's happening:**
-
-* **Debayering**: Converting RAW Bayer pattern to 3 channels
-* **Vignette correction**: Removing lens edge darkening
-* **Reflectance calibration**: Normalizing with target values
-* **Index calculation**: Computing multispectral indices
-* Processing each image through the full pipeline
-
-**Duration:** Majority of total processing time (60-80%)
-
-**Progress indicator:**
-
-* Calibrating: 0% → 100%
-* Current image being processed
-* Images completed / Total images
-
-**Processing behavior:**
-
-* **Free mode**: Processes one image at a time sequentially
-* **Chloros+ mode**: Processes up to 16 images simultaneously
-* **GPU acceleration**: Significantly speeds up this stage
-
-**What to watch for:**
-
-* Steady progress through image count
-* Check Debug Log for per-image completion messages
-* Warnings about image quality or calibration issues
-
-### Stage 4: Exporting
-
-**What's happening:**
-
-* Writing calibrated images to disk in selected format
-* Exporting multispectral index images with LUT colors
-* Creating camera model subfolders
-* Preserving original filenames with appropriate suffixes
-
-**Duration:** 10-20% of total processing time
-
-**Progress indicator:**
-
-* Exporting: 0% → 100%
-* Files being written
-* Export format and destination
-
-**What to watch for:**
-
-* Disk space warnings
-* File write errors
-* Completion of all configured outputs
+* **İlerleme çubuğunun üzerine gelin** genişletilmiş 4 aşamalı paneli görmek için
+* Genişletilmiş paneli dondurmak/sabitlemek için ilerleme çubuğuna **tıklayın**
+* Dondurmayı kaldırmak ve fareyi uzaklaştırdığınızda otomatik olarak gizlemek için **tekrar tıklayın**
+* Her aşama ayrı ayrı ilerlemeyi gösterir (0-100%)
 
 ***
 
-## Debug Log Tab
+## Her İşleme Aşamasını Anlamak
 
-The Debug Log provides detailed information about processing progress and any issues encountered.
+### Aşama 1: Algılama (Hedef Algılama)
 
-### Accessing the Debug Log
+**Neler oluyor:**
 
-1. Click the **Debug Log** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> icon in the left sidebar
-2. Log panel opens showing real-time processing messages
-3. Auto-scrolls to show latest messages
+* Chloros, Hedef onay kutusu ile işaretlenmiş görüntüleri tarar
+* Bilgisayar görme algoritmaları 4 kalibrasyon panelini tanımlar
+* Her panelden yansıma değerleri çıkarılır
+* Uygun kalibrasyon planlaması için hedef zaman damgaları kaydedilir
 
-### Understanding Log Messages
+**Süre:**
 
-#### Information Messages (White/Gray)
+* İşaretlenmiş hedefler ile: 10-60 saniye
+* İşaretlenmiş hedefler olmadan: 5-30+ dakika (tüm görüntüleri tarar)
 
-Normal processing updates:
+**İlerleme göstergesi:**
+
+* Algılama: %0 → %100
+* Taranan görüntü sayısı
+* Bulunan hedef sayısı
+
+**Dikkat edilmesi gerekenler:**
+
+* Hedefler doğru şekilde işaretlenmişse işlem hızlı bir şekilde tamamlanmalıdır.
+* İşlem çok uzun sürüyorsa, hedefler işaretlenmemiş olabilir.
+* Hata ayıklama günlüğünde &quot;Hedef bulundu&quot; mesajlarını kontrol edin.
+
+### Aşama 2: Analiz
+
+**Neler oluyor:**
+
+* Görüntü EXIF meta verilerini okuma (zaman damgaları, pozlama ayarları)
+* Hedef zaman damgalarına göre kalibrasyon stratejisini belirleme
+* Görüntü işleme kuyruğunu düzenleme
+* Paralel işleme çalışanlarını hazırlama (yalnızca Chloros+)
+
+**Süre:** 5-30 saniye
+
+**İlerleme göstergesi:**
+
+* Analiz: %0 → %100
+* Hızlı aşama, genellikle kısa sürede tamamlanır
+
+**Dikkat edilmesi gerekenler:**
+
+* Kesintisiz ve istikrarlı bir şekilde ilerlemelidir
+* Eksik meta verilerle ilgili uyarılar Hata Ayıklama Günlüğünde görünür
+
+### Aşama 3: Kalibrasyon
+
+**Neler oluyor:**
+
+* **Debayering**: RAW Bayer desenini 3 kanala dönüştürme
+* **Vignette düzeltme**: Lens kenarındaki kararmayı giderme
+* **Yansıma kalibrasyonu**: Hedef değerlerle normalleştirme
+* **Endeks hesaplama**: Çok spektral indeksleri hesaplama
+* Her görüntüyü tam boru hattı üzerinden işleme
+
+**Süre:** Toplam işlem süresinin çoğu (60-80%)
+
+**İlerleme göstergesi:**
+
+* Kalibrasyon: %0 → %100
+* İşlenmekte olan mevcut görüntü
+* Tamamlanan görüntüler / Toplam görüntüler
+
+**İşleme davranışı:**
+
+* **Serbest mod**: Bir seferde bir görüntüyü sırayla işler
+* **Chloros+ modu**: Aynı anda 16 adede kadar görüntüyü işler
+* **GPU hızlandırma**: Bu aşamayı önemli ölçüde hızlandırır
+
+**Dikkat edilmesi gerekenler:**
+
+* Görüntü sayısında istikrarlı ilerleme
+* Görüntü başına tamamlanma mesajları için Hata Ayıklama Günlüğünü kontrol edin
+* Görüntü kalitesi veya kalibrasyon sorunları hakkında uyarılar
+
+### Aşama 4: Dışa aktarma
+
+**Neler oluyor:**
+
+* Kalibre edilmiş görüntüleri seçilen formatta diske yazma
+* LUT renkleriyle multispektral indeks görüntüleri dışa aktarma
+* Kamera modeli alt klasörleri oluşturma
+* Uygun son eklerle orijinal dosya adlarını koruma
+
+**Süre:** Toplam işlem süresinin %10-20&#x27;si
+
+**İlerleme göstergesi:**
+
+* Dışa aktarma: %0 → %100
+* Yazılan dosyalar
+* Dışa aktarma biçimi ve hedefi
+
+**Dikkat edilmesi gerekenler:**
+
+* Disk alanı uyarıları
+* Dosya yazma hataları
+* Yapılandırılan tüm çıktıların tamamlanması
+
+***
+
+## Hata Ayıklama Günlüğü Sekmesi
+
+Hata Ayıklama Günlüğü, işleme ilerlemesi ve karşılaşılan sorunlar hakkında ayrıntılı bilgi sağlar.
+
+### Hata Ayıklama Günlüğüne Erişim
+
+1. Sol kenar çubuğundaki **Hata Ayıklama Günlüğü** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> simgesine tıklayın
+2. Gerçek zamanlı işleme mesajlarını gösteren günlük paneli açılır
+3. En son mesajları göstermek için otomatik olarak kaydırılır
+
+### Günlük Mesajlarını Anlama
+
+#### Bilgi Mesajları (Beyaz/Gri)
+
+Normal işleme güncellemeleri:
 
 ```
 [INFO] Processing started
@@ -169,9 +169,9 @@ Normal processing updates:
 [INFO] Processing complete
 ```
 
-#### Warning Messages (Yellow)
+#### Uyarı Mesajları (Sarı)
 
-Non-critical issues that don't stop processing:
+İşlemeyi durdurmayan kritik olmayan sorunlar:
 
 ```
 [WARN] No GPS data found in IMG_0145.RAW
@@ -179,11 +179,11 @@ Non-critical issues that don't stop processing:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Action:** Review warnings after processing, but don't interrupt
+**Eylem:** İşleme tamamlandıktan sonra uyarıları inceleyin, ancak işlemi kesintiye uğratmayın
 
-#### Error Messages (Red)
+#### Hata Mesajları (Red)
 
-Critical issues that may cause processing to fail:
+İşlemenin başarısız olmasına neden olabilecek kritik sorunlar:
 
 ```
 [ERROR] Cannot write file - disk full
@@ -191,202 +191,202 @@ Critical issues that may cause processing to fail:
 [ERROR] No targets detected - enable reflectance calibration or mark target images
 ```
 
-**Action:** Stop processing, resolve error, restart
+**Eylem:** İşlemeyi durdurun, hatayı giderin, yeniden başlatın.
 
-### Common Log Messages
+### Yaygın Günlük Mesajları
 
-| Message                          | Meaning                                | Action Needed                                         |
+| Mesaj                          | Anlam                                | Gerekli Eylem                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| "Target detected in \[filename]" | Calibration target found successfully  | None - normal                                         |
-| "Processing image X of Y"        | Current progress update                | None - normal                                         |
-| "No targets found"               | No calibration targets detected        | Mark target images or disable reflectance calibration |
-| "Insufficient disk space"        | Not enough storage for output          | Free up disk space                                    |
-| "Skipping corrupted file"        | Image file is damaged                  | Re-copy file from SD card                             |
-| "PPK data applied"               | GPS corrections from .daq file applied | None - normal                                         |
+| &quot;\[dosya adı] içinde hedef algılandı&quot; | Kalibrasyon hedefi başarıyla bulundu  | Yok - normal                                         |
+| &quot;Y&#x27;nin X görüntüsü işleniyor&quot;        | Mevcut ilerleme güncellemesi                | Yok - normal                                         |
+| &quot;Hedef bulunamadı&quot;               | Kalibrasyon hedefi algılanmadı        | Hedef görüntüleri işaretleyin veya yansıma kalibrasyonunu devre dışı bırakın |
+| &quot;Yetersiz disk alanı&quot;        | Çıktı için yeterli depolama alanı yok          | Disk alanını boşaltın                                    |
+| &quot;Bozuk dosya atlanıyor&quot;        | Görüntü dosyası hasarlı                  | SD karttan dosyayı yeniden kopyalayın                             |
+| &quot;PPK verileri uygulandı&quot;               | .daq dosyasından GPS düzeltmeleri uygulandı | Yok - normal                                         |
 
-### Copying Log Data
+### Günlük Verilerini Kopyalama
 
-To copy log for troubleshooting or support:
+Sorun giderme veya destek için günlüğü kopyalamak için:
 
-1. Open Debug Log panel
-2. Click **"Copy Log"** button (or right-click → Select All)
-3. Paste into text file or email
-4. Send to MAPIR support if needed
-
-***
-
-## System Resource Monitoring
-
-### CPU Usage
-
-**Free Mode:**
-
-* 1 CPU core at \~100%
-* Other cores idle or available
-* System remains responsive
-
-**Chloros+ Parallel Mode:**
-
-* Multiple cores at 80-100% (up to 16 cores)
-* High overall CPU utilization
-* System may feel less responsive
-
-**To monitor:**
-
-* Windows Task Manager (Ctrl+Shift+Esc)
-* Performance tab → CPU section
-* Look for "Chloros" or "chloros-backend" processes
-
-### Memory (RAM) Usage
-
-**Typical usage:**
-
-* Small projects (< 100 images): 2-4 GB
-* Medium projects (100-500 images): 4-8 GB
-* Large projects (500+ images): 8-16 GB
-* Chloros+ parallel mode uses more RAM
-
-**If memory is low:**
-
-* Process smaller batches
-* Close other applications
-* Upgrade RAM if regularly processing large datasets
-
-### GPU Usage (Chloros+ with CUDA)
-
-When GPU acceleration is enabled:
-
-* NVIDIA GPU shows high utilization (60-90%)
-* VRAM usage increases (requires 4GB+ VRAM)
-* Calibrating stage is significantly faster
-
-**To monitor:**
-
-* NVIDIA System Tray icon
-* Task Manager → Performance → GPU
-* GPU-Z or similar monitoring tool
-
-### Disk I/O
-
-**What to expect:**
-
-* High disk read during Analyzing stage
-* High disk write during Exporting stage
-* SSD significantly faster than HDD
-
-**Performance tip:**
-
-* Use SSD for project folder when possible
-* Avoid network drives for large datasets
-* Ensure disk isn't near capacity (affects write speed)
+1. Hata Ayıklama Günlüğü panelini açın.
+2. **&quot;Günlüğü Kopyala&quot;** düğmesini tıklayın (veya sağ tıklayın → Tümünü Seç).
+3. Metin dosyasına veya e-postaya yapıştırın.
+4. Gerekirse MAPIR desteğine gönderin.
 
 ***
 
-## Detecting Problems During Processing
+## Sistem Kaynakları İzleme
 
-### Warning Signs
+### CPU Kullanımı
 
-**Progress stalls (no change for 5+ minutes):**
+**Serbest Mod:**
 
-* Check Debug Log for errors
-* Verify disk space available
-* Check Task Manager to ensure Chloros is running
+* 1 CPU çekirdeği \~%100
+* Diğer çekirdekler boşta veya kullanılabilir durumda
+* Sistem yanıt vermeye devam eder
 
-**Error messages appear frequently:**
+**Chloros+ Paralel Mod:**
 
-* Stop processing and review errors
-* Common causes: disk space, corrupted files, memory issues
-* See Troubleshooting section below
+* Birden fazla çekirdek %80-100 (en fazla 16 çekirdek)
+* Yüksek genel CPU kullanımı
+* Sistem daha az yanıt verebilir
 
-**System becomes unresponsive:**
+**İzlemek için:**
 
-* Chloros+ parallel mode using too many resources
-* Consider reducing concurrent tasks or upgrading hardware
-* Free mode is less resource-intensive
+* Windows Görev Yöneticisi (Ctrl+Shift+Esc)
+* Performans sekmesi → CPU bölümü
+* &quot;Chloros&quot; veya &quot;chloros-backend&quot; işlemlerini arayın
 
-### When to Stop Processing
+### Bellek (RAM) Kullanımı
 
-Stop processing if you see:
+**Tipik kullanım:**
 
-* ❌ "Disk full" or "Cannot write file" errors
-* ❌ Repeated image file corruption errors
-* ❌ System completely frozen (not responding)
-* ❌ Realized wrong settings were configured
-* ❌ Wrong images imported
+* Küçük projeler (&lt; 100 görüntü): 2-4 GB
+* Orta ölçekli projeler (100-500 görüntü): 4-8 GB
+* Büyük projeler (500+ görüntü): 8-16 GB
+* Chloros+ paralel modu daha fazla RAM kullanır
 
-**How to stop:**
+**Bellek düşükse:**
 
-1. Click **Stop/Cancel button** (replaces Start button)
-2. Processing halts, progress is lost
-3. Fix issues and restart from beginning
+* Daha küçük gruplar işleyin
+* Diğer uygulamaları kapatın
+* Düzenli olarak büyük veri kümelerini işliyorsanız RAM&#x27;i yükseltin
 
-***
+### GPU Kullanımı (CUDA ile Chloros+)
 
-## Troubleshooting During Processing
+GPU hızlandırma etkinleştirildiğinde:
 
-### Processing is Very Slow
+* NVIDIA GPU yüksek kullanım gösterir (60-90%)
+* VRAM kullanımı artar (4 GB+ VRAM gerektirir)
+* Kalibrasyon aşaması önemli ölçüde daha hızlıdır
 
-**Possible causes:**
+**İzlemek için:**
 
-* Unmarked target images (scanning all images)
-* HDD instead of SSD storage
-* Insufficient system resources
-* Many indices configured
-* Network drive access
+* NVIDIA Sistem Tepsisi simgesi
+* Görev Yöneticisi → Performans → GPU
+* GPU-Z veya benzer bir izleme aracı
 
-**Solutions:**
+### Disk G/Ç
 
-1. If just started and in Detecting stage: Cancel, mark targets, restart
-2. For future: Use SSD, reduce indices, upgrade hardware
-3. Consider CLI for batch processing large datasets
+**Ne beklemeli:**
 
-### "Disk Space" Warnings
+* Analiz aşamasında yüksek disk okuma
+* Dışa aktarma aşamasında yüksek disk yazma
+* SSD, HDD&#x27;den önemli ölçüde daha hızlıdır
 
-**Solutions:**
+**Performans ipucu:**
 
-1. Free up disk space immediately
-2. Move project to drive with more space
-3. Reduce number of indices to export
-4. Use JPG format instead of TIFF (smaller files)
-
-### Frequent "Corrupted File" Messages
-
-**Solutions:**
-
-1. Re-copy images from SD card to ensure integrity
-2. Test SD card for errors
-3. Remove corrupted files from project
-4. Continue processing remaining images
-
-### System Overheating / Throttling
-
-**Solutions:**
-
-1. Ensure adequate ventilation
-2. Clean dust from computer vents
-3. Reduce processing load (use Free mode instead of Chloros+)
-4. Process during cooler times of day
+* Mümkünse proje klasörü için SSD kullanın
+* Büyük veri kümeleri için ağ sürücülerinden kaçının
+* Diskin kapasitesinin dolmak üzere olmadığından emin olun (yazma hızını etkiler)
 
 ***
 
-## Processing Complete Notification
+## İşleme Sırasında Sorunların Tespit Edilmesi
 
-When processing finishes:
+### Uyarı İşaretleri
 
-* Progress bar reaches 100%
-* **"Processing Complete"** message appears in Debug Log
-* Start button becomes enabled again
-* All output files are in camera model subfolder
+**İlerleme duruyor (5 dakikadan fazla bir süre boyunca değişiklik yok):**
+
+* Hata ayıklama günlüğünde hata olup olmadığını kontrol edin
+* Kullanılabilir disk alanını doğrulayın
+* Görev Yöneticisi&#x27;ni kontrol ederek Chloros&#x27;in çalıştığından emin olun
+
+**Hata mesajları sık sık görünüyor:**
+
+* İşlemeyi durdurun ve hataları inceleyin
+* Yaygın nedenler: disk alanı, bozuk dosyalar, bellek sorunları
+* Aşağıdaki Sorun Giderme bölümüne bakın
+
+**Sistem yanıt vermiyor:**
+
+* Chloros+ paralel modu çok fazla kaynak kullanıyor
+* Eşzamanlı görevleri azaltmayı veya donanımı yükseltmeyi düşünün
+* Serbest mod daha az kaynak kullanır
+
+### İşlemeyi Ne Zaman Durdurmalısınız?
+
+Aşağıdakileri görürseniz işlemeyi durdurun:
+
+* ❌ &quot;Disk dolu&quot; veya &quot;Dosya yazılamıyor&quot; hataları
+* ❌ Tekrarlanan görüntü dosyası bozulma hataları
+* ❌ Sistem tamamen dondu (yanıt vermiyor)
+* ❌ Yanlış ayarların yapılandırıldığı fark edildi
+* ❌ Yanlış görüntüler içe aktarıldı
+
+**Nasıl durdurulur:**
+
+1. **Durdur/İptal düğmesine** tıklayın (Başlat düğmesinin yerine geçer)
+2. İşlem durur, ilerleme kaybolur
+3. Sorunları giderin ve baştan yeniden başlatın
 
 ***
 
-## Next Steps
+## İşlem Sırasında Sorun Giderme
 
-Once processing completes:
+### İşlem Çok Yavaş
 
-1. **Review results** - See [Finishing the Processing](finishing-the-processing.md)
-2. **Check output folder** - Verify all files exported correctly
-3. **Review Debug Log** - Check for any warnings or errors
-4. **Preview processed images** - Use Image Viewer or external software
+**Olası nedenler:**
 
-For information about reviewing and using your processed results, see [Finishing the Processing](finishing-the-processing.md).
+* İşaretlenmemiş hedef görüntüler (tüm görüntüleri tarama)
+* SSD depolama yerine HDD
+* Yetersiz sistem kaynakları
+* Çok sayıda indeks yapılandırılmış
+* Ağ sürücüsü erişimi
+
+**Çözümler:**
+
+1. İşlem yeni başladıysa ve Algılama aşamasındaysa: İptal edin, hedefleri işaretleyin, yeniden başlatın
+2. Gelecek için: SSD kullanın, dizinleri azaltın, donanımı yükseltin
+3. Büyük veri kümelerini toplu olarak işlemek için CLI&#x27;i düşünün
+
+### &quot;Disk Alanı&quot; Uyarıları
+
+**Çözümler:**
+
+1. Disk alanını hemen boşaltın
+2. Projeyi daha fazla alana sahip sürücüye taşıyın
+3. Dışa aktarılacak dizinlerin sayısını azaltın
+4. TIFF yerine JPG formatını kullanın (daha küçük dosyalar)
+
+### Sık Görülen &quot;Bozuk Dosya&quot; Mesajları
+
+**Çözümler:**
+
+1. Bütünlüğü sağlamak için görüntüleri SD karttan yeniden kopyalayın
+2. SD kartta hata olup olmadığını test edin
+3. Projeden bozuk dosyaları kaldırın
+4. Kalan görüntüleri işlemeye devam edin
+
+### Sistem Aşırı Isınma / Hız Düşürme
+
+**Çözümler:**
+
+1. Yeterli havalandırma sağlayın
+2. Bilgisayarın havalandırma deliklerinden tozu temizleyin
+3. İşlem yükünü azaltın (Chloros+ yerine Serbest modu kullanın)
+4. Günün daha serin saatlerinde işlem yapın
+
+***
+
+## İşlem Tamamlandı Bildirimi
+
+İşlem bittiğinde:
+
+* İlerleme çubuğu %100&#x27;e ulaşır
+* **&quot;İşleme Tamamlandı&quot;** mesajı Hata Ayıklama Günlüğünde görünür
+* Başlat düğmesi tekrar etkin hale gelir
+* Tüm çıktı dosyaları kamera modeli alt klasöründedir
+
+***
+
+## Sonraki Adımlar
+
+İşleme tamamlandığında:
+
+1. **Sonuçları inceleyin** - [İşlemeyi Tamamlama](finishing-the-processing.md) bölümüne bakın
+2. **Çıktı klasörünü kontrol edin** - Tüm dosyaların doğru şekilde dışa aktarıldığını doğrulayın
+3. **Hata Ayıklama Günlüğünü inceleyin** - Herhangi bir uyarı veya hata olup olmadığını kontrol edin
+4. **İşlenen görüntüleri önizleyin** - Görüntü Görüntüleyiciyi veya harici yazılımı kullanın
+
+İşlenen sonuçları inceleme ve kullanma hakkında bilgi için, [İşlemeyi Tamamlama](finishing-the-processing.md) bölümüne bakın.

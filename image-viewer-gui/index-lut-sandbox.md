@@ -1,86 +1,86 @@
-# Index/LUT Sandbox
+# Dizin/LUT Sandbox
 
-The Index/LUT Sandbox is an interactive workspace within the Chloros Image Viewer that allows you to experiment with multispectral index calculations and color visualizations in real-time. This powerful tool helps you test different indices, refine value ranges, and create publication-ready visualizations without reprocessing your entire dataset.
+Dizin/LUT Sandbox, Chloros Görüntü Görüntüleyicisi içindeki etkileşimli bir çalışma alanıdır ve çok spektral dizin hesaplamaları ve renk görselleştirmelerini gerçek zamanlı olarak denemenizi sağlar. Bu güçlü araç, tüm veri kümenizi yeniden işlemden geçirmeden farklı dizinleri test etmenize, değer aralıklarını iyileştirmenize ve yayınlanmaya hazır görselleştirmeler oluşturmanıza yardımcı olur.
 
-## What is the Index/LUT Sandbox?
+## Dizin/LUT Sandbox nedir?
 
-### Purpose
+### Amaç
 
-The Sandbox provides:
+Sandbox şunları sağlar:
 
-* **Real-time index calculation** - Apply any vegetation index instantly
-* **Interactive LUT adjustment** - Fine-tune color gradients and ranges
-* **Workflow optimization** - Determine best settings before batch processing
+* **Gerçek zamanlı dizin hesaplama** - Herhangi bir bitki örtüsü dizinini anında uygulayın
+* **Etkileşimli LUT ayarı** - Renk gradyanlarını ve aralıklarını ince ayarlayın
+* **İş akışı optimizasyonu** - Toplu işleme öncesinde en iyi ayarları belirleyin
 
-### Sandbox vs. Project Processing
+### Sandbox ve Proje İşleme
 
-**Index/LUT Sandbox (Interactive):**
+**Endeks/LUT Sandbox (Etkileşimli):**
 
-* Single image at a time
-* Instant feedback
-* Experimental and iterative
-* No permanent changes to files
-* Perfect for exploring and testing
+* Her seferinde tek bir görüntü
+* Anında geri bildirim
+* Deneysel ve yinelemeli
+* Dosyalarda kalıcı değişiklik yok
+* Keşfetmek ve test etmek için mükemmel
 
-**Project Processing (Batch):**
+**Proje İşleme (Toplu):**
 
-* Entire dataset at once
-* Pre-configured settings
-* Permanent output files
-* Time-intensive
-* Best when settings are finalized
+* Tüm veri kümesi bir seferde
+* Önceden yapılandırılmış ayarlar
+* Kalıcı çıktı dosyaları
+* Zaman alıcı
+* Ayarlar kesinleştiğinde en iyisi
 
-{% hint style="success" %}
-**Best Workflow**: Use the Sandbox to experiment and find optimal index and LUT settings, then apply those settings during Project Processing for your entire dataset.
+{% hint style=&quot;success&quot; %}
+**En İyi İş Akışı**: Sandbox&#x27;ı kullanarak denemeler yapın ve en uygun indeks ve LUT ayarlarını bulun, ardından bu ayarları Proje İşleme sırasında tüm veri kümenize uygulayın.
 {% endhint %}
 
 ***
 
-## Working with the Index/LUT Sandbox
+## İndeks/LUT Sandbox ile Çalışma
 
-### Understanding Pre-Calculated Indices
+### Önceden Hesaplanmış Dizinleri Anlama
 
-In Chloros, indices can be applied during project processing. To determine which index and LUT settings you want to apply to exports it is easiest to use the image viewer sandbox.
+Chloros&#x27;te, dizinler proje işleme sırasında uygulanabilir. Dışa aktarmalara hangi dizin ve LUT ayarlarını uygulamak istediğinizi belirlemek için en kolay yol, görüntü görüntüleyici sandbox&#x27;ını kullanmaktır.
 
-The sandbox allows you to:
+Sandbox ile şunları yapabilirsiniz:
 
-* **Apply new index and color gradients (LUTs)** to visualize the data
-* **Adjust visualization settings** interactively
-* **View** already-calculated index images
-* **Inspect** pixel values at all zoom levels
+* Verileri görselleştirmek için **yeni indeks ve renk gradyanları (LUT&#x27;lar)** uygulayın
+* **Görselleştirme ayarlarını** etkileşimli olarak ayarlayın
+* Önceden hesaplanmış indeks görüntülerini **görüntüleyin**
+* Tüm yakınlaştırma düzeylerinde piksel değerlerini **inceleyin**
 
-### Opening the Sandbox
+### Sandbox&#x27;ı Açma
 
-The Index/LUT Sandbox is accessed in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sidebar tab:
+Dizin/LUT Sandbox&#x27;a **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> kenar çubuğu sekmesinden erişilebilir:
 
-1. Click an image in the file browser image grid, it opens in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab
-2. Click **the Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab to open the left pop-out sidebar if it's not already open
+1. Dosya tarayıcısının görüntü ızgarasında bir görüntüyü tıklayın, görüntü **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesinde açılır
+2. **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesine tıklayın.
 
-### Selecting an Image to Apply an Index/LUT to
+### Dizin/LUT Uygulanacak Görüntü Seçme
 
-To work with an index in the Image Viewer <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sandbox:
+Görüntü Görüntüleyici <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sandbox&#x27;ta bir indeksle çalışmak için:
 
-1. **Open an image** from the main image grid by clicking on it
-2. The **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab will then open
-3. Click the **Layer dropdown** (top-right of viewer)
-4. Select the layer from the dropdown:
-   * RAW (Reflectance)
+1. Ana görüntü ızgarasından bir görüntüyü tıklayarak **açın**
+2. **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesi açılır
+3. **Katman açılır menüsünü** (görüntüleyicinin sağ üst köşesinde) tıklayın
+4. Açılır menüden katmanı seçin:
+   * RAW (Yansıtma)
 
-### Applying an Index to an Image
+### Görüntüye Dizin Uygulama
 
-Once the image is fullscreen and the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab sidebar is open:
+Görüntü tam ekran olduğunda ve **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesi kenar çubuğu açıldığında:
 
-1. Check the Index box at the top of the sidebar
-2. Choose your camera's filter from the left dropdown
-3. Choose the desired index formula from the right dropdown
-4. Drag the filter channel color circles to the locations in the index formula below
-5. Once the formula is valid the image will update and show the index values
-6. Move your mouse cursor around to see the values at the cursor's location
-7. Zoom in to see individual pixels and their associated values
+1. Kenar çubuğunun üst kısmındaki Dizin kutusunu işaretleyin
+2. Sol açılır menüden kameranızın filtresini seçin
+3. Sağ açılır menüden istediğiniz dizin formülünü seçin
+4. Filtre kanalı renk dairelerini aşağıdaki dizin formülündeki konumlara sürükleyin
+5. Formül geçerli olduğunda görüntü güncellenecek ve dizin değerleri gösterilecektir
+6. Fare imlecini hareket ettirerek imlecin bulunduğu konumdaki değerleri görebilirsiniz
+7. Bireysel pikselleri ve bunlarla ilişkili değerleri görmek için yakınlaştırın.
 
-Each index has a specific value range and meaning:
+Her endeksin belirli bir değer aralığı ve anlamı vardır:
 
-#### NDVI Example
+#### NDVI Örneği
 
 ```
 Formula: (NIR - Red) / (NIR + Red)
@@ -96,293 +96,293 @@ Bare soil: 0.0 to 0.2
 Water: -0.1 to 0.1
 ```
 
-For complete index formula documentation, see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md).
+Endeş formülünün tam dokümantasyonu için [Multispektral Endeks Formülleri](../project-settings/multispectral-index-formulas.md) bölümüne bakın.
 
 ***
 
-## Working with LUTs (Look-Up Tables)
+## LUT&#x27;larla (Arama Tabloları) Çalışma
 
-### What is a LUT?
+### LUT nedir?
 
-A **Look-Up Table (LUT)** maps numerical index values to colors for visualization:
+**Arama Tablosu (LUT)**, görselleştirme için sayısal indeks değerlerini renklere eşler:
 
-* **Input**: Index pixel value (e.g., NDVI 0.65)
-* **Output**: RGB color (e.g., bright green)
-* **Purpose**: Make patterns easier to see and interpret
+* **Giriş**: İndeks piksel değeri (ör. NDVI 0,65)
+* **Çıktı**: RGB rengi (ör. parlak yeşil)
+* **Amaç**: Desenleri daha kolay görülür ve yorumlanabilir hale getirmek
 
-**Grayscale vs. Color LUT:**
+**Gri Tonlama ve Renkli LUT:**
 
-* Grayscale: Scientific and neutral, shows raw data
-* Color LUT: Intuitive and impactful, highlights patterns and differences
+* Gri Tonlama: Bilimsel ve tarafsız, ham verileri gösterir
+* Renkli LUT: Sezgisel ve etkili, desenleri ve farklılıkları vurgular
 
-{% hint style="success" %}
-**Visualization Power**: Applying a color LUT to a grayscale index image makes it dramatically easier to identify patterns, anomalies, and areas of interest at a glance.
+{% hint style=&quot;success&quot; %}
+**Görselleştirme Gücü**: Gri tonlamalı bir indeks görüntüsüne renk LUT&#x27;u uygulamak, desenleri, anomalileri ve ilgi alanlarını bir bakışta tanımlamayı önemli ölçüde kolaylaştırır.
 {% endhint %}
 
-### Applying a LUT to an Index Image
+### Dizin Görüntüsüne LUT Uygulama
 
-Once you have an index image showing
+Dizin görüntüsünü aldıktan sonra
 
-1. Click the <img src="../.gitbook/assets/image.png" alt="" data-size="line"> "+Add LUT" button
-2. Select the color gradient
-3. Adjust the clipping min/max end points
-4. Adjust the Clipping Mode
-5. Check the Index box in the **Image Viewer** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> tab sidebar to apply the LUT
+1. <img src="../.gitbook/assets/image.png" alt="" data-size="line"> &quot;+LUT Ekle&quot; düğmesine tıklayın
+2. Renk gradyanını seçin
+3. Kırpma min/maks uç noktalarını ayarlayın
+4. Kırpma Modunu ayarlayın
+5. **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesinin kenar çubuğundaki **Görüntü Görüntüleyici**
 
-### Choosing a Color Gradient
+### Renk Gradyanı Seçme
 
-**Selecting a gradient:**
+**Gradyan seçme:**
 
-1. In the LUT panel, locate the **colored gradient bar**
-2. Hover your mouse over it to view available gradient presets
-3. Select desired gradient
-4. The image **updates immediately** with new colors when the Index box is checked
+1. LUT panelinde **renkli gradyan çubuğunu** bulun.
+2. Mevcut gradyan ön ayarlarını görüntülemek için fareyi üzerine getirin.
+3. İstediğiniz gradyanı seçin.
+4. Dizin kutusu işaretlendiğinde görüntü **hemen yeni renklerle güncellenir**.
 
-{% hint style="success" %}
-**Best Practice**: For vegetation indices like NDVI, the Red-Yellow-Green gradient is most intuitive because it aligns with natural color associations (green=healthy, yellow=moderate, red=stressed).
+{% hint style=&quot;success&quot; %}
+**En İyi Uygulama**: NDVI gibi bitki örtüsü indeksleri için, Red-Sarı-Green gradyanı, doğal renk ilişkilendirmeleriyle (yeşil=sağlıklı, sarı=orta, kırmızı=stresli) uyumlu olduğu için en sezgisel olanıdır.
 {% endhint %}
 
-### Adjusting Color Classes
+### Renk Sınıflarını Ayarlama
 
-The **Classes control** determines how many discrete color steps appear in your gradient:
+**Sınıf kontrolü**, gradyanınızda kaç ayrı renk adımı görüneceğini belirler:
 
-**Class count options:**
+**Sınıf sayısı seçenekleri:**
 
-* **2-5 classes**: Very broad categories, distinct zones
-* **6-10 classes**: Balanced, good for classification
-* **11-20 classes**: Smooth gradients, continuous appearance
-* **20+ classes**: Near-continuous, maximum smoothness
+* **2-5 sınıf**: Çok geniş kategoriler, belirgin bölgeler
+* **6-10 sınıf**: Dengeli, sınıflandırma için uygun
+* **11-20 sınıf**: Pürüzsüz gradyanlar, sürekli görünüm
+* **20+ sınıf**: Neredeyse sürekli, maksimum pürüzsüzlük
 
-**How to adjust:**
+**Nasıl ayarlanır:**
 
-1. In the LUT panel, locate the **color swatch squares below the gradient bar**
-2. Adjust the number of classes by adding with the + button
-3. Remove the number of classes by double clicking on a color swatch
-4. The gradient updates **in real-time** on the image
+1. LUT panelinde, **gradyan çubuğunun altındaki renk örneği karelerini** bulun
+2. + düğmesini kullanarak sınıf sayısını ayarlayın
+3. Renk örneğine çift tıklayarak sınıf sayısını kaldırın
+4. Gradyan, görüntü üzerinde **gerçek zamanlı** olarak güncellenir
 
-**Effect on visualization:**
+**Görselleştirme üzerindeki etkisi:**
 
-* **Fewer classes** (3-5): Creates distinct zones, simplified classification, easier to distinguish categories
-* **Medium classes** (6-10): Balanced approach, good for most applications
-* **More classes** (15-20): Smooth transitions, detailed variation, photographic appearance
+* **Daha az sınıf** (3-5): Belirgin bölgeler oluşturur, sınıflandırmayı basitleştirir, kategorileri ayırt etmeyi kolaylaştırır
+* **Orta sınıflar** (6-10): Dengeli yaklaşım, çoğu uygulama için uygundur
+* **Daha fazla sınıf** (15-20): Yumuşak geçişler, ayrıntılı varyasyon, fotoğrafik görünüm
 
-**When to use:**
+**Ne zaman kullanılır:**
 
-* **Few classes (3-5)**: Presentation slides, classification maps, simple reports
-* **Medium classes (6-10)**: General analysis, balanced detail, standard reports
-* **Many classes (15-20)**: Scientific analysis, detailed inspection, publication-quality outputs
+* **Az sayıda sınıf (3-5)**: Sunum slaytları, sınıflandırma haritaları, basit raporlar
+* **Orta sınıflar (6-10)**: Genel analiz, dengeli ayrıntılar, standart raporlar
+* **Çok sayıda sınıf (15-20)**: Bilimsel analiz, ayrıntılı inceleme, yayın kalitesinde çıktılar
 
-### Fine-Tuning Value Ranges
+### Değer Aralıklarını İnce Ayarlama
 
-The **value range controls** determine which index values map to which colors in your gradient:
+**Değer aralığı denetimleri**, gradyanınızda hangi indeks değerlerinin hangi renklere eşleneceğini belirler:
 
-**Range controls in LUT panel:**
+**LUT panelindeki aralık denetimleri:**
 
-* **Minimum value**: Lower bound of the color scale
-* **Maximum value**: Upper bound of the color scale
-* **Intermediate values**: Automatically distributed between min and max (based on class count)
+* **Minimum değer**: Renk skalasının alt sınırı
+* **Maksimum değer**: Renk skalasının üst sınırı
+* **Ara değerler**: Min ve max arasında otomatik olarak dağıtılır (sınıf sayısına göre)
 
-#### Adjusting Min/Max Values
+#### Min/Maks Değerleri Ayarlama
 
-**To adjust value ranges:**
+**Değer aralıklarını ayarlamak için:**
 
-1. In the LUT panel, locate the **Min Value** and **Max Value** input fields
-2. Click the **Min Value** field
-3. Type the desired minimum value (e.g., `0.2`)
-4. Press **Enter** or click outside the field
-5. Repeat for **Max Value** field (e.g., `0.9`)
-6. The visualization **updates immediately**
+1. LUT panelinde, **Min Değer** ve **Maks Değer** giriş alanlarını bulun
+2. **Min Değer** alanını tıklayın
+3. İstediğiniz minimum değeri girin (ör. `0.2`)
+4. **Enter** tuşuna basın veya alanın dışını tıklayın
+5. **Maks Değer** alanı için aynı işlemi tekrarlayın (ör. `0.9`)
+6. Görselleştirme **hemen güncellenir**
 
-{% hint style="info" %}
-**Auto-Scaling**: When you first apply a LUT, Chloros automatically sets the min/max to the actual data range in the image. You can then narrow this range to focus on specific value ranges of interest.
+{% hint style=&quot;info&quot; %}
+**Otomatik Ölçeklendirme**: Bir LUT&#x27;u ilk kez uyguladığınızda, Chloros otomatik olarak minimum/maksimum değerleri görüntünün gerçek veri aralığına ayarlar. Ardından, bu aralığı daraltarak ilgilendiğiniz belirli değer aralıklarına odaklanabilirsiniz.
 {% endhint %}
 
-**Example NDVI range adjustments:**
+**Örnek NDVI aralık ayarlamaları:**
 
-* **Full range**: `-1.0` to `1.0` (show all possible values)
-* **Vegetation-focused**: `0.2` to `0.9` (exclude bare soil and water)
-* **Healthy vegetation only**: `0.5` to `0.9` (highlight only vigorous plants)
-* **Stress detection**: `0.2` to `0.5` (emphasize problem areas)
-* **Custom range**: Adjust based on your observed pixel values
+* **Tam aralık**: `-1.0` ila `1.0` (tüm olası değerleri göster)
+* **Bitki örtüsüne odaklanmış**: `0.2` ile `0.9` arası (çıplak toprak ve suyu hariç tut)
+* **Yalnızca sağlıklı bitki örtüsü**: `0.5` ile `0.9` arası (sadece güçlü bitkileri vurgulayın)
+* **Stres algılama**: `0.2` ila `0.5` (sorunlu alanları vurgulayın)
+* **Özel aralık**: Gözlemlediğiniz piksel değerlerine göre ayarlayın
 
-**Why adjust ranges?**
+**Neden aralıkları ayarlamalıyız?**
 
-* **Increase contrast** in your area of interest
-* **Exclude irrelevant values** (e.g., water bodies, bare soil)
-* **Standardize visualization** across multiple images or dates
-* **Emphasize subtle differences** within a narrow value range
+* İlgilendiğiniz alanda **kontrastı artırın**
+* **Alakasız değerleri hariç tutun** (ör. su kütleleri, çıplak toprak)
+* Birden fazla görüntü veya tarih arasında **görselleştirmeyi standartlaştırın**
+* Dar bir değer aralığı içindeki **ince farkları vurgulayın**
 
-### Clipping Out-of-Range Values
+### Aralık Dışı Değerleri Kırpma
 
-When pixel values fall outside your defined min/max range, you can control how they're displayed using **clipping modes**.
+Piksel değerleri tanımladığınız minimum/maksimum aralığın dışına çıktığında, **kırpma modları** kullanarak bunların nasıl görüntüleneceğini kontrol edebilirsiniz.
 
-#### **Available clipping mode options:**
+#### **Kullanılabilir kırpma modu seçenekleri:**
 
-#### 1. Minimum and Maximum
+#### 1. Minimum ve Maksimum
 
-* Pixels **below minimum** → display using the **first color** in gradient (e.g., red)
-* Pixels **above maximum** → display using the **last color** in gradient (e.g., green)
-* **Use case**: Emphasize extremes, show full data range with saturated colors at limits
-* **Example**: NDVI values below 0.2 all appear red, values above 0.9 all appear green
+* **Minimumun altındaki** pikseller → gradyanın **ilk rengi** (ör. kırmızı) kullanılarak görüntülenir
+* **Maksimumun üzerindeki** pikseller → gradyanın **son rengi** kullanılarak görüntülenir (ör. yeşil)
+* **Kullanım örneği**: Aşırı değerleri vurgulayın, sınırlarda doygun renklerle tam veri aralığını gösterin
+* **Örnek**: 0,2&#x27;nin altındaki NDVI değerleri kırmızı, 0,9&#x27;un üzerindeki değerler yeşil olarak görünür
 
-#### 2. Transparent Background
+#### 2. Şeffaf Arka Plan
 
-* Pixels **outside the range** become **fully transparent**
-* Only pixels **within range** show color gradient
-* **Use case**: GIS overlay, isolating specific value ranges, highlighting only areas of interest
-* **Example**: Show only NDVI 0.4-0.7 in color, everything else transparent
+* **Aralığın dışındaki** pikseller **tamamen şeffaf** hale gelir
+* Yalnızca **aralık içindeki** pikseller renk gradyanı gösterir
+* **Kullanım örneği**: GIS katmanı, belirli değer aralıklarını izole etme, yalnızca ilgi alanlarını vurgulamak
+* **Örnek**: Yalnızca NDVI 0,4-0,7 aralığını renkli göster, diğer her şeyi şeffaf göster
 
-{% hint style="warning" %}
-**Transparency Limitation**: Transparent pixels will appear as the background color in the viewer. When exported during processing, transparency is preserved in PNG format but not in JPG.
+{% hint style=&quot;warning&quot; %}
+**Şeffaflık Sınırlaması**: Şeffaf pikseller görüntüleyicide arka plan rengi olarak görünür. İşleme sırasında dışa aktarıldığında, şeffaflık PNG formatında korunur, ancak JPG formatında korunmaz.
 {% endhint %}
 
-#### 3. Index Background
+#### 3. Dizin Arka Planı
 
-* Pixels **outside range** display in **grayscale** (showing raw index values)
-* Pixels **within range** show **color gradient**
-* **Use case**: Subtle highlighting, maintain context while emphasizing areas of interest
-* **Example**: Color-highlight stressed vegetation (NDVI 0.3-0.5) while showing healthy areas in gray
+* **Aralık dışındaki** pikseller **gri tonlamada** görüntülenir (ham dizin değerlerini gösterir)
+* **Aralık içindeki** pikseller **renk gradyanı** gösterir
+* **Kullanım örneği**: İnce vurgu, ilgi alanlarını vurgularken bağlamı korur
+* **Örnek**: Vurgulanan bitki örtüsünü renkli olarak vurgular (NDVI 0,3-0,5) ve sağlıklı alanları gri olarak gösterir
 
-#### 4. Original Background
+#### 4. Orijinal Arka Plan
 
-* Pixels **outside range** display the **original multispectral image**
-* Pixels **within range** show **color gradient**
-* **Use case**: Most intuitive - combines natural image context with analytical color overlay
-* **Example**: See the actual field/crop appearance with color-coded stress areas overlaid
+* **Aralık dışındaki** pikseller **orijinal multispektral görüntüyü** gösterir
+* **Aralık içindeki** pikseller **renk gradyanı** gösterir
+* **Kullanım örneği**: En sezgisel olanı - doğal görüntü bağlamını analitik renk katmanıyla birleştirir
+* **Örnek**: Renk kodlu stres alanları katmanıyla gerçek tarla/mahsul görünümünü görün
 
-### Choosing the Right Clipping Mode
+### Doğru Kırpma Modunu Seçme
 
-| Clipping Mode              | Best For                                   | Visualization Style          |
+| Kırpma Modu              | En Uygun Olduğu Durum                                   | Görselleştirme Stili          |
 | -------------------------- | ------------------------------------------ | ---------------------------- |
-| **Minimum and Maximum**    | Full data display, scientific analysis     | All pixels colored           |
-| **Transparent Background** | GIS overlays, isolating specific ranges    | Color on range, blank beyond |
-| **Index Background**       | Subtle emphasis, maintaining data context  | Color on range, gray beyond  |
-| **Original Background**    | Reports, presentations, intuitive analysis | Color on range, photo beyond |
+| **Minimum ve Maksimum**    | Tam veri gösterimi, bilimsel analiz     | Tüm pikseller renklendirilmiş           |
+| **Şeffaf Arka Plan** | GIS katmanları, belirli aralıkları izole etme    | Aralıkta renk, dışında boşluk |
+| **Dizin Arka Plan**       | İnce vurgu, veri bağlamını koruma  | Aralıkta renk, dışında gri  |
+| **Orijinal Arka Plan**    | Raporlar, sunumlar, sezgisel analiz | Aralıkta renk, dışında fotoğraf |
 
-### Creating Custom LUT Colors
+### Özel LUT Renkleri Oluşturma
 
-For full control over your visualization, you can create **custom color gradients** by editing individual color stops.
+Görselleştirmenizi tam olarak kontrol etmek için, tek tek renk duraklarını düzenleyerek **özel renk gradyanları** oluşturabilirsiniz.
 
-**To create a custom gradient:**
+**Özel bir geçiş oluşturmak için:**
 
-1. In the LUT panel, locate the **gradient preview bar**
-2. Look for **color swatch squares** below the gradient
-3. **Click a color stop** to select it
-4. A **color picker** opens
-5. Choose a new color using:
-   * **Color wheel**: Visual color selection
-   * **RGB/HSV sliders**: Precise color control
-   * **Hex code entry**: Exact color specification (e.g., `#FF0000` for red)
-6. Click off the color picker **to apply the new color**
-7. The gradient **updates immediately** on the image
+1. LUT panelinde **geçiş önizleme çubuğunu** bulun
+2. Geçişin altında **renk örneği karelerini** bulun
+3. **Bir renk durağını tıklayarak** seçin
+4. **Renk seçici** açılır
+5. Aşağıdakileri kullanarak yeni bir renk seçin:
+   * **Renk tekerleği**: Görsel renk seçimi
+   * **RGB/HSV kaydırıcıları**: Hassas renk kontrolü
+   * **Hex kodu girişi**: Kesin renk belirtimi (ör. kırmızı için `#FF0000`)
+6. **Yeni rengi uygulamak için** renk seçicinin dışına tıklayın
+7. Degrade **görüntüde hemen güncellenir**
 
-**Adding or removing color stops:**
+**Renk durakları ekleme veya kaldırma:**
 
-* **Add a stop**: Click the + icon to add a new swatch at the end
-* **Remove a stop**: Double click the color square to remove the swatch
+* **Durak ekleme**: Sonuna yeni bir renk örneği eklemek için + simgesine tıklayın
+* **Durak kaldırma**: Renk örneğini kaldırmak için renk karesine çift tıklayın
 
-**Customization strategies:**
+**Özelleştirme stratejileri:**
 
-* **Invert gradient**: Flip color order to reverse the meaning (e.g., green=low, red=high)
-* **Brand colors**: Match your organization's color palette for reports
-* **Colorblind-friendly**: Use orange-blue or purple-yellow combinations
-* **Print optimization**: Choose colors that work in both color and grayscale printing
-* **Multi-threshold**: Use distinct colors at specific value thresholds for classification
+* **Degradeyi ters çevirin**: Anlamı tersine çevirmek için renk sırasını ters çevirin (ör. yeşil=düşük, kırmızı=yüksek)
+* **Marka renkleri**: Raporlar için kuruluşunuzun renk paletiyle eşleştirin
+* **Renk körlüğüne uygun**: Turuncu-mavi veya mor-sarı kombinasyonları kullanın
+* **Yazdırma optimizasyonu**: Hem renkli hem de gri tonlamalı yazdırmada uygun renkleri seçin
+* **Çoklu eşik**: Sınıflandırma için belirli değer eşiklerinde farklı renkler kullanın
 
-{% hint style="info" %}
-**Saving Custom Gradients**: Custom gradients can be saved and reused. Click the save icon in the LUT panel to preserve your custom color schemes for future use.
+{% hint style=&quot;info&quot; %}
+**Özel Gradyanları Kaydetme**: Özel gradyanlar kaydedilebilir ve yeniden kullanılabilir. LUT panelindeki kaydet simgesine tıklayarak özel renk şemalarınızı ileride kullanmak üzere saklayabilirsiniz.
 {% endhint %}
 
 ***
 
-## Interactive Workflow
+## Etkileşimli İş Akışı
 
-### Real-Time Updates
+### Gerçek Zamanlı Güncellemeler
 
-All LUT adjustments in the sandbox update the image **instantly and interactively**:
+Sandbox&#x27;taki tüm LUT ayarlamaları görüntüyü **anında ve etkileşimli olarak** günceller:
 
-* **Switch layer** → Image changes immediately
-* **Select gradient** → Colors update instantly
-* **Adjust value range** → Contrast changes in real-time
-* **Change classes** → Gradient smoothness updates immediately
-* **Modify clipping** → Background display changes instantly
-* **Edit colors** → Custom gradient applies immediately
+* **Katmanı değiştir** → Görüntü hemen değişir
+* **Degradeyi seç** → Renkler anında güncellenir
+* **Değer aralığını ayarla** → Kontrast gerçek zamanlı olarak değişir
+* **Sınıfları değiştir** → Degrade düzgünlüğü hemen güncellenir
+* **Kırpma değiştir** → Arka plan görüntüsü hemen değişir
+* **Renkleri düzenle** → Özel degrade hemen uygulanır
 
-**No "Apply" button needed** - all changes are live and interactive!
+**&quot;Uygula&quot; düğmesine gerek yok** - tüm değişiklikler canlı ve etkileşimlidir!
 
-{% hint style="success" %}
-**Live Feedback**: The instant visual feedback allows you to rapidly experiment with different settings until you find the optimal visualization for your analysis needs.
+{% hint style=&quot;success&quot; %}
+**Canlı Geri Bildirim**: Anlık görsel geri bildirim, analiz ihtiyaçlarınız için en uygun görselleştirmeyi bulana kadar farklı ayarları hızla denemenizi sağlar.
 {% endhint %}
 
-### Iterative Refinement Workflow
+### Yinelemeli İyileştirme İş Akışı
 
-**Typical LUT optimization workflow:**
+**Tipik LUT optimizasyon iş akışı:**
 
-1. **Select index layer** (e.g., RAW (Reflectance))
-2. **Apply index** - Choose camera filter and index formula, drag colored circles to appropriate location in the index formula
-3. **Apply LUT gradient** - Start with Red-Yellow-Green preset
-4. **Inspect pixel values** - Move cursor around, note value ranges
-5. **Adjust min/max** - Narrow to focus on vegetation (e.g., 0.2 to 0.9)
-6. **Choose clipping** - Try "Original Background" for context
-7. **Refine colors** - Customize gradient if needed for specific emphasis
-8. **Finalize settings** - Document settings and copy to Project Settings for export processing
+1. **Dizin katmanını seçin** (ör. RAW (Yansıtma))
+2. **Dizini uygulayın** - Kamera filtresini ve dizin formülünü seçin, renkli daireleri dizin formülündeki uygun konuma sürükleyin
+3. **LUT gradyanını uygulayın** - Red-Sarı-Green ön ayarıyla başlayın
+4. **Piksel değerlerini inceleyin** - İmleci hareket ettirin, değer aralıklarını not edin
+5. **Min/maks değerlerini ayarlayın** - Bitki örtüsüne odaklanmak için daraltın (ör. 0,2 ila 0,9)
+6. **Kırpma seçin** - Bağlam için &quot;Orijinal Arka Plan&quot;ı deneyin
+7. **Renkleri iyileştirin** - Belirli bir vurgu için gerekirse gradyanı özelleştirin
+8. **Ayarları sonlandırın** - Ayarları belgelendirin ve dışa aktarma işlemi için Proje Ayarlarına kopyalayın
 
-### Pixel Value Inspection
+### Piksel Değeri İnceleme
 
-Understanding actual pixel values is crucial for setting effective LUT ranges:
+Etkili LUT aralıkları ayarlamak için gerçek piksel değerlerini anlamak çok önemlidir:
 
-**How to inspect values:**
+**Değerleri inceleme:**
 
-1. Pixel values show when the image has either the Index, or both the Index and LUT **boxes checked**.
-2. **Move your cursor** over different areas of the image
-3. **Observe pixel values** displayed in the legend as you hover
-4. Zoom in to see individual pixels highlighted with a floating value
-5. **Take notes** of value ranges for different features:
-   * **Healthy vegetation**: e.g., NDVI 0.55-0.85
-   * **Stressed vegetation**: e.g., NDVI 0.30-0.50
-   * **Bare soil**: e.g., NDVI 0.05-0.25
-   * **Water** (if present): e.g., NDVI -0.05 to 0.10
+1. Piksel değerleri, görüntünün İndeks veya hem İndeks hem de LUT **kutuları işaretli** olduğunda gösterilir.
+2. **İmlecinizi** görüntünün farklı alanlarının üzerine getirin
+3. İmleci üzerine getirdiğinizde efsanede görüntülenen **piksel değerlerini** gözlemleyin
+4. Büyütüp, yüzen bir değerle vurgulanan tek tek pikselleri görün
+5. Farklı özellikler için değer aralıklarını **not alın**:
+   * **Sağlıklı bitki örtüsü**: ör. NDVI 0,55-0,85
+   * **Stresli bitki örtüsü**: ör. NDVI 0,30-0,50
+   * **Çıplak toprak**: ör. NDVI 0,05-0,25
+   * **Su** (varsa): ör. NDVI -0,05 ila 0,10
 
-**Using pixel values to set LUT ranges:**
+**Piksel değerlerini kullanarak LUT aralıklarını ayarlama:**
 
-After inspecting pixel values, adjust your LUT min/max accordingly:
+Piksel değerlerini inceledikten sonra, LUT min/maks değerlerini buna göre ayarlayın:
 
-**Example scenario:**
+**Örnek senaryo:**
 
-* **Observation**: Soil values = 0.05-0.25, Stressed = 0.25-0.50, Healthy = 0.50-0.85
-* **Goal**: Visualize only plant health (exclude soil)
-* **LUT settings**: Min = `0.25`, Max = `0.85`
-* **Clipping**: "Original Background" to see soil in natural color
-* **Result**: Color gradient only applies to vegetation, soil shows as original image
+* **Gözlem**: Toprak değerleri = 0,05-0,25, Stresli = 0,25-0,50, Sağlıklı = 0,50-0,85
+* **Hedef**: Yalnızca bitki sağlığını görselleştirme (toprak hariç)
+* **LUT ayarları**: Min = `0.25`, Maks = `0.85`
+* **Kırpma**: Toprağı doğal renginde görmek için &quot;Orijinal Arka Plan&quot;
+* **Sonuç**: Renk gradyanı yalnızca bitki örtüsüne uygulanır, toprak orijinal görüntü olarak gösterilir
 
-{% hint style="info" %}
-**Dynamic Range**: Different crops, seasons, and growth stages will have different value ranges. Always inspect pixel values in your specific dataset before setting LUT ranges.
+{% hint style=&quot;info&quot; %}
+**Dinamik Aralık**: Farklı mahsuller, mevsimler ve büyüme aşamaları farklı değer aralıklarına sahip olacaktır. LUT aralıklarını ayarlamadan önce her zaman belirli veri kümenizin piksel değerlerini kontrol edin.
 {% endhint %}
 
 ***
 
-## Custom Indices (Chloros+)
+## Özel Endeksler (Chloros+)
 
-### Creating Custom Index Formulas
+### Özel Dizin Formülleri Oluşturma
 
-{% hint style="info" %}
-**Where to Create**: Custom indices can be configured in **Project Settings** before processing, as well as in the Image Viewer sandbox sidebar.
+{% hint style=&quot;info&quot; %}
+**Nerede Oluşturulur**: Özel indeksler, işleme öncesinde **Proje Ayarları**&#x27;nda ve Image Viewer sandbox kenar çubuğunda yapılandırılabilir.
 {% endhint %}
 
-**To create a custom index:**
+**Özel bir indeks oluşturmak için:**
 
-1. **Open Project Settings** (before processing) or Image Viewer sandbox sidebar
-2. Navigate to the **Index formula dropdown**
-3. Look for **"Custom"** option (must be logged in with Chloros+ license)
-4. **Define your formula** using band variables:
-   * Band names: `NIR`, `Red`, `Green`, `Blue`, `RedEdge`, etc.
-   * Operators: `+`, `-`, `*`, `/`, `^` (exponent)
-   * Functions: `sqrt()`, `abs()`, etc. (if supported)
-   * Parentheses: `()` for order of operations
-5. **Name your index** (e.g., "MyIndex" or "CustomNDVI")
-6. **Save the configuration**
+1. **Proje Ayarları**&#x27;nı (işlemden önce) veya Image Viewer sandbox kenar çubuğunu açın.
+2. **İndeks formülü açılır menüsüne** gidin.
+3. **&quot;Özel&quot;** seçeneğini bulun (Chloros+ lisansıyla oturum açmış olmanız gerekir).
+4. Bant değişkenlerini kullanarak **formülünüzü tanımlayın**:
+   * Bant adları: `NIR`, `Red`, `Green`, `Blue`, `RedEdge`, vb.
+   * İşlemciler: `+`, `-`, `*`, `/`, `^` (üstel)
+   * İşlevler: `sqrt()`, `abs()`, vb. (destekleniyorsa)
+   * Parantezler: İşlem sırası için `()`
+5. **Dizinize bir ad verin** (ör. &quot;MyIndex&quot; veya &quot;CustomNDVI&quot;)
+6. **Yapılandırmayı kaydedin**
 
-**Example custom formulas:**
+**Örnek özel formüller:**
 
 ```
 Modified NDVI with offset:
@@ -398,22 +398,22 @@ Exponential index:
 (NIR / Red) ^ 2
 ```
 
-{% hint style="warning" %}
-**Formula Validation**: Ensure your formula uses bands available in your camera. For example, RedEdge is only available on cameras with a RedEdge filter.
+{% hint style=&quot;warning&quot; %}
+**Formül Doğrulama**: Formülünüzün kameranızda bulunan bantları kullandığından emin olun. Örneğin, RedEdge yalnızca RedEdge filtresine sahip kameralarda kullanılabilir.
 {% endhint %}
 
 ***
 
-## Next Steps
+## Sonraki Adımlar
 
-Now that you understand the Index/LUT Sandbox:
+Artık Endeks/LUT Sandbox&#x27;ı anladığınıza göre:
 
-* **Apply to processing**: Use discovered settings in [Project Settings](../project-settings/page-2.md)
-* **Batch process**: Apply optimized indices to full datasets
-* **Learn more**: Read [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md)
+* **İşlemeye uygulayın**: [Proje Ayarları](../project-settings/project-settings.md) içinde bulunan ayarları kullanın
+* **Toplu işleme**: Optimize edilmiş indeksleri tüm veri kümelerine uygulayın
+* **Daha fazla bilgi**: [Multispektral İndeks Formülleri](../project-settings/multispectral-index-formulas.md) bölümünü okuyun
 
-Related documentation:
+İlgili belgeler:
 
-* [**Image Layers**](image-layers.md) - Layer management and visualization
-* [**Opening an Image Full Screen**](page-3.md) - Image Viewer basics
-* [**Processing Images (GUI)**](../processing-images-gui/page-1.md) - Full processing workflow
+* [**Görüntü Katmanları**](image-layers.md) - Katman yönetimi ve görselleştirme
+* [**Görüntüyü Tam Ekran Açma**](opening-an-image-full-screen.md) - Görüntü Görüntüleyici temel bilgileri
+* [**Görüntüleri İşleme (GUI)**](../processing-images-gui/adding-files-to-a-project.md) - Tam işleme iş akışı

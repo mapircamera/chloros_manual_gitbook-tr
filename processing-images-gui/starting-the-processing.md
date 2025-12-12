@@ -1,366 +1,365 @@
-# Starting the Processing
+# İşlemeyi Başlatma
 
-Once you've imported your images, marked your calibration targets, and configured your project settings, you're ready to begin processing. This page guides you through initiating the Chloros processing pipeline.
+Görüntülerinizi içe aktardıktan, kalibrasyon hedeflerinizi işaretledikten ve proje ayarlarınızı yapılandırdıktan sonra, işlemeyi başlatmaya hazırsınız demektir. Bu sayfa, Chloros işleme sürecini başlatma konusunda size yol gösterir.
 
-## Pre-Processing Checklist
+## İşleme Öncesi Kontrol Listesi
 
-Before clicking the Start button, verify that everything is ready:
+Başlat düğmesine tıklamadan önce her şeyin hazır olduğunu doğrulayın:
 
-* [ ] **Files imported** - All images appear in File Browser
-* [ ] **Target images marked** - Target column checked for calibration images
-* [ ] **Camera models detected** - Camera Model column shows correct cameras
-* [ ] **Settings configured** - Project Settings reviewed and adjusted
-* [ ] **Indices selected** - Desired multispectral indices added (if needed)
-* [ ] **Export format chosen** - Output format appropriate for your workflow
+* [ ] **Dosyalar içe aktarıldı** - Tüm görüntüler Dosya Tarayıcı&#x27;da görünür
+* [ ] **Hedef görüntüler işaretlendi** - Kalibrasyon görüntüleri için Hedef sütunu işaretlendi
+* [ ] **Kamera modelleri algılandı** - Kamera Modeli sütununda doğru kameralar gösteriliyor
+* [ ] **Ayarlar yapılandırıldı** - Proje Ayarları gözden geçirildi ve ayarlandı
+* [ ] **Endeksler seçildi** - İstenen multispektral indeksler eklendi (gerekirse)
+* [ ] **Dışa aktarma formatı seçildi** - İş akışınıza uygun çıktı formatı
 
-{% hint style="info" %}
-**Tip**: Click through a few images in the File Browser to verify they loaded correctly before processing.
+{% hint style=&quot;info&quot; %}
+**İpucu**: İşlemeden önce Dosya Tarayıcı&#x27;da birkaç görüntüyü tıklayarak doğru yüklendiklerini doğrulayın.
 {% endhint %}
 
 ***
 
-## Starting the Processing
+## İşleme Başlama
 
-### Locate the Start Button
+### Başlat Düğmesini Bulma
 
-The Start/Play button is located in the top header bar of Chloros:
+Başlat/Oynat düğmesi, Chloros&#x27;in üst başlık çubuğunda bulunur:
 
-* Position: Top center of the window
-* Icon: **Play/Start button** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">
-* Status: Button is enabled (bright) when ready to process
+* Konum: Pencerenin üst orta kısmı
+* Simge: **Oynat/Başlat düğmesi** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">
+* Durum: İşleme hazır olduğunda düğme etkinleştirilir (parlak)
 
-### Click to Start
+### Başlatmak için tıklayın
 
-1. Click the **Play/Start button** in the top header
-2. Processing begins immediately
-3. The button becomes disabled (grayed out) during processing
-4. Progress bar updates, showing processing status
+1. Üst başlıktaki **Oynat/Başlat düğmesine** tıklayın
+2. İşleme hemen başlar
+3. İşleme sırasında düğme devre dışı bırakılır (gri renge döner)
+4. İşleme durumunu gösteren ilerleme çubuğu güncellenir
 
-{% hint style="success" %}
-**Processing Started**: Once clicked, Chloros automatically handles all processing steps - target detection, debayering, calibration, index calculation, and export.
+{% hint style=&quot;success&quot; %}
+**İşleme Başladı**: Tıklandığında, Chloros tüm işlem adımlarını otomatik olarak gerçekleştirir - hedef algılama, debayering, kalibrasyon, indeks hesaplama ve dışa aktarma.
 {% endhint %}
 
 ***
 
-## Understanding Processing Modes
+## İşleme Modlarını Anlama
 
-Chloros operates in two different processing modes depending on your license:
+Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
-### Free Mode (Sequential Processing)
+### Serbest Mod (Sıralı İşleme)
 
-**Available to all users**
+**Tüm kullanıcılar için kullanılabilir**
 
-**How it works:**
+**Nasıl çalışır:**
 
-* Processes images one at a time, sequentially
-* Single-threaded operation
-* Lower memory usage
+* Görüntüleri tek tek, sıralı olarak işler
+* Tek iş parçacıklı çalışma
+* Daha düşük bellek kullanımı
 
-**Progress bar shows 2 stages:**
+**İlerleme çubuğu 2 aşamayı gösterir:**
 
-1. **Target Detect** - Scanning for calibration targets
-2. **Processing** - Applying calibration and exporting images
+1. **Hedef Algılama** - Kalibrasyon hedeflerini tarama
+2. **İşleme** - Kalibrasyon uygulama ve görüntüleri dışa aktarma
 
-**Processing time:**
+**İşleme süresi:**
 
-* Much slower than Chloros+ parallel mode
-* Suitable for small to medium datasets (< 200 images)
+* Chloros+ paralel modundan çok daha yavaştır
+* Küçük ve orta boy veri kümeleri için uygundur (&lt; 200 görüntü)
 
-### Chloros+ Mode (Parallel Processing)
+### Chloros+ Modu (Paralel İşleme)
 
-**Requires Chloros+ license**
+**Chloros+ lisansı gerektirir**
 
-**How it works:**
+**Nasıl çalışır:**
 
-* Processes multiple images simultaneously
-* Multi-threaded operation (up to 16 parallel workers)
-* Utilizes multiple CPU cores
-* Optional GPU (CUDA) acceleration with NVIDIA graphics cards
+* Birden fazla görüntüyü aynı anda işler
+* Çok iş parçacıklı çalışma (16 adede kadar paralel işçi)
+* Birden fazla CPU çekirdeği kullanır
+* NVIDIA grafik kartlarıyla isteğe bağlı GPU (CUDA) hızlandırma
 
-**Progress bar shows 4 stages:**
+**İlerleme çubuğu 4 aşamayı gösterir:**
 
-1. **Detecting** - Finding calibration targets
-2. **Analyzing** - Examining image metadata and preparing pipeline
-3. **Calibrating** - Applying corrections and calibrations
-4. **Exporting** - Saving processed images and indices
+1. **Algılama** - Kalibrasyon hedeflerini bulma
+2. **Analiz** - Görüntü meta verilerini inceleme ve iş akışını hazırlama
+3. **Kalibre etme** - Düzeltmeler ve kalibrasyonlar uygulama
+4. **Dışa aktarma** - İşlenmiş görüntüleri ve dizinleri kaydetme
 
-**Progress bar interaction:**
+**İlerleme çubuğu etkileşimi:**
 
-* **Hover mouse** over bar to see detailed 4-stage dropdown panel
-* **Click** progress bar to freeze the dropdown panel in place
-* **Click again** to unfreeze and hide panel
+* Çubuğun üzerine **fareyi getirin**, ayrıntılı 4 aşamalı açılır paneli görmek için
+* İlerleme çubuğunu **tıklayın**, açılır paneli yerinde dondurmak için
+* **Tekrar tıklayın**, paneli çözmek ve gizlemek için
 
-**Processing time:**
+**İşleme süresi:**
 
-* Significantly faster than free mode
-* Scales with CPU core count
-* GPU acceleration further improves speed
+* Ücretsiz moddan önemli ölçüde daha hızlıdır
+* CPU çekirdek sayısı ile ölçeklenir
+* GPU hızlandırma, hızı daha da artırır
 
-{% hint style="info" %}
-**Chloros+ Speed**: Parallel processing can be 5-10x faster than sequential mode for large datasets. A 500-image project that takes 2 hours in free mode may complete in 15-20 minutes with Chloros+.
+{% hint style=&quot;info&quot; %}
+**Chloros+ Hız**: Paralel işleme, büyük veri kümeleri için sıralı moddan 5-10 kat daha hızlı olabilir. Ücretsiz modda 2 saat süren 500 görüntülü bir proje, Chloros+ ile 15-20 dakikada tamamlanabilir.
 {% endhint %}
 
 ***
 
-## What Happens During Processing
+## İşleme Sırasında Neler Olur?
 
-### Stage 1: Target Detection
+### Aşama 1: Hedef Algılama
 
-**What Chloros does:**
+**Chloros&#x27;in yaptığı şeyler:**
 
-* Scans marked target images (or all images if none marked)
-* Identifies the 4 calibration panels in each target
-* Extracts reflectance values from target panels
-* Records target timestamps for calibration scheduling
+* İşaretlenmiş hedef görüntüleri (veya işaretlenmemişse tüm görüntüleri) tarar
+* Her hedefte 4 kalibrasyon panelini tanımlar
+* Hedef panellerden yansıma değerlerini çıkarır
+* Kalibrasyon planlaması için hedef zaman damgalarını kaydeder
 
-**Duration:** 1-30 seconds (with marked targets), 5-30+ minutes (unmarked)
+**Süre:** 1-30 saniye (işaretli hedefler ile), 5-30+ dakika (işaretsiz)
 
-### Stage 2: Debayering (RAW Conversion)
+### Aşama 2: Debayering (RAW Dönüştürme)
 
-**What Chloros does:**
+**Chloros&#x27;in yaptığı işlemler:**
 
-* Converts RAW Bayer pattern data to full RGB images
-* Applies high-quality demosaicing algorithm
-* Preserves maximum image quality and detail
+* RAW Bayer desen verilerini tam RGB görüntülerine dönüştürür
+* Yüksek kaliteli demosaicing algoritması uygular
+* Maksimum görüntü kalitesini ve ayrıntıları korur
 
-**Duration:** Varies by image count and CPU speed
+**Süre:** Görüntü sayısı ve CPU hızına göre değişir
 
-### Stage 3: Calibration
+### Aşama 3: Kalibrasyon
 
-**What Chloros does:**
+**Chloros&#x27;in yaptığı işlemler:**
 
-* **Vignette correction**: Removes lens darkening at edges
-* **Reflectance calibration**: Normalizes using target reflectance values
-* Applies corrections across all bands/channels
-* Uses appropriate calibration target for each image based on timestamp
+* **Vinyet düzeltme**: Kenarlarda lens karartmasını giderir
+* **Yansıtma kalibrasyonu**: Hedef yansıtma değerlerini kullanarak normalleştirir
+* Tüm bantlar/kanallarda düzeltmeler uygular
+* Zaman damgasına göre her görüntü için uygun kalibrasyon hedefini kullanır
 
-**Duration:** Majority of processing time
+**Süre:** İşlem süresinin büyük bir kısmı
 
-### Stage 4: Index Calculation
+### Aşama 4: Endeks Hesaplama
 
-**What Chloros does:**
+**Chloros&#x27;in yaptığı işlemler:**
 
-* Calculates configured multispectral indices (NDVI, NDRE, etc.)
-* Applies band math to calibrated images
-* Generates index images for each selected index
+* Yapılandırılmış multispektral indeksleri hesaplar (NDVI, NDRE vb.)
+* Kalibre edilmiş görüntülere bant matematiği uygular
+* Seçilen her indeks için indeks görüntüleri oluşturur
 
-**Duration:** A few seconds per image
+**Süre:** Görüntü başına birkaç saniye
 
-### Stage 5: Export
+### Aşama 5: Dışa Aktarma
 
-**What Chloros does:**
+**Chloros&#x27;in yaptığı işlemler:**
 
-* Saves calibrated images in selected format
-* Exports index images with configured LUT colors
-* Writes files to camera model subfolders
-* Preserves original filenames with suffixes
+* Kalibre edilmiş görüntüleri seçilen formatta kaydeder
+* Yapılandırılmış LUT renkleriyle indeks görüntülerini dışa aktarır
+* Dosyaları kamera modeli alt klasörlerine yazar
+* Son ekleriyle birlikte orijinal dosya adlarını korur
 
-**Duration:** Varies by export format and file size
+**Süre:** Dışa aktarım formatına ve dosya boyutuna göre değişir
 
 ***
 
-## Processing Behavior
+## İşleme Davranışı
 
-### Automatic Processing Pipeline
+### Otomatik İşleme Süreci
 
-Once started, the entire pipeline runs automatically:
+Başlatıldığında, tüm süreç otomatik olarak çalışır:
 
-* No user interaction needed
-* All configured steps execute in sequence
-* Progress updates shown in real-time
+* Kullanıcı etkileşimi gerekmez
+* Yapılandırılan tüm adımlar sırayla yürütülür
+* İlerleme güncellemeleri gerçek zamanlı olarak gösterilir
 
-### Computer Usage During Processing
+### İşleme Sırasında Bilgisayar Kullanımı
 
-**Free Mode:**
+**Serbest Mod:**
 
-* Relatively low CPU usage (single-threaded)
-* Computer remains responsive for other tasks
-* Safe to minimize Chloros and work in other applications
+* Nispeten düşük CPU kullanımı (tek iş parçacıklı)
+* Bilgisayar diğer görevler için yanıt vermeye devam eder
+* Chloros&#x27;i simge durumuna küçültüp diğer uygulamalarda çalışmak güvenlidir
 
-**Chloros+ Parallel Mode:**
+**Chloros+ Paralel Mod:**
 
-* High CPU usage (multi-threaded, up to 16 cores)
-* With GPU acceleration: High GPU usage
-* Computer may be less responsive during processing
-* Avoid starting other CPU-intensive tasks
+* Yüksek CPU kullanımı (çok iş parçacıklı, 16 çekirdeğe kadar)
+* GPU hızlandırma ile: Yüksek GPU kullanımı
+* İşlem sırasında bilgisayar daha az yanıt verebilir
+* Diğer CPU yoğun görevleri başlatmaktan kaçının
 
-{% hint style="warning" %}
-**Performance Tip**: For best Chloros+ performance, close other applications and let Chloros use full system resources.
+{% hint style=&quot;warning&quot; %}
+**Performans İpucu**: En iyi Chloros+ performansı için diğer uygulamaları kapatın ve Chloros&#x27;in tüm sistem kaynaklarını kullanmasına izin verin.
 {% endhint %}
 
-### Processing Cannot Be Paused
+### İşleme Duraklatılamaz
 
-**Important limitations:**
+**Önemli sınırlamalar:**
 
-* Once started, processing cannot be paused
-* You can cancel processing, but progress is lost
-* Partial results are not saved
-* Must restart from beginning if canceled
+* İşleme başladıktan sonra duraklatılamaz.
+* İşlemeyi iptal edebilirsiniz, ancak ilerleme kaybolur.
+* Kısmi sonuçlar kaydedilmez.
+* İptal edildiğinde baştan başlamak gerekir.
 
-**Planning tip:** For very large projects, consider processing in batches or using CLI for better control.
-
-***
-
-## Monitoring Your Processing
-
-While processing runs, you can:
-
-* **Watch progress bar** - See overall completion percentage
-* **View current stage** - Detect, Analyze, Calibrate, or Export
-* **Check log tab** - See detailed processing messages and warnings
-* **Preview completed images** - Some export files may appear during processing
-
-For detailed information on monitoring, see [Monitoring the Processing](monitoring-the-processing.md).
+**Planlama ipucu:** Çok büyük projeler için, daha iyi kontrol için toplu işlemeyi veya CLI kullanmayı düşünün.
 
 ***
 
-## Canceling Processing
+## İşlemenizi İzleme
 
-If you need to stop processing:
+İşleme devam ederken şunları yapabilirsiniz:
 
-### How to Cancel
+* **İlerleme çubuğunu izleyin** - Genel tamamlanma yüzdesini görün
+* **Mevcut aşamayı görüntüleyin** - Algılama, Analiz, Kalibrasyon veya Dışa Aktarma
+* **Günlük sekmesini kontrol edin** - Ayrıntılı işleme mesajlarını ve uyarıları görün
+* **Tamamlanan görüntüleri önizleyin** - İşleme sırasında bazı dışa aktarma dosyaları görünebilir
 
-1. Locate the **Stop/Cancel button** (replaces Start button during processing)
-2. Click the Stop button
-3. Processing halts immediately
-4. Partial results are discarded
+İzleme hakkında ayrıntılı bilgi için [İşlemeyi İzleme](monitoring-the-processing.md) bölümüne bakın.
 
-### When to Cancel
+***
 
-**Valid reasons to cancel:**
+## İşlemeyi İptal Etme
 
-* Realized incorrect settings were used
-* Forgot to mark target images
-* Wrong images imported
-* System running too slow or unresponsive
+İşlemeyi durdurmanız gerekiyorsa:
 
-**After canceling:**
+### İptal Etme
 
-* Review and fix any issues
-* Adjust settings as needed
-* Restart processing from the beginning
-* For the cleanest experience, completely close Chloros and restart
+1. **Durdur/İptal düğmesini** bulun (işleme sırasında Başlat düğmesinin yerine geçer)
+2. Durdur düğmesine tıklayın
+3. İşleme hemen durur
+4. Kısmi sonuçlar silinir
 
-{% hint style="warning" %}
-**No Partial Results**: Canceling discards all progress. Chloros does not save partially processed images.
+### Ne Zaman İptal Edilir
+
+**İptal için geçerli nedenler:**
+
+* Yanlış ayarların kullanıldığı fark edildi
+* Hedef görüntüleri işaretlemeyi unuttunuz
+* Yanlış görüntüler içe aktarıldı
+* Sistem çok yavaş çalışıyor veya yanıt vermiyor
+
+**İptal ettikten sonra:**
+
+* Sorunları gözden geçirin ve düzeltin
+* Gerektiğinde ayarları değiştirin
+* İşleme baştan yeniden başlayın
+* En temiz deneyim için, Chloros&#x27;i tamamen kapatın ve yeniden başlatın.
+
+{% hint style=&quot;warning&quot; %}
+**Kısmi Sonuç Yok**: İptal etme, tüm ilerlemeyi silinir. Chloros, kısmen işlenmiş görüntüleri kaydetmez.
 {% endhint %}
 
 ***
 
-## Processing Time Estimates
+## İşlem Süresi Tahminleri
 
-Actual processing time varies greatly based on:
+Gerçek işlem süresi aşağıdakilere göre büyük ölçüde değişir:
 
-* Number of images
-* Image resolution
-* RAW vs JPG input format
-* Processing mode (Free vs Chloros+)
-* CPU speed and core count
-* GPU availability (Chloros+ only)
-* Number of indices to calculate
-* Export format complexity
+* Görüntü sayısı
+* Görüntü çözünürlüğü
+* RAW ve JPG giriş formatı
+* İşlem modu (Ücretsiz ve Chloros+)
+* CPU hızı ve çekirdek sayısı
+* GPU kullanılabilirliği (yalnızca Chloros+)
+* Hesaplanacak indeks sayısı
+* Dışa aktarma formatının karmaşıklığı
 
-### Rough Estimates (Chloros+, 12MP images, modern CPU)
+### Yaklaşık Tahminler (Chloros+, 12 MP görüntüler, modern CPU)
 
-| Image Count | Free Mode | Chloros+ (CPU) | Chloros+ (GPU) |
+| Görüntü Sayısı | Ücretsiz Mod | Chloros+ (CPU) | Chloros+ (GPU) |
 | ----------- | --------- | -------------- | -------------- |
-| 50 images   | 15-20 min | 5-8 min        | 3-5 min        |
-| 100 images  | 30-40 min | 10-15 min      | 5-8 min        |
-| 200 images  | 1-1.5 hrs | 20-30 min      | 10-15 min      |
-| 500 images  | 2-3 hrs   | 45-60 min      | 20-30 min      |
-| 1000 images | 4-6 hrs   | 1.5-2 hrs      | 40-60 min      |
+| 50 görüntü   | 15-20 dakika | 5-8 dakika        | 3-5 dakika        |
+| 100 görüntü  | 30-40 dakika | 10-15 dakika      | 5-8 dakika        |
+| 200 görüntü  | 1-1,5 saat | 20-30 dakika      | 10-15 dakika      |
+| 500 görüntü  | 2-3 saat   | 45-60 dakika      | 20-30 dakika      |
+| 1000 görüntü | 4-6 saat   | 1,5-2 saat      | 40-60 dakika      |
 
-{% hint style="info" %}
-**First Run**: Initial processing may take longer as Chloros builds caches and profiles. Subsequent processing of similar datasets will be faster.
+{% hint style=&quot;info&quot; %}
+**İlk Çalıştırma**: Chloros önbellekleri ve profilleri oluştururken ilk işleme daha uzun sürebilir. Benzer veri kümelerinin sonraki işlemeleri daha hızlı olacaktır.
 {% endhint %}
 
 ***
 
-## Common Issues at Start
+## Başlangıçta Sık Karşılaşılan Sorunlar
 
-### Start Button Disabled (Grayed Out)
+### Başlat Düğmesi Devre Dışı (Gri renkte)
 
-**Possible causes:**
+**Olası nedenler:**
 
-* No images imported
-* Backend not fully started
-* Previous processing still running
-* Project not fully loaded
+* Görüntü içe aktarılmamış
+* Arka uç tam olarak başlatılmamış
+* Önceki işlem hala devam ediyor
+* Proje tam olarak yüklenmemiş
 
-**Solutions:**
+**Çözümler:**
 
-1. Wait for backend to fully initialize (check main menu icon)
-2. Verify images are imported in File Browser
-3. Restart Chloros if button remains disabled
-4. Check Debug Log for error messages
+1. Arka planın tamamen başlatılmasını bekleyin (ana menü simgesini kontrol edin)
+2. Görüntülerin Dosya Tarayıcıya içe aktarıldığını doğrulayın
+3. Düğme devre dışı kalırsa Chloros&#x27;i yeniden başlatın
+4. Hata mesajları için Hata Ayıklama Günlüğünü kontrol edin
 
-### Processing Starts Then Immediately Fails
+### İşleme Başlıyor, Ancak Hemen Hata Veriyor
 
-**Possible causes:**
+**Olası nedenler:**
 
-* No valid images in project
-* Corrupted image files
-* Insufficient disk space
-* Insufficient memory (RAM)
+* Projede geçerli görüntü yok
+* Görüntü dosyaları bozuk
+* Yetersiz disk alanı
+* Yetersiz bellek (RAM)
 
-**Solutions:**
+**Çözümler:**
 
-1. Check Debug Log <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> for error messages
-2. Verify disk space available
-3. Try processing a smaller subset of images
-4. Verify images are not corrupted
+1. Hata ayıklama günlüğünü <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> 2. Kullanılabilir disk alanını kontrol edin
+3. Daha küçük bir görüntü alt kümesini işlemeyi deneyin
+4. Görüntülerin bozuk olmadığını kontrol edin
 
-### "No Targets Detected" Warning
+### &quot;Hedef Algılanmadı&quot; Uyarısı
 
-**Possible causes:**
+**Olası nedenler:**
 
-* Forgot to mark target images
-* Target images don't contain visible targets
-* Target detection settings too strict
+* Hedef görüntüleri işaretlemeyi unutmuş olabilirsiniz
+* Hedef görüntülerde görünür hedefler bulunmuyor olabilir
+* Hedef algılama ayarları çok katı olabilir
 
-**Solutions:**
+**Çözümler:**
 
-1. Review [Choosing Target Images](choosing-target-images.md)
-2. Mark appropriate images in Target column
-3. Verify targets are visible in marked images
-4. Adjust target detection settings if needed
-
-***
-
-## Tips for Successful Processing
-
-### Before Starting
-
-1. **Test with small subset first** - Process 10-20 images to verify settings
-2. **Check available disk space** - Ensure 2-3x dataset size free
-3. **Close unnecessary applications** - Free up system resources
-4. **Verify target images** - Preview marked targets to ensure quality
-5. **Save project** - Project auto-saves, but good practice to save manually
-
-### During Processing
-
-1. **Avoid system sleep** - Disable power saving modes
-2. **Keep Chloros in foreground** - Or at least visible in taskbar
-3. **Monitor progress occasionally** - Check for warnings or errors
-4. **Don't load other heavy applications** - Especially with Chloros+ parallel mode
-
-### Chloros+ GPU Acceleration
-
-If using NVIDIA GPU acceleration:
-
-1. Update NVIDIA drivers to latest version
-2. Ensure GPU has 4GB+ VRAM
-3. Close GPU-intensive applications (games, video editing)
-4. Monitor GPU temperature (ensure adequate cooling)
+1. [Hedef Görüntüleri Seçme](choosing-target-images.md) bölümünü inceleyin.
+2. Hedef sütununda uygun görüntüleri işaretleyin.
+3. İşaretlenen görüntülerde hedeflerin görünür olduğunu doğrulayın.
+4. Gerekirse hedef algılama ayarlarını değiştirin.
 
 ***
 
-## Next Steps
+## Başarılı İşleme için İpuçları
 
-Once processing has started:
+### Başlamadan Önce
 
-1. **Monitor the progress** - See [Monitoring the Processing](monitoring-the-processing.md)
-2. **Wait for completion** - Processing runs automatically
-3. **Review results** - See [Finishing the Processing](finishing-the-processing.md)
+1. **Önce küçük bir alt kümeyle test edin** - Ayarları doğrulamak için 10-20 görüntüyü işleyin
+2. **Kullanılabilir disk alanını kontrol edin** - Veri kümesinin 2-3 katı kadar boş alan olduğundan emin olun
+3. **Gereksiz uygulamaları kapatın** - Sistem kaynaklarını boşaltın
+4. **Hedef görüntüleri doğrulayın** - Kaliteyi sağlamak için işaretlenmiş hedefleri önizleyin
+5. **Projeyi kaydedin** - Proje otomatik olarak kaydedilir, ancak manuel olarak kaydetmek iyi bir uygulamadır.
 
-For information about what to do during processing, see [Monitoring the Processing](monitoring-the-processing.md).
+### İşleme Sırasında
+
+1. **Sistemin uyku moduna geçmesini önleyin** - Güç tasarrufu modlarını devre dışı bırakın.
+2. **Chloros&#x27;i ön planda tutun** - Veya en azından görev çubuğunda görünür durumda tutun.
+3. **Ara sıra ilerlemeyi izleyin** - Uyarılar veya hatalar olup olmadığını kontrol edin.
+4. **Diğer ağır uygulamaları yüklemeyin** - Özellikle Chloros+ paralel modunda
+
+### Chloros+ GPU Hızlandırma
+
+NVIDIA GPU hızlandırma kullanıyorsanız:
+
+1. NVIDIA sürücülerini en son sürüme güncelleyin
+2. GPU&#x27;nun 4 GB+ VRAM&#x27;e sahip olduğundan emin olun
+3. GPU&#x27;yu yoğun şekilde kullanan uygulamaları (oyunlar, video düzenleme) kapatın
+4. GPU sıcaklığını izleyin (yeterli soğutma sağlandığından emin olun)
+
+***
+
+## Sonraki Adımlar
+
+İşleme başladıktan sonra:
+
+1. **İlerlemeyi izleyin** - [İşlemeyi İzleme](monitoring-the-processing.md) bölümüne bakın
+2. **Tamamlanmasını bekleyin** - İşleme otomatik olarak çalışır
+3. **Sonuçları inceleyin** - Bkz. [İşlemeyi Tamamlama](finishing-the-processing.md)
+
+İşleme sırasında ne yapmanız gerektiği hakkında bilgi için bkz. [İşlemeyi İzleme](monitoring-the-processing.md).

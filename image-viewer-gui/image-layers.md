@@ -1,352 +1,352 @@
-# Image Layers
+# Görüntü Katmanları
 
-The Image Layers dropdown in the Chloros Image Viewer allows you to quickly switch between different versions of the same image - from the original captures to processed reflectance outputs and calculated index images.
+Chloros Görüntü Görüntüleyicisi&#x27;ndeki Görüntü Katmanları açılır menüsü, aynı görüntünün farklı sürümleri arasında hızlıca geçiş yapmanızı sağlar - orijinal çekimlerden işlenmiş yansıma çıktılarına ve hesaplanmış indeks görüntülerine kadar.
 
-## What are Image Layers?
+## Görüntü Katmanları nedir?
 
-In Chloros, **layers** refer to the different image outputs available for a single source image. When you process images, Chloros creates multiple versions:
+Chloros&#x27;te **katmanlar**, tek bir kaynak görüntü için kullanılabilen farklı görüntü çıktılarını ifade eder. Görüntüleri işlediğinizde, Chloros birden fazla sürüm oluşturur:
 
-* **Original images** (JPG and RAW files from your camera)
-* **Reflectance calibrated** outputs (if reflectance calibration was enabled)
-* **Target images** (if the image contains calibration targets)
-* **Index images** (NDVI, NDRE, GNDVI, etc. if indices were configured)
+* **Orijinal görüntüler** (kameranızdan alınan JPG ve RAW dosyaları)
+* **Yansıma kalibreli** çıktılar (yansıma kalibrasyonu etkinleştirilmişse)
+* **Hedef görüntüler** (görüntü kalibrasyon hedefleri içeriyorsa)
+* **Dizin görüntüleri** (NDVI, NDRE, GNDVI vb. dizinler yapılandırılmışsa)
 
-The **Layer Selector dropdown** in the top-right of the Image Viewer lets you instantly switch between these versions without leaving the viewer.
+Görüntü Görüntüleyicinin sağ üst köşesindeki **Katman Seçici açılır menüsü**, görüntüleyiciyi terk etmeden bu sürümler arasında anında geçiş yapmanızı sağlar.
 
 ***
 
-## Available Layer Types
+## Kullanılabilir Katman Türleri
 
 ### JPG
 
-* The original JPG preview image from your camera
-* Always available for all images
-* Unprocessed, as captured by the camera
-* Fastest to load and display
+* Kameranızdan alınan orijinal JPG önizleme görüntüsü
+* Tüm görüntüler için her zaman kullanılabilir
+* Kamera tarafından çekildiği gibi işlenmemiş
+* Yükleme ve görüntüleme hızı en yüksek
 
-**When to view:**
+**Ne zaman görüntülenir:**
 
-* Quick preview of original capture
-* Checking image composition and framing
-* Verifying capture quality before processing
+* Orijinal çekimin hızlı önizlemesi
+* Görüntü kompozisyonu ve kadrajı kontrol etmek
+* İşleme öncesinde çekim kalitesini doğrulamak
 
-### RAW (Original)
+### RAW (Orijinal)
 
-* The original RAW sensor data from your camera
-* Debayered with no post processing applied
-* Higher bit depth than JPG (typically 12-bit or 14-bit sensor data)
+* Kameranızdan alınan orijinal RAW sensör verileri
+* Sonrası işleme uygulanmadan debayering yapılmış
+* JPG&#x27;den daha yüksek bit derinliği (genellikle 12 bit veya 14 bit sensör verileri)
 
-**When to view:**
+**Ne zaman görüntülenir:**
 
-* Inspecting original sensor data quality
-* Checking for sensor issues or artifacts
-* Comparing before/after processing results
+* Orijinal sensör verisi kalitesini inceleme
+* Sensör sorunlarını veya artefaktları kontrol etme
+* İşleme öncesi/sonrası sonuçlarını karşılaştırma
 
-### RAW (Target)
+### RAW (Hedef)
 
-* Only appears for images identified as containing calibration targets
-* Shows the original RAW image with target detected
-* Used to verify target detection was successful
+* Yalnızca kalibrasyon hedefleri içerdiği belirlenen görüntüler için görünür
+* Hedef algılanan orijinal RAW görüntüsünü gösterir
+* Hedef algılamanın başarılı olduğunu doğrulamak için kullanılır
 
-**When to view:**
+**Ne zaman görüntülenir:**
 
-* Confirming calibration targets were detected correctly
-* Checking target image quality
-* Troubleshooting calibration issues
+* Kalibrasyon hedeflerinin doğru algılandığını onaylama
+* Hedef görüntü kalitesini kontrol etme
+* Kalibrasyon sorunlarını giderme
 
-{% hint style="info" %}
-**Target Layer**: This layer only appears in the dropdown for images that contain calibration targets. Regular capture images will not have this option.
+{% hint style=&quot;info&quot; %}
+**Hedef Katmanı**: Bu katman, kalibrasyon hedefleri içeren görüntüler için açılır menüde görünür. Normal çekim görüntülerinde bu seçenek yoktur.
 {% endhint %}
 
-### RAW (Reflectance)
+### RAW (Yansıtma)
 
-* The calibrated reflectance output image
-* Vignette corrected (if enabled in processing)
-* Reflectance calibrated using target data (if enabled)
-* Multi-band TIFF with all camera channels
-* Pixel values represent percent reflectance (when using percent mode)
-* Ready to manipulate with the [Index/LUT Sandbox](index-lut-sandbox.md)
+* Kalibre edilmiş yansıtma çıktı görüntüsü
+* Vinyet düzeltmesi (işlemede etkinleştirilmişse)
+* Hedef verileri kullanılarak kalibre edilmiş yansıtma (etkinleştirilmişse)
+* Tüm kamera kanallarıyla çok bantlı TIFF
+* Piksel değerleri yüzde yansıtmayı temsil eder (yüzde modu kullanıldığında)
+* [Dizin/LUT Sandbox] ile işlenmeye hazır(index-lut-sandbox.md)
 
-**When to view:**
+**Ne zaman görüntülenmeli:**
 
-* Inspecting calibrated results
-* Verifying calibration quality
-* Checking pixel values for scientific accuracy
-* Comparing with original to see calibration effects
+* Kalibre edilmiş sonuçları inceleme
+* Kalibrasyon kalitesini doğrulama
+* Bilimsel doğruluk için piksel değerlerini kontrol etme
+* Kalibrasyon etkilerini görmek için orijinal ile karşılaştırma
 
-{% hint style="success" %}
-**Recommended**: Use RAW (Reflectance) layer when checking pixel values for scientific measurements and analysis.
+{% hint style=&quot;success&quot; %}
+**Önerilen**: Bilimsel ölçümler ve analizler için piksel değerlerini kontrol ederken RAW (Yansıma) katmanını kullanın.
 {% endhint %}
 
-### RAW (NDVI Index)... and similar
+### RAW (NDVI Endeksi)... ve benzeri
 
-* Calculated vegetation index image (NDVI in this example)
-* The index name changes based on which index was configured during processing
-* Examples: RAW (NDVI Index), RAW (NDRE Index), RAW (GNDVI Index), etc.
-* Single-band grayscale image showing index calculation results
-* One layer appears for each index configured in Project Settings
+* Hesaplanan bitki örtüsü endeksi görüntüsü (bu örnekte NDVI)
+* Endeks adı, işleme sırasında hangi endeksin yapılandırıldığına göre değişir
+* Örnekler: RAW (NDVI Endeksi), RAW (NDRE Endeksi), RAW (GNDVI Endeksi) vb.
+* Endeks hesaplama sonuçlarını gösteren tek bantlı gri tonlamalı görüntü
+* Proje Ayarlarında yapılandırılan her endeks için bir katman görünür
 
-**Possible index names:**
+**Olası endeks adları:**
 
-* RAW (NDVI Index)
-* RAW (NDRE Index)
-* RAW (GNDVI Index)
-* RAW (OSAVI Index)
-* RAW (EVI Index)
-* RAW (SAVI Index)
-* And many more... (see [Multispectral Index Formulas](../project-settings/multispectral-index-formulas.md))
+* RAW (NDVI Endeksi)
+* RAW (NDRE Endeksi)
+* RAW (GNDVI Endeksi)
+* RAW (OSAVI Endeksi)
+* RAW (EVI Endeksi)
+* RAW (SAVI Endeksi)
+* Ve daha fazlası... (bkz. [Çok Spektral Endeks Formülleri](../project-settings/multispectral-index-formulas.md))
 
-**When to view:**
+**Ne zaman görüntülenir:**
 
-* Examining index calculation results
-* Checking index value ranges
-* Identifying areas of interest
-* Verifying index images before using in GIS or analysis
-
-***
-
-## Using the Layer Selector
-
-### Opening the Dropdown
-
-1. Open an image in fullscreen mode (click any thumbnail in the Image Viewer)
-2. Locate the **layer dropdown** in the top-right corner of the viewer
-3. The dropdown shows the currently selected layer (e.g., "JPG")
-4. Click the dropdown to see all available layers
-
-### Switching Layers
-
-1. Click the layer dropdown to open the list
-2. All available layers for the current image are shown
-3. Click any layer name to switch to that version
-4. The image updates immediately to show the selected layer
-
-**Quick switching:**
-
-* The dropdown remembers your last selection
-* When navigating to the next image, Chloros attempts to show the same layer type
-* If that layer doesn't exist on the next image, it defaults to JPG
-
-### Layer Availability
-
-Not all layers are available for every image:
-
-**Always available:**
-
-* ✅ JPG (every image has a JPG preview)
-
-**Conditionally available:**
-
-* ⚠️ RAW (Original) - Only if image was captured in RAW or RAW+JPG mode
-* ⚠️ RAW (Target) - Only if image contains detected calibration targets
-* ⚠️ RAW (Reflectance) - Only after processing with reflectance calibration enabled
-* ⚠️ RAW (\[Index] Index) - Only after processing with indices configured
+* Endeks hesaplama sonuçlarını incelemek
+* Endeks değer aralıklarını kontrol etmek
+* İlgi alanlarını belirlemek
+* GIS veya analizde kullanmadan önce endeks görüntülerini doğrulamak
 
 ***
 
-## Layer Persistence
+## Katman Seçiciyi Kullanma
 
-### Navigating Between Images
+### Açılır Menüyü Açma
 
-When you navigate to a different image (using arrow keys or clicking thumbnails):
+1. Bir görüntüyü tam ekran modunda açın (Görüntü Görüntüleyicide herhangi bir küçük resme tıklayın)
+2. Görüntüleyicinin sağ üst köşesindeki **katman açılır menüsünü** bulun
+3. Açılır menüde şu anda seçili olan katman (ör. &quot;JPG&quot;) gösterilir.
+4. Mevcut tüm katmanları görmek için açılır menüyü tıklayın.
 
-**Layer preference is preserved:**
+### Katmanları Değiştirme
 
-* If viewing "RAW (Reflectance)", next image shows "RAW (Reflectance)" (if available)
-* If viewing "RAW (NDVI Index)", next image shows "RAW (NDVI Index)" (if available)
-* If the same layer doesn't exist, defaults to JPG
+1. Katman açılır menüsünü tıklayarak listeyi açın.
+2. Mevcut görüntü için mevcut tüm katmanlar gösterilir.
+3. Herhangi bir katman adını tıklayarak o sürüme geçin.
+4. Görüntü, seçilen katmanı göstermek için hemen güncellenir.
 
-**Example workflow:**
+**Hızlı geçiş:**
 
-1. Open Image 1, switch to RAW (NDVI Index)
-2. Press → to view Image 2
-3. Image 2 automatically displays RAW (NDVI Index) layer
-4. Continue navigating - all images show NDVI layer
-5. Very efficient for reviewing index results across many images
+* Açılır menü son seçiminizi hatırlar
+* Bir sonraki görüntüye geçerken, Chloros aynı katman türünü göstermeye çalışır
+* Bu katman bir sonraki görüntüde yoksa, varsayılan olarak JPG kullanılır
 
-***
+### Katman Kullanılabilirliği
 
-## Common Workflows
+Tüm katmanlar her görüntü için kullanılabilir değildir:
 
-### Workflow 1: Before/After Comparison
+**Her zaman kullanılabilir:**
 
-**Goal**: Compare original vs. calibrated image
+* ✅ JPG (her görüntünün bir JPG önizlemesi vardır)
 
-1. Open processed image in Image Viewer
-2. Select **RAW (Original)** from dropdown
-3. Note the vignetting and uncalibrated values
-4. Switch to **RAW (Reflectance)** from dropdown
-5. Compare - vignetting removed, values calibrated
+**Koşullu olarak kullanılabilir:**
 
-### Workflow 2: Index Review
-
-**Goal**: Quickly review NDVI results across dataset
-
-1. Open first processed image
-2. Select **RAW (NDVI Index)** from dropdown
-3. Use → arrow key to navigate to next image
-4. NDVI layer persists automatically
-5. Continue through all images, checking NDVI patterns
-6. Switch to **RAW (NDRE Index)** to compare
-
-### Workflow 3: Target Verification
-
-**Goal**: Verify all target images were detected correctly
-
-1. Navigate to a target image
-2. Select **RAW (Target)** from dropdown
-3. Verify calibration targets are clearly visible and detected
-4. Navigate to next target image
-5. Repeat verification for all targets
-
-### Workflow 4: Pixel Value Inspection
-
-**Goal**: Check reflectance values for scientific accuracy
-
-1. Open processed image
-2. Select **RAW (Reflectance)** layer
-3. Enable **Pixel Percent** mode (button in top-right toolbar)
-4. Move cursor over vegetation areas
-5. Verify pixel values are in expected ranges (30-70% for NIR, 5-15% for Red)
-6. Check soil and water areas for appropriate values
+* ⚠️ RAW (Orijinal) - Yalnızca görüntü RAW veya RAW+JPG modunda çekilmişse
+* ⚠️ RAW (Hedef) - Yalnızca görüntü algılanan kalibrasyon hedefleri içeriyorsa
+* ⚠️ RAW (Yansıtma) - Yalnızca yansıtma kalibrasyonu etkinleştirilerek işlendikten sonra
+* ⚠️ RAW (\[Dizin] Dizin) - Yalnızca dizinler yapılandırılarak işlendikten sonra
 
 ***
 
-## Understanding Pixel Values by Layer
+## Katman Kalıcılığı
 
-Different layers show different pixel value ranges:
+### Görüntüler Arasında Gezinme
 
-### JPG Layer
+Farklı bir görüntüye geçtiğinizde (ok tuşlarını kullanarak veya küçük resimleri tıklayarak):
 
-* **Range**: 0-255 (8-bit)
-* **Meaning**: Display values, gamma-corrected
-* **Use**: Visual inspection only, not for scientific measurement
+**Katman tercihi korunur:**
 
-### RAW (Original)
+* &quot;RAW (Yansıtma)&quot; görüntüleniyorsa, sonraki görüntü &quot;RAW (Yansıtma)&quot; gösterir (varsa)
+* &quot;RAW (NDVI Dizini)&quot; görüntüleniyorsa, sonraki görüntü &quot;RAW (NDVI Dizini)&quot; gösterir (varsa)
+* Aynı katman mevcut değilse, varsayılan olarak JPG kullanılır.
 
-* **Range**: 0-65535 (16-bit)
-* **Meaning**: Raw sensor digital numbers
-* **Use**: Checking sensor performance, not calibrated
+**Örnek iş akışı:**
 
-### RAW (Reflectance)
-
-* **Range**: 0-65,535 (16-bit TIFF) or 0.0-1.0 (32-bit Percent)
-* **Meaning**: Calibrated percent reflectance
-* **Use**: Scientific measurements and analysis
-
-**For 16-bit TIFF:** Divide by 65,535 to get percent reflectance **For 32-bit Percent:** Values directly represent percent (0.5 = 50% reflectance)
-
-### RAW (Index Images)
-
-* **Range**: Varies by index (typically -1.0 to +1.0 for normalized indices)
-* **Meaning**: Index calculation result
-* **Examples**:
-  * NDVI: -1 to +1 (vegetation typically 0.4 to 0.9)
-  * NDRE: -1 to +1 (stress detection)
-  * EVI: 0 to 1 (enhanced vegetation)
+1. Görüntü 1&#x27;i açın, RAW (NDVI Endeksi) moduna geçin.
+2. Görüntü 2&#x27;yi görüntülemek için → tuşuna basın.
+3. Görüntü 2, otomatik olarak RAW (NDVI Endeksi) katmanını görüntüler.
+4. Gezinmeye devam edin - tüm görüntüler NDVI katmanını gösterir
+5. Birçok görüntüdeki indeks sonuçlarını incelemek için çok verimlidir
 
 ***
 
-## Tips and Best Practices
+## Yaygın İş Akışları
 
-### Efficient Layer Switching
+### İş Akışı 1: Öncesi/Sonrası Karşılaştırması
 
-* **Keyboard shortcut awareness**: While there's no keyboard shortcut for layers, navigation arrows (←/→) work across all layers
-* **Consistent workflows**: Pick one layer (e.g., NDVI) and review entire dataset before switching to another
-* **Quick comparisons**: Toggle between Original and Reflectance to verify processing quality
+**Amaç**: Orijinal ve kalibre edilmiş görüntüyü karşılaştırmak
 
-### Performance Considerations
+1. İşlenmiş görüntüyü Görüntü Görüntüleyicide açın
+2. Açılır menüden **RAW (Orijinal)** seçeneğini seçin
+3. Vinyetleme ve kalibre edilmemiş değerleri not edin
+4. Açılır menüden **RAW (Yansıtma)** seçeneğine geçin
+5. Karşılaştırın - vinyetleme kaldırıldı, değerler kalibre edildi
 
-* **JPG loads fastest**: Use for quick navigation through many images
-* **RAW layers load slower**: Higher resolution and bit depth
-* **Index layers**: Similar speed to Reflectance layers
-* **First load is slowest**: Subsequent views of same layer are cached and faster
+### İş Akışı 2: Dizin İnceleme
 
-### Quality Verification
+**Amaç**: Veri kümesindeki NDVI sonuçlarını hızlıca inceleyin
 
-* **Always check RAW (Original)**: Verify source data quality before trusting processed outputs
-* **Compare layers**: Use layer switching to validate processing worked correctly
-* **Check index ranges**: Use Pixel Percent mode with index layers to verify values are reasonable
+1. İlk işlenmiş görüntüyü açın
+2. Açılır menüden **RAW (NDVI Dizini)** seçeneğini seçin
+3. → ok tuşunu kullanarak bir sonraki görüntüye geçin
+4. NDVI katmanı otomatik olarak kalır
+5. Tüm görüntülerde devam edin ve NDVI desenlerini kontrol edin
+6. Karşılaştırmak için **RAW (NDRE Endeksi)** seçeneğine geçin.
 
-***
+### İş Akışı 3: Hedef Doğrulama
 
-## Troubleshooting
+**Amaç**: Tüm hedef görüntülerin doğru şekilde algılandığını doğrulayın.
 
-### Layer Not Available
+1. Bir hedef görüntüye gidin.
+2. Açılır menüden **RAW (Hedef)** seçeneğini seçin.
+3. Kalibrasyon hedeflerinin açıkça görülebilir ve algılanabilir olduğunu doğrulayın.
+4. Bir sonraki hedef görüntüye gidin
+5. Tüm hedefler için doğrulamayı tekrarlayın
 
-**Problem**: Expected layer doesn't appear in dropdown
+### İş Akışı 4: Piksel Değeri Denetimi
 
-**Possible causes:**
+**Amaç**: Bilimsel doğruluk için yansıma değerlerini kontrol edin
 
-* Image wasn't processed (only JPG and RAW (Original) available)
-* Reflectance calibration was disabled during processing
-* Specific index wasn't configured in Project Settings
-* Image is a target-only image (no indices generated for targets)
-
-**Solutions:**
-
-1. Verify image was processed (check output folder for processed files)
-2. Check Project Settings to confirm indices were configured
-3. Reprocess with desired indices enabled
-
-### Wrong Layer Shown
-
-**Problem**: Image opens in unexpected layer
-
-**Cause**: Layer preference from previous image carried forward, but that layer doesn't exist on current image
-
-**Solution**: Chloros automatically falls back to JPG when preferred layer unavailable - this is normal behavior
-
-### Can't See Calibration Targets
-
-**Problem**: RAW (Target) layer doesn't show target detection
-
-**Possible causes:**
-
-* Targets weren't detected during processing
-* Image doesn't actually contain targets
-* Target detection settings too strict
-
-**Solutions:**
-
-1. Check Debug Log for "Target found" messages
-2. Verify image actually contains visible calibration targets
-3. Adjust target detection settings in Project Settings
-4. See [Choosing Target Images](../processing-images-gui/choosing-target-images.md)
+1. İşlenmiş görüntüyü açın
+2. **RAW (Yansıma)** katmanını seçin
+3. **Piksel Yüzdesi** modunu etkinleştirin (sağ üst araç çubuğundaki düğme)
+4. İmleci bitki örtüsü alanlarının üzerine getirin
+5. Piksel değerlerinin beklenen aralıklarda olduğunu doğrulayın (NIR için %30-70, Red için %5-15)
+6. Toprak ve su alanlarının uygun değerlerde olup olmadığını kontrol edin
 
 ***
 
-## Related Features
+## Katmanlara Göre Piksel Değerlerini Anlama
 
-### Image Viewer Tools
+Farklı katmanlar farklı piksel değer aralıkları gösterir:
 
-When viewing any layer, you can use:
+### JPG Katmanı
 
-* **Zoom controls**: Magnify to inspect details
-* **Pan**: Click and drag to move around zoomed image
-* **Pixel value inspection**: See values at cursor location
-* **Navigation arrows**: Move between images while maintaining layer
-* **Pixel Percent mode**: Toggle between DN and percent display
+* **Aralık**: 0-255 (8 bit)
+* **Anlam**: Görüntüleme değerleri, gama düzeltmeli
+* **Kullanım**: Yalnızca görsel inceleme, bilimsel ölçüm için değil
 
-See [Opening an Image Full Screen](page-3.md) for complete Image Viewer documentation.
+### RAW (Orijinal)
 
-### Index/LUT Sandbox
+* **Aralık**: 0-65535 (16 bit)
+* **Anlamı**: Ham sensör dijital sayıları
+* **Kullanım**: Sensör performansını kontrol etmek için, kalibre edilmemiştir
 
-For interactive index testing and visualization:
+### RAW (Yansıtma)
 
-* **Real-time index calculation**: Test different index formulas
-* **LUT color mapping**: Apply color gradients to grayscale indices
-* **Export visualizations**: Save colored index images
+* **Aralık**: 0-65.535 (16 bit TIFF) veya 0,0-1,0 (32 bit Yüzde)
+* **Anlamı**: Kalibre edilmiş yüzde yansıma
+* **Kullanım**: Bilimsel ölçümler ve analizler
 
-See [Index/LUT Sandbox](index-lut-sandbox.md) for details.
+**16 bit TIFF için:** Yüzde yansıma elde etmek için 65.535&#x27;e bölün **32 bit Yüzde için:** Değerler doğrudan yüzdeyi temsil eder (0,5 = %50 yansıma)
+
+### RAW (Dizin Görüntüleri)
+
+* **Aralık**: Dizine göre değişir (normalleştirilmiş dizinler için genellikle -1,0 ila +1,0)
+* **Anlam**: Dizin hesaplama sonucu
+* **Örnekler**:
+  * NDVI: -1 ila +1 (bitki örtüsü genellikle 0,4 ila 0,9)
+  * NDRE: -1 ila +1 (stres algılama)
+  * EVI: 0 ila 1 (geliştirilmiş bitki örtüsü)
 
 ***
 
-## Next Steps
+## İpuçları ve En İyi Uygulamalar
 
-Now that you understand image layers:
+### Verimli Katman Değiştirme
 
-* [**Opening an Image Full Screen**](page-3.md) - Complete Image Viewer guide
-* [**Index/LUT Sandbox**](index-lut-sandbox.md) - Interactive index visualization
-* [**Multispectral Index Formulas**](../project-settings/multispectral-index-formulas.md) - Available indices reference
-* [**Finishing the Processing**](../processing-images-gui/finishing-the-processing.md) - Understanding processed outputs
+* **Klavye kısayolları hakkında bilgi**: Katmanlar için klavye kısayolu olmasa da, gezinme okları (←/→) tüm katmanlarda çalışır
+* **Tutarlı iş akışları**: Bir katman seçin (ör. NDVI) ve başka bir katmana geçmeden önce tüm veri kümesini inceleyin
+* **Hızlı karşılaştırmalar**: İşleme kalitesini doğrulamak için Orijinal ve Yansıma arasında geçiş yapın
+
+### Performansla İlgili Hususlar
+
+* **JPG en hızlı yüklenir**: Birçok görüntü arasında hızlı gezinmek için kullanın.
+* **RAW katmanları daha yavaş yüklenir**: Daha yüksek çözünürlük ve bit derinliği.
+* **Dizin katmanları**: Yansıma katmanlarına benzer hız.
+* **İlk yükleme en yavaştır**: Aynı katmanın sonraki görüntülemeleri önbelleğe alınır ve daha hızlıdır.
+
+### Kalite Doğrulama
+
+* **Her zaman RAW (Orijinal) kontrol edin**: İşlenmiş çıktıları güvenmeden önce kaynak veri kalitesini doğrulayın
+* **Katmanları karşılaştırın**: Katman değiştirmeyi kullanarak işlemenin doğru çalıştığını doğrulayın
+* **Dizin aralıklarını kontrol edin**: Dizin katmanlarıyla Piksel Yüzde modunu kullanarak değerlerin makul olduğunu doğrulayın
+
+***
+
+## Sorun Giderme
+
+### Katman Kullanılamıyor
+
+**Sorun**: Beklenen katman açılır menüde görünmüyor
+
+**Olası nedenler:**
+
+* Görüntü işlenmemiştir (yalnızca JPG ve RAW (Orijinal) kullanılabilir)
+* İşleme sırasında yansıma kalibrasyonu devre dışı bırakılmıştır
+* Proje Ayarlarında belirli bir indeks yapılandırılmamıştır
+* Görüntü yalnızca hedef içeren bir görüntüdür (hedefler için indeks oluşturulmamıştır)
+
+**Çözümler:**
+
+1. Görüntünün işlendiğini doğrulayın (işlenmiş dosyalar için çıktı klasörünü kontrol edin)
+2. Proje Ayarlarını kontrol ederek indekslerin yapılandırıldığını doğrulayın
+3. İstenen indeksler etkinleştirilerek yeniden işleyin
+
+### Yanlış Katman Gösteriliyor
+
+**Sorun**: Görüntü beklenmedik bir katmanda açılıyor
+
+**Neden**: Önceki görüntünün katman tercihi devralındı, ancak bu katman mevcut görüntüde mevcut değil
+
+**Çözüm**: Chloros, tercih edilen katman mevcut olmadığında otomatik olarak JPG&#x27;ye geri döner - bu normal bir davranıştır
+
+### Kalibrasyon Hedefleri Görünmüyor
+
+**Sorun**: RAW (Hedef) katmanı hedef algılamayı göstermiyor.
+
+**Olası nedenler:**
+
+* İşleme sırasında hedefler algılanmadı.
+* Görüntü aslında hedefler içermiyor.
+* Hedef algılama ayarları çok katı.
+
+**Çözümler:**
+
+1. Hata Ayıklama Günlüğünde &quot;Hedef bulundu&quot; mesajlarını kontrol edin.
+2. Görüntünün gerçekten görünür kalibrasyon hedefleri içerdiğini doğrulayın
+3. Proje Ayarları&#x27;nda hedef algılama ayarlarını düzenleyin
+4. [Hedef Görüntüleri Seçme](../processing-images-gui/choosing-target-images.md) bölümüne bakın
+
+***
+
+## İlgili Özellikler
+
+### Görüntü Görüntüleyici Araçları
+
+Herhangi bir katmanı görüntülerken şunları kullanabilirsiniz:
+
+* **Yakınlaştırma kontrolleri**: Ayrıntıları incelemek için büyütün
+* **Kaydırma**: Tıklayıp sürükleyerek yakınlaştırılmış görüntüde hareket edin
+* **Piksel değeri inceleme**: İmlecin bulunduğu konumdaki değerleri görün
+* **Gezinme okları**: Katmanı koruyarak görüntüler arasında hareket edin
+* **Piksel Yüzde modu**: DN ve yüzde gösterimi arasında geçiş yapın
+
+Görüntü Görüntüleyici belgelerinin tamamı için [Görüntüyü Tam Ekran Açma](opening-an-image-full-screen.md) bölümüne bakın.
+
+### Dizin/LUT Sandbox
+
+Etkileşimli dizin testi ve görselleştirme için:
+
+* **Gerçek zamanlı dizin hesaplama**: Farklı dizin formüllerini test edin
+* **LUT renk eşlemesi**: Gri tonlamalı dizinlere renk gradyanları uygulayın
+* **Görselleştirmeleri dışa aktarın**: Renkli dizin görüntülerini kaydedin
+
+Ayrıntılar için [Dizin/LUT Sandbox](index-lut-sandbox.md) için ayrıntılara bakın.
+
+***
+
+## Sonraki Adımlar
+
+Artık görüntü katmanlarını anladığınıza göre:
+
+* [**Görüntüyü Tam Ekran Açma**](opening-an-image-full-screen.md) - Tam Görüntü Görüntüleyici kılavuzu
+* [**Dizin/LUT Sandbox**](index-lut-sandbox.md) - Etkileşimli indeks görselleştirme
+* [**Çok Spektral İndeks Formülleri**](../project-settings/multispectral-index-formulas.md) - Kullanılabilir indeks referansı
+* [**İşlemeyi Tamamlama**](../processing-images-gui/finishing-the-processing.md) - İşlenmiş çıktıları anlama
