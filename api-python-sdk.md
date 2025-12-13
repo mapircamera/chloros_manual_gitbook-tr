@@ -1,6 +1,6 @@
 # API : Python SDK
 
-**Chloros Python SDK** , Chloros görüntü işleme motoruna programlı erişim sağlayarak otomasyon, özel iş akışları ve Python uygulamalarınız ve araştırma süreçlerinizle sorunsuz entegrasyon imkanı sunar.
+**Chloros Python SDK** , Chloros görüntü işleme motoruna programlı erişim sağlayarak otomasyon, özel iş akışları ve Python uygulamalarınız ve araştırma süreçlerinizle sorunsuz entegrasyon sağlar.
 
 ### Temel Özellikler
 
@@ -135,7 +135,7 @@ SDK, Chloros, Chloros (Tarayıcı) ve Chloros CLI ile aynı lisansı kullanır. 
 **Tek Seferlik Kurulum**: GUI veya CLI üzerinden oturum açtıktan sonra, SDK otomatik olarak önbelleğe alınmış lisansı kullanır. Ek kimlik doğrulaması gerekmez!
 {% endhint %}
 
-### Bağlantıyı Test Etme
+### Bağlantıyı Test Et
 
 SDK&#x27;in Chloros&#x27;e bağlanabildiğini doğrulayın:
 
@@ -211,7 +211,7 @@ Yeni bir Chloros projesi oluşturun.
 | `project_name` | str  | Evet      | Projenin adı                                     |
 | `camera`       | str  | Hayır       | Kamera şablonu (ör. &quot;Survey3N\_RGN&quot;, &quot;Survey3W\_OCN&quot;) |
 
-**Dönüşler:** `dict` - Proje oluşturma yanıtı
+**Döndürdüğü değer:** `dict` - Proje oluşturma yanıtı
 
 **Örnek:**
 
@@ -227,7 +227,7 @@ chloros.create_project("DroneField_A", camera="Survey3N_RGN")
 
 #### `import_images(folder_path, recursive=False)`
 
-Bir klasörden görüntüleri içe aktar.
+Bir klasörden görüntüleri içe aktarın.
 
 **Parametreler:**
 
@@ -236,7 +236,7 @@ Bir klasörden görüntüleri içe aktar.
 | `folder_path` | str/Yol | Evet      | Görüntülerin bulunduğu klasörün yolu         |
 | `recursive`   | bool     | Hayır       | Alt klasörleri ara (varsayılan: False) |
 
-**Dönüş:** `dict` - Dosya sayısı ile içe aktarma sonuçları
+**Döndürdükleri:** `dict` - Dosya sayısı ile içe aktarma sonuçları
 
 **Örnek:**
 
@@ -260,9 +260,9 @@ chloros.import_images("C:\\DroneImages", recursive=True)
 | ------------------------- | ---- | ----------------------- | ------------------------------- |
 | `debayer`                 | str  | &quot;Yüksek Kalite (Daha Hızlı)&quot; | Debayer yöntemi                  |
 | `vignette_correction`     | bool | `True`                  | Vinyet düzeltmesini etkinleştir      |
-| `reflectance_calibration` | bool | `True`                  | Yansıma kalibrasyonunu etkinleştir  |
+| `reflectance_calibration` | bool | `True`                  | Yansıma kalibrasyonunu etkinleştir |
 | `indices`                 | list | `None`                  | Hesaplanacak bitki örtüsü indeksleri |
-| `export_format`           | str  | &quot;TIFF (16-bit)&quot;         | Çıktı formatı                   |
+| `export_format`           | str  | &quot;TIFF (16 bit)&quot;         | Çıktı biçimi                   |
 | `ppk`                     | bool | `False`                 | PPK düzeltmelerini etkinleştir          |
 | `custom_settings`         | dict | `None`                  | Gelişmiş özel ayarlar        |
 
@@ -308,12 +308,12 @@ Proje görüntülerini işleyin.
 
 | Parametre           | Tür     | Varsayılan      | Açıklama                               |
 | ------------------- | -------- | ------------ | ----------------------------------------- |
-| `mode`              | str      | `"parallel"` | İşleme modu: &quot;parallel&quot; veya &quot;serial&quot;   |
+| `mode`              | str      | `"parallel"` | İşleme modu: &quot;paralel&quot; veya &quot;seri&quot;   |
 | `wait`              | bool     | `True`       | Tamamlanmasını bekle                       |
-| `progress_callback` | çağrılabilir | `None`       | İlerleme geri arama işlevi(ilerleme, msg) |
+| `progress_callback` | çağrılabilir | `None`       | İlerleme geri arama işlevi (ilerleme, mesaj) |
 | `poll_interval`     | float    | `2.0`        | İlerleme için yoklama aralığı (saniye)   |
 
-**Dönüş değerleri:** `dict` - İşleme sonuçları
+**Döndürdükleri:** `dict` - İşleme sonuçları
 
 {% hint style=&quot;warning&quot; %}
 **Paralel Mod**: Chloros+ lisansı gerektirir. CPU çekirdeklerinize göre otomatik olarak ölçeklenir (en fazla 16 işçi).
@@ -360,7 +360,7 @@ print(config['Project Settings'])
 
 Arka uç durum bilgilerini alır.
 
-**Dönüş değeri:** `dict` - Arka uç durumu
+**Dönüş:** `dict` - Arka uç durumu
 
 **Örnek:**
 
@@ -374,7 +374,7 @@ print(f"URL: {status['url']}")
 
 #### `shutdown_backend()`
 
-Arka ucu kapatır (SDK tarafından başlatılmışsa).
+Arka ucu kapat (SDK tarafından başlatılmışsa).
 
 **Örnek:**
 
@@ -404,7 +404,7 @@ Bir klasörü işlemek için tek satırlık kolaylık işlevi.
 | `mode`                    | str      | `"parallel"`    | İşleme modu                |
 | `progress_callback`       | çağrılabilir | `None`          | İlerleme geri çağrısı              |
 
-**Döndürdükleri:** `dict` - İşleme sonuçları
+**Dönüş değerleri:** `dict` - İşleme sonuçları
 
 **Örnek:**
 
@@ -457,7 +457,7 @@ with ChlorosLocal() as chloros:
 
 ### Örnek 1: Temel İşleme
 
-Varsayılan ayarlarla bir klasörü işleyin:
+Varsayılan ayarlarla bir klasörü işleme:
 
 ```python
 from chloros_sdk import process_folder
@@ -566,7 +566,7 @@ print("All flights processed!")
 
 ### Örnek 4: Araştırma İş Akışı Entegrasyonu
 
-Chloros&#x27;i veri analizi ile entegre edin:
+Chloros&#x27;i veri analizi ile entegre etme:
 
 ```python
 from chloros_sdk import ChlorosLocal
@@ -785,7 +785,7 @@ python my_processor.py "C:\Flight001" "C:\Flight002" --indices NDVI NDRE GNDVI
 
 ## İstisna İşleme
 
-SDK, farklı hata türleri için özel istisna sınıfları sağlar:
+SDK, farklı hata türleri için belirli istisna sınıfları sağlar:
 
 ### İstisna Hiyerarşisi
 
@@ -824,11 +824,11 @@ except ChlorosError as e:
 
 ***
 
-## İleri Düzey Konular
+## Gelişmiş Konular
 
 ### Özel Arka Uç Yapılandırması
 
-Özel bir arka uç konumu veya yapılandırması kullanın:
+Özel arka uç konumu veya yapılandırması kullanın:
 
 ```python
 chloros = ChlorosLocal(
@@ -904,7 +904,7 @@ backend_path = r"C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backen
 print(f"Backend exists: {os.path.exists(backend_path)}")
 ```
 
-2. Windows Güvenlik duvarının engellemediğini kontrol edin
+2. Windows Güvenlik Duvarı&#x27;nın engellemediğini kontrol edin
 3. Manuel arka uç yolunu deneyin:
 
 ```python
@@ -915,12 +915,12 @@ chloros = ChlorosLocal(backend_exe="C:\\Path\\To\\chloros-backend.exe")
 
 ### Lisans Algılanmadı
 
-**Sorun:** SDK, eksik lisans hakkında uyarı veriyor
+**Sorun:** SDK eksik lisans hakkında uyarı veriyor
 
 **Çözümler:**
 
-1. Chloros, Chloros (Tarayıcı) veya Chloros CLI dosyasını açın ve oturum açın.
-2. Lisansın önbelleğe alındığını doğrulayın:
+1. Chloros, Chloros (Tarayıcı) veya Chloros CLI açın ve oturum açın.
+2. Lisansın önbelleğe alınmış olduğunu doğrulayın:
 
 ```python
 from pathlib import Path
@@ -931,7 +931,7 @@ cache_path = Path(os.getenv('APPDATA')) / 'Chloros' / 'cache'
 print(f"Cache exists: {cache_path.exists()}")
 ```
 
-3. Destek ekibiyle iletişime geçin: info@mapir.camera
+3. Destek ile iletişime geçin: info@mapir.camera
 
 ***
 
@@ -997,7 +997,7 @@ Get-NetTCPConnection -LocalPort 5000
 
 ### İşlem Hızını Optimize Edin
 
-1. **Paralel Modu Kullanın** (Chloros+ gerektirir)
+1. **Paralel Modu kullanın** (Chloros+ gerektirir)
 
 ```python
 chloros.process(mode="parallel")  # Up to 16 workers
@@ -1016,7 +1016,7 @@ chloros.configure(export_format="PNG (8-bit)")  # Faster than TIFF
 chloros.configure(indices=["NDVI"])  # Not all indices
 ```
 
-4. **SSD&#x27;de İşleyin** (HDD&#x27;de değil)
+4. **SSD&#x27;de İşleme** (HDD&#x27;de değil)
 
 ***
 
@@ -1123,7 +1123,7 @@ chloros.process(progress_callback=notebook_progress)
 
 ### S: SDK için internet bağlantısı gerekli mi?
 
-**C:** Yalnızca ilk lisans etkinleştirme için gereklidir. Chloros, Chloros (Tarayıcı) veya Chloros CLI üzerinden oturum açtıktan sonra lisans yerel olarak önbelleğe alınır ve 30 gün boyunca çevrimdışı olarak çalışır.
+**C:** Yalnızca ilk lisans etkinleştirme için gereklidir. Chloros, Chloros (Tarayıcı) veya Chloros CLI lisans yerel olarak önbelleğe alınır ve 30 gün boyunca çevrimdışı çalışır.
 
 ***
 
@@ -1137,12 +1137,12 @@ chloros.process(progress_callback=notebook_progress)
 
 ***
 
-### S: Masaüstü, CLI ve SDK arasındaki fark nedir?
+### S: Desktop, CLI ve SDK arasındaki fark nedir?
 
-| Özellik         | Masaüstü GUI | CLI Komut Satırı | Python SDK  |
+| Özellik         | Desktop GUI | CLI Komut Satırı | Python SDK  |
 | --------------- | ----------- | ---------------- | ----------- |
 | **Arayüz**   | Nokta-tıklama | Komut          | Python API  |
-| **En Uygun Olduğu Alan**    | Görsel çalışma | Komut dosyası        | Entegrasyon |
+| **En Uygun**    | Görsel çalışma | Komut dosyası        | Entegrasyon |
 | **Otomasyon**  | Sınırlı     | İyi             | Mükemmel   |
 | **Esneklik** | Temel       | İyi             | Maksimum     |
 | **Lisans**     | Chloros+    | Chloros+         | Chloros+    |
@@ -1153,8 +1153,8 @@ chloros.process(progress_callback=notebook_progress)
 
 **C:** SDK kodu uygulamalarınıza entegre edilebilir, ancak:
 
-* Son kullanıcıların Chloros&#x27;i yüklemesi gerekir
-* Son kullanıcıların aktif Chloros+ lisanslarına sahip olması gerekir
+* Son kullanıcıların Chloros&#x27;i yüklemesi gerekir.
+* Son kullanıcıların aktif Chloros+ lisanslarına sahip olması gerekir.
 * Ticari dağıtım için OEM lisansı gerekir.
 
 OEM ile ilgili sorularınız için info@mapir.camera ile iletişime geçin.
@@ -1199,7 +1199,7 @@ Görev Zamanlayıcı aracılığıyla günlük olarak çalışacak şekilde zama
 
 ### S: SDK async/await&#x27;i destekliyor mu?
 
-**C:** Mevcut sürüm senkronize çalışır. Async davranışı için `wait=False`&#x27;i kullanın veya ayrı bir iş parçacığında çalıştırın:
+**C:** Mevcut sürüm senkronize çalışır. Async davranışı için `wait=False` kullanın veya ayrı bir iş parçacığında çalıştırın:
 
 ```python
 import threading
