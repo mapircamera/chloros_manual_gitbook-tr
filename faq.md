@@ -1,15 +1,14 @@
 ---
-description: Frequently Asked Questions
+description: Sıkça Sorulan Sorular
 metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/faq
 ---
-
 # SSS
 
 <details>
 
-<summary>Chloros ile MAPIR markası olmayan kameralardan gelen görüntüleri işleyebilir miyim?</summary>
+<summary>MAPIR marka olmayan kameralardan alınan görüntüleri Chloros ile işleyebilir miyim?</summary>
 
 Hayır, Chloros yalnızca MAPIR kamera görüntülerinin işlenmesini destekler. Daha fazla bilgi için [desteklenen kamera modelleri](supported-cameras.md) listesine bakın. MAPIR Cloud&#x27;da diğer kameraların görüntülerini de işleyebiliyoruz, tam listeyi [burada](https://mapir.gitbook.io/mapir-cloud/supported-cameras) görebilirsiniz.
 
