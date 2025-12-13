@@ -1,6 +1,6 @@
 # Proje Ayarları
 
-Chloros&#x27;teki Proje Ayarları <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> kenar çubuğu, projeniz için görüntü işleme, kalibrasyon hedefi algılama, multispektral indeks hesaplamaları ve dışa aktarma seçeneklerinin tüm yönlerini yapılandırmanıza olanak tanır. Bu ayarlar projenizle birlikte kaydedilir ve birden fazla projede yeniden kullanılmak üzere şablon olarak kaydedilebilir.
+Proje Ayarları <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> kenar çubuğu, projeniz için görüntü işleme, kalibrasyon hedefi algılama, multispektral indeks hesaplamaları ve dışa aktarma seçeneklerinin tüm yönlerini yapılandırmanıza olanak tanır. Bu ayarlar projenizle birlikte kaydedilir ve birden fazla projede yeniden kullanılmak üzere şablon olarak kaydedilebilir.
 
 ## Proje Ayarlarına Erişme
 
@@ -8,7 +8,7 @@ Proje Ayarlarına erişmek için:
 
 1. Chloros&#x27;te bir proje açın
 2. Sol kenar çubuğundaki **Proje Ayarları**  <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> sekmesine tıklayın
-3. Ayarlar paneli, kategorilere göre düzenlenmiş tüm mevcut yapılandırma seçeneklerini görüntüler
+3. Ayarlar paneli, kategoriye göre düzenlenmiş tüm mevcut yapılandırma seçeneklerini görüntüler
 
 ***
 
@@ -21,9 +21,9 @@ Bu ayarlar, Chloros&#x27;in görüntülerinizdeki kalibrasyon hedeflerini nasıl
 * **Tür**: Sayı
 * **Aralık**: 0 ila 10.000 piksel
 * **Varsayılan**: 25 piksel
-* **Açıklama**: Algılanan bir bölgenin geçerli bir kalibrasyon hedef örneği olarak kabul edilmesi için gereken minimum alanı (piksel cinsinden) ayarlar. Daha küçük değerler daha küçük hedefleri algılar, ancak yanlış pozitifleri artırabilir. Daha büyük değerler, algılama için daha büyük ve daha net hedef bölgeler gerektirir.
+* **Açıklama**: Algılanan bir bölgenin geçerli bir kalibrasyon hedefi örneği olarak kabul edilmesi için gereken minimum alanı (piksel cinsinden) ayarlar. Daha küçük değerler daha küçük hedefleri algılar, ancak yanlış pozitifleri artırabilir. Daha büyük değerler, algılama için daha büyük ve daha net hedef bölgeler gerektirir.
 * **Ne zaman ayarlanmalı**:
-  * Küçük görüntü artefaktlarında yanlış algılamalar elde ediyorsanız artırın.
+  * Küçük görüntü artefaktlarında yanlış algılamalar alıyorsanız artırın.
   * Kalibrasyon hedefleriniz görüntülerinizde küçük görünüyorsa ve algılanmıyorsa azaltın.
 
 ### Minimum Hedef Kümeleme (0-100)
@@ -31,7 +31,7 @@ Bu ayarlar, Chloros&#x27;in görüntülerinizdeki kalibrasyon hedeflerini nasıl
 * **Tür**: Sayı
 * **Aralık**: 0 ila 100
 * **Varsayılan**: 60
-* **Açıklama**: Kalibrasyon hedeflerini algılarken benzer renkli bölgeleri gruplandırmak için kümeleme eşiğini kontrol eder. Daha yüksek değerler, daha benzer renklerin bir araya gruplandırılmasını gerektirir, bu da daha konservatif hedef algılama ile sonuçlanır. Daha düşük değerler, bir hedef grup içinde daha fazla renk varyasyonuna izin verir.
+* **Açıklama**: Kalibrasyon hedeflerini algılarken benzer renkli bölgeleri gruplandırmak için kümeleme eşiğini kontrol eder. Daha yüksek değerler, daha benzer renklerin bir araya gruplandırılmasını gerektirir ve bu da daha konservatif hedef algılama ile sonuçlanır. Daha düşük değerler, bir hedef grup içinde daha fazla renk varyasyonuna izin verir.
 * **Ne zaman ayarlanmalı**:
   * Kalibrasyon hedefleri birden fazla algılamaya bölünüyorsa artırın.
   * Renk varyasyonu olan kalibrasyon hedefleri tam olarak algılanmıyorsa azaltın.
@@ -53,7 +53,7 @@ Bu ayarlar, Chloros&#x27;in görüntülerinizi nasıl işlediğini ve kalibre et
 
 * **Tür**: Onay kutusu
 * **Varsayılan**: Etkin (işaretli)
-* **Açıklama**: Görüntülerinizde algılanan kalibrasyon hedeflerini kullanarak otomatik yansıma kalibrasyonunu etkinleştirir. Bu, veri kümenizin yansıma değerlerini normalleştirir ve aydınlatma koşullarından bağımsız olarak tutarlı ölçümler sağlar.
+* **Açıklama**: Görüntülerinizde algılanan kalibrasyon hedeflerini kullanarak otomatik yansıma kalibrasyonunu etkinleştirir. Bu, veri kümenizdeki yansıma değerlerini normalleştirir ve aydınlatma koşullarından bağımsız olarak tutarlı ölçümler sağlar.
 * **Ne zaman devre dışı bırakılmalı**: Yalnızca ham, kalibre edilmemiş görüntüleri işlemek istiyorsanız veya farklı bir kalibrasyon iş akışı kullanıyorsanız devre dışı bırakın.
 
 ### Debayer yöntemi
@@ -72,15 +72,15 @@ Bu ayarlar, Chloros&#x27;in görüntülerinizi nasıl işlediğini ve kalibre et
 * **Varsayılan**: 0 saniye
 * **Açıklama**: Kalibrasyon hedeflerinin kullanımı arasındaki minimum zaman aralığını (saniye cinsinden) ayarlar. 0 olarak ayarlandığında, Chloros algılanan her kalibrasyon hedefini kullanır. Daha yüksek bir değere ayarlandığında, Chloros yalnızca en az bu kadar saniye aralıklarla ayrılmış kalibrasyon hedeflerini kullanır, böylece sık kalibrasyon hedefi yakalamaları olan veri kümeleri için işlem süresi azalır.
 * **Ne zaman ayarlanmalı**:
-  * Işık koşulları değiştiğinde maksimum kalibrasyon doğruluğu için 0 olarak ayarlayın
-  * Işık koşulları sabit olduğunda ve sık kalibrasyon hedefi görüntüleriniz olduğunda daha hızlı işlem için artırın (örneğin, 60-300 saniyeye)
+  * Işık koşulları değiştiğinde maksimum kalibrasyon doğruluğu için 0 olarak ayarlayın.
+  * Işık koşulları sabit olduğunda ve sık kalibrasyon hedefi görüntüleriniz olduğunda daha hızlı işlem için artırın (örneğin, 60-300 saniyeye).
 
 ### Işık sensörü saat dilimi farkı
 
 * **Tür**: Sayı
 * **Aralık**: -12 ila +12 saat
 * **Varsayılan**: 0 saat
-* **Açıklama**: Işık sensörü veri zaman damgaları için saat dilimi farkını (UTC&#x27;den saat cinsinden) belirtir. Bu, PPK (Post-Processed Kinematic) veri dosyalarını işlerken, görüntü yakalamaları ve GPS verileri arasında doğru zaman senkronizasyonunu sağlamak için kullanılır.
+* **Açıklama**: Işık sensörü veri zaman damgaları için saat dilimi farkını (UTC&#x27;den saat cinsinden) belirtir. Bu, PPK (Post-Processed Kinematic) veri dosyalarını işlerken görüntü yakalamaları ve GPS verileri arasında doğru zaman senkronizasyonunu sağlamak için kullanılır.
 * **Ne zaman ayarlanmalı**: PPK verileriniz UTC yerine yerel saati kullanıyorsa, bunu yerel saat dilimi farkına göre ayarlayın. Örneğin:
   * Pasifik Saati: -8 veya -7 (DST&#x27;ye bağlı olarak)
   * Doğu Saati: -5 veya -4 (DST&#x27;ye bağlı olarak)
@@ -90,8 +90,8 @@ Bu ayarlar, Chloros&#x27;in görüntülerinizi nasıl işlediğini ve kalibre et
 
 * **Tür**: Onay kutusu
 * **Varsayılan**: Devre dışı (işaretlenmemiş)
-* **Açıklama**: GPS (GNSS) içeren MAPIR DAQ kayıt cihazlarından Post-Processed Kinematic (PPK) düzeltmelerinin kullanımını etkinleştirir. Etkinleştirildiğinde, Chloros, proje dizininizde pozlama pimi verilerini içeren tüm .daq günlük dosyalarını kullanır ve görüntülere hassas coğrafi konum düzeltmeleri uygular.
-* **Gereklilik**: Pozlama pimi girişleri içeren .daq günlük dosyası proje dizininizde bulunmalıdır
+* **Açıklama**: GPS (GNSS) içeren MAPIR DAQ kayıt cihazlarından Post-Processed Kinematic (PPK) düzeltmelerinin kullanımını etkinleştirir. Etkinleştirildiğinde, Chloros, proje dizininde pozlama pimi verilerini içeren tüm .daq günlük dosyalarını kullanır ve görüntülere hassas coğrafi konum düzeltmeleri uygular.
+* **Gereklilik**: Proje dizininde pozlama pimi girişleri içeren .daq günlük dosyası bulunmalıdır
 * **Ne zaman etkinleştirilir**: .daq günlük dosyanızda pozlama geri bildirimi girişleri varsa, PPK düzeltmesini her zaman etkinleştirmeniz önerilir.
 
 ### Pozlama Pimi 1
@@ -134,11 +134,11 @@ Bu ayarlar, analiz ve görselleştirme için çok spektral dizinleri yapılandı
 * **Tür**: Özel dizin yapılandırma paneli
 * **Açıklama**: Görüntü işleme sırasında hesaplanacak multispektral bitki örtüsü dizinlerini (NDVI, NDRE, EVI vb.) seçip yapılandırabileceğiniz etkileşimli bir panel açar. Her biri kendi görselleştirme ayarlarına sahip birden fazla endeks ekleyebilirsiniz.
 * **Kullanılabilir endeksler**: Sistem, aşağıdakiler dahil 30&#x27;dan fazla önceden tanımlanmış multispektral endeks içerir:
-* NDVI (Normalleştirilmiş Fark Bitki Örtüsü Endeksi)
+  * NDVI (Normalleştirilmiş Fark Bitki Örtüsü Endeksi)
   * NDRE (Normalleştirilmiş Fark RedEdge)
   * EVI (Geliştirilmiş Bitki Örtüsü Endeksi)
   * GNDVI, SAVI, OSAVI, MSAVI2
-  * Ve daha fazlası (tam liste için [Çok Spektral Endeks Formülleri](multispectral-index-formulas.md) bölümüne bakın)
+  * Ve daha fazlası (tam liste için [Çok Spektral İndeks Formülleri](multispectral-index-formulas.md) bölümüne bakın)
 * **Özellikler**:
   * Önceden tanımlanmış indeks formüllerinden seçim yapın
   * Görselleştirme renk gradyanlarını yapılandırın (LUT - Arama Tabloları)
@@ -150,9 +150,9 @@ Bu ayarlar, analiz ve görselleştirme için çok spektral dizinleri yapılandı
 * **Tür**: Özel formül tanımlarının dizisi
 * **Açıklama**: Bant matematiğini kullanarak özel multispektral indeks formülleri oluşturmanıza ve kaydetmenize olanak tanır. Özel formüller, proje ayarlarınızla birlikte kaydedilir ve yerleşik indeksler gibi kullanılabilir.
 * **Nasıl oluşturulur**:
-  1. İndeks yapılandırma panelinde, özel formül seçeneğini bulun
-  2. Bant tanımlayıcılarını kullanarak formülünüzü tanımlayın (ör. NIR, Red, Green, Blue)
-  3. Formülü açıklayıcı bir adla kaydedin
+  1. Endeks yapılandırma panelinde, özel formül seçeneğini bulun.
+  2. Bant tanımlayıcılarını kullanarak formülünüzü tanımlayın (ör. NIR, Red, Green, Blue).
+  3. Formülü açıklayıcı bir adla kaydedin.
 * **Formül sözdizimi**: Aşağıdakiler dahil olmak üzere standart matematiksel işlemler desteklenir:
   * Aritmetik: `+`, `-`, `*`, `/`
   * İşlem sırası için parantezler
@@ -160,7 +160,7 @@ Bu ayarlar, analiz ve görselleştirme için çok spektral dizinleri yapılandı
 
 ***
 
-## Dışa aktarma
+## Dışa Aktarma
 
 Bu ayarlar, dışa aktarılan işlenmiş görüntülerin formatını ve kalitesini kontrol eder.
 
@@ -175,23 +175,23 @@ Bu ayarlar, dışa aktarılan işlenmiş görüntülerin formatını ve kalitesi
 * **Varsayılan**: TIFF (16 bit)
 * **Açıklama**: İşlenmiş ve kalibre edilmiş görüntüleri kaydetmek için dosya formatını seçer.
 * **Format önerileri**:
-  * **TIFF (16 bit)**: Bilimsel analiz ve profesyonel iş akışları için önerilir. Sıkıştırma artefaktları olmadan maksimum veri kalitesini korur. Çok spektral analiz ve GIS yazılımında ileri işleme için en iyisidir.
+  * **TIFF (16 bit)**: Bilimsel analiz ve profesyonel iş akışları için önerilir. Sıkıştırma artefaktları olmadan maksimum veri kalitesini korur. Çok spektral analiz ve GIS yazılımında daha ileri işleme için en iyisidir.
   * **TIFF (32 bit, Yüzde)**: Yansıma değerlerinin yüzde olarak (0-100%) verilmesi gereken iş akışları için en uygun seçenektir. Radyometrik ölçümler için maksimum hassasiyet sunar.
   * **PNG (8 bit)**: Web görüntüleme ve genel görselleştirme için uygundur. Kayıpsız sıkıştırma ile daha küçük dosya boyutları, ancak azaltılmış dinamik aralık.
-  * **JPG (8 bit)**: En küçük dosya boyutları, yalnızca önizleme ve web görüntüleme için en uygun olanıdır. Bilimsel analiz için uygun olmayan kayıplı sıkıştırma kullanır.
+  * **JPG (8 bit)**: En küçük dosya boyutları, yalnızca önizleme ve web görüntüleme için en uygunudur. Bilimsel analiz için uygun olmayan kayıplı sıkıştırma kullanır.
 
 ***
 
-## Proje Şablonunu Kaydet
+## Proje Şablonunu Kaydetme
 
 Bu özellik, mevcut proje ayarlarınızı yeniden kullanılabilir bir şablon olarak kaydetmenizi sağlar.
 
 * **Tür**: Metin girişi + Kaydet düğmesi
-* **Açıklama**: Ayar şablonunuz için açıklayıcı bir ad girin ve kaydet simgesine tıklayın. Şablon, gelecekteki projelerde kolayca yeniden kullanılabilmesi için mevcut tüm proje ayarlarınızı (hedef algılama, işleme seçenekleri, indeksler ve dışa aktarma biçimi) depolar.
+* **Açıklama**: Ayar şablonunuz için açıklayıcı bir ad girin ve kaydet simgesine tıklayın. Şablon, gelecekteki projelerde kolayca yeniden kullanmak üzere tüm mevcut proje ayarlarınızı (hedef algılama, işleme seçenekleri, indeksler ve dışa aktarma biçimi) kaydeder.
 * **Kullanım örnekleri**:
   * Farklı kamera sistemleri için şablonlar oluşturun (RGB, multispektral, NIR)
   * Belirli mahsul türleri veya analiz iş akışları için standart yapılandırmaları kaydedin
-  * Ekip genelinde tutarlı ayarları paylaşın
+  * Ekip içinde tutarlı ayarları paylaşın
 * **Kullanım şekli**:
   1. İstediğiniz tüm proje ayarlarını yapılandırın
   2. Şablon adı girin (ör. &quot;RedEdge Survey3 NDVI Standart&quot;)
@@ -202,11 +202,11 @@ Bu özellik, mevcut proje ayarlarınızı yeniden kullanılabilir bir şablon ol
 
 ## Proje Klasörünü Kaydet
 
-Bu ayar, yeni projelerin varsayılan olarak kaydedileceği yeri belirler.
+Bu ayar, yeni projelerin varsayılan olarak kaydedileceği yeri belirtir.
 
 * **Tür**: Dizin yolu gösterimi + Düzenle düğmesi
 * **Varsayılan**: `C:\Users\[Username]\Chloros Projects`
-* **Açıklama**: Yeni Chloros projelerinin oluşturulduğu geçerli varsayılan dizini gösterir. Farklı bir dizin seçmek için düzenle simgesine tıklayın.
+* **Açıklama**: Yeni Chloros projelerinin oluşturulduğu mevcut varsayılan dizini gösterir. Farklı bir dizin seçmek için düzenle simgesine tıklayın.
 * **Ne zaman değiştirilir**:
   * Ekip işbirliği için bir ağ sürücüsüne ayarlayın.
   * Büyük veri kümeleri için daha fazla depolama alanına sahip bir sürücüye değiştirin.
@@ -224,17 +224,17 @@ Tüm proje ayarları, proje dosyanızla (`.mapir` proje formatı) otomatik olara
 Ayarlar aşağıdaki sırayla uygulanır:
 
 1. **Sistem varsayılanları** - Chloros tarafından tanımlanan yerleşik varsayılanlar
-2. **Şablon ayarları** - Bir proje oluştururken bir şablon yüklediğinizde
-3. **Kaydedilmiş proje ayarları** - Proje dosyasıyla birlikte kaydedilen ayarlar
+2. **Şablon ayarları** - Proje oluştururken bir şablon yüklediğinizde
+3. **Kaydedilen proje ayarları** - Proje dosyasıyla birlikte kaydedilen ayarlar
 4. **Manuel ayarlamalar** - Mevcut oturum sırasında yaptığınız tüm değişiklikler
 
 ### Ayarlar ve Görüntü İşleme
 
-Çoğu ayar değişikliği (özellikle İşleme ve Dışa Aktarma kategorilerinde) yeni ayarları yansıtmak için görüntülerin yeniden işlenmesini tetikler. Ancak, bazı ayarlar &quot;sadece dışa aktarma&quot; içindir ve hemen yeniden işleme gerektirmez:
+Çoğu ayar değişikliği (özellikle İşleme ve Dışa Aktarma kategorilerinde) yeni ayarları yansıtmak için görüntülerin yeniden işlenmesini tetikler. Ancak, bazı ayarlar &quot;sadece dışa aktarma&quot; içindir ve hemen yeniden işlemeyi gerektirmez:
 
 * Proje Şablonunu Kaydet
 * Çalışma Dizini
-* Kalibre edilmiş görüntü formatı (dışa aktarırken geçerlidir)
+* Kalibre edilmiş görüntü formatı (dışa aktarma sırasında uygulanır)
 
 ***
 

@@ -14,7 +14,9 @@ Ana menüden yeni bir proje başlatabilir, mevcut bir projeyi açabilir veya pro
 
 Etkinleştirildiğinde, işleme başlatma düğmesi görüntü işleme sürecini başlatır.
 
-### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> İlerleme Çubuğu <img src=".gitbook/assets/image (5).png" alt="" data-size="line">Tüm dosyaları sırayla işleyen ücretsiz Chloros modunda, ilerleme çubuğu 2 aşamayı gösterir: Hedef Algılama ve İşleme.
+### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> İlerleme Çubuğu <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
+
+Tüm dosyaları sırayla işleyen ücretsiz Chloros modunda, ilerleme çubuğu 2 aşamayı gösterir: Hedef Algılama ve İşleme.
 
 Tüm dosyaları aynı anda işleyen ücretli Chloros+ lisanslı modunda, ilerleme çubuğu 4 aşamayı gösterir: Algılama, Analiz, Kalibrasyon, Dışa Aktarma. Fare imlecini Chloros+ ilerleme çubuğunun üzerine getirdiğinizde, genişletilmiş 4 ilerleme çubuğu paneli açılır ve böylece ilerlemeyi takip edebilirsiniz. Üstteki ilerleme çubuğuna tıkladığınızda açılır panel dondurulur, tekrar tıkladığınızda dondurma kaldırılır.
 

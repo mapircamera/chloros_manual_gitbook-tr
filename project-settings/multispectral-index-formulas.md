@@ -6,225 +6,225 @@ metaLinks:
       https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/multispectral-index-formulas
 ---
 
-# Multispectral Index Formulas
+# Çok Spektral Endeks Formülleri
 
-The below index formulas use a combination of Survey3 filter average transmission ranges:
+Aşağıdaki endeks formülleri, Survey3 filtre ortalama iletim aralıklarının bir kombinasyonunu kullanır:
 
-<table><thead><tr><th align="center">Survey3 Filter Color</th><th width="196.199951171875" align="center">Survey3 Filter Name</th><th width="159.800048828125" align="center">Transmission Range (FWHM)</th><th align="center">Average Transmission</th></tr></thead><tbody><tr><td align="center">Blue</td><td align="center">NGB - Blue</td><td align="center">468-483nm</td><td align="center">475nm</td></tr><tr><td align="center">Cyan</td><td align="center">OCN- Cyan</td><td align="center">476-512nm</td><td align="center">494nm</td></tr><tr><td align="center">Green</td><td align="center">RGN | NGB - Green</td><td align="center">543-558nm</td><td align="center">547nm</td></tr><tr><td align="center">Orange</td><td align="center">OCN - Orange</td><td align="center">598-640nm</td><td align="center">619nm</td></tr><tr><td align="center">Red</td><td align="center">RGN - Red</td><td align="center">653-668nm</td><td align="center">661nm</td></tr><tr><td align="center">RedEdge</td><td align="center">Re - RedEdge</td><td align="center">712-735nm</td><td align="center">724nm</td></tr><tr><td align="center">NIR1</td><td align="center">OCN - NIR1</td><td align="center">798-848nm</td><td align="center">823nm</td></tr><tr><td align="center">NIR2</td><td align="center">RGN | NGB | NIR - NIR2</td><td align="center">835-865nm</td><td align="center">850nm</td></tr></tbody></table>
+<table><thead><tr><th align="center">Survey3 Filtre Rengi</th><th width="196.199951171875" align="center">Survey3 Filtre Adı</th><th width="159.800048828125" align="center">İletim Aralığı (FWHM)</th><th align="center">Ortalama İletim</th></tr></thead><tbody><tr><td align="center">Blue</td><td align="center">NGB - Blue</td><td align="center">468-483 nm</td><td align="center">475nm</td></tr><tr><td align="center">Cyan</td><td align="center">OCN- Cyan</td><td align="center">476-512 nm</td><td align="center">494 nm</td></tr><tr><td align="center">Green</td><td align="center">RGN | NGB - Green</td><td align="center">543-558nm</td><td align="center">547 nm</td></tr><tr><td align="center">Orange</td><td align="center">OCN - Orange</td><td align="center">598-640 nm</td><td align="center">619 nm</td></tr><tr><td align="center">Red</td><td align="center">RGN - Red</td><td align="center">653-668 nm</td><td align="center">661nm</td></tr><tr><td align="center">RedEdge</td><td align="center">Re - RedEdge</td><td align="center">712-735 nm</td><td align="center">724 nm</td></tr><tr><td align="center">NIR1</td><td align="center">OCN - NIR1</td><td align="center">798-848 nm</td><td align="center">823 nm</td></tr><tr><td align="center">NIR2</td><td align="center">RGN | NGB | NIR - NIR2</td><td align="center">835-865 nm</td><td align="center">850nm</td></tr></tbody></table>
 
-When these formulas are used the name may end in "\_1" or "\_2", which corresponds to which NIR filter, either NIR1 or NIR2 was used.
+Bu formüller kullanıldığında, isim &quot;\_1&quot; veya &quot;\_2&quot; ile bitebilir; bu, NIR filtresinin, NIR1 veya NIR2&#x27;in hangisinin kullanıldığına karşılık gelir.
 
 ***
 
-## EVI - Enhanced Vegetation Index
+## EVI - Geliştirilmiş Bitki Örtüsü Endeksi
 
-This index was originally developed for use with MODIS data as an improvement over NDVI by optimizing the vegetation signal in areas of high leaf area index (LAI). It is most useful in high LAI regions where NDVI may saturate. It uses the blue reflectance region to correct for soil background signals and to reduce atmospheric influences, including aerosol scattering.
+Bu endeks, yüksek yaprak alanı indeksi (LAI) olan alanlarda bitki örtüsü sinyalini optimize ederek NDVI&#x27;i geliştirmek amacıyla MODIS verileriyle kullanılmak üzere geliştirilmiştir. NDVI&#x27;in doygunluğa ulaşabileceği yüksek LAI bölgelerinde en yararlıdır. Toprak arka plan sinyallerini düzeltmek ve aerosol saçılması dahil atmosferik etkileri azaltmak için mavi yansıma bölgesini kullanır.
 
 $$
 EVI = 2.5 *  {(NIR - Red) \over (NIR + 6 * Red - 7.5 * Blue + 1)}
 $$
 
-EVI values should range from 0 to 1 for vegetation pixels. Bright features such as clouds and white buildings, along with dark features such as water, can result in anomalous pixel values in an EVI image. Before creating an EVI image, you should mask out clouds and bright features from the reflectance image, and optionally threshold the pixel values from 0 to 1.
+EVI değerleri, bitki örtüsü pikselleri için 0 ile 1 arasında olmalıdır. Bulutlar ve beyaz binalar gibi parlak özellikler ile su gibi koyu özellikler, EVI görüntüsünde anormal piksel değerlerine neden olabilir. EVI görüntüsü oluşturmadan önce, yansıma görüntüsünden bulutları ve parlak özellikleri maskelemeli ve isteğe bağlı olarak piksel değerlerini 0 ile 1 arasında eşiklemelisiniz.
 
-_Reference: Huete, A., et al. "Overview of the Radiometric and Biophysical Performance of the MODIS Vegetation Indices." Remote Sensing of Environment 83 (2002):195–213._
+_Referans: Huete, A., et al. &quot;MODIS Bitki Örtüsü Endekslerinin Radyometrik ve Biyofiziksel Performansına Genel Bakış.&quot; Remote Sensing of Environment 83 (2002):195–213._
 
 ***
 
-## FCI1 - Forest Cover Index 1
+## FCI1 - Orman Örtüsü Endeksi 1
 
-This index distinguishes forest canopies from other types of vegetation using multispectral reflectance imagery that includes a red edge band.
+Bu endeks, kırmızı kenar bandı içeren multispektral yansıma görüntülerini kullanarak orman örtülerini diğer bitki örtüsü türlerinden ayırır.
 
 $$
 FCI1 = Red * RedEdge
 $$
 
-Forested areas will have lower FCI1 values due to the lower reflectance of trees and the presence of shadows within the canopy.
+Ormanlık alanlar, ağaçların daha düşük yansıtma özelliği ve örtü içindeki gölgelerin varlığı nedeniyle daha düşük FCI1 değerlerine sahip olacaktır.
 
-_Reference: Becker, Sarah J., Craig S.T. Daughtry, and Andrew L. Russ. "Robust forest cover indices for multispectral images." Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505-512._
+_Referans: Becker, Sarah J., Craig S.T. Daughtry ve Andrew L. Russ. &quot;Çok spektral görüntüler için sağlam orman örtüsü indeksleri.&quot; Fotogrametrik Mühendislik ve Uzaktan Algılama 84.8 (2018): 505-512._
 
 ***
 
-## FCI2 - Forest Cover Index 2
+## FCI2 - Orman Örtüsü Endeksi 2
 
-This index distinguishes forest canopies from other types of vegetation using multispectral reflectance imagery that does not include a red edge band.
+Bu endeks, kırmızı kenar bandı içermeyen multispektral yansıma görüntülerini kullanarak orman kanopilerini diğer bitki örtüsü türlerinden ayırır.
 
 $$
 FCI2 = Red * NIR
 $$
 
-Forested areas will have lower FCI2 values due to the lower reflectance of trees and the presence of shadows within the canopy.
+Ormanlık alanlar, ağaçların daha düşük yansıma özelliği ve kanopi içindeki gölgelerin varlığı nedeniyle daha düşük FCI2 değerlerine sahip olacaktır.
 
-_Reference: Becker, Sarah J., Craig S.T. Daughtry, and Andrew L. Russ. "Robust forest cover indices for multispectral images." Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505-512._
+_Referans: Becker, Sarah J., Craig S.T. Daughtry ve Andrew L. Russ. &quot;Çok spektral görüntüler için sağlam orman örtüsü indeksleri.&quot; Fotogrametrik Mühendislik ve Uzaktan Algılama 84.8 (2018): 505-512._
 
 ***
 
-## GEMI - Global Environmental Monitoring Index
+## GEMI - Küresel Çevre İzleme Endeksi
 
-This non-linear vegetation index is used for global environmental monitoring from satellite imagery and attempts to correct for atmospheric effects. It is similar to NDVI but is less sensitive to atmospheric effects. It is affected by bare soil; therefore, it is not recommended for use in areas of sparse or moderately dense vegetation.
+Bu doğrusal olmayan bitki örtüsü indeksi, uydu görüntülerinden küresel çevre izleme için kullanılır ve atmosferik etkileri düzeltmeye çalışır. NDVI ile benzerdir, ancak atmosferik etkilere daha az duyarlıdır. Çıplak topraktan etkilenir; bu nedenle, seyrek veya orta yoğunlukta bitki örtüsünün bulunduğu alanlarda kullanılması önerilmez.
 
 $$
 GEMI = eta (1 - 0.25 * eta) - {Red - 0.125 \over 1 - Red}
 $$
 
-Where:
+Nerede:
 
 $$
 eta = {2(NIR^{2}-Red^{2}) + 1.5 * NIR + 0.5 *  Red \over NIR + Red + 0.5}
 $$
 
-_Reference: Pinty, B., and M. Verstraete. GEMI: a Non-Linear Index to Monitor Global Vegetation From Satellites. Vegetation 101 (1992): 15-20._
+_Referans: Pinty, B. ve M. Verstraete. GEMI: Uydulardan Küresel Bitki Örtüsünü İzlemek için Doğrusal Olmayan Bir Endeks. Bitki Örtüsü 101 (1992): 15-20._
 
 ***
 
-## GARI - Green Atmospherically Resistant Index
+## GARI - Green Atmosferik Direnç Endeksi
 
-This index is more sensitive to a wide range of chlorophyll concentrations and less sensitive to atmospheric effects than NDVI.
+Bu endeks, NDVI&#x27;e göre geniş bir klorofil konsantrasyonu aralığına daha duyarlıdır ve atmosferik etkilere daha az duyarlıdır.
 
 $$
 GARI = {NIR - [Green - \gamma(Blue - Red)] \over NIR + [Green - \gamma(Blue - Red)]   }
 $$
 
-The gamma constant is a weighting function that depends on aerosol conditions in the atmosphere. ENVI uses a value of 1.7, which is the recommended value from Gitelson, Kaufman, and Merzylak (1996, page 296).
+Gama sabiti, atmosferdeki aerosol koşullarına bağlı bir ağırlıklandırma fonksiyonudur. ENVI, Gitelson, Kaufman ve Merzylak (1996, sayfa 296) tarafından önerilen değer olan 1,7 değerini kullanır.
 
-_Reference: Gitelson, A., Y. Kaufman, and M. Merzylak. "Use of a Green Channel in Remote Sensing of Global Vegetation from EOS-MODIS." Remote Sensing of Environment 58 (1996): 289-298._
+_Referans: Gitelson, A., Y. Kaufman ve M. Merzylak. &quot;EOS-MODIS&#x27;ten Küresel Bitki Örtüsünün Uzaktan Algılanmasında Green Kanalının Kullanımı.&quot; Remote Sensing of Environment 58 (1996): 289-298._
 
 ***
 
-## GCI - Green Chlorophyll Index
+## GCI - Green Klorofil Endeksi
 
-This index is used to estimate leaf chlorophyll content across a wide range of plant species.
+Bu endeks, çok çeşitli bitki türlerinde yaprak klorofil içeriğini tahmin etmek için kullanılır.
 
 $$
 GCI = {NIR \over Green} - 1
 $$
 
-Having broad NIR and green wavelengths provides a better prediction of chlorophyll content while allowing for more sensitivity and a higher signal-to-noise ratio.
+Geniş NIR ve yeşil dalga boylarına sahip olmak, klorofil içeriğinin daha iyi tahmin edilmesini sağlarken, daha fazla hassasiyet ve daha yüksek sinyal-gürültü oranı sağlar.
 
-_Reference: Gitelson, A., Y. Gritz, and M. Merzlyak. "Relationships Between Leaf Chlorophyll Content and Spectral Reflectance and Algorithms for Non-Destructive Chlorophyll Assessment in Higher Plant Leaves." Journal of Plant Physiology 160 (2003): 271-282._
+_Referans: Gitelson, A., Y. Gritz ve M. Merzlyak. &quot;Yaprak Klorofil İçeriği ile Spektral Yansıma ve Yüksek Bitki Yapraklarında Tahribatsız Klorofil Değerlendirmesi için Algoritmalar Arasındaki İlişkiler.&quot; Bitki Fizyolojisi Dergisi 160 (2003): 271-282._
 
 ***
 
-## GLI - Green Leaf Index
+## GLI - Green Yaprak Endeksi
 
-This index was originally designed for use with a digital RGB camera to measure wheat cover, where the red, green, and blue digital numbers (DNs) range from 0 to 255.
+Bu endeks, kırmızı, yeşil ve mavi dijital sayıların (DN) 0 ile 255 arasında değiştiği buğday örtüsünü ölçmek için dijital RGB kamera ile kullanılmak üzere tasarlanmıştır.
 
 $$
 GLI = {(Green - Red) + (Green - Blue)  \over (2 * Green) + Red + Blue }
 $$
 
-GLI values range from -1 to +1. Negative values represent soil and non-living features, while positive values represent green leaves and stems.
+GLI değerleri -1 ile +1 arasında değişir. Negatif değerler toprak ve cansız özellikleri temsil ederken, pozitif değerler yeşil yaprakları ve sapları temsil eder.
 
-_Reference: Louhaichi, M., M. Borman, and D. Johnson. "Spatially Located Platform and Aerial Photography for Documentation of Grazing Impacts on Wheat." Geocarto International 16, No. 1 (2001): 65-70._
+_Referans: Louhaichi, M., M. Borman ve D. Johnson. &quot;Buğday Üzerindeki Otlatma Etkilerinin Belgelenmesi için Mekansal Konumlandırılmış Platform ve Hava Fotoğrafçılığı.&quot; Geocarto International 16, No. 1 (2001): 65-70._
 
 ***
 
-## GNDVI - Green Normalized Difference Vegetation Index
+## GNDVI - Green Normalleştirilmiş Fark Bitki Örtüsü Endeksi
 
-This index is similar to NDVI except that it measures the green spectrum from 540 to 570 nm instead of the red spectrum. This index is more sensitive to chlorophyll concentration than NDVI.
+Bu indeks, kırmızı spektrum yerine 540 ila 570 nm arasındaki yeşil spektrumu ölçmesi dışında NDVI ile benzerdir. Bu indeks, NDVI&#x27;e göre klorofil konsantrasyonuna daha duyarlıdır.
 
 $$
 GNDVI = {(NIR - Green) \over (NIR + Green)  }
 $$
 
-_Reference: Gitelson, A., and M. Merzlyak. "Remote Sensing of Chlorophyll Concentration in Higher Plant Leaves." Advances in Space Research 22 (1998): 689-692._
+_Referans: Gitelson, A. ve M. Merzlyak. &quot;Yüksek Bitki Yapraklarında Klorofil Konsantrasyonunun Uzaktan Algılanması.&quot; Uzay Araştırmalarında Gelişmeler 22 (1998): 689-692._
 
 ***
 
-## GOSAVI - Green Optimized Soil Adjusted Vegetation Index
+## GOSAVI - Green Optimize Edilmiş Toprak Ayarlı Bitki Örtüsü Endeksi
 
-This index was originally designed with color-infrared photography to predict nitrogen requirements for corn. It is similar to OSAVI, but it substitutes the green band for red.
+Bu indeks, başlangıçta mısırın azot ihtiyacını tahmin etmek için renkli kızılötesi fotoğrafçılıkla tasarlanmıştır. OSAVI&#x27;e benzer, ancak yeşil bandı kırmızı ile değiştirir.
 
 $$
 GOSAVI = {NIR - Green \over NIR + Green + 0.16)  }
 $$
 
-_Reference: Sripada, R., et al. "Determining In-Season Nitrogen Requirements for Corn Using Aerial Color-Infrared Photography." Ph.D. dissertation, North Carolina State University, 2005._
+_Referans: Sripada, R., et al. &quot;Hava Renkli Kızılötesi Fotoğrafçılık Kullanarak Mısırın Sezon İçi Azot İhtiyacının Belirlenmesi.&quot; Doktora tezi, Kuzey Carolina Eyalet Üniversitesi, 2005._
 
 ***
 
-## GRVI - Green Ratio Vegetation Index
+## GRVI - Green Oran Bitki Örtüsü Endeksi
 
-This index is sensitive to photosynthetic rates in forest canopies, as green and red reflectances are strongly influenced by changes in leaf pigments.
+Bu endeks, yeşil ve kırmızı yansıma oranları yaprak pigmentlerindeki değişikliklerden güçlü bir şekilde etkilendiği için orman örtüsündeki fotosentetik oranlara duyarlıdır.
 
 $$
 GRVI = {NIR \over Green }
 $$
 
-_Reference: Sripada, R., et al. "Aerial Color Infrared Photography for Determining Early In-season Nitrogen Requirements in Corn." Agronomy Journal 98 (2006): 968-977._
+_Referans: Sripada, R., et al. &quot;Mısırda Sezon Başında Azot İhtiyacını Belirlemek için Hava Renkli Kızılötesi Fotoğrafçılık.&quot; Agronomy Journal 98 (2006): 968-977._
 
 ***
 
-## GSAVI - Green Soil Adjusted Vegetation Index
+## GSAVI - Green Toprak Ayarlı Bitki Örtüsü Endeksi
 
-This index was originally designed with color-infrared photography to predict nitrogren requirements for corn. It is similar to SAVI, but it substitutes the green band for red.
+Bu endeks, mısırın azot ihtiyacını tahmin etmek için renkli kızılötesi fotoğrafçılıkla tasarlanmıştır. SAVI&#x27;e benzer, ancak yeşil bandı kırmızı ile değiştirir.
 
 $$
 GSAVI = 1.5 * {(NIR - Green) \over (NIR + Green + 0.5)  }
 $$
 
-_Reference: Sripada, R., et al. "Determining In-Season Nitrogen Requirements for Corn Using Aerial Color-Infrared Photography." Ph.D. dissertation, North Carolina State University, 2005._
+_Referans: Sripada, R., et al. &quot;Hava Renkli Kızılötesi Fotoğrafçılık Kullanarak Mısırın Sezon İçi Azot İhtiyacının Belirlenmesi.&quot; Doktora tezi, North Carolina State University, 2005._
 
 ***
 
-## LAI - Leaf Area Index
+## LAI - Yaprak Alan İndeksi
 
-This index is used to estimate foliage cover and to forecast crop growth and yield. ENVI computes green LAI using the following empirical formula from Boegh et al (2002):
+Bu indeks, yaprak örtüsünü tahmin etmek ve mahsulün büyümesini ve verimini öngörmek için kullanılır. ENVI, Boegh ve diğerleri (2002) tarafından geliştirilen aşağıdaki ampirik formülü kullanarak yeşil LAI değerini hesaplar:
 
 $$
 LAI = 3.618 * EVI - 0.118
 $$
 
-Where EVI is:
+Burada EVI şudur:
 
 $$
 EVI = 2.5 *  {(NIR - Red) \over (NIR + 6 * Red - 7.5 * Blue + 1)}
 $$
 
-High LAI values typically range from approximately 0 to 3.5. However, when the scene contains clouds and other bright features that produce saturated pixels, the LAI values can exceed 3.5. You should ideally mask out clouds and bright features from your scene before creating an LAI image.
+Yüksek LAI değerleri genellikle yaklaşık 0 ile 3,5 arasında değişir. Ancak, sahnede doymuş pikseller üreten bulutlar ve diğer parlak özellikler varsa, LAI değerleri 3,5&#x27;i aşabilir. LAI görüntüsü oluşturmadan önce, ideal olarak sahnedeki bulutları ve parlak özellikleri maskelemelisiniz.
 
-_Reference: Boegh, E., H. Soegaard, N. Broge, C. Hasager, N. Jensen, K. Schelde, and A. Thomsen. "Airborne Multi-spectral Data for Quantifying Leaf Area Index, Nitrogen Concentration and Photosynthetic Efficiency in Agriculture." Remote Sensing of Environment 81, no. 2-3 (2002): 179-193._
+_Referans: Boegh, E., H. Soegaard, N. Broge, C. Hasager, N. Jensen, K. Schelde ve A. Thomsen. &quot;Tarımda Yaprak Alan İndeksi, Azot Konsantrasyonu ve Fotosentetik Verimliliği Ölçmek için Havadan Çok Spektral Veriler.&quot; Remote Sensing of Environment 81, no. 2-3 (2002): 179-193._
 
 ***
 
-## LCI - Leaf Chlorophyll Index
+## LCI - Yaprak Klorofil İndeksi
 
-This index is used to estimate chlorophyll content in higher plants, sensitive to variation in reflectance caused by chlorophyll absorption.
+Bu indeks, klorofil emiliminin neden olduğu yansıma değişkenliğine duyarlı olan yüksek bitkilerdeki klorofil içeriğini tahmin etmek için kullanılır.
 
 $$
 LCI = {NIR2 - RedEdge \over NIR2 + Red}
 $$
 
-_Reference: Datt, B. "Remote Sensing of Water Content in Eucalyptus Leaves." Journal of Plant Physiology 154, no. 1 (1999): 30-36._
+_Referans: Datt, B. &quot;Okaliptüs Yapraklarındaki Su İçeriğinin Uzaktan Algılanması.&quot; Bitki Fizyolojisi Dergisi 154, no. 1 (1999): 30-36._
 
 ***
 
-## MNLI - Modified Non-Linear Index
+## MNLI - Modifiye Edilmiş Doğrusal Olmayan Endeks
 
-This index is an enhancement to the Non-Linear Index (NLI) that incorporates the Soil Adjusted Vegetation Index (SAVI) to account for the soil background. ENVI uses a canopy background adjustment factor (_L_) value of 0.5.
+Bu endeks, toprak arka planını hesaba katmak için Toprak Ayarlı Bitki Örtüsü Endeksi&#x27;ni (SAVI) içeren Doğrusal Olmayan Endeks&#x27;in (NLI) geliştirilmiş bir versiyonudur. ENVI, 0,5 değerinde bir gölgelik arka plan ayarlama faktörü (_L_) kullanır.
 
 $$
 MNLI = {(NIR^{2} - Red) * (1 + L) \over (NIR^{2} + Red + L)  }
 $$
 
-_Reference: Yang, Z., P. Willis, and R. Mueller. "Impact of Band-Ratio Enhanced AWIFS Image to Crop Classification Accuracy." Proceedings of the Pecora 17 Remote Sensing Symposium (2008), Denver, CO._
+_Referans: Yang, Z., P. Willis ve R. Mueller. &quot;Bant Oranı Geliştirilmiş AWIFS Görüntüsünün Mahsul Sınıflandırma Doğruluğuna Etkisi.&quot; Pecora 17 Uzaktan Algılama Sempozyumu Bildirileri (2008), Denver, CO._
 
 ***
 
-## MSAVI2 - Modified Soil Adjusted Vegetation Index 2
+## MSAVI2 - Modifiye Edilmiş Toprak Ayarlı Bitki Örtüsü Endeksi 2
 
-This index is a simpler version of the MSAVI index proposed by Qi, et al (1994), which improves upon the Soil Adjusted Vegetation Index (SAVI). It reduces soil noise and increases the dynamic range of the vegetation signal. MSAVI2 is based on an inductive method that does not use a constant _L_ value (as with SAVI) to highlight healthy vegetation.
+Bu endeks, Qi ve ark. (1994) tarafından önerilen MSAVI endeksinin daha basit bir versiyonudur ve Toprak Ayarlı Bitki Örtüsü Endeksi&#x27;ni (SAVI) geliştirir. Toprak gürültüsünü azaltır ve bitki örtüsü sinyalinin dinamik aralığını artırır. MSAVI2, sağlıklı bitki örtüsünü vurgulamak için sabit bir _L_ değeri (SAVI&#x27;te olduğu gibi) kullanmayan endüktif bir yönteme dayanır.
 
 $$
 MSAVI2 = {2 * NIR + 1 - \sqrt{(2 * NIR + 1)^{2} - 8(NIR - Red)} \over 2}
 $$
 
-_Reference: Qi, J., A. Chehbouni, A. Huete, Y. Kerr, and S. Sorooshian. "A Modified Soil Adjusted Vegetation Index." Remote Sensing of Environment 48 (1994): 119-126._
+_Referans: Qi, J., A. Chehbouni, A. Huete, Y. Kerr ve S. Sorooshian. &quot;Değiştirilmiş Toprak Ayarlı Bitki Örtüsü Endeksi.&quot; Remote Sensing of Environment 48 (1994): 119-126._
 
 ***
 
-## NDRE- Normalized Difference RedEdge
+## NDRE- Normalize Edilmiş Fark RedEdge
 
-This index is similar to NDVI but compares the contrast between NIR with RedEdge instead of Red, which often detects vegetation stress sooner.
+Bu endeks, NDVI ile benzerdir, ancak Red yerine NIR ile RedEdge arasındaki kontrastı karşılaştırır ve bu da genellikle bitki örtüsü stresini daha erken tespit eder.
 
 $$
 NDRE = {NIR - RedEdge \over NIR + RedEdge  }
@@ -232,104 +232,104 @@ $$
 
 ***
 
-## NDVI - Normalized Difference Vegetation Index
+## NDVI - Normalize Edilmiş Fark Bitki Örtüsü Endeksi
 
-This index is a measure of healthy, green vegetation. The combination of its normalized difference formulation and use of the highest absorption and reflectance regions of chlorophyll make it robust over a wide range of conditions. It can, however, saturate in dense vegetation conditions when LAI becomes high.
+Bu endeks, sağlıklı, yeşil bitki örtüsünün bir ölçüsüdür. Normalize edilmiş fark formülasyonu ve klorofilin en yüksek emilim ve yansıma bölgelerinin kullanımı, onu çok çeşitli koşullarda sağlam hale getirir. Ancak, LAI yüksek olduğunda yoğun bitki örtüsü koşullarında doygun hale gelebilir.
 
 $$
 NDVI = {NIR - Red \over NIR + Red  }
 $$
 
-The value of this index ranges from -1 to 1. The common range for green vegetation is 0.2 to 0.8.
+Bu endeksin değeri -1 ile 1 arasında değişir. Yeşil bitki örtüsü için genel aralık 0,2 ile 0,8 arasındadır.
 
-_Reference: Rouse, J., R. Haas, J. Schell, and D. Deering. Monitoring Vegetation Systems in the Great Plains with ERTS. Third ERTS Symposium, NASA (1973): 309-317._
+_Referans: Rouse, J., R. Haas, J. Schell ve D. Deering. ERTS ile Büyük Ovalarda Bitki Örtüsü Sistemlerinin İzlenmesi. Üçüncü ERTS Sempozyumu, NASA (1973): 309-317._
 
 ***
 
-## NLI - Non-Linear Index
+## NLI - Doğrusal Olmayan Endeks
 
-This index assumes that the relationship between many vegetation indices and surface biophysical parameters is non-linear. It linearizes relationships with surface parameters that tend to be non-linear.
+Bu endeks, birçok bitki örtüsü endeksi ile yüzey biyofiziksel parametreleri arasındaki ilişkinin doğrusal olmadığını varsayar. Doğrusal olmayan olma eğiliminde olan yüzey parametreleri ile ilişkileri doğrusal hale getirir.
 
 $$
 NLI = {NIR^{2} - Red \over NIR^{2} + Red  }
 $$
 
-_Reference: Goel, N., and W. Qin. "Influences of Canopy Architecture on Relationships Between Various Vegetation Indices and LAI and Fpar: A Computer Simulation." Remote Sensing Reviews 10 (1994): 309-347._
+_Referans: Goel, N. ve W. Qin. &quot;Çeşitli Bitki Örtüsü Endeksleri ile LAI ve Fpar Arasındaki İlişkiler Üzerine Kanopi Mimarisi Etkileri: Bir Bilgisayar Simülasyonu.&quot; Remote Sensing Reviews 10 (1994): 309-347._
 
 ***
 
-## OSAVI - Optimized Soil Adjusted Vegetation Index
+## OSAVI - Optimize Edilmiş Toprak Ayarlı Bitki Örtüsü Endeksi
 
-This index is based on the Soil Adjusted Vegetation Index (SAVI). It uses a standard value of 0.16 for the canopy background adjustment factor. Rondeaux (1996) determined that this value provides greater soil variation than SAVI for low vegetation cover, while demonstrating increased sensitivity to vegetation cover greater than 50%. This index is best used in areas with relatively sparse vegetation where soil is visible through the canopy.
+Bu endeks, Toprak Ayarlı Bitki Örtüsü Endeksi&#x27;ne (SAVI) dayanmaktadır. Kanopi arka plan ayarlama faktörü için 0,16 standart değeri kullanır. Rondeaux (1996), bu değerin düşük bitki örtüsü için SAVI&#x27;ten daha fazla toprak varyasyonu sağladığını, ancak %50&#x27;den fazla bitki örtüsüne karşı daha fazla duyarlılık gösterdiğini belirlemiştir. Bu endeks, bitki örtüsünün nispeten seyrek olduğu ve toprağın bitki örtüsünden görülebildiği alanlarda en iyi şekilde kullanılır.
 
 $$
 OSAVI = {(NIR - Red) \over (NIR + Red + 0.16)  }
 $$
 
-_Reference: Rondeaux, G., M. Steven, and F. Baret. "Optimization of Soil-Adjusted Vegetation Indices." Remote Sensing of Environment 55 (1996): 95-107._
+_Referans: Rondeaux, G., M. Steven ve F. Baret. &quot;Toprak Ayarlı Bitki Örtüsü Endekslerinin Optimizasyonu.&quot; Remote Sensing of Environment 55 (1996): 95-107._
 
 ***
 
-## RDVI - Renormalized Difference Vegetation Index
+## RDVI - Yeniden Normalleştirilmiş Fark Bitki Örtüsü Endeksi
 
-This index uses the difference between near-infrared and red wavelengths, along with the NDVI, to highlight healthy vegetation. It is insensitive to the effects of soil and sun viewing geometry.
+Bu endeks, NDVI ile birlikte yakın kızılötesi ve kırmızı dalga boyları arasındaki farkı kullanarak sağlıklı bitki örtüsünü vurgular. Toprak ve güneşin görüş geometrisinin etkilerine duyarlı değildir.
 
 $$
 RDVI = {(NIR- Red) \over \sqrt{(NIR + Red)}  }
 $$
 
-_Reference: Roujean, J., and F. Breon. "Estimating PAR Absorbed by Vegetation from Bidirectional Reflectance Measurements." Remote Sensing of Environment 51 (1995): 375-384._
+_Referans: Roujean, J. ve F. Breon. &quot;İki Yönlü Yansıma Ölçümlerinden Bitki Örtüsü Tarafından Emilen PAR&#x27;ın Tahmin Edilmesi.&quot; Remote Sensing of Environment 51 (1995): 375-384._
 
 ***
 
-## SAVI - Soil Adjusted Vegetation Index
+## SAVI - Toprak Düzeltilmiş Bitki Örtüsü Endeksi
 
-This index is similar to NDVI, but it suppresses the effects of soil pixels. It uses a canopy background adjustment factor, _L_, which is a function of vegetation density and often requires prior knowledge of vegetation amounts. Huete (1988) suggests an optimal value of _L_=0.5 to account for first-order soil background variations. This index is best used in areas with relatively sparse vegetation where soil is visible through the canopy.
+Bu endeks, NDVI&#x27;e benzer, ancak toprak piksellerinin etkilerini bastırır. Bitki örtüsü yoğunluğunun bir fonksiyonu olan ve genellikle bitki örtüsü miktarları hakkında önceden bilgi gerektiren bir gölgelik arka plan ayarlama faktörü, _L_ kullanır. Huete (1988), birinci dereceden toprak arka plan varyasyonlarını hesaba katmak için _L_=0,5&#x27;in optimal değer olduğunu önerir. Bu endeks, bitki örtüsünün nispeten seyrek olduğu ve toprağın bitki örtüsünden görülebildiği alanlarda en iyi şekilde kullanılır.
 
 $$
 SAVI = {1.5 * (NIR- Red) \over (NIR + Red + 0.5)  }
 $$
 
-_Reference: Huete, A. "A Soil-Adjusted Vegetation Index (SAVI)." Remote Sensing of Environment 25 (1988): 295-309._
+_Referans: Huete, A. &quot;Toprağa Göre Düzeltilmiş Bitki Örtüsü Endeksi (SAVI).&quot; Remote Sensing of Environment 25 (1988): 295-309._
 
 ***
 
-## TDVI - Transformed Difference Vegetation Index
+## TDVI - Dönüştürülmüş Fark Bitki Örtüsü Endeksi
 
-This index is useful for monitoring vegetation cover in urban environments. It does not saturate like NDVI and SAVI.
+Bu endeks, kentsel ortamlarda bitki örtüsünü izlemek için kullanışlıdır. NDVI ve SAVI gibi doygunluğa ulaşmaz.
 
 $$
 TDVI = 1.5 * {(NIR- Red) \over \sqrt{NIR^{2} + Red + 0.5}  }
 $$
 
-_Reference: Bannari, A., H. Asalhi, and P. Teillet. "Transformed Difference Vegetation Index (TDVI) for Vegetation Cover Mapping" In Proceedings of the Geoscience and Remote Sensing Symposium, IGARSS '02, IEEE International, Volume 5 (2002)._
+_Referans: Bannari, A., H. Asalhi ve P. Teillet. &quot;Bitki Örtüsü Haritalaması için Dönüştürülmüş Fark Bitki Örtüsü Endeksi (TDVI)&quot; Jeoloji Bilimi ve Uzaktan Algılama Sempozyumu Bildirileri, IGARSS &#x27;02, IEEE International, Cilt 5 (2002)._
 
 ***
 
-## VARI - Visible Atmospherically Resistant Index
+## VARI - Görünür Atmosferik Direnç Endeksi
 
-This index is based on the ARVI and is used to estimate the fraction of vegetation in a scene with low sensitivity to atmospheric effects.
+Bu endeks, ARVI&#x27;e dayanır ve atmosferik etkilere karşı düşük duyarlılığa sahip bir sahnedeki bitki örtüsünün oranını tahmin etmek için kullanılır.
 
 $$
 VARI = {Green - Red \over Green + Red - Blue  }
 $$
 
-_Reference: Gitelson, A., et al. "Vegetation and Soil Lines in Visible Spectral Space: A Concept and Technique for Remote Estimation of Vegetation Fraction. International Journal of Remote Sensing 23 (2002): 2537−2562._
+_Referans: Gitelson, A., et al. &quot;Görünür Spektral Uzayda Bitki Örtüsü ve Toprak Çizgileri: Bitki Örtüsü Oranının Uzaktan Tahmin Edilmesi için Bir Kavram ve Teknik. Uluslararası Uzaktan Algılama Dergisi 23 (2002): 2537−2562._
 
 ***
 
-## WDRVI - Wide Dynamic Range Vegetation Index
+## WDRVI - Geniş Dinamik Aralık Bitki Örtüsü Endeksi
 
-This index is similar to NDVI, but it uses a weighting coefficient (_a_) to reduce the disparity between the contributions of the near-infrared and red signals to the NDVI. The WDRVI is particularly effective in scenes that have moderate-to-high vegetation density when NDVI exceeds 0.6. NDVI tends to level off when vegetation fraction and leaf area index (LAI) increase, whereas the WDRVI is more sensitive to a wider range of vegetation fractions and to changes in LAI.
+Bu endeks, NDVI&#x27;e benzer, ancak NDVI&#x27;e yakın kızılötesi ve kırmızı sinyallerin katkıları arasındaki farkı azaltmak için bir ağırlık katsayısı (_a_) kullanır. WDRVI, NDVI 0,6&#x27;yı aştığında orta ila yüksek bitki örtüsü yoğunluğuna sahip sahnelerde özellikle etkilidir. NDVI, bitki örtüsü oranı ve yaprak alanı indeksi (LAI) arttığında düzleşme eğilimi gösterirken, WDRVI daha geniş bir bitki örtüsü oranı aralığına ve LAI&#x27;teki değişikliklere daha duyarlıdır.
 
 $$
 WDRVI = {(\alpha * NIR- Red) \over (\alpha * NIR + Red)}
 $$
 
-The weighting coefficient (_a_) can range from 0.1 to 0.2. A value of 0.2 is recommended by Henebry, Viña, and Gitelson (2004).
+Ağırlık katsayısı (_a_) 0,1 ile 0,2 arasında değişebilir. Henebry, Viña ve Gitelson (2004) tarafından 0,2 değeri önerilmektedir.
 
-_References_
+_Referanslar_
 
-_Gitelson, A. "Wide Dynamic Range Vegetation Index for Remote Quantification of Biophysical Characteristics of Vegetation." Journal of Plant Physiology 161, No. 2 (2004): 165-173._
+_Gitelson, A. &quot;Bitki Örtüsünün Biyofiziksel Özelliklerinin Uzaktan Ölçülmesi için Geniş Dinamik Aralık Bitki Örtüsü Endeksi.&quot; Bitki Fizyolojisi Dergisi 161, No. 2 (2004): 165-173._
 
-_Henebry, G., A. Viña, and A. Gitelson. "The Wide Dynamic Range Vegetation Index and its Potential Utility for Gap Analysis." Gap Analysis Bulletin 12: 50-56._
+_Henebry, G., A. Viña ve A. Gitelson. &quot;Geniş Dinamik Aralık Bitki Örtüsü Endeksi ve Boşluk Analizi için Potansiyel Yararı.&quot; Boşluk Analizi Bülteni 12: 50-56._

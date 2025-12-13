@@ -4,7 +4,9 @@ metaLinks: {}
 
 # Başlangıç
 
-<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>Chloros, [MAPIR](https://www.mapir.camera) tarafından görüntüleri ve diğer sensör verilerini işlemek için geliştirilmiş bir yazılım uygulamasıdır.
+<div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
+
+Chloros, [MAPIR](https://www.mapir.camera) tarafından görüntüleri ve diğer sensör verilerini işlemek için geliştirilmiş bir yazılım uygulamasıdır.
 
 ***
 

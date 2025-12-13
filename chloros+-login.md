@@ -6,7 +6,9 @@ Kullanıcı <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> ke
 
 Giriş yaptığınızda hesap bilgileriniz gösterilecektir:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Giriş
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
+
+## CLI Giriş
 
 CLI işlemini etkinleştirmek için Chloros+ kimlik bilgilerinizle giriş yapın.
 
@@ -28,7 +30,9 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 
 **Çıktı:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Planın Sona Ermesi
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
+
+### Planın Sona Ermesi
 
 GUI&#x27;deki planın sona erme tarihi, lisansınızın ne zaman geçersiz hale geleceğini gösterir. Aylık aboneliklerde sona erme tarihi ayın sonudur. Yıllık aboneliklerde ise aboneliğinizi başlattığınız tarihten bir yıl sonradır. Lisans kontrolü, 30 günlük bir ödemesiz dönem ile aylık internet bağlantısı gerektirir.
 
