@@ -1,6 +1,6 @@
 # İşlemenin İzlenmesi
 
-İşleme başladıktan sonra, Chloros ilerlemeyi izlemek, sorunları kontrol etmek ve veri kümenizde neler olup bittiğini anlamak için çeşitli yollar sunar. Bu sayfada, işleminizi nasıl takip edeceğiniz ve Chloros&#x27;in sağladığı bilgileri nasıl yorumlayacağınız açıklanmaktadır.
+İşleme başladıktan sonra, Chloros ilerlemeyi izlemek, sorunları kontrol etmek ve veri kümenizde neler olduğunu anlamak için çeşitli yollar sunar. Bu sayfada, işlemenizi nasıl takip edeceğiniz ve Chloros&#x27;in sağladığı bilgileri nasıl yorumlayacağınız açıklanmaktadır.
 
 ## İlerleme Çubuğu Genel Bakış
 
@@ -36,7 +36,7 @@ Chloros+ lisansına sahip kullanıcılar için:
 
 * **İlerleme çubuğunun üzerine gelin** genişletilmiş 4 aşamalı paneli görmek için
 * Genişletilmiş paneli dondurmak/sabitlemek için ilerleme çubuğuna **tıklayın**
-* Dondurmayı kaldırmak ve fareyi uzaklaştırdığınızda otomatik olarak gizlemek için **tekrar tıklayın**
+* Dondurmayı kaldırmak ve fareyi kaldırdığınızda otomatik olarak gizlemek için **tekrar tıklayın**
 * Her aşama ayrı ayrı ilerlemeyi gösterir (0-100%)
 
 ***
@@ -116,7 +116,7 @@ Chloros+ lisansına sahip kullanıcılar için:
 
 **Dikkat edilmesi gerekenler:**
 
-* Görüntü sayısında istikrarlı ilerleme
+* Görüntü sayısı boyunca istikrarlı ilerleme
 * Görüntü başına tamamlanma mesajları için Hata Ayıklama Günlüğünü kontrol edin
 * Görüntü kalitesi veya kalibrasyon sorunları hakkında uyarılar
 
@@ -179,7 +179,7 @@ Normal işleme güncellemeleri:
 [WARN] Low contrast in calibration panel - results may vary
 ```
 
-**Eylem:** İşleme tamamlandıktan sonra uyarıları inceleyin, ancak işlemi kesintiye uğratmayın
+**Eylem:** İşleme tamamlandıktan sonra uyarıları inceleyin, ancak işlemi kesintiye uğratmayın.
 
 #### Hata Mesajları (Red)
 
@@ -209,7 +209,7 @@ Normal işleme güncellemeleri:
 Sorun giderme veya destek için günlüğü kopyalamak için:
 
 1. Hata Ayıklama Günlüğü panelini açın.
-2. **&quot;Günlüğü Kopyala&quot;** düğmesini tıklayın (veya sağ tıklayın → Tümünü Seç).
+2. **&quot;Günlüğü Kopyala&quot;** düğmesine tıklayın (veya sağ tıklayın → Tümünü Seç).
 3. Metin dosyasına veya e-postaya yapıştırın.
 4. Gerekirse MAPIR desteğine gönderin.
 
@@ -227,7 +227,7 @@ Sorun giderme veya destek için günlüğü kopyalamak için:
 
 **Chloros+ Paralel Mod:**
 
-* Birden fazla çekirdek %80-100 (en fazla 16 çekirdek)
+* Birden fazla çekirdek %80-100 (16 çekirdeğe kadar)
 * Yüksek genel CPU kullanımı
 * Sistem daha az yanıt verebilir
 
@@ -331,14 +331,14 @@ Aşağıdakileri görürseniz işlemeyi durdurun:
 * İşaretlenmemiş hedef görüntüler (tüm görüntüleri tarama)
 * SSD depolama yerine HDD
 * Yetersiz sistem kaynakları
-* Çok sayıda indeks yapılandırılmış
+* Çok sayıda dizin yapılandırılmış
 * Ağ sürücüsü erişimi
 
 **Çözümler:**
 
 1. İşlem yeni başladıysa ve Algılama aşamasındaysa: İptal edin, hedefleri işaretleyin, yeniden başlatın
 2. Gelecek için: SSD kullanın, dizinleri azaltın, donanımı yükseltin
-3. Büyük veri kümelerini toplu olarak işlemek için CLI&#x27;i düşünün
+3. Büyük veri kümelerini toplu olarak işlemek için CLI&#x27;i kullanmayı düşünün
 
 ### &quot;Disk Alanı&quot; Uyarıları
 
@@ -346,7 +346,7 @@ Aşağıdakileri görürseniz işlemeyi durdurun:
 
 1. Disk alanını hemen boşaltın
 2. Projeyi daha fazla alana sahip sürücüye taşıyın
-3. Dışa aktarılacak dizinlerin sayısını azaltın
+3. Dışa aktarılacak dizin sayısını azaltın
 4. TIFF yerine JPG formatını kullanın (daha küçük dosyalar)
 
 ### Sık Görülen &quot;Bozuk Dosya&quot; Mesajları

@@ -32,7 +32,7 @@ Belirli görüntüler için Hedef sütununu işaretlediğinizde:
 
 ### Adım 1: Hedef Görüntülerinizi Belirleyin
 
-Dosya Tarayıcı&#x27;da içe aktardığınız görüntüleri inceleyin ve hangi görüntülerin kalibrasyon hedefleri içerdiğini belirleyin.
+Dosya Tarayıcısında içe aktarılan görüntülerinizi inceleyin ve hangi görüntülerin kalibrasyon hedefleri içerdiğini belirleyin.
 
 **Yaygın senaryolar:**
 
@@ -68,7 +68,7 @@ Kalibrasyon hedefi içeren her görüntü için:
 
 * Hedef görüntüleri, yakalama oturumunuzdan hemen önce ve oturum boyunca yakalayın
 * DAQ ışık sensörünüzle aynı aydınlatma koşullarında
-* En iyi sonuçlar için ideal olarak hedef görüntüleri mümkün olduğunca sık yakalayın. Aksi takdirde, ışık sensörü verileri zaman içinde kalibrasyonu ayarlamak için kullanılacaktır.
+* En iyi sonuçlar için ideal olarak hedef görüntüleri mümkün olduğunca sık yakalayın. Aksi takdirde, ışık sensörü verileri zaman içinde kalibrasyonu ayarlamak için kullanılır.
 
 **Kamera Konumu:**
 
@@ -88,14 +88,14 @@ Kalibrasyon hedefi içeren her görüntü için:
 * 4 panelin tümü açıkça görülebilir ve engelsiz olmalıdır
 * Mümkünse hedefler ışık kaynağına dik/nadir olmalıdır
 
-### Kaç Hedef Görüntü?
+### Kaç Adet Hedef Görüntü?
 
 **Minimum:** Her oturumda 1 hedef görüntü. **Önerilen:** Her oturumda 3-5 hedef görüntü.
 
 **En iyi uygulama programı:**
 
 * Işık sensörü kayıt yapmaya başladıktan kısa bir süre sonra 3-5 görüntü yakalayın.
-* En iyi sonuçları elde etmek için çekimler arasında kamerayı döndürün.
+* En iyi sonuçlar için çekimler arasında kamerayı döndürün.
 * İsteğe bağlı: Aydınlatma koşulları sürekli değişiyorsa, oturumun ortasında periyodik olarak yapın.
 
 ***
@@ -108,12 +108,12 @@ Kalibrasyon hedefi içeren her görüntü için:
 
 1. **Her iki kamera** ile aynı anda hedef görüntüleri yakalayın
 2. Her iki kamera için **aynı fiziksel hedef** kullanın
-3. Dosya Tarayıcı&#x27;da **her iki kamera türü** için hedef görüntüleri işaretleyin
+3. Dosya Tarayıcıda **her iki kamera türü** için hedef görüntüleri işaretleyin
 4. Chloros, her kameranın kalibrasyonu için uygun hedefleri kullanacaktır
 
 ### Kamera Modeli Sütunu
 
-**Kamera Modeli** sütunu, hangi görüntünün hangi kameradan geldiğini belirlemeye yardımcı olur:
+**Kamera Modeli** sütunu, hangi görüntünün hangi kameradan geldiğini belirlemenize yardımcı olur:
 
 * Survey3W\_RGN
 * Survey3N\_OCN
@@ -146,7 +146,7 @@ Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-projec
 
 ## Yaygın Hedef Görüntü Sorunları
 
-### Sorun: Hedef Algılanmadı
+### Sorun: Hedef Algılanmıyor
 
 **Olası nedenler:**
 
@@ -173,9 +173,9 @@ Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-projec
 **Çözümler:**
 
 1. Algılama kapsamını sınırlamak için yalnızca gerçek hedef görüntüleri işaretleyin
-2. Minimum kalibrasyon örnek alanını artırın
+2. Minimum kalibrasyon örnekleme alanını artırın
 3. Minimum hedef kümeleme değerini artırın
-4. Hedef görüntülerin yalnızca hedefi gösterdiğinden emin olun (minimum arka plan karmaşası)
+4. Hedef görüntülerin yalnızca hedefi gösterdiğinden emin olun (arka planda en az dağınıklık)
 
 ***
 
@@ -200,12 +200,12 @@ Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-projec
 Bilimsel çalışmalar için önerilmese de, hedefler olmadan işleme yapabilirsiniz:
 
 1. Tüm Hedef sütunu onay kutularını işaretlemeyin
-2. Proje Ayarlarında &quot;Yansıma kalibrasyonu&quot;nu **devre dışı bırakın**
+2. Proje Ayarları&#x27;nda &quot;Yansıma kalibrasyonu&quot;nu **devre dışı bırakın**
 3. Vinyet düzeltmesi yine de uygulanacaktır
-4. Çıktı, mutlak yansıma için kalibre edilmeyecektir
+4. Çıktı, mutlak yansıtma için kalibre edilmeyecektir
 
 {% hint style=&quot;warning&quot; %}
-**Önerilmez**: Yansıma kalibrasyonu olmadan, piksel değerleri yalnızca göreceli parlaklığı temsil eder, bilimsel yansıma ölçümlerini temsil etmez. Doğru ve tekrarlanabilir sonuçlar için kalibrasyon hedeflerini kullanın.
+**Önerilmez**: Yansıtma kalibrasyonu olmadan, piksel değerleri yalnızca göreceli parlaklığı temsil eder, bilimsel yansıtma ölçümlerini temsil etmez. Doğru ve tekrarlanabilir sonuçlar için kalibrasyon hedeflerini kullanın.
 {% endhint %}
 
 ***

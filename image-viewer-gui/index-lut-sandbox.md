@@ -16,7 +16,7 @@ Sandbox şunları sağlar:
 
 **Endeks/LUT Sandbox (Etkileşimli):**
 
-* Her seferinde tek bir görüntü
+* Tek seferde tek bir görüntü
 * Anında geri bildirim
 * Deneysel ve yinelemeli
 * Dosyalarda kalıcı değişiklik yok
@@ -56,7 +56,7 @@ Dizin/LUT Sandbox&#x27;a **Görüntü Görüntüleyici** <img src="../.gitbook/a
 1. Dosya tarayıcısının görüntü ızgarasında bir görüntüyü tıklayın, görüntü **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesinde açılır
 2. **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesine tıklayın.
 
-### Dizin/LUT Uygulanacak Görüntü Seçme
+### Dizin/LUT Uygulamak İçin Görüntü Seçme
 
 Görüntü Görüntüleyici <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sandbox&#x27;ta bir indeksle çalışmak için:
 
@@ -104,7 +104,7 @@ Endeş formülünün tam dokümantasyonu için [Multispektral Endeks Formülleri
 
 ### LUT nedir?
 
-**Arama Tablosu (LUT)**, görselleştirme için sayısal indeks değerlerini renklere eşler:
+Bir **Arama Tablosu (LUT)**, görselleştirme için sayısal indeks değerlerini renklere eşler:
 
 * **Giriş**: İndeks piksel değeri (ör. NDVI 0,65)
 * **Çıktı**: RGB rengi (ör. parlak yeşil)
@@ -113,15 +113,15 @@ Endeş formülünün tam dokümantasyonu için [Multispektral Endeks Formülleri
 **Gri Tonlama ve Renkli LUT:**
 
 * Gri Tonlama: Bilimsel ve tarafsız, ham verileri gösterir
-* Renkli LUT: Sezgisel ve etkili, desenleri ve farklılıkları vurgular
+* Renkli LUT: Sezgisel ve etkileyici, desenleri ve farklılıkları vurgular
 
 {% hint style=&quot;success&quot; %}
 **Görselleştirme Gücü**: Gri tonlamalı bir indeks görüntüsüne renk LUT&#x27;u uygulamak, desenleri, anomalileri ve ilgi alanlarını bir bakışta tanımlamayı önemli ölçüde kolaylaştırır.
 {% endhint %}
 
-### Dizin Görüntüsüne LUT Uygulama
+### Bir İndeks Görüntüsüne LUT Uygulama
 
-Dizin görüntüsünü aldıktan sonra
+Aşağıdakileri gösteren bir indeks görüntüsüne sahip olduğunuzda
 
 1. <img src="../.gitbook/assets/image.png" alt="" data-size="line"> &quot;+LUT Ekle&quot; düğmesine tıklayın
 2. Renk gradyanını seçin
@@ -133,13 +133,13 @@ Dizin görüntüsünü aldıktan sonra
 
 **Gradyan seçme:**
 
-1. LUT panelinde **renkli gradyan çubuğunu** bulun.
-2. Mevcut gradyan ön ayarlarını görüntülemek için fareyi üzerine getirin.
-3. İstediğiniz gradyanı seçin.
-4. Dizin kutusu işaretlendiğinde görüntü **hemen yeni renklerle güncellenir**.
+1. LUT panelinde, **renkli gradyan çubuğunu** bulun
+2. Mevcut gradyan ön ayarlarını görüntülemek için fareyi üzerine getirin
+3. İstediğiniz gradyanı seçin
+4. Dizin kutusu işaretlendiğinde görüntü **hemen yeni renklerle güncellenir**
 
 {% hint style=&quot;success&quot; %}
-**En İyi Uygulama**: NDVI gibi bitki örtüsü indeksleri için, Red-Sarı-Green gradyanı, doğal renk ilişkilendirmeleriyle (yeşil=sağlıklı, sarı=orta, kırmızı=stresli) uyumlu olduğu için en sezgisel olanıdır.
+**En iyi uygulama**: NDVI gibi bitki örtüsü indeksleri için, Red-Sarı-Green gradyanı, doğal renk ilişkilendirmeleriyle (yeşil=sağlıklı, sarı=orta, kırmızı=stresli) uyumlu olduğu için en sezgisel olanıdır.
 {% endhint %}
 
 ### Renk Sınıflarını Ayarlama
@@ -150,8 +150,8 @@ Dizin görüntüsünü aldıktan sonra
 
 * **2-5 sınıf**: Çok geniş kategoriler, belirgin bölgeler
 * **6-10 sınıf**: Dengeli, sınıflandırma için uygun
-* **11-20 sınıf**: Pürüzsüz gradyanlar, sürekli görünüm
-* **20+ sınıf**: Neredeyse sürekli, maksimum pürüzsüzlük
+* **11-20 sınıf**: Düzgün gradyanlar, sürekli görünüm
+* **20+ sınıf**: Neredeyse sürekli, maksimum düzgünlük
 
 **Nasıl ayarlanır:**
 
@@ -168,19 +168,19 @@ Dizin görüntüsünü aldıktan sonra
 
 **Ne zaman kullanılır:**
 
-* **Az sayıda sınıf (3-5)**: Sunum slaytları, sınıflandırma haritaları, basit raporlar
-* **Orta sınıflar (6-10)**: Genel analiz, dengeli ayrıntılar, standart raporlar
+* **Az sınıf (3-5)**: Sunum slaytları, sınıflandırma haritaları, basit raporlar
+* **Orta sınıf (6-10)**: Genel analiz, dengeli ayrıntılar, standart raporlar
 * **Çok sayıda sınıf (15-20)**: Bilimsel analiz, ayrıntılı inceleme, yayın kalitesinde çıktılar
 
-### Değer Aralıklarını İnce Ayarlama
+### Değer Aralıklarını İnce Ayar
 
-**Değer aralığı denetimleri**, gradyanınızda hangi indeks değerlerinin hangi renklere eşleneceğini belirler:
+**Değer aralığı kontrolleri**, gradyanınızda hangi indeks değerlerinin hangi renklere eşleneceğini belirler:
 
-**LUT panelindeki aralık denetimleri:**
+**LUT panelindeki aralık kontrolleri:**
 
 * **Minimum değer**: Renk skalasının alt sınırı
 * **Maksimum değer**: Renk skalasının üst sınırı
-* **Ara değerler**: Min ve max arasında otomatik olarak dağıtılır (sınıf sayısına göre)
+* **Ara değerler**: Min ve maks arasında otomatik olarak dağıtılır (sınıf sayısına göre)
 
 #### Min/Maks Değerleri Ayarlama
 
@@ -200,14 +200,14 @@ Dizin görüntüsünü aldıktan sonra
 **Örnek NDVI aralık ayarlamaları:**
 
 * **Tam aralık**: `-1.0` ila `1.0` (tüm olası değerleri göster)
-* **Bitki örtüsüne odaklanmış**: `0.2` ile `0.9` arası (çıplak toprak ve suyu hariç tut)
-* **Yalnızca sağlıklı bitki örtüsü**: `0.5` ile `0.9` arası (sadece güçlü bitkileri vurgulayın)
-* **Stres algılama**: `0.2` ila `0.5` (sorunlu alanları vurgulayın)
+* **Bitki örtüsüne odaklanmış**: `0.2` ila `0.9` (çıplak toprak ve suyu hariç tut)
+* **Yalnızca sağlıklı bitki örtüsü**: `0.5` ile `0.9` arası (yalnızca güçlü bitkileri vurgula)
+* **Stres algılama**: `0.2` ile `0.5` arası (sorunlu alanları vurgulayın)
 * **Özel aralık**: Gözlemlediğiniz piksel değerlerine göre ayarlayın
 
 **Neden aralıkları ayarlamalıyız?**
 
-* İlgilendiğiniz alanda **kontrastı artırın**
+* İlgilendiğiniz alandaki **kontrastı artırın**
 * **Alakasız değerleri hariç tutun** (ör. su kütleleri, çıplak toprak)
 * Birden fazla görüntü veya tarih arasında **görselleştirmeyi standartlaştırın**
 * Dar bir değer aralığı içindeki **ince farkları vurgulayın**
@@ -230,7 +230,7 @@ Piksel değerleri tanımladığınız minimum/maksimum aralığın dışına ç�
 * **Aralığın dışındaki** pikseller **tamamen şeffaf** hale gelir
 * Yalnızca **aralık içindeki** pikseller renk gradyanı gösterir
 * **Kullanım örneği**: GIS katmanı, belirli değer aralıklarını izole etme, yalnızca ilgi alanlarını vurgulamak
-* **Örnek**: Yalnızca NDVI 0,4-0,7 aralığını renkli göster, diğer her şeyi şeffaf göster
+* **Örnek**: Yalnızca NDVI 0,4-0,7 aralığını renkli olarak gösterin, diğer her şeyi şeffaf olarak gösterin
 
 {% hint style=&quot;warning&quot; %}
 **Şeffaflık Sınırlaması**: Şeffaf pikseller görüntüleyicide arka plan rengi olarak görünür. İşleme sırasında dışa aktarıldığında, şeffaflık PNG formatında korunur, ancak JPG formatında korunmaz.
@@ -248,42 +248,42 @@ Piksel değerleri tanımladığınız minimum/maksimum aralığın dışına ç�
 * **Aralık dışındaki** pikseller **orijinal multispektral görüntüyü** gösterir
 * **Aralık içindeki** pikseller **renk gradyanı** gösterir
 * **Kullanım örneği**: En sezgisel olanı - doğal görüntü bağlamını analitik renk katmanıyla birleştirir
-* **Örnek**: Renk kodlu stres alanları katmanıyla gerçek tarla/mahsul görünümünü görün
+* **Örnek**: Renk kodlu stres alanları katmanlanarak gerçek tarla/mahsul görünümünü görün
 
 ### Doğru Kırpma Modunu Seçme
 
-| Kırpma Modu              | En Uygun Olduğu Durum                                   | Görselleştirme Stili          |
+| Kırpma Modu              | En Uygun                                   | Görselleştirme Stili          |
 | -------------------------- | ------------------------------------------ | ---------------------------- |
 | **Minimum ve Maksimum**    | Tam veri gösterimi, bilimsel analiz     | Tüm pikseller renklendirilmiş           |
-| **Şeffaf Arka Plan** | GIS katmanları, belirli aralıkları izole etme    | Aralıkta renk, dışında boşluk |
-| **Dizin Arka Plan**       | İnce vurgu, veri bağlamını koruma  | Aralıkta renk, dışında gri  |
-| **Orijinal Arka Plan**    | Raporlar, sunumlar, sezgisel analiz | Aralıkta renk, dışında fotoğraf |
+| **Şeffaf Arka Plan** | GIS kaplamaları, belirli aralıkları izole etme    | Aralıkta renk, ötesinde boşluk |
+| **Dizin Arka Plan**       | İnce vurgu, veri bağlamını koruma  | Aralıkta renk, ötesinde gri  |
+| **Orijinal Arka Plan**    | Raporlar, sunumlar, sezgisel analiz | Aralıkta renk, ötesinde fotoğraf |
 
 ### Özel LUT Renkleri Oluşturma
 
 Görselleştirmenizi tam olarak kontrol etmek için, tek tek renk duraklarını düzenleyerek **özel renk gradyanları** oluşturabilirsiniz.
 
-**Özel bir geçiş oluşturmak için:**
+**Özel bir gradyan oluşturmak için:**
 
-1. LUT panelinde **geçiş önizleme çubuğunu** bulun
-2. Geçişin altında **renk örneği karelerini** bulun
-3. **Bir renk durağını tıklayarak** seçin
+1. LUT panelinde, **gradyan önizleme çubuğunu** bulun
+2. Degrade altında **renk örneği karelerini** bulun
+3. **Bir renk durağını tıklayın** ve seçin
 4. **Renk seçici** açılır
 5. Aşağıdakileri kullanarak yeni bir renk seçin:
    * **Renk tekerleği**: Görsel renk seçimi
    * **RGB/HSV kaydırıcıları**: Hassas renk kontrolü
-   * **Hex kodu girişi**: Kesin renk belirtimi (ör. kırmızı için `#FF0000`)
+   * **Onaltılık kod girişi**: Kesin renk belirtimi (ör. kırmızı için `#FF0000`)
 6. **Yeni rengi uygulamak için** renk seçicinin dışına tıklayın
-7. Degrade **görüntüde hemen güncellenir**
+7. Degrade, görüntüde **hemen güncellenir**
 
 **Renk durakları ekleme veya kaldırma:**
 
-* **Durak ekleme**: Sonuna yeni bir renk örneği eklemek için + simgesine tıklayın
-* **Durak kaldırma**: Renk örneğini kaldırmak için renk karesine çift tıklayın
+* **Durak ekleme**: Sonuna yeni bir örnek eklemek için + simgesine tıklayın
+* **Durağı kaldırma**: Renk karesini çift tıklayarak renk örneğini kaldırın
 
 **Özelleştirme stratejileri:**
 
-* **Degradeyi ters çevirin**: Anlamı tersine çevirmek için renk sırasını ters çevirin (ör. yeşil=düşük, kırmızı=yüksek)
+* **Degradeyi ters çevirme**: Anlamı tersine çevirmek için renk sırasını ters çevirin (ör. yeşil=düşük, kırmızı=yüksek)
 * **Marka renkleri**: Raporlar için kuruluşunuzun renk paletiyle eşleştirin
 * **Renk körlüğüne uygun**: Turuncu-mavi veya mor-sarı kombinasyonları kullanın
 * **Yazdırma optimizasyonu**: Hem renkli hem de gri tonlamalı yazdırmada uygun renkleri seçin
@@ -305,8 +305,8 @@ Sandbox&#x27;taki tüm LUT ayarlamaları görüntüyü **anında ve etkileşimli
 * **Degradeyi seç** → Renkler anında güncellenir
 * **Değer aralığını ayarla** → Kontrast gerçek zamanlı olarak değişir
 * **Sınıfları değiştir** → Degrade düzgünlüğü hemen güncellenir
-* **Kırpma değiştir** → Arka plan görüntüsü hemen değişir
-* **Renkleri düzenle** → Özel degrade hemen uygulanır
+* **Kırpmayı değiştir** → Arka plan görüntüsü hemen değişir
+* **Renkleri düzenle** → Özel gradyan hemen uygulanır
 
 **&quot;Uygula&quot; düğmesine gerek yok** - tüm değişiklikler canlı ve etkileşimlidir!
 
@@ -325,7 +325,7 @@ Sandbox&#x27;taki tüm LUT ayarlamaları görüntüyü **anında ve etkileşimli
 5. **Min/maks değerlerini ayarlayın** - Bitki örtüsüne odaklanmak için daraltın (ör. 0,2 ila 0,9)
 6. **Kırpma seçin** - Bağlam için &quot;Orijinal Arka Plan&quot;ı deneyin
 7. **Renkleri iyileştirin** - Belirli bir vurgu için gerekirse gradyanı özelleştirin
-8. **Ayarları sonlandırın** - Ayarları belgelendirin ve dışa aktarma işlemi için Proje Ayarlarına kopyalayın
+8. **Ayarları sonlandırın** - Ayarları belgeleyin ve dışa aktarma işlemi için Proje Ayarlarına kopyalayın
 
 ### Piksel Değeri İnceleme
 
@@ -336,7 +336,7 @@ Etkili LUT aralıkları ayarlamak için gerçek piksel değerlerini anlamak çok
 1. Piksel değerleri, görüntünün İndeks veya hem İndeks hem de LUT **kutuları işaretli** olduğunda gösterilir.
 2. **İmlecinizi** görüntünün farklı alanlarının üzerine getirin
 3. İmleci üzerine getirdiğinizde efsanede görüntülenen **piksel değerlerini** gözlemleyin
-4. Büyütüp, yüzen bir değerle vurgulanan tek tek pikselleri görün
+4. Yakınlaştırarak, değişken bir değerle vurgulanan tek tek pikselleri görün
 5. Farklı özellikler için değer aralıklarını **not alın**:
    * **Sağlıklı bitki örtüsü**: ör. NDVI 0,55-0,85
    * **Stresli bitki örtüsü**: ör. NDVI 0,30-0,50
@@ -350,10 +350,10 @@ Piksel değerlerini inceledikten sonra, LUT min/maks değerlerini buna göre aya
 **Örnek senaryo:**
 
 * **Gözlem**: Toprak değerleri = 0,05-0,25, Stresli = 0,25-0,50, Sağlıklı = 0,50-0,85
-* **Hedef**: Yalnızca bitki sağlığını görselleştirme (toprak hariç)
+* **Hedef**: Yalnızca bitki sağlığını görselleştirin (toprağı hariç tutun)
 * **LUT ayarları**: Min = `0.25`, Maks = `0.85`
 * **Kırpma**: Toprağı doğal renginde görmek için &quot;Orijinal Arka Plan&quot;
-* **Sonuç**: Renk gradyanı yalnızca bitki örtüsüne uygulanır, toprak orijinal görüntü olarak gösterilir
+* **Sonuç**: Renk gradyanı sadece bitki örtüsüne uygulanır, toprak orijinal görüntü olarak gösterilir
 
 {% hint style=&quot;info&quot; %}
 **Dinamik Aralık**: Farklı mahsuller, mevsimler ve büyüme aşamaları farklı değer aralıklarına sahip olacaktır. LUT aralıklarını ayarlamadan önce her zaman belirli veri kümenizin piksel değerlerini kontrol edin.
@@ -366,14 +366,14 @@ Piksel değerlerini inceledikten sonra, LUT min/maks değerlerini buna göre aya
 ### Özel Dizin Formülleri Oluşturma
 
 {% hint style=&quot;info&quot; %}
-**Nerede Oluşturulur**: Özel indeksler, işleme öncesinde **Proje Ayarları**&#x27;nda ve Image Viewer sandbox kenar çubuğunda yapılandırılabilir.
+**Nerede Oluşturulur**: Özel dizinler, işleme öncesinde **Proje Ayarları**&#x27;nda ve Görüntü Görüntüleyici sanal alanı kenar çubuğunda yapılandırılabilir.
 {% endhint %}
 
-**Özel bir indeks oluşturmak için:**
+**Özel bir endeks oluşturmak için:**
 
 1. **Proje Ayarları**&#x27;nı (işlemden önce) veya Image Viewer sandbox kenar çubuğunu açın.
-2. **İndeks formülü açılır menüsüne** gidin.
-3. **&quot;Özel&quot;** seçeneğini bulun (Chloros+ lisansıyla oturum açmış olmanız gerekir).
+2. **Endeks formülü açılır menüsüne** gidin.
+3. **&quot;Özel&quot;** seçeneğini bulun. (Chloros+ lisansıyla oturum açmanız gerekir)
 4. Bant değişkenlerini kullanarak **formülünüzü tanımlayın**:
    * Bant adları: `NIR`, `Red`, `Green`, `Blue`, `RedEdge`, vb.
    * İşlemciler: `+`, `-`, `*`, `/`, `^` (üstel)
@@ -399,7 +399,7 @@ Exponential index:
 ```
 
 {% hint style=&quot;warning&quot; %}
-**Formül Doğrulama**: Formülünüzün kameranızda bulunan bantları kullandığından emin olun. Örneğin, RedEdge yalnızca RedEdge filtresine sahip kameralarda kullanılabilir.
+**Formül Doğrulama**: Formülünüzün kameranızda bulunan bantları kullandığından emin olun. Örneğin, RedEdge yalnızca RedEdge filtresi bulunan kameralarda kullanılabilir.
 {% endhint %}
 
 ***
@@ -408,9 +408,9 @@ Exponential index:
 
 Artık Endeks/LUT Sandbox&#x27;ı anladığınıza göre:
 
-* **İşlemeye uygulayın**: [Proje Ayarları](../project-settings/project-settings.md) içinde bulunan ayarları kullanın
+* **İşlemeye uygulayın**: [Proje Ayarları](../project-settings/project-settings.md) içinde keşfedilen ayarları kullanın
 * **Toplu işleme**: Optimize edilmiş indeksleri tüm veri kümelerine uygulayın
-* **Daha fazla bilgi**: [Multispektral İndeks Formülleri](../project-settings/multispectral-index-formulas.md) bölümünü okuyun
+* **Daha fazla bilgi**: [Çok Spektral İndeks Formülleri](../project-settings/multispectral-index-formulas.md) bölümünü okuyun
 
 İlgili belgeler:
 

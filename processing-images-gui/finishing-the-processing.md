@@ -70,12 +70,12 @@ Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/
 
 ### Günlüğü Kaydetme
 
-İşleme kaydını tutmak veya MAPIR Desteğine göndermek için:
+İşleme kaydını saklamak veya MAPIR Desteğine göndermek için:
 
-1. **&quot;Kopyala&quot;** veya **&quot;İndir&quot;** düğmesini tıklayın.
-2. Proje klasörüne metin dosyası olarak kaydedin.
-3. Proje belgelerine ekleyin.
-4. Sorunla karşılaşırsanız MAPIR desteğine gönderin.
+1. **&quot;Kopyala&quot;** veya **&quot;İndir&quot;** düğmesini tıklayın
+2. Proje klasörüne metin dosyası olarak kaydedin
+3. Proje belgelerine ekleyin
+4. Sorunla karşılaşırsanız MAPIR desteğine gönderin
 
 ***
 
@@ -92,33 +92,33 @@ Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/
 
 **Çözümler:**
 
-1. Hata ayıklama günlüğünde atlama/hata mesajlarını kontrol edin
-2. Disk alanının yeterli olduğunu doğrulayın
-3. Dosyaları sayın: (orijinal sayı - hedef sayı) × (endeksler + 1)
-4. Eksik dosyaları yeniden içe aktarın ve yeniden işleyin
+1. Hata ayıklama günlüğünde atlama/hata mesajları olup olmadığını kontrol edin
+2. Disk alanının yeterli olup olmadığını doğrulayın
+3. Dosyaları sayın: (orijinal sayı - hedef sayı) × (endeksler + 1) ile eşleşmelidir
+4. Eksik dosyaları yeniden içe aktarın ve yeniden işleyin.
 
 ### Sorun: Koyu veya Parlak Kenarlar (Vinyet Hala Görünür)
 
 **Olası nedenler:**
 
-* Vinyet düzeltme devre dışı bırakılmış
-* Kamera/lens Chloros profil veritabanında yok
-* Düzeltme kapasitesinin ötesinde aşırı vinyet
+* Vinyet düzeltme devre dışı bırakılmış.
+* Kamera/lens Chloros profil veritabanında yok.
+* Düzeltme kapasitesinin ötesinde aşırı vinyet.
 
 **Çözümler:**
 
-1. Proje Ayarları&#x27;nda vinyet düzeltmesinin etkinleştirildiğini doğrulayın.
-2. Kamera modelinin doğru algılandığını kontrol edin.
-3. Vinyetleme devam ederse MAPIR desteğine başvurun.
+1. Proje Ayarları&#x27;nda vinyet düzeltmesinin etkinleştirildiğini doğrulayın
+2. Kamera modelinin doğru algılandığını kontrol edin
+3. Vinyet devam ederse MAPIR desteğine başvurun
 
 ### Sorun: Yanlış Renkler veya Değerler
 
 **Olası nedenler:**
 
-* Kalibrasyon hedefi algılanmadı.
-* Yanlış kalibrasyon hedefi modeli seçildi.
-* Yansıma kalibrasyonu devre dışı bırakıldı.
-* Hedef görüntülerin kalitesi düşük.
+* Kalibrasyon hedefi algılanmadı
+* Yanlış kalibrasyon hedefi modeli seçildi
+* Yansıma kalibrasyonu devre dışı bırakıldı
+* Hedef görüntülerin kalitesi düşük
 
 **Çözümler:**
 
@@ -148,7 +148,7 @@ Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/
 
 ## İşlenmiş Görüntülerinizi Kullanma
 
-### Fotogrametri / Orto-mozaik Oluşturma için
+### Fotogrametri / Orto-mozaik Oluşturma İçin
 
 **Önerilen iş akışı:**
 
@@ -170,13 +170,13 @@ Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/
 2. **16 bit TIFF** yansıma görüntülerini çok bantlı analiz için kullanın
 3. **Dizin görüntülerini** (NDVI, NDRE) kullanıma hazır bitki örtüsü katmanları olarak kullanın
 4. **Raster hesaplayıcı**: Özel analiz için bantları birleştirin
-5. **Dışa aktarma**: Sınıflandırma haritaları oluşturun, değişiklikleri tespit edin, bitki örtüsü sağlık haritaları oluşturun
+5. **Dışa aktarma**: Sınıflandırma haritaları oluşturun, değişiklik algılama, bitki örtüsü sağlık haritaları
 
 ### Doğrudan Analiz / Raporlama için
 
 **Önerilen iş akışı:**
 
-1. Görsel raporlar için **LUT renkli indeks görüntüleri** kullanın
+1. Görsel raporlar için **LUT renkli indeks görüntüleri kullanın**
 2. **İstatistikleri çıkarın**: Alan/parsel başına ortalama NDVI
 3. **Zaman serisi**: Birden fazla oturumda indeksleri karşılaştırın
 4. **Raporlar oluşturun**: Haritalar, istatistikler ve görselleştirmeler ekleyin
@@ -227,14 +227,14 @@ Birden çok oturum/veri kümesi için:
 **Seçenek 2: Chloros CLI (yalnızca Chloros+)**
 
 * Toplu işlemeyi otomatikleştirin
-* Komut dosyalarıyla birden fazla klasörü işleyin
+* Komut dosyaları ile birden fazla klasörü işleyin
 * [CLI Belgeleri](../CLI.md) bölümüne bakın.
 
 **Seçenek 3: Python SDK (yalnızca Chloros+)**
 
 * Programlı kontrol
 * Analiz boru hatlarıyla entegrasyon
-* Bkz. [API Belgeleri](../api-python-sdk.md)
+* [API Belgeleri](../api-python-sdk.md) bölümüne bakın.
 
 ***
 
@@ -274,14 +274,14 @@ Sorunla karşılaşırsanız:
 Chloros işleme iş akışını tamamladınız:
 
 1. ✅ **Proje oluşturuldu** - Bkz. [Projeler](../projects.md)
-2. ✅ **Dosya ekleme** - Bkz. [Dosya Ekleme](adding-files-to-a-project.md)
-3. ✅ **Ayarları değiştirme** - Bkz. [Proje Ayarlarını Değiştirme](adjusting-project-settings.md)
-4. ✅ **Hedefler işaretlendi** - Bkz. [Hedef Görüntüleri Seçme](choosing-target-images.md)
+2. ✅ **Dosyalar eklendi** - Bkz. [Dosyalar Ekleme](adding-files-to-a-project.md)
+3. ✅ **Ayarları düzenlediniz** - Bkz. [Proje Ayarlarını Düzenleme](adjusting-project-settings.md)
+4. ✅ **Hedefleri işaretlediniz** - Bkz. [Hedef Görüntüleri Seçme](choosing-target-images.md)
 5. ✅ **İşleme başlandı** - Bkz. [İşleme Başlama](starting-the-processing.md)
-6. ✅ **İlerlemeyi izleme** - Bkz. [İşlemeyi İzleme](monitoring-the-processing.md)
-7. ✅ **Sonuçları inceleme** - Bu sayfa
+6. ✅ **İlerleme izlendi** - Bkz. [İşlemeyi İzleme](monitoring-the-processing.md)
+7. ✅ **Sonuçlar incelendi** - Bu sayfa
 
-**Kalibre edilmiş, yansıma düzeltmesi yapılmış multispektral görüntüleriniz analiz için hazır!**
+**Kalibre edilmiş, yansıma düzeltmeli multispektral görüntüleriniz analiz için hazır!**
 
 ***
 

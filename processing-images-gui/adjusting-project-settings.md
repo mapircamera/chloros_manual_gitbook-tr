@@ -2,7 +2,7 @@
 
 Görüntülerinizi işlemeden önce, iş akışı gereksinimlerinize uygun şekilde proje ayarlarınızı yapılandırmanız önemlidir. Proje Ayarları <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> paneli, kalibrasyon, işleme seçenekleri, multispektral indeksler ve dışa aktarma formatları üzerinde kapsamlı kontrol sağlar.
 
-## Proje Ayarlarına Erişim
+## Proje Ayarlarına Erişme
 
 1. Projenizi Chloros&#x27;te açın
 2. Sol kenar çubuğundaki **Proje Ayarları** <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> simgesine tıklayın
@@ -94,7 +94,7 @@ Mevcut tüm indeksler ve formüller için [Multispektral İndeks Formülleri](..
 
 ### Dışa Aktarma
 
-Çıktı dosyasının formatını ve kalitesini kontrol eder.
+Çıktı dosyası formatını ve kalitesini kontrol eder.
 
 **Mevcut formatlar:**
 
@@ -170,7 +170,7 @@ Hassas coğrafi konum belirleme için GPS özellikli MAPIR DAQ kaydediciler kull
 * Aynı kamera her iki pime de atanamaz
 
 {% hint style=&quot;warning&quot; %}
-**Önemli**: Pozlama pimleri ilgili kameralara doğru şekilde atanmalıdır. Yanlış atama, yanlış coğrafi konum verilerine neden olur.
+**Önemli**: Pozlama pimleri, ilgili kameralara doğru şekilde atanmalıdır. Yanlış atama, yanlış coğrafi konum verilerine neden olur.
 {% endhint %}
 
 ***
@@ -179,12 +179,12 @@ Hassas coğrafi konum belirleme için GPS özellikli MAPIR DAQ kaydediciler kull
 
 ### Çoklu Kamera Projeleri
 
-Bir projede birden fazla MAPIR kameradan gelen görüntüleri işlerken:
+Tek bir projede birden fazla MAPIR kameradan gelen görüntüleri işlerken:
 
 1. Chloros her kamera modelini otomatik olarak algılar
 2. Her kamera uygun işleme profilini alır
-3. PPK: Her kamerayı doğru pozlama pimine manuel olarak atayın
-4. Tüm kameralar aynı dışa aktarma formatını ve indeksleri kullanır
+3. PPK: Her kamerayı manuel olarak doğru pozlama pimine atayın
+4. Tüm kameralar aynı dışa aktarım formatını ve indeksleri kullanır
 
 **Örnek**: Survey3W RGN + Survey3N OCN çift kamera donanımı
 
@@ -218,7 +218,7 @@ Aynı alanın zaman içinde tekrar tekrar anketleri için:
 * [ ] Yansıma kalibrasyonu etkinleştirilmiş
 * [ ] En az bir kalibrasyon hedef görüntüsü içe aktarılmış
 * [ ] İstenen multispektral indeksler eklenmiş
-* [ ] İş akışınıza uygun dışa aktarma formatı
+* [ ] İş akışınıza uygun dışa aktarma biçimi
 * [ ] PPK ayarları yapılandırılmış (pozlama olaylarıyla .daq kullanılıyorsa)
 
 ***
@@ -228,7 +228,7 @@ Aynı alanın zaman içinde tekrar tekrar anketleri için:
 Ayarlarınız yapılandırıldıktan sonra:
 
 1. **Kalibrasyon hedef görüntülerini işaretleyin** - Bkz. [Hedef Görüntüleri Seçme](choosing-target-images.md)
-2. **İşleme başlayın** - Bkz. [İşleme Başlama](starting-the-processing.md)
+2. **İşlemeyi başlatın** - Bkz. [İşlemeyi Başlatma](starting-the-processing.md)
 3. **İlerlemeyi izleyin** - Bkz. [İşlemeyi İzleme](monitoring-the-processing.md)
 
-Kullanılabilir tüm ayarlarla ilgili ayrıntılı bilgi için [Proje Ayarları](../project-settings/project-settings.md) referans belgesine bakın.
+Kullanılabilir tüm ayarlarla ilgili ayrıntılı bilgi için, [Proje Ayarları](../project-settings/project-settings.md) referans belgesine bakın.

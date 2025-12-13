@@ -4,14 +4,14 @@ Görüntülerinizi içe aktardıktan, kalibrasyon hedeflerinizi işaretledikten 
 
 ## İşleme Öncesi Kontrol Listesi
 
-Başlat düğmesine tıklamadan önce her şeyin hazır olduğunu doğrulayın:
+Başlat düğmesine tıklamadan önce her şeyin hazır olduğunu kontrol edin:
 
 * [ ] **Dosyalar içe aktarıldı** - Tüm görüntüler Dosya Tarayıcı&#x27;da görünür
 * [ ] **Hedef görüntüler işaretlendi** - Kalibrasyon görüntüleri için Hedef sütunu işaretlendi
 * [ ] **Kamera modelleri algılandı** - Kamera Modeli sütununda doğru kameralar gösteriliyor
 * [ ] **Ayarlar yapılandırıldı** - Proje Ayarları gözden geçirildi ve ayarlandı
-* [ ] **Endeksler seçildi** - İstenen multispektral indeksler eklendi (gerekirse)
-* [ ] **Dışa aktarma formatı seçildi** - İş akışınıza uygun çıktı formatı
+* [ ] **Endeksler seçildi** - İstenen multispektral endeksler eklendi (gerekirse)
+* [ ] **Dışa aktarma biçimi seçildi** - İş akışınıza uygun çıktı biçimi
 
 {% hint style=&quot;info&quot; %}
 **İpucu**: İşlemeden önce Dosya Tarayıcı&#x27;da birkaç görüntüyü tıklayarak doğru yüklendiklerini doğrulayın.
@@ -19,7 +19,7 @@ Başlat düğmesine tıklamadan önce her şeyin hazır olduğunu doğrulayın:
 
 ***
 
-## İşleme Başlama
+## İşlemeyi Başlatma
 
 ### Başlat Düğmesini Bulma
 
@@ -88,11 +88,11 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
 * Çubuğun üzerine **fareyi getirin**, ayrıntılı 4 aşamalı açılır paneli görmek için
 * İlerleme çubuğunu **tıklayın**, açılır paneli yerinde dondurmak için
-* **Tekrar tıklayın**, paneli çözmek ve gizlemek için
+* **Tekrar tıklayın** paneli dondurmayı kaldırmak ve gizlemek için
 
 **İşleme süresi:**
 
-* Ücretsiz moddan önemli ölçüde daha hızlıdır
+* Serbest moddan önemli ölçüde daha hızlıdır
 * CPU çekirdek sayısı ile ölçeklenir
 * GPU hızlandırma, hızı daha da artırır
 
@@ -113,7 +113,7 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 * Hedef panellerden yansıma değerlerini çıkarır
 * Kalibrasyon planlaması için hedef zaman damgalarını kaydeder
 
-**Süre:** 1-30 saniye (işaretli hedefler ile), 5-30+ dakika (işaretsiz)
+**Süre:** 1-30 saniye (işaretli hedefler ile), 5-30+ dakika (işaretlenmemiş)
 
 ### Aşama 2: Debayering (RAW Dönüştürme)
 
@@ -140,9 +140,9 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
 **Chloros&#x27;in yaptığı işlemler:**
 
-* Yapılandırılmış multispektral indeksleri hesaplar (NDVI, NDRE vb.)
+* Yapılandırılmış multispektral indeksleri hesaplar (NDVI, NDRE, vb.)
 * Kalibre edilmiş görüntülere bant matematiği uygular
-* Seçilen her indeks için indeks görüntüleri oluşturur
+* Seçilen her endeks için endeks görüntüleri oluşturur
 
 **Süre:** Görüntü başına birkaç saniye
 
@@ -151,9 +151,9 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 **Chloros&#x27;in yaptığı işlemler:**
 
 * Kalibre edilmiş görüntüleri seçilen formatta kaydeder
-* Yapılandırılmış LUT renkleriyle indeks görüntülerini dışa aktarır
+* Yapılandırılmış LUT renkleriyle endeks görüntülerini dışa aktarır
 * Dosyaları kamera modeli alt klasörlerine yazar
-* Son ekleriyle birlikte orijinal dosya adlarını korur
+* Son eklerle orijinal dosya adlarını korur
 
 **Süre:** Dışa aktarım formatına ve dosya boyutuna göre değişir
 
@@ -161,9 +161,9 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
 ## İşleme Davranışı
 
-### Otomatik İşleme Süreci
+### Otomatik İşleme Boru Hattı
 
-Başlatıldığında, tüm süreç otomatik olarak çalışır:
+Başlatıldığında, tüm boru hattı otomatik olarak çalışır:
 
 * Kullanıcı etkileşimi gerekmez
 * Yapılandırılan tüm adımlar sırayla yürütülür
@@ -197,7 +197,7 @@ Başlatıldığında, tüm süreç otomatik olarak çalışır:
 * Kısmi sonuçlar kaydedilmez.
 * İptal edildiğinde baştan başlamak gerekir.
 
-**Planlama ipucu:** Çok büyük projeler için, daha iyi kontrol için toplu işlemeyi veya CLI kullanmayı düşünün.
+**Planlama ipucu:** Çok büyük projeler için, daha iyi kontrol sağlamak amacıyla toplu işlemeyi veya CLI kullanmayı düşünün.
 
 ***
 
@@ -210,24 +210,24 @@ Başlatıldığında, tüm süreç otomatik olarak çalışır:
 * **Günlük sekmesini kontrol edin** - Ayrıntılı işleme mesajlarını ve uyarıları görün
 * **Tamamlanan görüntüleri önizleyin** - İşleme sırasında bazı dışa aktarma dosyaları görünebilir
 
-İzleme hakkında ayrıntılı bilgi için [İşlemeyi İzleme](monitoring-the-processing.md) bölümüne bakın.
+İzleme hakkında ayrıntılı bilgi için, [İşlemi İzleme](monitoring-the-processing.md) bölümüne bakın.
 
 ***
 
-## İşlemeyi İptal Etme
+## İşlemi İptal Etme
 
-İşlemeyi durdurmanız gerekiyorsa:
+İşlemi durdurmanız gerekiyorsa:
 
 ### İptal Etme
 
-1. **Durdur/İptal düğmesini** bulun (işleme sırasında Başlat düğmesinin yerine geçer)
+1. **Durdur/İptal düğmesini** bulun (işlem sırasında Başlat düğmesinin yerine geçer)
 2. Durdur düğmesine tıklayın
 3. İşleme hemen durur
 4. Kısmi sonuçlar silinir
 
-### Ne Zaman İptal Edilir
+### Ne Zaman İptal Edilmeli
 
-**İptal için geçerli nedenler:**
+**İptal etmek için geçerli nedenler:**
 
 * Yanlış ayarların kullanıldığı fark edildi
 * Hedef görüntüleri işaretlemeyi unuttunuz
@@ -237,7 +237,7 @@ Başlatıldığında, tüm süreç otomatik olarak çalışır:
 **İptal ettikten sonra:**
 
 * Sorunları gözden geçirin ve düzeltin
-* Gerektiğinde ayarları değiştirin
+* Ayarları gerektiği gibi yapın
 * İşleme baştan yeniden başlayın
 * En temiz deneyim için, Chloros&#x27;i tamamen kapatın ve yeniden başlatın.
 
@@ -271,7 +271,7 @@ Gerçek işlem süresi aşağıdakilere göre büyük ölçüde değişir:
 | 1000 görüntü | 4-6 saat   | 1,5-2 saat      | 40-60 dakika      |
 
 {% hint style=&quot;info&quot; %}
-**İlk Çalıştırma**: Chloros önbellekleri ve profilleri oluştururken ilk işleme daha uzun sürebilir. Benzer veri kümelerinin sonraki işlemeleri daha hızlı olacaktır.
+**İlk Çalıştırma**: Chloros önbellekleri ve profilleri oluştururken ilk işleme daha uzun sürebilir. Benzer veri kümelerinin sonraki işlemleri daha hızlı olacaktır.
 {% endhint %}
 
 ***
@@ -282,24 +282,24 @@ Gerçek işlem süresi aşağıdakilere göre büyük ölçüde değişir:
 
 **Olası nedenler:**
 
-* Görüntü içe aktarılmamış
+* İçe aktarılan görüntü yok
 * Arka uç tam olarak başlatılmamış
 * Önceki işlem hala devam ediyor
 * Proje tam olarak yüklenmemiş
 
 **Çözümler:**
 
-1. Arka planın tamamen başlatılmasını bekleyin (ana menü simgesini kontrol edin)
-2. Görüntülerin Dosya Tarayıcıya içe aktarıldığını doğrulayın
+1. Arka ucun tamamen başlatılmasını bekleyin (ana menü simgesini kontrol edin)
+2. Görüntülerin Dosya Tarayıcı&#x27;ya içe aktarıldığını doğrulayın
 3. Düğme devre dışı kalırsa Chloros&#x27;i yeniden başlatın
-4. Hata mesajları için Hata Ayıklama Günlüğünü kontrol edin
+4. Hata mesajları için Hata Ayıklama Günlüğü&#x27;nü kontrol edin
 
 ### İşleme Başlıyor, Ancak Hemen Hata Veriyor
 
 **Olası nedenler:**
 
 * Projede geçerli görüntü yok
-* Görüntü dosyaları bozuk
+* Bozuk görüntü dosyaları
 * Yetersiz disk alanı
 * Yetersiz bellek (RAM)
 
@@ -330,7 +330,7 @@ Gerçek işlem süresi aşağıdakilere göre büyük ölçüde değişir:
 
 ### Başlamadan Önce
 
-1. **Önce küçük bir alt kümeyle test edin** - Ayarları doğrulamak için 10-20 görüntüyü işleyin
+1. **Önce küçük bir alt kümeyle test edin** - Ayarları doğrulamak için 10-20 görüntü işleyin
 2. **Kullanılabilir disk alanını kontrol edin** - Veri kümesinin 2-3 katı kadar boş alan olduğundan emin olun
 3. **Gereksiz uygulamaları kapatın** - Sistem kaynaklarını boşaltın
 4. **Hedef görüntüleri doğrulayın** - Kaliteyi sağlamak için işaretlenmiş hedefleri önizleyin
@@ -350,7 +350,7 @@ NVIDIA GPU hızlandırma kullanıyorsanız:
 1. NVIDIA sürücülerini en son sürüme güncelleyin
 2. GPU&#x27;nun 4 GB+ VRAM&#x27;e sahip olduğundan emin olun
 3. GPU&#x27;yu yoğun şekilde kullanan uygulamaları (oyunlar, video düzenleme) kapatın
-4. GPU sıcaklığını izleyin (yeterli soğutma sağlandığından emin olun)
+4. GPU sıcaklığını izleyin (yeterli soğutma olduğundan emin olun)
 
 ***
 
@@ -360,6 +360,6 @@ NVIDIA GPU hızlandırma kullanıyorsanız:
 
 1. **İlerlemeyi izleyin** - [İşlemeyi İzleme](monitoring-the-processing.md) bölümüne bakın
 2. **Tamamlanmasını bekleyin** - İşleme otomatik olarak çalışır
-3. **Sonuçları inceleyin** - Bkz. [İşlemeyi Tamamlama](finishing-the-processing.md)
+3. **Sonuçları inceleyin** - [İşlemeyi Tamamlama](finishing-the-processing.md) bölümüne bakın
 
-İşleme sırasında ne yapmanız gerektiği hakkında bilgi için bkz. [İşlemeyi İzleme](monitoring-the-processing.md).
+İşleme sırasında ne yapmanız gerektiği hakkında bilgi için [İşlemeyi İzleme](monitoring-the-processing.md) bölümüne bakın.

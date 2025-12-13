@@ -1,6 +1,6 @@
 # Görüntüyü Tam Ekran Açma
 
-Chloros Görüntü Görüntüleyici, çok spektrumlu görüntülerinizi görüntülemek, analiz etmek ve işlemek için özel bir tam ekran arayüzü sağlar. Orijinal görüntüleri veya işlenmiş çıktıları görüntülerken, Görüntü Görüntüleyici inceleme ve analiz için güçlü araçlar sunar.
+Chloros Görüntü Görüntüleyici, çok spektral görüntülerinizi görüntülemek, analiz etmek ve işlemek için özel bir tam ekran arayüzü sağlar. Orijinal görüntüleri veya işlenmiş çıktıları görüntülerken, Görüntü Görüntüleyici inceleme ve analiz için güçlü araçlar sunar.
 
 ## Görüntü Görüntüleyiciye Erişim
 
@@ -42,11 +42,11 @@ Ekranın en büyük kısmı görüntünüzü gösterir:
 
 #### Görüntüleri Göz Atma
 
-Klavye kısayolları veya düğmeleri kullanarak görüntü setinizde gezin:
+Klavye kısayolları veya düğmeleri kullanarak görüntü kümenizde gezin:
 
-* **Sonraki görüntü**: → düğmesini tıklayın veya **→** (Sağ Ok) tuşuna basın
-* **Önceki görüntü**: ← düğmesini tıklayın veya **←** (Sol Ok) tuşuna basın
-* **Belirli bir görüntüye atlama**: Dosya Tarayıcıya dönün ve istediğiniz küçük resmi tıklayın
+* **Sonraki görüntü**: → düğmesine tıklayın veya **→** (Sağ Ok) tuşuna basın
+* **Önceki görüntü**: ← düğmesine tıklayın veya **←** (Sol Ok) tuşuna basın
+* **Belirli bir görüntüye atlama**: Dosya Tarayıcıya dönün ve istediğiniz küçük resme tıklayın
 
 #### Yakınlaştırma Kontrolleri
 
@@ -85,13 +85,13 @@ Ekran boyutunun ötesine yakınlaştırıldığında:
 
 ## Piksel Değeri İnceleme
 
-### İmleçteki Piksel Değerlerini Görüntüleme
+### İmleçte Piksel Değerlerini Görüntüleme
 
 Fare imlecini görüntünün üzerine getirdiğinizde, piksel değerleri gerçek zamanlı olarak görüntülenir:
 
 **Değer görüntüleme konumu:**
 
-* **Sağ tarafta kayan sayı ve kırmızı çizgi LUT gradyanı göstergesi**
+* **Sağ tarafta kayan sayı ve kırmızı çizgi indeks LUT gradyanı açıklaması**
 * **Daha fazla yakınlaştırıldığında, imlecin yakınında kayan değer ve vurgulanmış piksel**
 * **İmlecin altındaki veya vurgulanmış** pikselin değerlerini gösterir
 * Fareyi hareket ettirdikçe güncellenir
@@ -117,7 +117,7 @@ Fare imlecini görüntünün üzerine getirdiğinizde, piksel değerleri gerçek
 * Çok bantlı TIFF (Red, Green, NIR, vb.)
 * Analiz için hazır bilimsel veriler
 
-### Dizin Görüntüler
+### Dizin Görüntüleri
 
 **NDVI, NDRE, GNDVI, vb. (\_NDVI.tif dosyaları):**
 
@@ -160,8 +160,8 @@ Ayrıntılı talimatlar için [Endeks/LUT Sandbox](index-lut-sandbox.md) bölüm
 
 ### Görüntüleme Denetimleri
 
-* **P**: Piksel yüzdesi modunu aç/kapat
-* **L**: Katmanlar panelini aç/kapat
+* **P**: Piksel yüzdesi modunu değiştir
+* **L**: Katmanlar panelini değiştir
 * **Esc**: Tam ekranı kapat veya Dosya Tarayıcıya dön
 
 ### Diğer
@@ -198,18 +198,18 @@ Endekslerin doğru hesaplandığını kontrol edin:
 
 **Çözümler:**
 
-1. Dosya bütünlüğünü doğrulamak için harici görüntüleyicide açmayı deneyin.
-2. Dosya formatının beklenen türle eşleştiğini kontrol edin.
-3. Belleği boşaltmak için diğer uygulamaları kapatın.
-4. Daha küçük/farklı bir görüntü deneyin.
+1. Dosya bütünlüğünü doğrulamak için harici görüntüleyicide açmayı deneyin
+2. Dosya formatının beklenen türle eşleştiğini kontrol edin
+3. Belleği boşaltmak için diğer uygulamaları kapatın
+4. Daha küçük/farklı bir görüntü deneyin
 
 ### Siyah veya Beyaz Görüntü Gösterimi
 
 **Olası nedenler:**
 
-* Değer aralığı görüntüleme kapasitesinin dışında.
-* Olağandışı değerlere sahip 32 bitlik kayan noktalı görüntü.
-* Dizin hesaplama hatası.
+* Değer aralığı görüntüleme kapasitesinin dışında
+* Olağandışı değerlere sahip 32 bitlik kayan noktalı görüntü
+* Dizin hesaplama hatası
 
 **Çözümler:**
 
@@ -224,7 +224,7 @@ Endekslerin doğru hesaplandığını kontrol edin:
 * Yanlış görüntü görüntüleniyor (orijinal ve işlenmiş)
 * Kalibrasyon doğru uygulanmadı
 * Işık sensörü verileri girişe dahil edilmedi
-* Yüzde modu yanlış değiştirildi
+* Yüzde modu yanlış ayarlandı
 
 **Çözümler:**
 

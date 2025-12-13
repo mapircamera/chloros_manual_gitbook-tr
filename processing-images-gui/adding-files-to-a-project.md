@@ -1,11 +1,11 @@
 # Projeye Dosya Ekleme
 
-Chloros&#x27;te bir proje oluşturduktan veya açtıktan sonra, bir sonraki adım işleme başlamak için çok spektrumlu görüntülerinizi eklemektir. Dosya Tarayıcı<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> sekmesi, görüntüleri içe aktarmayı ve veri kümenizi yönetmeyi kolaylaştırır.
+Chloros&#x27;te bir proje oluşturduktan veya açtıktan sonra, bir sonraki adım işlemeyi başlatmak için çok spektrumlu görüntülerinizi eklemektir. Dosya Tarayıcı<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> sekmesi, görüntüleri içe aktarmayı ve veri kümenizi yönetmeyi kolaylaştırır.
 
 ## Dosya Tarayıcıya Erişme
 
 1. Chloros&#x27;te bir proje açın veya oluşturun
-2. Sol kenar çubuğundaki **Dosya Tarayıcı** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> simgesine tıklayın
+2. Sol kenar çubığındaki **Dosya Tarayıcı** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> simgesine tıklayın
 3. Dosya Tarayıcı paneli, projenizin dosya listesini görüntüler
 
 {% ipucu style=&quot;info&quot; %}
@@ -33,7 +33,7 @@ Bir klasördeki tüm görüntüleri bir kerede içe aktarmak için bu seçeneği
 
 1. Dosya Tarayıcı panelinin üst kısmındaki **&quot;Klasör Ekle&quot;** düğmesini tıklayın.
 2. Yakalama oturumu resimlerinizi içeren klasöre gidin ve seçin.
-3. **&quot;Klasörü Seç&quot;** düğmesini tıklayarak o klasördeki tüm desteklenen resimleri içe aktarın.
+3. O klasördeki tüm desteklenen resimleri içe aktarmak için **&quot;Klasörü Seç&quot;** düğmesini tıklayın.
 
 ***
 
@@ -44,7 +44,7 @@ Resimler içe aktarıldıktan sonra, aşağıdaki sütunların bulunduğu bir ta
 ### Küçük Resim
 
 * Her görüntünün küçük önizlemesi
-* Ana önizleme alanında görüntünün tamamını görüntülemek için küçük resme tıklayın.
+* Ana önizleme alanında görüntünün tamamını görüntülemek için küçük resme tıklayın
 
 ### Dosya Adı
 
@@ -89,7 +89,7 @@ Projenizden istenmeyen görüntüleri kaldırmak için:
 
 ***
 
-## Görüntü Önizleme
+## Görüntü Önizlemesi
 
 ### Tam Görüntüyü Görüntüleme
 
@@ -146,7 +146,7 @@ Projeniz birden fazla MAPIR kameradan alınan görüntüler içeriyorsa:
 ### Dosya Adlandırma
 
 * Orijinal kamera dosya adlarını koruyun (IMG\_0001.RAW, vb.)
-* İçe aktarmadan önce dosya adlarını değiştirmeyin
+* İçe aktarmadan önce dosyaları yeniden adlandırmayın
 * Orijinal adlar önemli meta veriler içerir
 
 ### Kalibrasyon Hedef Görüntüleri
