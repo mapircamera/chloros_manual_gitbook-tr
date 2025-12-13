@@ -10,7 +10,7 @@
 * [Chloros+ Giriş](chloros+-login.md)
 * [Kalibrasyon Hedefleri](calibration-targets.md)
 * [Desteklenen Diller](supported-languages.md)
-* [İndir](download.md)
+* [İndirme](download.md)
 * [SSS](faq.md)
 
 ## Görüntüleri İşleme (GUI)
@@ -27,7 +27,7 @@
 * [Proje Ayarları](project-settings/project-settings.md)
 * [Çok Spektral İndeks Formülleri](project-settings/multispectral-index-formulas.md)
 
-## GÖRÜNTÜ GÖRÜNTÜLEYİCİ (GUI)
+## GÖRÜNTÜ GÖSTERİCİ (GUI)
 
 * [Görüntüyü Tam Ekran Açma](image-viewer-gui/opening-an-image-full-screen.md)
 * [Görüntü Katmanları](image-viewer-gui/image-layers.md)

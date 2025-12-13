@@ -8,7 +8,7 @@ metaLinks:
 
 ### TIFF (16 bit)
 
-16 bit (piksel dijital numara 0 - 65535) TIFF (.tif) biçiminde çıktı.
+16 bit (piksel dijital numarası 0 - 65535) TIFF (.tif) biçiminde çıktı.
 
 ### TIFF (32 bit, Yüzde %)
 

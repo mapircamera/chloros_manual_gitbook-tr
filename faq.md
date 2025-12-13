@@ -67,6 +67,6 @@ Dosya tarayıcı tablosunda sağ sütunda hedef görüntüleri önceden seçmek,
 
 <summary>MAPIR, X özelliğini destekleyecek mi? MAPIR&#x27;in X özelliğini sunmasını gerçekten çok isterim.</summary>
 
-Ürünlerimizle ilgili geri bildirimlerinizi her zaman memnuniyetle alırız. Ürünlerimizle ilgili bir sorun tespit ederseniz veya ürünlerimizi nasıl iyileştirebileceğimiz konusunda önerileriniz varsa, lütfen [BİZE ULAŞIN](https://www.mapir.camera/community/contact) ve düşüncelerinizi bizimle paylaşın. Ar-Ge çalışmalarımızın çoğu, müşterilerimizin en büyük ihtiyaçlarını dinleyerek yönlendirilmektedir.
+Ürünlerimizle ilgili geri bildirimlerinizi her zaman memnuniyetle karşılıyoruz. Ürünlerimizle ilgili bir sorun tespit ederseniz veya ürünlerimizi nasıl iyileştirebileceğimiz konusunda önerileriniz varsa, lütfen [BİZE ULAŞIN](https://www.mapir.camera/community/contact) ve görüşlerinizi bizimle paylaşın. Ar-Ge çalışmalarımızın çoğu, müşterilerimizin en önemli ihtiyaçlarını dinleyerek yönlendirilmektedir.
 
 </details>

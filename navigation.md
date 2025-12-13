@@ -14,11 +14,9 @@ Ana menüden yeni bir proje başlatabilir, mevcut bir projeyi açabilir veya pro
 
 Etkinleştirildiğinde, işleme başlatma düğmesi görüntü işleme sürecini başlatır.
 
-### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> İlerleme Çubuğu <img src=".gitbook/assets/image (5).png" alt="" data-size="line">
+### <img src=".gitbook/assets/image (4).png" alt="" data-size="line"> İlerleme Çubuğu <img src=".gitbook/assets/image (5).png" alt="" data-size="line">Tüm dosyaları sırayla işleyen ücretsiz Chloros modunda, ilerleme çubuğu 2 aşamayı gösterir: Hedef Algılama ve İşleme.
 
-Tüm dosyaları sırayla işleyen ücretsiz Chloros modunda, ilerleme çubuğu 2 aşamayı gösterir: Hedef Algılama ve İşleme.
-
-Tüm dosyaları aynı anda işleyen ücretli Chloros+ lisanslı modunda, ilerleme çubuğu 4 aşamayı gösterir: Algılama, Analiz, Kalibrasyon, Dışa Aktarma. Fare imlecini Chloros+ ilerleme çubuğunun üzerine getirdiğinizde, genişletilmiş 4 ilerleme çubuğu paneli açılır ve böylece ilerlemeyi takip edebilirsiniz. Üstteki ilerleme çubuğuna tıkladığınızda açılır panel dondurulur, tekrar tıkladığınızda dondurma işlemi kaldırılır.
+Tüm dosyaları aynı anda işleyen ücretli Chloros+ lisanslı modunda, ilerleme çubuğu 4 aşamayı gösterir: Algılama, Analiz, Kalibrasyon, Dışa Aktarma. Fare imlecini Chloros+ ilerleme çubuğunun üzerine getirdiğinizde, genişletilmiş 4 ilerleme çubuğu paneli açılır ve böylece ilerlemeyi takip edebilirsiniz. Üstteki ilerleme çubuğuna tıkladığınızda açılır panel dondurulur, tekrar tıkladığınızda dondurma kaldırılır.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 
@@ -32,7 +30,7 @@ Proje Ayarları sekmesi, proje genel ve proje işleme ayarlarını yapmanızı s
 
 #### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> Dosya Tarayıcı
 
-Projeye dosya/klasör ekleyin ve projeden dosya kaldırın. Yinelenen dosyalar yok sayılır. Hedef sütun kutusunu herhangi bir hedef görüntü için işaretleyin, işleme sadece işaretlenen görüntüleri hedef olarak alır ve işleme sürenizi büyük ölçüde hızlandırır.
+Projeye dosya/klasör ekleyin ve projeden dosya kaldırın. Yinelenen dosyalar yok sayılır. Hedef sütun kutusunu herhangi bir hedef görüntü için işaretleyin; işleme, yalnızca işaretlenen görüntüleri hedef olarak alır ve işleme süresini büyük ölçüde hızlandırır.
 
 #### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [Görüntü Görüntüleyici](image-viewer-gui/opening-an-image-full-screen.md)
 
@@ -40,7 +38,7 @@ Ana görüntü görüntüleyicide bir görüntü tıklandığında, Görüntü G
 
 #### <img src=".gitbook/assets/icon_log.JPG" alt="" data-size="line"> Hata Ayıklama Günlüğü
 
-Sorunlar oluştuğunda hata ayıklama çıktıları için günlüğü inceleyin. Günlüğü kopyalayın/indirin ve yardım için [MAPIR Desteği](https://www.mapir.camera/community/contact) adresine gönderin.
+Sorun oluştuğunda hata ayıklama çıktıları için günlüğü inceleyin. Günlüğü kopyalayın/indirip [MAPIR Desteği](https://www.mapir.camera/community/contact) adresine göndererek yardım isteyin.
 
 #### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [Kullanıcı Girişi](chloros+-login.md)
 

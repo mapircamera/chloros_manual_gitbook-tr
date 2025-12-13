@@ -1,6 +1,6 @@
 # CLI : Komut Satırı
 
-<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI**, Chloros görüntü işleme motoruna güçlü bir komut satırı erişimi sağlayarak görüntü işleme iş akışlarınız için otomasyon, komut dosyası oluşturma ve başsız çalışma imkanı sunar.
+<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI**, Chloros görüntü işleme motoruna güçlü bir komut satırı erişimi sağlayarak görüntüleme iş akışlarınız için otomasyon, komut dosyası oluşturma ve başsız çalışma imkanı sunar.
 
 ### Temel Özellikler
 
@@ -8,7 +8,7 @@
 * 🔗 **Entegrasyon** - Mevcut iş akışlarına ve boru hatlarına gömme
 * 💻 **Başsız Çalışma** - GUI olmadan çalıştırma
 * 🌍 **Çok Dilli** - 38 dil desteği
-* ⚡ **Paralel İşleme** - CPU&#x27;nuzla dinamik olarak ölçeklenir (16 adede kadar paralel işçi)
+* ⚡ **Paralel İşleme** - CPU&#x27;nuza dinamik olarak ölçeklenir (16 adede kadar paralel işçi)
 
 ### Gereksinimler
 
@@ -28,14 +28,14 @@
 
 ### Kurulum
 
-CLI, Chloros yükleyicisine otomatik olarak dahil edilmiştir:
+CLI, Chloros yükleyicisine otomatik olarak dahildir:
 
 1. **Chloros Yükleyici.exe**&#x27;i indirin ve çalıştırın
 2. Kurulum sihirbazını tamamlayın
-3. CLI şuraya kuruldu: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
+3. CLI şuraya yüklendi: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
 
 {% hint style=&quot;success&quot; %}
-Yükleyici, `chloros-cli`&#x27;i sistem PATH&#x27;inize otomatik olarak ekler. Kurulumdan sonra terminalinizi yeniden başlatın.
+Yükleyici, `chloros-cli`&#x27;i sistem PATH&#x27;inize otomatik olarak ekler. Yüklemeden sonra terminalinizi yeniden başlatın.
 {% endhint %}
 
 ### İlk Kurulum
@@ -91,7 +91,7 @@ chloros-cli process <input-folder> [options]
 chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 ```
 
-#### İşlem Komutu Seçenekleri
+#### İşlem Komut Seçenekleri
 
 | Seçenek                | Tür    | Varsayılan        | Açıklama                                                                            |
 | --------------------- | ------- | -------------- | -------------------------------------------------------------------------------------- |
@@ -130,7 +130,7 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
 {% hint style=&quot;warning&quot; %}
-**Özel Karakterler**: `$`, `!` gibi karakterler veya boşluklar içeren şifrelerin etrafına tek tırnak işareti kullanın.
+**Özel Karakterler**: `$`, `!` gibi karakterler veya boşluklar içeren şifrelerin etrafına tek tırnak işareti koyun.
 {% endhint %}
 
 **Çıktı:**
@@ -193,9 +193,9 @@ chloros-cli status
 
 ***
 
-### `export-status` - Dışa Aktarım İlerlemesini Kontrol Et
+### `export-status` - Dışa Aktarım İlerleme Durumunu Kontrol Et
 
-İşleme sırasında veya sonrasında Thread 4 dışa aktarım ilerlemesini izler.
+İşlem sırasında veya sonrasında Thread 4 dışa aktarım ilerleme durumunu izler.
 
 **Sözdizimi:**
 
@@ -209,11 +209,11 @@ chloros-cli export-status
 chloros-cli export-status
 ```
 
-**Kullanım Örneği:** İşlem devam ederken bu komutu çağırarak dışa aktarım ilerlemesini kontrol edin.
+**Kullanım Örneği:** İşlem çalışırken bu komutu çağırarak dışa aktarım ilerlemesini kontrol edin.
 
 ***
 
-### `language` - Arayüz Dilini Yönet
+### `language` - Arayüz Dilini Yönetme
 
 CLI arayüz dilini görüntüleyin veya değiştirin.
 
@@ -290,7 +290,7 @@ chloros-cli language ja
 | `sl`    | Slovence             | Slovenščina      |
 
 {% hint style=&quot;success&quot; %}
-**Otomatik Kalıcılık**: Dil tercihiniz `~/.chloros/cli_language.json`&#x27;e kaydedilir ve tüm oturumlar boyunca kalıcıdır.
+**Otomatik Kalıcılık**: Dil tercihiniz `~/.chloros/cli_language.json` dosyasına kaydedilir ve tüm oturumlar boyunca kalıcıdır.
 {% endhint %}
 
 ***
@@ -373,7 +373,7 @@ chloros-cli --port 5001 process "C:\Datasets\Survey_001"
 
 ### Paralel İşleme
 
-Chloros+ CLI **otomatik olarak** bilgisayarınızın kapasitesine uygun olarak paralel işlemeyi ölçeklendirir:
+Chloros+ CLI **otomatik olarak** bilgisayarınızın kapasitesine uygun şekilde paralel işlemeyi ölçeklendirir:
 
 **Nasıl Çalışır:**
 
@@ -403,7 +403,7 @@ CLI, varsayılan ve önerilen debayer algoritması olarak **Yüksek Kalite (Daha
 
 ### Vinyet Düzeltme
 
-**Ne yapar:** Görüntü kenarlarında ışık düşüşünü düzeltir (kamera görüntülerinde sık görülen daha koyu köşeler).
+**Ne yapar:** Görüntü kenarlarında ışık düşüşünü düzeltir (kamera görüntülerinde sık görülen daha karanlık köşeler).
 
 * **Varsayılan olarak etkindir** - Çoğu kullanıcı bunu etkin tutmalıdır
 * Devre dışı bırakmak için `--no-vignette` kullanın
@@ -414,7 +414,7 @@ CLI, varsayılan ve önerilen debayer algoritması olarak **Yüksek Kalite (Daha
 
 ### Yansıma Kalibrasyonu
 
-Kalibrasyon panelleri kullanarak ham sensör değerlerini standartlaştırılmış yansıma yüzdelerine dönüştürür.
+Kalibrasyon panelleri kullanarak ham sensör değerlerini standartlaştırılmış yansıma yüzdeleri haline dönüştürür.
 
 * **Varsayılan olarak etkin** - Bitki örtüsü analizi için gereklidir.
 * Görüntülerde kalibrasyon hedef panelleri gerektirir.
@@ -432,9 +432,9 @@ Kalibrasyon panelleri kullanarak ham sensör değerlerini standartlaştırılmı
 * Etkinleştirmek için `--ppk` kullanın
 * MAPIR DAQ-A-SD ışık sensöründen proje klasöründe .daq dosyaları gerekir.
 
-### Çıktı Biçimleri
+### Çıkış Biçimleri
 
-<table><thead><tr><th width="197">Biçim</th><th width="130.20001220703125">Bit Derinliği</th><th width="116.5999755859375">Dosya Boyutu</th><th>En Uygun</th></tr></thead><tbody><tr><td><strong>TIFF (16 bit)</strong> ⭐</td><td>16 bitlik tamsayı</td><td>Büyük</td><td>GIS analizi, fotogrametri (önerilir)</td></tr><tr><td><strong>TIFF (32 bit, Yüzde)</strong></td><td>32 bit kayan nokta</td><td>Çok büyük</td><td>Bilimsel analiz, araştırma</td></tr><tr><td><strong>PNG (8 bit)</strong></td><td>8 bitlik tamsayı</td><td>Orta</td><td>Görsel inceleme, web paylaşımı</td></tr><tr><td><strong>JPG (8 bit)</strong></td><td>8 bitlik tamsayı</td><td>Küçük</td><td>Hızlı önizleme, sıkıştırılmış çıktı</td></tr></tbody></table>***
+<table><thead><tr><th width="197">Biçim</th><th width="130.20001220703125">Bit Derinliği</th><th width="116.5999755859375">Dosya Boyutu</th><th>En Uygun</th></tr></thead><tbody><tr><td><strong>TIFF (16 bit)</strong> ⭐</td><td>16 bit tamsayı</td><td>Büyük</td><td>GIS analizi, fotogrametri (önerilir)</td></tr><tr><td><strong>TIFF (32 bit, Yüzde)</strong></td><td>32 bit kayan nokta</td><td>Çok büyük</td><td>Bilimsel analiz, araştırma</td></tr><tr><td><strong>PNG (8 bit)</strong></td><td>8 bitlik tamsayı</td><td>Orta</td><td>Görsel inceleme, web paylaşımı</td></tr><tr><td><strong>JPG (8 bit)</strong></td><td>8 bitlik tamsayı</td><td>Küçük</td><td>Hızlı önizleme, sıkıştırılmış çıktı</td></tr></tbody></table>***
 
 ## Otomasyon ve Komut Dosyası Oluşturma
 
@@ -636,7 +636,7 @@ dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
 3. PATH&#x27;e manuel olarak ekleyin:
    * Sistem Özellikleri → Ortam Değişkenleri&#x27;ni açın.
    * PATH değişkenini düzenleyin.
-   * Ekle: `C:\Program Files\Chloros\resources\cli`
+   * Ekleyin: `C:\Program Files\Chloros\resources\cli`
    * Terminali yeniden başlatın.
 
 ***
@@ -882,7 +882,7 @@ chloros-cli process "C:\Datasets\Field_A" ^
 
 ### Örnek 3: Hızlı Önizleme İşleme
 
-Hızlı inceleme için kalibrasyon yapılmamış 8 bit PNG:
+Hızlı inceleme için kalibrasyonsuz 8 bit PNG:
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" ^
