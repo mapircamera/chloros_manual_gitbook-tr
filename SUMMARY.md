@@ -10,7 +10,7 @@
 * [Chloros+ Giriş](chloros+-login.md)
 * [Kalibrasyon Hedefleri](calibration-targets.md)
 * [Desteklenen Diller](supported-languages.md)
-* [İndirme](download.md)
+* [İndir](download.md)
 * [SSS](faq.md)
 
 ## Görüntüleri İşleme (GUI)

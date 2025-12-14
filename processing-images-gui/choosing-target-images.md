@@ -32,7 +32,7 @@ Belirli görüntüler için Hedef sütununu işaretlediğinizde:
 
 ### Adım 1: Hedef Görüntülerinizi Belirleyin
 
-Dosya Tarayıcısında içe aktarılan görüntülerinizi inceleyin ve hangi görüntülerin kalibrasyon hedefleri içerdiğini belirleyin.
+Dosya Tarayıcı&#x27;da içe aktarılan görüntülerinizi inceleyin ve hangi görüntülerin kalibrasyon hedefleri içerdiğini belirleyin.
 
 **Yaygın senaryolar:**
 
@@ -68,7 +68,7 @@ Kalibrasyon hedefi içeren her görüntü için:
 
 * Hedef görüntüleri, yakalama oturumunuzdan hemen önce ve oturum boyunca yakalayın
 * DAQ ışık sensörünüzle aynı aydınlatma koşullarında
-* En iyi sonuçlar için ideal olarak hedef görüntüleri mümkün olduğunca sık yakalayın. Aksi takdirde, ışık sensörü verileri zaman içinde kalibrasyonu ayarlamak için kullanılır.
+* En iyi sonuçlar için ideal olarak hedef görüntüleri mümkün olduğunca sık yakalayın. Aksi takdirde, ışık sensörü verileri zaman içinde kalibrasyonu ayarlamak için kullanılacaktır.
 
 **Kamera Konumu:**
 
@@ -95,14 +95,14 @@ Kalibrasyon hedefi içeren her görüntü için:
 **En iyi uygulama programı:**
 
 * Işık sensörü kayıt yapmaya başladıktan kısa bir süre sonra 3-5 görüntü yakalayın.
-* En iyi sonuçlar için çekimler arasında kamerayı döndürün.
+* En iyi sonuçları elde etmek için çekimler arasında kamerayı döndürün.
 * İsteğe bağlı: Aydınlatma koşulları sürekli değişiyorsa, oturumun ortasında periyodik olarak yapın.
 
 ***
 
 ## Birden Fazla Kamera ile Çalışma
 
-### Çift Kamera Kurulumları
+### Çift Kamera Kurulumu
 
 İki MAPIR kamerayı aynı anda kullanıyorsanız (ör. Survey3W RGN + Survey3N OCN):
 
@@ -113,7 +113,7 @@ Kalibrasyon hedefi içeren her görüntü için:
 
 ### Kamera Modeli Sütunu
 
-**Kamera Modeli** sütunu, hangi görüntünün hangi kameradan geldiğini belirlemenize yardımcı olur:
+**Kamera Modeli** sütunu, hangi görüntünün hangi kameradan geldiğini belirlemeye yardımcı olur:
 
 * Survey3W\_RGN
 * Survey3N\_OCN
@@ -128,7 +128,7 @@ Bu sütunu, projenizdeki her kamera türü için hedefleri işaretlediğinizi do
 
 ### Algılama Hassasiyetini Ayarlama
 
-Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-project-settings.md) içindeki bu ayarları değiştirin:
+Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-project-settings.md) içindeki şu ayarları değiştirin:
 
 **Minimum kalibrasyon örnek alanı:**
 
@@ -146,7 +146,7 @@ Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-projec
 
 ## Yaygın Hedef Görüntü Sorunları
 
-### Sorun: Hedef Algılanmıyor
+### Sorun: Hedef Algılanmadı
 
 **Olası nedenler:**
 
@@ -157,7 +157,7 @@ Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-projec
 
 **Çözümler:**
 
-1. Hedef sütununun doğru görüntüler için işaretli olduğunu doğrulayın
+1. Hedef sütununun doğru görüntüler için işaretlendiğini doğrulayın
 2. Önizlemede hedef görüntü kalitesini inceleyin
 3. Kalite düşükse hedefleri yeniden yakalayın
 4. Gerekirse hedef algılama ayarlarını değiştirin
@@ -175,7 +175,7 @@ Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-projec
 1. Algılama kapsamını sınırlamak için yalnızca gerçek hedef görüntüleri işaretleyin
 2. Minimum kalibrasyon örnekleme alanını artırın
 3. Minimum hedef kümeleme değerini artırın
-4. Hedef görüntülerin yalnızca hedefi gösterdiğinden emin olun (arka planda en az dağınıklık)
+4. Hedef görüntülerin yalnızca hedefi gösterdiğinden emin olun (minimum arka plan karmaşası)
 
 ***
 
@@ -186,8 +186,8 @@ Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-projec
 * [ ] Her oturumda en az 1 hedef görüntü işaretlendi
 * [ ] Tüm hedef görüntüler için hedef sütunu onay kutuları işaretlendi
 * [ ] Hedef görüntüler, anketle aynı zaman diliminde yakalandı
-* [ ] Tıklandığında hedefler önizlemede açıkça görünüyor
-* [ ] Her hedef görüntüde 4 kalibrasyon paneli de görünüyor
+* [ ] Tıklandığında hedefler önizlemede açıkça görülebilir
+* [ ] Her hedef görüntüde 4 kalibrasyon paneli de görülebilir
 * [ ] Hedeflerde gölge veya engel yok
 * [ ] Çift kamera için: Her iki kamera türü için de hedefler işaretlendi
 
@@ -197,10 +197,10 @@ Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-projec
 
 ### Kalibrasyon Hedefleri Olmadan İşleme
 
-Bilimsel çalışmalar için önerilmese de, hedefler olmadan işleme yapabilirsiniz:
+Bilimsel çalışmalar için önerilmese de, hedefler olmadan da işleme yapabilirsiniz:
 
 1. Tüm Hedef sütunu onay kutularını işaretlemeyin
-2. Proje Ayarları&#x27;nda &quot;Yansıma kalibrasyonu&quot;nu **devre dışı bırakın**
+2. Proje Ayarlarında &quot;Yansıma kalibrasyonu&quot;nu **devre dışı bırakın**
 3. Vinyet düzeltmesi yine de uygulanacaktır
 4. Çıktı, mutlak yansıtma için kalibre edilmeyecektir
 

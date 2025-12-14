@@ -4,22 +4,22 @@ Görüntülerinizi içe aktardıktan, kalibrasyon hedeflerinizi işaretledikten 
 
 ## İşleme Öncesi Kontrol Listesi
 
-Başlat düğmesine tıklamadan önce her şeyin hazır olduğunu kontrol edin:
+Başlat düğmesine tıklamadan önce her şeyin hazır olduğunu doğrulayın:
 
 * [ ] **Dosyalar içe aktarıldı** - Tüm görüntüler Dosya Tarayıcı&#x27;da görünür
 * [ ] **Hedef görüntüler işaretlendi** - Kalibrasyon görüntüleri için Hedef sütunu işaretlendi
 * [ ] **Kamera modelleri algılandı** - Kamera Modeli sütununda doğru kameralar gösteriliyor
 * [ ] **Ayarlar yapılandırıldı** - Proje Ayarları gözden geçirildi ve ayarlandı
-* [ ] **Endeksler seçildi** - İstenen multispektral endeksler eklendi (gerekirse)
-* [ ] **Dışa aktarma biçimi seçildi** - İş akışınıza uygun çıktı biçimi
+* [ ] **Endeksler seçildi** - İstenen multispektral indeksler eklendi (gerekirse)
+* [ ] **Dışa aktarma formatı seçildi** - İş akışınıza uygun çıktı formatı
 
 {% hint style=&quot;info&quot; %}
-**İpucu**: İşlemeden önce Dosya Tarayıcı&#x27;da birkaç görüntüyü tıklayarak doğru yüklendiklerini doğrulayın.
+**İpucu**: İşleme başlamadan önce Dosya Tarayıcı&#x27;da birkaç görüntüyü tıklayarak doğru yüklendiklerini kontrol edin.
 {% endhint %}
 
 ***
 
-## İşlemeyi Başlatma
+## İşleme Başlama
 
 ### Başlat Düğmesini Bulma
 
@@ -33,7 +33,7 @@ Başlat/Oynat düğmesi, Chloros&#x27;in üst başlık çubuğunda bulunur:
 
 1. Üst başlıktaki **Oynat/Başlat düğmesine** tıklayın
 2. İşleme hemen başlar
-3. İşleme sırasında düğme devre dışı bırakılır (gri renge döner)
+3. İşleme sırasında düğme devre dışı bırakılır (gri renkte gösterilir)
 4. İşleme durumunu gösteren ilerleme çubuğu güncellenir
 
 {% hint style=&quot;success&quot; %}
@@ -46,7 +46,7 @@ Başlat/Oynat düğmesi, Chloros&#x27;in üst başlık çubuğunda bulunur:
 
 Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
-### Serbest Mod (Sıralı İşleme)
+### Ücretsiz Mod (Sıralı İşleme)
 
 **Tüm kullanıcılar için kullanılabilir**
 
@@ -81,7 +81,7 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
 1. **Algılama** - Kalibrasyon hedeflerini bulma
 2. **Analiz** - Görüntü meta verilerini inceleme ve iş akışını hazırlama
-3. **Kalibre etme** - Düzeltmeler ve kalibrasyonlar uygulama
+3. **Kalibre etme** - Düzeltme ve kalibrasyonları uygulama
 4. **Dışa aktarma** - İşlenmiş görüntüleri ve dizinleri kaydetme
 
 **İlerleme çubuğu etkileşimi:**
@@ -130,7 +130,7 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 **Chloros&#x27;in yaptığı işlemler:**
 
 * **Vinyet düzeltme**: Kenarlarda lens karartmasını giderir
-* **Yansıtma kalibrasyonu**: Hedef yansıtma değerlerini kullanarak normalleştirir
+* **Yansıma kalibrasyonu**: Hedef yansıma değerlerini kullanarak normalleştirir
 * Tüm bantlar/kanallarda düzeltmeler uygular
 * Zaman damgasına göre her görüntü için uygun kalibrasyon hedefini kullanır
 
@@ -140,9 +140,9 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
 **Chloros&#x27;in yaptığı işlemler:**
 
-* Yapılandırılmış multispektral indeksleri hesaplar (NDVI, NDRE, vb.)
+* Yapılandırılmış multispektral indeksleri hesaplar (NDVI, NDRE vb.)
 * Kalibre edilmiş görüntülere bant matematiği uygular
-* Seçilen her endeks için endeks görüntüleri oluşturur
+* Seçilen her indeks için indeks görüntüleri oluşturur
 
 **Süre:** Görüntü başına birkaç saniye
 
@@ -151,19 +151,19 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 **Chloros&#x27;in yaptığı işlemler:**
 
 * Kalibre edilmiş görüntüleri seçilen formatta kaydeder
-* Yapılandırılmış LUT renkleriyle endeks görüntülerini dışa aktarır
+* Yapılandırılmış LUT renkleriyle indeks görüntülerini dışa aktarır
 * Dosyaları kamera modeli alt klasörlerine yazar
-* Son eklerle orijinal dosya adlarını korur
+* Soneklerle orijinal dosya adlarını korur
 
-**Süre:** Dışa aktarım formatına ve dosya boyutuna göre değişir
+**Süre:** Dışa aktarma formatına ve dosya boyutuna göre değişir
 
 ***
 
 ## İşleme Davranışı
 
-### Otomatik İşleme Boru Hattı
+### Otomatik İşleme Süreci
 
-Başlatıldığında, tüm boru hattı otomatik olarak çalışır:
+Başlatıldığında, tüm süreç otomatik olarak çalışır:
 
 * Kullanıcı etkileşimi gerekmez
 * Yapılandırılan tüm adımlar sırayla yürütülür
@@ -192,10 +192,10 @@ Başlatıldığında, tüm boru hattı otomatik olarak çalışır:
 
 **Önemli sınırlamalar:**
 
-* İşleme başladıktan sonra duraklatılamaz.
-* İşlemeyi iptal edebilirsiniz, ancak ilerleme kaybolur.
-* Kısmi sonuçlar kaydedilmez.
-* İptal edildiğinde baştan başlamak gerekir.
+* İşleme başladıktan sonra duraklatılabilir
+* İşlemeyi iptal edebilirsiniz, ancak ilerleme kaybolur
+* Kısmi sonuçlar kaydedilmez
+* İptal edildiğinde baştan başlamak gerekir
 
 **Planlama ipucu:** Çok büyük projeler için, daha iyi kontrol sağlamak amacıyla toplu işlemeyi veya CLI kullanmayı düşünün.
 
@@ -214,18 +214,18 @@ Başlatıldığında, tüm boru hattı otomatik olarak çalışır:
 
 ***
 
-## İşlemi İptal Etme
+## İşlemeyi İptal Etme
 
-İşlemi durdurmanız gerekiyorsa:
+İşlemeyi durdurmanız gerekiyorsa:
 
 ### İptal Etme
 
-1. **Durdur/İptal düğmesini** bulun (işlem sırasında Başlat düğmesinin yerine geçer)
+1. **Durdur/İptal düğmesini** bulun (işleme sırasında Başlat düğmesinin yerine geçer)
 2. Durdur düğmesine tıklayın
 3. İşleme hemen durur
 4. Kısmi sonuçlar silinir
 
-### Ne Zaman İptal Edilmeli
+### Ne zaman iptal etmelisiniz?
 
 **İptal etmek için geçerli nedenler:**
 
@@ -237,12 +237,12 @@ Başlatıldığında, tüm boru hattı otomatik olarak çalışır:
 **İptal ettikten sonra:**
 
 * Sorunları gözden geçirin ve düzeltin
-* Ayarları gerektiği gibi yapın
-* İşleme baştan yeniden başlayın
-* En temiz deneyim için, Chloros&#x27;i tamamen kapatın ve yeniden başlatın.
+* Gerektiğinde ayarları değiştirin
+* İşleme baştan başlayın
+* En temiz deneyim için, Chloros&#x27;i tamamen kapatın ve yeniden başlatın
 
 {% hint style=&quot;warning&quot; %}
-**Kısmi Sonuç Yok**: İptal etme, tüm ilerlemeyi silinir. Chloros, kısmen işlenmiş görüntüleri kaydetmez.
+**Kısmi Sonuç Yok**: İptal etme, tüm ilerlemeyi silinir. Chloros kısmen işlenmiş görüntüleri kaydetmez.
 {% endhint %}
 
 ***
@@ -271,7 +271,7 @@ Gerçek işlem süresi aşağıdakilere göre büyük ölçüde değişir:
 | 1000 görüntü | 4-6 saat   | 1,5-2 saat      | 40-60 dakika      |
 
 {% hint style=&quot;info&quot; %}
-**İlk Çalıştırma**: Chloros önbellekleri ve profilleri oluştururken ilk işleme daha uzun sürebilir. Benzer veri kümelerinin sonraki işlemleri daha hızlı olacaktır.
+**İlk Çalıştırma**: Chloros önbellekleri ve profilleri oluştururken ilk işleme daha uzun sürebilir. Benzer veri kümelerinin sonraki işlemeleri daha hızlı olacaktır.
 {% endhint %}
 
 ***
@@ -282,17 +282,17 @@ Gerçek işlem süresi aşağıdakilere göre büyük ölçüde değişir:
 
 **Olası nedenler:**
 
-* İçe aktarılan görüntü yok
+* Görüntü içe aktarılmamış
 * Arka uç tam olarak başlatılmamış
 * Önceki işlem hala devam ediyor
 * Proje tam olarak yüklenmemiş
 
 **Çözümler:**
 
-1. Arka ucun tamamen başlatılmasını bekleyin (ana menü simgesini kontrol edin)
-2. Görüntülerin Dosya Tarayıcı&#x27;ya içe aktarıldığını doğrulayın
+1. Arka planın tamamen başlatılmasını bekleyin (ana menü simgesini kontrol edin)
+2. Görüntülerin Dosya Tarayıcıya içe aktarıldığını doğrulayın
 3. Düğme devre dışı kalırsa Chloros&#x27;i yeniden başlatın
-4. Hata mesajları için Hata Ayıklama Günlüğü&#x27;nü kontrol edin
+4. Hata mesajları için Hata Ayıklama Günlüğünü kontrol edin
 
 ### İşleme Başlıyor, Ancak Hemen Hata Veriyor
 
@@ -313,9 +313,9 @@ Gerçek işlem süresi aşağıdakilere göre büyük ölçüde değişir:
 
 **Olası nedenler:**
 
-* Hedef görüntüleri işaretlemeyi unutmuş olabilirsiniz
-* Hedef görüntülerde görünür hedefler bulunmuyor olabilir
-* Hedef algılama ayarları çok katı olabilir
+* Hedef görüntüleri işaretlemeyi unutmuşsunuz
+* Hedef görüntülerde görünür hedefler yok
+* Hedef algılama ayarları çok katı
 
 **Çözümler:**
 
@@ -326,11 +326,11 @@ Gerçek işlem süresi aşağıdakilere göre büyük ölçüde değişir:
 
 ***
 
-## Başarılı İşleme için İpuçları
+## Başarılı İşleme İçin İpuçları
 
 ### Başlamadan Önce
 
-1. **Önce küçük bir alt kümeyle test edin** - Ayarları doğrulamak için 10-20 görüntü işleyin
+1. **Önce küçük bir alt kümeyle test edin** - Ayarları doğrulamak için 10-20 görüntüyü işleyin
 2. **Kullanılabilir disk alanını kontrol edin** - Veri kümesinin 2-3 katı kadar boş alan olduğundan emin olun
 3. **Gereksiz uygulamaları kapatın** - Sistem kaynaklarını boşaltın
 4. **Hedef görüntüleri doğrulayın** - Kaliteyi sağlamak için işaretlenmiş hedefleri önizleyin
@@ -359,7 +359,7 @@ NVIDIA GPU hızlandırma kullanıyorsanız:
 İşleme başladıktan sonra:
 
 1. **İlerlemeyi izleyin** - [İşlemeyi İzleme](monitoring-the-processing.md) bölümüne bakın
-2. **Tamamlanmasını bekleyin** - İşleme otomatik olarak çalışır
-3. **Sonuçları inceleyin** - [İşlemeyi Tamamlama](finishing-the-processing.md) bölümüne bakın
+2. **Tamamlanmasını bekleyin** - İşleme otomatik olarak devam eder
+3. **Sonuçları inceleyin** - Bkz. [İşlemeyi Tamamlama](finishing-the-processing.md)
 
-İşleme sırasında ne yapmanız gerektiği hakkında bilgi için [İşlemeyi İzleme](monitoring-the-processing.md) bölümüne bakın.
+İşleme sırasında ne yapmanız gerektiği hakkında bilgi için bkz. [İşlemeyi İzleme](monitoring-the-processing.md).

@@ -18,7 +18,7 @@ Etkinleştirildiğinde, işleme başlatma düğmesi görüntü işleme sürecini
 
 Tüm dosyaları sırayla işleyen ücretsiz Chloros modunda, ilerleme çubuğu 2 aşamayı gösterir: Hedef Algılama ve İşleme.
 
-Tüm dosyaları aynı anda işleyen ücretli Chloros+ lisanslı modunda, ilerleme çubuğu 4 aşamayı gösterir: Algılama, Analiz, Kalibrasyon, Dışa Aktarma. Fare imlecini Chloros+ ilerleme çubuğunun üzerine getirdiğinizde, genişletilmiş 4 ilerleme çubuğu paneli açılır ve böylece ilerlemeyi takip edebilirsiniz. Üstteki ilerleme çubuğuna tıkladığınızda açılır panel dondurulur, tekrar tıkladığınızda dondurma kaldırılır.
+Tüm dosyaları aynı anda işleyen ücretli Chloros+ lisanslı modunda, ilerleme çubuğu 4 aşamayı gösterir: Algılama, Analiz, Kalibrasyon, Dışa Aktarma. Fare imlecini Chloros+ ilerleme çubuğunun üzerine getirdiğinizde, genişletilmiş 4 ilerleme çubuğu paneli açılır ve süreci takip edebilirsiniz. Üstteki ilerleme çubuğuna tıkladığınızda açılır panel dondurulur, tekrar tıkladığınızda dondurma işlemi kaldırılır.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 
@@ -32,7 +32,7 @@ Proje Ayarları sekmesi, proje genel ve proje işleme ayarlarını yapmanızı s
 
 #### <img src=".gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> Dosya Tarayıcı
 
-Projeye dosya/klasör ekleyin ve projeden dosya kaldırın. Yinelenen dosyalar yok sayılır. Hedef sütun kutusunu herhangi bir hedef görüntü için işaretleyin; işleme, yalnızca işaretlenen görüntüleri hedef olarak alır ve işleme süresini büyük ölçüde hızlandırır.
+Projeye dosya/klasör ekleyin ve projeden dosya kaldırın. Yinelenen dosyalar yok sayılır. Hedef sütun kutusunu herhangi bir hedef görüntü için işaretleyin, işleme sadece işaretlenen görüntüleri hedef olarak alır ve işleme sürenizi büyük ölçüde hızlandırır.
 
 #### <img src=".gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> [Görüntü Görüntüleyici](image-viewer-gui/opening-an-image-full-screen.md)
 

@@ -3,12 +3,11 @@ metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/output-image-formats
 ---
-
-# Çıktı Görüntü Biçimleri
+# Çıktı Görüntü Formatları
 
 ### TIFF (16 bit)
 
-16 bit (piksel dijital numarası 0 - 65535) TIFF (.tif) biçiminde çıktı.
+16 bit (piksel dijital numarası 0 - 65535) TIFF (.tif) formatında çıktı.
 
 ### TIFF (32 bit, Yüzde %)
 
@@ -16,7 +15,7 @@ metaLinks:
 
 ### **JPG (8 bit)**
 
-8 bit (piksel dijital numarası 0 -255) JPG (.jpg) formatında çıktı.
+8 bit (piksel dijital numara 0 -255) JPG (.jpg) formatında çıktı.
 
 ### **PNG (8 bit)**
 

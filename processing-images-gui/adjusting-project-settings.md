@@ -1,6 +1,6 @@
 # Proje Ayarlarını Düzenleme
 
-Görüntülerinizi işlemeden önce, iş akışı gereksinimlerinize uygun şekilde proje ayarlarınızı yapılandırmanız önemlidir. Proje Ayarları <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> paneli, kalibrasyon, işleme seçenekleri, multispektral indeksler ve dışa aktarma formatları üzerinde kapsamlı kontrol sağlar.
+Görüntülerinizi işlemeden önce, iş akışı gereksinimlerinize uygun şekilde proje ayarlarınızı yapılandırmanız önemlidir. Proje Ayarları <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> paneli, kalibrasyon, işleme seçenekleri, multispektral indeksler ve dışa aktarım formatları üzerinde kapsamlı kontrol sağlar.
 
 ## Proje Ayarlarına Erişme
 
@@ -21,11 +21,11 @@ Görüntülerinizi işlemeden önce, iş akışı gereksinimlerinize uygun şeki
 Tipik MAPIR Survey3 kamera iş akışları için varsayılan ayarlar iyi sonuç verir:
 
 * ✅ **Vinyet düzeltme**: Etkin
-* ✅ **Yansıma kalibrasyonu**: Etkin (MAPIR hedeflerinin görüntüleri gerekir)
+* ✅ **Yansıtma kalibrasyonu**: Etkin (MAPIR hedeflerinin görüntüleri gerekir)
 * ✅ **Debayer yöntemi**: Yüksek Kalite (Daha Hızlı)
 * ✅ **Dışa aktarma biçimi**: TIFF (16 bit)
 
-Görüntülerinizi içe aktarın ve bu varsayılan ayarlarla işlemeye başlayın.
+Görüntülerinizi içe aktarın ve bu varsayılan ayarlarla işlemeyi başlatın.
 
 ***
 
@@ -52,7 +52,7 @@ Chloros&#x27;in görüntülerinizdeki kalibrasyon hedeflerini nasıl tanımladı
 
 Ana görüntü işleme ve kalibrasyon seçenekleri.
 
-**Anahtar ayarlar:**
+**Önemli ayarlar:**
 
 * **Vinyet düzeltme**: Kenarlarda lens karartmasını telafi eder ✅ Önerilir
 * **Yansıma kalibrasyonu**: Kalibrasyon hedeflerini kullanarak değerleri normalleştirir ✅ Önerilir
@@ -144,7 +144,7 @@ Yeni bir proje oluştururken:
 
 ***
 
-## PPK (Sonrası İşlemli Kinematik) Kurulumu
+## PPK (Sonrası İşlenmiş Kinematik) Kurulumu
 
 Hassas coğrafi konum belirleme için GPS özellikli MAPIR DAQ kaydediciler kullanılıyorsa:
 
@@ -179,12 +179,12 @@ Hassas coğrafi konum belirleme için GPS özellikli MAPIR DAQ kaydediciler kull
 
 ### Çoklu Kamera Projeleri
 
-Tek bir projede birden fazla MAPIR kameradan gelen görüntüleri işlerken:
+Bir projede birden fazla MAPIR kameradan gelen görüntüleri işlerken:
 
 1. Chloros her kamera modelini otomatik olarak algılar
 2. Her kamera uygun işleme profilini alır
-3. PPK: Her kamerayı manuel olarak doğru pozlama pimine atayın
-4. Tüm kameralar aynı dışa aktarım formatını ve indeksleri kullanır
+3. PPK: Her kamerayı doğru pozlama pimine manuel olarak atayın
+4. Tüm kameralar aynı dışa aktarma formatını ve indeksleri kullanır
 
 **Örnek**: Survey3W RGN + Survey3N OCN çift kamera donanımı
 
@@ -228,7 +228,7 @@ Aynı alanın zaman içinde tekrar tekrar anketleri için:
 Ayarlarınız yapılandırıldıktan sonra:
 
 1. **Kalibrasyon hedef görüntülerini işaretleyin** - Bkz. [Hedef Görüntüleri Seçme](choosing-target-images.md)
-2. **İşlemeyi başlatın** - Bkz. [İşlemeyi Başlatma](starting-the-processing.md)
+2. **İşlemeye başlayın** - Bkz. [İşlemeyi Başlatma](starting-the-processing.md)
 3. **İlerlemeyi izleyin** - Bkz. [İşlemeyi İzleme](monitoring-the-processing.md)
 
-Kullanılabilir tüm ayarlarla ilgili ayrıntılı bilgi için, [Proje Ayarları](../project-settings/project-settings.md) referans belgesine bakın.
+Kullanılabilir tüm ayarlar hakkında ayrıntılı bilgi için, [Proje Ayarları](../project-settings/project-settings.md) referans belgesine bakın.

@@ -3,10 +3,9 @@ metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/download
 ---
-
 # İndir
 
-Çok spektral görüntü işlemeyi başlatmak için Windows için Chloros&#x27;in en son sürümünü indirin.
+Multispektral görüntü işlemeyi başlatmak için Windows için Chloros&#x27;in en son sürümünü indirin.
 
 ### Sistem Gereksinimleri
 
@@ -35,7 +34,7 @@ metaLinks:
 **Chloros Windows için Yükleyici**
 
 * **Sürüm**: 1.0.3
-* **Yayınlanma Tarihi**: Aralık ?, 2025
+* **Yayın Tarihi**: Aralık ?, 2025
 * **Dosya Boyutu**: 1,6 GB
 * **Dosya Türü**: .exe (Windows Yükleyici)
 
@@ -66,7 +65,7 @@ pip install chloros-sdk
 
 **Belgeler**: [API: Python SDK](api-python-sdk.md)
 
-**Gereksinimler**: Chloros Masaüstü yüklü olmalıdır, Chloros+ lisansı gereklidir.
+**Gereksinimler**: Chloros Masaüstü yüklü olmalı, Chloros+ lisansı gereklidir.
 
 ***
 
@@ -118,7 +117,7 @@ Chloros+ aboneliği ile gelişmiş özelliklerin kilidini açın:
 * İnternet bağlantısının aktif olduğundan emin olun
 * [https://cloud.mapir.camera](https://cloud.mapir.camera) adresinde kimlik bilgilerinizi doğrulayın
 * Güvenlik duvarının Chloros&#x27;i engellemediğini kontrol edin
-* Ayrıntılı talimatlar için [Chloros+ Oturum Açma](chloros+-login.md) adresine bakın.
+* Ayrıntılı talimatlar için [Chloros+ Oturum Açma](chloros+-login.md) adresine bakın
 
 ### Destek Alma
 
@@ -126,7 +125,7 @@ Yükleme veya kurulum konusunda yardıma mı ihtiyacınız var?
 
 * 📧 **E-posta**: info@mapir.camera
 * 🌐 **Web sitesi**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* 📚 **Belgeler**: [Başlangıç Kılavuzu](./)
+* 📚 **Belgeler**: [Başlangıç](./)
 * ❓ **SSS**: [Sık Sorulan Sorular](faq.md)
 
 ***
@@ -166,3 +165,5 @@ Yetkisiz kullanım, dağıtım veya değişiklik yasaktır.
 **Ücretsiz Sürüm**: Özellik sınırlamalarıyla kişisel ve ticari kullanım için mevcuttur.
 
 **Chloros+**: Gelişmiş özellikler ve ticari dağıtımlar için abonelik tabanlı lisans.
+
+<figure><img src=".gitbook/assets/t3-125_2.jpg" alt=""><figcaption></figcaption></figure>

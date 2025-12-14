@@ -1,7 +1,6 @@
 ---
 metaLinks: {}
 ---
-
 # Başlangıç
 
 <div data-full-width="false"><figure><img src=".gitbook/assets/chloros_logo_transparent.png" alt=""><figcaption></figcaption></figure></div>
@@ -18,7 +17,7 @@ Chloros, 4 uygulama modunda kullanılabilir:
 
 ## Chloros (Tarayıcı): Web tabanlı GUI arayüzü
 
-Web tarayıcınızda (Chrome/Edge) çalışır. 4 GB VRAM&#x27;den daha düşük belleğe sahip yavaş bilgisayarlar için idealdir.
+Web tarayıcınızda (Chrome/Edge) çalışır. 4 GB VRAM&#x27;den daha az VRAM&#x27;e sahip yavaş bilgisayarlar için idealdir.
 
 ## [Chloros CLI: Komut satırı arayüzü](CLI.md)
 
@@ -34,11 +33,11 @@ Otomasyon ve özel iş akışları için programlı Python arayüzü. Araştırm
 
 Chloros çoğu görev için ücretsiz olarak kullanılabilir, ancak daha fazlasını isteyebilirsiniz. İşte bu noktada Chloros+ için ücretli lisans size fayda sağlayabilir. Chloros+ lisansı ile aşağıdaki gibi yeni özelliklerin kilidini açabilirsiniz:
 
-* **Çok İş Parçacıklı İşleme**: Görüntüleri boru hattı üzerinden aynı anda işleyerek büyük projeler için görüntü işlemeyi büyük ölçüde hızlandırın.
+* **Çok İş Parçacıklı İşleme**: Görüntüleri boru hattı üzerinden eşzamanlı olarak işleyerek büyük projeler için görüntü işlemeyi büyük ölçüde hızlandırın.
 * **GPU (CUDA) Hızlandırma**: Günümüzün daha yüksek GPU bellek seçeneklerinden yararlanarak görüntü işleme boru hattını daha da hızlandırın. En iyi sonuçlar için 4 GB veya daha fazla VRAM öneririz.
 * **Chloros+** [**CLI**](CLI.md) **Erişim**: Chloros+&#x27;ı komut satırından çalıştırarak otomatikleştirin ve kendi yazılımınıza entegre edin.
 * **Chloros+** [**API**](api-python-sdk.md) **Erişim:** programlı kontrol için Python&#x27;ten Chloros+&#x27;ı çalıştırın, böylece araştırma süreçleriniz, veri analizi iş akışlarınız ve özel uygulamalarınızla sorunsuz entegrasyon sağlayın.
-* **Birden Fazla Cihaz Kullanımı**: her Chloros+ lisansı 2+ cihazın kaydedilmesine izin verir. Kayıtlı cihazları yönetmek için MAPIR Cloud hesabınızı kullanın. Chloros+ lisansınızı yükseltarak daha fazla cihaz için destek ekleyin.
+* **Birden Fazla Cihaz Kullanımı**: her Chloros+ lisansı 2+ cihazın kaydedilmesine izin verir. MAPIR Cloud hesabınızı kullanarak kayıtlı cihazları yönetin. Chloros+ lisansınızı yükselterek daha fazla cihaz için destek ekleyin.
 * **Özel Çok Spektral İndeks Formülleri:** hem işleme hem de görüntü görüntüleme sanal alanı için Chloros raster hesaplayıcılara özel çok spektral indeksler girin.
 
 <p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary" data-icon="envira">Chloros+ Fiyatlandırma ve Kayıt</a></p>
