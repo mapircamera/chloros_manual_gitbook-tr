@@ -22,34 +22,27 @@ Projenize görüntü eklemenin iki temel yolu vardır:
 
 Bu seçeneği, tek tek görüntü dosyalarını veya küçük bir dosya seçimini içe aktarmak için kullanın.
 
-1. Dosya Tarayıcı panelinin üst kısmındaki **&quot;Dosya Ekle&quot;** düğmesini tıklayın.
+1. **&quot;Dosya Ekle&quot;** <img src="../.gitbook/assets/image.png" alt="" data-size="line"> düğmesine tıklayın.
 2. Görüntülerinizin bulunduğu klasöre gidin.
 3. Bir veya daha fazla görüntü dosyası seçin (birden fazla dosya seçmek için **Ctrl** tuşunu basılı tutun).
-4. Seçilen dosyaları içe aktarmak için **&quot;Aç&quot;** düğmesini tıklayın.
+4. Seçilen dosyaları içe aktarmak için **&quot;Aç&quot;** düğmesine tıklayın.
 
 ### Yöntem 2: Klasör Ekleme
 
 Bir klasördeki tüm görüntüleri bir kerede içe aktarmak için bu seçeneği kullanın.
 
-1. Dosya Tarayıcı panelinin üst kısmındaki **&quot;Klasör Ekle&quot;** düğmesini tıklayın.
+1. Dosya Tarayıcı panelinin üst kısmındaki **&quot;Klasör Ekle&quot;** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> düğmesine tıklayın.
 2. Yakalama oturumu resimlerinizi içeren klasöre gidin ve seçin.
-3. O klasördeki tüm desteklenen resimleri içe aktarmak için **&quot;Klasörü Seç&quot;** düğmesini tıklayın.
-
-***
+3. **&quot;Klasörü Seç&quot;** düğmesine tıklayarak o klasördeki tüm desteklenen resimleri içe aktarın.***
 
 ## Dosya Tarayıcı Tablosunu Anlama
 
 Resimler içe aktarıldıktan sonra, aşağıdaki sütunların bulunduğu bir tabloda görünürler:
 
-### Küçük Resim
-
-* Her görüntünün küçük önizlemesi
-* Ana önizleme alanında görüntünün tamamını görüntülemek için küçük resme tıklayın
-
 ### Dosya Adı
 
 * Kameradan alınan orijinal dosya adı
-* Kameranın adlandırma kuralını korur (ör. IMG\_0001.RAW)
+* Kamera adlandırma kuralını korur (ör. IMG\_0001.RAW)
 
 ### Zaman Damgası
 
@@ -67,7 +60,7 @@ Resimler içe aktarıldıktan sonra, aşağıdaki sütunların bulunduğu bir ta
 
 * Kalibrasyon hedefleri içeren görüntüler için bu kutuyu işaretleyin
 * İşleme sırasında hedef algılamayı büyük ölçüde hızlandırır
-* Ayrıntılar için [Hedef Görüntüleri Seçme](choosing-target-images.md) bölümüne bakın.
+* Ayrıntılar için [Hedef Görüntüleri Seçme](choosing-target-images.md) bölümüne bakın
 
 ***
 
@@ -78,43 +71,39 @@ Resimler içe aktarıldıktan sonra, aşağıdaki sütunların bulunduğu bir ta
 Projenizden istenmeyen görüntüleri kaldırmak için:
 
 1. Dosya Tarayıcı tablosunda bir veya daha fazla görüntü seçin
-2. **&quot;Seçilenleri Kaldır&quot;** düğmesini tıklayın
+2. **&quot;Seçilenleri Kaldır&quot;** <img src="../.gitbook/assets/image (2).png" alt="" data-size="line"> düğmesini tıklayın
 3. Kaldırmayı onaylayın (dosyalar diskten silinmez, yalnızca projeden kaldırılır)
 
 ### Sıralama ve Filtreleme
 
 * **Sütuna göre sıralama**: Görüntüleri sıralamak için herhangi bir sütun başlığını tıklayın
-* **Zaman damgasına göre sıralama**: Kronolojik çekim dizilerini düzenlemek için kullanışlıdır.
-* **Kamera modeli filtresi**: Birden fazla kamera kullanıyorsanız, görüntüleri kamera türüne göre gruplandırın.
+* **Zaman damgasına göre sıralama**: Kronolojik çekim dizilerini düzenlemek için kullanışlıdır
+* **Kamera modeli filtresi**: Birden fazla kamera kullanıyorsanız, görüntüleri kamera türüne göre gruplandırın***
 
-***
-
-## Görüntü Önizlemesi
+## Görüntü Önizleme
 
 ### Tam Görüntüyü Görüntüleme
 
 Dosya Tarayıcı&#x27;da herhangi bir görüntü küçük resmini tıklayarak ana önizleme alanında görüntüleyin:
 
-1. Görüntü, orta önizleme panelinde görünür.
-2. Görüntü ayrıntılarını incelemek için yakınlaştırma kontrollerini kullanın.
+1. Görüntü, orta önizleme panelinde görünür
+2. Görüntü ayrıntılarını incelemek için yakınlaştırma kontrollerini kullanın
 3. Ok tuşlarını kullanarak görüntüler arasında gezinin
 
 ### Hızlı Gezinme
 
-* **Önceki Görüntü**: Sol oka tıklayın veya ← tuşuna basın
-* **Sonraki Görüntü**: Sağ oka tıklayın veya → tuşuna basın
+* **Önceki Görüntü**: Sol ok tuşuna tıklayın veya ← tuşuna basın
+* **Sonraki Görüntü**: Sağ ok tuşuna tıklayın veya → tuşuna basın
 * **Yakınlaştırma/Uzaklaştırma**: Fare tekerleğini veya yakınlaştırma düğmelerini kullanın
-* **Kaydırma**: Yakınlaştırıldığında görüntü üzerinde tıklayın ve sürükleyin
-
-***
+* **Kaydırma**: Yakınlaştırıldığında görüntü üzerinde tıklayın ve sürükleyin***
 
 ## Yinelenen Dosya İşleme
 
 Chloros, yinelenen dosyaları otomatik olarak algılar ve yok sayar:
 
-* Aynı dosya adına sahip dosyalar atlanır
-* Yanlışlıkla çift işlemeyi önler
-* Yinelenen dosyalar algılandığında uyarı mesajı görüntülenir
+* Aynı dosya adına sahip dosyalar atlanır.
+* Yanlışlıkla çift işlemeyi önler.
+* Yinelenen dosyalar algılandığında uyarı mesajı görüntülenir.
 
 {% hint style=&quot;warning&quot; %}
 **Önemli**: İçe aktarmadan önce orijinal görüntü dosyalarınızı yeniden adlandırmayın veya değiştirmeyin. Chloros, doğru işleme için orijinal dosya adlarına ve meta verilere güvenir.
@@ -124,16 +113,14 @@ Chloros, yinelenen dosyaları otomatik olarak algılar ve yok sayar:
 
 ## Karışık Kamera Veri Kümeleri
 
-Projeniz birden fazla MAPIR kameradan alınan görüntüler içeriyorsa:
+Projeniz birden fazla MAPIR kameradan alınan görüntüleri içeriyorsa:
 
 1. Chloros her kamera modelini otomatik olarak algılar
 2. Her kamera türü, uygun kalibrasyon profiliyle işlenir
 3. Dosya Tarayıcı, Kamera Modeli sütununda kamera modelini görüntüler
 4. İşleme, her kamera türü için doğru ayarları uygular
 
-**Örnek senaryo**: Survey3W RGN + Survey3N OCN çift kamera kurulumu
-
-***
+**Örnek senaryo**: Survey3W RGN + Survey3N OCN çift kamera kurulumu***
 
 ## En İyi Uygulamalar
 
@@ -187,9 +174,7 @@ Projeniz birden fazla MAPIR kameradan alınan görüntüler içeriyorsa:
 * Kamera saati doğru ayarlanmamış
 * EXIF verileri harici yazılım tarafından silinmiş
 
-**Çözüm**: Çekim sırasında kamera saat ayarlarının doğru olduğunu doğrulayın
-
-***
+**Çözüm**: Çekim sırasında kamera saat ayarlarının doğru olduğunu doğrulayın***
 
 ## Sonraki Adımlar
 

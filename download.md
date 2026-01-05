@@ -3,9 +3,10 @@ metaLinks:
   alternates:
     - https://app.gitbook.com/s/o044KN3Ws0uIDvOmSkcR/download
 ---
+
 # İndir
 
-Multispektral görüntü işlemeyi başlatmak için Windows için Chloros&#x27;in en son sürümünü indirin.
+Çok spektral görüntü işlemeyi başlatmak için Chloros&#x27;in en son sürümünü indirin.
 
 ### Sistem Gereksinimleri
 
@@ -15,12 +16,12 @@ Multispektral görüntü işlemeyi başlatmak için Windows için Chloros&#x27;i
 | **İşlemci**        | Intel Core i5 veya eşdeğeri     | Intel Core i7 veya daha iyisi         |
 | **Bellek (RAM)**     | 8 GB                             | 16 GB veya daha fazla                    |
 | **Grafik Kartı**    | DirectX 11 uyumlu           | 4 GB+ VRAM ile NVIDIA GPU       |
-| **Depolama**          | 2 GB boş alan                  | 10 GB+ boş alan ile SSD       |
+| **Depolama**          | 6 GB boş alan                  | 10 GB+ boş alan ile SSD       |
 | **Ekran**          | 1920x1080                       | 2560x1440 veya daha yüksek             |
 | **İnternet**         | Lisans etkinleştirme için gereklidir | Lisans etkinleştirme için gereklidir |
 
 {% hint style=&quot;info&quot; %}
-**GPU Hızlandırma**: NVIDIA GPU&#x27;lara (4 GB+ VRAM) sahip Chloros+ kullanıcıları, önemli ölçüde daha hızlı işlem için CUDA hızlandırmayı kullanabilir.
+**GPU Hızlandırma**: NVIDIA GPU&#x27;lara (4 GB+ VRAM) sahip Chloros+ kullanıcıları, önemli ölçüde daha hızlı işlem için CUDA hızlandırmayı kullanabilir. Chloros+ kullanıcıları ayrıca maksimum hız için çok iş parçacıklı işlemden yararlanabilir.
 {% endhint %}
 
 ***
@@ -31,21 +32,20 @@ Multispektral görüntü işlemeyi başlatmak için Windows için Chloros&#x27;i
 
 ### En Son Kararlı Sürüm
 
-**Chloros Windows için Yükleyici**
-
-* **Sürüm**: 1.0.3
-* **Yayın Tarihi**: Aralık ?, 2025
-* **Dosya Boyutu**: 1,6 GB
+**Chloros Windows için Yükleyici*** **Sürüm**: 1.0.4
+* **Yayın Tarihi**: 5 Ocak 2026
+* **Dosya Boyutu (İndirme)**: 1,8 GB
+* **Dosya Boyutu (Yüklendiğinde)**: 5,7 GB
 * **Dosya Türü**: .exe (Windows Yükleyici)
 
 #### **Yükleme Adımları:**
 
-1. `CHLOROS INSTALLER - CURRENT VERSION.exe` dosyasını indirin.
-2. Yükleyiciyi çift tıklayarak yüklemeyi başlatın.
-3. Yükleme sihirbazının talimatlarını izleyin.
-4. Yükleme dizinini seçin (varsayılan: `C:\Program Files\Chloros\`).
-5. Yüklemeyi tamamlayın ve Chloros&#x27;i başlatın.
-6. MAPIR Cloud Chloros+ hesabınızla oturum açın (veya ücretsiz sürümle devam edin)
+1. `CHLOROS INSTALLER - CURRENT VERSION.exe` dosyasını indirin
+2. Yükleyiciyi çift tıklayarak yüklemeyi başlatın
+3. Yükleme sihirbazının talimatlarını izleyin
+4. Yükleme dizinini seçin (varsayılan: `C:\Program Files\[USER]\Chloros\`)
+5. Kurulumu tamamlayın ve Chloros, Chloros (Tarayıcı) veya Chloros CLI&#x27;i başlatın
+6. [MAPIR Cloud Chloros+ hesabınızla](https://cloud.mapir.camera/pricing) oturum açın (veya ücretsiz sürümle devam edin)
 
 {% hint style=&quot;success&quot; %}
 Yükleyici, komut satırı erişimi için `chloros-cli`&#x27;i sistem PATH&#x27;inize otomatik olarak ekler.
@@ -63,23 +63,17 @@ Geliştiriciler ve otomasyon iş akışları için Chloros Python SDK&#x27;i yü
 pip install chloros-sdk
 ```
 
-**Belgeler**: [API: Python SDK](api-python-sdk.md)
-
-**Gereksinimler**: Chloros Masaüstü yüklü olmalı, Chloros+ lisansı gereklidir.
-
-***
+**Belgeler**: [API: Python SDK](api-python-sdk.md)**Gereksinimler**: Chloros Masaüstü yüklü olmalı, Chloros+ lisans girişi gerekli***
 
 ## İçindekiler
 
 Chloros kurulumu şunları içerir:
 
-* ✅ **Chloros Masaüstü GUI** - Tam özellikli grafik arayüz
+* ✅ **Chloros** - Tam özellikli grafik arayüz
 * ✅ **Chloros (Tarayıcı)** - Düşük özellikli sistemler için web tabanlı arayüz
 * ✅ **Chloros CLI** - Komut satırı arayüzü (Chloros+ lisansı gerektirir)
-* ✅ **Arka Uç Motoru** - Görüntü işleme boru hattı
-* ✅ **Kamera Profilleri** - Önceden yapılandırılmış MAPIR kamera şablonları
-
-***
+* ✅ **Chloros SDK** - Python API (Chloros+ lisansı gerektirir)
+* ✅ **Kamera Profilleri** - Önceden yapılandırılmış MAPIR kamera şablonları***
 
 ## Chloros+&#x27;a yükseltin
 
@@ -125,45 +119,42 @@ Yükleme veya kurulum konusunda yardıma mı ihtiyacınız var?
 
 * 📧 **E-posta**: info@mapir.camera
 * 🌐 **Web sitesi**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* 📚 **Belgeler**: [Başlangıç](./)
-* ❓ **SSS**: [Sık Sorulan Sorular](faq.md)
-
-***
+* 📚 **Belgeler**: [Başlangıç Kılavuzu](./)
+* ❓ **SSS**: [Sık Sorulan Sorular](faq.md)***
 
 ## Değişiklik Günlüğü
 
 <details>
 
+<summary>Sürüm 1.0.4</summary>
+
+#### **Yayın Tarihi**: 5 Ocak 2026**Yeni Özellikler*** **Görüntü/Meta Veri Geçişi**: Seçilen görüntünün meta verilerini görüntü ızgarası yerine bir tabloda görüntülemek için Dosya Tarayıcıya geçiş eklendi
+* **Görüntü Izgarası Yakınlaştırma Kaydırıcısı**: Küçük resim boyutunu ayarlamak için yeni UI kaydırıcısı (CTRL + fare tekerleği de desteklenir)
+* **Görüntü Izgarası Dışa Aktarma Düğmeleri**: Küçük resimleri JPG&#x27;den işlenmiş dışa aktarmalara (Hedefler, Yansıtma, Dizin, LUT) geçirmek için üst satırdaki düğmeler
+* **Harita Sekmesi**: Görüntünün GPS konum işaretlerini gösteren yeni etkileşimli 2D harita.
+  * Google Haritalar ve ESRI harita döşemelerini destekler (yakınlaştırma düzeyine göre en uygun döşeme hizmetini otomatik olarak seçer).
+  * Harita işaretleri üzerinde fareyle küçük resim önizlemesi.
+
+**Hata Düzeltmeleri*** İngilizce olmayan bilgisayarlarda Chloros yükleme desteği iyileştirildi.
+
+</details>
+
+<details>
+
 <summary>Sürüm 1.0.3</summary>
 
-### **Yayın Tarihi**: Aralık ?, 2025
+#### **Yayın Tarihi**: 20 Aralık 2025**Yeni Özellikler*** İlk Başlatma
 
-#### Yeni Özellikler
+**İyileştirmeler*** İlk Başlatma
 
-* İlk Sürüm
+**Hata Düzeltmeleri*** İlk Başlatma
 
-#### İyileştirmeler
-
-* İlk Sürüm
-
-#### Hata Düzeltmeleri
-
-* İlk Sürüm
-
-#### Bilinen Sorunlar
-
-* İlk Sürüm
+**Bilinen Sorunlar*** İlk Başlatma
 
 </details>***
 
-## Lisans Sözleşmesi
-
-**Tescilli Yazılım** - Telif Hakkı (c) 2025 MAPIR Inc.
+## Lisans Sözleşmesi**Tescilli Yazılım** - Telif Hakkı (c) 2025 MAPIR Inc.
 
 Yetkisiz kullanım, dağıtım veya değişiklik yasaktır.
 
-**Ücretsiz Sürüm**: Özellik sınırlamalarıyla kişisel ve ticari kullanım için mevcuttur.
-
-**Chloros+**: Gelişmiş özellikler ve ticari dağıtımlar için abonelik tabanlı lisans.
-
-<figure><img src=".gitbook/assets/t3-125_2.jpg" alt=""><figcaption></figcaption></figure>
+**Ücretsiz Sürüm**: Özellik sınırlamalarıyla kişisel ve ticari kullanım için mevcuttur.**Chloros+**: Gelişmiş özellikler ve ticari dağıtımlar için abonelik tabanlı lisans.

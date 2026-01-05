@@ -27,8 +27,10 @@
 * [Proje Ayarları](project-settings/project-settings.md)
 * [Çok Spektral İndeks Formülleri](project-settings/multispectral-index-formulas.md)
 
-## GÖRÜNTÜ GÖSTERİCİ (GUI)
+## GÖRÜNTÜ GÖRÜNTÜLEYİCİ (GUI)
 
+* [Görüntü Izgarası](image-viewer-gui/image-grid.md)
 * [Görüntüyü Tam Ekran Açma](image-viewer-gui/opening-an-image-full-screen.md)
 * [Görüntü Katmanları](image-viewer-gui/image-layers.md)
 * [Endeks/LUT Sandbox](image-viewer-gui/index-lut-sandbox.md)
+* [Harita İşaretleyicileri](image-viewer-gui/map-markers.md)

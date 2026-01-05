@@ -8,7 +8,7 @@
 * 🔗 **Entegrasyon** - Mevcut iş akışlarına ve boru hatlarına gömme
 * 💻 **Başsız Çalışma** - GUI olmadan çalıştırma
 * 🌍 **Çok Dilli** - 38 dil desteği
-* ⚡ **Paralel İşleme** - CPU&#x27;nuza dinamik olarak ölçeklenir (16 adede kadar paralel işçi)
+* ⚡ **Paralel İşleme** - CPU&#x27;nuzla dinamik olarak ölçeklenir (16 adede kadar paralel işçi)
 
 ### Gereksinimler
 
@@ -32,7 +32,7 @@ CLI, Chloros yükleyicisine otomatik olarak dahildir:
 
 1. **Chloros Yükleyici.exe**&#x27;i indirin ve çalıştırın
 2. Kurulum sihirbazını tamamlayın
-3. CLI şuraya yüklendi: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
+3. CLI şuraya yüklenir: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
 
 {% hint style=&quot;success&quot; %}
 Yükleyici, `chloros-cli`&#x27;i sistem PATH&#x27;inize otomatik olarak ekler. Yüklemeden sonra terminalinizi yeniden başlatın.
@@ -91,7 +91,7 @@ chloros-cli process <input-folder> [options]
 chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 ```
 
-#### İşlem Komut Seçenekleri
+#### İşlem Komutu Seçenekleri
 
 | Seçenek                | Tür    | Varsayılan        | Açıklama                                                                            |
 | --------------------- | ------- | -------------- | -------------------------------------------------------------------------------------- |
@@ -103,7 +103,7 @@ chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 | `--reflectance`       | Bayrak    | Etkin        | Yansıma kalibrasyonunu etkinleştir                                                         |
 | `--no-reflectance`    | Bayrak    | -              | Yansıma kalibrasyonunu devre dışı bırak                                                        |
 | `--ppk`               | Bayrak    | Devre dışı       | .daq ışık sensörü verilerinden PPK düzeltmelerini uygula                                      |
-| `--format`            | Seçim  | TIFF (16 bit)  | Çıkış biçimi: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
+| `--format`            | Seçim  | TIFF (16 bit)  | Çıktı biçimi: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
 | `--min-target-size`   | Tamsayı | Otomatik           | Kalibrasyon paneli algılama için minimum hedef boyut (piksel)                          |
 | `--target-clustering` | Tamsayı | Otomatik           | Hedef kümeleme eşiği (0-100)                                                    |
 | `--exposure-pin-1`    | Dize  | Yok           | Kamera modeli için pozlamayı kilitle (Pin 1)                                                 |
@@ -133,9 +133,7 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 **Özel Karakterler**: `$`, `!` gibi karakterler veya boşluklar içeren şifrelerin etrafına tek tırnak işareti koyun.
 {% endhint %}
 
-**Çıktı:**
-
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
+**Çıktı:**<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
 
 ### `logout` - Kimlik Bilgilerini Temizle
 
@@ -159,6 +157,10 @@ chloros-cli logout
 ✓ Logout successful
 ℹ Credentials cleared from cache
 ```
+
+{% hint style=&quot;info&quot; %}
+**SDK Kullanıcıları**: Python SDK ayrıca Python komut dosyalarında kimlik bilgilerini temizlemek için programlı bir `logout()` yöntemi sağlar. Ayrıntılar için [Python SDK belgelerine](api-python-sdk.md#logout) bakın.
+{% endhint %}
 
 ***
 
@@ -193,9 +195,9 @@ chloros-cli status
 
 ***
 
-### `export-status` - Dışa Aktarım İlerleme Durumunu Kontrol Et
+### `export-status` - Dışa Aktarım İlerlemesini Kontrol Et
 
-İşlem sırasında veya sonrasında Thread 4 dışa aktarım ilerleme durumunu izler.
+İşlem sırasında veya sonrasında Thread 4 dışa aktarım ilerlemesini izler.
 
 **Sözdizimi:**
 
@@ -209,9 +211,7 @@ chloros-cli export-status
 chloros-cli export-status
 ```
 
-**Kullanım Örneği:** İşlem çalışırken bu komutu çağırarak dışa aktarım ilerlemesini kontrol edin.
-
-***
+**Kullanım Örneği:** İşlem devam ederken bu komutu çağırarak dışa aktarım ilerlemesini kontrol edin.***
 
 ### `language` - Arayüz Dilini Yönetme
 
@@ -284,7 +284,7 @@ chloros-cli language ja
 | `sk`    | Slovakça                | Slovenčina       |
 | `bg`    | Bulgarca             | Български        |
 | `hr`    | Hırvatça              | Hrvatski         |
-| `lt`    | Litvanca            | Lietuvių         |
+| `lt`    | Litvanyaca            | Lietuvių         |
 | `lv`    | Letonca               | Latviešu         |
 | `et`    | Estonca              | Eesti            |
 | `sl`    | Slovence             | Slovenščina      |
@@ -355,7 +355,7 @@ Bu seçenekler tüm komutlar için geçerlidir:
 
 | Seçenek          | Tür    | Varsayılan       | Açıklama                                      |
 | --------------- | ------- | ------------- | ------------------------------------------------ |
-| `--backend-exe` | Yol    | Otomatik algılama | Arka uç yürütülebilir dosyasının yolu                       |
+| `--backend-exe` | Yol    | Otomatik algılanan | Arka uç yürütülebilir dosyasının yolu                       |
 | `--port`        | Tamsayı | 5000          | Arka uç API bağlantı noktası numarası                          |
 | `--restart`     | Bayrak    | -             | Arka ucu yeniden başlat (mevcut işlemleri sonlandır) |
 | `--version`     | Bayrak    | -             | Sürüm bilgilerini göster ve çık                |
@@ -373,15 +373,11 @@ chloros-cli --port 5001 process "C:\Datasets\Survey_001"
 
 ### Paralel İşleme
 
-Chloros+ CLI **otomatik olarak** bilgisayarınızın kapasitesine uygun şekilde paralel işlemeyi ölçeklendirir:
-
-**Nasıl Çalışır:**
+Chloros+ CLI **otomatik olarak ölçeklendirir**paralel işlemeyi bilgisayarınızın kapasitesine uyacak şekilde:**Nasıl Çalışır:**
 
 * CPU çekirdeklerinizi ve RAM&#x27;inizi algılar
 * İşçileri tahsis eder: **2× CPU çekirdeği** (hiper iş parçacığı kullanır)
-* **Maksimum: 16 paralel işçi** (kararlılık için)
-
-**Sistem Katmanları:**
+* **Maksimum: 16 paralel işçi** (kararlılık için)**Sistem Katmanları:**
 
 | Sistem Türü   | CPU        | RAM      | İşçiler  | Performans     |
 | ------------- | ---------- | -------- | -------- | --------------- |
@@ -403,7 +399,7 @@ CLI, varsayılan ve önerilen debayer algoritması olarak **Yüksek Kalite (Daha
 
 ### Vinyet Düzeltme
 
-**Ne yapar:** Görüntü kenarlarında ışık düşüşünü düzeltir (kamera görüntülerinde sık görülen daha karanlık köşeler).
+**Ne yapar:** Görüntü kenarlarında ışık düşüşünü düzeltir (kamera görüntülerinde sık görülen daha koyu köşeler).
 
 * **Varsayılan olarak etkindir** - Çoğu kullanıcı bunu etkin tutmalıdır
 * Devre dışı bırakmak için `--no-vignette` kullanın
@@ -414,7 +410,7 @@ CLI, varsayılan ve önerilen debayer algoritması olarak **Yüksek Kalite (Daha
 
 ### Yansıma Kalibrasyonu
 
-Kalibrasyon panelleri kullanarak ham sensör değerlerini standartlaştırılmış yansıma yüzdeleri haline dönüştürür.
+Kalibrasyon panelleri kullanarak ham sensör değerlerini standartlaştırılmış yansıma yüzdelerine dönüştürür.
 
 * **Varsayılan olarak etkin** - Bitki örtüsü analizi için gereklidir.
 * Görüntülerde kalibrasyon hedef panelleri gerektirir.
@@ -430,7 +426,7 @@ Kalibrasyon panelleri kullanarak ham sensör değerlerini standartlaştırılmı
 
 * **Varsayılan olarak devre dışıdır**
 * Etkinleştirmek için `--ppk` kullanın
-* MAPIR DAQ-A-SD ışık sensöründen proje klasöründe .daq dosyaları gerekir.
+* MAPIR DAQ-A-SD ışık sensöründen proje klasöründeki .daq dosyaları gerekir.
 
 ### Çıkış Biçimleri
 
@@ -493,7 +489,7 @@ pause
 
 ### Python Otomasyon Komut Dosyası
 
-Hata işleme ile gelişmiş otomasyon:
+Hata işleme özelliğine sahip gelişmiş otomasyon:
 
 ```python
 import subprocess
@@ -584,6 +580,7 @@ if __name__ == '__main__':
 ### Örnek Çıktı Yapısı
 
 ```
+
 MyProject/
 ├── project.json                             # Project metadata
 ├── 2025_0203_193056_008.JPG                # Original JPG
@@ -636,23 +633,22 @@ dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
 3. PATH&#x27;e manuel olarak ekleyin:
    * Sistem Özellikleri → Ortam Değişkenleri&#x27;ni açın.
    * PATH değişkenini düzenleyin.
-   * Ekleyin: `C:\Program Files\Chloros\resources\cli`
+   * Ekle: `C:\Program Files\Chloros\resources\cli`
    * Terminali yeniden başlatın.
 
 ***
 
-### Arka Uç Başlatılamadı
-
-**Hata:**
+### Arka Uç Başlatılamadı**Hata:**
 
 ```
+
 Backend failed to start within 30 seconds
 ```
 
 **Çözümler:**
 
 1. Arka ucun zaten çalışıp çalışmadığını kontrol edin (önce kapatın).
-2. Windows Güvenlik duvarının engellemediğini kontrol edin.
+2. Windows Güvenlik Duvarı&#x27;nın engellemediğini kontrol edin.
 3. Farklı bir bağlantı noktası deneyin:
 
 ```powershell
@@ -667,11 +663,10 @@ chloros-cli --restart process "C:\Datasets\Field_A"
 
 ***
 
-### Lisans / Kimlik Doğrulama Sorunları
-
-**Hata:**
+### Lisans / Kimlik Doğrulama Sorunları**Hata:**
 
 ```
+
 Chloros+ license required for CLI access
 ```
 
@@ -694,11 +689,10 @@ chloros-cli status
 
 ***
 
-### Görüntü Bulunamadı
-
-**Hata:**
+### Görüntü Bulunamadı**Hata:**
 
 ```
+
 No images found in the specified folder
 ```
 
@@ -707,13 +701,11 @@ No images found in the specified folder
 1. Klasörün desteklenen formatları (.RAW, .TIF, .JPG) içerdiğini doğrulayın.
 2. Klasör yolunun doğru olduğunu kontrol edin (boşluk içeren yollar için tırnak işaretleri kullanın).
 3. Klasör için okuma izinlerine sahip olduğunuzdan emin olun.
-4. Dosya uzantılarının doğru olduğunu kontrol edin.
+4. Dosya uzantılarının doğru olup olmadığını kontrol edin.
 
 ***
 
-### İşlem Duruyor veya Takılıyor
-
-**Çözümler:**
+### İşlem Duruyor veya Takılıyor**Çözümler:**
 
 1. Kullanılabilir disk alanını kontrol edin (çıktı için yeterli olduğundan emin olun).
 2. Belleği boşaltmak için diğer uygulamaları kapatın.
@@ -721,11 +713,10 @@ No images found in the specified folder
 
 ***
 
-### Bağlantı Noktası Zaten Kullanılıyor
-
-**Hata:**
+### Bağlantı Noktası Zaten Kullanılıyor**Hata:**
 
 ```
+
 Port 5000 is already in use
 ```
 
@@ -743,18 +734,16 @@ chloros-cli --port 5001 process "C:\Datasets\Field_A"
 
 ### S: CLI için lisans gerekir mi?
 
-**C:** Evet! CLI için ücretli **Chloros+ lisansı** gerekir.
+**C:**Evet! CLI için ücretli**Chloros+ lisansı** gerekir.
 
 * ❌ Standart (ücretsiz) plan: CLI devre dışı
-* ✅ Chloros+ (ücretli) planlar: CLI tamamen etkinleştirildi
+* ✅ Chloros+ (ücretli) planlar: CLI tamamen etkinleştirilmiş
 
 Abone olun: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
 
 ***
 
-### S: CLI&#x27;i GUI olmayan bir sunucuda kullanabilir miyim?
-
-**C:** Evet! CLI tamamen başsız çalışır. Gereksinimler:
+### S: CLI&#x27;i GUI&#x27;siz bir sunucuda kullanabilir miyim?**C:** Evet! CLI tamamen başsız çalışır. Gereksinimler:
 
 * Windows Server 2016 veya üstü
 * Visual C++ Redistributable yüklü
@@ -763,9 +752,7 @@ Abone olun: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pric
 
 ***
 
-### S: İşlenen görüntüler nereye kaydedilir?
-
-**C:** Varsayılan olarak, işlenen görüntüler kamera modeli alt klasörlerinde (ör. `Survey3N_RGN/`) **girişle aynı klasöre** kaydedilir.
+### S: İşlenen görüntüler nereye kaydedilir?**C:**Varsayılan olarak, işlenen görüntüler kamera modeli alt klasörlerinde (ör. `Survey3N_RGN/`)**girişle aynı klasöre** kaydedilir.
 
 Farklı bir çıktı klasörü belirtmek için `-o` seçeneğini kullanın:
 
@@ -775,15 +762,9 @@ chloros-cli process "C:\Input" -o "D:\Output"
 
 ***
 
-### S: Birden fazla klasörü aynı anda işleyebilir miyim?
+### S: Birden fazla klasörü aynı anda işleyebilir miyim?**C:** Tek bir komutla doğrudan yapamazsınız, ancak komut dosyası kullanarak klasörleri sırayla işleyebilirsiniz. [Otomasyon ve Komut Dosyası](CLI.md#automation--scripting) bölümüne bakın.***
 
-**C:** Tek bir komutla doğrudan yapamazsınız, ancak komut dosyası kullanarak klasörleri sırayla işleyebilirsiniz. [Otomasyon ve Komut Dosyası](CLI.md#automation--scripting) bölümüne bakın.
-
-***
-
-### S: CLI çıktısını bir günlük dosyasına nasıl kaydedebilirim?
-
-**PowerShell:**
+### S: CLI çıktısını bir günlük dosyasına nasıl kaydedebilirim?**PowerShell:**
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" | Tee-Object -FilePath "processing.log"
@@ -797,11 +778,9 @@ chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
 
 ***
 
-### S: İşlem sırasında Ctrl+C tuşlarına basarsam ne olur?
+### S: İşlem sırasında Ctrl+C tuşlarına basarsam ne olur?**C:** CLI şunları yapar:
 
-**C:** CLI şunları yapar:
-
-1. İşlemi düzgün bir şekilde durdurur
+1. İşleme düzgün bir şekilde son verir
 2. Arka ucu kapatır
 3. 130 koduyla çıkar
 
@@ -809,15 +788,9 @@ Kısmen işlenmiş görüntüler çıktı klasöründe kalabilir.
 
 ***
 
-### S: CLI işlemeyi otomatikleştirebilir miyim?
+### S: CLI işlemesini otomatikleştirebilir miyim?**C:** Elbette! CLI otomasyon için tasarlanmıştır. PowerShell, Batch ve Python örnekleri için [Otomasyon ve Komut Dosyası Oluşturma](CLI.md#automation--scripting) bölümüne bakın.***
 
-**C:** Elbette! CLI otomasyon için tasarlanmıştır. PowerShell, Batch ve Python örnekleri için [Otomasyon ve Komut Dosyası Oluşturma](CLI.md#automation--scripting) bölümüne bakın.
-
-***
-
-### S: CLI sürümünü nasıl kontrol edebilirim?
-
-**C:**
+### S: CLI sürümünü nasıl kontrol edebilirim?**C:**
 
 ```powershell
 chloros-cli --version
@@ -826,6 +799,7 @@ chloros-cli --version
 **Çıktı:**
 
 ```
+
 Chloros CLI 1.0.2
 ```
 
@@ -851,9 +825,7 @@ chloros-cli language --help
 
 * **E-posta**: info@mapir.camera
 * **Web sitesi**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
-* **Fiyatlandırma**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
-
-***
+* **Fiyatlandırma**: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)***
 
 ## Tam Örnekler
 
@@ -882,7 +854,7 @@ chloros-cli process "C:\Datasets\Field_A" ^
 
 ### Örnek 3: Hızlı Önizleme İşleme
 
-Hızlı inceleme için kalibrasyonsuz 8 bit PNG:
+Hızlı inceleme için kalibrasyon olmadan 8 bit PNG:
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" ^
@@ -895,7 +867,7 @@ chloros-cli process "C:\Datasets\Field_A" ^
 
 ### Örnek 4: PPK Düzeltmeli İşleme
 
-Yansıma ile PPK düzeltmeleri uygulayın:
+Yansıtma ile PPK düzeltmeleri uygulayın:
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" ^

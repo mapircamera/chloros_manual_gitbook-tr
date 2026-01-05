@@ -6,9 +6,7 @@ Kullanıcı <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> ke
 
 Giriş yaptığınızda hesap bilgileriniz gösterilecektir:
 
-<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>
-
-## CLI Giriş
+<figure><img src=".gitbook/assets/user_account.JPG" alt="" width="375"><figcaption></figcaption></figure>## CLI Giriş
 
 CLI işlemini etkinleştirmek için Chloros+ kimlik bilgilerinizle giriş yapın.
 
@@ -18,6 +16,10 @@ CLI işlemini etkinleştirmek için Chloros+ kimlik bilgilerinizle giriş yapın
 chloros-cli login <email> <password>
 ```
 
+{% hint style=&quot;info&quot; %}
+**SDK Kullanıcıları**: Python SDK ayrıca önbelleğe alınmış kimlik bilgilerini temizlemek için programlı bir `logout()` yöntemi sağlar. Ayrıntılar için [Python SDK belgelerine](api-python-sdk.md#logout) bakın.
+{% endhint %}
+
 **Örnek:**
 
 ```powershell
@@ -25,14 +27,12 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
 {% hint style=&quot;warning&quot; %}
-**Özel Karakterler**: `$`, `!` gibi karakterler veya boşluklar içeren şifrelerin etrafına tek tırnak işareti koyun.
+**Özel Karakterler**: `$`, `!` gibi karakterler veya boşluklar içeren şifrelerin etrafına tek tırnak işareti kullanın.
 {% endhint %}
 
 **Çıktı:**
 
-<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>
-
-### Planın Sona Ermesi
+<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>### Planın Sona Erme Tarihi
 
 GUI&#x27;deki planın sona erme tarihi, lisansınızın ne zaman geçersiz hale geleceğini gösterir. Aylık aboneliklerde sona erme tarihi ayın sonudur. Yıllık aboneliklerde ise aboneliğinizi başlattığınız tarihten bir yıl sonradır. Lisans kontrolü, 30 günlük bir ödemesiz dönem ile aylık internet bağlantısı gerektirir.
 

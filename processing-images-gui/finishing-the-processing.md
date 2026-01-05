@@ -9,15 +9,13 @@ Chloros işlemi tamamlandığında, sonuçlarınızı gözden geçirme, çıktı
 * ✅ **İlerleme çubuğu**: %100 tamamlanma oranına ulaşır
 * ✅ **Hata Ayıklama Günlüğü**: &quot;İşleme Tamamlandı&quot; mesajını gösterir
 * ✅ **Başlat düğmesi**: Tekrar etkin hale gelir (bir sonraki işleme çalıştırması için hazır)
-* ✅ **Çıktı dosyaları**: İşlenen tüm görüntüler kamera modeli alt klasörüne kaydedilir
-
-***
+* ✅ **Çıktı dosyaları**: İşlenen tüm görüntüler kamera modeli alt klasörüne kaydedilir***
 
 ## İşlenen Görüntülerinizi Bulma
 
 ### Çıktı Klasörünü Açma
 
-1. **Ana Menü** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> simgesine tıklayın (sol üst)
+1. **Ana Menü** <img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt="" data-size="line"> simgesine tıklayın (sol üstte)
 2. **&quot;Proje Klasörünü Aç&quot;** seçeneğini seçin
 3. Dosya gezgininiz proje dizininde açılır
 4. Projenizi adına göre bulun
@@ -37,9 +35,7 @@ Chloros işlemi tamamlandığında, sonuçlarınızı gözden geçirme, çıktı
 
 ### Harici Görüntü Görüntüleyicilerinde Önizleme
 
-**Önerilen görüntüleyiciler:**
-
-* **QGIS** - Ücretsiz GIS yazılımı (coğrafi referanslı multispektral analiz için en iyisi)
+**Önerilen görüntüleyiciler:*** **QGIS** - Ücretsiz GIS yazılımı (coğrafi referanslı multispektral analiz için en iyisi)
 * **IrfanView** - Hızlı, hafif görüntü görüntüleyici (TIFF&#x27;i destekler)
 * **Adobe Photoshop** - Profesyonel düzenleme (TIFF desteği)
 * **GIMP** - Photoshop&#x27;a ücretsiz alternatif
@@ -49,9 +45,9 @@ Chloros işlemi tamamlandığında, sonuçlarınızı gözden geçirme, çıktı
 
 Gelişmiş görselleştirme için Chloros&#x27;in yerleşik Görüntü Görüntüleyicisini kullanın:
 
-1. Dosya Tarayıcıda bir görüntü küçük resmini tıklayın
+1. Dosya Tarayıcısında bir görüntü küçük resmini tıklayın
 2. Görüntü ana önizleme alanında açılır
-3. Sol kenar çubuğundaki **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesine tıklayın.
+3. Sol kenar çubuğundaki **Görüntü Görüntüleyicisi** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesine tıklayın.
 4. Etkileşimli analiz için [Dizin/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) kullanın.
 
 Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/opening-an-image-full-screen.md) bölümüne bakın.
@@ -72,7 +68,7 @@ Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/
 
 İşleme kaydını saklamak veya MAPIR Desteğine göndermek için:
 
-1. **&quot;Kopyala&quot;** veya **&quot;İndir&quot;** düğmesini tıklayın
+1. **&quot;Kopyala&quot;**veya**&quot;İndir&quot;** düğmesini tıklayın
 2. Proje klasörüne metin dosyası olarak kaydedin
 3. Proje belgelerine ekleyin
 4. Sorunla karşılaşırsanız MAPIR desteğine gönderin
@@ -92,33 +88,33 @@ Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/
 
 **Çözümler:**
 
-1. Hata ayıklama günlüğünde atlama/hata mesajlarını kontrol edin
-2. Disk alanının yeterli olduğunu doğrulayın
-3. Dosyaları sayın: (orijinal sayı - hedef sayı) × (endeksler + 1)
-4. Eksik dosyaları yeniden içe aktarın ve yeniden işleyin
+1. Hata ayıklama günlüğünde atlama/hata mesajları olup olmadığını kontrol edin
+2. Disk alanının yeterli olup olmadığını doğrulayın
+3. Dosyaları sayın: (orijinal sayı - hedef sayı) × (endeksler + 1) ile eşleşmelidir
+4. Eksik dosyaları yeniden içe aktarın ve yeniden işleyin.
 
-### Sorun: Koyu veya Parlak Kenarlar (Vinyet Hala Görünür)
+### Sorun: Koyu veya Parlak Kenarlar (Vinyetleme Hala Görünür)
 
 **Olası nedenler:**
 
-* Vinyet düzeltme devre dışı bırakılmış
-* Kamera/lens Chloros profil veritabanında yok
-* Düzeltme kapasitesinin ötesinde aşırı vinyet
+* Vinyet düzeltme devre dışı bırakılmış.
+* Kamera/lens Chloros profil veritabanında yok.
+* Düzeltme kapasitesinin ötesinde aşırı vinyetleme.
 
 **Çözümler:**
 
-1. Proje Ayarları&#x27;nda vinyet düzeltmesinin etkinleştirildiğini doğrulayın.
-2. Kamera modelinin doğru algılandığını kontrol edin.
-3. Vinyet devam ederse MAPIR desteğine başvurun.
+1. Proje Ayarları&#x27;nda vinyet düzeltmesinin etkinleştirildiğini doğrulayın
+2. Kamera modelinin doğru algılandığını kontrol edin
+3. Vinyet devam ederse MAPIR desteğine başvurun
 
 ### Sorun: Yanlış Renkler veya Değerler
 
 **Olası nedenler:**
 
-* Kalibrasyon hedefi algılanmadı.
-* Yanlış kalibrasyon hedefi modeli seçildi.
-* Yansıma kalibrasyonu devre dışı bırakıldı.
-* Hedef görüntülerin kalitesi düşük.
+* Kalibrasyon hedefi algılanmadı
+* Yanlış kalibrasyon hedefi modeli seçildi
+* Yansıma kalibrasyonu devre dışı bırakıldı
+* Hedef görüntülerin kalitesi düşük
 
 **Çözümler:**
 
@@ -129,14 +125,10 @@ Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/
 
 ### Sorun: NDVI Değerleri Yanlış Görünüyor
 
-**Beklenen NDVI aralıkları:**
-
-* **Su, kayalar, toprak**: -0,1 ila 0,2
+**Beklenen NDVI aralıkları:*** **Su, kayalar, toprak**: -0,1 ila 0,2
 * **Seyrek/sağlıksız bitki örtüsü**: 0,2 ila 0,4
 * **Orta derecede bitki örtüsü**: 0,4 ila 0,6
-* **Sağlıklı, yoğun bitki örtüsü**: 0,6 ila 0,9
-
-**Değerler bu aralıkların dışındaysa:**
+* **Sağlıklı, yoğun bitki örtüsü**: 0,6 ila 0,9**Değerler bu aralıkların dışındaysa:**
 
 1. Yansıma kalibrasyonunun uygulandığını doğrulayın.
 2. Işık sensörü günlüğünün dahil edildiğini doğrulayın.
@@ -148,26 +140,27 @@ Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/
 
 ## İşlenmiş Görüntülerinizi Kullanma
 
-### Fotogrametri / Orto-mozaik Oluşturma İçin
+### Fotogrametri / Ortomozaiğin Oluşturulması İçin
 
 **Önerilen iş akışı:**
 
-1. **Kalibre edilmiş yansıma görüntülerini** fotogrametri yazılımına içe aktarın:
+1.**Kalibre edilmiş yansıma görüntülerini** fotogrametri yazılımına içe aktarın:
    * Pix4Dmapper
    * Agisoft Metashape
    * DroneDeploy
    * WebODM
 2. **EXIF meta verilerini saklayın**: Coğrafi etiketleme için GPS verilerinin korunmasını sağlayın
 3. **Kalibre edilmiş iş akışları**: Bilimsel doğruluk için yansıma görüntülerini kullanın
-4. **Dizin mozaiklerini işleyin**: Tek tek indeks görüntülerinden NDVI ortomozaikler oluşturun
+4. **Dizin mozaiklerini işleyin**: Tek tek dizin görüntülerinden NDVI ortomozaikler oluşturun
 5. **Coğrafi referanslı GeoTIFF&#x27;i dışa aktarın**: GIS uygulamalarında kullanmak için
 
 ### GIS Analizi için
 
 **Önerilen iş akışı:**
 
-1. **QGIS, ArcGIS veya benzeri bir programa yükleyin**
-2. **16 bit TIFF** yansıma görüntülerini çok bantlı analiz için kullanın
+1.**QGIS, ArcGIS veya benzeri bir programa yükleyin**
+
+2.**16 bit TIFF** yansıma görüntülerini çok bantlı analiz için kullanın
 3. **Dizin görüntülerini** (NDVI, NDRE) kullanıma hazır bitki örtüsü katmanları olarak kullanın
 4. **Raster hesaplayıcı**: Özel analiz için bantları birleştirin
 5. **Dışa aktarma**: Sınıflandırma haritaları oluşturun, değişiklik algılama, bitki örtüsü sağlık haritaları
@@ -176,32 +169,23 @@ Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/
 
 **Önerilen iş akışı:**
 
-1. Görsel raporlar için **LUT renkli indeks görüntüleri kullanın**
-2. **İstatistikleri çıkarın**: Alan/parsel başına ortalama NDVI
-3. **Zaman serisi**: Birden fazla oturumda indeksleri karşılaştırın
-4. **Raporlar oluşturun**: Haritalar, istatistikler ve görselleştirmeler ekleyin
+1. Görsel raporlar için**LUT renkli indeks görüntüleri kullanın**
 
-***
+2.**İstatistikleri çıkarın**: Alan/parsel başına ortalama NDVI
+3. **Zaman serisi**: Birden fazla oturumda indeksleri karşılaştırın
+4. **Raporlar oluşturun**: Haritalar, istatistikler ve görselleştirmeler ekleyin***
 
 ## Arşivleme ve Yedekleme
 
 ### Önerilen Yedekleme Stratejisi
 
-**Kaydedilecekler:**
-
-* ✅ **Orijinal RAW/JPG görüntüler** - Ayrı bir sürücüde/bulutta arşivleyin
+**Kaydedilecekler:*** ✅ **Orijinal RAW/JPG görüntüleri** - Ayrı bir sürücüde/bulutta arşivleyin
 * ✅ **İşlenmiş çıktılar** - Kalibre edilmiş görüntüleri ve endeksleri saklayın
 * ✅ **Proje dosyası** - Gerekirse yeniden işleme için tüm ayarları içerir
 * ✅ **Hata ayıklama günlüğü** - İşleme ayrıntılarını belgeler
-* ✅ **Kalibrasyon hedef görüntüleri** - Doğrulama ve yeniden işleme için
-
-**Depolama önerileri:**
-
-* **Anında yedekleme**: Harici sabit sürücü
+* ✅ **Kalibrasyon hedef görüntüleri** - Doğrulama ve yeniden işleme için**Depolama önerileri:*** **Anında yedekleme**: Harici sabit sürücü
 * **Uzun vadeli arşiv**: Bulut depolama (Google Drive, Dropbox vb.)
-* **Önemli veriler**: Farklı konumlarda 2-3 kopya saklayın
-
-***
+* **Önemli veriler**: Farklı konumlarda 2-3 kopya saklayın***
 
 ## Sonraki İşleme Çalıştırmaları
 
@@ -209,16 +193,14 @@ Ayrıntılı talimatlar için [Görüntü Görüntüleyici](../image-viewer-gui/
 
 Gelecekte benzer veri kümelerini işleyecekseniz:
 
-1. **Proje Şablonunu Kaydedin** (henüz yapılmadıysa)
-2. Kaydedilen şablonu kullanarak **yeni proje oluşturun**
-3. **Yeni görüntüleri içe aktarın**
-4. Tutarlılık için aynı ayarlarla **işleyin**
+1. **Proje Şablonunu Kaydet** (henüz yapılmadıysa)
+2. Kaydedilen şablonu kullanarak **yeni proje oluştur**
 
-### Birden Çok Oturumu Toplu İşleme
+3.**Yeni görüntüleri içe aktar**
 
-Birden çok oturum/veri kümesi için:
+4. Tutarlılık için aynı ayarlarla**işle**### Birden Çok Oturumu Toplu İşleme
 
-**Seçenek 1: GUI - Birden Çok Proje**
+Birden çok oturum/veri kümesi için:**Seçenek 1: GUI - Birden Çok Proje**
 
 * Her oturum için ayrı bir proje oluşturun
 * Tutarlı şablon ayarları kullanın
@@ -234,7 +216,7 @@ Birden çok oturum/veri kümesi için:
 
 * Programlı kontrol
 * Analiz boru hatlarıyla entegrasyon
-* Bkz. [API Belgeleri](../api-python-sdk.md)
+* [API Belgeleri](../api-python-sdk.md) bölümüne bakın.
 
 ***
 
@@ -265,9 +247,7 @@ Sorunla karşılaşırsanız:
 * 📧 **E-posta**: info@mapir.camera (Hata Ayıklama Günlüğünü ekleyin)
 * 🌐 **Destek**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **SSS**: [Sık Sorulan Sorular](../faq.md)
-* 📖 **Belgeler**: [Chloros Kılavuzu](../)
-
-***
+* 📖 **Belgeler**: [Chloros Kılavuzu](../)***
 
 ## Özet: Tam İş Akışı
 
@@ -277,11 +257,9 @@ Chloros işleme iş akışını tamamladınız:
 2. ✅ **Dosya ekleme** - Bkz. [Dosya Ekleme](adding-files-to-a-project.md)
 3. ✅ **Ayarları düzenleme** - Bkz. [Proje Ayarlarını Düzenleme](adjusting-project-settings.md)
 4. ✅ **Hedefleri işaretleme** - Bkz. [Hedef Görüntüleri Seçme](choosing-target-images.md)
-5. ✅ **İşleme başlandı** - Bkz. [İşleme Başlatma](starting-the-processing.md)
+5. ✅ **İşleme başlandı** - Bkz. [İşleme Başlama](starting-the-processing.md)
 6. ✅ **İlerleme izlendi** - Bkz. [İşlemeyi İzleme](monitoring-the-processing.md)
-7. ✅ **Sonuçlar incelendi** - Bu sayfa
-
-**Kalibre edilmiş, yansıma düzeltmeli multispektral görüntüleriniz analiz için hazır!**
+7. ✅ **Sonuçlar incelendi** - Bu sayfa**Kalibre edilmiş, yansıma düzeltmeli multispektral görüntüleriniz analiz için hazır!**
 
 ***
 
