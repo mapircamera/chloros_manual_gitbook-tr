@@ -86,7 +86,7 @@ Harita sekmesi, arka plan harita görüntüleri için iki döşeme sağlayıcıs
 
 Harita katmanı türünü (soldan sağa) seçebilirsiniz:
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Arazi
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Arazi
 
 Yükseklik profillerini ve ayrıntıları (yollar vb.) içeren harita döşemelerini gösterir.
 
