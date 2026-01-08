@@ -42,7 +42,7 @@ Ekranın en büyük kısmı görüntünüzü gösterir:
 
 #### Görüntüleri Göz Atma
 
-Klavye kısayolları veya düğmeleri kullanarak görüntü kümenizde gezin:
+Klavye kısayolları veya düğmeleri kullanarak görüntü setinizde gezin:
 
 * **Sonraki görüntü**: → düğmesine tıklayın veya **→** (Sağ Ok) tuşuna basın
 * **Önceki görüntü**: ← düğmesine tıklayın veya **←** (Sol Ok) tuşuna basın
@@ -54,28 +54,22 @@ Görüntü ayrıntılarını incelemek için büyütmeyi ayarlayın:
 
 **Yakınlaştırma:**
 
-* **+** (Artı) düğmesine tıklayın
+* **+** (Artı) düğmesini tıklayın
 * **+** veya **=** tuşuna basın
 * Fare tekerleğini **yukarı** kaydırın
 
 **Uzaklaştırma:**
 
-* **−** (Eksi) düğmesine tıklayın
+* **−** (Eksi) düğmesini tıklayın
 * **−** (Eksi) tuşuna basın
 * Fare tekerleğini **aşağı** kaydırın
-
-**Ekrana Sığdır:**
-
-* **↔** (Sığdır) düğmesini tıklayın.
-* **0** (Sıfır) tuşuna basın.
-* Görüntüyü çift tıklayın.
 
 #### Yakınlaştırıldığında Kaydırma
 
 Ekran boyutunun ötesine yakınlaştırıldığında:
 
-1. Fare imlecini görüntünün üzerine getirin.
-2. **Farenin sol tuşunu basılı tutun**.
+1. Fare imlecini görüntünün üzerine getirin
+2. **Sol fare düğmesini basılı tutun**
 3. Görüntüyü hareket ettirmek için **sürükleyin**
 4. Kaydırmayı durdurmak için bırakın
 
@@ -85,13 +79,13 @@ Ekran boyutunun ötesine yakınlaştırıldığında:
 
 ## Piksel Değeri İnceleme
 
-### İmleçte Piksel Değerlerini Görüntüleme
+### İmleçteki Piksel Değerlerini Görüntüleme
 
-Fare imlecini görüntünün üzerine getirdiğinizde, piksel değerleri gerçek zamanlı olarak görüntülenir:
+Fare imlecini görüntünün üzerinde hareket ettirdiğinizde, piksel değerleri gerçek zamanlı olarak görüntülenir:
 
 **Değer görüntüleme konumu:**
 
-* **Sağ tarafta kayan sayı ve kırmızı çizgi indeks LUT gradyanı açıklaması**
+* **Sağ tarafta kayan sayı ve kırmızı çizgi indeks LUT gradyan açıklaması**
 * **Daha fazla yakınlaştırıldığında, imlecin yakınında kayan değer ve vurgulanmış piksel**
 * **İmlecin altındaki veya vurgulanmış** pikselin değerlerini gösterir
 * Fareyi hareket ettirdikçe güncellenir
@@ -100,15 +94,17 @@ Fare imlecini görüntünün üzerine getirdiğinizde, piksel değerleri gerçek
 
 ## Görüntüleyebileceğiniz Görüntü Türleri
 
-### Orijinal Görüntüler (Ön İşleme)
+### JPG
 
-**Kameradan alınan RAW + JPG görüntüler:**
+**Kameradan alınan JPG görüntüleri:**
 
-* RAW verilerini önizleme olarak gösterir
-* Orijinal, düzeltilmemiş değerleri gösterir
+* JPG verilerini önizleme olarak gösterir
+* Düzeltilmemiş orijinal değerleri gösterir
 * İşleme öncesinde görüntü kalitesini kontrol etmek için kullanışlıdır
 
-### Kalibre Edilmiş Yansıma Görüntüleri
+### RAW (Orijinal)
+
+### RAW (Yansıtma)
 
 **İşleme sonrası:**
 
@@ -117,20 +113,20 @@ Fare imlecini görüntünün üzerine getirdiğinizde, piksel değerleri gerçek
 * Çok bantlı TIFF (Red, Green, NIR, vb.)
 * Analiz için hazır bilimsel veriler
 
-### Dizin Görüntüleri
+### RAW (Endeks)
 
 **NDVI, NDRE, GNDVI, vb. (\_NDVI.tif dosyaları):**
 
 * Tek bantlı gri tonlamalı görüntüler
-* Piksel değerleri indeks hesaplama sonuçlarını temsil eder
-* Normalize edilmiş indeksler için aralık genellikle -1 ile +1 arasındadır
+* Piksel değerleri, endeks hesaplama sonuçlarını temsil eder
+* Normalize edilmiş endeksler için aralık genellikle -1 ile +1 arasındadır
 * Görselleştirme için renk LUT&#x27;ları uygulanabilir
 
 ***
 
-## İndeks ve LUT Uygulaması
+## Endeks ve LUT Uygulaması
 
-Çok spektral indeksleri ve renk Arama Tablolarını uygulayın:
+Çok spektral endeksleri ve renk Arama Tablolarını uygulayın:
 
 1. **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> kenar çubuğunda
 2. Bitki örtüsü endeksini seçin (NDVI, NDRE, vb.)
@@ -153,31 +149,19 @@ Ayrıntılı talimatlar için [Endeks/LUT Sandbox](index-lut-sandbox.md) bölüm
 
 ### Yakınlaştırma
 
-* **+** veya **=**: Yakınlaştır
-* **−**: Uzaklaştır
-* **0** (Sıfır): Ekrana sığdır
-* **Fare Tekerleği**: Yakınlaştır/uzaklaştır
-
-### Görüntüleme Denetimleri
-
-* **P**: Piksel yüzdesi modunu değiştir
-* **L**: Katmanlar panelini değiştir
-* **Esc**: Tam ekranı kapat veya Dosya Tarayıcıya dön
-
-### Diğer
-
-* **Ctrl+S**: Mevcut görüntüyü kaydet
-* **F**: Tam ekran modu (varsa)
+* **+** veya **=**: Yakınlaştırma
+* **−**: Uzaklaştırma
+* **Fare Tekerleği**: Yakınlaştırma/uzaklaştırma
 
 ***
 
-### Endeks Hesaplamalarını Doğrulama
+### Dizin Hesaplamalarını Doğrulama
 
-Endekslerin doğru hesaplandığını kontrol edin:
+Dizinlerin doğru hesaplandığını kontrol edin:
 
-1. NDVI veya başka bir endeks görüntüsünü açın
+1. NDVI veya başka bir indeks görüntüsünü açın
 2. Bitki örtüsü alanlarını kontrol edin:
-   * **NDVI**: Sağlıklı bitkiler için 0,4-0,9 arasında bir değer göstermelidir
+   * **NDVI**: Sağlıklı bitkiler için 0,4-0,9 değerini göstermelidir
    * **NDRE**: Güçlü büyüme için daha yüksek değerler
    * **GNDVI**: NDVI&#x27;e benzer, ancak klorofil duyarlıdır
 3. Bitki örtüsü olmayan alanları kontrol edin:
@@ -198,24 +182,24 @@ Endekslerin doğru hesaplandığını kontrol edin:
 
 **Çözümler:**
 
-1. Dosya bütünlüğünü doğrulamak için harici görüntüleyicide açmayı deneyin
-2. Dosya formatının beklenen türle eşleştiğini kontrol edin
-3. Belleği boşaltmak için diğer uygulamaları kapatın
-4. Daha küçük/farklı bir görüntü deneyin
+1. Dosyanın bütünlüğünü doğrulamak için harici görüntüleyicide açmayı deneyin.
+2. Dosya formatının beklenen türle eşleştiğini kontrol edin.
+3. Belleği boşaltmak için diğer uygulamaları kapatın.
+4. Daha küçük/farklı bir görüntü deneyin.
 
 ### Siyah veya Beyaz Görüntü Gösterimi
 
 **Olası nedenler:**
 
-* Değer aralığı görüntüleme kapasitesinin dışında
-* Olağandışı değerlere sahip 32 bitlik kayan noktalı görüntü
-* Dizin hesaplama hatası
+* Değer aralığı görüntüleme kapasitesinin dışında.
+* Olağandışı değerlere sahip 32 bitlik kayan noktalı görüntü.
+* Dizin hesaplama hatası.
 
 **Çözümler:**
 
-1. Piksel değerlerini kontrol edin - hepsi çok düşük veya çok yüksekse, görüntüleme aralığını ayarlayın.
-2. Otomatik aralık ayarı ile QGIS veya benzeri bir programda açmayı deneyin.
-3. İşlemden gelen Hata Ayıklama Günlüğünü kontrol edin.
+1. Piksel değerlerini kontrol edin - hepsi çok düşük veya çok yüksekse, görüntüleme aralığını ayarlayın
+2. Otomatik aralık ayarı ile QGIS veya benzeri bir programda açmayı deneyin
+3. İşlemden gelen Hata Ayıklama Günlüğünü kontrol edin
 
 ### Piksel Değerleri Yanlış Görünüyor
 
