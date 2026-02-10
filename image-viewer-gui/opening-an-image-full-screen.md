@@ -1,6 +1,6 @@
 # Görüntüyü Tam Ekran Açma
 
-Chloros Görüntü Görüntüleyici, çok spektral görüntülerinizi görüntülemek, analiz etmek ve işlemek için özel bir tam ekran arayüzü sağlar. Orijinal görüntüleri veya işlenmiş çıktıları görüntülerken, Görüntü Görüntüleyici inceleme ve analiz için güçlü araçlar sunar.
+Chloros Görüntü Görüntüleyici, çok spektrumlu görüntülerinizi görüntülemek, analiz etmek ve işlemek için özel bir tam ekran arayüzü sağlar. Orijinal görüntüleri veya işlenmiş çıktıları görüntülemek için Görüntü Görüntüleyici, inceleme ve analiz için güçlü araçlar sunar.
 
 ## Görüntü Görüntüleyiciye Erişim
 
@@ -32,9 +32,7 @@ Ekranın en büyük kısmı görüntünüzü gösterir:
 * **Tam çözünürlük**: Görüntüler doğal çözünürlükte görüntülenir
 * **Yakınlaştırılabilir**: Yakınlaştırmak için kontrolleri veya fare tekerleğini kullanın
 * **Kaydırılabilir**: Yakınlaştırıldığında tıklayıp sürükleyerek hareket ettirin
-* **En boy oranı korunur**: Görüntüler orantılı olarak ölçeklenir
-
-***
+* **En boy oranı korunur**: Görüntüler orantılı olarak ölçeklenir***
 
 ## Görüntüleme Seçenekleri
 
@@ -42,25 +40,19 @@ Ekranın en büyük kısmı görüntünüzü gösterir:
 
 #### Görüntüleri Göz Atma
 
-Klavye kısayolları veya düğmeleri kullanarak görüntü setinizde gezin:
+Klavye kısayolları veya düğmeleri kullanarak görüntü kümenizde gezinin:
 
-* **Sonraki görüntü**: → düğmesine tıklayın veya **→** (Sağ Ok) tuşuna basın
-* **Önceki görüntü**: ← düğmesine tıklayın veya **←** (Sol Ok) tuşuna basın
-* **Belirli bir görüntüye atlama**: Dosya Tarayıcıya dönün ve istediğiniz küçük resme tıklayın
+* **Sonraki görüntü**: → düğmesini tıklayın veya**→** (Sağ Ok) tuşuna basın
+* **Önceki görüntü**: ← düğmesini tıklayın veya**←** (Sol Ok) tuşuna basın
+* **Belirli bir görüntüye atlama**: Dosya Tarayıcıya dönün ve istediğiniz küçük resmi tıklayın
 
 #### Yakınlaştırma Kontrolleri
 
 Görüntü ayrıntılarını incelemek için büyütmeyi ayarlayın:
 
-**Yakınlaştırma:**
-
-* **+** (Artı) düğmesini tıklayın
-* **+** veya **=** tuşuna basın
-* Fare tekerleğini **yukarı** kaydırın
-
-**Uzaklaştırma:**
-
-* **−** (Eksi) düğmesini tıklayın
+**Yakınlaştırma:*** **+** (Artı) düğmesini tıklayın
+* **+**veya**=** tuşuna basın
+* Fare tekerleğini **yukarı** kaydırın**Uzaklaştırma:*** **−** (Eksi) düğmesini tıklayın
 * **−** (Eksi) tuşuna basın
 * Fare tekerleğini **aşağı** kaydırın
 
@@ -70,24 +62,16 @@ Ekran boyutunun ötesine yakınlaştırıldığında:
 
 1. Fare imlecini görüntünün üzerine getirin
 2. **Sol fare düğmesini basılı tutun**
-3. Görüntüyü hareket ettirmek için **sürükleyin**
-4. Kaydırmayı durdurmak için bırakın
 
-**Alternatif**: Küçük artışlarla kaydırmak için ok tuşlarını kullanın
+3. Görüntüyü hareket ettirmek için**sürükleyin**
 
-***
+4. Kaydırmayı durdurmak için bırakın**Alternatif**: Küçük artışlarla kaydırmak için ok tuşlarını kullanın***
 
 ## Piksel Değeri İnceleme
 
 ### İmleçteki Piksel Değerlerini Görüntüleme
 
-Fare imlecini görüntünün üzerinde hareket ettirdiğinizde, piksel değerleri gerçek zamanlı olarak görüntülenir:
-
-**Değer görüntüleme konumu:**
-
-* **Sağ tarafta kayan sayı ve kırmızı çizgi indeks LUT gradyan açıklaması**
-* **Daha fazla yakınlaştırıldığında, imlecin yakınında kayan değer ve vurgulanmış piksel**
-* **İmlecin altındaki veya vurgulanmış** pikselin değerlerini gösterir
+Fare imlecini görüntünün üzerinde hareket ettirdiğinizde, piksel değerleri gerçek zamanlı olarak görüntülenir:**Değer görüntüleme konumu:*** **Sağ tarafta kayan sayı ve kırmızı çizgi LUT gradyanı göstergesi*** **Daha fazla yakınlaştırıldığında, imlecin yakınında kayan değer ve vurgulanmış piksel*** **İmlecin altındaki veya vurgulanmış** pikselin değerlerini gösterir
 * Fareyi hareket ettirdikçe güncellenir
 
 ***
@@ -104,7 +88,7 @@ Fare imlecini görüntünün üzerinde hareket ettirdiğinizde, piksel değerler
 
 ### RAW (Orijinal)
 
-### RAW (Yansıtma)
+### RAW (Yansıma)
 
 **İşleme sonrası:**
 
@@ -126,7 +110,7 @@ Fare imlecini görüntünün üzerinde hareket ettirdiğinizde, piksel değerler
 
 ## Endeks ve LUT Uygulaması
 
-Çok spektral endeksleri ve renk Arama Tablolarını uygulayın:
+Çok spektrumlu endeksleri ve renk Arama Tablolarını uygulayın:
 
 1. **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> kenar çubuğunda
 2. Bitki örtüsü endeksini seçin (NDVI, NDRE, vb.)
@@ -149,11 +133,9 @@ Ayrıntılı talimatlar için [Endeks/LUT Sandbox](index-lut-sandbox.md) bölüm
 
 ### Yakınlaştırma
 
-* **+** veya **=**: Yakınlaştırma
+* **+**veya**=**: Yakınlaştırma
 * **−**: Uzaklaştırma
-* **Fare Tekerleği**: Yakınlaştırma/uzaklaştırma
-
-***
+* **Fare Tekerleği**: Yakınlaştırma/uzaklaştırma***
 
 ### Dizin Hesaplamalarını Doğrulama
 
@@ -161,14 +143,12 @@ Dizinlerin doğru hesaplandığını kontrol edin:
 
 1. NDVI veya başka bir indeks görüntüsünü açın
 2. Bitki örtüsü alanlarını kontrol edin:
-   * **NDVI**: Sağlıklı bitkiler için 0,4-0,9 değerini göstermelidir
+   * **NDVI**: Sağlıklı bitkiler için 0,4-0,9 arasında bir değer göstermelidir
    * **NDRE**: Güçlü büyüme için daha yüksek değerler
    * **GNDVI**: NDVI&#x27;e benzer, ancak klorofil duyarlıdır
 3. Bitki örtüsü olmayan alanları kontrol edin:
    * **Toprak**: 0&#x27;a yakın veya hafif negatif
-   * **Su**: Negatif değerler (-0,5 ila 0)
-
-***
+   * **Su**: Negatif değerler (-0,5 ila 0)***
 
 ## Görüntüleme Sorunlarını Giderme
 
@@ -197,9 +177,9 @@ Dizinlerin doğru hesaplandığını kontrol edin:
 
 **Çözümler:**
 
-1. Piksel değerlerini kontrol edin - hepsi çok düşük veya çok yüksekse, görüntüleme aralığını ayarlayın
-2. Otomatik aralık ayarı ile QGIS veya benzeri bir programda açmayı deneyin
-3. İşlemden gelen Hata Ayıklama Günlüğünü kontrol edin
+1. Piksel değerlerini kontrol edin - hepsi çok düşük veya çok yüksekse, görüntüleme aralığını ayarlayın.
+2. Otomatik aralık ayarı ile QGIS veya benzeri bir programda açmayı deneyin.
+3. İşlemden gelen Hata Ayıklama Günlüğünü kontrol edin.
 
 ### Piksel Değerleri Yanlış Görünüyor
 

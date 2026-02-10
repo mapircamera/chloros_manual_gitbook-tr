@@ -1,6 +1,6 @@
 # Görüntü Izgarası
 
-Görüntüleri bir projeye içe aktardıktan sonra, ana alanda görüntülerin bir ızgara halinde düzenlendiğini göreceksiniz.
+Görüntüleri bir projeye aktardıktan sonra, ana alanda görüntülerin bir ızgara halinde düzenlendiğini göreceksiniz.
 
 ## Küçük Resim Boyutu
 

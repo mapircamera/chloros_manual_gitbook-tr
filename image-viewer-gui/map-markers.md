@@ -17,22 +17,18 @@ Harita sekmesi, görüntülerinizi GPS koordinatlarına göre etkileşimli bir 2
 
 ***
 
-## Harita Sekmesinden Görüntüleri Ayarlama
+## Harita Sekmesinden Görüntüleri Ayarlama**Harita** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> sekmesi, ekleme  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  ve kaldırma  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  dosya düğmelerine sahiptir. Ayrıca, aynı proje dosyası tablo listesini gösterir, ancak sütun başlıkları farklıdır: <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> sekmesi ile aynı dosya ekleme
 
-**Harita** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> sekmesi, ekleme  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  ve kaldırma  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  dosya düğmelerine sahiptir. Ayrıca, aynı proje dosyası tablo listesini gösterir, ancak sütun başlıkları farklıdır: <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> sekmesi ile aynı dosya ekleme
+ve
+
+dosya kaldırma
+
+düğmelerine sahiptir. Ayrıca, aynı proje dosyası tablo listesini gösterir, ancak sütun başlıkları farklıdır:
 
 ### Dosya Adı
 
 * Kameradan alınan orijinal dosya adı
 * Kameranın adlandırma kuralını korur (ör. IMG\_0001.RAW)
-
-### Enlem
-
-* Görüntünün enlemi
-
-### Boylam
-
-* Görüntünün boylamı
 
 ### Rakım
 
@@ -82,7 +78,7 @@ Harita sekmesi, arka plan harita görüntüleri için iki döşeme sağlayıcıs
 ### ESRI
 
 * ESRI ArcGIS&#x27;ten uydu ve hava görüntüleri
-* Belirli bölgelerde genellikle daha yüksek çözünürlüklü görüntüler sağlar
+* Genellikle belirli bölgelerde daha yüksek çözünürlüklü görüntüler sağlar
 
 ***
 
@@ -90,7 +86,7 @@ Harita sekmesi, arka plan harita görüntüleri için iki döşeme sağlayıcıs
 
 Harita katmanı türünü (soldan sağa) seçebilirsiniz:
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="line">### Arazi
+ <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Arazi
 
 Yükseklik profillerini ve ayrıntıları (yollar vb.) içeren harita döşemelerini gösterir.
 
@@ -117,9 +113,7 @@ Ek ayrıntılar (yollar vb.) içeren uydu harita döşemelerini gösterir.
 
 ### Kaydırma Denetimleri
 
-* **Kaydırma**: Harita üzerinde hareket etmek için tıklayın ve sürükleyin.
-
-***
+* **Kaydırma**: Harita üzerinde hareket etmek için tıklayın ve sürükleyin.***
 
 ## Kullanım Örnekleri
 
@@ -160,6 +154,6 @@ Ek ayrıntılar (yollar vb.) içeren uydu harita döşemelerini gösterir.
 **Olası nedenler:**
 
 * Kamera GPS&#x27;inin uydu sabitlemesi zayıftı.
-* Yakalama sırasında GPS kayması meydana geldi.
+* Çekim sırasında GPS sapması oldu.
 
-**Çözüm**: Bu genellikle yakalama süresiyle ilgili bir sorundur; hassas uygulamalar için PPK/RTK GPS kullanmayı düşünün.
+**Çözüm**: Bu genellikle çekim zamanı ile ilgili bir sorundur; hassas uygulamalar için PPK/RTK GPS kullanmayı düşünün.

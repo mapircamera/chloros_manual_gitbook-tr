@@ -33,9 +33,7 @@ Bir klasördeki tüm görüntüleri bir kerede içe aktarmak için bu seçeneği
 
 1. Dosya Tarayıcı panelinin üst kısmındaki **&quot;Klasör Ekle&quot;** <img src="../.gitbook/assets/image (1).png" alt="" data-size="line"> düğmesine tıklayın.
 2. Yakalama oturumu resimlerinizi içeren klasöre gidin ve seçin.
-3. **&quot;Klasörü Seç&quot;** düğmesine tıklayarak o klasördeki tüm desteklenen resimleri içe aktarın.
-
-***
+3. **&quot;Klasörü Seç&quot;** düğmesine tıklayarak o klasördeki tüm desteklenen resimleri içe aktarın.***
 
 ## Dosya Tarayıcı Tablosunu Anlama
 
@@ -66,7 +64,7 @@ Resimler içe aktarıldıktan sonra, aşağıdaki sütunların bulunduğu bir ta
 
 ### Görüntü Meta Verilerini Görüntüleme
 
-Tablonun sağ üst köşesindeki geçiş düğmesine tıklamak, seçilen görüntünün meta verilerini görüntü ızgara alanında gösterir.
+Tablonun sağ üst köşesindeki geçiş düğmesine tıklamak, seçilen görüntünün meta verilerini görüntü ızgarası alanında gösterir.
 
 <figure><img src="../.gitbook/assets/chloros_grid_meta.gif" alt=""><figcaption></figcaption></figure>
 
@@ -86,9 +84,7 @@ Projenizden istenmeyen görüntüleri kaldırmak için:
 
 * **Sütuna göre sıralama**: Görüntüleri sıralamak için herhangi bir sütun başlığına tıklayın.
 * **Zaman damgasına göre sıralama**: Kronolojik çekim dizilerini düzenlemek için kullanışlıdır.
-* **Kamera modeli filtresi**: Birden fazla kamera kullanıyorsanız, görüntüleri kamera türüne göre gruplandırın.
-
-***
+* **Kamera modeli filtresi**: Birden fazla kamera kullanıyorsanız, görüntüleri kamera türüne göre gruplandırın.***
 
 ## Görüntü Önizleme
 
@@ -102,12 +98,10 @@ Dosya Tarayıcı&#x27;da herhangi bir görüntü küçük resmini tıklayarak an
 
 ### Hızlı Gezinme
 
-* **Önceki Görüntü**: Sol ok tuşuna tıklayın veya ← tuşuna basın
+* **Önceki Görüntü**: Sol oka tıklayın veya ← tuşuna basın
 * **Sonraki Görüntü**: Sağ ok tuşuna tıklayın veya → tuşuna basın
 * **Yakınlaştırma/Uzaklaştırma**: Fare tekerleğini veya yakınlaştırma düğmelerini kullanın
-* **Kaydırma**: Yakınlaştırıldığında görüntü üzerinde tıklayın ve sürükleyin
-
-***
+* **Kaydırma**: Yakınlaştırıldığında görüntü üzerinde tıklayın ve sürükleyin***
 
 ## Yinelenen Dosya İşleme
 
@@ -115,7 +109,7 @@ Chloros, yinelenen dosyaları otomatik olarak algılar ve yok sayar:
 
 * Aynı dosya adına sahip dosyalar atlanır
 * Yanlışlıkla çift işlemeyi önler
-* Çoğaltmalar algılandığında uyarı mesajı görüntülenir
+* Yinelenen dosyalar algılandığında uyarı mesajı görüntülenir
 
 {% hint style="warning" %}
 **Önemli**: İçe aktarmadan önce orijinal görüntü dosyalarınızı yeniden adlandırmayın veya değiştirmeyin. Chloros, doğru işleme için orijinal dosya adlarına ve meta verilere güvenir.
@@ -132,9 +126,7 @@ Projeniz birden fazla MAPIR kameradan alınan görüntüleri içeriyorsa:
 3. Dosya Tarayıcı, Kamera Modeli sütununda kamera modelini görüntüler
 4. İşleme, her kamera türü için doğru ayarları uygular
 
-**Örnek senaryo**: Survey3W RGN + Survey3N OCN çift kamera kurulumu
-
-***
+**Örnek senaryo**: Survey3W RGN + Survey3N OCN çift kamera kurulumu***
 
 ## En İyi Uygulamalar
 
@@ -142,11 +134,11 @@ Projeniz birden fazla MAPIR kameradan alınan görüntüleri içeriyorsa:
 
 * Kalibrasyon hedef görüntülerini, anket görüntüleri ile aynı klasörde saklayın.
 * Kameranızın/SD kartınızın orijinal klasör yapısını koruyun.
-* Farklı oturumlara ait veri kümelerini tek bir projede karıştırmayın.
+* Farklı oturumlardan gelen veri kümelerini tek bir projede karıştırmayın.
 
 ### Dosya Adlandırma
 
-* Orijinal kamera dosya adlarını koruyun (IMG\_0001.RAW vb.).
+* Orijinal kamera dosya adlarını koruyun (IMG\_0001.RAW, vb.).
 * İçe aktarmadan önce dosyaları yeniden adlandırmayın.
 * Orijinal adlar önemli meta veriler içerir.
 
@@ -154,7 +146,7 @@ Projeniz birden fazla MAPIR kameradan alınan görüntüleri içeriyorsa:
 
 * Her oturumda her zaman 1-2 kalibrasyon hedef görüntüsü ekleyin.
 * Yakalama oturumundan önce ve sonra hedefleri yakalayın.
-* Hedefleri, yakalama alanıyla aynı aydınlatma koşullarına yerleştirin.
+* Hedefleri yakalama alanıyla aynı aydınlatma koşullarına yerleştirin.
 * İşlemeyi hızlandırmak için Hedef onay kutusunu kullanarak hedef görüntüleri işaretleyin.
 
 ***
@@ -188,9 +180,7 @@ Projeniz birden fazla MAPIR kameradan alınan görüntüleri içeriyorsa:
 * Kamera saati doğru ayarlanmamış
 * EXIF verileri harici yazılım tarafından silinmiş
 
-**Çözüm**: Çekim sırasında kamera zaman ayarlarının doğru olduğunu doğrulayın
-
-***
+**Çözüm**: Çekim sırasında kamera zaman ayarlarının doğru olduğunu doğrulayın***
 
 ## Sonraki Adımlar
 
