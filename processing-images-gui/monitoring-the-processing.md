@@ -1,21 +1,19 @@
 # İşlemenin İzlenmesi
 
-İşleme başladıktan sonra, Chloros ilerlemeyi izlemek, sorunları kontrol etmek ve veri kümenizde neler olup bittiğini anlamak için çeşitli yollar sunar. Bu sayfada, işleminizi nasıl takip edeceğiniz ve Chloros&#x27;in sağladığı bilgileri nasıl yorumlayacağınız açıklanmaktadır.
+İşleme başladıktan sonra, Chloros, ilerlemeyi izlemek, sorunları kontrol etmek ve veri kümenizde neler olup bittiğini anlamak için çeşitli yöntemler sunar. Bu sayfada, işlemenizi nasıl takip edeceğiniz ve Chloros tarafından sağlanan bilgileri nasıl yorumlayacağınız açıklanmaktadır.
 
-## İlerleme Çubuğu Genel Bakış
+## İlerleme Çubuğuna Genel Bakış
 
 Üst başlıktaki ilerleme çubuğu, gerçek zamanlı işleme durumunu ve tamamlanma yüzdesini gösterir.
 
-### Serbest Mod İlerleme Çubuğu
+### Ücretsiz Mod İlerleme Çubuğu
 
 Chloros+ lisansı olmayan kullanıcılar için:
 
 **2 Aşamalı İlerleme Göstergesi:**
 
-1. **Hedef Algılama** - Görüntülerde kalibrasyon hedeflerini bulma
-2. **İşleme** - Düzeltmeleri uygulama ve dışa aktarma
-
-**İlerleme çubuğu şunları gösterir:**
+1.**Hedef Algılama** - Görüntülerde kalibrasyon hedeflerini bulma
+2. **İşleme** - Düzeltmelerin uygulanması ve dışa aktarma**İlerleme çubuğu şunları gösterir:**
 
 * Genel tamamlanma yüzdesi (0-100%)
 * Mevcut aşama adı
@@ -27,21 +25,21 @@ Chloros+ lisansına sahip kullanıcılar için:
 
 **4 Aşamalı İlerleme Göstergesi:**
 
-1. **Algılama** - Kalibrasyon hedeflerini bulma
+1.**Algılama** - Kalibrasyon hedeflerini bulma
 2. **Analiz** - Görüntüleri inceleme ve iş akışını hazırlama
-3. **Kalibrasyon** - Vinyet ve yansıma düzeltmeleri uygulama
-4. **Dışa aktarma** - İşlenmiş dosyaları kaydetme
-
-**Etkileşimli Özellikler:**
-
-* **İlerleme çubuğunun üzerine gelin** genişletilmiş 4 aşamalı paneli görmek için
-* Genişletilmiş paneli dondurmak/sabitlemek için ilerleme çubuğuna **tıklayın**
-* Dondurmayı kaldırmak ve fareyi uzaklaştırdığınızda otomatik olarak gizlemek için **tekrar tıklayın**
+3. **Kalibrasyon** - Vinyet ve yansıma düzeltmelerini uygulama
+4. **Dışa Aktarma** - İşlenmiş dosyaları kaydetme**Etkileşimli Özellikler:*** **İlerleme çubuğunun üzerine gelin**, genişletilmiş 4 aşamalı paneli görmek için
+* **İlerleme çubuğuna tıklayın**, genişletilmiş paneli dondurmak/sabitlemek için
+* **Tekrar tıklayın**, dondurmayı kaldırmak ve fareyi uzaklaştırdığınızda otomatik olarak gizlemek için
 * Her aşama ayrı ayrı ilerlemeyi gösterir (0-100%)
 
 ***
 
 ## Her İşleme Aşamasını Anlamak
+
+{% hint style="info" %}
+**İş Akışı Mimarisi**: Bu 4 GUI aşaması, [4 iş parçacıklı iş akışına](../processing-architecture/processing-pipeline.md) karşılık gelir. GPU hızlandırmalı sistemlerde, İş Parçacığı 3 (Kalibrasyon), belirli donanımınız için işlemeyi optimize eden [Dinamik Hesaplama Uyumlaştırması](../processing-architecture/dynamic-compute-adaptation.md) özelliğinden yararlanır.
+{% endhint %}
 
 ### Aşama 1: Algılama (Hedef Algılama)
 
@@ -50,12 +48,12 @@ Chloros+ lisansına sahip kullanıcılar için:
 * Chloros, Hedef onay kutusu ile işaretlenmiş görüntüleri tarar
 * Bilgisayar görme algoritmaları 4 kalibrasyon panelini tanımlar
 * Her panelden yansıma değerleri çıkarılır
-* Uygun kalibrasyon planlaması için hedef zaman damgaları kaydedilir
+* Doğru kalibrasyon planlaması için hedef zaman damgaları kaydedilir
 
 **Süre:**
 
-* İşaretlenmiş hedefler ile: 10-60 saniye
-* İşaretlenmiş hedefler olmadan: 5-30+ dakika (tüm görüntüleri tarar)
+* İşaretlenmiş hedefler varsa: 10-60 saniye
+* İşaretlenmiş hedefler yoksa: 5-30+ dakika (tüm görüntüleri tarar)
 
 **İlerleme göstergesi:**
 
@@ -65,77 +63,65 @@ Chloros+ lisansına sahip kullanıcılar için:
 
 **Dikkat edilmesi gerekenler:**
 
-* Hedefler doğru şekilde işaretlenmişse işlem hızlı bir şekilde tamamlanmalıdır.
-* İşlem çok uzun sürüyorsa, hedefler işaretlenmemiş olabilir.
-* Hata ayıklama günlüğünde &quot;Hedef bulundu&quot; mesajlarını kontrol edin.
+* Hedefler doğru şekilde işaretlenmişse işlem hızlı bir şekilde tamamlanmalıdır
+* Çok uzun sürüyorsa, hedefler işaretlenmemiş olabilir
+* Hata Giderme Günlüğünde &quot;Hedef bulundu&quot; mesajlarını kontrol edin
 
 ### Aşama 2: Analiz
 
 **Neler oluyor:**
 
 * Görüntü EXIF meta verilerinin okunması (zaman damgaları, pozlama ayarları)
-* Hedef zaman damgalarına göre kalibrasyon stratejisinin belirlenmesi
-* Görüntü işleme kuyruğunun düzenlenmesi
-* Paralel işleme çalışanlarının hazırlanması (yalnızca Chloros+)
+* Hedef zaman damgalarına göre kalibrasyon stratejisi belirleme
+* Görüntü işleme kuyruğunu düzenleme
+* Paralel işleme işçilerini hazırlama (yalnızca Chloros+)
 
-**Süre:** 5-30 saniye
-
-**İlerleme göstergesi:**
+**Süre:** 5-30 saniye**İlerleme göstergesi:**
 
 * Analiz: %0 → %100
-* Hızlı aşama, genellikle kısa sürede tamamlanır
+* Hızlı aşama, genellikle çabuk tamamlanır
 
 **Dikkat edilmesi gerekenler:**
 
-* Kesintisiz ve istikrarlı bir şekilde ilerlemelidir
-* Eksik meta verilerle ilgili uyarılar Hata Ayıklama Günlüğünde görünür
+* Duraklamalar olmadan istikrarlı bir şekilde ilerlemelidir
+* Eksik meta verilerle ilgili uyarılar Hata Giderme Günlüğünde görünecektir
 
 ### Aşama 3: Kalibrasyon
 
-**Neler oluyor:**
-
-* **Debayering**: RAW Bayer desenini 3 kanala dönüştürme
-* **Vignette düzeltme**: Lens kenarındaki kararmayı giderme
+**Neler oluyor:*** **Debayering**: RAW Bayer desenini 3 kanala dönüştürme
+* **Vinyet düzeltme**: Lens kenarındaki kararmayı giderme
 * **Yansıma kalibrasyonu**: Hedef değerlerle normalleştirme
-* **Endeks hesaplama**: Çok spektral indeksleri hesaplama
-* Her görüntüyü tam boru hattı üzerinden işleme
+* **İndeks hesaplama**: Çok spektral indeksleri hesaplama
+* Her görüntüyü tam iş akışı üzerinden işleme
 
-**Süre:** Toplam işlem süresinin çoğu (60-80%)
-
-**İlerleme göstergesi:**
+**Süre:** Toplam işlem süresinin büyük kısmı (60-80%)**İlerleme göstergesi:**
 
 * Kalibrasyon: %0 → %100
-* İşlenmekte olan mevcut görüntü
-* Tamamlanan görüntüler / Toplam görüntüler
+* İşlenmekte olan görüntü
+* Tamamlanan görüntüler / Toplam görüntü sayısı
 
-**İşleme davranışı:**
-
-* **Serbest mod**: Bir seferde bir görüntüyü sırayla işler
-* **Chloros+ modu**: Aynı anda 16 adede kadar görüntüyü işler
-* **GPU hızlandırma**: Bu aşamayı önemli ölçüde hızlandırır
-
-**Dikkat edilmesi gerekenler:**
+**İşleme davranışı:*** **Serbest mod**: Görüntüleri tek tek sırayla işler
+* **Chloros+ modu**: Aynı anda en fazla 16 görüntüyü işler
+* **GPU hızlandırma**: Bu aşamayı önemli ölçüde hızlandırır**Dikkat edilmesi gerekenler:**
 
 * Görüntü sayısında istikrarlı ilerleme
-* Görüntü başına tamamlanma mesajları için Hata Ayıklama Günlüğünü kontrol edin
+* Görüntü başına tamamlanma mesajları için Hata Giderme Günlüğünü kontrol edin
 * Görüntü kalitesi veya kalibrasyon sorunları hakkında uyarılar
 
-### Aşama 4: Dışa aktarma
+### Aşama 4: Dışa Aktarma
 
 **Neler oluyor:**
 
 * Kalibre edilmiş görüntüleri seçilen formatta diske yazma
-* LUT renkleriyle multispektral indeks görüntüleri dışa aktarma
+* LUT renkleriyle multispektral indeks görüntülerini dışa aktarma
 * Kamera modeli alt klasörleri oluşturma
 * Uygun son eklerle orijinal dosya adlarını koruma
 
-**Süre:** Toplam işlem süresinin %10-20&#x27;si
-
-**İlerleme göstergesi:**
+**Süre:** Toplam işlem süresinin %10-20&#x27;si**İlerleme göstergesi:**
 
 * Dışa aktarma: %0 → %100
 * Yazılan dosyalar
-* Dışa aktarma formatı ve hedefi
+* Dışa aktarma biçimi ve hedefi
 
 **Dikkat edilmesi gerekenler:**
 
@@ -149,7 +135,7 @@ Chloros+ lisansına sahip kullanıcılar için:
 
 Hata Ayıklama Günlüğü, işleme ilerlemesi ve karşılaşılan sorunlar hakkında ayrıntılı bilgi sağlar.
 
-### Hata Ayıklama Günlüğüne Erişim
+### Hata Ayıklama Günlüğüne Erişme
 
 1. Sol kenar çubuğundaki **Hata Ayıklama Günlüğü** <img src="../.gitbook/assets/icon_log.JPG" alt="" data-size="line"> simgesine tıklayın
 2. Gerçek zamanlı işleme mesajlarını gösteren günlük paneli açılır
@@ -191,27 +177,27 @@ Normal işleme güncellemeleri:
 [ERROR] No targets detected - enable reflectance calibration or mark target images
 ```
 
-**Eylem:** İşlemeyi durdurun, hatayı giderin, yeniden başlatın.
+**Eylem:** İşlemeyi durdurun, hatayı giderin, yeniden başlatın
 
 ### Yaygın Günlük Mesajları
 
 | Mesaj                          | Anlam                                | Gerekli Eylem                                         |
 | -------------------------------- | -------------------------------------- | ----------------------------------------------------- |
-| &quot;\[dosya adı] içinde hedef algılandı&quot; | Kalibrasyon hedefi başarıyla bulundu  | Yok - normal                                         |
-| &quot;Y&#x27;nin X görüntüsü işleniyor&quot;        | Mevcut ilerleme güncellemesi                | Yok - normal                                         |
+| &quot;\[dosya adı\] içinde hedef algılandı&quot; | Kalibrasyon hedefi başarıyla bulundu  | Yok - normal                                         |
+| &quot;Y&#x27;nin X&#x27;inci görüntüsü işleniyor&quot;        | Mevcut ilerleme güncellemesi                | Yok - normal                                         |
 | &quot;Hedef bulunamadı&quot;               | Kalibrasyon hedefi algılanmadı        | Hedef görüntüleri işaretleyin veya yansıma kalibrasyonunu devre dışı bırakın |
-| &quot;Yetersiz disk alanı&quot;        | Çıktı için yeterli depolama alanı yok          | Disk alanında yer açın                                    |
-| &quot;Bozuk dosya atlanıyor&quot;        | Görüntü dosyası hasarlı                  | SD karttan dosyayı yeniden kopyalayın                             |
+| &quot;Yeterli disk alanı yok&quot;        | Çıktı için yeterli depolama alanı yok          | Disk alanını boşaltın                                    |
+| &quot;Bozuk dosya atlanıyor&quot;        | Görüntü dosyası hasarlı                  | Dosyayı SD karttan yeniden kopyalayın                             |
 | &quot;PPK verileri uygulandı&quot;               | .daq dosyasından GPS düzeltmeleri uygulandı | Yok - normal                                         |
 
 ### Günlük Verilerini Kopyalama
 
 Sorun giderme veya destek için günlüğü kopyalamak için:
 
-1. Hata Ayıklama Günlüğü panelini açın.
-2. **&quot;Günlüğü Kopyala&quot;** düğmesini tıklayın (veya sağ tıklayın → Tümünü Seç).
-3. Metin dosyasına veya e-postaya yapıştırın.
-4. Gerekirse MAPIR desteğine gönderin.
+1. Hata Giderme Günlüğü panelini açın
+2. **&quot;Günlüğü Kopyala&quot;** düğmesine tıklayın (veya sağ tıklayın → Tümünü Seç)
+3. Metin dosyasına veya e-postaya yapıştırın
+4. Gerekirse MAPIR destek ekibine gönderin
 
 ***
 
@@ -221,15 +207,15 @@ Sorun giderme veya destek için günlüğü kopyalamak için:
 
 **Serbest Mod:**
 
-* 1 CPU çekirdeği \~%100
-* Diğer çekirdekler boşta veya kullanılabilir durumda
+* 1 CPU çekirdeği ~%100
+* Diğer çekirdekler boşta veya kullanılabilir
 * Sistem yanıt vermeye devam eder
 
 **Chloros+ Paralel Mod:**
 
-* Birden fazla çekirdek %80-100 (en fazla 16 çekirdek)
-* Yüksek genel CPU kullanımı
-* Sistem daha az yanıt verebilir
+* Birden fazla çekirdek %80-100 (16 çekirdeğe kadar)
+* Genel CPU kullanımı yüksek
+* Sistem daha az duyarlı hissedilebilir
 
 **İzlemek için:**
 
@@ -246,9 +232,9 @@ Sorun giderme veya destek için günlüğü kopyalamak için:
 * Büyük projeler (500+ görüntü): 8-16 GB
 * Chloros+ paralel modu daha fazla RAM kullanır
 
-**Bellek düşükse:**
+**Bellek yetersizse:**
 
-* Daha küçük gruplar işleyin
+* Daha küçük gruplar halinde işleyin
 * Diğer uygulamaları kapatın
 * Düzenli olarak büyük veri kümelerini işliyorsanız RAM&#x27;i yükseltin
 
@@ -276,23 +262,23 @@ GPU hızlandırma etkinleştirildiğinde:
 
 **Performans ipucu:**
 
-* Mümkünse proje klasörü için SSD kullanın
+* Mümkün olduğunda proje klasörü için SSD kullanın
 * Büyük veri kümeleri için ağ sürücülerinden kaçının
 * Diskin kapasitesinin dolmak üzere olmadığından emin olun (yazma hızını etkiler)
 
 ***
 
-## İşleme Sırasında Sorunların Tespit Edilmesi
+## İşleme Sırasında Sorunları Tespit Etme
 
 ### Uyarı İşaretleri
 
-**İlerleme duruyor (5 dakikadan fazla bir süre boyunca değişiklik yok):**
+**İşlem durur (5 dakikadan fazla bir süre boyunca değişiklik olmaz):**
 
-* Hata ayıklama günlüğünde hata olup olmadığını kontrol edin
-* Kullanılabilir disk alanını doğrulayın
-* Görev Yöneticisi&#x27;ni kontrol ederek Chloros&#x27;in çalıştığından emin olun
+* Hata olup olmadığını görmek için Hata Giderme Günlüğünü kontrol edin
+* Kullanılabilir disk alanını kontrol edin
+* Chloros&#x27;in çalıştığından emin olmak için Görev Yöneticisi&#x27;ni kontrol edin
 
-**Hata mesajları sık sık görünüyor:**
+**Hata mesajları sık sık görünür:**
 
 * İşlemeyi durdurun ve hataları inceleyin
 * Yaygın nedenler: disk alanı, bozuk dosyalar, bellek sorunları
@@ -302,23 +288,23 @@ GPU hızlandırma etkinleştirildiğinde:
 
 * Chloros+ paralel modu çok fazla kaynak kullanıyor
 * Eşzamanlı görevleri azaltmayı veya donanımı yükseltmeyi düşünün
-* Serbest mod daha az kaynak kullanır
+* Serbest mod daha az kaynak tüketir
 
-### İşlemeyi Ne Zaman Durdurmalısınız?
+### İşlemi Ne Zaman Durdurmalı
 
-Aşağıdakileri görürseniz işlemeyi durdurun:
+Aşağıdakileri görürseniz işlemi durdurun:
 
-* ❌ &quot;Disk dolu&quot; veya &quot;Dosya yazılamıyor&quot; hataları
+* ❌ &quot;Disk dolu&quot; veya &quot;Dosya yazılmıyor&quot; hataları
 * ❌ Tekrarlanan görüntü dosyası bozulma hataları
-* ❌ Sistem tamamen dondu (yanıt vermiyor)
+* ❌ Sistem tamamen donmuş (yanıt vermiyor)
 * ❌ Yanlış ayarların yapılandırıldığı fark edildi
 * ❌ Yanlış görüntüler içe aktarıldı
 
 **Nasıl durdurulur:**
 
-1. **Durdur/İptal düğmesine** tıklayın (Başlat düğmesinin yerine geçer)
+1.**Durdur/İptal düğmesine** tıklayın (Başlat düğmesinin yerine geçer)
 2. İşlem durur, ilerleme kaybolur
-3. Sorunları giderin ve baştan yeniden başlatın
+3. Sorunları giderin ve baştan başlatın
 
 ***
 
@@ -328,53 +314,53 @@ Aşağıdakileri görürseniz işlemeyi durdurun:
 
 **Olası nedenler:**
 
-* İşaretlenmemiş hedef görüntüler (tüm görüntüleri tarama)
-* SSD depolama yerine HDD
+* İşaretlenmemiş hedef görüntüler (tüm görüntüler taranıyor)
+* SSD depolama yerine HDD kullanılması
 * Yetersiz sistem kaynakları
 * Çok sayıda dizin yapılandırılmış
-* Ağ sürücüsü erişimi
+* Ağ sürücüsüne erişim
 
 **Çözümler:**
 
 1. İşlem yeni başladıysa ve Algılama aşamasındaysa: İptal edin, hedefleri işaretleyin, yeniden başlatın
-2. Gelecek için: SSD kullanın, dizinleri azaltın, donanımı yükseltin
+2. Gelecekte: SSD kullanın, dizin sayısını azaltın, donanımı yükseltin
 3. Büyük veri kümelerini toplu olarak işlemek için CLI&#x27;i kullanmayı düşünün
 
 ### &quot;Disk Alanı&quot; Uyarıları
 
 **Çözümler:**
 
-1. Disk alanını hemen boşaltın
-2. Projeyi daha fazla alana sahip sürücüye taşıyın
+1. Hemen disk alanı boşaltın
+2. Projeyi daha fazla alana sahip bir sürücüye taşıyın
 3. Dışa aktarılacak dizin sayısını azaltın
-4. TIFF yerine JPG formatını kullanın (daha küçük dosyalar)
+4. TIFF yerine JPG formatını kullanın (dosyalar daha küçük olur)
 
 ### Sık Görülen &quot;Bozuk Dosya&quot; Mesajları
 
 **Çözümler:**
 
 1. Bütünlüğü sağlamak için görüntüleri SD karttan yeniden kopyalayın
-2. SD kartta hata olup olmadığını test edin
-3. Projeden bozuk dosyaları kaldırın
-4. Kalan görüntüleri işlemeye devam edin
+2. SD kartta hata olup olmadığını kontrol edin
+3. Bozuk dosyaları projeden kaldırın
+4. Kalan görüntülerin işlenmesine devam edin
 
-### Sistem Aşırı Isınma / Hız Düşürme
+### Sistem Aşırı Isınması / Yavaşlama
 
 **Çözümler:**
 
-1. Yeterli havalandırma sağlayın.
-2. Bilgisayarın havalandırma deliklerinden tozu temizleyin.
-3. İşlem yükünü azaltın (Chloros+ yerine Serbest modu kullanın).
-4. Günün daha serin saatlerinde işlem yapın.
+1. Yeterli havalandırma sağlayın
+2. Bilgisayar havalandırma deliklerinden tozu temizleyin
+3. İşleme yükünü azaltın (Chloros+ yerine Free modunu kullanın)
+4. Günün daha serin saatlerinde işlemeyi gerçekleştirin
 
 ***
 
-## İşlem Tamamlandı Bildirimi
+## İşleme Tamamlandı Bildirimi
 
-İşlem bittiğinde:
+İşleme bittiğinde:
 
 * İlerleme çubuğu %100&#x27;e ulaşır
-* **&quot;İşleme Tamamlandı&quot;** mesajı Hata Ayıklama Günlüğünde görünür
+* **&quot;İşlem Tamamlandı&quot;** mesajı Hata Giderme Günlüğünde görünür
 * Başlat düğmesi tekrar etkin hale gelir
 * Tüm çıktı dosyaları kamera modeli alt klasöründedir
 
@@ -382,11 +368,11 @@ Aşağıdakileri görürseniz işlemeyi durdurun:
 
 ## Sonraki Adımlar
 
-İşleme tamamlandığında:
+İşlem tamamlandığında:
 
-1. **Sonuçları inceleyin** - [İşlemeyi Tamamlama](finishing-the-processing.md) bölümüne bakın
+1. **Sonuçları inceleyin** - Bkz. [İşlemi Tamamlama](finishing-the-processing.md)
 2. **Çıktı klasörünü kontrol edin** - Tüm dosyaların doğru şekilde dışa aktarıldığını doğrulayın
-3. **Hata Ayıklama Günlüğünü inceleyin** - Herhangi bir uyarı veya hata olup olmadığını kontrol edin
-4. **İşlenen görüntüleri önizleyin** - Görüntü Görüntüleyiciyi veya harici yazılımı kullanın
+3. **Hata Giderme Günlüğünü inceleyin** - Herhangi bir uyarı veya hata olup olmadığını kontrol edin
+4. **İşlenmiş görüntüleri önizleyin** - Görüntü Görüntüleyiciyi veya harici bir yazılımı kullanın
 
-İşlenen sonuçları inceleme ve kullanma hakkında bilgi için, [İşlemeyi Tamamlama](finishing-the-processing.md) bölümüne bakın.
+İşlenmiş sonuçlarınızı inceleme ve kullanma hakkında bilgi için bkz. [İşlemeyi Tamamlama](finishing-the-processing.md).

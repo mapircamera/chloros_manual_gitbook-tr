@@ -1,6 +1,6 @@
-# Proje Ayarlarını Düzenleme
+# Proje Ayarlarını Yapma
 
-Görüntülerinizi işlemeden önce, iş akışı gereksinimlerinize uygun şekilde proje ayarlarınızı yapılandırmanız önemlidir. Proje Ayarları <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> paneli, kalibrasyon, işleme seçenekleri, multispektral indeksler ve dışa aktarma formatları üzerinde kapsamlı kontrol sağlar.
+Görüntülerinizi işlemeden önce, iş akışınızın gereksinimlerine uygun şekilde proje ayarlarınızı yapılandırmanız önemlidir. Proje Ayarları <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line"> paneli, kalibrasyon, işleme seçenekleri, multispektral indeksler ve dışa aktarma formatları üzerinde kapsamlı kontrol sağlar.
 
 ## Proje Ayarlarına Erişme
 
@@ -16,43 +16,43 @@ Görüntülerinizi işlemeden önce, iş akışı gereksinimlerinize uygun şeki
 
 ## Yaygın İş Akışları için Hızlı Kurulum
 
-### Varsayılan Ayarlar (Çoğu Kullanıcı için Önerilir)
+### Varsayılan Ayarlar (Çoğu Kullanıcı İçin Önerilir)
 
 Tipik MAPIR Survey3 kamera iş akışları için varsayılan ayarlar iyi sonuç verir:
 
 * ✅ **Vinyet düzeltme**: Etkin
 * ✅ **Yansıma kalibrasyonu**: Etkin (MAPIR hedeflerinin görüntüleri gerekir)
 * ✅ **Debayer yöntemi**: Standart (Hızlı, Orta Kalite)
-* ✅ **Dışa aktarma biçimi**: TIFF (16 bit)
+* ✅ **Dışa aktarım biçimi**: TIFF (16 bit)
 
-Görüntülerinizi içe aktarın ve bu varsayılan ayarlarla işlemeye başlayın.
+Görüntülerinizi içe aktarın ve bu varsayılan ayarlarla işlemeyi başlatın.
 
 ***
 
-## Proje Ayarları Genel Bakış
+## Proje Ayarlarına Genel Bakış
 
-Proje Ayarları paneli birkaç kategoriye ayrılmıştır. Aşağıda her bölümün özeti bulunmaktadır. Tam dokümantasyon için [Proje Ayarları](../project-settings/project-settings.md) bölümüne bakın.
+Proje Ayarları paneli birkaç kategoriye ayrılmıştır. Aşağıda her bölümün özeti yer almaktadır. Tam dokümantasyon için [Proje Ayarları](../project-settings/project-settings.md) sayfasına bakın.
 
 ### Hedef Algılama
 
 Chloros&#x27;in görüntülerinizdeki kalibrasyon hedeflerini nasıl tanımladığını kontrol eder.
 
 **Önemli ayarlar:*** **Minimum kalibrasyon örnek alanı**: Hedef algılama için boyut eşiği (varsayılan: 25 piksel)
-* **Minimum hedef kümeleme**: Hedef bölgeleri gruplamak için benzerlik eşiği (varsayılan: 60)**Ne zaman ayarlanmalı:**
+* **Minimum hedef kümelenmesi**: Hedef bölgeleri gruplandırmak için benzerlik eşiği (varsayılan: 60)**Ne zaman ayarlamalısınız:**
 
-* Yanlış algılamalar varsa örnek alanını artırın
+* Yanlış algılamalar alıyorsanız örnek alanını artırın
 * Hedefler algılanmıyorsa azaltın
-* Hedefler birden fazla algılamaya bölünüyorsa kümelemeyi ayarlayın
+* Hedefler birden fazla algılamaya bölünüyor ise kümelemeyi ayarlayın
 
 ### İşleme
 
 Ana görüntü işleme ve kalibrasyon seçenekleri.
 
-**Anahtar ayarlar:*** **Vinyet düzeltme**: Kenarlarda lens karartmasını telafi eder ✅ Önerilir
+**Önemli ayarlar:*** **Vinyet düzeltme**: Kenarlardaki lens kararmasını telafi eder ✅ Önerilir
 * **Yansıma kalibrasyonu**: Kalibrasyon hedeflerini kullanarak değerleri normalleştirir ✅ Önerilir
-* **Debayer yöntemi**: RAW&#x27;ı 3 kanallı multispektral hale dönüştürmek için algoritma
-* **Minimum yeniden kalibrasyon aralığı**: Kalibrasyon hedeflerini kullanma arasındaki süre (0 = tümünü kullan)**Gelişmiş ayarlar:*** **Işık sensörü saat dilimi ofseti**: PPK zaman senkronizasyonu için (varsayılan: 0)
-* **PPK düzeltmelerini uygula**: .daq dosyalarından GPS/pozlama pimi verilerini kullanır
+* **Debayer yöntemi**: RAW&#x27;ı 3 kanallı multispektral formata dönüştürmek için kullanılan algoritma
+* **Minimum yeniden kalibrasyon aralığı**: Kalibrasyon hedeflerinin kullanılması arasındaki süre (0 = tümünü kullan)**Gelişmiş ayarlar:*** **Işık sensörü saat dilimi kayması**: PPK zaman senkronizasyonu için (varsayılan: 0)
+* **PPK düzeltmelerini uygula**: .daq dosyalarındaki GPS/pozlama pimi verilerini kullanır
 * **Pozlama Pimi 1/2**: Çift kamera kurulumları için kameraları pozlama pimlerine atar
 
 ### Debayer Yöntemi
@@ -61,19 +61,19 @@ Ana görüntü işleme ve kalibrasyon seçenekleri.
 
 #### Standart (Hızlı, Orta Kalite)
 
-Standart debayer hızlı işlem yapar ancak debayering renk gürültüsü gösterir, bu da daha az doğru ve daha gürültülü görüntülerle sonuçlanır.
+Standart debayer işlemi hızlıdır ancak debayering renk gürültüsü gösterir, bu da daha az doğru ve daha gürültülü görüntülerle sonuçlanır.
 
-#### Doku Duyarlı (Yavaş, En Yüksek Kalite) \[Chloros+ Sadece]
+#### Doku Duyarlı (Yavaş, En Yüksek Kalite) \[Yalnızca Chloros+]
 
-Doku Duyarlı, neredeyse tüm debayering gürültüsünü ortadan kaldıran bir AI/ML gürültü giderme modeli ile birlikte yüksek kaliteli kenar duyarlı debayer kullanır. Doku Farkındalığı modelinin çalışması için GPU belleği (VRAM) gerekir. Daha hızlı işlem için 4 GB&#x27;den fazla VRAM&#x27;ınız varsa bu modeli kullanmanızı öneririz.
+Doku Duyarlı, neredeyse tüm debayering gürültüsünü ortadan kaldıran bir AI/ML gürültü giderme modeli ile birleştirilmiş yüksek kaliteli kenar duyarlı bir debayer kullanır. Tekstür Duyarlı modelin çalışması için GPU belleği (VRAM) gerekir. Daha hızlı işleme için 4 GB&#x27;den fazla VRAM&#x27;iniz olduğunda bu modeli kullanmanızı öneririz.
 
-### Dizin (Çok Spektral Dizinler)
+### İndeks (Çok Spektral İndeksler)
 
-Hangi bitki örtüsü dizinlerinin hesaplanıp dışa aktarılacağını yapılandırın.
+Hangi bitki örtüsü indekslerinin hesaplanıp dışa aktarılacağını yapılandırın.
 
-**Dizin ekleme:**
+**İndekslerin eklenmesi:**
 
-1.**&quot;Dizin ekle&quot;** düğmesini tıklayın
+1.**&quot;İndeks ekle&quot;** düğmesine tıklayın
 2. Açılır menüden bir endeks seçin (NDVI, NDRE, GNDVI vb.)
 3. Görselleştirme ayarlarını yapılandırın (LUT renkleri, değer aralıkları)
 4. Gerektiği kadar birden fazla endeks ekleyin
@@ -81,49 +81,49 @@ Hangi bitki örtüsü dizinlerinin hesaplanıp dışa aktarılacağını yapıla
 **Popüler endeksler:*** **NDVI**: Genel bitki sağlığı (en yaygın)
 * **NDRE**: RedEdge ile erken stres tespiti
 * **GNDVI**: Klorofil konsantrasyonuna duyarlı
-* **OSAVI**: Görünür toprakla iyi çalışır
+* **OSAVI**: Görünür toprakla iyi sonuç verir
 * **EVI**: Yüksek yaprak alanı indeksi (LAI) bölgeleri**Özel formüller (yalnızca Chloros+):**
 
 * Özel multispektral indeks formülleri oluşturun
-* Tüm görüntü kanallarında bant matematiği kullanın
-* Yeniden kullanım için özel formülleri kaydedin
+* Tüm görüntü kanallarıyla bant matematiği kullanın
+* Tekrar kullanmak üzere özel formülleri kaydedin
 
-Mevcut tüm indeksler ve formüller için [Multispektral İndeks Formülleri](../project-settings/multispectral-index-formulas.md) bölümüne bakın.
+Mevcut tüm indeksler ve formüller için bkz. [Multispektral İndeks Formülleri](../project-settings/multispectral-index-formulas.md).
 
-### Dışa Aktarma
+### Dışa Aktar
 
-Çıktı dosyası formatını ve kalitesini kontrol eder.
+Çıktı dosya formatını ve kalitesini kontrol eder.
 
-**Mevcut formatlar:*** **TIFF (16 bit)**: GIS ve bilimsel analiz için önerilir (0-65.535 aralığı)
-* **TIFF (32 bit, Yüzde)**: Kayan nokta yansıma değerleri (0,0-1,0 aralığı)
+**Mevcut formatlar:*** **TIFF (16 bit)**: GIS ve bilimsel analizler için önerilir (0-65.535 aralığı)
+* **TIFF (32 bit, Yüzde)**: Kayan noktalı yansıma değerleri (0,0-1,0 aralığı)
 * **PNG (8 bit)**: Görselleştirme için kayıpsız sıkıştırma (0-255 aralığı)
 * **JPG (8 bit)**: En küçük dosyalar, kayıplı sıkıştırma (0-255 aralığı)***
 
 ## Ayarları Kaydetme ve Yükleme
 
-### Proje Şablonunu Kaydetme
+### Proje Şablonunu Kaydet
 
 Tutarlı iş akışları için yeniden kullanılabilir şablonlar oluşturun:
 
 1. Proje Ayarları panelinde istediğiniz tüm ayarları yapılandırın
-2. Alt kısımdaki **&quot;Proje Şablonunu Kaydet&quot;** bölümüne gidin
+2. Sayfanın altındaki **&quot;Proje Şablonunu Kaydet&quot;** bölümüne gidin
 3. Açıklayıcı bir şablon adı girin (ör. &quot;Survey3N\_RGN\_Agriculture&quot;)
 4. Kaydet simgesine tıklayın
 
 **Avantajlar:**
 
-* Birden fazla projeye aynı ayarları uygulayın.
-* Yapılandırmaları ekip üyeleriyle paylaşın.
-* Tekrarlanan anketlerde tutarlılığı koruyun.
+* Birden fazla projede aynı ayarları uygulayın
+* Yapılandırmaları ekip üyeleriyle paylaşın
+* Tekrarlanan anketlerde tutarlılığı koruyun
 
 ### Yeni Projeye Şablon Yükleme
 
 Yeni bir proje oluştururken:
 
-1. Ana menüden **&quot;Yeni Proje&quot;** seçeneğini seçin.
-2. **&quot;Şablondan yükle&quot;** seçeneğini seçin.
-3. Kaydettiğiniz şablonu seçin.
-4. Tüm ayarlar otomatik olarak uygulanır.
+1. Ana menüden **&quot;Yeni Proje&quot;**&#x27;yi seçin
+2. **&quot;Şablondan yükle&quot;** seçeneğini seçin
+3. Kaydettiğiniz şablonu seçin
+4. Tüm ayarlar otomatik olarak uygulanır
 
 ### Çalışma Dizini
 
@@ -131,28 +131,28 @@ Yeni bir proje oluştururken:
 
 * **Varsayılan konum**: `C:\Users\[Username]\Chloros Projects`
 * **Konumu değiştir**: Düzenle simgesine tıklayın ve yeni klasörü seçin
-* **Ne zaman değiştirilir**:
+* **Ne zaman değiştirilmeli**:
   * Ekip işbirliği için ağ sürücüsü
   * Daha fazla depolama alanına sahip farklı bir sürücü
-  * Yıllara/müşterilere göre düzenlenmiş klasör yapısı
+  * Yıl/müşteri bazında düzenlenmiş klasör yapısı
 
 ***
 
-## PPK (Sonrası İşlenmiş Kinematik) Kurulumu
+## PPK (Post-Processed Kinematic) Kurulumu
 
 Hassas coğrafi konum belirleme için GPS özellikli MAPIR DAQ kayıt cihazları kullanılıyorsa:
 
 ### Ön Koşullar
 
-* GPS (GNSS) modüllü MAPIR DAQ
-* Pozlama pimi girişleri içeren .daq günlük dosyası
-* Yakalama oturumu sırasında DAQ pozlama pimlerine bağlı kamera
+* GPS (GNSS) modülüne sahip MAPIR DAQ
+* Pozlama pini girişleri içeren .daq günlük dosyası
+* Yakalama oturumu sırasında DAQ pozlama pinlerine bağlı kamera
 
 ### Yapılandırma Adımları
 
 1. .daq günlük dosyasını proje klasörünüze yerleştirin
 2. Proje Ayarları&#x27;nda **&quot;PPK düzeltmelerini uygula&quot;** onay kutusunu etkinleştirin
-3. Gerekirse **&quot;Işık sensörü saat dilimi farkı&quot;** ayarını yapın (varsayılan: UTC için 0)
+3. Gerekirse **&quot;Işık sensörü saat dilimi kayması&quot;** ayarını yapın (varsayılan: UTC için 0)
 4. Kameraları pozlama pinlerine atayın:
    * **Tek kamera**: Otomatik olarak Pin 1&#x27;e atanır
    * **Çift kamera**: Her kamerayı doğru pime manuel olarak atayın**Pozlama Pini Ataması:*** **Pozlama Pini 1**: Açılır menüden kamera modelini seçin
@@ -160,7 +160,7 @@ Hassas coğrafi konum belirleme için GPS özellikli MAPIR DAQ kayıt cihazları
 * Aynı kamera her iki pime de atanamaz
 
 {% hint style="warning" %}
-**Önemli**: Pozlama pinleri, ilgili kameralara doğru şekilde atanmalıdır. Yanlış atama, yanlış coğrafi konum verilerine neden olur.
+**Önemli**: Pozlama pinleri, ilgili kameralara doğru şekilde atanmalıdır. Yanlış atama, hatalı coğrafi konum verilerine neden olur.
 {% endhint %}
 
 ***
@@ -169,21 +169,21 @@ Hassas coğrafi konum belirleme için GPS özellikli MAPIR DAQ kayıt cihazları
 
 ### Çoklu Kamera Projeleri
 
-Bir projede birden fazla MAPIR kameradan gelen görüntüleri işlerken:
+Tek bir projede birden fazla MAPIR kameradan gelen görüntüleri işlerken:
 
 1. Chloros her kamera modelini otomatik olarak algılar
 2. Her kamera uygun işleme profilini alır
-3. PPK: Her kamerayı manuel olarak doğru pozlama pimine atayın
+3. PPK: Her kamerayı doğru pozlama pimine manuel olarak atayın
 4. Tüm kameralar aynı dışa aktarım formatını ve indeksleri kullanır
 
-**Örnek**: Survey3W RGN + Survey3N OCN çift kamera donanımı
+**Örnek**: Survey3W RGN + Survey3N OCN çift kameralı kurulum
 
-### Zaman Aralıklı veya Çoklu Tarihli Anketler
+### Zaman Atlamalı veya Çok Tarihli Ölçümler
 
-Aynı alanın zaman içinde tekrar tekrar anketleri için:
+Aynı alanın zaman içinde tekrarlanan ölçümleri için:
 
 1. Standart ayarlarınızla bir şablon oluşturun
-2. Her oturumda tutarlı kalibrasyon hedefi kurulumu kullanın
+2. Her oturumda tutarlı kalibrasyon hedefi kurulumunu kullanın
 3. Her tarihi ayrı bir proje olarak işleyin
 4. Karşılaştırılabilir sonuçlar için aynı ayarları kullanın
 5. Zamansal analiz için aynı formatta dışa aktarın
@@ -192,24 +192,24 @@ Aynı alanın zaman içinde tekrar tekrar anketleri için:
 
 Çok sayıda görüntü içeren projeler için (500+):
 
-* Tarihe veya alana göre daha küçük projelere bölmeyi düşünün.
-* Daha hızlı sonuçlar için Chloros+ paralel işlemeyi kullanın.
-* Toplu otomasyon için CLI veya API&#x27;i düşünün.
-* Hedef algılama süresini azaltmak için minimum yeniden kalibrasyon aralığını ayarlayın.
+* Tarihe veya alana göre daha küçük projelere bölmeyi düşünün
+* Daha hızlı sonuçlar için Chloros+ paralel işlemeyi kullanın
+* Toplu iş otomasyonu için CLI veya API&#x27;i düşünün
+* Hedef algılama süresini azaltmak için minimum yeniden kalibrasyon aralığını ayarlayın
 
 ***
 
 ## Ayarlarınızı Doğrulama
 
-İşlemeye başlamadan önce şu önemli ayarları gözden geçirin:
+İşleme başlamadan önce şu temel ayarları gözden geçirin:
 
-* [ ] Dosya Tarayıcı&#x27;da kamera modeli doğru algılanmış
-* [ ] Vinyet düzeltme etkinleştirilmiş
-* [ ] Yansıma kalibrasyonu etkinleştirilmiş
-* [ ] En az bir kalibrasyon hedef görüntüsü içe aktarılmış
-* [ ] İstenen multispektral indeksler eklenmiş
-* [ ] İş akışınıza uygun dışa aktarma formatı
-* [ ] PPK ayarları yapılandırılmış (maruz kalma olaylarıyla .daq kullanılıyorsa)
+* [ ] Dosya Tarayıcı&#x27;da kamera modeli doğru şekilde algılandı
+* [ ] Vinyet düzeltmesi etkinleştirildi
+* [ ] Yansıma kalibrasyonu etkinleştirildi
+* [ ] En az bir kalibrasyon hedef görüntüsü içe aktarıldı
+* [ ] İstenen multispektral indeksler eklendi
+* [ ] İş akışınıza uygun dışa aktarma biçimi
+* [ ] PPK ayarları yapılandırıldı (pozlama olaylarıyla .daq kullanılıyorsa)
 
 ***
 
@@ -221,4 +221,4 @@ Ayarlarınız yapılandırıldıktan sonra:
 2. **İşlemeyi başlatın** - Bkz. [İşlemeyi Başlatma](starting-the-processing.md)
 3. **İlerlemeyi izleyin** - Bkz. [İşlemeyi İzleme](monitoring-the-processing.md)
 
-Kullanılabilir tüm ayarlarla ilgili ayrıntılı bilgi için, [Proje Ayarları](../project-settings/project-settings.md) referans belgesine bakın.
+Mevcut tüm ayarlarla ilgili ayrıntılı bilgi için [Proje Ayarları](../project-settings/project-settings.md) referans belgelerine bakın.

@@ -1,29 +1,29 @@
-# Hedef Görüntüleri Seçme
+# Hedef Görüntülerin Seçilmesi
 
-Hangi görüntülerin kalibrasyon hedefleri içerdiğini işaretlemek, Chloros işleme sürecini önemli ölçüde hızlandıran çok önemli bir adımdır. Hedef görüntüleri önceden seçerek, Chloros&#x27;in veri setinizdeki her görüntüyü kalibrasyon hedefleri için taramasına gerek kalmaz.
+Hangi görüntülerde kalibrasyon hedefleri bulunduğunu işaretlemek, Chloros işleme akışını önemli ölçüde hızlandıran hayati bir adımdır. Hedef görüntüleri önceden seçerek, Chloros&#x27;in veri kümenizde bulunan her görüntüyü kalibrasyon hedefleri açısından taramasına gerek kalmaz.
 
-## Neden Hedef Görüntüleri İşaretlemelisiniz?
+## Neden Hedef Görüntüleri İşaretlemeli?
 
-### İşlem Hızı
+### İşleme Hızı
 
-Hedef görüntüleri işaretlemeden, Chloros şunları yapmak zorundadır:
+Hedef görüntüler işaretlenmezse, Chloros şunları yapmak zorundadır:
 
 * Projenizdeki her bir görüntüyü taramak
-* Her görüntüde hedef algılama algoritmaları çalıştırmak
+* Her görüntü üzerinde hedef algılama algoritmalarını çalıştırmak
 * Yüzlerce veya binlerce görüntüyü gereksiz yere kontrol etmek
 
-**Sonuç**: İşlem, özellikle büyük veri kümeleri için önemli ölçüde daha uzun sürebilir.
+**Sonuç**: İşleme süresi, özellikle büyük veri kümeleri için önemli ölçüde uzayabilir.
 
-### İşaretlenmiş Hedef Görüntülerle
+### Hedef Görüntüler İşaretlendiğinde
 
 Belirli görüntüler için Hedef sütununu işaretlediğinizde:
 
-* Chloros yalnızca işaretlenen görüntüleri hedefler için tarar
+* Chloros, yalnızca işaretlenen görüntülerde hedef taraması yapar
 * Hedef algılama çok daha hızlı tamamlanır
 * Genel işlem süresi büyük ölçüde azalır
 
-{% hint style=&quot;success&quot; %}
-**Hız Artışı**: 500 görüntülük bir veri kümesinde 2-3 hedef görüntüyü işaretlemek, hedef algılama süresini 30 dakikadan 1 dakikanın altına düşürebilir.
+{% hint style="success" %}
+**Hız Artışı**: 500 görüntülük bir veri kümesinde 2-3 hedef görüntüyü işaretlemek, hedef algılama süresini 30 dakikadan fazla süren bir işlemden 1 dakikanın altına düşürebilir.
 {% endhint %}
 
 ***
@@ -34,29 +34,27 @@ Belirli görüntüler için Hedef sütununu işaretlediğinizde:
 
 Dosya Tarayıcı&#x27;da içe aktarılan görüntülerinizi inceleyin ve hangi görüntülerin kalibrasyon hedefleri içerdiğini belirleyin.
 
-**Yaygın senaryolar:**
-
-* **Ön çekim hedefi**: Oturum başlamadan önce çekilen
-* **Son çekim hedefi**: Oturum tamamlandıktan sonra çekilen
-* **Saha içi hedefler**: Çekim alanına yerleştirilen hedefler
+**Yaygın senaryolar:*** **Çekim öncesi hedef**: Oturum başlamadan önce çekilen
+* **Çekim sonrası hedef**: Oturum tamamlandıktan sonra çekilen
+* **Saha içi hedefler**: Çekim alanı içine yerleştirilen hedefler
 * **Birden fazla hedef**: Oturum başına 2-3 hedef görüntü (önerilir)
 
 ### Adım 2: Hedef Sütununu Kontrol Edin
 
 Kalibrasyon hedefi içeren her görüntü için:
 
-1. Dosya Tarayıcı tablosunda görüntüyü bulun.
-2. **Hedef** sütununu (en sağdaki sütun) bulun.
-3. O görüntünün Hedef sütunundaki onay kutusunu tıklayın.
-4. Hedef içeren tüm görüntüler için bu işlemi tekrarlayın.
+1. Dosya Tarayıcı tablosunda görüntüyü bulun
+2. **Hedef** sütununu (en sağdaki sütun) bulun
+3. O görüntünün Hedef sütunundaki onay kutusunu tıklayın
+4. Hedef içeren tüm görüntüler için bu işlemi tekrarlayın
 
 ### Adım 3: Seçiminizi Doğrulayın
 
-İşlemeden önce şunları iki kez kontrol edin:
+İşlemeye başlamadan önce şunları iki kez kontrol edin:
 
 * [ ] Kalibrasyon hedefleri içeren tüm görüntüler işaretlenmiştir
-* [ ] Hedef olmayan görüntüler yanlışlıkla işaretlenmemiştir
-* [ ] Hedefler, işaretlenen görüntülerde açıkça görülebilir
+* [ ] Hedef içermeyen görüntüler yanlışlıkla işaretlenmemiştir
+* [ ] İşaretlenen görüntülerde hedefler açıkça görülebilir
 
 ***
 
@@ -66,54 +64,52 @@ Kalibrasyon hedefi içeren her görüntü için:
 
 **Zamanlama:**
 
-* Hedef görüntüleri, yakalama oturumunuzdan hemen önce ve oturum boyunca yakalayın
+* Yakalama oturumunuzdan hemen önce ve oturum boyunca hedef görüntüleri yakalayın
 * DAQ ışık sensörünüzle aynı aydınlatma koşullarında
-* En iyi sonuçlar için ideal olarak hedef görüntüleri mümkün olduğunca sık yakalayın. Aksi takdirde, ışık sensörü verileri zaman içinde kalibrasyonu ayarlamak için kullanılacaktır.
+* En iyi sonuçlar için ideal olarak hedef görüntüleri mümkün olduğunca sık yakalayın. Aksi takdirde, zaman içinde kalibrasyonu ayarlamak için ışık sensörü verileri kullanılacaktır.
 
 **Kamera Konumu:**
 
-* Kamerayı, merkezde olacak ve görüntü merkezinin yaklaşık %40-60&#x27;ını dolduracak şekilde hedefin üzerinde tutun.
-* Kamerayı hedef yüzeye paralel/nadir tutun
+* Kamerayı, hedef üzerinde ortalanacak ve görüntünün merkezinin yaklaşık %40-60&#x27;ını kaplayacak şekilde tutun.
+* Kamerayı hedef yüzeye paralel/nadir konumda tutun
 
 **Aydınlatma:**
 
 * DAQ ışık sensörünüzle aynı ortam aydınlatması
-* Hedef yüzeylerde gölge oluşmasını önleyin
-* Işık kaynağını vücudunuz, araç veya bitki örtüsü ile engellemeyin
+* Hedef yüzeylerde gölgelerden kaçının
+* Işık kaynağını vücudunuz, aracınız veya bitki örtüsüyle engellemeyin
 * Bulutlu hava koşulları en tutarlı sonuçları sağlar
 
-**Hedef Koşulu:**
+**Hedef Durumu:**
 
 * Hedef panelleri temiz ve kuru tutun
 * 4 panelin tümü açıkça görülebilir ve engelsiz olmalıdır
-* Mümkünse hedefler ışık kaynağına dik/nadir olmalıdır
+* Mümkünse hedefler ışık kaynağına dik/nadir konumda olmalıdır
 
 ### Kaç Adet Hedef Görüntü?
 
-**Minimum:** Her oturumda 1 hedef görüntü. **Önerilen:** Her oturumda 3-5 hedef görüntü.
+**Minimum:**Her oturumda 1 hedef görüntüsü.**Önerilen:** Her oturumda 3-5 hedef görüntüsü.**En iyi uygulama programı:**
 
-**En iyi uygulama programı:**
-
-* Işık sensörü kayıt yapmaya başladıktan kısa bir süre sonra 3-5 görüntü yakalayın.
-* En iyi sonuçları elde etmek için çekimler arasında kamerayı döndürün.
-* İsteğe bağlı: Aydınlatma koşulları sürekli değişiyorsa, oturumun ortasında periyodik olarak yapın.
+* Işık sensörü kayda başladıktan kısa bir süre sonra 3-5 görüntü yakalayın
+* En iyi sonuçlar için çekimler arasında kamerayı döndürün
+* İsteğe bağlı: Aydınlatma koşulları sürekli değişiyorsa, oturum ortasında periyodik olarak
 
 ***
 
 ## Birden Fazla Kamera ile Çalışma
 
-### Çift Kamera Kurulumu
+### Çift Kamera Kurulumları
 
-İki MAPIR kamerayı aynı anda kullanıyorsanız (ör. Survey3W RGN + Survey3N OCN):
+İki MAPIR kamerasını aynı anda kullanıyorsanız (ör. Survey3W RGN + Survey3N OCN):
 
-1. **Her iki kamera** ile aynı anda hedef görüntüleri yakalayın
-2. Her iki kamera için **aynı fiziksel hedef** kullanın
-3. Dosya Tarayıcıda **her iki kamera türü** için hedef görüntüleri işaretleyin
+1. Hedef görüntüleri **her iki kamera** ile aynı anda yakalayın
+2. Her iki kamera için **aynı fiziksel hedefi** kullanın
+3. Dosya Tarayıcı&#x27;da **her iki kamera türü** için hedef görüntüleri işaretleyin
 4. Chloros, her kameranın kalibrasyonu için uygun hedefleri kullanacaktır
 
 ### Kamera Modeli Sütunu
 
-**Kamera Modeli** sütunu, hangi görüntünün hangi kameradan geldiğini belirlemeye yardımcı olur:
+**Kamera Modeli** sütunu, hangi görüntünün hangi kameradan geldiğini belirlemenize yardımcı olur:
 
 * Survey3W\_RGN
 * Survey3N\_OCN
@@ -128,54 +124,46 @@ Bu sütunu, projenizdeki her kamera türü için hedefleri işaretlediğinizi do
 
 ### Algılama Hassasiyetini Ayarlama
 
-Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-project-settings.md) içindeki şu ayarları değiştirin:
+Chloros hedeflerinizi doğru şekilde algılamıyorsa, [Proje Ayarları](adjusting-project-settings.md) bölümündeki bu ayarları değiştirin:**Minimum kalibrasyon örnek alanı:*** **Varsayılan**: 25 piksel
+* Küçük nesnelerde yanlış algılamalar alıyorsanız **artırın*** Hedefler algılanmıyorsa **azaltın**
 
-**Minimum kalibrasyon örnek alanı:**
-
-* **Varsayılan**: 25 piksel
-* Küçük nesnelerde yanlış algılamalar varsa **artırın**.
-* Hedefler algılanmıyorsa **azaltın**.
-
-**Minimum hedef kümeleme:**
-
-* **Varsayılan**: 60
-* Hedefler birden fazla algılamaya bölünüyorsa **artırın**.
-* Renk varyasyonu olan hedefler tam olarak algılanmıyorsa **azaltın**.
+**Minimum hedef kümelenmesi:*** **Varsayılan**: 60
+* Hedefler birden fazla algılamaya bölünüyor ise **artırın*** Renk farklılığı olan hedefler tam olarak algılanmıyorsa **azaltın**
 
 ***
 
 ## Yaygın Hedef Görüntü Sorunları
 
-### Sorun: Hedef Algılanmadı
+### Sorun: Hedef Algılanmıyor
 
 **Olası nedenler:**
 
-* Hedef görüntüler Dosya Tarayıcı&#x27;da işaretlenmemiş
-* Hedef çerçevede çok küçük (&lt; görüntünün %30&#x27;u)
+* Dosya Tarayıcısında hedef görüntüler işaretlenmemiş
+* Çerçeve içinde hedef çok küçük (&lt; görüntünün %30&#x27;u)
 * Yetersiz aydınlatma (gölgeler, parlama)
 * Hedef algılama ayarları çok katı
 
 **Çözümler:**
 
-1. Hedef sütununun doğru görüntüler için işaretlendiğini doğrulayın
+1. Doğru görüntüler için Hedef sütununun işaretli olduğunu doğrulayın
 2. Önizlemede hedef görüntü kalitesini inceleyin
 3. Kalite düşükse hedefleri yeniden yakalayın
-4. Gerekirse hedef algılama ayarlarını değiştirin
+4. Gerekirse hedef algılama ayarlarını düzenleyin
 
 ### Sorun: Yanlış Hedef Algılamaları
 
 **Olası nedenler:**
 
-* Beyaz binalar, araçlar veya zemin kaplaması hedeflerle karıştırılıyor
-* Bitki örtüsünde parlak lekeler var
-* Algılama hassasiyeti çok düşük
+* Hedeflerle karıştırılan beyaz binalar, araçlar veya zemin kaplamaları
+* Bitki örtüsündeki parlak lekeler
+* Algılama hassasiyetinin çok düşük olması
 
 **Çözümler:**
 
-1. Algılama kapsamını sınırlamak için yalnızca gerçek hedef görüntüleri işaretleyin
+1. Algılama kapsamını sınırlamak için yalnızca gerçek hedef görüntülerini işaretleyin
 2. Minimum kalibrasyon örnekleme alanını artırın
-3. Minimum hedef kümeleme değerini artırın
-4. Hedef görüntülerin yalnızca hedefi gösterdiğinden emin olun (minimum arka plan karmaşası)
+3. Minimum hedef kümelenme değerini artırın
+4. Hedef görüntülerinde yalnızca hedefin göründüğünden emin olun (arka planda en az karışıklık)
 
 ***
 
@@ -183,12 +171,12 @@ Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-projec
 
 İşlemeye başlamadan önce hedef görüntü seçiminizi doğrulayın:
 
-* [ ] Her oturumda en az 1 hedef görüntü işaretlendi
-* [ ] Tüm hedef görüntüler için hedef sütunu onay kutuları işaretlendi
-* [ ] Hedef görüntüler, anketle aynı zaman diliminde yakalandı
-* [ ] Tıklandığında hedefler önizlemede açıkça görülebilir
-* [ ] Her hedef görüntüde 4 kalibrasyon paneli de görülebilir
-* [ ] Hedeflerde gölge veya engel yok
+* [ ] Her oturumda en az 1 hedef görüntüsü işaretlendi
+* [ ] Tüm hedef görüntüler için Hedef sütunundaki onay kutuları işaretlendi
+* [ ] Hedef görüntüler, anketle aynı zaman aralığında yakalandı
+* [ ] Tıklandığında önizlemede hedefler net bir şekilde görünüyor
+* [ ] Her hedef görüntüde 4 kalibrasyon panelinin tümü görünüyor
+* [ ] Hedeflerin üzerinde gölge veya engel yok
 * [ ] Çift kamera için: Her iki kamera türü için de hedefler işaretlendi
 
 ***
@@ -197,15 +185,16 @@ Chloros hedeflerinizi doğru algılamıyorsa, [Proje Ayarları](adjusting-projec
 
 ### Kalibrasyon Hedefleri Olmadan İşleme
 
-Bilimsel çalışmalar için önerilmese de, hedefler olmadan da işleme yapabilirsiniz:
+Bilimsel çalışmalar için önerilmese de, hedefler olmadan işleme yapabilirsiniz:
 
-1. Tüm Hedef sütunu onay kutularını işaretlemeyin
-2. Proje Ayarlarında &quot;Yansıma kalibrasyonu&quot;nu **devre dışı bırakın**
+1. Tüm Hedef sütunundaki onay kutularını işaretlemeyin
+2. Proje Ayarları&#x27;nda &quot;Yansıma kalibrasyonu&quot;nu **devre dışı bırakın**
+
 3. Vinyet düzeltmesi yine de uygulanacaktır
-4. Çıktı, mutlak yansıtma için kalibre edilmeyecektir
+4. Çıktı, mutlak yansıma için kalibre edilmeyecektir
 
-{% hint style=&quot;warning&quot; %}
-**Önerilmez**: Yansıtma kalibrasyonu olmadan, piksel değerleri yalnızca göreceli parlaklığı temsil eder, bilimsel yansıtma ölçümlerini temsil etmez. Doğru ve tekrarlanabilir sonuçlar için kalibrasyon hedeflerini kullanın.
+{% hint style="warning" %}
+**Önerilmez**: Yansıma kalibrasyonu olmadan, piksel değerleri yalnızca göreceli parlaklığı temsil eder, bilimsel yansıma ölçümlerini değil. Doğru ve tekrarlanabilir sonuçlar için kalibrasyon hedeflerini kullanın.
 {% endhint %}
 
 ***
@@ -215,7 +204,7 @@ Bilimsel çalışmalar için önerilmese de, hedefler olmadan da işleme yapabil
 Hedef görüntülerinizi işaretledikten sonra:
 
 1. **Ayarlarınızı gözden geçirin** - Bkz. [Proje Ayarlarını Ayarlama](adjusting-project-settings.md)
-2. **İşlemeyi başlatın** - [İşleme Başlama](starting-the-processing.md) bölümüne bakın.
-3. **İlerlemeyi izleyin** - [İşlemeyi İzleme](monitoring-the-processing.md) bölümüne bakın.
+2. **İşlemeyi başlatın** - Bkz. [İşlemeyi Başlatma](starting-the-processing.md)
+3. **İlerlemeyi izleyin** - Bkz. [İşlemeyi İzleme](monitoring-the-processing.md)
 
-Kalibrasyon hedefleri hakkında daha fazla bilgi için [Kalibrasyon Hedefleri](../calibration-targets.md) bölümüne bakın.
+Kalibrasyon hedefleri hakkında daha fazla bilgi için bkz. [Kalibrasyon Hedefleri](../calibration-targets.md).

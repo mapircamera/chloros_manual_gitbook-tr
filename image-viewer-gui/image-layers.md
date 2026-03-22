@@ -1,90 +1,88 @@
 # Görüntü Katmanları
 
-Chloros Görüntü Görüntüleyicisindeki Görüntü Katmanları açılır menüsü, aynı görüntünün farklı sürümleri arasında hızlıca geçiş yapmanızı sağlar - orijinal çekimlerden işlenmiş yansıma çıktılarına ve hesaplanmış indeks görüntülerine kadar.
+Chloros Görüntü Görüntüleyicisi&#x27;ndeki Görüntü Katmanları açılır menüsü, aynı görüntünün farklı sürümleri arasında – orijinal çekimlerden işlenmiş yansıma çıktılarına ve hesaplanmış indeks görüntülerine kadar – hızlıca geçiş yapmanızı sağlar.
 
-## Görüntü Katmanları nedir?
+## Görüntü Katmanları Nedir?
 
-Chloros&#x27;te **katmanlar**, tek bir kaynak görüntü için kullanılabilen farklı görüntü çıktılarını ifade eder. Görüntüleri işlediğinizde, Chloros birden fazla sürüm oluşturur:
+Chloros&#x27;te **katmanlar**, tek bir kaynak görüntü için mevcut olan farklı görüntü çıktılarını ifade eder. Görüntüleri işlediğinizde, Chloros birden fazla sürüm oluşturur:
 
 * **Orijinal görüntüler** (kameranızdan alınan JPG ve RAW dosyaları)
-* **Yansıma kalibreli** çıktılar (yansıma kalibrasyonu etkinleştirilmişse)
+* **Yansıma kalibre edilmiş** çıktılar (yansıma kalibrasyonu etkinleştirilmişse)
 * **Hedef görüntüler** (görüntü kalibrasyon hedefleri içeriyorsa)
-* **Dizin görüntüleri** (NDVI, NDRE, GNDVI vb. dizinler yapılandırılmışsa)
+* **İndeks görüntüleri** (NDVI, NDRE, GNDVI vb., indeksler yapılandırılmışsa)
 
-Görüntü Görüntüleyicinin sağ üst köşesindeki **Katman Seçici açılır menüsü**, görüntüleyiciyi terk etmeden bu sürümler arasında anında geçiş yapmanızı sağlar.
-
-***
+Görüntü Görüntüleyicinin sağ üst köşesindeki **Katman Seçici açılır menüsü**, görüntüleyiciden çıkmadan bu sürümler arasında anında geçiş yapmanızı sağlar.***
 
 ## Kullanılabilir Katman Türleri
 
 ### JPG
 
-* Kameranızdan alınan orijinal JPG önizleme görüntüsü
+* Kameranızdan gelen orijinal JPG önizleme görüntüsü
 * Tüm görüntüler için her zaman kullanılabilir
-* Kamera tarafından çekildiği gibi işlenmemiş
-* Yükleme ve görüntüleme hızı en yüksek olan
+* Kamera tarafından yakalandığı haliyle işlenmemiş
+* Yükleme ve görüntüleme süresi en kısa olanı
 
-**Ne zaman görüntülenir:**
+**Ne zaman görüntülenmeli:**
 
 * Orijinal çekimin hızlı önizlemesi
-* Görüntü kompozisyonu ve kadrajı kontrol etmek
+* Görüntü kompozisyonunu ve kadrajı kontrol etmek
 * İşleme öncesinde çekim kalitesini doğrulamak
 
 ### RAW (Orijinal)
 
-* Kameranızdan alınan orijinal RAW sensör verileri
-* Sonrası işleme uygulanmadan debayering yapılmış
+* Kameranızdan gelen orijinal RAW sensör verileri
+* Sonradan işleme uygulanmadan debayering yapılmış
 * JPG&#x27;den daha yüksek bit derinliği (genellikle 12 bit veya 14 bit sensör verileri)
 
-**Ne zaman görüntülenir:**
+**Ne zaman görüntülenmeli:**
 
-* Orijinal sensör verilerinin kalitesini inceleme
+* Orijinal sensör verisi kalitesini inceleme
 * Sensör sorunlarını veya artefaktları kontrol etme
 * İşleme öncesi/sonrası sonuçlarını karşılaştırma
 
 ### RAW (Hedef)
 
-* Yalnızca kalibrasyon hedefleri içerdiği belirlenen görüntüler için görünür
-* Hedef algılanan orijinal RAW görüntüsünü gösterir
-* Hedef algılamanın başarılı olduğunu doğrulamak için kullanılır
+* Yalnızca kalibrasyon hedefleri içerdiği belirlenen görüntülerde görünür
+* Hedef algılandığında orijinal RAW görüntüsünü gösterir
+* Hedef algılamasının başarılı olduğunu doğrulamak için kullanılır
 
-**Ne zaman görüntülenir:**
+**Ne zaman görüntülenmeli:**
 
-* Kalibrasyon hedeflerinin doğru algılandığını onaylamak için
-* Hedef görüntü kalitesini kontrol etmek için
-* Kalibrasyon sorunlarını gidermek için
+* Kalibrasyon hedeflerinin doğru algılandığını onaylama
+* Hedef görüntü kalitesini kontrol etme
+* Kalibrasyon sorunlarını giderme
 
-{% hint style=&quot;info&quot; %}
-**Hedef Katmanı**: Bu katman, kalibrasyon hedefleri içeren görüntüler için açılır menüde görünür. Normal çekim görüntülerinde bu seçenek yoktur.
+{% hint style="info" %}
+**Hedef Katmanı**: Bu katman, yalnızca kalibrasyon hedefleri içeren görüntüler için açılır menüde görünür. Normal çekim görüntülerinde bu seçenek bulunmaz.
 {% endhint %}
 
-### RAW (Yansıtma)
+### RAW (Yansıma)
 
-* Kalibre edilmiş yansıtma çıktı görüntüsü
-* Vinyet düzeltmesi (işlemede etkinleştirilmişse)
+* Kalibre edilmiş yansıma çıktı görüntüsü
+* Vinyet düzeltmesi yapılmış (işlem sırasında etkinleştirilmişse)
 * Hedef verileri kullanılarak kalibre edilmiş yansıma (etkinleştirilmişse)
 * Tüm kamera kanallarıyla çok bantlı TIFF
 * Piksel değerleri yüzde yansıma oranını temsil eder (yüzde modu kullanıldığında)
 * [Dizin/LUT Sandbox](index-lut-sandbox.md) ile işlenmeye hazır
 
-**Ne zaman görüntülenir:**
+**Ne zaman görüntülenmeli:**
 
 * Kalibre edilmiş sonuçları inceleme
 * Kalibrasyon kalitesini doğrulama
 * Bilimsel doğruluk için piksel değerlerini kontrol etme
 * Kalibrasyon etkilerini görmek için orijinal ile karşılaştırma
 
-{% hint style=&quot;success&quot; %}
-**Önerilen**: Bilimsel ölçümler ve analizler için piksel değerlerini kontrol ederken RAW (Yansıtma) katmanını kullanın.
+{% hint style="success" %}
+**Önerilen**: Bilimsel ölçümler ve analizler için piksel değerlerini kontrol ederken RAW (Yansıma) katmanını kullanın.
 {% endhint %}
 
-### RAW (NDVI Endeksi)... ve benzeri
+### RAW (NDVI Endeksi)... ve benzerleri
 
-* Hesaplanan bitki örtüsü endeksi görüntüsü (bu örnekte NDVI)
+* Hesaplanmış bitki örtüsü endeksi görüntüsü (bu örnekte NDVI)
 * Endeks adı, işleme sırasında hangi endeksin yapılandırıldığına göre değişir
 * Örnekler: RAW (NDVI Endeksi), RAW (NDRE Endeksi), RAW (GNDVI Endeksi) vb.
 * Endeks hesaplama sonuçlarını gösteren tek bantlı gri tonlamalı görüntü
-* Proje Ayarlarında yapılandırılan her endeks için bir katman görünür
+* Proje Ayarları&#x27;nda yapılandırılan her endeks için bir katman görünür
 
 **Olası endeks adları:**
 
@@ -96,7 +94,7 @@ Görüntü Görüntüleyicinin sağ üst köşesindeki **Katman Seçici açılı
 * RAW (SAVI Endeksi)
 * Ve daha fazlası... (bkz. [Çok Spektral Endeks Formülleri](../project-settings/multispectral-index-formulas.md))
 
-**Ne zaman görüntülenir:**
+**Ne zaman görüntülenmeli:**
 
 * Endeks hesaplama sonuçlarını incelemek
 * Endeks değer aralıklarını kontrol etmek
@@ -109,38 +107,36 @@ Görüntü Görüntüleyicinin sağ üst köşesindeki **Katman Seçici açılı
 
 ### Açılır Menüyü Açma
 
-1. Bir görüntüyü tam ekran modunda açın (Görüntü Görüntüleyicide herhangi bir küçük resme tıklayın)
+1. Bir görüntüyü tam ekran modunda açın (Görüntü Görüntüleyicisi&#x27;ndeki herhangi bir küçük resme tıklayın)
 2. Görüntüleyicinin sağ üst köşesindeki **katman açılır menüsünü** bulun
-3. Açılır menü, şu anda seçili olan katmanı gösterir (ör. &quot;JPG&quot;)
-4. Mevcut tüm katmanları görmek için açılır menüyü tıklayın
+3. Açılır menü, o anda seçili olan katmanı gösterir (ör. &quot;JPG&quot;)
+4. Mevcut tüm katmanları görmek için açılır menüye tıklayın
 
-### Katmanları Değiştirme
+### Katmanlar Arasında Geçiş Yapma
 
-1. Katman açılır menüsünü tıklayarak listeyi açın
+1. Listeyi açmak için katman açılır menüsüne tıklayın
 2. Mevcut görüntü için mevcut tüm katmanlar gösterilir
-3. Herhangi bir katman adını tıklayarak o sürüme geçin
-4. Görüntü, seçilen katmanı göstermek için hemen güncellenir.
+3. Herhangi bir katman adına tıklayarak o sürüme geçin
+4. Görüntü, seçilen katmanı göstermek üzere anında güncellenir
 
 **Hızlı geçiş:**
 
-* Açılır menü son seçiminizi hatırlar.
-* Bir sonraki görüntüye geçerken, Chloros aynı katman türünü göstermeye çalışır.
-* Bu katman bir sonraki görüntüde mevcut değilse, varsayılan olarak JPG kullanılır.
+* Açılır menü son seçiminizi hatırlar
+* Bir sonraki görüntüye geçerken, Chloros aynı katman türünü göstermeye çalışır
+* Bu katman bir sonraki görüntüde mevcut değilse, varsayılan olarak JPG kullanılır
 
 ### Katman Kullanılabilirliği
 
-Tüm katmanlar her görüntü için mevcut değildir:
+Her görüntü için tüm katmanlar mevcut değildir:
 
-**Her zaman kullanılabilir:**
+**Her zaman mevcut:*** ✅ JPG (her görüntünün bir JPG önizlemesi vardır)
 
-* ✅ JPG (her görüntünün bir JPG önizlemesi vardır)
-
-**Koşullu olarak kullanılabilir:**
+**Koşullu olarak mevcut:**
 
 * ⚠️ RAW (Orijinal) - Yalnızca görüntü RAW veya RAW+JPG modunda çekilmişse
 * ⚠️ RAW (Hedef) - Yalnızca görüntü algılanan kalibrasyon hedefleri içeriyorsa
-* ⚠️ RAW (Yansıtma) - Yalnızca yansıtma kalibrasyonu etkinleştirilerek işlendikten sonra
-* ⚠️ RAW (\[Dizin] Dizin) - Yalnızca dizinler yapılandırılarak işlendikten sonra
+* ⚠️ RAW (Yansıma) - Yalnızca yansıma kalibrasyonu etkinleştirilmiş olarak işlendikten sonra
+* ⚠️ RAW (\[İndeks] İndeks) - Yalnızca indeksler yapılandırılmış olarak işlendikten sonra
 
 ***
 
@@ -148,21 +144,19 @@ Tüm katmanlar her görüntü için mevcut değildir:
 
 ### Görüntüler Arasında Gezinme
 
-Farklı bir görüntüye geçtiğinizde (ok tuşlarını kullanarak veya küçük resimleri tıklayarak):
+Farklı bir görüntüye geçtiğinizde (ok tuşlarını kullanarak veya küçük resimleri tıklayarak):**Katman tercihi korunur:**
 
-**Katman tercihi korunur:**
-
-* &quot;RAW (Yansıma)&quot; görüntüleniyorsa, sonraki görüntü &quot;RAW (Yansıma)&quot; gösterir (varsa)
-* &quot;RAW (NDVI Dizini)&quot; görüntüleniyorsa, sonraki görüntü &quot;RAW (NDVI Dizini)&quot; gösterir (varsa)
-* Aynı katman yoksa, varsayılan olarak JPG kullanılır
+* &quot;RAW (Yansıma)&quot; görüntüleniyorsa, sonraki görüntü &quot;RAW (Yansıma)&quot; olarak gösterilir (varsa)
+* &quot;RAW (NDVI İndeks)&quot; görüntüleniyorsa, sonraki görüntü &quot;RAW (NDVI İndeks)&quot; olarak gösterilir (varsa)
+* Aynı katman mevcut değilse, varsayılan olarak JPG kullanılır
 
 **Örnek iş akışı:**
 
 1. Görüntü 1&#x27;i açın, RAW (NDVI Endeksi) moduna geçin
-2. Görüntü 2&#x27;yi görüntülemek için → tuşuna basın
-3. Görüntü 2 otomatik olarak RAW (NDVI Endeksi) katmanını görüntüler
-4. Gezinmeye devam edin - tüm görüntüler NDVI katmanını gösterir
-5. Birçok görüntüdeki endeks sonuçlarını incelemek için çok verimlidir
+2. → tuşuna basarak Görüntü 2&#x27;yi görüntüleyin
+3. Görüntü 2 otomatik olarak RAW (NDVI Endeksi) katmanını gösterir
+4. Gezinmeye devam edin - tüm görüntülerde NDVI katmanı gösterilir
+5. Birçok görüntüde indeks sonuçlarını incelemek için çok verimlidir
 
 ***
 
@@ -170,45 +164,45 @@ Farklı bir görüntüye geçtiğinizde (ok tuşlarını kullanarak veya küçü
 
 ### İş Akışı 1: Öncesi/Sonrası Karşılaştırması
 
-**Amaç**: Orijinal ve kalibre edilmiş görüntüyü karşılaştırmak
+**Amaç**: Orijinal ile kalibre edilmiş görüntüyü karşılaştırmak
 
 1. İşlenmiş görüntüyü Görüntü Görüntüleyicide açın
-2. Açılır menüden **RAW (Orijinal)** seçeneğini seçin
-3. Vinyetleme ve kalibre edilmemiş değerleri not edin
-4. Açılır menüden **RAW (Yansıtma)** seçeneğine geçin
+2. Açılır menüden **RAW (Orijinal)**&#x27;i seçin
+3. Vinyetlemeyi ve kalibre edilmemiş değerleri not edin
+4. Açılır menüden **RAW (Yansıma)**&#x27;e geçin
 5. Karşılaştırın - vinyetleme kaldırıldı, değerler kalibre edildi
 
-### İş Akışı 2: Dizin İnceleme
+### İş Akışı 2: Dizin İncelemesi
 
-**Hedef**: Veri kümesindeki NDVI sonuçlarını hızlıca inceleyin.
+**Amaç**: Veri kümesindeki NDVI sonuçlarını hızlıca incelemek
 
-1. İlk işlenmiş görüntüyü açın.
-2. Açılır menüden **RAW (NDVI Dizini)** seçeneğini seçin.
-3. → ok tuşunu kullanarak bir sonraki görüntüye geçin.
-4. NDVI katmanı otomatik olarak kalır.
-5. Tüm görüntülerde devam edin ve NDVI kalıplarını kontrol edin
-6. Karşılaştırmak için **RAW (NDRE Dizini)** seçeneğine geçin
+1. İlk işlenmiş görüntüyü açın
+2. Açılır menüden **RAW (NDVI Dizin)**&#x27;i seçin
+3. → ok tuşunu kullanarak bir sonraki görüntüye geçin
+4. NDVI katmanı otomatik olarak kalır
+5. Tüm görüntülere devam edin ve NDVI desenlerini kontrol edin
+6. Karşılaştırmak için **RAW (NDRE Index)**&#x27;e geçin
 
 ### İş Akışı 3: Hedef Doğrulama
 
-**Amaç**: Tüm hedef görüntülerin doğru şekilde algılandığını doğrulayın.
+**Amaç**: Tüm hedef görüntülerinin doğru şekilde algılandığını doğrulayın
 
-1. Bir hedef görüntüye gidin.
-2. Açılır menüden **RAW (Hedef)** seçeneğini seçin.
-3. Kalibrasyon hedeflerinin açıkça görülebilir ve algılanabilir olduğunu doğrulayın.
-4. Bir sonraki hedef görüntüye gidin.
-5. Tüm hedefler için doğrulamayı tekrarlayın.
+1. Bir hedef görüntüye gidin
+2. Açılır menüden **RAW (Target)**&#x27;i seçin
+3. Kalibrasyon hedeflerinin net bir şekilde görülebilir ve algılanabilir olduğunu doğrulayın
+4. Bir sonraki hedef görüntüye gidin
+5. Tüm hedefler için doğrulamayı tekrarlayın
 
 ### İş Akışı 4: Piksel Değeri Denetimi
 
-**Amaç**: Bilimsel doğruluk için yansıma değerlerini kontrol etmek
+**Amaç**: Bilimsel doğruluk açısından yansıma değerlerini kontrol etmek
 
 1. İşlenmiş görüntüyü açın
 2. **RAW (Yansıma)** katmanını seçin
 3. **Piksel Yüzdesi** modunu etkinleştirin (sağ üst araç çubuğundaki düğme)
 4. İmleci bitki örtüsü alanlarının üzerine getirin
-5. Piksel değerlerinin beklenen aralıklarda olduğunu doğrulayın (NIR için %30-70, Red için %5-15).
-6. Toprak ve su alanlarının uygun değerlere sahip olup olmadığını kontrol edin.
+5. Piksel değerlerinin beklenen aralıklarda olduğunu doğrulayın (NIR için %30-70, Red için %5-15)
+6. Toprak ve su alanlarında değerlerin uygun olup olmadığını kontrol edin
 
 ***
 
@@ -219,31 +213,29 @@ Farklı katmanlar farklı piksel değer aralıkları gösterir:
 ### JPG Katmanı
 
 * **Aralık**: 0-255 (8 bit)
-* **Anlam**: Görüntüleme değerleri, gama düzeltmeli
-* **Kullanım**: Yalnızca görsel inceleme, bilimsel ölçüm için değil
+* **Anlam**: Görüntü değerleri, gama düzeltmeli
+* **Kullanım**: Yalnızca görsel inceleme için, bilimsel ölçüm için değil
 
 ### RAW (Orijinal)
 
 * **Aralık**: 0-65535 (16 bit)
-* **Anlamı**: Ham sensör dijital sayıları
+* **Anlam**: Ham sensör dijital sayıları
 * **Kullanım**: Sensör performansını kontrol etmek için, kalibre edilmemiştir
 
-### RAW (Yansıtma)
+### RAW (Yansıma)
 
 * **Aralık**: 0-65.535 (16 bit TIFF) veya 0,0-1,0 (32 bit Yüzde)
-* **Anlamı**: Kalibre edilmiş yüzde yansıma
-* **Kullanım**: Bilimsel ölçümler ve analizler
+* **Anlam**: Kalibre edilmiş yüzde yansıma
+* **Kullanım**: Bilimsel ölçümler ve analizler**16 bit TIFF için:**Yüzde yansıma değerini elde etmek için 65.535&#x27;e bölün**32 bit Yüzde için:** Değerler doğrudan yüzdeyi temsil eder (0,5 = %50 yansıma)
 
-**16 bit TIFF için:** Yüzde yansıma elde etmek için 65.535&#x27;e bölün **32 bit Yüzde için:** Değerler doğrudan yüzdeyi temsil eder (0,5 = %50 yansıma)
+### RAW (İndeks Görüntüleri)
 
-### RAW (Dizin Görüntüleri)
-
-* **Aralık**: Dizine göre değişir (normalleştirilmiş dizinler için genellikle -1,0 ila +1,0)
-* **Anlam**: Dizin hesaplama sonucu
+* **Aralık**: İndekse göre değişir (normalize edilmiş indeksler için genellikle -1,0 ila +1,0)
+* **Anlam**: İndeks hesaplama sonucu
 * **Örnekler**:
   * NDVI: -1 ila +1 (bitki örtüsü genellikle 0,4 ila 0,9)
-  * NDRE: -1 ila +1 (stres algılama)
-  * EVI: 0 ila 1 (geliştirilmiş bitki örtüsü)
+  * NDRE: -1 ile +1 arası (stres tespiti)
+  * EVI: 0 ile 1 arası (geliştirilmiş bitki örtüsü)
 
 ***
 
@@ -251,68 +243,58 @@ Farklı katmanlar farklı piksel değer aralıkları gösterir:
 
 ### Verimli Katman Değiştirme
 
-* **Klavye kısayolları hakkında bilgi**: Katmanlar için klavye kısayolu olmasa da, gezinme okları (←/→) tüm katmanlarda çalışır
-* **Tutarlı iş akışları**: Bir katman seçin (ör. NDVI) ve başka bir katmana geçmeden önce tüm veri kümesini inceleyin
+* **Klavye kısayolları hakkında bilgi**: Katmanlar için klavye kısayolu bulunmamakla birlikte, gezinme okları (←/→) tüm katmanlarda çalışır
+* **Tutarlı iş akışları**: Bir katman seçin (örn. NDVI) ve başka bir katmana geçmeden önce tüm veri setini inceleyin
 * **Hızlı karşılaştırmalar**: İşleme kalitesini doğrulamak için Orijinal ve Yansıma arasında geçiş yapın
 
 ### Performansla İlgili Hususlar
 
-* **JPG en hızlı yüklenir**: Birçok görüntü arasında hızlı gezinmek için kullanın.
-* **RAW katmanları daha yavaş yüklenir**: Daha yüksek çözünürlük ve bit derinliği.
-* **Dizin katmanları**: Yansıma katmanlarına benzer hızda.
-* **İlk yükleme en yavaştır**: Aynı katmanın sonraki görüntülemeleri önbelleğe alınır ve daha hızlıdır.
+* **JPG en hızlı yüklenir**: Çok sayıda görüntü arasında hızlı gezinmek için kullanın
+* **RAW katmanları daha yavaş yüklenir**: Daha yüksek çözünürlük ve bit derinliği
+* **Dizin katmanları**: Yansıma katmanlarına benzer hız
+* **İlk yükleme en yavaştır**: Aynı katmanın sonraki görüntülemeleri önbelleğe alınır ve daha hızlıdır
 
 ### Kalite Doğrulama
 
-* **Her zaman RAW (Orijinal)**&#x27;i kontrol edin: İşlenmiş çıktıları güvenmeden önce kaynak veri kalitesini doğrulayın
-* **Katmanları karşılaştırın**: Katman değiştirmeyi kullanarak işlemenin doğru çalıştığını doğrulayın
-* **Dizin aralıklarını kontrol edin**: Dizin katmanlarıyla Piksel Yüzde modunu kullanarak değerlerin makul olduğunu doğrulayın
-
-***
+* **Her zaman RAW&#x27;ı (Orijinal) kontrol edin**: İşlenmiş çıktılara güvenmeden önce kaynak veri kalitesini doğrulayın
+* **Katmanları karşılaştırın**: İşlemenin doğru çalıştığını doğrulamak için katman değiştirme özelliğini kullanın
+* **Dizin aralıklarını kontrol edin**: Değerlerin makul olduğunu doğrulamak için dizin katmanlarıyla Piksel Yüzde modunu kullanın***
 
 ## Sorun Giderme
 
 ### Katman Kullanılamıyor
 
-**Sorun**: Beklenen katman açılır menüde görünmüyor
+**Sorun**: Beklenen katman açılır menüde görünmüyor**Olası nedenler:**
 
-**Olası nedenler:**
-
-* Görüntü işlenmedi (yalnızca JPG ve RAW (Orijinal) kullanılabilir)
+* Görüntü işlenmedi (sadece JPG ve RAW (Orijinal) kullanılabilir)
 * İşleme sırasında yansıma kalibrasyonu devre dışı bırakıldı
 * Proje Ayarlarında belirli bir indeks yapılandırılmadı
-* Görüntü yalnızca hedef içeren bir görüntüdür (hedefler için indeks oluşturulmadı)
+* Görüntü sadece hedef içeren bir görüntüdür (hedefler için indeks oluşturulmaz)
 
 **Çözümler:**
 
 1. Görüntünün işlendiğini doğrulayın (işlenmiş dosyalar için çıktı klasörünü kontrol edin)
-2. Endekslerin yapılandırıldığını doğrulamak için Proje Ayarlarını kontrol edin
+2. İndekslerin yapılandırıldığını doğrulamak için Proje Ayarlarını kontrol edin
 3. İstenen indeksler etkinleştirilmiş olarak yeniden işleyin
 
 ### Yanlış Katman Gösteriliyor
 
-**Sorun**: Görüntü beklenmedik bir katmanda açılıyor.
-
-**Neden**: Önceki görüntünün katman tercihi devralındı, ancak bu katman mevcut görüntüde mevcut değil.
-
-**Çözüm**: Chloros, tercih edilen katman mevcut olmadığında otomatik olarak JPG&#x27;ye geri döner - bu normal bir davranıştır.
+**Sorun**: Görüntü beklenmedik bir katmanda açılıyor**Neden**: Önceki görüntünün katman tercihi devralındı, ancak o katman mevcut görüntüde mevcut değil**Çözüm**: Chloros, tercih edilen katman mevcut olmadığında otomatik olarak JPG&#x27;ye geri döner - bu normal bir davranıştır
 
 ### Kalibrasyon Hedefleri Görünmüyor
 
-**Sorun**: RAW (Hedef) katmanı hedef algılamayı göstermiyor.
+**Sorun**: RAW (Hedef) katmanı hedef algılamasını göstermiyor**Olası nedenler:**
 
-**Olası nedenler:**
-
-* İşleme sırasında hedefler algılanmadı.
-* Görüntü aslında hedefler içermiyor.
-* Hedef algılama ayarları çok katı.
+* İşleme sırasında hedefler algılanmadı
+* Görüntü aslında hedefler içermiyor
+* Hedef algılama ayarları çok katı
 
 **Çözümler:**
 
-1. Hata ayıklama günlüğünde &quot;Hedef bulundu&quot; mesajlarını kontrol edin.
-2. Görüntünün aslında görünür kalibrasyon hedefleri içerdiğini doğrulayın.
-3. Proje Ayarları&#x27;nda hedef algılama ayarlarını düzenleyin.
-4. [Hedef Görüntüleri Seçme](../processing-images-gui/choosing-target-images.md) bölümüne bakın.
+1. Hata Giderme Günlüğünde &quot;Hedef bulundu&quot; mesajlarını kontrol edin
+2. Görüntünün gerçekten görünür kalibrasyon hedefleri içerdiğini doğrulayın
+3. Proje Ayarları&#x27;nda hedef algılama ayarlarını değiştirin
+4. [Hedef Görüntüleri Seçme](../processing-images-gui/choosing-target-images.md) bölümüne bakın
 
 ***
 
@@ -322,20 +304,20 @@ Farklı katmanlar farklı piksel değer aralıkları gösterir:
 
 Herhangi bir katmanı görüntülerken şunları kullanabilirsiniz:
 
-* **Yakınlaştırma kontrolleri**: Ayrıntıları incelemek için yakınlaştırın.
-* **Kaydırma**: Yakınlaştırılmış görüntüde hareket etmek için tıklayın ve sürükleyin.
+* **Yakınlaştırma kontrolleri**: Ayrıntıları incelemek için yakınlaştırın
+* **Kaydırma**: Yakınlaştırılmış görüntüyü hareket ettirmek için tıklayın ve sürükleyin
 * **Piksel değeri inceleme**: İmlecin bulunduğu konumdaki değerleri görün
-* **Gezinti okları**: Katmanı koruyarak görüntüler arasında hareket edin
+* **Gezinme okları**: Katmanı koruyarak görüntüler arasında geçiş yapın
 * **Piksel Yüzde modu**: DN ve yüzde gösterimi arasında geçiş yapın
 
-Görüntü Görüntüleyici belgelerinin tamamı için [Görüntüyü Tam Ekran Açma](opening-an-image-full-screen.md) bölümüne bakın.
+Görüntü Görüntüleyicisi ile ilgili tüm belgeler için [Görüntüyü Tam Ekran Olarak Açma](opening-an-image-full-screen.md) bölümüne bakın.
 
 ### Dizin/LUT Sandbox
 
 Etkileşimli dizin testi ve görselleştirme için:
 
 * **Gerçek zamanlı dizin hesaplama**: Farklı dizin formüllerini test edin
-* **LUT renk eşlemesi**: Gri tonlamalı dizinlere renk gradyanları uygulayın
+* **LUT renk eşleme**: Gri tonlamalı dizinlere renk gradyanları uygulayın
 * **Görselleştirmeleri dışa aktarın**: Renkli dizin görüntülerini kaydedin
 
 Ayrıntılar için [Dizin/LUT Sandbox](index-lut-sandbox.md) bölümüne bakın.
@@ -346,7 +328,7 @@ Ayrıntılar için [Dizin/LUT Sandbox](index-lut-sandbox.md) bölümüne bakın.
 
 Artık görüntü katmanlarını anladığınıza göre:
 
-* [**Görüntüyü Tam Ekran Açma**](opening-an-image-full-screen.md) - Tam Image Viewer kılavuzu
-* [**Dizin/LUT Sandbox**](index-lut-sandbox.md) - Etkileşimli dizin görselleştirme
-* [**Çok Spektral Dizin Formülleri**](../project-settings/multispectral-index-formulas.md) - Kullanılabilir dizinler referansı
+* [**Bir Görüntüyü Tam Ekran Olarak Açma**](opening-an-image-full-screen.md) - Tam Image Viewer kılavuzu
+* [**İndeks/LUT Sandbox**](index-lut-sandbox.md) - Etkileşimli indeks görselleştirme
+* [**Çok Spektral İndeks Formülleri**](../project-settings/multispectral-index-formulas.md) - Kullanılabilir indeksler referansı
 * [**İşlemeyi Tamamlama**](../processing-images-gui/finishing-the-processing.md) - İşlenmiş çıktıları anlama

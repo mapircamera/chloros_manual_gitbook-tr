@@ -1,48 +1,66 @@
 # CLI : Komut Satırı
 
-<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI**, Chloros görüntü işleme motoruna güçlü bir komut satırı erişimi sağlayarak görüntüleme iş akışlarınız için otomasyon, komut dosyası oluşturma ve başsız çalışma imkanı sunar.
+<figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>**Chloros CLI**, Chloros görüntü işleme motoruna güçlü bir komut satırı erişimi sağlayarak, görüntüleme iş akışlarınız için otomasyon, komut dosyası oluşturma ve başsız çalışma imkanı sunar.
 
 ### Temel Özellikler
 
-* 🚀 **Otomasyon** - Birden fazla veri kümesinin komut dosyası toplu işleme
-* 🔗 **Entegrasyon** - Mevcut iş akışlarına ve boru hatlarına gömme
-* 💻 **Başsız Çalışma** - GUI olmadan çalıştırma
-* 🌍 **Çok Dilli** - 38 dil desteği
-* ⚡ **Paralel İşleme** - CPU&#x27;nuzla dinamik olarak ölçeklenir (16 adede kadar paralel işçi)
+* 🚀 **Otomasyon** - Birden fazla veri kümesinin komut dosyası ile toplu işleme
+* 🔗 **Entegrasyon** - Mevcut iş akışlarına ve boru hatlarına entegre edin
+* 💻 **Görsel Arayüzsüz Çalışma** - GUI olmadan çalıştırın
+* 🌍 **Çoklu Dil** - 38 dil desteği
+* ⚡ **Paralel İşleme** - [Dinamik Hesaplama Uyumlaştırma](processing-architecture/dynamic-compute-adaptation.md) donanımınız için otomatik olarak optimize eder
 
 ### Gereksinimler
 
 | Gereksinim          | Ayrıntılar                                                             |
 | -------------------- | ------------------------------------------------------------------- |
-| **İşletim Sistemi** | Windows 10/11 (64 bit)                                              |
+| **İşletim Sistemi** | Windows 10/11 (64-bit), Linux x86_64 (amd64), Linux arm64 (NVIDIA Jetson JetPack 6) |
 | **Lisans**          | Chloros+ ([ücretli plan gereklidir](https://cloud.mapir.camera/pricing)) |
-| **Bellek**           | Minimum 8 GB RAM (16 GB önerilir)                                  |
+| **Bellek**           | En az 8 GB RAM (16 GB önerilir)                                  |
 | **İnternet**         | Lisans etkinleştirme için gereklidir                                     |
 | **Disk Alanı**       | Proje boyutuna göre değişir                                              |
 
-{% hint style=&quot;warning&quot; %}
-**Lisans Gereksinimi**: CLI için ücretli Chloros+ aboneliği gerekir. Standart (ücretsiz) planlarda CLI erişimi yoktur. Yükseltmek için [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing) adresini ziyaret edin.
+{% hint style="warning" %}
+**Lisans Gereksinimi**: CLI için ücretli bir Chloros+ aboneliği gereklidir. Standart (ücretsiz) planlarda CLI erişimi yoktur. Yükseltme yapmak için [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing) adresini ziyaret edin.
 {% endhint %}
 
 ## Hızlı Başlangıç
 
 ### Kurulum
 
-CLI, Chloros yükleyicisine otomatik olarak dahildir:
+#### Windows
 
-1. **Chloros Yükleyici.exe**&#x27;i indirin ve çalıştırın
+CLI, Chloros yükleyicisine otomatik olarak dahil edilmiştir:
+
+1. **Chloros Installer.exe** dosyasını indirin ve çalıştırın
 2. Kurulum sihirbazını tamamlayın
-3. CLI şuraya yüklenir: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
+3. CLI şu konuma kuruldu: `C:\Program Files\Chloros\resources\cli\chloros-cli.exe`
 
-{% hint style=&quot;success&quot; %}
-Yükleyici, `chloros-cli`&#x27;i sistem PATH&#x27;inize otomatik olarak ekler. Yüklemeden sonra terminalinizi yeniden başlatın.
+{% hint style="success" %}
+Yükleyici, `chloros-cli` dosyasını sistem PATH&#x27;inize otomatik olarak ekler. Yükleme tamamlandıktan sonra terminalinizi yeniden başlatın.
 {% endhint %}
+
+#### Linux
+
+Mimarinize uygun `.deb` paketini yükleyin:
+
+```bash
+# Linux amd64
+sudo dpkg -i chloros-amd64.deb
+
+# Linux arm64 (NVIDIA Jetson, JetPack 6)
+sudo dpkg -i chloros-arm64-jp6.deb
+```
+
+Ayrıntılı Linux kurulumu için bkz. [Linux Kurulumu](linux/linux-installation.md).
 
 ### İlk Kurulum
 
 CLI&#x27;i kullanmadan önce, Chloros+ lisansınızı etkinleştirin:
 
-```bash
+**Windows:**
+
+```powershell
 # Login with your Chloros+ account
 chloros-cli login user@example.com 'your_password'
 
@@ -53,12 +71,33 @@ chloros-cli status
 chloros-cli process "C:\Images\Dataset001"
 ```
 
+**Linux:**
+
+```bash
+# Login with your Chloros+ account
+chloros-cli login user@example.com 'your_password'
+
+# Check license status
+chloros-cli status
+
+# Process your first project
+chloros-cli process ~/images/dataset001
+```
+
 ### Temel Kullanım
 
-Varsayılan ayarlarla bir klasörü işleyin:
+Bir klasörü varsayılan ayarlarla işleyin:
+
+**Windows:**
 
 ```powershell
 chloros-cli process "C:\Images\Dataset001"
+```
+
+**Linux:**
+
+```bash
+chloros-cli process ~/images/dataset001
 ```
 
 ***
@@ -85,13 +124,17 @@ Bir klasördeki görüntüleri kalibrasyonla işleyin.
 chloros-cli process <input-folder> [options]
 ```
 
-**Örnek:**
+**Örnekler:**
 
-```powershell
+```bash
+# Windows
 chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
+
+# Linux
+chloros-cli process ~/datasets/survey_001 --vignette --reflectance
 ```
 
-#### İşlem Komutu Seçenekleri
+#### İşleme Komutu Seçenekleri
 
 | Seçenek                | Tür    | Varsayılan        | Açıklama                                                                            |
 | --------------------- | ------- | -------------- | -------------------------------------------------------------------------------------- |
@@ -103,19 +146,22 @@ chloros-cli process "C:\Datasets\Survey_001" --vignette --reflectance
 | `--reflectance`       | Bayrak    | Etkin        | Yansıma kalibrasyonunu etkinleştir                                                         |
 | `--no-reflectance`    | Bayrak    | -              | Yansıma kalibrasyonunu devre dışı bırak                                                        |
 | `--ppk`               | Bayrak    | Devre dışı       | .daq ışık sensörü verilerinden PPK düzeltmelerini uygula                                      |
-| `--format`            | Seçim  | TIFF (16 bit)  | Çıktı biçimi: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
-| `--min-target-size`   | Tamsayı | Otomatik           | Kalibrasyon paneli algılama için minimum hedef boyut (piksel)                          |
-| `--target-clustering` | Tamsayı | Otomatik           | Hedef kümeleme eşiği (0-100)                                                    |
+| `--format`            | Seçim  | TIFF (16-bit)  | Çıktı biçimi: `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)` |
+| `--min-target-size`   | Tamsayı | Otomatik           | Kalibrasyon paneli algılaması için minimum hedef boyutu (piksel cinsinden)                          |
+| `--target-clustering` | Tamsayı | Otomatik           | Hedef kümelenme eşiği (0-100)                                                    |
+| `--debayer`           | Seçim  | `standard`     | Debayer yöntemi: `standard` veya `texture-aware` (yalnızca Chloros+)                          |
+| `--target`, `--targets` | Bayrak  | Devre dışı       | Yalnızca &quot;target&quot; veya &quot;targets&quot; alt klasörlerinde kalibrasyon hedeflerini ara (işlemeyi hızlandırır) |
+| `--indices`           | Liste    | Yok           | Hesaplanacak bitki örtüsü indeksleri (örn., `--indices NDVI NDRE GNDVI`)                    |
 | `--exposure-pin-1`    | Dize  | Yok           | Kamera modeli için pozlamayı kilitle (Pin 1)                                                 |
 | `--exposure-pin-2`    | Dize  | Yok           | Kamera modeli için pozlamayı kilitle (Pin 2)                                                 |
-| `--recal-interval`    | Tamsayı | Otomatik           | Yeniden kalibrasyon aralığı (saniye)                                                      |
-| `--timezone-offset`   | Tamsayı | 0              | Saat dilimi farkı (saat)                                                               |
+| `--recal-interval`    | Tamsayı | Otomatik           | Saniye cinsinden yeniden kalibrasyon aralığı                                                      |
+| `--timezone-offset`   | Tamsayı | 0              | Saat dilimi farkı (saat cinsinden)                                                               |
 
 ***
 
 ### `login` - Hesabı Doğrulama
 
-Chloros+ kimlik bilgilerinizi kullanarak oturum açın ve CLI işlemini etkinleştirin.
+CLI işlemesini etkinleştirmek için Chloros+ kimlik bilgilerinizi kullanarak oturum açın.
 
 **Sözdizimi:**
 
@@ -125,19 +171,19 @@ chloros-cli login <email> <password>
 
 **Örnek:**
 
-```powershell
+```bash
 chloros-cli login user@example.com 'MyP@ssw0rd123'
 ```
 
-{% hint style=&quot;warning&quot; %}
+{% hint style="warning" %}
 **Özel Karakterler**: `$`, `!` gibi karakterler veya boşluklar içeren şifrelerin etrafına tek tırnak işareti koyun.
 {% endhint %}
 
 **Çıktı:**<figure><img src=".gitbook/assets/cli login_w.JPG" alt=""><figcaption></figcaption></figure>***
 
-### `logout` - Kimlik Bilgilerini Temizle
+### `logout` - Kimlik Bilgilerini Sil
 
-Saklanan kimlik bilgilerini temizleyin ve hesabınızdan çıkış yapın.
+Kaydedilmiş kimlik bilgilerini silin ve hesabınızdan çıkış yapın.
 
 **Sözdizimi:**
 
@@ -147,7 +193,7 @@ chloros-cli logout
 
 **Örnek:**
 
-```powershell
+```bash
 chloros-cli logout
 ```
 
@@ -158,8 +204,8 @@ chloros-cli logout
 ℹ Credentials cleared from cache
 ```
 
-{% hint style=&quot;info&quot; %}
-**SDK Kullanıcıları**: Python SDK ayrıca Python komut dosyalarında kimlik bilgilerini temizlemek için programlı bir `logout()` yöntemi sağlar. Ayrıntılar için [Python SDK belgelerine](api-python-sdk.md#logout) bakın.
+{% hint style="info" %}
+**SDK Kullanıcıları**: Python SDK ayrıca, Python komut dosyaları içinde kimlik bilgilerini temizlemek için programlı bir `logout()` yöntemi de sağlar. Ayrıntılar için [Python SDK belgelerine](api-python-sdk.md#logout) bakın.
 {% endhint %}
 
 ***
@@ -176,7 +222,7 @@ chloros-cli status
 
 **Örnek:**
 
-```powershell
+```bash
 chloros-cli status
 ```
 
@@ -195,9 +241,9 @@ chloros-cli status
 
 ***
 
-### `export-status` - Dışa Aktarım İlerlemesini Kontrol Et
+### `export-status` - Dışa Aktarım İlerleme Durumunu Kontrol Et
 
-İşlem sırasında veya sonrasında Thread 4 dışa aktarım ilerlemesini izler.
+İşleme sırasında veya sonrasında Thread 4 dışa aktarım ilerleme durumunu izleyin.
 
 **Sözdizimi:**
 
@@ -207,13 +253,13 @@ chloros-cli export-status
 
 **Örnek:**
 
-```powershell
+```bash
 chloros-cli export-status
 ```
 
-**Kullanım Örneği:** İşlem devam ederken bu komutu çağırarak dışa aktarım ilerlemesini kontrol edin.***
+**Kullanım Durumu:** Dışa aktarma ilerlemesini kontrol etmek için işleme devam ederken bu komutu çağırın.***
 
-### `language` - Arayüz Dilini Yönetme
+### `language` - Arayüz Dilini Yönet
 
 CLI arayüz dilini görüntüleyin veya değiştirin.
 
@@ -232,7 +278,7 @@ chloros-cli language <language-code>
 
 **Örnekler:**
 
-```powershell
+```bash
 # View current language
 chloros-cli language
 
@@ -248,9 +294,9 @@ chloros-cli language ja
 
 #### Desteklenen Diller (Toplam 38)
 
-| Kod    | Dil              | Yerel Ad      |
+| Kod    | Dil              | Yerel Adı      |
 | ------- | --------------------- | ---------------- |
-| `en`    | İngilizce               | İngilizce          |
+| `en`    | İngilizce               | English          |
 | `es`    | İspanyolca               | Español          |
 | `pt`    | Portekizce            | Português        |
 | `fr`    | Fransızca                | Français         |
@@ -261,12 +307,12 @@ chloros-cli language ja
 | `zh`    | Çince (Basitleştirilmiş)  | 简体中文             |
 | `zh-TW` | Çince (Geleneksel) | 繁體中文             |
 | `ru`    | Rusça               | Русский          |
-| `nl`    | Felemenkçe                 | Nederlands       |
+| `nl`    | Felemenkçe                | Nederlands       |
 | `ar`    | Arapça                | العربية          |
 | `pl`    | Lehçe                | Polski           |
 | `tr`    | Türkçe               | Türkçe           |
 | `hi`    | Hintçe                 | हिंदी            |
-| `id`    | Endonezyaca            | Bahasa Indonesia |
+| `id`    | Endonezce            | Bahasa Indonesia |
 | `vi`    | Vietnamca            | Tiếng Việt       |
 | `th`    | Tayca                  | ไทย              |
 | `sv`    | İsveççe               | Svenska          |
@@ -274,7 +320,7 @@ chloros-cli language ja
 | `no`    | Norveççe             | Norsk            |
 | `fi`    | Fince               | Suomi            |
 | `el`    | Yunanca                 | Ελληνικά         |
-| `cs`    | Çekçe                 | Čeština          |
+| `cs`    | Çek                 | Čeština          |
 | `hu`    | Macarca             | Magyar           |
 | `ro`    | Romence              | Română           |
 | `uk`    | Ukraynaca             | Українська       |
@@ -289,15 +335,15 @@ chloros-cli language ja
 | `et`    | Estonca              | Eesti            |
 | `sl`    | Slovence             | Slovenščina      |
 
-{% hint style=&quot;success&quot; %}
-**Otomatik Kalıcılık**: Dil tercihiniz `~/.chloros/cli_language.json` dosyasına kaydedilir ve tüm oturumlar boyunca kalıcıdır.
+{% hint style="success" %}
+**Otomatik Kalıcılık**: Dil tercihinizi `~/.chloros/cli_language.json` dosyasına kaydedilir ve tüm oturumlarda kalıcıdır.
 {% endhint %}
 
 ***
 
 ### `set-project-folder` - Varsayılan Proje Klasörünü Ayarla
 
-Varsayılan proje klasörünün konumunu değiştirin (GUI ile paylaşılır).
+Varsayılan proje klasörünün konumunu değiştirin (Windows&#x27;teki GUI ile paylaşılır).
 
 **Sözdizimi:**
 
@@ -305,17 +351,21 @@ Varsayılan proje klasörünün konumunu değiştirin (GUI ile paylaşılır).
 chloros-cli set-project-folder <folder-path>
 ```
 
-**Örnek:**
+**Örnekler:**
 
-```powershell
+```bash
+# Windows
 chloros-cli set-project-folder "C:\Projects\2025"
+
+# Linux
+chloros-cli set-project-folder ~/projects/2025
 ```
 
 ***
 
 ### `get-project-folder` - Proje Klasörünü Göster
 
-Geçerli varsayılan proje klasörü konumunu görüntüler.
+Mevcut varsayılan proje klasörü konumunu görüntüler.
 
 **Sözdizimi:**
 
@@ -325,14 +375,19 @@ chloros-cli get-project-folder
 
 **Örnek:**
 
-```powershell
+```bash
 chloros-cli get-project-folder
 ```
 
 **Çıktı:**
 
 ```
+
+# Windows
 ℹ Current project folder: C:\Projects\2025
+
+# Linux
+ℹ Current project folder: /home/user/.local/share/chloros/projects
 ```
 
 ***
@@ -349,94 +404,163 @@ chloros-cli reset-project-folder
 
 ***
 
+### `selftest` - Sistem Tanılama Çalıştır
+
+Sistem yapılandırmanızı doğrulamak için 7 tanılama kontrolü çalıştırır.
+
+**Sözdizimi:**
+
+```bash
+chloros-cli selftest
+```
+
+**Gerçekleştirilen tanılama işlemleri:**
+
+1. Sürüm kontrolü
+2. Bağlantı noktası kullanılabilirliği (5000)
+3. Arka uç başlatma
+4. API bağlantı testi
+5. Sistem bilgileri ve GPU algılama
+6. Gürültü giderici modellerinin doğrulanması
+7. CUDA kullanılabilirlik kontrolü
+
+{% hint style="info" %}
+**Sorun giderme için yararlı**: Kurulumdan sonra `selftest`&#x27;i çalıştırarak sisteminizin doğru şekilde yapılandırıldığını doğrulayın; özellikle GPU ve CUDA kurulumunun doğrulanması gerekebilecek Linux/Jetson&#x27;da bunu yapın.
+{% endhint %}
+
+***
+
+### `update` - Güncellemeleri Kontrol Et (Yalnızca Linux)
+
+Linux sistemlerinde CLI güncellemelerini kontrol edin ve yükleyin.
+
+**Sözdizimi:**
+
+```bash
+# Check for updates without installing
+chloros-cli update --check
+
+# Check for and install updates
+chloros-cli update
+```
+
+| Seçenek    | Açıklama                        |
+| --------- | ---------------------------------- |
+| `--check` | Yalnızca güncellemeleri kontrol et, yükleme |
+
+{% hint style="info" %}
+Bu komut yalnızca Linux&#x27;te kullanılabilir. Windows&#x27;te güncellemeler yükleyici aracılığıyla sağlanır.
+{% endhint %}
+
+***
+
 ## Genel Seçenekler
 
 Bu seçenekler tüm komutlar için geçerlidir:
 
-| Seçenek          | Tür    | Varsayılan       | Açıklama                                      |
-| --------------- | ------- | ------------- | ------------------------------------------------ |
-| `--backend-exe` | Yol    | Otomatik algılanan | Arka uç yürütülebilir dosyasının yolu                       |
-| `--port`        | Tamsayı | 5000          | Arka uç API bağlantı noktası numarası                          |
-| `--restart`     | Bayrak    | -             | Arka ucu yeniden başlat (mevcut işlemleri sonlandır) |
-| `--version`     | Bayrak    | -             | Sürüm bilgilerini göster ve çık                |
-| `--help`        | Bayrak    | -             | Yardım bilgilerini göster ve çık                   |
+| Seçenek            | Tür    | Varsayılan       | Açıklama                                      |
+| ----------------- | ------- | ------------- | ------------------------------------------------ |
+| `--backend-exe`   | Yol    | Otomatik algılanır | Arka uç yürütülebilir dosyasının yolu                       |
+| `--port`          | Tamsayı | 5000          | Arka uç API bağlantı noktası numarası                          |
+| `--restart`       | Bayrak    | -             | Arka ucu zorla yeniden başlat (mevcut işlemleri sonlandırır) |
+| `--version`       | Bayrak    | -             | Sürüm bilgilerini göster ve çık                |
+| `--help`          | Bayrak    | -             | Yardım bilgilerini göster ve çık                   |
+
+{% hint style="info" %}
+**Arka uç otomatik algılama**: `--backend-exe` yolu platform başına otomatik olarak algılanır:
+* **Windows**: `C:\Program Files\MAPIR\Chloros\resources\backend\chloros-backend.exe`
+* **Linux (.deb)**: `/usr/lib/chloros/chloros-backend`
+* **Linux (manuel)**: `/opt/mapir/chloros/backend/chloros-backend`
+{% endhint %}
 
 **Global Seçeneklerle Örnek:**
 
+**Windows:**
+
 ```powershell
 chloros-cli --port 5001 process "C:\Datasets\Survey_001"
+```
+
+**Linux:**
+
+```bash
+chloros-cli --port 5001 process ~/datasets/survey_001
 ```
 
 ***
 
 ## İşleme Ayarları Kılavuzu
 
-### Paralel İşleme
+### Paralel İşleme ve Dinamik Hesaplama Uyumlaştırma
 
-Chloros+ CLI **otomatik olarak ölçeklendirir**paralel işlemeyi bilgisayarınızın kapasitesine uyacak şekilde:**Nasıl Çalışır:**
+Chloros 1.1.0 sürümü, [Dinamik Hesaplama Uyumlaştırma](processing-architecture/dynamic-compute-adaptation.md) özelliğini içerir — işleme motoru **donanımınızı otomatik olarak algılar** ve en uygun stratejiyi seçer:
 
-* CPU çekirdeklerinizi ve RAM&#x27;inizi algılar
-* İşçileri tahsis eder: **2× CPU çekirdeği** (hiper iş parçacığı kullanır)
-* **Maksimum: 16 paralel işçi** (kararlılık için)**Sistem Katmanları:**
+| Platform | Strateji | İşçiler | İş Akışı | Notlar |
+| --- | --- | --- | --- | --- |
+| **Jetson Nano 8GB** | `GPU_SINGLE` | 1 | `tiled_gpu` | Bellek verimli, serileştirilmiş |
+| **Jetson Orin NX 16GB** | `GPU_PARALLEL` | 3 | `fused_gpu` | Eşzamanlı GPU işleme |
+| **8 GB GPU&#x27;lu masaüstü** | `GPU_SINGLE` | 3 | `tiled_gpu` | İyi masaüstü performansı |
+| **12 GB+ GPU&#x27;lu masaüstü** | `GPU_PARALLEL` | 3-4 | `fused_gpu` | Optimum masaüstü performansı |
+| **Yalnızca CPU içeren sistem** | `CPU_PARALLEL` | çekirdek - 1 | `cpu_fallback` | GPU gerekmez |
 
-| Sistem Türü   | CPU        | RAM      | İşçiler  | Performans     |
-| ------------- | ---------- | -------- | -------- | --------------- |
-| **Üst Düzey**  | 16+ çekirdek  | 32+ GB   | 16&#x27;ya kadar | Maksimum hız   |
-| **Orta Sınıf** | 8-15 çekirdek | 16-31 GB | 8-16     | Mükemmel hız |
-| **Düşük Sınıf**   | 4-7 çekirdek  | 8-15 GB  | 4-8      | İyi hız      |
-
-{% hint style=&quot;success&quot; %}
-**Otomatik Optimizasyon**: CLI, sistem özelliklerinizi otomatik olarak algılar ve optimum paralel işlemeyi yapılandırır. Manuel yapılandırma gerekmez!
+{% hint style="success" %}
+**Manuel yapılandırma gerekmez!** Chloros, CPU, GPU, RAM ve (Jetson&#x27;da) termal sensörlerinizi otomatik olarak algılar, ardından en uygun işleme boru hattını otomatik olarak yapılandırır.
 {% endhint %}
 
 ### Debayer Yöntemleri
 
-CLI, varsayılan ve önerilen debayer algoritması olarak **Yüksek Kalite (Daha Hızlı)**&#x27;yi kullanır:
+| Yöntem | CLI Bayrağı | Kalite | Hız | Lisans |
+| --- | --- | --- | --- | --- |
+| **Standart (Hızlı, Orta Kalite)** | `--debayer standard` | İyi | Hızlı | Ücretsiz / Chloros+ |
+| **Doku Duyarlı (Yavaş, En Yüksek Kalite)** | `--debayer texture-aware` | En Yüksek | Yavaş | Yalnızca Chloros+ |
 
-| Yöntem                      | Kalite | Hız | Açıklama                                 |
-| --------------------------- | ------- | ----- | ------------------------------------------- |
-| **Yüksek Kalite (Daha Hızlı)** ⭐ | ⭐⭐⭐⭐    | ⚡⚡⚡   | Kenar algılama algoritması (varsayılan, önerilen) |
+Varsayılan debayer yöntemi **Standart**&#x27;tır.**Tekstür Duyarlı** yöntemi, en yüksek kalitede çıktı elde etmek için bir AI/ML gürültü giderme modeli kullanır, ancak bir Chloros+ lisansı ve bir NVIDIA GPU gerektirir.
+
+```bash
+# Use Texture Aware debayer (Chloros+ only)
+chloros-cli process ~/datasets/field_a --debayer texture-aware
+```
 
 ### Vinyet Düzeltme
 
-**Ne yapar:** Görüntü kenarlarında ışık düşüşünü düzeltir (kamera görüntülerinde sık görülen daha koyu köşeler).
+**Ne yapar:** Görüntü kenarlarında ışık düşüşünü düzeltir (kamera görüntülerinde sık görülen köşelerin koyulaşması).
 
 * **Varsayılan olarak etkindir** - Çoğu kullanıcı bunu etkin tutmalıdır
 * Devre dışı bırakmak için `--no-vignette` kullanın
 
-{% hint style=&quot;success&quot; %}
+{% hint style="success" %}
 **Öneri**: Çerçeve genelinde eşit parlaklık sağlamak için vinyet düzeltmeyi her zaman etkinleştirin.
 {% endhint %}
 
 ### Yansıma Kalibrasyonu
 
-Kalibrasyon panelleri kullanarak ham sensör değerlerini standartlaştırılmış yansıma yüzdelerine dönüştürür.
+Kalibrasyon panellerini kullanarak ham sensör değerlerini standartlaştırılmış yansıma yüzdelerine dönüştürür.
 
-* **Varsayılan olarak etkin** - Bitki örtüsü analizi için gereklidir.
-* Görüntülerde kalibrasyon hedef panelleri gerektirir.
-* Devre dışı bırakmak için `--no-reflectance` kullanın.
+* **Varsayılan olarak etkindir** - Bitki örtüsü analizi için gereklidir
+* Görüntülerde kalibrasyon hedef panelleri gerektirir
+* Devre dışı bırakmak için `--no-reflectance` kullanın
 
-{% hint style=&quot;info&quot; %}
-**Gereksinimler**: Doğru yansıma dönüşümü için kalibrasyon panellerinin görüntülerinizde düzgün bir şekilde pozlanmış ve görünür olduğundan emin olun.
+{% hint style="info" %}
+**Gereksinimler**: Doğru yansıma dönüşümü için kalibrasyon panellerinin görüntülerinizde uygun şekilde pozlanmış ve görünür olduğundan emin olun.
 {% endhint %}
 
 ### PPK Düzeltmeleri
 
-**Ne yapar:** GPS doğruluğunu artırmak için DAQ-A-SD günlük verilerini kullanarak Sonrası İşlenmiş Kinematik düzeltmeleri uygular.
+**Ne yapar:** GPS doğruluğunu artırmak için DAQ-A-SD kayıt verilerini kullanarak Son İşlemli Kinematik düzeltmeleri uygular.
 
 * **Varsayılan olarak devre dışıdır**
 * Etkinleştirmek için `--ppk` kullanın
-* MAPIR DAQ-A-SD ışık sensöründen proje klasöründeki .daq dosyaları gerekir.
+* MAPIR DAQ-A-SD ışık sensöründen proje klasöründe .daq dosyaları gerektirir.
 
-### Çıkış Biçimleri
+### Çıktı Biçimleri
 
-<table><thead><tr><th width="197">Biçim</th><th width="130.20001220703125">Bit Derinliği</th><th width="116.5999755859375">Dosya Boyutu</th><th>En Uygun</th></tr></thead><tbody><tr><td><strong>TIFF (16 bit)</strong> ⭐</td><td>16 bit tamsayı</td><td>Büyük</td><td>GIS analizi, fotogrametri (önerilir)</td></tr><tr><td><strong>TIFF (32 bit, Yüzde)</strong></td><td>32 bit kayan nokta</td><td>Çok büyük</td><td>Bilimsel analiz, araştırma</td></tr><tr><td><strong>PNG (8 bit)</strong></td><td>8 bitlik tamsayı</td><td>Orta</td><td>Görsel inceleme, web paylaşımı</td></tr><tr><td><strong>JPG (8 bit)</strong></td><td>8 bitlik tamsayı</td><td>Küçük</td><td>Hızlı önizleme, sıkıştırılmış çıktı</td></tr></tbody></table>***
+<table><thead><tr><th width="197">Biçim</th><th width="130.20001220703125">Bit Derinliği</th><th width="116.5999755859375">Dosya Boyutu</th><th>En Uygun</th></tr></thead><tbody><tr><td><strong>TIFF (16 bit)</strong> ⭐</td><td>16 bitlik tamsayı</td><td>Büyük</td><td>GIS analizi, fotogrametri (önerilir)</td></tr><tr><td><strong>TIFF (32 bit, Yüzde)</strong></td><td>32 bit kayan nokta</td><td>Çok büyük</td><td>Bilimsel analiz, araştırma</td></tr><tr><td><strong>PNG (8 bit)</strong></td><td>8 bitlik tamsayı</td><td>Orta</td><td>Görsel inceleme, web paylaşımı</td></tr><tr><td><strong>JPG (8 bit)</strong></td><td>8 bitlik tamsayı</td><td>Küçük</td><td>Hızlı önizleme, sıkıştırılmış çıktı</td></tr></tbody></table>***
 
 ## Otomasyon ve Komut Dosyası Oluşturma
 
-### PowerShell Toplu İşleme
+### PowerShell Toplu İşleme (Windows)
 
-Birden fazla veri kümesi klasörünü otomatik olarak işleyin:
+Windows üzerinde birden fazla veri kümesi klasörünü otomatik olarak işleyin:
 
 ```powershell
 # process_all_datasets.ps1
@@ -460,9 +584,9 @@ foreach ($dataset in $datasets) {
 Write-Host "All datasets processed!" -ForegroundColor Green
 ```
 
-### Windows Toplu İşleme Komut Dosyası
+### Windows Toplu İşleme Komut Dosyası (Windows)
 
-Toplu işleme için basit döngü:
+Windows üzerinde toplu işleme için basit döngü:
 
 ```batch
 @echo off
@@ -487,9 +611,35 @@ echo All datasets processed!
 pause
 ```
 
-### Python Otomasyon Komut Dosyası
+### Bash Toplu İşleme (Linux)
 
-Hata işleme özelliğine sahip gelişmiş otomasyon:
+Linux üzerinde birden fazla veri kümesi klasörünü işleyin:
+
+```bash
+#!/bin/bash
+# process_all_datasets.sh
+
+for dataset in ~/datasets/2026/*/; do
+    name=$(basename "$dataset")
+    echo "Processing $name..."
+
+    chloros-cli process "$dataset" \
+        --vignette \
+        --reflectance
+
+    if [ $? -eq 0 ]; then
+        echo "✓ $name complete"
+    else
+        echo "✗ $name failed"
+    fi
+done
+
+echo "All datasets processed!"
+```
+
+### Python Otomasyon Komut Dosyası (Çapraz Platform)
+
+Hata işleme özelliğine sahip gelişmiş otomasyon (Windows ve Linux üzerinde çalışır):
 
 ```python
 import subprocess
@@ -514,6 +664,9 @@ def process_dataset(input_folder):
 
 def main():
     """Process all datasets in a directory"""
+    # Adjust path for your platform
+    # Windows: Path('C:/Datasets/2025')
+    # Linux:   Path.home() / 'datasets' / '2025'
     datasets_dir = Path('C:/Datasets/2025')
     log_file = Path('processing_log.txt')
     
@@ -573,9 +726,9 @@ if __name__ == '__main__':
 ### Standart İş Akışı
 
 1. **Giriş**: RAW/JPG görüntü çiftlerini içeren klasör
-2. **Keşif**: CLI desteklenen görüntü dosyalarını otomatik olarak tarar
-3. **İşleme**: Paralel mod CPU çekirdeklerinize göre ölçeklenir (Chloros+)
-4. **Çıktı**: İşlenmiş görüntülerle kamera modeli alt klasörleri oluşturur
+2. **Keşif**: CLI, desteklenen görüntü dosyalarını otomatik olarak tarar
+3. **İşleme**: Paralel mod, CPU çekirdeklerinize göre ölçeklenir (Chloros+)
+4. **Çıktı**: İşlenmiş görüntüleri içeren kamera modeli alt klasörleri oluşturur
 
 ### Örnek Çıktı Yapısı
 
@@ -595,13 +748,16 @@ MyProject/
 
 100 görüntü (her biri 12 MP) için tipik işleme süreleri:
 
-| Mod              | Süre      | Donanım                                     |
-| ----------------- | --------- | -------------------------------------------- |
-| **Paralel Mod** | 5-10 dakika  | i7/Ryzen 7, 16 GB RAM, SSD (16 çalışana kadar) |
-| **Paralel Mod** | 10-15 dakika | i5/Ryzen 5, 8 GB RAM, HDD (en fazla 8 işçi)   |
+| Platform | Mod | Tahmini Süre | Notlar |
+| --- | --- | --- | --- |
+| **Masaüstü 12 GB+ GPU** | `GPU_PARALLEL` | 5-10 dakika | En hızlı seçenek |
+| **Masaüstü 8 GB GPU** | `GPU_SINGLE` | 10-15 dakika | İyi performans |
+| **Jetson Orin 16 GB** | `GPU_PARALLEL` | 15-25 dakika | Kenar bilgi işlem |
+| **Jetson Nano 8 GB** | `GPU_SINGLE` | 30-60 dakika | Bellek kısıtlı |
+| **Yalnızca CPU** | `CPU_PARALLEL` | 20-40 dakika | GPU gerekmez |
 
-{% hint style=&quot;info&quot; %}
-**Performans İpucu**: İşlem süresi, görüntü sayısı, çözünürlük ve bilgisayar özelliklerine göre değişir.
+{% hint style="info" %}
+**Performans İpucu**: İşlem süresi, görüntü sayısı, çözünürlük, debayer yöntemi ve donanıma göre değişir. Texture Aware debayer, Standard&#x27;a göre önemli ölçüde daha uzun sürer. Ayrıntılar için [Dinamik Hesaplama Uyumlaştırma](processing-architecture/dynamic-compute-adaptation.md) bölümüne bakın.
 {% endhint %}
 
 ***
@@ -610,13 +766,13 @@ MyProject/
 
 ### CLI Bulunamadı
 
-**Hata:**
+**Windows Hatası:**
 
 ```
 'chloros-cli' is not recognized as an internal or external command
 ```
 
-**Çözümler:**
+**Windows Çözümler:**
 
 1. Kurulum konumunu doğrulayın:
 
@@ -631,10 +787,37 @@ dir "C:\Program Files\Chloros\resources\cli\chloros-cli.exe"
 ```
 
 3. PATH&#x27;e manuel olarak ekleyin:
-   * Sistem Özellikleri → Ortam Değişkenleri&#x27;ni açın.
-   * PATH değişkenini düzenleyin.
+   * Sistem Özellikleri → Ortam Değişkenleri&#x27;ni açın
+   * PATH değişkenini düzenleyin
    * Ekle: `C:\Program Files\Chloros\resources\cli`
-   * Terminali yeniden başlatın.
+   * Terminali yeniden başlatın
+
+**Linux Hatası:**
+
+```
+chloros-cli: command not found
+```
+
+**Linux Çözümler:**
+
+1. Kurulumu doğrulayın:
+
+```bash
+which chloros-cli
+dpkg -L chloros-amd64  # or chloros-arm64-jp6
+```
+
+2. Kabuğunuzu yeniden yükleyin:
+
+```bash
+source ~/.bashrc
+```
+
+3. İzinleri kontrol edin:
+
+```bash
+sudo chmod +x /usr/bin/chloros-cli
+```
 
 ***
 
@@ -647,18 +830,32 @@ Backend failed to start within 30 seconds
 
 **Çözümler:**
 
-1. Arka ucun zaten çalışıp çalışmadığını kontrol edin (önce kapatın).
-2. Windows Güvenlik Duvarı&#x27;nın engellemediğini kontrol edin.
+1. Arka uçun zaten çalışıp çalışmadığını kontrol edin (önce kapatın)
+2. Güvenlik duvarının engellemediğini kontrol edin (Windows) veya bağlantı noktasının kullanılabilirliğini kontrol edin (Linux: `lsof -i :5000`)
 3. Farklı bir bağlantı noktası deneyin:
 
-```powershell
+```bash
+# Windows
 chloros-cli --port 5001 process "C:\Datasets\Field_A"
+
+# Linux
+chloros-cli --port 5001 process ~/datasets/field_a
 ```
 
 4. Arka ucu zorla yeniden başlatın:
 
-```powershell
+```bash
+# Windows
 chloros-cli --restart process "C:\Datasets\Field_A"
+
+# Linux
+chloros-cli --restart process ~/datasets/field_a
+```
+
+5. Linux&#x27;te, arka uç yürütülebilir dosyasının mevcut olup olmadığını kontrol edin:
+
+```bash
+ls -la /usr/lib/chloros/chloros-backend
 ```
 
 ***
@@ -672,20 +869,20 @@ Chloros+ license required for CLI access
 
 **Çözümler:**
 
-1. Etkin bir Chloros+ aboneliğiniz olduğunu doğrulayın
-2. Kimlik bilgilerinizle oturum açın:
+1. Aktif bir Chloros+ aboneliğiniz olduğunu doğrulayın
+2. Kimlik bilgilerinizle giriş yapın:
 
-```powershell
+```bash
 chloros-cli login user@example.com 'password'
 ```
 
 3. Lisans durumunu kontrol edin:
 
-```powershell
+```bash
 chloros-cli status
 ```
 
-4. Desteğe başvurun: info@mapir.camera
+4. Destek ekibiyle iletişime geçin: info@mapir.camera
 
 ***
 
@@ -698,18 +895,18 @@ No images found in the specified folder
 
 **Çözümler:**
 
-1. Klasörün desteklenen formatları (.RAW, .TIF, .JPG) içerdiğini doğrulayın.
-2. Klasör yolunun doğru olduğunu kontrol edin (boşluk içeren yollar için tırnak işaretleri kullanın).
-3. Klasör için okuma izinlerine sahip olduğunuzdan emin olun.
-4. Dosya uzantılarının doğru olup olmadığını kontrol edin.
+1. Klasörün desteklenen formatları (.RAW, .TIF, .JPG) içerdiğini doğrulayın
+2. Klasör yolunun doğru olduğunu kontrol edin (boşluk içeren yollar için tırnak işaretleri kullanın)
+3. Klasör için okuma izinlerine sahip olduğunuzdan emin olun
+4. Dosya uzantılarının doğru olduğunu kontrol edin
 
 ***
 
 ### İşlem Duruyor veya Takılıyor**Çözümler:**
 
-1. Kullanılabilir disk alanını kontrol edin (çıktı için yeterli olduğundan emin olun).
-2. Belleği boşaltmak için diğer uygulamaları kapatın.
-3. Görüntü sayısını azaltın (toplu olarak işleyin).
+1. Kullanılabilir disk alanını kontrol edin (çıktı için yeterli olduğundan emin olun)
+2. Belleği boşaltmak için diğer uygulamaları kapatın
+3. Görüntü sayısını azaltın (toplu olarak işleyin)
 
 ***
 
@@ -720,67 +917,92 @@ No images found in the specified folder
 Port 5000 is already in use
 ```
 
-**Çözüm:**
+**Çözümler:**
 
-Farklı bir bağlantı noktası belirtin:
+**Windows:**
 
 ```powershell
 chloros-cli --port 5001 process "C:\Datasets\Field_A"
+```
+
+**Linux:**
+
+```bash
+# Find what's using port 5000
+lsof -i :5000
+
+# Use a different port
+chloros-cli --port 5001 process ~/datasets/field_a
 ```
 
 ***
 
 ## SSS
 
-### S: CLI için lisans gerekir mi?
+### S: CLI için lisansa ihtiyacım var mı?
 
-**C:**Evet! CLI için ücretli**Chloros+ lisansı** gerekir.
+**C:**Evet! CLI için ücretli**Chloros+ lisansı** gereklidir.
 
 * ❌ Standart (ücretsiz) plan: CLI devre dışı
-* ✅ Chloros+ (ücretli) planlar: CLI tamamen etkinleştirilmiş
+* ✅ Chloros+ (ücretli) planlar: CLI tamamen etkin
 
 Abone olun: [https://cloud.mapir.camera/pricing](https://cloud.mapir.camera/pricing)
 
 ***
 
-### S: CLI&#x27;i GUI&#x27;siz bir sunucuda kullanabilir miyim?**C:** Evet! CLI tamamen başsız çalışır. Gereksinimler:
+### S: CLI&#x27;i GUI&#x27;si olmayan bir sunucuda kullanabilir miyim?**C:** Evet! CLI tamamen başsız çalışır. Bu, Linux&#x27;teki başlıca kullanım senaryosudur.**Windows Sunucusu:**
+* Windows Sunucusu 2016 veya üstü
+* Visual C++ Yeniden Dağıtılabilir Paketi yüklü
 
-* Windows Server 2016 veya üstü
-* Visual C++ Redistributable yüklü
-* Yeterli RAM (minimum 8 GB, önerilen 16 GB)
-* Herhangi bir makinede tek seferlik GUI lisans aktivasyonu
+**Linux Sunucusu:**
+* Ubuntu 20.04+ / Debian 11+ (amd64) veya JetPack 6 (arm64)
+* `.deb` paketi ile yükleyin
+
+**Her iki platform:**
+* En az 8 GB RAM (16 GB önerilir)
+* Tek seferlik lisans etkinleştirme: `chloros-cli login user@example.com 'password'`
 
 ***
 
-### S: İşlenen görüntüler nereye kaydedilir?**C:**Varsayılan olarak, işlenen görüntüler kamera modeli alt klasörlerinde (ör. `Survey3N_RGN/`)**girişle aynı klasöre** kaydedilir.
+### S: İşlenmiş görüntüler nereye kaydedilir?**C:**Varsayılan olarak, işlenmiş görüntüler**girişle aynı klasöre** kamera modeli alt klasörlerinde (ör. `Survey3N_RGN/`) kaydedilir.
 
 Farklı bir çıktı klasörü belirtmek için `-o` seçeneğini kullanın:
 
-```powershell
+```bash
+# Windows
 chloros-cli process "C:\Input" -o "D:\Output"
+
+# Linux
+chloros-cli process ~/input -o ~/output
 ```
 
 ***
 
-### S: Birden fazla klasörü aynı anda işleyebilir miyim?**C:** Tek bir komutla doğrudan yapamazsınız, ancak komut dosyası kullanarak klasörleri sırayla işleyebilirsiniz. [Otomasyon ve Komut Dosyası](CLI.md#automation--scripting) bölümüne bakın.***
+### S: Birden fazla klasörü aynı anda işleyebilir miyim?**A:** Tek bir komutla doğrudan değil, ancak komut dosyası kullanarak klasörleri sırayla işleyebilirsiniz. [Otomasyon ve Komut Dosyası](CLI.md#automation--scripting) bölümüne bakın.***
 
-### S: CLI çıktısını bir günlük dosyasına nasıl kaydedebilirim?**PowerShell:**
+### S: CLI çıktısını bir günlük dosyasına nasıl kaydederim?**PowerShell:**
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" | Tee-Object -FilePath "processing.log"
 ```
 
-**Toplu iş:**
+**Toplu İş:**
 
 ```batch
 chloros-cli process "C:\Datasets\Field_A" > processing.log 2>&1
 ```
 
+**Linux Bash:**
+
+```bash
+chloros-cli process ~/datasets/field_a 2>&1 | tee processing.log
+```
+
 ***
 
-### S: İşlem sırasında Ctrl+C tuşlarına basarsam ne olur?**C:** CLI şunları yapar:
+### S: İşlem sırasında Ctrl+C tuşlarına basarsam ne olur?**C:** CLI şu işlemleri gerçekleştirir:
 
-1. İşleme düzgün bir şekilde son verir
+1. İşlemeyi düzgün bir şekilde durdurur
 2. Arka ucu kapatır
 3. 130 koduyla çıkar
 
@@ -788,11 +1010,11 @@ Kısmen işlenmiş görüntüler çıktı klasöründe kalabilir.
 
 ***
 
-### S: CLI işlemesini otomatikleştirebilir miyim?**C:** Elbette! CLI otomasyon için tasarlanmıştır. PowerShell, Batch ve Python örnekleri için [Otomasyon ve Komut Dosyası Oluşturma](CLI.md#automation--scripting) bölümüne bakın.***
+### S: CLI işlemeyi otomatikleştirebilir miyim?**C:** Elbette! CLI otomasyon için tasarlanmıştır. PowerShell (Windows), Batch (Windows), Bash (Linux) ve Python (çapraz platform) örnekleri için [Otomasyon ve Komut Dosyası Oluşturma](CLI.md#automation--scripting) bölümüne bakın.***
 
 ### S: CLI sürümünü nasıl kontrol edebilirim?**C:**
 
-```powershell
+```bash
 chloros-cli --version
 ```
 
@@ -800,7 +1022,7 @@ chloros-cli --version
 
 ```
 
-Chloros CLI 1.0.2
+Chloros CLI 1.1.0
 ```
 
 ***
@@ -809,9 +1031,9 @@ Chloros CLI 1.0.2
 
 ### Komut Satırı Yardımı
 
-Yardım bilgilerini doğrudan CLI&#x27;te görüntüleyin:
+Yardım bilgilerini doğrudan CLI içinde görüntüleyin:
 
-```powershell
+```bash
 # General help
 chloros-cli --help
 
@@ -831,17 +1053,27 @@ chloros-cli language --help
 
 ### Örnek 1: Temel İşleme
 
-Varsayılan ayarlarla işleme (vinyet, yansıtma):
+Varsayılan ayarlarla işleme (vinyet, yansıma):
+
+**Windows:**
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A_2025_01_15"
+```
+
+**Linux:**
+
+```bash
+chloros-cli process ~/datasets/field_a_2025_01_15
 ```
 
 ***
 
 ### Örnek 2: Yüksek Kaliteli Bilimsel Çıktı
 
-32 bit float TIFF:
+32 bit kayan nokta TIFF:
+
+**Windows:**
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" ^
@@ -850,11 +1082,22 @@ chloros-cli process "C:\Datasets\Field_A" ^
   --reflectance
 ```
 
+**Linux:**
+
+```bash
+chloros-cli process ~/datasets/field_a \
+  --format "TIFF (32-bit, Percent)" \
+  --vignette \
+  --reflectance
+```
+
 ***
 
-### Örnek 3: Hızlı Önizleme İşleme
+### Örnek 3: Hızlı Önizleme İşlemesi
 
-Hızlı inceleme için kalibrasyon olmadan 8 bit PNG:
+Hızlı inceleme için kalibrasyonsuz 8 bit PNG:
+
+**Windows:**
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" ^
@@ -863,11 +1106,22 @@ chloros-cli process "C:\Datasets\Field_A" ^
   --no-reflectance
 ```
 
+**Linux:**
+
+```bash
+chloros-cli process ~/datasets/field_a \
+  --format "PNG (8-bit)" \
+  --no-vignette \
+  --no-reflectance
+```
+
 ***
 
 ### Örnek 4: PPK Düzeltmeli İşleme
 
-Yansıtma ile PPK düzeltmeleri uygulayın:
+Yansıma ile PPK düzeltmeleri uygulayın:
+
+**Windows:**
 
 ```powershell
 chloros-cli process "C:\Datasets\Field_A" ^
@@ -875,11 +1129,21 @@ chloros-cli process "C:\Datasets\Field_A" ^
   --reflectance
 ```
 
+**Linux:**
+
+```bash
+chloros-cli process ~/datasets/field_a \
+  --ppk \
+  --reflectance
+```
+
 ***
 
 ### Örnek 5: Özel Çıktı Konumu
 
-Belirli bir formatla farklı sürücüye işleme:
+Belirli bir formatla farklı bir konuma işleyin:
+
+**Windows:**
 
 ```powershell
 chloros-cli process "C:\Input\Raw_Images" ^
@@ -887,13 +1151,21 @@ chloros-cli process "C:\Input\Raw_Images" ^
   --format "TIFF (16-bit)"
 ```
 
+**Linux:**
+
+```bash
+chloros-cli process ~/input/raw_images \
+  -o ~/output/processed \
+  --format "TIFF (16-bit)"
+```
+
 ***
 
 ### Örnek 6: Kimlik Doğrulama İş Akışı
 
-Kimlik doğrulama akışını tamamlayın:
+Kimlik doğrulama akışını tamamlayın (tüm platformlarda aynıdır):
 
-```powershell
+```bash
 # Step 1: Login
 chloros-cli login user@example.com 'MyP@ssw0rd'
 
@@ -901,7 +1173,9 @@ chloros-cli login user@example.com 'MyP@ssw0rd'
 chloros-cli status
 
 # Step 3: Process images
-chloros-cli process "C:\Datasets\Field_A"
+# Windows: chloros-cli process "C:\Datasets\Field_A"
+# Linux:   chloros-cli process ~/datasets/field_a
+chloros-cli process ~/datasets/field_a
 
 # Step 4: Logout (optional, when switching accounts)
 chloros-cli logout
@@ -909,11 +1183,11 @@ chloros-cli logout
 
 ***
 
-### Örnek 7: Çok Dilli Kullanım
+### Örnek 7: Çoklu Dil Kullanımı
 
-Arayüz dilini değiştirin:
+Arayüz dilini değiştirin (tüm platformlarda aynıdır):
 
-```powershell
+```bash
 # List available languages
 chloros-cli language --list
 
@@ -921,7 +1195,9 @@ chloros-cli language --list
 chloros-cli language es
 
 # Process with Spanish interface
-chloros-cli process "C:\Vuelos\Campo_A"
+# Windows: chloros-cli process "C:\Vuelos\Campo_A"
+# Linux:   chloros-cli process ~/vuelos/campo_a
+chloros-cli process ~/vuelos/campo_a
 
 # Change back to English
 chloros-cli language en

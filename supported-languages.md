@@ -1,12 +1,12 @@
 # Desteklenen Diller
 
-Chloros, **dünya çapında 38 dilde** tam arayüz desteği sunarak, dünyanın her yerindeki kullanıcıların erişimine açıktır. Tüm arayüzlerde anında dil değiştirebilirsiniz: Masaüstü, Tarayıcı, CLI ve Python SDK.
+Chloros, **dünya çapında 38 dilde** tam arayüz desteği sunarak, dünyanın her yerindeki kullanıcıların erişimine açık hale getirir. Tüm arayüzlerde (Masaüstü, Tarayıcı, CLI ve Python SDK) dilleri anında değiştirebilirsiniz.
 
 Chloros aşağıdaki dilleri destekler:
 
-| # | Dil | Yerel Ad | CLI Kodu |
+| # | Dil | Yerel Adı | CLI Kodu |
 |---|----------|-------------|----------|
-| 1 | 🇺🇸 İngilizce | İngilizce | `en` |
+| 1 | 🇺🇸 İngilizce | English | `en` |
 | 2 | 🇪🇸 İspanyolca | Español | `es` |
 | 3 | 🇵🇹 Portekizce | Português | `pt` |
 | 4 | 🇫🇷 Fransızca | Français | `fr` |
@@ -22,8 +22,8 @@ Chloros aşağıdaki dilleri destekler:
 | 14 | 🇵🇱 Lehçe | Polski | `pl` |
 | 15 | 🇹🇷 Türkçe | Türkçe | `tr` |
 | 16 | 🇮🇳 Hintçe | हिंदी | `hi` |
-| 17 | 🇮🇩 Endonezya | Bahasa Indonesia | `id` |
-| 18 | 🇻🇳 Vietnam | Tiếng Việt | `vi` |
+| 17 | 🇮🇩 Endonezyaca | Bahasa Indonesia | `id` |
+| 18 | 🇻🇳 Vietnamca | Tiếng Việt | `vi` |
 | 19 | 🇹🇭 Tayca | ไทย | `th` |
 | 20 | 🇸🇪 İsveççe | Svenska | `sv` |
 | 21 | 🇩🇰 Danca | Dansk | `da` |
@@ -40,8 +40,8 @@ Chloros aşağıdaki dilleri destekler:
 | 32 | 🇸🇰 Slovakça | Slovenčina | `sk` |
 | 33 | 🇧🇬 Bulgarca | Български | `bg` |
 | 34 | 🇭🇷 Hırvatça | Hrvatski | `hr` |
-| 35 | 🇱🇹 Litvanya | Lietuvių | `lt` |
-| 36 | 🇱🇻 Letonya | Latviešu | `lv` |
+| 35 | 🇱🇹 Litvanyaca | Lietuvių | `lt` |
+| 36 | 🇱🇻 Letonca | Latviešu | `lv` |
 | 37 | 🇪🇪 Estonca | Eesti | `et` |
 | 38 | 🇸🇮 Slovence | Slovenščina | `sl` |
 
@@ -49,12 +49,12 @@ Chloros aşağıdaki dilleri destekler:
 
 ### Chloros Masaüstü/Tarayıcı&#x27;da
 
-1. Uygulama ayarlarını açın.
-2. Dil seçim menüsüne gidin.
-3. Listeden tercih ettiğiniz dili seçin.
-4. Arayüz anında güncellenecektir.
+1. Uygulama ayarlarını açın
+2. Dil seçimi menüsüne gidin
+3. Listeden tercih ettiğiniz dili seçin
+4. Arayüz anında güncellenecektir
 
-### Chloros CLI&#x27;da
+### Chloros CLI
 
 `language` komutunu kullanarak CLI arayüz dilini görüntüleyin veya değiştirin:
 
@@ -79,7 +79,7 @@ Daha fazla ayrıntı için [CLI belgelerine](CLI.md) bakın.
 
 ### Chloros Python SDK
 
-SDK&#x27;i başlatırken dil parametresini ayarlayarak mesajları ve çıktıları tercih ettiğiniz dilde alabilirsiniz.
+Mesajları ve çıktıları tercih ettiğiniz dilde almak için SDK&#x27;i başlatırken dil parametresini ayarlayın.
 
 ## Kapsam
 
@@ -90,4 +90,4 @@ SDK&#x27;i başlatırken dil parametresini ayarlayarak mesajları ve çıktılar
 * **Chloros CLI** - Komut satırı arayüzü ve çıktı mesajları
 * **Chloros Python SDK** - API mesajları ve belgeler
 
-Dil desteği, dünya çapındaki kullanıcıların kendi ana dillerinde engelsiz ve verimli bir şekilde çalışabilmelerini sağlar.
+Dil desteği, dünya çapındaki kullanıcıların engel olmadan kendi ana dillerinde verimli bir şekilde çalışabilmelerini sağlar.

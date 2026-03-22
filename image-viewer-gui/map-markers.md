@@ -1,64 +1,66 @@
-# Harita İşaretleyicileri
+# Harita İşaretçileri
 
-Harita sekmesi, görüntülerinizi GPS koordinatlarına göre etkileşimli bir 2D harita üzerinde görüntüler. Bu, çekim oturumunuzun coğrafi bir özetini sunar ve uzamsal kapsamı görselleştirmenize yardımcı olur. Ayrıca, görüntülerinizi ilk kez içe aktarırken, işlemek istemediğiniz görüntüleri hızlı bir şekilde kaldırmak için de kullanışlıdır.
+Harita sekmesi, görüntülerinizi GPS koordinatlarına göre etkileşimli bir 2D harita üzerinde gösterir. Bu, çekim oturumunuzun coğrafi bir genel görünümünü sunar ve alan kapsamını görselleştirmenize yardımcı olur. Ayrıca, görüntülerinizi ilk kez içe aktarırken, işlenmesine gerek olmayan görüntüleri hızlı bir şekilde ayıklamak için de kullanışlıdır.
 
 <figure><img src="../.gitbook/assets/chloros_map_markers.gif" alt=""><figcaption></figcaption></figure>
 
 ## Harita Sekmesine Erişme
 
-1. Chloros&#x27;te bir proje açın veya oluşturun.
-2. GPS meta verileri içeren görüntüleri içe aktarın.
+1. Chloros&#x27;te bir proje açın veya oluşturun
+2. GPS meta verileri içeren görüntüleri içe aktarın
 3. Sol kenar çubuğundaki **Harita** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> sekmesine tıklayın
-4. Harita, her görüntünün GPS konumunda işaretler gösterecektir
+4. Harita, her görüntünün GPS konumunda işaretçiler gösterecektir
 
 {% hint style="info" %}
-**GPS Gerekli**: Yalnızca EXIF meta verilerinde gömülü GPS koordinatları bulunan görüntüler haritada görünecektir. Çekim sırasında kameranızın GPS özelliğinin etkin olduğundan emin olun.
+**GPS Gerekli**: Yalnızca EXIF meta verilerinde gömülü GPS koordinatları bulunan görüntüler haritada görünecektir. Çekim sırasında kameranızda GPS&#x27;in etkinleştirildiğinden emin olun.
 {% endhint %}
 
 ***
 
-## Harita Sekmesinden Görüntüleri Ayarlama**Harita** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> sekmesi, ekleme  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  ve kaldırma  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  dosya düğmelerine sahiptir. Ayrıca, aynı proje dosyası tablo listesini gösterir, ancak sütun başlıkları farklıdır: <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> sekmesi ile aynı dosya ekleme
-
-ve
-
-dosya kaldırma
-
-düğmelerine sahiptir. Ayrıca, aynı proje dosyası tablo listesini gösterir, ancak sütun başlıkları farklıdır:
+## Harita Sekmesinden Görüntüleri Ayarlama**Harita** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> sekmesinde de aynı ekle  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  ve kaldırma  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  düğmelerine sahiptir. Ayrıca aynı proje dosyası tablosu listesini gösterir, ancak sütun başlıkları farklıdır:  ### Dosya Adı  * Kameradan alınan orijinal dosya adı * Kamera adlandırma kuralını korur (ör. IMG\_000001XPROTX) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> sekmesindekilerle aynıdır. Ayrıca aynı proje dosyası tablosu listesini gösterir, ancak sütun başlıkları farklıdır:
 
 ### Dosya Adı
 
 * Kameradan alınan orijinal dosya adı
-* Kameranın adlandırma kuralını korur (ör. IMG\_0001.RAW)
+* Kamera adlandırma kuralını korur (ör. IMG\_0001.RAW)
 
-### Rakım
+### Enlem
 
-* Görüntünün rakımı
+* Görüntünün enlemi
+
+### Boylam
+
+* Görüntünün boylamı
+
+### Yükseklik
+
+* Görüntünün yüksekliği
 
 {% hint style="info" %}
-Tablo sütun başlıklarına tıklandığında satır verileri de sıralanır.
+Tablo sütun başlıklarına tıklamak, satır verilerini de sıralar
 {% endhint %}
 
 ***
 
-## Görüntü İşaretleyicileri
+## Görüntü İşaretçileri
 
-GPS verileri olan her görüntü, haritada bir işaretleyici ile gösterilir:
+GPS verisi olan her görüntü, harita üzerinde bir işaretçi ile gösterilir:
 
-### İşaretleyici Görüntüleme
+### İşaretçi Görüntüleme
 
-* İşaretçiler, her görüntünün çekildiği tam GPS koordinatlarını gösterir.
-* Küme halinde işaretçiler, uzaklaştırıldığında bir araya toplanabilir.
-* Bireysel görüntü konumlarını görmek için yakınlaştırın.
+* İşaretçiler, her görüntünün çekildiği tam GPS koordinatlarını gösterir
+* Yakınlaştırma azaltıldığında, kümelenmiş işaretçiler bir araya gelebilir
+* Tek tek görüntü konumlarını görmek için yakınlaştırın
 
 {% hint style="success" %}
-SÜPER YAKINLAŞTIRMA: Harita döşeme sağlayıcısından maksimum yakınlaştırma düzeyine ulaştığınızda, döşeme daha fazla yakınlaştırıldığında büyütülür ve birbirine yakın işaretçileri görebilirsiniz.
+SÜPER YAKINLAŞTIRMA: Harita döşeme sağlayıcısından maksimum yakınlaştırma düzeyine ulaştığınızda, döşeme daha da yakınlaştırıldığında büyütülür ve birbirine yakın işaretçileri görmenizi sağlar.
 {% endhint %}
 
 ### Fareyle Üzerine Gelme Önizlemesi
 
-* **Farenizi herhangi bir işaretin üzerine getirin**, o görüntünün küçük bir önizlemesini görmek için.
-* Bu, harita görünümünden ayrılmadan hızlı görsel tanımlama sağlar.
-* Büyük bir çekim oturumu içinde belirli görüntüleri bulmak için kullanışlıdır.
+* Herhangi bir işaretçinin üzerine **fareyi getirin**, o görüntünün küçük resim önizlemesini görmek için
+* Bu, harita görünümünden ayrılmadan hızlı görsel tanımlama sağlar
+* Büyük bir çekim oturumu içinde belirli görüntüleri bulmak için kullanışlıdır
 
 ***
 
@@ -73,87 +75,87 @@ Harita sekmesi, arka plan harita görüntüleri için iki döşeme sağlayıcıs
 ### Google Haritalar
 
 * Google&#x27;dan standart uydu ve harita görüntüleri
-* Genel dünya kapsamı için en iyisi
+* Genel olarak dünya çapında kapsama için en iyisi
 
 ### ESRI
 
 * ESRI ArcGIS&#x27;ten uydu ve hava görüntüleri
-* Genellikle belirli bölgelerde daha yüksek çözünürlüklü görüntüler sağlar
+* Belirli bölgelerde genellikle daha yüksek çözünürlüklü görüntüler sağlar
 
 ***
 
 ## Harita Döşeme Türleri
 
-Harita katmanı türünü (soldan sağa) seçebilirsiniz:
+Harita katmanı türünü (soldan sağa doğru) seçebilirsiniz:
 
  <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Arazi
 
-Yükseklik profillerini ve ayrıntıları (yollar vb.) içeren harita döşemelerini gösterir.
+Yükseklik profillerini ve ayrıntıları (yollar vb.) içeren harita döşemelerini gösterir
 
 ### Harita
 
-Ayrıntıları (yollar vb.) içeren standart (daha düşük bant genişliği) harita döşemelerini gösterir.
+Ayrıntıları (yollar vb.) içeren standart (düşük bant genişliği) harita döşemelerini gösterir
 
 ### Uydu
 
-Ayrıntılı (daha yüksek bant genişliği) uydu harita döşemelerini gösterir.
+Ayrıntılı (yüksek bant genişliği) uydu harita döşemelerini gösterir
 
 ### Hibrit
 
-Ek ayrıntılar (yollar vb.) içeren uydu harita döşemelerini gösterir.
+Ek ayrıntılar (yollar vb.) içeren uydu harita döşemelerini gösterir
 
 ***
 
 ## Harita Gezinme
 
-### Yakınlaştırma Denetimleri
+### Yakınlaştırma/Uzaklaştırma Kontrolleri
 
-* **Yakınlaştırma/Uzaklaştırma**: Fare kaydırma tekerleğini veya yakınlaştırma düğmelerini kullanın.
-* **Tam Ekran**: Haritayı tam ekrana getirin.
+* **Yakınlaştırma/Uzaklaştırma**: Fare tekerleğini veya yakınlaştırma düğmelerini kullanın
+* **Tam Ekran**: Haritayı tam ekrana alın
 
-### Kaydırma Denetimleri
+### Kaydırma Kontrolleri
 
-* **Kaydırma**: Harita üzerinde hareket etmek için tıklayın ve sürükleyin.***
+* **Kaydırma**: Tıklayıp sürükleyerek harita üzerinde hareket edin***
 
 ## Kullanım Örnekleri
 
-### Uçuş Rotası Görselleştirme
+### Uçuş Yolu Görselleştirme
 
 * Drone çekim oturumlarının kapsama alanını görüntüleyin
 * Görüntü kapsamındaki boşlukları belirleyin
-* Uçuş rotasının uygulanmasını doğrulayın
+* Uçuş yolunun uygulanmasını doğrulayın
 
-### Yer Ölçümü İncelemesi
+### Yer Etüdü İncelemesi
 
 * Yer tabanlı çekimlerin uzamsal dağılımını görün
-* Ölçüm alanına göre kalibrasyon hedef görüntülerini bulun
+* Etüt alanına göre kalibrasyon hedef görüntülerini bulun
 * Ek çekim konumları planlayın
 
 ### Kalite Kontrol
 
-* Beklenmedik konumlarda çekilen görüntüleri hızlıca belirleyin
-* Veri seti genelinde GPS doğruluğunu doğrulayın
-* Görüntü konumlarını saha notlarıyla çapraz referanslayın
+* Beklenmedik konumlarda çekilen görüntüleri hızla belirleyin
+* Veri kümesi genelinde GPS doğruluğunu doğrulayın
+* Görüntü konumlarını saha notlarıyla karşılaştırın
 
 ***
 
 ## Sorun Giderme
 
-### İşaretler Görünmüyor
+### İşaretçiler Görünmüyor
 
 **Olası nedenler:**
 
-* Görüntüler GPS meta verileri içermiyor
-* Çekim sırasında kamerada GPS devre dışı bırakılmış
-* EXIF verileri harici yazılım tarafından silinmiş
+* Görüntüler GPS meta verilerini içermiyor
+* Çekim sırasında kamerada GPS devre dışı bırakılmıştı
+* EXIF verileri harici bir yazılım tarafından silinmiş
 
-**Çözüm**: Kameranızda GPS&#x27;in etkinleştirildiğini doğrulayın ve orijinal dosyaları yeniden içe aktarın.
+**Çözüm**: Kameranızda GPS&#x27;in etkinleştirildiğini doğrulayın ve orijinal dosyaları yeniden içe aktarın
 
-### İşaretler Yanlış Konumda
+### İşaretçiler Yanlış Konumda
 
 **Olası nedenler:**
 
-* Kamera GPS&#x27;inin uydu sabitlemesi zayıftı.
-* Çekim sırasında GPS sapması oldu.
+* Kamera GPS&#x27;inin uydu sinyali zayıftı
+* Çekim sırasında GPS sapması yaşandı
 
-**Çözüm**: Bu genellikle çekim zamanı ile ilgili bir sorundur; hassas uygulamalar için PPK/RTK GPS kullanmayı düşünün.
+**Çözüm**: Bu genellikle çekim zamanıyla ilgili bir sorundur; hassas uygulamalar için PPK/RTK GPS kullanmayı düşünün
