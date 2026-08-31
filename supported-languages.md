@@ -1,6 +1,6 @@
 # Desteklenen Diller
 
-Chloros, **dünya çapında 38 dilde** tam arayüz desteği sunarak, dünyanın her yerindeki kullanıcıların erişimine açık hale getirir. Tüm arayüzlerde (Masaüstü, Tarayıcı, CLI ve Python SDK) dilleri anında değiştirebilirsiniz.
+Chloros, **dünya çapında 38 dilde** tam arayüz desteği sunarak dünyanın her yerinden kullanıcıların erişimine açık hale getirir. Hem Masaüstü GUI’sinde hem de CLI’te dilleri anında değiştirebilirsiniz.
 
 Chloros aşağıdaki dilleri destekler:
 
@@ -40,21 +40,21 @@ Chloros aşağıdaki dilleri destekler:
 | 32 | 🇸🇰 Slovakça | Slovenčina | `sk` |
 | 33 | 🇧🇬 Bulgarca | Български | `bg` |
 | 34 | 🇭🇷 Hırvatça | Hrvatski | `hr` |
-| 35 | 🇱🇹 Litvanyaca | Lietuvių | `lt` |
+| 35 | 🇱🇹 Litvanca | Lietuvių | `lt` |
 | 36 | 🇱🇻 Letonca | Latviešu | `lv` |
 | 37 | 🇪🇪 Estonca | Eesti | `et` |
 | 38 | 🇸🇮 Slovence | Slovenščina | `sl` |
 
 ## Dil Nasıl Değiştirilir
 
-### Chloros Masaüstü/Tarayıcı&#x27;da
+### Chloros Masaüstü Uygulamasında
 
 1. Uygulama ayarlarını açın
 2. Dil seçimi menüsüne gidin
 3. Listeden tercih ettiğiniz dili seçin
 4. Arayüz anında güncellenecektir
 
-### Chloros CLI
+### Chloros ve CLI&#x27;te
 
 `language` komutunu kullanarak CLI arayüz dilini görüntüleyin veya değiştirin:
 
@@ -77,17 +77,13 @@ chloros-cli language --list
 
 Daha fazla ayrıntı için [CLI belgelerine](CLI.md) bakın.
 
-### Chloros Python SDK
-
-Mesajları ve çıktıları tercih ettiğiniz dilde almak için SDK&#x27;i başlatırken dil parametresini ayarlayın.
-
 ## Kapsam
 
-38 dilin tamamı aşağıdakilerde tam olarak desteklenmektedir:
+38 dilin tamamı aşağıdaki ortamlarda tam olarak desteklenmektedir:
 
 * **Chloros Masaüstü** - Tam GUI çevirisi
-* **Chloros Tarayıcı** - Tüm dillerde web arayüzü
 * **Chloros CLI** - Komut satırı arayüzü ve çıktı mesajları
-* **Chloros Python SDK** - API mesajları ve belgeler
+
+Python, SDK, API ve [referans belgeleri](reference/sdk-reference.md) İngilizce olarak sunulmaktadır.
 
 Dil desteği, dünya çapındaki kullanıcıların engel olmadan kendi ana dillerinde verimli bir şekilde çalışabilmelerini sağlar.

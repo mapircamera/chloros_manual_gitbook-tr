@@ -1,369 +1,292 @@
 # İndeks/LUT Sandbox
 
-İndeks/LUT Sandbox, Chloros Görüntü Görüntüleyicisi içinde yer alan ve çok spektral indeks hesaplamaları ile renk görselleştirmelerini gerçek zamanlı olarak denemenize olanak tanıyan etkileşimli bir çalışma alanıdır. Bu güçlü araç, tüm veri kümenizi yeniden işlemeye gerek kalmadan farklı indeksleri test etmenize, değer aralıklarını daraltmanıza ve yayına hazır görselleştirmeler oluşturmanıza yardımcı olur.
+İndeks/LUT Sandbox, Chloros Görüntü Görüntüleyici’nin kenar çubuğunda yer alan etkileşimli çalışma alanıdır. Bir formül seçin, kameranızın kanallarını bu formüle bağlayın, bir degrade ile renklendirin ve değer aralığını ayarlayın — siz bunları yaparken görüntü anında güncellenir. 1.2.0 sürümünden itibaren, yeniden işleme gerek kalmadan tek bir görüntü veya tüm proje için **oluşturduğunuz içeriği kaydedebilirsiniz**.
 
-## İndeks/LUT Sandbox nedir?
+## Sandbox&#x27;ın Amacı
 
-### Amaç
-
-Sandbox şunları sağlar:
-
-* **Gerçek zamanlı indeks hesaplama** - Herhangi bir bitki örtüsü indeksini anında uygulayın
-* **Etkileşimli LUT ayarı** - Renk gradyanlarını ve aralıklarını ince ayarlayın
-* **İş akışı optimizasyonu** - Toplu işleme öncesinde en iyi ayarları belirleyin
-
-### Sandbox ve Proje İşleme Karşılaştırması
-
-**Endeks/LUT Sandbox (Etkileşimli):**
-
-* Her seferinde tek bir görüntü
-* Anında geri bildirim
-* Deneysel ve yinelemeli
-* Dosyalarda kalıcı değişiklik yok
-* Keşfetme ve test etme için mükemmel
-
-**Proje İşleme (Toplu):**
-
-* Tüm veri kümesi tek seferde
-* Önceden yapılandırılmış ayarlar
-* Kalıcı çıktı dosyaları
-* Zaman alıcı
-* Ayarlar kesinleştiğinde en iyi sonuç verir
+| Index/LUT Sandbox (etkileşimli)        | Proje İşleme (toplu)       |
+| -------------------------------------- | -------------------------------- |
+| Her seferinde tek bir görüntü, anında geri bildirim  | Tek seferde tüm veri kümesi     |
+| Deneysel ve yinelemeli             | Önceden yapılandırılmış ayarlar          |
+| Canlı olarak işler; yalnızca siz istediğinizde kaydeder  | Her zaman çıktı dosyalarını yazar      |
+| Doğru ayarları bulmak için mükemmel | Ayarlar kesinleştiğinde en iyi sonuç |
 
 {% hint style="success" %}
-**En İyi İş Akışı**: Sandbox&#x27;ı kullanarak denemeler yapın ve en uygun indeks ve LUT ayarlarını bulun, ardından bu ayarları tüm veri kümeniz için Proje İşleme sırasında uygulayın.
+**Alışılmış iş akışı**: Görselleştirme istediğiniz sonucu verene kadar Sandbox’ta ayarlamalar yapın, ardından ya doğrudan Sandbox’tan dışa aktarın ya da aynı indeks ve LUT ayarlarını [Proje Ayarları](../project-settings/project-settings.md) bölümüne kopyalayın; böylece bir sonraki işleme çalışmasında bu ayarlar her görüntüye uygulanır.
 {% endhint %}
 
 ***
 
-## Dizin/LUT Sandbox ile Çalışma
+## Sandbox&#x27;ı açma
 
-### Önceden Hesaplanmış Dizinleri Anlama
+1. Izgaradaki bir görüntüye tıklayın — görüntü, **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesinde tam ekran olarak açılır
+2. Henüz açık değilse, **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> simgesine tıklayarak sol kenar çubuğunu açın
+3. Sağ üstteki katman açılır menüsünden çok bantlı bir katman seçin — **RAW (Yansıma)** genellikle tercih edilen seçenektir, çünkü kalibre edilmiş yansıma değerleri üzerinden hesaplanan indeks değerleri görüntüler arasında karşılaştırılabilir
 
-Chloros&#x27;te, dizinler proje işleme sırasında uygulanabilir. Dışa aktarmalara hangi dizin ve LUT ayarlarını uygulamak istediğinizi belirlemek için en kolay yol, görüntü görüntüleyici sandbox&#x27;ını kullanmaktır.
+Kenar çubuğunda yukarıdan aşağıya doğru şunlar gösterilir:
 
-Sandbox size şunları yapma imkanı sunar:
+* görüntü adı ve kamera modeli
+* **Görüntüleri Dışa Aktar/Kaydet**düğmesi —**Endeks**veya**LUT** seçeneği işaretlendiğinde görünür
+* **Endeks**ve**LUT** onay kutuları
+* indeks yapılandırma paneli
+* okuma, histogram ve GSD kontrolünü içeren **İmleç Değerleri** paneli
 
-* Verileri görselleştirmek için **yeni indeks ve renk gradyanları (LUT&#x27;lar)** uygulayın
-* Görselleştirme ayarlarını etkileşimli olarak **ayarlayın*** Önceden hesaplanmış indeks görüntülerini **görüntüleyin*** Tüm yakınlaştırma düzeylerinde piksel değerlerini **inceleyin**
+{% hint style="warning" %}
+**Mono kameralar için kullanılamaz.** Tek bantlı bir LATTICE M3M görüntüsünde her iki onay kutusu da devre dışıdır ve araç ipucu olarak _&quot;Mono (M3M) sensörler için kullanılamaz&quot;_ mesajı görüntülenir — tek bir bantta çok bantlı bir indeks tanımlanamaz. M3M kameralardan indeks hesaplamak için, iki veya daha fazla görüntüyü hizalanmış çok bantlı bir yığın halinde birleştirin ve LATTICE indeks motorunu kullanın.
+{% endhint %}
 
-### Sandbox&#x27;ı Açma
+***
 
-İndeks/LUT Sandbox&#x27;a **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> kenar çubuğu sekmesinden erişilir:
+## İndeks uygulama
 
-1. Dosya tarayıcısındaki görüntü ızgarasından bir görüntüye tıklayın; görüntü **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesinde açılır
-2. **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesine tıklayın
+1. Kenar çubuğunun üst kısmındaki **İndeks** kutucuğunu işaretleyin
+2. Soldaki açılır menüden kameranızın filtresini seçin (`RGN`, `OCN`, `NGB`, `RGB`, `RE`, `NIR`)
+3. Sağdaki açılır menüden bir indeks formülü seçin — 27 adet yerleşik formülün yanı sıra kaydettiğiniz özel formüller de mevcuttur
+4. Formül, her bant yuvasında boş bir daire ile birlikte aşağıdaki gibi matematiksel olarak görüntülenir. **Renkli bir kanal dairesini bir yuvaya sürükleyerek** onu bağlayın
+5. Formülün kullandığı tüm yuvalar bağlandığında, görüntü güncellenir ve indeks değerlerini gösterir
+6. Değerleri okumak için imleci görüntünün üzerine getirin; **İmleç Değerleri** paneli, imlecin altındaki değeri içeren bir indeks satırı ekler
 
-### İndeks/LUT Uygulanacak Görüntüyü Seçme
+Bağlanmış bir yuvayı silmek için üzerine çift tıklayın. Tamamlanmamış bir formül, bir hata değil, sürükleme işleminin normal bir aşamasıdır — formül tamamlanana kadar görüntü güncellenmez.
 
-Görüntü Görüntüleyicisi <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sandbox&#x27;ta çalışmak için:
+Kanal daireleri renk kodludur: kırmızı = Red, yeşil = Green, mavi = Blue, turuncu = Orange, camgöbeği = Cyan, mor = NIR, macenta = RE. Aynı renkler, İmleç Değerleri panelindeki kanal noktaları ve histogram eğrileri için de kullanılır.
 
-1. Ana görüntü ızgarasından bir **görüntüyü** tıklayarak açın
-2. Ardından **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesi açılır
-3. **Katman açılır menüsüne** (görüntüleyicinin sağ üst köşesi) tıklayın
-4. Açılır menüden katmanı seçin:
-   * RAW (Yansıma)
-
-### Bir Görüntüye İndeks Uygulama
-
-Görüntü tam ekran olduğunda ve **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesinin kenar çubuğu açıldığında:
-
-1. Kenar çubuğunun üst kısmındaki Dizin kutusunu işaretleyin
-2. Soldaki açılır menüden kameranızın filtresini seçin
-3. Sağdaki açılır menüden istediğiniz dizin formülünü seçin
-4. Filtre kanalı renk dairelerini aşağıdaki dizin formülündeki konumlara sürükleyin
-5. Formül geçerli olduğunda görüntü güncellenecek ve dizin değerlerini gösterecektir
-6. Fare imlecini hareket ettirerek imlecin bulunduğu konumdaki değerleri görün
-7. Tek tek pikselleri ve bunlara ait değerleri görmek için yakınlaştırın
-
-Her indeksin belirli bir değer aralığı ve anlamı vardır:
-
-#### NDVI Örneği
+### NDVI örneği
 
 ```
 
 Formula: (NIR - Red) / (NIR + Red)
 
-For Survey3W RGN camera:
-NIR = 850nm band
-Red = 661nm band
+For a Survey3W RGN camera:
+  NIR = 850 nm band
+  Red = 661 nm band
 
-Result range: -1.0 to +1.0
-Typical vegetation: 0.4 to 0.9
-Stressed vegetation: 0.2 to 0.4
-Bare soil: 0.0 to 0.2
-Water: -0.1 to 0.1
+Result range:          -1.0 to +1.0
+Typical vegetation:     0.4 to 0.9
+Stressed vegetation:    0.2 to 0.4
+Bare soil:              0.0 to 0.2
+Water:                 -0.1 to 0.1
 ```
 
-İndeks formülleri ile ilgili eksiksiz belgeler için bkz. [Multispektral İndeks Formülleri](../project-settings/multispectral-index-formulas.md).
+Tam formül referansı için — üç ön ayar listesinin tümü ve hangi isimlerin nerede çalıştığı — bkz. [Multispektral İndeks Formülleri](../project-settings/multispectral-index-formulas.md).
 
-***
+### İndeks işaretli ancak LUT yok
+
+Görüntü, iki eşik değeri arasında uzatılmış olarak **gri tonlamalı** olarak çizilir. Bu kasıtlıdır: indeks görüntüsü skaler veridir ve gri tonlamalı görüntü, bunun en doğru şekilde işlenmiş halidir. Renk istiyorsanız bir LUT ekleyin.***
 
 ## LUT&#x27;larla (Arama Tabloları) Çalışma
 
-### LUT nedir?
+Bir **Arama Tablosu**, indeks değerlerini renklere eşler: NDVI 0,65 girdiğinde, belirli bir yeşil renk çıktısı verir. Verileri değiştirmez — verileri okuma şeklinizi değiştirir.
 
-Bir **Arama Tablosu (LUT)**, görselleştirme amacıyla sayısal indeks değerlerini renklere eşler:
+### LUT Ekleme
 
-* **Giriş**: İndeks piksel değeri (örn., NDVI 0,65)
-* **Çıktı**: RGB rengi (örn. parlak yeşil)
-* **Amaç**: Desenlerin görülmesini ve yorumlanmasını kolaylaştırmak**Gri Tonlama ve Renkli LUT:**
+1. Formülün altındaki **<img src="../.gitbook/assets/image (1) (1) (1).png" alt="" data-size="line">&quot;+ LUT Ekle&quot;** düğmesine tıklayın
+2. Bir renk gradyanı seçin
+3. Kırpma minimum ve maksimum değerlerini ayarlayın
+4. Bir Kırpma Modu seçin
+5. Yan çubuktaki **LUT** kutucuğunu işaretleyerek render işlemini gerçekleştirin
 
-* Gri Tonlama: Bilimsel ve tarafsızdır, ham verileri gösterir
-* Renkli LUT: Sezgisel ve etkileyicidir, desenleri ve farklılıkları vurgular
+LUT, indeks üzerinde gerçekten yapılandırılana kadar devre dışı kalır.
 
-{% hint style="success" %}
-**Görselleştirme Gücü**: Gri tonlamalı bir dizin görüntüsüne renkli LUT uygulanması, desenleri, anomalileri ve ilgi alanlarını bir bakışta tanımayı önemli ölçüde kolaylaştırır.
-{% endhint %}
+### Renk gradyanı seçme
 
-### Dizin Görüntüsüne LUT Uygulama
+**Gradyan çubuğunun**üzerine fareyi getirin ve ön ayar listesini açın — Chloros,**yedi** adet gradyan ön ayarı sunar:
 
-Dizin görüntünüz hazır olduğunda
+| # | Gradyan                            | Şekil                                                               |
+| - | ----------------------------------- | ------------------------------------------------------------------- |
+| 1 | Red → Sarı → Green (**varsayılan**)  | Dağılan — genel bitki örtüsü algısıyla uyumludur, yeşil = sağlıklı |
+| 2 | Mor → Sarı → Green             | Dağılan, belirgin bir alt uç ile                                  |
+| 3 | Kahverengi → Beyaz → Blue                | Açık bir orta nokta etrafında dağılan                                   |
+| 4 | Siyah → Mor → Pembe → Soluk sarı | Sıralı, koyudan açıka                                           |
+| 5 | Red → Sarı → Blue                 | Açık bir orta nokta etrafında ıraksak                                   |
+| 6 | Mor → Blue → Green → Sarı      | Sıralı, koyudan açıka                                           |
+| 7 | Orange → Beyaz → Mor             | Açık renkli bir orta nokta etrafında ıraksayan                                   |
 
-1. <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> &quot;+LUT Ekle&quot; düğmesine tıklayın
-2. Renk gradyanını seçin
-3. Kırpma min/maks uç noktalarını ayarlayın
-4. Kırpma Modunu ayarlayın
-5. **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesinin kenar çubuğundaki Dizin kutusunu işaretleyin
+**Iraksayan**bir degrade, pencerenizin ortasına nötr bir renk yerleştirir; bu, orta noktanın bir anlam ifade ettiği durumlarda (bir eşik değeri, bir başlangıç tarihi) iyi bir okunabilirlik sağlar.**Sıralı** bir gradyan, monoton bir şekilde koyudan açıka doğru ilerler; bu, yalnızca &quot;daha fazla&quot; ve &quot;daha az&quot; gibi değerlere sahip bir miktar için iyi bir okunabilirlik sağlar.
 
-### Renk Gradyanı Seçme
+Her ön ayarın yedi renk durağı vardır. Bir ön ayara tıkladığınızda, LUT kutusu işaretliyse görüntü anında güncellenir.
 
-**Gradyan seçme:**
+### Renk duraklarını düzenleme
 
-1. LUT panelinde**renkli gradyan çubuğunu** bulun
-2. Kullanılabilir gradyan ön ayarlarını görüntülemek için fareyi üzerine getirin
-3. İstediğiniz gradyanı seçin
-4. Dizin kutusu işaretlendiğinde görüntü **hemen** yeni renklerle güncellenir
+Degrade çubuğunun altında, her durak için birer tane olmak üzere bir dizi renk örneği bulunur:
 
-{% hint style="success" %}
-**En İyi Uygulama**: NDVI gibi bitki örtüsü indeksleri için, Red-Sarı-Green gradyanı, doğal renk ilişkilendirmeleriyle (yeşil=sağlıklı, sarı=orta, kırmızı=stresli) uyumlu olduğu için en sezgisel seçenektir.
-{% endhint %}
+* **Rengi değiştirme**: Bir renk örneğine tıklayarak renk seçiciyi açın (renk çarkı, RGB/HSV kaydırıcıları veya `#FF0000` gibi bir onaltılık kod)
+* **Bir durak ekleyin**: satırın sonundaki**+** düğmesine tıklayın — beyaz bir durak eklenir
+* **Bir durağı kaldırın**: renk örneğine**çift tıklayın*** **Düzenlenmiş gradyanı saklayın**: Düzenlediğiniz gradyanı ön ayar listesine eklemek ve daha sonra tekrar seçebilmek için gradyan çubuğunun yanındaki kaydet simgesine tıklayın
 
-### Renk Sınıflarını Ayarlama
+Bir indeks üzerinde yapılandırdığınız gradyan, projenin ayarlarında o indeksle birlikte saklanır; böylece proje kapatılıp yeniden açıldığında da korunur.
 
-**Sınıflar kontrolü**, gradyanınızda kaç ayrı renk basamağının görüneceğini belirler:**Sınıf sayısı seçenekleri:*** **2-5 sınıf**: Çok geniş kategoriler, belirgin bölgeler
-* **6-10 sınıf**: Dengeli, sınıflandırma için uygun
-* **11-20 sınıf**: Pürüzsüz gradyanlar, kesintisiz görünüm
-* **20+ sınıf**: Neredeyse sürekli, maksimum pürüzsüzlük**Nasıl ayarlanır:**
+**Daha az durak**, bir sınıflandırma gibi okunan belirgin bölgeler oluşturur;**daha fazla durak** ise pürüzsüz, neredeyse fotoğraf kalitesinde geçişler sağlar. Üç ila beş durak, sunum slaytları ve sınıflandırma haritaları için uygundur; altı ila on durak genel analizler için uygundur; on beş veya daha fazla durak ise ayrıntılı inceleme ve yayın şekilleri için uygundur.
 
-1. LUT panelinde,**gradyan çubuğunun altındaki renk örneği karelerini** bulun
-2. + düğmesini kullanarak sınıf sayısını artırın
-3. Bir renk örneğine çift tıklayarak sınıf sayısını azaltın
-4. Gradyan, görüntü üzerinde **gerçek zamanlı** olarak güncellenir**Görselleştirme üzerindeki etkisi:*** **Daha az sınıf** (3-5): Belirgin bölgeler oluşturur, sınıflandırmayı basitleştirir, kategorileri ayırt etmeyi kolaylaştırır
-* **Orta sınıf** (6-10): Dengeli bir yaklaşım, çoğu uygulama için uygundur
-* **Daha fazla sınıf** (15-20): Pürüzsüz geçişler, ayrıntılı varyasyon, fotoğrafik görünüm**Ne zaman kullanılır:*** **Az sınıf (3-5)**: Sunum slaytları, sınıflandırma haritaları, basit raporlar
-* **Orta sınıf (6-10)**: Genel analiz, dengeli ayrıntı, standart raporlar
-* **Çok sınıf (15-20)**: Bilimsel analiz, ayrıntılı inceleme, yayın kalitesinde çıktılar
+### Değer aralığını ayarlama
 
-### Değer Aralıklarını İnce Ayarlama
+Eşik kontrolü, −1 ile +1 arasında değişen, her iki ucunda kesin değerler için düzenlenebilir metin kutuları ve bir **AUTO**düğmesi bulunan**çift tutamaklı bir kaydırıcı**dır.
 
-**Değer aralığı denetimleri**, gradyanınızdaki hangi indeks değerlerinin hangi renklere eşleneceğini belirler:**LUT panelindeki aralık denetimleri:*** **Minimum değer**: Renk skalasının alt sınırı
-* **Maksimum değer**: Renk skalasının üst sınırı
-* **Ara değerler**: Min ve maks arasında otomatik olarak dağıtılır (sınıf sayısına göre)
+* Herhangi bir tutamağı sürükleyin veya kutucuğuna bir sayı yazıp Enter tuşuna basın
+* **AUTO**, aralığı görüntünün geçerli indeks değerlerinin**
 
-#### Min/Maks Değerlerini Ayarlama
+2. ve 98. persentillerine** ayarlar — bu, uç değerleri göz ardı eden iyi bir başlangıç noktasıdır. Chloros, sonucu uyarlanabilir şekilde yuvarlar: çok dar bir aralık için 4 ondalık basamağa, dar bir aralık için 3 ondalık basamağa, diğer durumlarda ise 2 ondalık basamağa
+* AUTO düğmesine tekrar basana kadar, manuel olarak yapılan herhangi bir ayar AUTO ayarından önceliklidir
 
-**Değer aralıklarını ayarlamak için:**
+Örnek NDVI pencereleri:
 
-1. LUT panelinde**Min Değer**ve**Maks Değer** giriş alanlarını bulun
-2. **Min Değer** alanına tıklayın
-3. İstediğiniz minimum değeri yazın (ör. `0.2`)
-4. **Enter** tuşuna basın veya alanın dışına tıklayın
-5. **Maksimum Değer** alanı için de aynısını tekrarlayın (ör. `0.9`)
-6. Görselleştirme **hemen güncellenir**{% hint style="info" %}**Otomatik Ölçeklendirme**: Bir LUT&#x27;u ilk uyguladığınızda, Chloros minimum/maksimum değerleri otomatik olarak görüntüdeki gerçek veri aralığına ayarlar. Daha sonra bu aralığı daraltarak ilgilendiğiniz belirli değer aralıklarına odaklanabilirsiniz.
-{% endhint %}
+| Hedef                                    | Min  | Maks |
+| --------------------------------------- | ---- | --- |
+| Her şeyi göster                         | −1,0 | 1,0 |
+| Yalnızca bitki örtüsü, toprak ve suyu hariç tut | 0,2  | 0,9 |
+| Yalnızca sağlıklı bitki örtüsü                 | 0,5  | 0,9 |
+| Stresi vurgula                        | 0,2  | 0,5 |
 
-**Örnek NDVI aralık ayarlamaları:*** **Tam aralık**: `-1.0` ile `1.0` arası (tüm olası değerleri göster)
-* **Bitki örtüsüne odaklı**: `0.2` ile `0.9` arası (çıplak toprak ve suyu hariç tut)
-* **Yalnızca sağlıklı bitki örtüsü**: `0.5` ile `0.9` arası (yalnızca canlı bitkileri vurgulayın)
-* **Stres tespiti**: `0.2` ile `0.5` arası (sorunlu alanları vurgulayın)
-* **Özel aralık**: Gözlemlediğiniz piksel değerlerine göre ayarlayın**Aralıkları neden ayarlamalısınız?*** İlgilendiğiniz alanda **kontrastı artırın*** **Alakasız değerleri hariç tutun** (ör. su kütleleri, çıplak toprak)
-* Birden fazla görüntü veya tarih arasında **görselleştirmeyi standartlaştırın*** Dar bir değer aralığı içindeki **ince farkları vurgulayın**
+Aralığı daraltmak, ilgilendiğiniz alanın içindeki kontrastı artırır ve geri kalan her şeyi aralığın dışına iter — burada **Kırpma Modu**, bu öğelere ne olacağına karar verir.***
 
-### Aralık Dışı Değerleri Kırpma
+## Kırpma modları
 
-Piksel değerleri tanımladığınız min/maks aralığının dışına düştüğünde, **kırpma modlarını** kullanarak bunların nasıl görüntüleneceğini kontrol edebilirsiniz.
+Bir pikselin indeks değeri minimum/maksimum aralığının dışına çıktığında, Kırpma Modu bu pikselin nasıl çizileceğini belirler.
 
-#### **Kullanılabilir kırpma modu seçenekleri:**
+| Açılır menü etiketi                  | Kaydedilen değer      | Aralık dışı pikseller şu şekilde çizilir                                                                                                |
+| ------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| **Minimum ve Maksimum** (varsayılan) | `clip`            | Degradenin en yakın uç rengi — minimumun altındaki değerler ilk rengi, maksimumun üzerindeki değerler son rengi alır |
+| **Şeffaf Arka Plan**      | `transparent`     | Tamamen şeffaf (gerçek alfa)                                                                                                  |
+| **Dizin Arka Planı**| `indexColor`      | Gri tonlamalı, görüntünün**tam** dizin aralığı boyunca uzanır; böylece aralık dışındaki yapılar gri renkte görünür kalır                |
+| **Orijinal Arka Plan**         | `backgroundColor` | Altta yatan görüntünün kendisi; böylece renk katmanı gerçek sahnenin üzerine yerleştirilir                                                |
 
-#### 1. Minimum ve Maksimum
-
-* **Minimumun altındaki**pikseller → gradyandaki**ilk renk** kullanılarak görüntülenir (örn. kırmızı)
-* **Maksimumun üzerindeki**pikseller → gradyandaki**son renk** kullanılarak görüntülenir (örn. yeşil)
-* **Kullanım örneği**: Uç değerleri vurgulayın, sınırlarda doygun renklerle tam veri aralığını gösterin
-* **Örnek**: 0,2&#x27;nin altındaki tüm NDVI değerleri kırmızı, 0,9&#x27;un üzerindeki tüm değerler yeşil görünür
-
-#### 2. Şeffaf Arka Plan
-
-* **Aralığın dışındaki**pikseller**tamamen şeffaf** hale gelir
-* Yalnızca **aralık içindeki** pikseller renk gradyanını gösterir
-* **Kullanım örneği**: GIS katmanı, belirli değer aralıklarını izole etme, yalnızca ilgi alanlarını vurgulama
-* **Örnek**: Yalnızca 0,4-0,7 aralığındaki NDVI değerlerini renkli göster, geri kalan her şeyi şeffaf
-
-{% hint style="warning" %}
-**Şeffaflık Sınırlaması**: Şeffaf pikseller görüntüleyicide arka plan rengi olarak görünür. İşleme sırasında dışa aktarıldığında, şeffaflık PNG formatında korunur ancak JPG formatında korunmaz.
-{% endhint %}
-
-#### 3. Dizin Arka Planı
-
-* **Aralığın dışındaki**pikseller**gri tonlamalı** olarak görüntülenir (ham dizin değerlerini gösterir)
-* **Aralık içindeki**pikseller**renk gradyanı** gösterir
-* **Kullanım örneği**: İnce vurgular, ilgi alanlarını vurgularken bağlamı korur
-* **Örnek**: Stres altındaki bitki örtüsünü renkli olarak vurgulayın (NDVI 0,3-0,5) ve sağlıklı alanları gri olarak gösterin
-
-#### 4. Orijinal Arka Plan
-
-* **Aralığın dışındaki**pikseller**orijinal multispektral görüntüyü** gösterir
-* **Aralık içindeki**pikseller**renk gradyanını** gösterir
-* **Kullanım örneği**: En sezgisel olanıdır - doğal görüntü bağlamını analitik renk katmanıyla birleştirir
-* **Örnek**: Üzerine renk kodlu stresli alanlar eklenmiş olarak tarlanın/mahsulün gerçek görünümünü görün
-
-### Doğru Kırpma Modunu Seçme
-
-| Kırpma Modu              | En Uygun Olduğu Durum                                   | Görselleştirme Stili          |
-| -------------------------- | ------------------------------------------ | ---------------------------- |
-| **Minimum ve Maksimum**    | Tam veri gösterimi, bilimsel analiz     | Tüm pikseller renklidir           |
-| **Şeffaf Arka Plan** | GIS katmanları, belirli aralıkları izole etme    | Aralık içinde renk, dışında boş |
-| **Dizin Arka Planı**       | Hafif vurgu, veri bağlamını koruma  | Aralıkta renk, dışında gri  |
-| **Orijinal Arka Plan**    | Raporlar, sunumlar, sezgisel analiz | Aralıkta renk, dışında fotoğraf |
-
-### Özel LUT Renkleri Oluşturma
-
-Görselleştirmenizi tam olarak kontrol etmek için, tek tek renk duraklarını düzenleyerek **özel renk gradyanları** oluşturabilirsiniz.**Özel bir gradyan oluşturmak için:**
-
-1. LUT panelinde**gradyan önizleme çubuğunu** bulun
-2. Gradyanın altındaki **renk örneği karelerini** arayın
-3. Seçmek için **bir renk durağına tıklayın**
-
-4. Bir**renk seçici** açılır
-5. Aşağıdakileri kullanarak yeni bir renk seçin:
-   * **Renk çarkı**: Görsel renk seçimi
-   * **RGB/HSV kaydırıcıları**: Hassas renk kontrolü
-   * **Hex kodu girişi**: Kesin renk belirtimi (ör. kırmızı için `#FF0000`)
-6. **Yeni rengi uygulamak** için renk seçicinin dışına tıklayın
-7. Degrade, görüntü üzerinde **anında güncellenir**
-
-**Renk durakları ekleme veya kaldırma:*** **Durak ekleme**: Sonuna yeni bir renk örneği eklemek için + simgesine tıklayın
-* **Durak kaldırma**: Renk örneğini kaldırmak için renk karesine çift tıklayın**Özelleştirme stratejileri:*** **Degradeyi ters çevirme**: Anlamı tersine çevirmek için renk sırasını değiştirin (ör. yeşil=düşük, kırmızı=yüksek)
-* **Marka renkleri**: Raporlar için kuruluşunuzun renk paletiyle eşleştirin
-* **Renk körü dostu**: Turuncu-mavi veya mor-sarı kombinasyonları kullanın
-* **Baskı optimizasyonu**: Hem renkli hem de gri tonlamalı baskıda uygun renkleri seçin
-* **Çoklu eşik**: Sınıflandırma için belirli değer eşiklerinde farklı renkler kullanın
+| Mod                       | En uygun olduğu durum                               | Görünüm                                      |
+| -------------------------- | -------------------------------------- | ----------------------------------------- |
+| **Minimum ve Maksimum**      | Tam veri gösterimi, bilimsel analiz | Her piksel renklidir                      |
+| **Şeffaf Arka Plan** | GIS katmanları, bir değer aralığını izole etme   | Pencere içindeki alan renkli, dışı boş |
+| **Endeks Arka Plan**       | Veri bağlamını korurken vurgu    | İçeride renkli, dışarıda gri               |
+| **Orijinal Arka Plan**    | Raporlar ve sunumlar              | İçeride renkli, dışarıda fotoğraf         |
 
 {% hint style="info" %}
-**Özel Gradyanları Kaydetme**: Özel gradyanlar kaydedilebilir ve yeniden kullanılabilir. Gelecekte kullanmak üzere özel renk şemalarınızı korumak için LUT panelindeki kaydet simgesine tıklayın.
+**Verisiz pikseller her modda her zaman şeffaftır.** İndeksi sonlu olmayan (0/0 bölünmesi) veya tam olarak −1,0 ya da +1,0 olan (doygunluk işaretçileri; bir aralık sıfır okurken diğeri okumadığında) bir piksel, uç değer olarak değil, veri içermeyen piksel olarak değerlendirilir. Bu, aşırı parlak alanları ve karanlık gölgeleri, karedeki en uç değerler olarak gösterilmek yerine renk skalasından uzak tutar. Aynı kural, hangi piksellerin AUTO eşiklerine ve indeks histogramına dahil edileceğini belirler; böylece üçü de birbiriyle uyumludur.
+{% endhint %}
+
+Dışa aktarım PNG olarak kaydedildiğinde şeffaflık korunur. Bu, JPG formatında gösterilemez.
+
+***
+
+## Ayarlamalar sırasında değerleri okuma
+
+Yapılandırma panelinin altındaki **İmleç Değerleri** paneli, Sandbox için bir ölçüm aracıdır:
+
+* İmleci görüntünün üzerine getirin ve kanal başına kaynak değerleri ile kendi satırındaki indeks değerini okuyun
+* Histogramın üstündeki **INDEX** düğmesini etkinleştirerek karedeki indeks değerlerinin dağılımını görüntüleyin; iki klip eşik değeri turuncu kesikli çizgilerle, imlecin değeri ise beyaz bir çizgiyle gösterilir — bu, verilerinizi gerçekten içeren bir pencere seçmenin en hızlı yoludur
+* **CURSOR** seçeneğini etkinleştirerek imlecin altındaki değerlerde işaret çizgilerini görüntüleyin
+* 60×&#x27;ten fazla yakınlaştırın (GSD blok boyutu ayarlanmışsa daha az) ve değişken değere sahip tek tek görüntülenen pikselleri vurgulayın
+
+Pratik bir yöntem:
+
+1. Sağlıklı bitki örtüsü, stres altındaki bitki örtüsü, çıplak toprak ve su üzerindeki değerleri not edin
+2. Bu kümelerin indeks histogramında nerede yer aldıklarına bakın
+3. İlgilendiğiniz kümeyi kapsayacak şekilde min/maks değerlerini ayarlayın
+4. Bir kırpma modu seçin — _Orijinal Arka Plan_, etrafındaki sahneyi görünür tutar
+
+***
+
+## Sandbox&#x27;tan Dışa Aktarma
+
+Yukarıdaki her şey, kaydetene kadar canlı bir önizlemedir. Kenar çubuğunun üst kısmındaki **Görüntüleri Dışa Aktar/Kaydet** düğmesi, kenar çubuğunun üzerine kayan bir pencere açar (görüntüyü kapatmaz, böylece karar verdiğiniz şeyi hâlâ görebilirsiniz).
+
+<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>### Seçenekler
+
+| Seçenek                          | Etki                                                                                                                                            |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Mevcut resme uygula**      | Gösterilen resmi, bu ayarlarla aynen kaydeder                                                                                                |
+| **Tüm proje resimlerine uygula** | Projedeki her resim üzerinde aynı yapılandırmayı yeniden uygular. Bu dizin için gerekli bantlara sahip olmayan resimler atlanır, hata olarak değerlendirilmez |
+| **Dizin/LUT gradyan çubuğu**      | Ayrıca, her dışa aktarım için değer aralığı etiketlenmiş ayrı bir açıklama görüntüsü yazar                                                                     |
+| **Dizin histogramı**             | Ayrıca, her dışa aktarım için verilerin minimum/maksimum değerlerini ve kırpma eşiklerini gösteren ayrı bir histogram görüntüsü yazar                                               |
+
+Görüntü sekmesindeki **GSD blok boyutu** 1&#x27;den büyükse, işlemi onaylamadan önce panelde bu durum belirtilir: dışa aktarma, blok ortalaması dahil olmak üzere, o anda gördüğünüz görüntüyü kaydeder. Tam çözünürlük istiyorsanız, önce GSD ayarını tekrar 1&#x27;e getirin.
+
+### Dosyalar nereye kaydedilir?
+
+**Dışa Aktar**düğmesine her tıklandığında,**yeni ve bir daha asla kullanılmayacak bir klasör** ayrılır:
+
+```
+<project folder>/Sandbox_Exports/<IndexName>_<Index|LUT>_<NNN>/
+```
+
+Örnekler: `Sandbox_Exports/NDVI_LUT_001/`, ardından bir sonraki çalıştırma için `Sandbox_Exports/NDVI_LUT_002/`. Numaralandırma, diskte halihazırda bulunanları tarayarak belirlenir; bu sayede yeniden başlatma işlemlerinden ve elle sildiğiniz klasörlerden etkilenmez. Hiçbir şeyin üzerine yazılmaz — Sandbox’ın asıl amacı, bir denemeyi bir öncekiyle karşılaştırmaktır.
+
+Klasörün içinde, her görüntü için:
+
+| Dosya                                                   | İçerik                                                   |
+| ------------------------------------------------------ | ---------------------------------------------------------- |
+| `<source name>_<IndexName>_<Index\|LUT>.png`           | Görüntüleyicide gösterilenin piksel piksel aynısı olan işlenmiş görüntü |
+| `<source name>_<IndexName>_<Index\|LUT>_legend.png`    | İstenirse, gradyan çubuğu yan dosyası                     |
+| `<source name>_<IndexName>_<Index\|LUT>_histogram.png` | İstenirse, indeks histogramı yan dosyası                  |
+
+Bu iki yan dosya, ana görüntü blok ortalaması alınmış olsa bile her zaman **tam çözünürlükte** yazılır: blok boyutu ekran çözünürlüğüdür ve her iki yan dosya da piksel başına gerçek indeks değerlerini okur. Ayrıca, ekran versiyonlarından daha fazla bilgi yazdırırlar — her ikisi de uzatma penceresini _ve_ gerçek veri minimum/maksimum değerlerini gösterir; böylece kaydedilen açıklama, proje açılmadan aylar sonra bile okunabilir kalır.
+
+### İlerleme ve sonuçlar
+
+Tüm projenin dışa aktarımı birkaç dakika sürer; bu nedenle işlem, sistemi bloke etmek yerine canlı bir ilerleme kanalı üzerinden durum raporu verir:
+
+* Bir ilerleme çubuğu, `current / total` yazısını ve yazılmakta olan dosyayı gösterir
+* İşlem bittiğinde, bölmede kaç adet görüntünün dışa aktarıldığı, kaç tanesinin atlandığı ve çıktı klasörünün yolu bildirilir
+* Atlanan görüntüler, nedenleriyle birlikte listelenir (en fazla beş tane gösterilir, ardından &quot;+N daha fazla&quot; satırı gelir). Genellikle bunun nedeni, bu indeksin ihtiyaç duyduğu kanallara sahip olmayan bir katmandır
+* Projedeki **hiçbir** görüntü dizinini kullanamıyorsa, işlem size boş bir klasör bırakmak yerine hata bildirir
+
+Aynı anda yalnızca bir sandbox dışa aktarma işlemi çalışabilir. Bir işlem devam ederken ikincisinin başlatılması, iki işlemin aynı proje dosyası üzerinde çakışmasına izin vermek yerine net bir mesajla reddedilir.
+
+### Izgara, çalışmayı seçer
+
+Tamamlanan her çalışma, [görüntü ızgarası](image-grid.md) araç çubuğunda `<IndexName> <Index|LUT> <NNN>` etiketli kendi düğmesi olarak görünür. İşlemleri bu şekilde karşılaştırabilirsiniz: farklı gradyanlar veya eşik değerleriyle iki kez dışa aktarım yapın, ardından ızgaradaki iki düğme arasında geçiş yapın.
+
+***
+
+## Özel indeks formülleri (Chloros+)
+
+{% hint style="info" %}
+**Nerede oluşturulur**: Sandbox kenar çubuğunda veya işleme öncesinde**Proje Ayarları**&#x27;nda. Her ikisi de aynı proje düzeyindeki listeye yazılır.
+{% endhint %}
+
+1. Dizin formülü açılır menüsünden özel formül hesaplayıcısını açın (uygun bir Chloros+ aboneliği ile oturum açmanız gerekir)
+2. **Bant-slot sembollerini** kullanarak formülü yazın: `x`, `y`, `z`, `a`, `b`, `c` sembollerini kullanarak formülü yazın — bunlar bant adları değildir
+3. Kullanılabilir operatörler: `+`, `-`, `*`, `/`, `^` ve `()` (gruplama için)
+4. Kullanılabilir fonksiyonlar: `sqrt()`, `log()`, `ln()`, `abs()`, `sign()`, `log1p()`, `log2()`
+5. Adını verin ve kaydedin — formül açılır menüsünün en altında görünür ve tıpkı yerleşik bir ön ayar gibi kanal dairelerini sürükleyerek yuvalarını bağlayabilirsiniz
+
+```
+
+Modified NDVI with an offset:   (y-x)/(y+x+0.5)
+Simple ratio:                   y/x
+Three-band difference:          (y-x)/(y+x-z)
+Squared ratio:                  (y/x)^2
+```
+
+{% hint style="warning" %}
+**Özel formüller yalnızca GUI&#x27;de kullanılabilir.** CLI/SDK `--indices` seçeneği, 22 yerleşik ön ayar adını genişletir ve özel formülleriniz dahil olmak üzere diğer her şeyi sessizce atlar. Özel bir formülü toplu olarak işlemek için, bunu Proje Ayarları&#x27;nda yapılandırıp işlemeyi çalıştırın veya Sandbox&#x27;ın &quot;Tüm proje görüntülerine uygula&quot; dışa aktarma özelliğini kullanın.
 {% endhint %}
 
 ***
 
-## Etkileşimli İş Akışı
+## Sorun Giderme
 
-### Gerçek Zamanlı Güncellemeler
+### &quot;Bu katmanda bu indeksin ihtiyaç duyduğu kanallar yok&quot;
 
-Sandbox&#x27;taki tüm LUT ayarlamaları görüntüyü **anında ve etkileşimli olarak** günceller:
+Formül, geçerli katmanda bulunmayan bir kanal konumunu okur — örneğin, tek veya iki kanallı bir dosyada üç yuvalı bir indeks. Çok bantlı bir katmana (yansıma veya debayered) geçin veya kameranızın filtresine uygun bir indeks seçin.
 
-* **Katmanı değiştirin** → Görüntü hemen değişir
-* **Degradeyi seçin** → Renkler anında güncellenir
-* **Değer aralığını ayarlayın** → Kontrast gerçek zamanlı olarak değişir
-* **Sınıfları değiştirin** → Degrade düzgünlüğü hemen güncellenir
-* **Kırpmayı değiştirin** → Arka plan görüntüsü anında değişir
-* **Renkleri düzenle** → Özel gradyan anında uygulanır**&quot;Uygula&quot; düğmesine gerek yok** - tüm değişiklikler canlı ve etkileşimlidir!
+### &quot;Görüntü işleme arka ucuna ulaşılamadı&quot;
 
-{% hint style="success" %}
-**Canlı Geri Bildirim**: Anlık görsel geri bildirim, analiz ihtiyaçlarınız için en uygun görselleştirmeyi bulana kadar farklı ayarları hızla denemenizi sağlar.
-{% endhint %}
+Arka uç yanıt vermiyor. Günlük sekmesini kontrol edin; arka uç yeniden başlatılıyorsa, geri döndüğünde Sandbox kendi kendine düzelir.
 
-### İteratif İyileştirme İş Akışı
+### Bir daireyi sürüklediğimde görüntü değişmedi
 
-**Tipik LUT optimizasyon iş akışı:**
+Formül henüz tamamlanmamıştır. Tamamlanmamış bir formül, normal bir sürükleme durumu olarak değerlendirilir — hiçbir şey işlenmez ve hata olarak rapor edilmez. Formülün kullandığı her alanı doldurun.
 
-1.**İndeks katmanını seçin** (ör. RAW (Yansıma))
-2. **İndeksi uygulayın** - Kamera filtresini ve indeks formülünü seçin, renkli daireleri indeks formülündeki uygun konuma sürükleyin
-3. **LUT gradyanını uygulayın** - Red-Yellow-Green ön ayarıyla başlayın
-4. **Piksel değerlerini inceleyin** - İmleci hareket ettirin, değer aralıklarını not edin
-5. **Min/maks değerlerini ayarlayın** - Bitki örtüsüne odaklanmak için aralığı daraltın (örn. 0,2 ila 0,9)
-6. **Kırpma seçin** - Bağlam için &quot;Orijinal Arka Plan&quot;ı deneyin
-7. **Renkleri iyileştirin** - Belirli bir vurgu için gerekirse gradyanı özelleştirin
-8. **Ayarları sonlandırın**- Ayarları belgelendirin ve dışa aktarma işlemi için Proje Ayarlarına kopyalayın
+### Görüntünün tamamı tek renkte
 
-### Piksel Değeri İncelemesi
+Klip pencereniz muhtemelen verilerin çok dışında. **AUTO**tuşuna basarak pencereyi 2. veya 98. persantile hizalayın ya da**INDEX** histogramını etkinleştirerek verilerin gerçekte nerede olduğunu görün.
 
-Etkili LUT aralıkları belirlemek için gerçek piksel değerlerini anlamak çok önemlidir:**Değerleri inceleme:**
+### Dışa aktarılan renkler gördüğümle uyuşmuyor
 
-1. Piksel değerleri, görüntünün İndeks veya hem İndeks hem de LUT**kutuları işaretlendiğinde** gösterilir.
-2. **İmlecinizi** görüntünün farklı alanlarının üzerine getirin
-3. İmlecinizi üzerine getirdiğinizde gösterge penceresinde görüntülenen **piksel değerlerini** gözlemleyin
-4. Yakınlaştırarak, değişken bir değerle vurgulanan tek tek pikselleri görün
-5. Farklı özellikler için değer aralıklarını **not alın**:
-   * **Sağlıklı bitki örtüsü**: ör. NDVI 0,55-0,85
-   * **Stresli bitki örtüsü**: ör. NDVI 0,30-0,50
-   * **Çıplak toprak**: ör. NDVI 0,05-0,25
-   * **Su** (varsa): ör. NDVI -0,05 ila 0,10**Piksel değerlerini kullanarak LUT aralıklarını ayarlama:**Piksel değerlerini inceledikten sonra, LUT min/maks değerlerinizi buna göre ayarlayın:**Örnek senaryo:*** **Gözlem**: Toprak değerleri = 0,05-0,25, Stresli = 0,25-0,50, Sağlıklı = 0,50-0,85
-* **Hedef**: Yalnızca bitki sağlığını görselleştirin (toprağı hariç tutun)
-* **LUT ayarları**: Min = `0.25`, Max = `0.85`
-* **Kırpma**: Toprağı doğal renginde görmek için &quot;Orijinal Arka Plan&quot;
-* **Sonuç**: Renk gradyanı yalnızca bitki örtüsüne uygulanır, toprak orijinal görüntü olarak gösterilir
-
-{% hint style="info" %}
-**Dinamik Aralık**: Farklı mahsuller, mevsimler ve büyüme aşamaları farklı değer aralıklarına sahip olacaktır. LUT aralıklarını ayarlamadan önce her zaman belirli veri kümenizde piksel değerlerini inceleyin.
-{% endhint %}
-
-***
-
-## Özel İndeksler (Chloros+)
-
-### Özel İndeks Formülleri Oluşturma
-
-{% hint style="info" %}
-**Nerede Oluşturulur**: Özel indeksler, işleme öncesinde**Proje Ayarları**&#x27;nda ve ayrıca Görüntü Görüntüleyici sandbox kenar çubuğunda yapılandırılabilir.
-{% endhint %}
-
-**Özel bir indeks oluşturmak için:**
-
-1.**Proje Ayarları&#x27;nı** (işleme öncesinde) veya Görüntü Görüntüleyici sanal alan kenar çubuğunu açın
-2. **İndeks formülü açılır menüsüne** gidin
-3. **&quot;Özel&quot;** seçeneğini bulun (Chloros+ lisansıyla oturum açmış olmanız gerekir)
-4. Bant değişkenlerini kullanarak **formülünüzü tanımlayın**:
-   * Bant adları: `NIR`, `Red`, `Green`, `Blue`, `RedEdge`, vb.
-   * İşlemciler: `+`, `-`, `*`, `/`, `^` (üstel)
-   * Fonksiyonlar: `sqrt()`, `abs()`, vb. (destekleniyorsa)
-   * Parantezler: İşlem sırası için `()`
-5. **Dizinize bir ad verin** (ör. &quot;MyIndex&quot; veya &quot;CustomNDVI&quot;)
-6. **Yapılandırmayı kaydedin**
-
-**Örnek özel formüller:**
-
-```
-
-Modified NDVI with offset:
-(NIR - Red) / (NIR + Red + 0.5)
-
-Simple ratio:
-NIR / Red
-
-Complex multi-band:
-(NIR - Red) / (NIR + Red - Blue)
-
-Exponential index:
-(NIR / Red) ^ 2
-```
-
-{% hint style="warning" %}
-**Formül Doğrulama**: Formülünüzün kameranızda mevcut bantları kullandığından emin olun. Örneğin, RedEdge yalnızca RedEdge filtresine sahip kameralarda kullanılabilir.
-{% endhint %}
+Uyuşması gerekir — dışa aktarım yolu, kırpma modu alfa değeri dahil olmak üzere canlı önizlemenin kasıtlı olarak aynısıdır ve blok ortalamalama işlemi, tam olarak görüntüleyicinin yaptığı gibi renklendirme _sonrasında_ uygulanır. Eğer farklılık varsa, görüntüleme ile dışa aktarma arasında GSD blok boyutunun değişmediğini kontrol edin.
 
 ***
 
 ## Sonraki Adımlar
 
-Artık Endeks/LUT Sandbox&#x27;ı anladığınıza göre:
-
-* **İşlemeye uygulayın**: [Proje Ayarları](../project-settings/project-settings.md) bölümünde keşfedilen ayarları kullanın
-* **Toplu işleme**: Optimize edilmiş indeksleri tüm veri kümelerine uygulayın
-* **Daha fazla bilgi**: [Multispektral İndeks Formülleri](../project-settings/multispectral-index-formulas.md) bölümünü okuyun
-
-İlgili belgeler:
-
-* [**Görüntü Katmanları**](image-layers.md) - Katman yönetimi ve görselleştirme
-* [**Görüntüyü Tam Ekran Olarak Açma**](opening-an-image-full-screen.md) - Görüntü Görüntüleyicinin temelleri
-* [**Görüntüleri İşleme (GUI)**](../processing-images-gui/adding-files-to-a-project.md) - Tam işleme iş akışı
+* [**Görüntü Katmanları**](image-layers.md) — hangi katman üzerinde indeks çalıştırılacağı ve değerlerinin ne anlama geldiği
+* [**Görüntüyü Tam Ekranda Açma**](opening-an-image-full-screen.md) — imleç okuması, histogram ve GSD kontrolü hakkında ayrıntılı bilgi
+* [**Çok Spektral İndeks Formülleri**](../project-settings/multispectral-index-formulas.md) — her yüzeyde bulunan tüm ön ayarlar
+* [**Proje Ayarları**](../project-settings/project-settings.md) — belirlediğiniz ayarları bir işleme döngüsüne aktarma

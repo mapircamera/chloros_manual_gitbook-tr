@@ -1,19 +1,21 @@
 # İşleme Boru Hattı
 
-Chloros 1.1.0, aşamalı bir montaj hattı gibi çalışan 4 iş parçacıklı bir işleme boru hattı kullanır. Her iş parçacığı, işleme akışının farklı bir aşamasını üstlenir; böylece birden fazla görüntü, farklı aşamalarda eşzamanlı olarak işlenebilir.
+Chloros1.2.0, aşamalı bir montaj hattı gibi çalışan 4 iş parçacıklı bir işleme boru hattı kullanır. Her iş parçacığı, iş akışının farklı bir aşamasını üstlenir; böylece aynı anda birden fazla görüntü, farklı aşamalarda işlenebilir.
+
+<figure><img src="../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
 
 ***
 
-## Boru Hattı Mimarisi
+## İş Akışı Mimarisi
 
 ```
 
 Images In → [Thread 1: Detection] → [Thread 2: Calibration] → [Thread 3: Processing] → [Thread 4: Export] → Files Out
 ```
 
-Her görüntü, dört iş parçacığının tümünden sırayla geçer. Chloros+ çok iş parçacıklı işleme ile, birden fazla görüntü aynı anda farklı iş parçacıklarında bulunabilir — İş Parçacığı 3 bir görüntüyü işlerken, İş Parçacığı 1 bir sonrakini algılayabilir, İş Parçacığı 2 başka bir görüntüyü kalibre edebilir ve İş Parçacığı 4 daha önce işlenmiş bir görüntüyü diske yazabilir.
+Her görüntü, dört iş parçacığının tümünden sırayla geçer. Chloros+ çok iş parçacıklı işleme sayesinde, birden fazla görüntü aynı anda farklı iş parçacıklarını işgal eder — İş Parçacığı 3 bir görüntüyü işlerken, İş Parçacığı 1 bir sonrakini algılayabilir, İş Parçacığı 2 bir başkasını kalibre edebilir ve İş Parçacığı 4 tamamlanmış bir görüntüyü diske yazabilir.
 
-***
+İlerleme durumu her iş parçacığı için ayrı ayrı raporlanır ve Server-Sent Events üzerinden aktarılır (arka uç bunları `/api/events` üzerinde yayınlar). CLI adresindeki canlı ilerleme ekranında dört aşama **Algılama, Analiz, İşleme, Dışa Aktarma** olarak etiketlenmiştir.***
 
 ## İş Parçacığı Ayrıntıları
 
@@ -21,12 +23,12 @@ Her görüntü, dört iş parçacığının tümünden sırayla geçer. Chloros+
 
 **Amaç**: Görüntüleri yüklemek ve kalibrasyon hedeflerini algılamak.
 
-* Diskten görüntü dosyalarını okur (RAW, JPG)
-* EXIF meta verilerini çıkarır (GPS, kamera modeli, zaman damgaları, pozlama)
-* İşaretli hedef görüntülerde ArUco kalibrasyon hedeflerini algılar
+* Diskten görüntü dosyalarını okur — Survey3 `.raw`+`.jpg` çiftleri, LATTICE `.tif`/`.tiff` çekimleri ve `.dng`
+* EXIF meta verilerini (GPS, kamera modeli, zaman damgaları, pozlama) çıkarır
+* Kalibrasyon hedeflerini algılar: LATTICE çekimleri için ArUco işaretli hedef geometrileri ve Survey3 kalibrasyon hedefi fotoğrafları için klasik panel dedektörü
 * Çıktılar: görüntü verileri + meta veriler + hedef algılama sonuçları
 
-Bu, öncelikle bir I/O ve CPU bağımlı iş parçacığıdır.
+Öncelikle I/O ve CPU&#x27;ya bağlı bir iş parçacığıdır.
 
 ### İş Parçacığı 2: Kalibrasyon
 
@@ -37,38 +39,53 @@ Bu, öncelikle bir I/O ve CPU bağımlı iş parçacığıdır.
 * Bant başına kalibrasyon eğrilerini belirler
 * Çıktılar: her görüntü için kalibrasyon parametreleri
 
-Bu, CPU&#x27;ya bağlı bir hesaplama iş parçacığıdır.
+CPU&#x27;ya bağlı bir hesaplama iş parçacığıdır. Yansıma kalibrasyonu etkinleştirildiğinde İş Parçacığı 3 bu iş parçacığını bekler; böylece herhangi bir görüntü işlenmeden önce katsayılar hazır hale gelir.
 
 ### İş Parçacığı 3: İşleme (GPU)
 
-**Amaç**: Düzeltmeleri uygular ve bitki örtüsü indekslerini hesaplar.**Bu, en yoğun hesaplama gerektiren iş parçacığıdır.*** **Debayering**: RAW Bayer desen verilerini çok kanallı görüntülere dönüştürür
-  * Standart (Hızlı, Orta Kalite) — varsayılan
-  * Doku Duyarlı (Yavaş, En Yüksek Kalite) — yalnızca Chloros+, AI/ML gürültü giderme kullanır
-* **Vinyet düzeltme**: Görüntü genelinde lens vinyet düzeltmesi uygular
+**Amaç**: Düzeltmeleri uygulamak ve bitki örtüsü indekslerini hesaplamak.**Bu, en yoğun hesaplama gerektiren iş parçacığıdır.*** **Debayering**: RAW Bayer verilerini çok kanallı görüntülere dönüştürür
+  * Standart (Hızlı, Orta Kalite) — varsayılan, `--debayer standard`
+  * Doku Duyarlı (Yavaş, En Yüksek Kalite) — yalnızca Chloros+ için, `--debayer texture-aware`, bir AI/ML gürültü giderme modeli kullanır
+  * LATTICE mono (M3M) çekimleri tek bantlıdır: bu çekimlerde demosaik ve beyaz dengesi adımları atlanır (tek satırlık bir günlük mesajıyla), ancak aynı işlemdeki M3C/Bayer görüntüleri bu işlemlerden geçmeye devam eder
+* **Vinyet düzeltmesi**: Görüntü genelinde lens vinyet düzeltmesi uygular
 * **Yansıma kalibrasyonu**: Yansıma değerlerine dönüştürmek için kalibrasyon katsayılarını uygular
-* **Endeks hesaplama**: Bitki örtüsü endekslerini hesaplar (NDVI, NDRE, GNDVI, vb.)
-* Çıktılar: dışa aktarılmaya hazır işlenmiş görüntü verileri
+* **Endeks hesaplaması**: Bitki örtüsü endekslerini hesaplar (NDVI, NDRE, GNDVI, …)
+* Çıktılar: Dışa aktarılmaya hazır işlenmiş görüntü verileri
 
-Bu iş parçacığı, GPU hızlandırmasından en fazla yararlanan iş parçacığıdır. [Dinamik Hesaplama Uyumlaştırma](dynamic-compute-adaptation.md) sistemi, öncelikle bu iş parçacığının davranışını optimize eder.
+Bu iş parçacığı, GPU hızlandırmasından en fazla yararlanan iş parçacığıdır ve [Dinamik Hesaplama Uyumlaştırması](dynamic-compute-adaptation.md) tarafından ayarlanan iş parçacığıdır.
 
 ### İş Parçacığı 4: Dışa Aktarma
 
 **Amaç**: İşlenmiş görüntüleri diske yazmak.
 
-* Çıktı dosyalarını seçilen formatta yazar (TIFF 16 bit, TIFF 32 bit %, PNG, JPG)
-* Çıktı dosyalarına EXIF meta verilerini gömer (GPS, zaman damgaları, işleme parametreleri)
-* Çıktıları kamera modeli alt klasörlerine düzenler
-* Çıktılar: diskteki son dosyalar
+* Çıktı dosyalarını seçilen formatta yazar — `TIFF (16-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)`
+* Çıktı dosyalarına meta verileri (GPS, zaman damgaları, işleme parametreleri) gömer
+* Çıktıları proje klasörü altında `<camera>/<format>/<Product>_Images/` şeklinde düzenler — örneğin `LATT-M3M-L41-F550/tiff16/Reflectance_Calibrated_Images/`. **Dışa aktarılan dosyalar kaynak dosyanın adını korur; ürün, klasör adıyla tanımlanır.**
+* LATTICE çekimleri için, bir kaynak kare birkaç ürüne (Debayered, Preview, Radiance, Reflectance, Index) ayrılabilir; her biri kendi ürün klasöründe bulunur
+* Çıktılar: diskteki nihai dosyalar
 
-Bu, esas olarak I/O&#x27;ya bağlı bir iş parçacığıdır. SSD depolama, İş Parçacığı 4&#x27;ün performansını önemli ölçüde artırır.
+Öncelikle bir G/Ç sınırlı iş parçacığıdır — SSD depolama, performansı belirgin şekilde artırır.
+
+***
+
+## Arka Plan: Yürütücüler
+
+İş Parçacığı 3 içinde, görüntü başına işler Python&#x27;in standart `concurrent.futures` ile paralel hale getirilir:
+
+* **GPU stratejileri**(`GPU_SINGLE`, `GPU_PARALLEL`),**spawn** başlatma yöntemini kullanır — her işçi, kendi CUDA bağlamına sahip ayrı bir işlemdir (`fork`, üst işlemin başlatılmış CUDA durumunu devralır ve alt işlemleri bozar)
+* **`CPU_PARALLEL`**, bir `ThreadPoolExecutor` kullanır — NumPy ve OpenCV, GIL&#x27;i serbest bırakır, bu nedenle iş parçacıkları yeterlidir
+* 8 GB veya daha az paylaşımlı RAM’e sahip Jetson cihazları, yürütücüyü tamamen atlar ve işlem içinde, sıralı olarak işler
+* 7 GB’nin altında VRAM’e sahip bir GPU’da Texture Aware de sıralı olarak çalışır — gürültü giderici model birden fazla kez sığamaz
+
+Chloros, herhangi bir üçüncü taraf dağıtık çerçeve (Ray gibi) kullanmaz. Stratejinin ve işçi sayısının nasıl seçildiğini öğrenmek için [Dinamik Hesaplama Uyumlaştırması](dynamic-compute-adaptation.md) bölümüne bakın.
 
 ***
 
 ## Sıralı İşleme ve Boru Hattı İşleme
 
-### Ücretsiz Mod (Sıralı)
+### Serbest Mod (Sıralı)
 
-Chloros&#x27;in ücretsiz sürümünde, görüntüler dört aşamanın tümünden **tek tek**, sırayla işlenir:
+Chloros&#x27;ın ücretsiz sürümünde, görüntüler **tek tek**, dört aşamanın tümünden sırayla işlenir:
 
 ```
 
@@ -76,11 +93,11 @@ Image 1: [Detect] → [Calibrate] → [Process] → [Export]
                                                          Image 2: [Detect] → [Calibrate] → [Process] → [Export]
 ```
 
-GUI ilerleme çubuğu 2 aşamayı gösterir: Hedef Algılama ve İşleme.
+GUI, ücretsiz modda basitleştirilmiş bir ilerleme çubuğu gösterir; sıralı aşamalar **Hedef Algılama**ve ardından**İşleme** olarak bildirilir.
 
 ### Chloros+ Modu (Pipelined)
 
-Chloros+ lisansıyla, dört iş parçacığının tümü farklı görüntüler üzerinde **eşzamanlı** olarak çalışır:
+Chloros+ lisansıyla, dört iş parçacığının tümü farklı görüntüler üzerinde **eşzamanlı olarak** çalışır:
 
 ```
 
@@ -90,22 +107,28 @@ Thread 3:                     [Image 1] [Image 2] ...
 Thread 4:                               [Image 1] ...
 ```
 
-GUI ilerleme çubuğu 4 aşamayı gösterir: Algılama, Analiz, Kalibrasyon, Dışa Aktarma. İş parçacığı başına ilerlemeyi görmek için ilerleme çubuğunun üzerine gelin.
+GUI ilerleme çubuğu dört aşamayı gösterir; üzerine fareyi getirdiğinizde iş parçacığı başına ilerlemeyi görebilirsiniz. CLI&#x27;da aynı dört aşama **Algılama, Analiz, İşleme, Dışa Aktarma** olarak canlı olarak yayınlanır.
+
+{% hint style="info" %}
+**Tek etiket, iki isim.** CLI adresinde 3. aşama _İşleme_ olarak adlandırılır. Arka uçtaki premium mod ilerleme akışında — GUI ilerleme çubuğunun görüntülediği akış — aynı aşama _Kalibre Ediyor_ olarak etiketlenir. Bunlar, aynı işi yapan aynı iş parçacığıdır (İş Parçacığı 3: debayer, düzeltmeler, indeksler).
+{% endhint %}
 
 {% hint style="success" %}
-**Chloros+ ile ardışık işleme**, donanımınıza ve veri kümesi boyutuna bağlı olarak sıralı işlemeden 3-5 kat daha hızlı olabilir. Hız artışı, hızlı GPU&#x27;lara ve SSD&#x27;lere sahip sistemlerde en yüksek seviyededir.
+**Chloros+ ile ardışık işleme**, donanımınıza ve veri kümenizin boyutuna bağlı olarak sıralı işlemeye göre 3-5 kat daha hızlı olabilir. Hız artışı, hızlı GPU&#x27;lara ve SSD&#x27;lere sahip sistemlerde en yüksek seviyededir.
 {% endhint %}
 
 ***
 
-## İş Parçacığı 4 Dışa Aktarma İlerleme Durumu
+## İş Parçacığı 4 Dışa Aktarım İlerleme Durumu
 
-Chloros 1.1.0 sürümünde, dışa aktarma iş parçacığı (İş Parçacığı 4) kendi özel ilerleme izleme sistemine sahiptir. Dışa aktarma ilerlemesini ayrı olarak izleyebilirsiniz:**CLI:**
+Dışa aktarım iş parçacığının kendi ilerleme izleme sistemi vardır; bunu ayrı olarak sorgulayabilirsiniz:**CLI:**
+
 ```bash
 chloros-cli export-status
 ```
 
 **SDK:**
+
 ```python
 status = chloros.get_status()
 print(f"Export: {status['export']['percent']}% - Phase: {status['export']['phase']}")
@@ -113,22 +136,27 @@ print(f"Export: {status['export']['percent']}% - Phase: {status['export']['phase
 
 İşlem, İş Parçacığı 4 %100&#x27;e ulaştığında tamamlanır.
 
+{% hint style="info" %}
+**Hiçbir görüntü yazmayan bir çalıştırma, başarısızlık olarak değerlendirilir.**Başarılı bir işlemde, `chloros-cli process` kaç tane görüntü ürünü yazdığını bildirir (`Image products written: N`). Ürünler talep edildiği halde**hiçbiri**yazılmadıysa — yalnızca `project.json` ve `calibration_data.json` — CLI, `Processing finished but wrote no image products.` değerini yazdırır ve**sıfırdan farklı bir değerle** sonlanır, proje klasörünün adını ve olağan nedenleri belirtir (giriş klasörü bir yakalama olarak tanınmadı — düzeni kontrol edin ve `--input-level` — veya talep edilen tüm ürünler bu kameralar için uygun değildi). Komut dosyaları çıkış koduna güvenebilir.
+{% endhint %}
+
 ***
 
 ## Dinamik Hesaplama Uyumuyla İlişkisi
 
-[Dinamik Hesaplama Uyumlaştırma](dynamic-compute-adaptation.md) sistemi öncelikle **İş Parçacığı 3 (İşleme)**&#x27;ü etkiler:
+[Dinamik Hesaplama Uyumu](dynamic-compute-adaptation.md) öncelikle **İş Parçacığı 3 (İşleme)**&#x27;ü etkiler:
 
-* **`GPU_PARALLEL`** stratejisi: İş Parçacığı 3, `fused_gpu` boru hattını kullanarak GPU üzerinden aynı anda birden fazla görüntüyü işler
-* **`GPU_SINGLE`** stratejisi: İş Parçacığı 3, bellek verimliliği yüksek `tiled_gpu` ardışık düzenini kullanarak bir seferde tek bir görüntüyü işler
-* **`CPU_PARALLEL`** stratejisi: İş Parçacığı 3, çok iş parçacıklı paralellik ile CPU tabanlı işleme kullanır
+* **`GPU_PARALLEL`**: İş Parçacığı 3, `fused_gpu` iş akışını kullanarak GPU üzerinden birden fazla görüntüyü eşzamanlı olarak işler
+* **`GPU_SINGLE`**: İş Parçacığı 3, `fused_gpu` veya bellek verimliliği yüksek `tiled_gpu` iş akışını kullanarak, işçi süreçleri I/O işlemlerini çakıştırırken GPU erişimini bir semaforla sıralı hale getirir
+* **`CPU_PARALLEL`**: İş parçacığı 3, çok iş parçacıklı paralellik ile CPU tabanlı işleme kullanır
 
-İş parçacığı 3&#x27;ün GPU bellek tahsisi de iş parçacıkları 1 ve 2 tamamlandıkça dinamik olarak değişir — bkz. [Dinamik GPU Bellek Tahsisi](dynamic-compute-adaptation.md#dynamic-gpu-memory-allocation).
+İş parçacığı 1 ve 2 tamamlandıkça iş parçacığı 3&#x27;ün GPU bellek tahsisi de artar — bkz. [Dinamik GPU Bellek Tahsisi](dynamic-compute-adaptation.md#dynamic-gpu-memory-allocation).
 
 ***
 
 ## Sonraki Adımlar
 
-* [Dinamik Hesaplama Uyumlaştırma](dynamic-compute-adaptation.md) — Chloros&#x27;in donanımınız için en uygun stratejiyi nasıl seçtiği
+* [Dinamik Hesaplama Uyumlaştırma](dynamic-compute-adaptation.md) — Chloros&#x27;ın donanımınız için en uygun stratejiyi nasıl seçtiği
 * [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md) — Jetson&#x27;da platforma özgü iş akışı davranışı
-* [İşlemenin İzlenmesi](../processing-images-gui/monitoring-the-processing.md) — GUI ilerleme izleme
+* [İşlemeyi İzleme](../processing-images-gui/monitoring-the-processing.md) — GUI ilerleme izleme
+* [CLI Referansı](../reference/cli-reference.md) — `process`, `export-status`, çıkış kodları ve çıktı düzeni

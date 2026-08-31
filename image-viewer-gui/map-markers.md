@@ -1,6 +1,6 @@
 # Harita İşaretçileri
 
-Harita sekmesi, görüntülerinizi GPS koordinatlarına göre etkileşimli bir 2D harita üzerinde gösterir. Bu, çekim oturumunuzun coğrafi bir genel görünümünü sunar ve alan kapsamını görselleştirmenize yardımcı olur. Ayrıca, görüntülerinizi ilk kez içe aktarırken, işlenmesine gerek olmayan görüntüleri hızlı bir şekilde ayıklamak için de kullanışlıdır.
+Harita sekmesi, görüntülerinizi GPS koordinatlarına göre etkileşimli bir 2D harita üzerinde gösterir. Bu sekme, bir çekim oturumuna ilişkin coğrafi bir genel bakış sunar ve içe aktarımdan hemen sonra, işlemek istemediğiniz görüntüleri elemeyi sağlayan en hızlı yoldur.
 
 <figure><img src="../.gitbook/assets/chloros_map_markers.gif" alt=""><figcaption></figcaption></figure>
 
@@ -8,154 +8,139 @@ Harita sekmesi, görüntülerinizi GPS koordinatlarına göre etkileşimli bir 2
 
 1. Chloros&#x27;te bir proje açın veya oluşturun
 2. GPS meta verileri içeren görüntüleri içe aktarın
-3. Sol kenar çubuğundaki **Harita** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> sekmesine tıklayın
-4. Harita, her görüntünün GPS konumunda işaretçiler gösterecektir
+3. Sol kenar çubuğundaki **Harita** <img src="../.gitbook/assets/image (3) (1).png" alt="" data-size="line"> sekmesine tıklayın
+4. Harita, her görüntünün GPS konumunda bir işaretçi gösterir
 
 {% hint style="info" %}
-**GPS Gerekli**: Yalnızca EXIF meta verilerinde gömülü GPS koordinatları bulunan görüntüler haritada görünecektir. Çekim sırasında kameranızda GPS&#x27;in etkinleştirildiğinden emin olun.
+**GPS gereklidir**: Yalnızca EXIF meta verilerinde GPS koordinatları bulunan görüntüler haritada görünür. Koordinatı olmayan bir görüntü yine de projede kalır ve normal şekilde işlenir — sadece üzerinde işaretçi bulunmaz.
 {% endhint %}
 
 ***
 
-## Harita Sekmesinden Görüntüleri Ayarlama**Harita** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> sekmesinde de aynı ekle  <img src="../.gitbook/assets/image.png" alt="" data-size="line">   <img src="../.gitbook/assets/image (1).png" alt="" data-size="line">  ve kaldırma  <img src="../.gitbook/assets/image (2).png" alt="" data-size="line">  düğmelerine sahiptir. Ayrıca aynı proje dosyası tablosu listesini gösterir, ancak sütun başlıkları farklıdır:  ### Dosya Adı  * Kameradan alınan orijinal dosya adı * Kamera adlandırma kuralını korur (ör. IMG\_000001XPROTX) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> sekmesindekilerle aynıdır. Ayrıca aynı proje dosyası tablosu listesini gösterir, ancak sütun başlıkları farklıdır:
+## Harita Sekmesinden Görüntüleri Düzenleme**Harita**<img src="../.gitbook/assets/image (3) (1).png" alt="" data-size="line"> sekmesi, [**Dosya Tarayıcı**](../processing-images-gui/adding-files-to-a-project.md) <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> sekmesindeki ile aynı ekle <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> ve kaldır <img src="../.gitbook/assets/image (2) (1).png" alt="" data-size="line"> dosya düğmelerine sahiptir. Coğrafi sütunlar içeren aynı proje dosyası listesini gösterir:
 
-### Dosya Adı
-
-* Kameradan alınan orijinal dosya adı
-* Kamera adlandırma kuralını korur (ör. IMG\_0001.RAW)
-
-### Enlem
-
-* Görüntünün enlemi
-
-### Boylam
-
-* Görüntünün boylamı
-
-### Yükseklik
-
-* Görüntünün yüksekliği
+| Sütun        | İçerik                                                           |
+| ------------- | ------------------------------------------------------------------ |
+| **Ad**      | Kameradan alındığı haliyle dosya adı                             |
+| **Enlem**  | Ondalık derece, altı ondalık basamak                                |
+| **Boylam**  | Ondalık derece, altı ondalık basamak                                |
+| **Rakım**  | Metre, bir ondalık basamak — Görüntüde rakım bilgisi yoksa `-` |
 
 {% hint style="info" %}
-Tablo sütun başlıklarına tıklamak, satır verilerini de sıralar
+Sıralamak istediğiniz sütun başlığını tıklayın; sırayı tersine çevirmek için tekrar tıklayın.
+{% endhint %}
+
+{% hint style="warning" %}
+**Rakım, yerden yükseklik değil, deniz seviyesinden yüksekliktir.** Bu değer, görüntünün EXIF `GPSAltitude` etiketinden alınır ve bu etiket, ortalama deniz seviyesine göre ifade edilir. Bu, arazi üzerindeki uçuş yüksekliği değildir ve Chloros bu değerden yer örnekleme mesafesini hesaplamaz — deniz seviyesinden 300 m yükseklikteki bir tarlanın üzerinde, yer seviyesinden (AGL) 100 m yükseklikteki bir drone burada yaklaşık 400 m olarak kaydedilir. Bu sütunu, AGL ölçümü olarak değil, aykırı değerleri tespit etmek ve tutarlı bir uçuş irtifasını doğrulamak için kullanın.
 {% endhint %}
 
 ***
 
 ## Görüntü İşaretçileri
 
-GPS verisi olan her görüntü, harita üzerinde bir işaretçi ile gösterilir:
+GPS verileri içeren her görüntünün koordinatlarına bir işaretçi eklenir.
 
-### İşaretçi Görüntüleme
+### İşaretçilerin görüntülenmesi
 
-* İşaretçiler, her görüntünün çekildiği tam GPS koordinatlarını gösterir
-* Yakınlaştırma azaltıldığında, kümelenmiş işaretçiler bir araya gelebilir
-* Tek tek görüntü konumlarını görmek için yakınlaştırın
-
-{% hint style="success" %}
-SÜPER YAKINLAŞTIRMA: Harita döşeme sağlayıcısından maksimum yakınlaştırma düzeyine ulaştığınızda, döşeme daha da yakınlaştırıldığında büyütülür ve birbirine yakın işaretçileri görmenizi sağlar.
-{% endhint %}
+* İşaretçiler, her çekim için kaydedilen tam koordinatlarda yer alır
+* Birbirine yakın işaretçiler, uzaklaştırıldığında görsel olarak üst üste binmiş gibi görünebilir — bunları ayırmak için yakınlaştırın
+* Seçili ve vurgulanmış işaretçiler, diğerlerinin üzerinde gösterilir
 
 ### Fareyle Üzerine Gelme Önizlemesi
 
-* Herhangi bir işaretçinin üzerine **fareyi getirin**, o görüntünün küçük resim önizlemesini görmek için
-* Bu, harita görünümünden ayrılmadan hızlı görsel tanımlama sağlar
-* Büyük bir çekim oturumu içinde belirli görüntüleri bulmak için kullanışlıdır
+* Herhangi bir işaretçinin üzerine **fareyle gelin**, o görüntünün dosya adıyla birlikte küçük resmini gösteren bir açılır pencere açılır
+* Bir işaretçiyi **tıklayın**, görüntüyü seçin ve açılan pencereyi**sabitleyin** — başka bir yere tıklayana kadar açık kalır. Açılan pencere sabitlendiğinde, diğer işaretçilerin üzerine fareyi getirseniz de pencere kaybolmaz
+* Bu, haritadan ayrılmadan büyük bir oturumda belirli bir kareyi bulmanın hızlı yoludur
 
-***
-
-## Harita Döşeme Sağlayıcıları
+<figure><img src="../.gitbook/assets/image (36).png" alt=""><figcaption><p>Harita sekmesi, projedeki coğrafi etiketli tüm görüntüleri gösterir</p></figcaption></figure>### Süper yakınlaştırma
 
 {% hint style="success" %}
-**Otomatik Seçim**: Chloros, mevcut harita konumunuz için en iyi yakınlaştırma düzeyini sağlayan döşeme hizmetini otomatik olarak seçer. İsterseniz sağlayıcılar arasında manuel olarak geçiş yapabilirsiniz.
+**SÜPER YAKINLAŞTIRMA**: Karo sağlayıcısının görüntü sunduğu maksimum yakınlaştırma düzeyine ulaştığınızda, daha fazla yakınlaştırma işlemi durmak yerine karoları büyütür; böylece neredeyse üst üste binen işaretçileri birbirinden ayırabilirsiniz.
 {% endhint %}
 
-Harita sekmesi, arka plan harita görüntüleri için iki döşeme sağlayıcısını destekler:
-
-### Google Haritalar
-
-* Google&#x27;dan standart uydu ve harita görüntüleri
-* Genel olarak dünya çapında kapsama için en iyisi
-
-### ESRI
-
-* ESRI ArcGIS&#x27;ten uydu ve hava görüntüleri
-* Belirli bölgelerde genellikle daha yüksek çözünürlüklü görüntüler sağlar
+* Süper yakınlaştırma, yalnızca o konum için sağlayıcının maksimum yakınlaştırma seviyesine **ulaştığınızda** ve döşemelerin yüklenmesi tamamlandığında devreye girer. Bu seviyenin altında, yakınlaştırma normal şekilde çalışır
+* Aralık, sağlayıcının kendi maksimum değerinin üzerine **1× ila 32×** arasındadır
+* Köşedeki bir gösterge, mevcut süper yakınlaştırma düzeyini yüzde olarak gösterir; yanındaki **×** düğmesine tek bir tıklamayla normal yakınlaştırma düzeyine geri dönebilirsiniz
+* Uzaklaştırma işlemi her zaman haritanın kendisine yansıtılır; bu sayede asla süper yakınlaştırma modunda sıkışıp kalmazsınız
+* Süper yakınlaştırma durumundayken yakınlaştırma ve kaydırma yapıldığında, ortaya çıkan kayma haritaya yansıtılır; böylece merkezden uzaklaştığınız alan boş kalmak yerine döşeme talep etmeye devam eder
+* İşaretçiler rasterleştirilmek yerine vektör öğeleri olarak çizilir; bu sayede her süper yakınlaştırma düzeyinde net kalırlar
 
 ***
+
+## Harita Karosu Sağlayıcıları
+
+{% hint style="success" %}
+**Otomatik seçim**: Chloros, görüntülerinizin bulunduğu yer için en iyi yakınlaştırma düzeyini sunan karo hizmetini seçer. İstediğiniz zaman manuel olarak değiştirebilirsiniz.
+{% endhint %}
+
+| Sağlayıcı        | Notlar                                                                                                                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Google Haritalar** | Dünya çapında geniş kapsama alanı; dört döşeme türünün tümünü destekler                                                                                                            |
+| **Esri ArcGIS**| Belirli bölgelerde genellikle daha yüksek çözünürlüklü hava görüntüleri sunar.**Arazi** döşeme türü Esri için sunulmaz ve Esri seçiliyken ilgili düğme devre dışıdır |***
 
 ## Harita Döşeme Türleri
 
-Harita katmanı türünü (soldan sağa doğru) seçebilirsiniz:
+Düğmeleri kullanarak (soldan sağa doğru) harita katmanı türünü seçin:
 
- <img src="../.gitbook/assets/image (23).png" alt="" data-size="original">### Arazi
+![](&lt;../.gitbook/assets/image (14).png&gt;)
 
-Yükseklik profillerini ve ayrıntıları (yollar vb.) içeren harita döşemelerini gösterir
-
-### Harita
-
-Ayrıntıları (yollar vb.) içeren standart (düşük bant genişliği) harita döşemelerini gösterir
-
-### Uydu
-
-Ayrıntılı (yüksek bant genişliği) uydu harita döşemelerini gösterir
-
-### Hibrit
-
-Ek ayrıntılar (yollar vb.) içeren uydu harita döşemelerini gösterir
-
-***
+| Tür                 | Gösterilenler                                                                |
+| -------------------- | -------------------------------------------------------------------- |
+| **Arazi**          | Harita ayrıntılarıyla (yollar, etiketler) birlikte yükseklik gölgelendirmesi. Yalnızca Google       |
+| **Harita**              | Standart sokak haritası döşemeleri — en düşük bant genişliği seçeneği              |
+| **Uydu**        | Ayrıntılı uydu görüntüleri, etiket yok — en yüksek bant genişliği gerektiren seçenek |
+| **Hibrit** (varsayılan) | Üzerine yollar ve etiketler çizilmiş uydu görüntüleri                |**Harita**sekmesi**Hibrit** modunda açılır. Seçiminiz, sağlayıcının desteklediği durumlarda sağlayıcı değişikliğine de yansır.***
 
 ## Harita Gezinme
 
-### Yakınlaştırma/Uzaklaştırma Kontrolleri
-
-* **Yakınlaştırma/Uzaklaştırma**: Fare tekerleğini veya yakınlaştırma düğmelerini kullanın
-* **Tam Ekran**: Haritayı tam ekrana alın
-
-### Kaydırma Kontrolleri
-
-* **Kaydırma**: Tıklayıp sürükleyerek harita üzerinde hareket edin***
+* **Yakınlaştırma**: fare tekerleği veya harita üzerindeki yakınlaştırma düğmeleri
+* **Kaydırma**: tıklayıp sürükleyin
+* **Tam Ekran**: tam ekran kontrolü, haritayı pencerenin tamamını kaplayacak şekilde genişletir***
 
 ## Kullanım Örnekleri
 
-### Uçuş Yolu Görselleştirme
+### Uçuş rotası incelemesi
 
-* Drone çekim oturumlarının kapsama alanını görüntüleyin
-* Görüntü kapsamındaki boşlukları belirleyin
-* Uçuş yolunun uygulanmasını doğrulayın
+* Bir drone seansının kapsama alanını bir bakışta görün
+* Geçişin atlandığı boşlukları tespit edin
+* Uçuşun planlanan rotayı takip ettiğini doğrulayın
 
-### Yer Etüdü İncelemesi
+### Yer ölçümü incelemesi
 
-* Yer tabanlı çekimlerin uzamsal dağılımını görün
-* Etüt alanına göre kalibrasyon hedef görüntülerini bulun
-* Ek çekim konumları planlayın
+* Yer tabanlı çekimlerin nasıl dağıldığını görün
+* Kalibrasyon hedef çerçevelerini ölçüm alanına göre konumlandırın
+* Ek çekimlerin nerede gerekli olduğuna karar verin
 
-### Kalite Kontrol
+### Kalite kontrol
 
-* Beklenmedik konumlarda çekilen görüntüleri hızla belirleyin
-* Veri kümesi genelinde GPS doğruluğunu doğrulayın
+* Beklenmedik bir yerde çekilmiş görüntüleri bulun ve işleme öncesinde bunları kaldırın
+* Yükseklik&#x27;e göre sıralayarak yanlış yükseklikte çekilmiş veya GPS sinyalinin zayıf olduğu bir kareyi tespit edin
 * Görüntü konumlarını saha notlarıyla karşılaştırın
 
 ***
 
 ## Sorun Giderme
 
-### İşaretçiler Görünmüyor
+### İşaretçiler görünmüyor
 
-**Olası nedenler:**
+**Olası nedenler**
 
-* Görüntüler GPS meta verilerini içermiyor
+* Görüntülerde GPS meta verileri bulunmuyor
 * Çekim sırasında kamerada GPS devre dışı bırakılmıştı
-* EXIF verileri harici bir yazılım tarafından silinmiş
+* İçe aktarımdan önce EXIF verileri başka bir yazılım tarafından silinmiş
 
-**Çözüm**: Kameranızda GPS&#x27;in etkinleştirildiğini doğrulayın ve orijinal dosyaları yeniden içe aktarın
+**Ne yapmalı**: Kamerada GPS&#x27;in etkin olduğunu doğrulayın ve orijinal dosyaları yeniden içe aktarın. Harita sekmesindeki dosya tablosunda aradığınız dosyayı bularak, belirli bir dosyanın koordinatları olup olmadığını kontrol edebilirsiniz — koordinatları olmayan bir görüntünün bu tabloda satırı yoktur.
 
-### İşaretçiler Yanlış Konumda
+### İşaretçiler yanlış yerde
 
-**Olası nedenler:**
+**Olası nedenler**: çekim anında zayıf uydu sinyali veya oturum sırasında GPS sapması.**Ne yapmalı**: Bu, Chloros&#x27;in sonradan düzeltebileceği bir sorun değil, çekim anında ortaya çıkan bir sorundur. Hassas çalışmalar için bir PPK/RTK GPS iş akışı kullanın — [Proje Ayarları](../project-settings/project-settings.md) bölümündeki**PPK düzeltmelerini uygula** ayarına bakın.
 
-* Kamera GPS&#x27;inin uydu sinyali zayıftı
-* Çekim sırasında GPS sapması yaşandı
+### Harita boş veya döşemeler yüklenmiyor
 
-**Çözüm**: Bu genellikle çekim zamanıyla ilgili bir sorundur; hassas uygulamalar için PPK/RTK GPS kullanmayı düşünün
+Döşeme sağlayıcıları çevrimiçi hizmetlerdir. Döşemeler gelmezse, cihazın ağ bağlantısını kontrol edin, ardından sağlayıcıyı değiştirmeyi deneyin. Çok fazla yakınlaştırmışsanız, **×** sıfırlama düğmesine basarak normal yakınlaştırma düzeyine dönün ve haritanın döşemeleri yeniden talep etmesini bekleyin.***
+
+## İlgili sayfalar
+
+* [**Görüntü Izgarası**](image-grid.md) — küçük resimler olarak kullanılan aynı görüntü kümesi
+* [**Bir Görüntüyü Tam Ekran Olarak Açma**](opening-an-image-full-screen.md) — bir görüntüyü ayrıntılı olarak inceleme
+* [**Projeye Dosya Ekleme**](../processing-images-gui/adding-files-to-a-project.md) — bu sekmede bulunan dosya ekle/çıkar düğmeleri
