@@ -2,27 +2,17 @@
 
 ## Bir kamera = bir bant
 
-**M3M**kamerası, Bayer**M3C** modelinin tek renkli versiyonudur: tek bir dar bantlı girişim filtresinin arkasında yer alan tek renkli bir IMX265 sensörüne sahiptir. Model dizesi, bandın adını belirtir — `M3M-<lens>-F<wavelength>`, örneğin `M3M-L87-F685` (Chloros
-
-'ta `LATT-M3M-L87-F685` olarak görüntülenir). Sensör, Bayer mozaiği içermeyen **tek bir gri tonlama bandı** sunar: demosaik işlemi gerektiren bir şey yoktur, ayrılması gereken kanallar arası parazit yoktur ve ayarlanması gereken beyaz dengesi yoktur.
+**M3M**kamerası, Bayer**M3C** modelinin tek renkli versiyonudur: tek bir dar bantlı girişim filtresinin arkasında yer alan tek renkli bir IMX265 sensörüne sahiptir. Model dizesi, bandın adını belirtir — `M3M-<lens>-F<wavelength>`, örneğin `M3M-L87-F685` (Chloros'ta `LATT-M3M-L87-F685` olarak görüntülenir). Sensör, Bayer mozaiği içermeyen **tek bir gri tonlama bandı** sunar: demosaik işlemi gerektiren bir şey yoktur, ayrılması gereken kanallar arası parazit yoktur ve ayarlanması gereken beyaz dengesi yoktur.
 
 Mono bir sistem planlamadan önce bilmeniz gereken sonuçlar:
 
 * **Işınım ve yansıma, her bant için tam olarak tanımlanmıştır.**Bunlar bant başına radyometrik haritalardır; dolayısıyla bir M3M kamera, tıpkı bir M3C bandının yaptığı gibi, kalibre edilmiş float32 parlaklık (W/m²/sr/nm) ve uint16 yansıma (`32768` = ρ 1,0) üretir. Mono kareler,**kimlik** sensör tepki matrisi içerir — 3×3 ayrıştırma gerekmez veya uygulanmaz.
-* **Tek bir mono kamera, bitki örtüsü indeksi üretemez.** NDVI
-
-, NDRE
-
-ve benzeri indeksler için en az iki bant gerekir. Mono donanımdan indeksleri hesaplamak için birkaç M3M kamerayı birleştirmeniz gerekir — aşağıya bakın.
+* **Tek bir mono kamera, bitki örtüsü indeksi üretemez.** NDVI, NDRE ve benzeri indeksler için en az iki bant gerekir. Mono donanımdan indeksleri hesaplamak için birkaç M3M kamerayı birleştirmeniz gerekir — aşağıya bakın.
 * M3M kameralar **Mono12** akışı sağlar (12 bit: kabloda 2 bayt/piksel veya bir dizi [sıkıştırılmış 12 bit aktarım](arrays.md#packed-12-bit-transport) kullandığında 1,5 bayt/piksel) akışı sağlar; bu, [dizi bant genişliği bütçeleme](arrays.md#bandwidth-how-many-cameras-fit) açısından önemlidir.
 
-## Chloros
+## Chloros'un mono modda atladığı aşamalar — ve bunu size nasıl bildirdiği
 
-'un mono modda atladığı aşamalar — ve bunu size nasıl bildirdiği
-
-Renk işleme aşamaları, tek bantlı bir sensöre uygulanamaz. Chloros
-
-, hata vermesi yerine **tek satırlık bir mesajla bu aşamaları atlar** ve aynı oturumdaki herhangi bir M3C (Bayer) kamera için bu aşamaları normal şekilde çalıştırmaya devam eder:
+Renk işleme aşamaları, tek bantlı bir sensöre uygulanamaz. Chloros, hata vermesi yerine **tek satırlık bir mesajla bu aşamaları atlar** ve aynı oturumdaki herhangi bir M3C (Bayer) kamera için bu aşamaları normal şekilde çalıştırmaya devam eder:
 
 | Aşama | Mono (M3M) davranışı | M3C davranışı |
 | --- | --- | --- |
@@ -33,23 +23,13 @@ Renk işleme aşamaları, tek bantlı bir sensöre uygulanamaz. Chloros
 | Spektral çapraz konuşma ayrıştırma | Kimlik (3×3 matris yok). | Kamera başına 3×3 matris uygulanır. |
 | Parlaklık / yansıma | **Çalışır** — bant başına, tam olarak kalibre edilmiş. | Bant başına çalışır. |
 
-GUI aynı sınırlamayı uygular: tek renkli bir kamera için kamera başına ayarlar paneli, yalnızca RGB
-
-satırlarını (Beyaz Dengesi, Gama, Renk Profili, Doygunluk, Kontrast, kanal bölünmeleri) gizler ve canlı histogram tek bir **MONO** izine kilitlenir. Yığın boyunca ayırt edici unsur, model dizesindeki `M3M` belirtecidir; bu, GUI/SDK
-
-'ye `is_mono` olarak yansıtılır.
+GUI aynı sınırlamayı uygular: tek renkli bir kamera için kamera başına ayarlar paneli, yalnızca RGB satırlarını (Beyaz Dengesi, Gama, Renk Profili, Doygunluk, Kontrast, kanal bölünmeleri) gizler ve canlı histogram tek bir **MONO** izine kilitlenir. Yığın boyunca ayırt edici unsur, model dizesindeki `M3M` belirtecidir; bu, GUI/SDK'ye `is_mono` olarak yansıtılır.
 
 ## Dizinler için ≥ 2 bant gerekir: hizala → yığınla → dizinle
 
 Mono indeks iş akışı her zaman aynı üç adımdan oluşur:
 
-1. **Hizalama** — farklı dalga boylarında çalışan birkaç M3M kamerasını (ör. bir F650 "Red
-
-" ve bir F850 "NIR
-
-") yönlendirin, bunları bir [çoklu kamera dizisi](arrays.md) olarak bağlayın ve Chloros
-
-'un kameralar arasındaki eşleştirme deformasyonunu hesaplamasına izin verin.
+1. **Hizalama** — farklı dalga boylarında çalışan birkaç M3M kamerasını (ör. bir F650 "Red" ve bir F850 "NIR") yönlendirin, bunları bir [çoklu kamera dizisi](arrays.md) olarak bağlayın ve Chloros'un kameralar arasındaki eşleştirme deformasyonunu hesaplamasına izin verin.
 2. **Yığınlama** — hizalanmış kareler tek bir çok bantlı görüntü haline gelir (her kamera, adlandırılmış bir bant sağlar).
 3. **Endeks** — yığının bantları üzerinde bir endeks formülünü değerlendirin; isteğe bağlı olarak bunu bir LUT aracılığıyla işleyin.
 
@@ -59,29 +39,17 @@ GUI'de bu zincirin tamamı **Birleştirilmiş Kameralar**dizi görüntüleme mod
 
 Dizin Hesaplayıcı, canlı görüntü ve kamera başına dizin dışa aktarımları tarafından kullanılan dizin ifadesini oluşturur. Bu, Kameralar sekmesi kenar çubuğundaki iki yerden açılabilen tek bir paylaşımlı yüzeydir:
 
-* **Kamera Başına**— Canlı Önizleme →**İndeks** dişli simgesi (yalnızca RGN
-
-/OCN
-
-/NGB
-
-Bayer kameralar; tek bir mono kamera, tek bir bantla indeks oluşturulamayacağı için indeks kontrolüne sahip değildir).
+* **Kamera Başına**— Canlı Önizleme →**İndeks** dişli simgesi (yalnızca RGN/OCN/NGB Bayer kameralar; tek bir mono kamera, tek bir bantla indeks oluşturulamayacağı için indeks kontrolüne sahip değildir).
 * **Dizi başına**— dizi ayarları → Canlı Önizleme →**İndeks**dişli simgesi. Bu, tek renkli (mono) yoldur: bant listesi**tüm üye kameraları** kapsar; dolayısıyla bir tek renkli çift, iki bandını buraya katkıda bulunur.
 
 <!-- SCREENSHOT-NEEDED: Index Calculator pane opened for a combined array of two mono cameras (e.g. F650 + F850): band chips row showing the two bands with wavelength labels, the operator buttons, the expression textarea containing "(NIR - Red) / (NIR + Red)", the green "Valid expression" banner, the LUT controls (Apply LUT checked, Level 7-stop, Min 0.2 / Max 1), and the live histogram with p2/p98 percentile lines. -->
 
 Kontrolleri, yukarıdan aşağıya doğru:
 
-* **Bant çipleri** ("Bantlar — ifadeye eklemek için tıklayın") — mevcut her bant için bir düğme bulunur; üzerinde renk adı + nm cinsinden dalga boyu yazmaktadır (aynı renk adları, örneğin "Renk 850" şeklinde ayırt edilir). Tıklandığında, bant belirteci imlecin bulunduğu yere eklenir. Bant başına parlaklık üretemeyen kameralardan gelen bantlar (RGB
-
-/FRGB) filtrelenir.
+* **Bant çipleri** ("Bantlar — ifadeye eklemek için tıklayın") — mevcut her bant için bir düğme bulunur; üzerinde renk adı + nm cinsinden dalga boyu yazmaktadır (aynı renk adları, örneğin "Renk 850" şeklinde ayırt edilir). Tıklandığında, bant belirteci imlecin bulunduğu yere eklenir. Bant başına parlaklık üretemeyen kameralardan gelen bantlar (RGB/FRGB) filtrelenir.
 * **İşlemci ve fonksiyon düğmeleri** — `+ - * / ( ) ^ ,` ve `abs() sqrt() log() log10() exp() min() max() pow()`.
-* **İfade metin alanı** — serbest biçimli formül; yer tutucu, klasik NDVI
-
-biçimi olan `(NIR - Red) / (NIR + Red)`'i gösterir. Üstündeki salt okunur, belirteçlere ayrılmış önizleme, bant yongalarını, sayıları ve bayrakları bilinmeyen belirteçler olarak görüntüler.
-* **Geçerlilik başlığı**— gri “Boş — herhangi bir endeks uygulanmayacak”; yeşil “Geçerli ifade”; kırmızı (belirli bir ayrıştırma hatasıyla birlikte: bilinmeyen bant, birden fazla kamera tarafından yakalanan belirsiz bant, eksik parantez, …); veya ifade geçerli ancak**sabit** olduğunda sarı (örn. `X/X` veya `+` yerine `−` olarak yazılmış bir NDVI
-
-paydası) — bir sabit, tüm karenin tek bir renge eşlenmesine neden olur.
+* **İfade metin alanı** — serbest biçimli formül; yer tutucu, klasik NDVI biçimi olan `(NIR - Red) / (NIR + Red)`'i gösterir. Üstündeki salt okunur, belirteçlere ayrılmış önizleme, bant yongalarını, sayıları ve bayrakları bilinmeyen belirteçler olarak görüntüler.
+* **Geçerlilik başlığı**— gri “Boş — herhangi bir endeks uygulanmayacak”; yeşil “Geçerli ifade”; kırmızı (belirli bir ayrıştırma hatasıyla birlikte: bilinmeyen bant, birden fazla kamera tarafından yakalanan belirsiz bant, eksik parantez, …); veya ifade geçerli ancak**sabit** olduğunda sarı (örn. `X/X` veya `+` yerine `−` olarak yazılmış bir NDVI paydası) — bir sabit, tüm karenin tek bir renge eşlenmesine neden olur.
 * Uygulanan ifade doğru olsa da **canlı kare tekdüze** ise (düz veya doymuş sahne) ayrı bir sarı uyarı görünür — histogram çökmesi sizin için algılanır.
 * **LUT Uygula**(varsayılan olarak açık; kapalı = gri tonlama genişletme),**Seviye**2/3/5/7-stop (varsayılan 7-stop) ve**Min / Maks**girişleri, gradyan çubuğunun iki yanında yer alır. Min varsayılan değeri**0,2**'dir — bu değer, renk rampasını bitki örtüsüyle ilgili aralığa yakınlaştırırken, bunun altındaki değerler gri tonlamalı olarak geçer; tam indeks aralığı için Min'i −1 olarak ayarlayın (**Sıfırla** düğmesi −1…+1 aralığını geri yükler). Max varsayılan değeri 1'dir.
 * İndeks dağılımının **canlı histogramı** — karekök ölçekli çubuklar, kehribar rengi p2/p98 persentil çizgileri, beyaz bir medyan çizgisi ve aralık dışı uç değer okumaları ("◀ N% < lo" / "hi < N% ▶") 1 %'nin üzerinde kehribar rengine dönerek Min/Max aralığını genişletmeniz gerektiğini gösterir.
@@ -91,9 +59,7 @@ paydası) — bir sabit, tüm karenin tek bir renge eşlenmesine neden olur.
 
 
 
-## CLI
-
-yolu
+## CLI yolu
 
 Aynı hizalama → yığın → dizin zinciri, uçtan uca komut dosyası ile kontrol edilebilir:
 
@@ -104,22 +70,14 @@ chloros-cli lattice index --live --profile align.json \
   --save-multiband -o output/
 ```
 
-`align-calibrate`, kameralarını barındıran bağlı bir dizi kullanır veya tek bir çalıştırma için kameraları kendisi açar. `index --live`, kameraları her zaman kendisi açar ([geçici bir dizi](../reference/cli-reference.md#multi-camera-transient-sessions)) ve `--serials`'e sahip değildir: ağdaki her kamerayı açar. Bu nedenle, Chloros
-
-'un elinde tuttuğu tüm kameraları ondan önce serbest bırakın — GUI, `cam-connect`, `array-connect` (`chloros-cli lattice array-disconnect --all`): Tutulan bir kamerayı ikinci kez açmak, tutan kişinin akışını durdurabilir veya arka ucu çökertebilir. Kare göndermeyen bir kamera, çalıştırmayı başarısız kılar ve yığın veya dizin yazılmaz.
+`align-calibrate`, kameralarını barındıran bağlı bir dizi kullanır veya tek bir çalıştırma için kameraları kendisi açar. `index --live`, kameraları her zaman kendisi açar ([geçici bir dizi](../reference/cli-reference.md#multi-camera-transient-sessions)) ve `--serials`'e sahip değildir: ağdaki her kamerayı açar. Bu nedenle, Chloros'un elinde tuttuğu tüm kameraları ondan önce serbest bırakın — GUI, `cam-connect`, `array-connect` (`chloros-cli lattice array-disconnect --all`): Tutulan bir kamerayı ikinci kez açmak, tutan kişinin akışını durdurabilir veya arka ucu çökertebilir. Kare göndermeyen bir kamera, çalıştırmayı başarısız kılar ve yığın veya dizin yazılmaz.
 
 `--channel`, bir ön ayarın sembollerini yığının bant adlarına eşler. Başarısız bir çalıştırmayı önleyen iki kural vardır:
 
-* **Semboller büyük/küçük harfe duyarlıdır** ve ön ayarın kanal adlarıyla tam olarak eşleşmelidir — ön ayarlar küçük harf kullanır (NDVI
-
-ön ayarları `red`,`nir` şeklindedir; `--list-presets`'e bakın). `--channel red=Red_660` çalışır; `--channel RED=660` ise `channel_map missing entries` hatasıyla başarısız olur.
+* **Semboller büyük/küçük harfe duyarlıdır** ve ön ayarın kanal adlarıyla tam olarak eşleşmelidir — ön ayarlar küçük harf kullanır (NDVI ön ayarları `red`,`nir` şeklindedir; `--list-presets`'e bakın). `--channel red=Red_660` çalışır; `--channel RED=660` ise `channel_map missing entries` hatasıyla başarısız olur.
 * Bant tarafında, hizalanmış yığındaki bir bant adı belirtilmelidir (`lattice align-info --profile align.json` bunları listeler). Çevrimdışı modda 0 tabanlı bant indeksleri de kabul edilir, örneğin `--channel red=0 --channel nir=1`.
 
-`lattice index`, kaydedilmiş hizalanmış çok bantlı bir TIFF
-
-dosyası üzerinde de çevrimdışı olarak çalışır. Her form arka planda çalışır; bu nedenle, ücretli bir Chloros
-
-+ kademesinde çalışıyor ve oturum açılmış durumda olmalıdır; göreceli bir `--input` veya `--output`, komutu çalıştırdığınız klasöre göre çözümlenir:
+`lattice index`, kaydedilmiş hizalanmış çok bantlı bir TIFF dosyası üzerinde de çevrimdışı olarak çalışır. Her form arka planda çalışır; bu nedenle, ücretli bir Chloros+ kademesinde çalışıyor ve oturum açılmış durumda olmalıdır; göreceli bir `--input` veya `--output`, komutu çalıştırdığınız klasöre göre çözümlenir:
 
 ```bash
 chloros-cli lattice index --input aligned.tif --preset NDVI \
@@ -134,16 +92,8 @@ chloros-cli lattice index --input aligned.tif --preset NDVI \
 
 Her ön ayarın formülü ve kanal sembolleri için `chloros-cli lattice index --list-presets`'i, kullanılabilir renk gradyanları için ise `--list-gradients`'i çalıştırın. Özel formüller, Dizin Hesaplayıcı ile aynı sözdizimini kullanan `--formula EXPR`'i kullanır. Bu ön ayar listesinin LATTICE indeks motoruna özgü olduğuna dikkat edin — içe aktarılan görüntüler için Proje Ayarları'ndaki işleme açılır menüsü farklı bir liste içerir (bkz. [Multispektral İndeks Formülleri](../project-settings/multispectral-index-formulas.md)).
 
-Tam bayrak seti (`--output-format`, `--vmin/--vmax/--percentile`, `--bg-mode`, `--live` için hizalama ve deforme etme düğmeleri ve daha fazlası) [CLI
-
-Referansı § İndeks / Bitki Örtüsü Matematiği](../reference/cli-reference.md#index--vegetation-maths) bölümünde belgelenmiştir; SDK
-
-karşılıkları ise [SDK
-
-Referansı](../reference/sdk-reference.md) bölümünde yer almaktadır.
+Tam bayrak seti (`--output-format`, `--vmin/--vmax/--percentile`, `--bg-mode`, `--live` için hizalama ve deforme etme düğmeleri ve daha fazlası) [CLI Referansı § İndeks / Bitki Örtüsü Matematiği](../reference/cli-reference.md#index--vegetation-maths) bölümünde belgelenmiştir; SDK karşılıkları ise [SDK Referansı](../reference/sdk-reference.md) bölümünde yer almaktadır.
 
 ## Tek renkli bir diziden indeks ürünlerini yakalama
 
-Bir dizi bağlandığında ve bir indeks ifadesi uygulandığında, `array-capture` (veya GUI'deki **Tümünü Yakala**) kamera başına dışa aktarma seviyelerini *ve* indeks renderını kaydeder — `--index`/`--no-index`, CLI
-
-'de bunu açıp kapatır ve varsayılan olarak geçerli tüm seviyeleri dahil edecek şekilde yakalar. Bir mono kameranın her yakalama grubuna katkısı, ham/debayered (gri tonlamalı)/radyans/yansıtma düzeylerindeki tek bandıdır; ayrıca dizi birleştirilmiş modda çalıştığında paylaşılan birleştirilmiş dizin kompozitidir. Bkz. [Çoklu Kamera Dizileri § Yakalama](arrays.md#capturing-monitoring-vs-analysis).
+Bir dizi bağlandığında ve bir indeks ifadesi uygulandığında, `array-capture` (veya GUI'deki **Tümünü Yakala**) kamera başına dışa aktarma seviyelerini *ve* indeks renderını kaydeder — `--index`/`--no-index`, CLI'de bunu açıp kapatır ve varsayılan olarak geçerli tüm seviyeleri dahil edecek şekilde yakalar. Bir mono kameranın her yakalama grubuna katkısı, ham/debayered (gri tonlamalı)/radyans/yansıtma düzeylerindeki tek bandıdır; ayrıca dizi birleştirilmiş modda çalıştığında paylaşılan birleştirilmiş dizin kompozitidir. Bkz. [Çoklu Kamera Dizileri § Yakalama](arrays.md#capturing-monitoring-vs-analysis).

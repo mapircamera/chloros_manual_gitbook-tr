@@ -26,28 +26,10 @@ Pencerenin üst kısmında üç mod düğmesi bulunur:
 | **Sürekli**| Durma koşulu gerçekleşene kadar arka arkaya çekimler. |**Yakalama sayısı** (varsayılan 1) *veya* **Yakalama süresi** (varsayılan 10 s; birimler: saniye / dakika / saat / gün) ile durdurulur. |
 | **Aralık**(zaman atlamalı) | Zamanlayıcıya göre seri çekim yapar. |**Yakalama sayısı / aralık**(varsayılan 1) ·**Her**N birim (varsayılan 5 s) ·**N birim boyunca** (varsayılan 1 m). |
 
-Sürekli veya Aralık modunda, Tümünü Yakala düğmesi çalışma sırasında **Durdur (N)** düğmesine dönüşür ve çekimler geldikçe sayar. Bir sürücünün tamamen dolması, çalışmayı durdurur (bkz. [Tümünü Yakala akışı](#the-capture-all-flow)).**Dizilerdeki Sürekli mod, arka planda çalışır (1.3.0 sürümünde eklendi).** Listedeki her kamera bir diziye ait olduğunda (bağımsız kameralar gizlenmiş veya hariç tutulmuşsa), Sürekli mod artık her yakalama için bir istek göndermez: Chloros
-
-arka ucu yakalama döngüsünü kendisi çalıştırır, bir senkronize grubu yazarken bir sonrakini seçer ve düğme sayısını sorgular. Listede bağımsız kameralar varsa, Chloros
-
-eskisi gibi geçiş bazında yakalama yapar.
+Sürekli veya Aralık modunda, Tümünü Yakala düğmesi çalışma sırasında **Durdur (N)** düğmesine dönüşür ve çekimler geldikçe sayar. Bir sürücünün tamamen dolması, çalışmayı durdurur (bkz. [Tümünü Yakala akışı](#the-capture-all-flow)).**Dizilerdeki Sürekli mod, arka planda çalışır (1.3.0 sürümünde eklendi).** Listedeki her kamera bir diziye ait olduğunda (bağımsız kameralar gizlenmiş veya hariç tutulmuşsa), Sürekli mod artık her yakalama için bir istek göndermez: Chloros arka ucu yakalama döngüsünü kendisi çalıştırır, bir senkronize grubu yazarken bir sonrakini seçer ve düğme sayısını sorgular. Listede bağımsız kameralar varsa, Chloros eskisi gibi geçiş bazında yakalama yapar.
 
 {% hint style="warning" %}
-**Windows
-
-'da hızlı yakalama: Chloros
-
-arka ucunu Microsoft Defender'dan hariç tutun.** MAPIR
-
-'ın testlerinde, yüksek hızda yakalamanın yazdığı her dosyanın gerçek zamanlı taranması, yakalama hızının yaklaşık %30'una mal oluyor (küçük bir ROI'da saniyede yüzlerce dosya). Windows
-
-yükleyicisi, varsayılan olarak işaretli olan **"Chloros
-
-arka ucunu Microsoft Defender taramasından hariç tut (çok daha hızlı kamera yakalama; önerilir)"** seçeneğini sunar ve program kaldırıldığında bu hariç tutmayı kaldırır. Bu seçeneğin işaretini kaldırdıysanız, yükleyiciyi bu seçenek işaretli olarak yeniden çalıştırın veya `chloros-backend.exe` için (Chloros
-
-kurulum klasöründeki `backend` klasöründe bulunan) bir Defender işlem hariç tutma kuralı ekleyin. Defender, bir dizinin Sürekli yakalama işlemi sırasında bir veya daha fazla CPU çekirdeği kullandığında, Chloros
-
-arka ucu bunu günlüğüne bir kez kaydeder ve yine aynı iki çözüm yolunu sunar.
+**Windows'da hızlı yakalama: Chloros arka ucunu Microsoft Defender'dan hariç tutun.** MAPIR'ın testlerinde, yüksek hızda yakalamanın yazdığı her dosyanın gerçek zamanlı taranması, yakalama hızının yaklaşık %30'una mal oluyor (küçük bir ROI'da saniyede yüzlerce dosya). Windows yükleyicisi, varsayılan olarak işaretli olan **"Chloros arka ucunu Microsoft Defender taramasından hariç tut (çok daha hızlı kamera yakalama; önerilir)"** seçeneğini sunar ve program kaldırıldığında bu hariç tutmayı kaldırır. Bu seçeneğin işaretini kaldırdıysanız, yükleyiciyi bu seçenek işaretli olarak yeniden çalıştırın veya `chloros-backend.exe` için (Chloros kurulum klasöründeki `backend` klasöründe bulunan) bir Defender işlem hariç tutma kuralı ekleyin. Defender, bir dizinin Sürekli yakalama işlemi sırasında bir veya daha fazla CPU çekirdeği kullandığında, Chloros arka ucu bunu günlüğüne bir kez kaydeder ve yine aynı iki çözüm yolunu sunar.
 {% endhint %}
 
 <!-- SCREENSHOT-NEEDED: the capture-mode area of Capture Settings with Interval selected — showing the "Captures / interval", "Every N (unit)" and "For N (unit)" rows with their defaults (1, 5 s, 1 m). -->
@@ -67,26 +49,16 @@ Pencerenin yardım metni durumu şöyle özetler: "Tümünü Yakala" seçeneğin
 
 Altı dışa aktarım türü mevcuttur: **Raw, Debayered, Radiance, Reflectance, Preview, Index**. Her kameranın satırında yalnızca geçerli olanlar görünür:
 
-| Dışa aktarma türü | İçerik | RGB
-
-(FRGB) | Bayer multispektral (FRGN/FOCN/FNGB) | Mono (M3M) |
+| Dışa aktarma türü | İçerik | RGB (FRGB) | Bayer multispektral (FRGN/FOCN/FNGB) | Mono (M3M) |
 | --- | --- | --- | --- | --- |
 | **Raw** | Sensörden doğrudan gelen Bayer mozaiği (mono: tek bant) | ✓ | ✓ | ✓ |
-| **Debayered** | Doğrusal demosaik: ham veriden kalibrasyon paketinin karanlık ofseti (DSNU) kaldırılır, ardından kenar duyarlı demosaik uygulanır — doğrusallık düzeltmesi, düz alan veya renk ayrıştırma yapılmaz. 3 kanallı RGB
-
-TIFF
-
-olarak kaydedilir (mono: 1 kanallı gri tonlamalı) | ✓ | ✓ | ✓ |
-| **Önizleme** | Tam görüntüleme zinciri (kameranın profiline göre beyaz dengesi + gama, ayrıca RGB
-
-kameranın Vurgular ayarı; multispektral: sahte renk genişletme) | ✓ | ✓ | ✓ |
+| **Debayered** | Doğrusal demosaik: ham veriden kalibrasyon paketinin karanlık ofseti (DSNU) kaldırılır, ardından kenar duyarlı demosaik uygulanır — doğrusallık düzeltmesi, düz alan veya renk ayrıştırma yapılmaz. 3 kanallı RGB TIFF olarak kaydedilir (mono: 1 kanallı gri tonlamalı) | ✓ | ✓ | ✓ |
+| **Önizleme** | Tam görüntüleme zinciri (kameranın profiline göre beyaz dengesi + gama, ayrıca RGB kameranın Vurgular ayarı; multispektral: sahte renk genişletme) | ✓ | ✓ | ✓ |
 | **Işınım** | tam radyometrik zincir aracılığıyla float32 W/m²/sr/nm | — (sunulmamaktadır) | ✓ | ✓ |
 | **Yansıtma** | uint16 ρ (32768 = 1,0) | — (sunulmamaktadır) | ✓ — yalnızca kamerada bir DAQ ışık sensörü olduğunda gösterilir (kendi sensörü veya dizisinden devralınan) | multispektral ile aynı |
 | **Endeks** | Bitki örtüsü endeksi (LUT) işleme | — | ✓ — kamerada etkinleştirilmiş, boş olmayan bir indeks ifadesi gerektirir ve birleşik dizi üyelerine sunulmaz (dizi, tek bir paylaşılan indekse sahiptir) | — (bir indeks için ≥2 bant gerekir; bkz. [Mono Kameralar ve Bitki Örtüsü İndeksleri](mono-indices.md)) |
 
-RGB
-
-kameralar için radyans ve yansıma hiçbir zaman sunulmaz — geniş bantlı fotometrik sensörler için Bayer başına radyans anlamlı değildir.
+RGB kameralar için radyans ve yansıma hiçbir zaman sunulmaz — geniş bantlı fotometrik sensörler için Bayer başına radyans anlamlı değildir.
 
 ### En Hızlı Yakalama
 
@@ -151,15 +123,11 @@ Yakalamalar, açık projenin altında `<project>/captures/` dizininde kaydedilir
 * **Bilmeniz gereken bir asimetri:** görüntüleme seviyesi, `preview/` adlı bir klasörde saklanırken, dosyaların adında `_display` kalır — klasör ve sonek yalnızca bu seviye için farklılık gösterir.
 * Bilinmeyen seviyeler, kendi adlarını taşıyan bir klasöre kaydedilir; bir alt klasör oluşturulamıyorsa, dosya kaybolmak yerine yakalama kök dizinine yazılır.
 * Yakalama TIFF'leri varsayılan olarak kayıpsız olarak sıkıştırılır (DEFLATE) ve tam kalibrasyon ve işleme meta verilerini **dosyanın XMP'si içinde** taşır — yakalamalar kendi kendilerini tanımlar; `.daq` dosyası (ve buna ait `.daq.cameras.json` dosyası) dışında herhangi bir yardımcı dosya içermez.
-* **Kısma maskeleri (1.3.0 sürümünde yeni).**3×3 spektral ayrıştırmanın bir bandı en az bir pikselde 0'a kısması gereken durumlarda, parlaklık, yansıma ve indeks ürünleri piksel başına bir maske alır: `clamp_masks/<product folder>/<product name>_clampmask.tif` (bit 0 = ürünün R kanalındaki bant, bit 1 = G, bit 2 = B); ürünün `Chloros:UnmixClampMask` XMP etiketi bu maskeyi işaret eder. Maskeler, ürün klasörlerinin**yanında** bulunur, asla içlerinde değil; bu nedenle `reflectance/` gibi bir ürün klasörü, olduğu gibi fotogrametri yazılımına aktarılabilir. Chloros
-
-’un kendi içe aktarma işlevi maskeleri atlar.
+* **Kısma maskeleri (1.3.0 sürümünde yeni).**3×3 spektral ayrıştırmanın bir bandı en az bir pikselde 0'a kısması gereken durumlarda, parlaklık, yansıma ve indeks ürünleri piksel başına bir maske alır: `clamp_masks/<product folder>/<product name>_clampmask.tif` (bit 0 = ürünün R kanalındaki bant, bit 1 = G, bit 2 = B); ürünün `Chloros:UnmixClampMask` XMP etiketi bu maskeyi işaret eder. Maskeler, ürün klasörlerinin**yanında** bulunur, asla içlerinde değil; bu nedenle `reflectance/` gibi bir ürün klasörü, olduğu gibi fotogrametri yazılımına aktarılabilir. Chloros’un kendi içe aktarma işlevi maskeleri atlar.
 * **Yönlendirme (1.3.0).** Bağımsız bir kameranın Önizleme, Işılma, Yansıtma ve İndeks ürünleri, Ayna/Dönüş ayarıyla döndürülür; Raw ve Debayered dosyaları ise sensörün okuduğu haliyle kalır. Dizi üye dosyalarının tümü orijinal biçiminde kalır. Her dosya, ayarı kendi XMP'sinde kaydeder; bu sayede yeniden işleme sırasında ayar aynı şekilde uygulanır.
 * **Bir `.daq` dosyasının hangi kameraya ait olduğu (1.3.0).** Bir çekimin `.daq` değeri, işleme sırasında yalnızca `.daq.cameras.json` değerinde belirtilen kameralardan gelen görüntülerle eşleştirilir. Bu nedenle, kendi ışık sensörü olmayan bağımsız bir kamera artık başka bir kameranın okuma değerini kullanmaz — bu kameraya bir sensör bağlayın veya Işık Sensörleri sekmesinde bir sensör kaydedin. Bir ışık sensörü kaydı (ve bu dosyaya sahip olmayan herhangi bir `.daq`, eski yakalamalar dahil) hala her kameraya hizmet eder.
 
-Bu, `chloros-cli lattice capture` / `array-capture` dosyalarının `-o` dizinine yazdığı düzenin aynısıdır — [CLI
-
-Referansı § Bir yakalama klasörü nasıl görünür?](../reference/cli-reference.md#what-a-captures-folder-looks-like).
+Bu, `chloros-cli lattice capture` / `array-capture` dosyalarının `-o` dizinine yazdığı düzenin aynısıdır — [CLI Referansı § Bir yakalama klasörü nasıl görünür?](../reference/cli-reference.md#what-a-captures-folder-looks-like).
 
 <!-- SCREENSHOT-NEEDED: OS file explorer showing a real <project>/captures/ folder after a multi-level array capture — the raw/debayered/radiance/reflectance/preview subfolders, the daq/ and clamp_masks/ folders, and sync_<ts>_SN<serial>_<level>.tif filenames visible inside one subfolder. -->
 
@@ -179,11 +147,7 @@ chloros-cli process "C:/ChlorosProjects/MyField/captures"
 Bir seviye alt klasörünü doğrudan adlandırmak (örn. `…/captures/raw/`) da işe yarar, ancak `daq/` klasörünü geride bırakır — yeniden-`raw/`'ten radyometrik bir ürün türetirken bu klasörü de yanına kopyalayın, aksi takdirde zaman damgası eşleşmesi için karşılaştırılacak bir şey kalmaz.
 
 {% hint style="warning" %}
-**İşleme her zaman `raw`'ten başlar.** Her bir yakalama içinde ham kare, iş akışının kaynağıdır; `debayered`, `radiance`, `reflectance`, ve `preview` görüntülenebilir modlar olarak gelir ancak iş akışına asla geri beslenmez — türetilmiş bir ürünün yeniden işlenmesi, piksellerine zaten işlenmiş olan vinyet, renk ve parlaklık hesaplamalarını yeniden uygulayacaktır; bu nedenle Chloros
-
-, çift işleme yapmak yerine bunu reddeder. `index/` ve `composite/` renderları ise hiçbir şekilde işlenmez (bunlar yakalama değil, çıktıdır). Raw içe aktarmaları **olmadan** kaydedilen bir yakalama klasörü normal şekilde görüntülenir, ancak `process` bunu atlar ve bunu belirtir; `--input-level {raw,debayered,processed}` ise bir giriş noktasını zorlayan kasıtlı bir kaçış yoludur. Kesin atlama mesajları için [CLI
-
-Referansı](../reference/cli-reference.md#what-a-captures-folder-looks-like) bölümüne bakın.
+**İşleme her zaman `raw`'ten başlar.** Her bir yakalama içinde ham kare, iş akışının kaynağıdır; `debayered`, `radiance`, `reflectance`, ve `preview` görüntülenebilir modlar olarak gelir ancak iş akışına asla geri beslenmez — türetilmiş bir ürünün yeniden işlenmesi, piksellerine zaten işlenmiş olan vinyet, renk ve parlaklık hesaplamalarını yeniden uygulayacaktır; bu nedenle Chloros, çift işleme yapmak yerine bunu reddeder. `index/` ve `composite/` renderları ise hiçbir şekilde işlenmez (bunlar yakalama değil, çıktıdır). Raw içe aktarmaları **olmadan** kaydedilen bir yakalama klasörü normal şekilde görüntülenir, ancak `process` bunu atlar ve bunu belirtir; `--input-level {raw,debayered,processed}` ise bir giriş noktasını zorlayan kasıtlı bir kaçış yoludur. Kesin atlama mesajları için [CLI Referansı](../reference/cli-reference.md#what-a-captures-folder-looks-like) bölümüne bakın.
 {% endhint %}
 
 Yeniden işleme komut dosyası yazarken bilinmesi gereken iki davranış daha:
@@ -191,15 +155,11 @@ Yeniden işleme komut dosyası yazarken bilinmesi gereken iki davranış daha:
 * Ürünleri talep eden ancak **hiçbir görüntü ürünü yazmayan**bir `chloros-cli process` çalıştırması, yüksek sesli bir hata verir ve sıfırdan farklı bir değerle sonlanır** — asla sessiz bir boş çalıştırma elde edemezsiniz. Başarılı çalıştırmalar, ürün sayılarını bildirir. (Kasıtlı olarak yalnızca meta verilerle yapılan bir çalıştırma da yine de başarılı sayılır.)
 * Yeniden içe aktarılan işlenmiş dışa aktarımlar asla bir yakalamanın ham verisi yuvasını almaz — orijinal ham veri her zaman iş akışının kaynağı olarak kalır.
 
-## CLI
-
-'ye karşılık gelen komutlar
+## CLI'ye karşılık gelen komutlar
 
 Bu sayfadaki her şey başsız olarak çalıştırılabilir. GUI yakalama modları doğrudan `chloros-cli lattice array-capture` ile eşleşir:
 
-| GUI | CLI
-
-|
+| GUI | CLI |
 | --- | --- |
 | Tekli | `chloros-cli lattice array-capture` |
 | Sürekli | `array-capture --continuous [--count N] [--duration S]` |
@@ -210,6 +170,4 @@ Bu sayfadaki her şey başsız olarak çalıştırılabilir. GUI yakalama modlar
 | Dizin videosu kaydet | `chloros-cli lattice array-record` |
 | Ham seri çekim kaydet / Video oluştur | `chloros-cli lattice array-burst` / `array-build-video` |
 
-Tam bayrak tabloları, akıllı AE sabit çekim seçeneği (`--smart`) ve sabit hız modeli, [CLI
-
-Referansı § Çekim Modları, Kaydediciler ve Çevrimdışı Yeniden İşleme](../reference/cli-reference.md#capture-modes-recorders--offline-reprocess) bölümünde yer almaktadır.
+Tam bayrak tabloları, akıllı AE sabit çekim seçeneği (`--smart`) ve sabit hız modeli, [CLI Referansı § Çekim Modları, Kaydediciler ve Çevrimdışı Yeniden İşleme](../reference/cli-reference.md#capture-modes-recorders--offline-reprocess) bölümünde yer almaktadır.

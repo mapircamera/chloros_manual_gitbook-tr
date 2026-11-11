@@ -16,49 +16,21 @@ Oturum açtığınızda hesap bilgileriniz gösterilecektir:
 | Plan | `plan_id` | Tür |
 | --- | --- | --- |
 | Iron | `0` | Ücretsiz |
-| Copper | `1` | Ücretli (Chloros
-
-+) |
-| Bronze | `2` | Ücretli (Chloros
-
-+) |
-| Silver | `3` | Ücretli (Chloros
-
-+) |
-| Altın | `4` | Ücretli (Chloros
-
-+) |
+| Copper | `1` | Ücretli (Chloros+) |
+| Bronze | `2` | Ücretli (Chloros+) |
+| Silver | `3` | Ücretli (Chloros+) |
+| Altın | `4` | Ücretli (Chloros+) |
 
 Her bir ücretli kademenin neleri içerdiğini öğrenmek için [planlar ve fiyatlandırma](https://cloud.mapir.camera/pricing) sayfasına bakın.
 
-### CLI
+### CLI / SDK erişimi için ücretli bir kademe gereklidir
 
-/ SDK
+CLI ve Python SDK erişimi için **herhangi bir ücretli Chloros+ kademesi (Copper veya üstü)**gereklidir. Bu kural**sunucu tarafında** uygulanır — her CLI/SDK isteği hem aktif bir oturum hem de ücretli bir plan içermelidir:
 
-erişimi için ücretli bir kademe gereklidir
-
-CLI
-
-ve Python
-
-SDK
-
-erişimi için **herhangi bir ücretli Chloros
-
-+ kademesi (Copper veya üstü)**gereklidir. Bu kural**sunucu tarafında** uygulanır — her CLI
-
-/SDK
-
-isteği hem aktif bir oturum hem de ücretli bir plan içermelidir:
-
-| HTTP
-
-durumu | `error_code` | Anlamı | Çözüm |
+| HTTP durumu | `error_code` | Anlamı | Çözüm |
 | --- | --- | --- | --- |
 | `401` | `AUTH_REQUIRED` | Bu makinede oturum açılmamış | `chloros-cli login <email> <password>` |
-| `403` | `PLAN_UPGRADE_REQUIRED` | Oturum açılmış, ancak plan seviyesi çok düşük (ücretsiz Iron seviyesi) | Herhangi bir ücretli Chloros
-
-+ planına yükseltin |
+| `403` | `PLAN_UPGRADE_REQUIRED` | Oturum açılmış, ancak plan seviyesi çok düşük (ücretsiz Iron seviyesi) | Herhangi bir ücretli Chloros+ planına yükseltin |
 
 `chloros-cli status`, ücretsiz seviyede erişilebilir durumda kalır; böylece mevcut planınızı ve erişimin neden reddedildiğini her zaman görebilirsiniz.
 
@@ -73,17 +45,9 @@ Her plan, aynı anda canlı olarak bağlanabilecek LATTICE kamera ve DAQ ışık
 | Silver | 10 | 6 |
 | Gold | 20 | 12 |
 
-## CLI
+## CLI Oturum Açma
 
-Oturum Açma
-
-CLI
-
-işlemeyi etkinleştirmek için Chloros
-
-+ kimlik bilgilerinizle oturum açın. Linux
-
-'ta (GUI yok), lisansınızı etkinleştirmenin tek yolu budur.
+CLI işlemeyi etkinleştirmek için Chloros+ kimlik bilgilerinizle oturum açın. Linux'ta (GUI yok), lisansınızı etkinleştirmenin tek yolu budur.
 
 **Sözdizimi:**
 
@@ -92,15 +56,7 @@ chloros-cli login <email> <password>
 ```
 
 {% hint style="info" %}
-**SDK
-
-Kullanıcıları**: Python
-
-SDK
-
-'si, önbelleğe alınmış kimlik bilgilerini temizlemek için programlı bir `logout()` yöntemi de sunar. Ayrıntılar için [SDK
-
-Referansı](reference/sdk-reference.md) bölümüne bakın.
+**SDK Kullanıcıları**: Python SDK'si, önbelleğe alınmış kimlik bilgilerini temizlemek için programlı bir `logout()` yöntemi de sunar. Ayrıntılar için [SDK Referansı](reference/sdk-reference.md) bölümüne bakın.
 {% endhint %}
 
 **Örnek:**
@@ -127,23 +83,13 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 | **Windows** | `%USERPROFILE%\.chloros\` |
 | **Linux** | `~/.chloros/` |
 
-Mevcut sürümün üzerine daha yeni bir sürüm yüklediğinizde, Windows
-
-'ta (yükleyici) ve Linux
-
-'ta (`.deb`, `chloros-cli update` dahil) oturum açma bilgileriniz korunur. Chloros
-
-'u kaldırmak — veya Linux
-
-paketini silmek — önbellekteki oturum açma bilgilerini siler; bu nedenle, yeni bir kurulumdan sonra tekrar oturum açmanız gerekir.
+Mevcut sürümün üzerine daha yeni bir sürüm yüklediğinizde, Windows'ta (yükleyici) ve Linux'ta (`.deb`, `chloros-cli update` dahil) oturum açma bilgileriniz korunur. Chloros'u kaldırmak — veya Linux paketini silmek — önbellekteki oturum açma bilgilerini siler; bu nedenle, yeni bir kurulumdan sonra tekrar oturum açmanız gerekir.
 
 ### Planın Süresinin Dolması ve Çevrimdışı Geçiş Süresi
 
 GUI'de gösterilen planın süresi dolumu, lisansınızın ne zaman geçersiz hale geleceğini gösterir. Aylık tekrarlayan aboneliklerde son kullanma tarihi ayın sonudur; yıllık aboneliklerde ise aboneliği başlattığınız tarihten bir yıl sonradır.
 
-Chloros
-
-, lisansınızı çevrimiçi olarak doğrular, ancak çevrimdışı çalışma bir ek süre içinde desteklenir:
+Chloros, lisansınızı çevrimiçi olarak doğrular, ancak çevrimdışı çalışma bir ek süre içinde desteklenir:
 
 * Başarılı sunucu doğrulamaları **5 dakika** süreyle önbelleğe alınır, bu nedenle normal kullanımda çok az sayıda lisans çağrısı yapılır.
 * İmzalanmış, makineye bağlı lisans önbelleği, daha uzun çevrimdışı süreleri kapsar: **aylık planlar için 30 gün**ve**yıllık planlar için aboneliğinizin son kullanma tarihine kadar (en fazla 365 gün)**.
@@ -151,13 +97,7 @@ Chloros
 
 ### Cihaz Sınırı
 
-Her Chloros
-
-+ planı, farklı sayıda kayıtlı cihaz sunar. Chloros
-
-+ hesabınızla oturum açtığınız her cihaz, kayıtlı cihaz sayınıza dahil edilir. MAPIR
-
-Cloud hesap sayfanızdan bir cihazın adını değiştirebilir ve cihazı kaldırabilirsiniz.
+Her Chloros+ planı, farklı sayıda kayıtlı cihaz sunar. Chloros+ hesabınızla oturum açtığınız her cihaz, kayıtlı cihaz sayınıza dahil edilir. MAPIR Cloud hesap sayfanızdan bir cihazın adını değiştirebilir ve cihazı kaldırabilirsiniz.
 
 <table><thead><tr><th width="168.5999755859375" align="right">Chloros Planı+</th><th align="center">COPPER</th><th align="center">BRONZE</th><th align="center">SILVER</th><th align="center">GOLD</th></tr></thead><tbody><tr><td align="right">Desteklenen Cihazlar</td><td align="center">2</td><td align="center">2</td><td align="center">5</td><td align="center">10</td></tr></tbody></table>
 

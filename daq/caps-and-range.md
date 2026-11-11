@@ -1,10 +1,8 @@
 # Kapak Profilleri ve Kalibre Edilmiş Aralık
 
-> Kapakların kendileri — hangi sensörle hangi kapak birlikte gelir, nasıl monte edilirler ve optik davranışları — **[DAQ kullanım kılavuzunda](https://mapir.gitbook.io/daq)** belgelenmiştir. Bu sayfa, takılan kapağın Chloros
-'a *bildirilmesini* ele almaktadır; bu, düzeltmenin doğru olmasını sağlayan unsurdur.
+> Kapakların kendileri — hangi sensörle hangi kapak birlikte gelir, nasıl monte edilirler ve optik davranışları — **[DAQ kullanım kılavuzunda](https://mapir.gitbook.io/daq)** belgelenmiştir. Bu sayfa, takılan kapağın Chloros'a *bildirilmesini* ele almaktadır; bu, düzeltmenin doğru olmasını sağlayan unsurdur.
 
-Her DAQ ışık sensörünün fabrika radyometrik kalibrasyonu, *çıplak* sensörü tanımlar. Difüzörün üzerine takılan fiziksel kapak, sensörün topladığı ışığı değiştirir; bu nedenle Chloros
-, kalibrasyon paketinin üzerine fabrikada ölçülmüş bir **kapak düzeltme profili** uygular. Doğru kapağı bildirmek, kalibre edilmiş veriler elde etmenin bir parçasıdır — bu sayfa, modele göre hangi kapakların mevcut olduğunu, bunların nasıl bildirileceğini ve sensörün kalibre edilmiş spektral aralığının gerçekte ne olduğunu ele almaktadır.
+Her DAQ ışık sensörünün fabrika radyometrik kalibrasyonu, *çıplak* sensörü tanımlar. Difüzörün üzerine takılan fiziksel kapak, sensörün topladığı ışığı değiştirir; bu nedenle Chloros, kalibrasyon paketinin üzerine fabrikada ölçülmüş bir **kapak düzeltme profili** uygular. Doğru kapağı bildirmek, kalibre edilmiş veriler elde etmenin bir parçasıdır — bu sayfa, modele göre hangi kapakların mevcut olduğunu, bunların nasıl bildirileceğini ve sensörün kalibre edilmiş spektral aralığının gerçekte ne olduğunu ele almaktadır.
 
 ## Modele göre kapak seçenekleri
 
@@ -50,30 +48,22 @@ chloros-cli daq pool-connect --eth-host daq-e-def330.local --cap-id sunshine_cos
 chloros-cli daq pool-set-cap --sensor-id daq-e-def330 --cap-id fov_45
 ```
 
-CLI
-, sözdizimsel olarak tam `cap_id` listesini kabul eder (`{none, fov_15, fov_30, fov_45, fov_60, fov_90, sunshine_cosine}`); her profil, bağlantı kurulduğunda sensörün modeline göre doğrulanır; bu nedenle, kullanılamayan bir kapak kimliği (örneğin, bir DAQ-U'da yalnızca E için geçerli bir kimlik) yanlış düzeltme yapmak yerine açık bir hata ile reddedilir. Hiçbir şey aktarılmadığında arka uçtaki varsayılan değer `sunshine_cosine`'tir.
+CLI, sözdizimsel olarak tam `cap_id` listesini kabul eder (`{none, fov_15, fov_30, fov_45, fov_60, fov_90, sunshine_cosine}`); her profil, bağlantı kurulduğunda sensörün modeline göre doğrulanır; bu nedenle, kullanılamayan bir kapak kimliği (örneğin, bir DAQ-U'da yalnızca E için geçerli bir kimlik) yanlış düzeltme yapmak yerine açık bir hata ile reddedilir. Hiçbir şey aktarılmadığında arka uçtaki varsayılan değer `sunshine_cosine`'tir.
 
-Python
-SDK
-: Bağlantı kurulurken cap'e `connect_daq_sensor(cap_id="sunshine_cosine")` adını verin veya çalışma zamanında `DAQSensorSession.set_cap("fov_45")` ile değiştirin; bkz. [SDK
-Referansı](../reference/sdk-reference.md#daq-sensor-sessions).
+Python SDK: Bağlantı kurulurken cap'e `connect_daq_sensor(cap_id="sunshine_cosine")` adını verin veya çalışma zamanında `DAQSensorSession.set_cap("fov_45")` ile değiştirin; bkz. [SDK Referansı](../reference/sdk-reference.md#daq-sensor-sessions).
 
-İleri düzey: Profiller, Chloros
-kurulumunda `daq/cap_profiles/<u|m|e>/<cap_id>.json` altında bulunur ve kullanıcı başına `~/.chloros/daq_cap_profiles/<u|m|e>/<cap_id>.json` ile geçersiz kılınabilir.
+İleri düzey: Profiller, Chloros kurulumunda `daq/cap_profiles/<u|m|e>/<cap_id>.json` altında bulunur ve kullanıcı başına `~/.chloros/daq_cap_profiles/<u|m|e>/<cap_id>.json` ile geçersiz kılınabilir.
 
 Sınırlamalardan ayrı olarak, hiç yeniden kalibre edilmemiş sensörler otomatik olarak filodan türetilen küçük bir karanlık ofset düzeltmesi alır — kullanıcı müdahalesi gerekmez.
 
 ## DAQ-E-S: sabit difüzör ve eğim
 
-**DAQ-E-S**, Chloros
-açısından önemli iki farkı olan bir DAQ-E modelidir. Diğer her şey (keşif, bağlanma, PTP, kayıt, cihaz ayarları) tam olarak bir DAQ-E'de olduğu gibi çalışır.
+**DAQ-E-S**, Chloros açısından önemli iki farkı olan bir DAQ-E modelidir. Diğer her şey (keşif, bağlanma, PTP, kayıt, cihaz ayarları) tam olarak bir DAQ-E'de olduğu gibi çalışır.
 
-* **Difüzörü sabittir, bu nedenle kapak düzeltmesi gerektirmez.** Difüzör, cihazın fabrika kalibrasyonu ölçüldüğünde ünitede takılıydı; dolayısıyla bu kalibrasyon zaten gerçek aşağı doğru ışınım yoğunluğunu gösterir. Chloros
-, ne talep edilirse edilsin bu cihaza herhangi bir sınır profili uygulamaz: bu cihaz için adlandırılmış bir sınır profili, bir mesajla birlikte yok sayılır; kayıtlarında sınır profilinin modelden geldiği belirtilir ve varsayılan sınır profili uyarısı bu cihaz için asla tetiklenmez. Proje Ayarları → DAQ Işık Sensörü bölümünde, bu sensörün satırında herhangi bir sınır gösterilmez ve proje genelindeki sınır geçersiz kılma ayarı bu sensöre etki etmez. Verilerine manuel olarak sınır uygulamayınız: aksi takdirde, üstteki Güneş Işığı düzeltmesi yaklaşık 11 kat daha yüksek bir değer gösterir.
+* **Difüzörü sabittir, bu nedenle kapak düzeltmesi gerektirmez.** Difüzör, cihazın fabrika kalibrasyonu ölçüldüğünde ünitede takılıydı; dolayısıyla bu kalibrasyon zaten gerçek aşağı doğru ışınım yoğunluğunu gösterir. Chloros, ne talep edilirse edilsin bu cihaza herhangi bir sınır profili uygulamaz: bu cihaz için adlandırılmış bir sınır profili, bir mesajla birlikte yok sayılır; kayıtlarında sınır profilinin modelden geldiği belirtilir ve varsayılan sınır profili uyarısı bu cihaz için asla tetiklenmez. Proje Ayarları → DAQ Işık Sensörü bölümünde, bu sensörün satırında herhangi bir sınır gösterilmez ve proje genelindeki sınır geçersiz kılma ayarı bu sensöre etki etmez. Verilerine manuel olarak sınır uygulamayınız: aksi takdirde, üstteki Güneş Işığı düzeltmesi yaklaşık 11 kat daha yüksek bir değer gösterir.
 * **3 eksenli bir ivmeölçer barındırır.** Difüzörün kosinüs tepkisi yalnızca düz konumdayken geçerlidir; bu nedenle eğik bir sensör, başka hiçbir belirti göstermeden yanlış bir ışık şiddeti değeri bildirir. Dolayısıyla her DAQ-E-S okuması, eğim, yuvarlanma ve dikleme açısını içerir ve bunlardan birinden kaydedilen bir `.daq`, bunları her spektrumun yanına kaydeder (`imu_tilt_deg`, `imu_roll_deg`, `imu_pitch_deg`, …) yanında saklar; böylece bir bulutu, sarsılmış bir montajdan ayırt edebilirsiniz.
 
-Her bir konum alanı ve konum akışındaki bir hatanın nasıl raporlandığı hakkında bilgi için bkz. [CLI
-Referansında DAQ-E-S](../reference/cli-reference.md#daq-e-s--fixed-diffuser-and-tilt-sensor).
+Her bir konum alanı ve konum akışındaki bir hatanın nasıl raporlandığı hakkında bilgi için bkz. [CLI Referansında DAQ-E-S](../reference/cli-reference.md#daq-e-s--fixed-diffuser-and-tilt-sensor).
 
 ## Sunshine cap performansı (dış mekan konfigürasyonu)
 
@@ -97,7 +87,6 @@ Herhangi bir nicel ışınım değeri için — yansıma referansları dahil —
 | Spektral örnekleme | 5 nm'lik adımlarla 340–1010 nm (135 nokta) |
 | Radyometrik olarak kalibre edilmiş aralık | **~374–974 nm** (yazılımda zorunlu tutulur) |
 
-Sensör, 340–1010 nm aralığının tamamını rapor eder, ancak NIST'e izlenebilir radyometrik kazanç ~374–974 nm aralığını kapsar. Chloros
-, spektral ağırlığının yarısından azı bu aralıkta bulunan herhangi bir kamera bandı için **mutlak yansıma ayrımını reddeder** ve kalibre edilmemiş bir çıktı üretmek yerine `dls-uncalibrated-band-<nm>` atlama nedenini bildirir. Piyasada bulunan kamera SKU’ları arasında yalnızca F988 filtresi bu aralığın dışındadır; bu model bunun yerine yansıma paneli iş akışını kullanır — bkz. [Yansıma İş Akışları](reflectance.md).
+Sensör, 340–1010 nm aralığının tamamını rapor eder, ancak NIST'e izlenebilir radyometrik kazanç ~374–974 nm aralığını kapsar. Chloros, spektral ağırlığının yarısından azı bu aralıkta bulunan herhangi bir kamera bandı için **mutlak yansıma ayrımını reddeder** ve kalibre edilmemiş bir çıktı üretmek yerine `dls-uncalibrated-band-<nm>` atlama nedenini bildirir. Piyasada bulunan kamera SKU’ları arasında yalnızca F988 filtresi bu aralığın dışındadır; bu model bunun yerine yansıma paneli iş akışını kullanır — bkz. [Yansıma İş Akışları](reflectance.md).
 
 Sensör modelleri, aktarımlar ve sensör kimlikleri için [DAQ genel bakışına](README.md) bakınız. İşleme sırasında cap damgasının nasıl tüketildiğine ilişkin bilgi için [Kayıt ve .daq Biçimi](recording.md) bölümüne bakınız.

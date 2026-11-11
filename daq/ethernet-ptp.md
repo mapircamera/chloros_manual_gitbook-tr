@@ -1,8 +1,6 @@
 # DAQ-E Ağ Bağlantısı ve Zaman Senkronizasyonu
 
-> Sensörün fiziksel ağ kurulumu — kablolama, PoE, IP ataması ve cihazın kendi ağ ayarları — **[DAQ kullanım kılavuzunda](https://mapir.gitbook.io/daq/daq-e/network-setup)** yer almaktadır. Bu sayfa, Chloros
-
-tarafını ele almaktadır: bağlantı, zaman senkronizasyonu ve keşif işlemi sonuçsuz kaldığında ne yapılması gerektiği.
+> Sensörün fiziksel ağ kurulumu — kablolama, PoE, IP ataması ve cihazın kendi ağ ayarları — **[DAQ kullanım kılavuzunda](https://mapir.gitbook.io/daq/daq-e/network-setup)** yer almaktadır. Bu sayfa, Chloros tarafını ele almaktadır: bağlantı, zaman senkronizasyonu ve keşif işlemi sonuçsuz kaldığında ne yapılması gerektiği.
 
 DAQ-E, DAQ ailesinin Ethernet üyesidir: PoE üzerinden güç alır, mDNS (`_daq-e._tcp` hizmeti) aracılığıyla keşfedilir ve sensör kimliğinden türetilen bir ana bilgisayar adıyla adreslenebilir — `daq-e-<6 hex>.local`, örneğin `daq-e-def330.local`. Bu sayfa, cihazın ağ üzerinden verileri nasıl aktardığını ve PTP zaman senkronizasyonuna nasıl katıldığını ele almaktadır.
 
@@ -13,35 +11,17 @@ DAQ-E, DAQ ailesinin Ethernet üyesidir: PoE üzerinden güç alır, mDNS (`_daq
 | **Çoklu Yayın** (varsayılan) | UDP `239.10.10.10:5002` | Aynı LAN üzerindeki herhangi bir cihaz aynı akışı alır | Her datagram CRC-16/CCITT ile doğrulanır |
 | **Ham** | TCP bağlantı noktası `5000` | Tam olarak bir istemci (münhasır) | DAQ-U ile bayt düzeyinde uyumlu |
 
-Chloros
-
-, varsayılan olarak çoklu yayını kullanır; bu sayede GUI, CLI
-
-ve SDK
-
-, tek bir sensörü aynı anda izleyebilir.
+Chloros, varsayılan olarak çoklu yayını kullanır; bu sayede GUI, CLI ve SDK, tek bir sensörü aynı anda izleyebilir.
 
 ## Ağ gereksinimleri
 
-* **Aynı yayın etki alanı.** Chloros
-
-'u çalıştıran makine, sensörle aynı L2 ağ segmentinde olmalıdır — mDNS keşfi yönlendiricilerden geçmez.
-* **Güvenlik duvarı.** Windows
-
-'da yükleyici, her ağ profiline arka uç için **Chloros
-
-Backend (UDP-In)**güvenlik duvarı kuralını ekler; bu kural DAQ-E verilerini (UDP 5002), mDNS (UDP 5353) ve PTP (UDP 319/320) verilerini kapsar; ayrıca, bir DAQ-E cihazının ürün yazılımı güncellemesi sırasında bilgisayara geri bağlanması için yerel alt ağla sınırlı bir**Chloros
-
-Arka Ucu (TCP-In)** kuralı da eklenir. Linux
-
-'ta, kurulum sırasında bu güvenlik duvarı etkinse, `.deb`, `ufw` veya `firewalld`'teki UDP bağlantı noktalarını açar. Üçüncü taraf bir güvenlik duvarı veya daha sonra etkinleştirilen bir güvenlik duvarında da aynı bağlantı noktalarının izin verilmesi gerekir.
+* **Aynı yayın etki alanı.** Chloros'u çalıştıran makine, sensörle aynı L2 ağ segmentinde olmalıdır — mDNS keşfi yönlendiricilerden geçmez.
+* **Güvenlik duvarı.** Windows'da yükleyici, her ağ profiline arka uç için **Chloros Backend (UDP-In)**güvenlik duvarı kuralını ekler; bu kural DAQ-E verilerini (UDP 5002), mDNS (UDP 5353) ve PTP (UDP 319/320) verilerini kapsar; ayrıca, bir DAQ-E cihazının ürün yazılımı güncellemesi sırasında bilgisayara geri bağlanması için yerel alt ağla sınırlı bir**Chloros Arka Ucu (TCP-In)** kuralı da eklenir. Linux'ta, kurulum sırasında bu güvenlik duvarı etkinse, `.deb`, `ufw` veya `firewalld`'teki UDP bağlantı noktalarını açar. Üçüncü taraf bir güvenlik duvarı veya daha sonra etkinleştirilen bir güvenlik duvarında da aynı bağlantı noktalarının izin verilmesi gerekir.
 * **PoE güç kaynağı, durum LED'i yoktur.** DAQ-E'nin kendine ait bir LED'i yoktur — gücü, anahtar veya enjektör bağlantı noktasındaki bağlantı/PoE göstergesinden kontrol edin ve cihazın açıldıktan sonra önyükleme yapıp ağa katılabilmesi için birkaç saniye bekleyin.
 
 ## Bağlantı Kurma
 
-**GUI:** Işık Sensörleri sekmesi → Sensörü Bağla → Cihaz Türü "DAQ-E (Ethernet)". Keşif işlemi yalnızca bağlantı iletişim kutusu ekranda açıkken (Windows
-
-'te mDNS taraması ve ARP taraması) çalışır ve her 15 saniyede bir tekrarlanır; Yenile düğmesi basıldığında tarama hemen yeniden yapılır. Tespit edilen sensörler açılır menüde görünür; algılanan ilk sensör otomatik olarak seçilir.
+**GUI:** Işık Sensörleri sekmesi → Sensörü Bağla → Cihaz Türü "DAQ-E (Ethernet)". Keşif işlemi yalnızca bağlantı iletişim kutusu ekranda açıkken (Windows'te mDNS taraması ve ARP taraması) çalışır ve her 15 saniyede bir tekrarlanır; Yenile düğmesi basıldığında tarama hemen yeniden yapılır. Tespit edilen sensörler açılır menüde görünür; algılanan ilk sensör otomatik olarak seçilir.
 
 <!-- SCREENSHOT-NEEDED: DAQ connect dialog with Device Type set to "DAQ-E (Ethernet)" and at least one discovered sensor listed in the Hostname/IP dropdown (e.g. daq-e-xxxxxx.local), Connect button enabled. -->
 
@@ -67,23 +47,9 @@ chloros-cli daq pool-connect --eth-host daq-e-def330.local
 
 ## Cihaz ayarları ve ürün yazılımı
 
-Sensörün kendisi ağ ayarını tutar: DHCP (fabrika ayarı; DHCP sunucusu yanıt vermediğinde 169.254.x.x bağlantı yerel adresine geri döner) veya statik bir adres. Ayrıca, açıldığında akışa başlayıp başlamayacağını da belirler. Bu ayarları GUI'de (sensörün dişli simgesindeki ayarlar, **Ağ**:**Değiştir…**,**Açıldığında akış başlat**,**Sensörü yeniden başlat**; bkz. [DAQ Sekmesi](gui.md)) veya CLI
+Sensörün kendisi ağ ayarını tutar: DHCP (fabrika ayarı; DHCP sunucusu yanıt vermediğinde 169.254.x.x bağlantı yerel adresine geri döner) veya statik bir adres. Ayrıca, açıldığında akışa başlayıp başlamayacağını da belirler. Bu ayarları GUI'de (sensörün dişli simgesindeki ayarlar, **Ağ**:**Değiştir…**,**Açıldığında akış başlat**,**Sensörü yeniden başlat**; bkz. [DAQ Sekmesi](gui.md)) veya CLI ve SDK üzerinden `pool-set-network`, `pool-set-auto-stream` ve `pool-reboot` (`DAQSensorSession.set_network()`, `set_auto_stream()`, `reboot()`; bkz. [CLI Referansı](../reference/cli-reference.md#daq-e-device-settings)). Sensör, ağ değişikliğini uygulamak için yeniden başlatılır ve Chloros sensörü yeniden bağlar. Chloros'un çalıştığı bilgisayarın ağında statik bir adres bulunmalıdır: Chloros, yeniden başlatma sonrasında erişemediği bir adresi reddeder. Sensörün kimliği ve `daq-e-<id>.local` ana bilgisayar adı asla değişmez. 1.3.0 sürümündeki yenilikler.
 
-ve SDK
-
-üzerinden `pool-set-network`, `pool-set-auto-stream` ve `pool-reboot` (`DAQSensorSession.set_network()`, `set_auto_stream()`, `reboot()`; bkz. [CLI
-
-Referansı](../reference/cli-reference.md#daq-e-device-settings)). Sensör, ağ değişikliğini uygulamak için yeniden başlatılır ve Chloros
-
-sensörü yeniden bağlar. Chloros
-
-'un çalıştığı bilgisayarın ağında statik bir adres bulunmalıdır: Chloros
-
-, yeniden başlatma sonrasında erişemediği bir adresi reddeder. Sensörün kimliği ve `daq-e-<id>.local` ana bilgisayar adı asla değişmez. 1.3.0 sürümündeki yenilikler.
-
-**Firmware güncellemeleri GUI'ye entegre edilmiştir.** Bağlı bir DAQ-E, Chloros
-
-derlemenizle birlikte gelen görüntüden daha eski bir firmware çalıştırıyorsa, sensör satırında turuncu renkli bir **Güncelleme Mevcut** simgesi görünür ve dişli ayarları penceresinde "Şu sürüme güncelle<version>" düğmesi</version>
+**Firmware güncellemeleri GUI'ye entegre edilmiştir.** Bağlı bir DAQ-E, Chloros derlemenizle birlikte gelen görüntüden daha eski bir firmware çalıştırıyorsa, sensör satırında turuncu renkli bir **Güncelleme Mevcut** simgesi görünür ve dişli ayarları penceresinde "Şu sürüme güncelle<version>" düğmesi</version>
 
 sunulur<version>. Güncelleme, ağ üzerinden yaklaşık 30 saniye içinde yüklenir; sensör otomatik olarak yeniden başlatılır ve yeniden bağlanır; aktarımın kesilmesi durumunda mevcut donanım yazılımı değişmeden kalır. CLI veya SDK üzerinden ve GUI'si olmayan Linux'de `chloros-cli daq pool-update-firmware --sensor-id <id>` (`DAQSensorSession.update_firmware()`) komutunu çalıştırın.
 

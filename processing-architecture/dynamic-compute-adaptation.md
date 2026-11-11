@@ -1,17 +1,14 @@
 # Dinamik İşlem Uyumlaştırma
 
-Chloros
-1.3.0, donanım algılama ve otomatik işlem stratejisi seçimi özelliklerini kullanır. İşlem motoru, Jetson Orin Nano’dan çoklu GPU’lu bir iş istasyonuna kadar her türlü donanıma, herhangi bir manuel yapılandırma gerektirmeden uyum sağlar.
+Chloros 1.3.0, donanım algılama ve otomatik işlem stratejisi seçimi özelliklerini kullanır. İşlem motoru, Jetson Orin Nano’dan çoklu GPU’lu bir iş istasyonuna kadar her türlü donanıma, herhangi bir manuel yapılandırma gerektirmeden uyum sağlar.
 
 ***
 
 ## Nasıl Çalışır?
 
-Chloros
-başlatıldığında, sisteminizin profilini çıkarır:
+Chloros başlatıldığında, sisteminizin profilini çıkarır:
 
-1. **İşletim sistemini algılar** — Windows
-veya Linux
+1. **İşletim sistemini algılar** — Windows veya Linux
 2. **CPU çekirdeklerini ve toplam RAM'i belirler**
 
 3.**GPU varlığını algılar** — NVIDIA CUDA özelliği, VRAM, model
@@ -24,19 +21,16 @@ Algılanan profil, oturum için bellekte ve diskte önbelleğe alınır, böylec
 
 | Platform | Önbelleğe alınmış profil |
 | --- | --- |
-| **Linux
-/ Jetson** | `~/.config/chloros/system_config.json` (`XDG_CONFIG_HOME`'i de destekler) |
+| **Linux / Jetson** | `~/.config/chloros/system_config.json` (`XDG_CONFIG_HOME`'i de destekler) |
 | **Windows** | `%LOCALAPPDATA%\Chloros\config\system_config.json` |
 
-Yeni bir algılama işlemini zorlamak için bu dosyayı silin — bu, bir GPU veya daha fazla RAM ekledikten sonra yararlıdır. Chloros
-, önbellek uyumsuz bir eski sürüm tarafından yazıldığında da otomatik olarak yeniden algılama yapar.
+Yeni bir algılama işlemini zorlamak için bu dosyayı silin — bu, bir GPU veya daha fazla RAM ekledikten sonra yararlıdır. Chloros, önbellek uyumsuz bir eski sürüm tarafından yazıldığında da otomatik olarak yeniden algılama yapar.
 
 ***
 
 ## Hesaplama Stratejileri
 
-Chloros
-, donanımınıza göre üç hesaplama stratejisinden birini seçer:
+Chloros, donanımınıza göre üç hesaplama stratejisinden birini seçer:
 
 | Strateji | Ne Zaman Seçilir | İşçiler | Yürütücü | İş Akışı |
 | --- | --- | --- | --- | --- |
@@ -50,11 +44,7 @@ Chloros
 **GPU stratejileri, CUDA kullanabilen bir PyTorch gerektirir.** PyTorch'unda kullanılabilir CUDA aygıtı bulunmayan bir makine, GPU'su ne olursa olsun `CPU_PARALLEL` değerini alır. 1.3.0 Jetson paketi, JetPack 6’nın CUDA sürümündeki PyTorch’u kullanır; bu nedenle, JetPack’in CUDA ve cuDNN kütüphaneleri yüklendiğinde bir Jetson uygun hale gelir. 12 GB’nin altında RAM’e sahip bir Jetson, işlem sırasında her zaman tek seferde bir görüntüyü işler (`GPU_SINGLE` olarak kaydedilir).
 {% endhint %}
 
-GPU stratejileri, her biri kendi CUDA bağlamına sahip ayrı bir işletim sistemi süreci olan bir işçi süreci havuzu çalıştırır; Chloros
-, bunu kendi kurulu arka uç programını yeniden başlatarak gerçekleştirir (Python
-'un `multiprocessing`'i aracılığıyla değil; çünkü bu programın işçi başlatma işlevi, paketlenmiş uygulama içinde çalışmaz). CPU stratejisi bir iş parçacığı havuzu kullanır (Python
-'un `ThreadPoolExecutor`'i). Chloros
-, herhangi bir üçüncü taraf dağıtık çerçeve (Ray gibi) kullanmaz.
+GPU stratejileri, her biri kendi CUDA bağlamına sahip ayrı bir işletim sistemi süreci olan bir işçi süreci havuzu çalıştırır; Chloros, bunu kendi kurulu arka uç programını yeniden başlatarak gerçekleştirir (Python'un `multiprocessing`'i aracılığıyla değil; çünkü bu programın işçi başlatma işlevi, paketlenmiş uygulama içinde çalışmaz). CPU stratejisi bir iş parçacığı havuzu kullanır (Python'un `ThreadPoolExecutor`'i). Chloros, herhangi bir üçüncü taraf dağıtık çerçeve (Ray gibi) kullanmaz.
 
 ### İş Akışı Türleri
 
@@ -75,8 +65,7 @@ Belirli bir stratejiyi zorlamak için `CHLOROS_STRATEGY` ortam değişkenini aya
 CHLOROS_STRATEGY=CPU_PARALLEL chloros-cli process ~/datasets/flight001
 ```
 
-Değişken, büyük/küçük harf duyarlı olmayan bir şekilde eşleştirilir; bu üç isimden herhangi biri olmayanlar yok sayılır ve otomatik algılama normal şekilde devam eder. Bir geçersiz kılma durumunda bile Chloros
-, işçi sayısını sizin için seçmeye devam eder:
+Değişken, büyük/küçük harf duyarlı olmayan bir şekilde eşleştirilir; bu üç isimden herhangi biri olmayanlar yok sayılır ve otomatik algılama normal şekilde devam eder. Bir geçersiz kılma durumunda bile Chloros, işçi sayısını sizin için seçmeye devam eder:
 
 | Geçersiz kılma | Kullanılan işçi sayısı |
 | --- | --- |
@@ -124,8 +113,7 @@ Ayrı GPU'lar, sistem RAM'ini paylaşmadıkları için sistem için yalnızca 0,
 
 ## Dinamik GPU Bellek Tahsisi
 
-Chloros
-, [4 iş parçacıklı bir işleme boru hattı](processing-pipeline.md) kullanır:
+Chloros, [4 iş parçacıklı bir işleme boru hattı](processing-pipeline.md) kullanır:
 
 * **İş Parçacığı 1** (Algılama) — Görüntü yükleme, EXIF ayrıştırma, hedef algılama
 * **İş Parçacığı 2** (Kalibrasyon) — Yansıma kalibrasyonu hesaplaması
@@ -152,22 +140,19 @@ Bu rakamları belirleyen iki kural vardır:
 
 ## Doku Duyarlı İşleme
 
-Texture Aware debayer (**yalnızca Chloros
-+** — `--debayer texture-aware`), kopya başına FP16'da yaklaşık 1,75 GB VRAM gerektiren bir AI/ML gürültü giderme modeli çalıştırır; bu nedenle Standart yöntemden çok daha fazla GPU belleği kullanır:
+Texture Aware debayer (**yalnızca Chloros+** — `--debayer texture-aware`), kopya başına FP16'da yaklaşık 1,75 GB VRAM gerektiren bir AI/ML gürültü giderme modeli çalıştırır; bu nedenle Standart yöntemden çok daha fazla GPU belleği kullanır:
 
 * **7 GB'nin altında VRAM**'e sahip sistemler, Doku Duyarlı işlemeyi**senkron bir döngüde, her seferinde tek bir görüntü** olarak gerçekleştirir — birden fazla model kopyası sığmaz ve bir işçi havuzu sadece çekişmeye neden olur
 * **7 GB ve üzeri VRAM**'e sahip sistemler, Texture Aware'i eşzamanlı olarak işleyebilir, ancak bu işlem Standart yönteme kıyasla daha az işçi sayısıyla gerçekleştirilir
 * **Jetson**'da Texture Aware her zaman tek bir işleyiciye sabitlenir
 * **Kullanılabilir CUDA GPU** olmadığında, işlem Standart debayer'ı kullanır ve arka uç, bunun nedenini belirten bir `[DEBAYER] … needs a CUDA GPU …` satırı günlüğe kaydeder
-* Düşük güç tüketimli Jetson'larda (Nano, Orin Nano), Texture Aware talep edildiğinde CLI
-, GPU frekans sınırlaması uygular — bkz. [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md#gpu-frequency-cap-for-texture-aware-on-nano-and-orin-nano)
+* Düşük güç tüketimli Jetson'larda (Nano, Orin Nano), Texture Aware talep edildiğinde CLI, GPU frekans sınırlaması uygular — bkz. [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md#gpu-frequency-cap-for-texture-aware-on-nano-and-orin-nano)
 
 ***
 
 ## Isı Yönetimi (Jetson)
 
-Jetson cihazlarında, özellikle kapalı ortamlarda veya havada kullanılan kurulumlarda termal kısıtlamalar vardır. Chloros
-, Jetson’un yerleşik sıcaklık sensörlerini izler ve toplu iş boyutlarını otomatik olarak ölçeklendirir:
+Jetson cihazlarında, özellikle kapalı ortamlarda veya havada kullanılan kurulumlarda termal kısıtlamalar vardır. Chloros, Jetson’un yerleşik sıcaklık sensörlerini izler ve toplu iş boyutlarını otomatik olarak ölçeklendirir:
 
 | Sıcaklık | Tepki |
 | --- | --- |
@@ -182,11 +167,9 @@ Yeterli soğutmaya sahip masaüstü sistemlerde, termal hız kısıtlaması nadi
 
 ## Bellek Baskısı Yönetimi
 
-Chloros
-, işleme sırasında GPU belleğini sürekli izler ve üç seviyede tepki verir.
+Chloros, işleme sırasında GPU belleğini sürekli izler ve üç seviyede tepki verir.
 
-**Parti boyutlandırma.** Bir parti, yukarıdaki tablolardaki platform çarpanının 8 görüntü ile çarpımıyla başlar. Chloros
-daha sonra boş VRAM'i kontrol eder, bunun %20'sini PyTorch'un kendi ek yükü için ayırır ve 12 MP'lik bir görüntü başına yaklaşık 100 MB GPU belleği varsayar — parti, bellekten türetilen sınır ile platform taban değeri arasında hangisi daha küçükse o olur. Asla 1'in altına düşmez.
+**Parti boyutlandırma.** Bir parti, yukarıdaki tablolardaki platform çarpanının 8 görüntü ile çarpımıyla başlar. Chloros daha sonra boş VRAM'i kontrol eder, bunun %20'sini PyTorch'un kendi ek yükü için ayırır ve 12 MP'lik bir görüntü başına yaklaşık 100 MB GPU belleği varsayar — parti, bellekten türetilen sınır ile platform taban değeri arasında hangisi daha küçükse o olur. Asla 1'in altına düşmez.
 
 **Önleyici azaltma.** **%85 VRAM kullanım** oranının üzerine çıkıldığında, herhangi bir hata oluşmadan önce parti boyutları küçültülür.**İş parçacığı başına ayırma kırpma.** Canlı kullanım oranı yükseldikçe, her iş parçacığının GPU bütçesi azaltılır: %80'in üzerindeki kullanımda ×0,75, %90'ın üzerindeki kullanımda ×0,5. İzleme aralıkları %70 (ihtiyatlı), %85 (normal çalışma sınırı) ve %95’tir (OOM riski).**OOM geri çekilme ve kurtarma.** Yine de bir bellek yetersizliği olayı meydana gelirse:
 
@@ -194,8 +177,7 @@ daha sonra boş VRAM'i kontrol eder, bunun %20'sini PyTorch'un kendi ek yükü i
 * aktif iş parçacığı tahsisleri mevcut değerlerinin %70'ine düşürülür ve tahsis edici, ihtiyatlı stratejisine geçer; başarılı tahsislerin ardından tekrar esnekleşir
 * Aşırı yük altında, iş akışı `fused_gpu`'ten `tiled_gpu`'e, son çare olarak da `cpu_fallback`'e geri döner
 
-**Ana Bilgisayar RAM'i (Jetson).** İşleme başlamadan önce, CLI
-, görüntü sayınız ve debayer moduna göre en yüksek ana bilgisayar belleği değerini tahmin eder ve RAM ile dosya tabanlı takas alanının yetersiz kalma ihtimali varsa uyarı verir; takas alanı eklemek için gerekli komutları tam olarak görüntüler — bkz. [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md#swap-warning-and-recommendations).
+**Ana Bilgisayar RAM'i (Jetson).** İşleme başlamadan önce, CLI, görüntü sayınız ve debayer moduna göre en yüksek ana bilgisayar belleği değerini tahmin eder ve RAM ile dosya tabanlı takas alanının yetersiz kalma ihtimali varsa uyarı verir; takas alanı eklemek için gerekli komutları tam olarak görüntüler — bkz. [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md#swap-warning-and-recommendations).
 
 ***
 
@@ -219,22 +201,17 @@ Bu komutun 7 kontrolü, sürüm, bağlantı noktası kullanılabilirliği, arka 
 
 ### Arka Uç Günlükleri
 
-Strateji ve işçi sayısı, her çalıştırmanın başında arka uçta seçilir — bunları bildiren bir CLI
-başlığı yoktur. Bir şey beklenmedik şekilde davranırsa (bir GPU yolunun geri dönüşü, bir OOM, yüklenmeyen bir gürültü giderici), bu durum o oturumun arka uç günlüğünde görünür:
+Strateji ve işçi sayısı, her çalıştırmanın başında arka uçta seçilir — bunları bildiren bir CLI başlığı yoktur. Bir şey beklenmedik şekilde davranırsa (bir GPU yolunun geri dönüşü, bir OOM, yüklenmeyen bir gürültü giderici), bu durum o oturumun arka uç günlüğünde görünür:
 
 | Platform | Günlük konumu |
 | --- | --- |
-| **Linux
-/ Jetson** | `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` (her başlatma için bir dosya) |
-| **Linux
-, CLI
-ile başlatılan arka uç** | ayrıca `~/.chloros/backend.log` |
+| **Linux / Jetson** | `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` (her başlatma için bir dosya) |
+| **Linux, CLI ile başlatılan arka uç** | ayrıca `~/.chloros/backend.log` |
 | **Windows** | `%LOCALAPPDATA%\Chloros\logs\` |
 
 ### Canlı İlerleme
 
-Çalıştırma sırasında, CLI
-, Server-Sent Events üzerinden aktarılan iş parçacığı başına canlı ilerleme durumunu (Algılama, Analiz, İşleme, Dışa Aktarma) gösterir — bu, İş Parçacığı 3’ün darboğaz olup olmadığını anlamak için pratik bir göstergedir. Bkz. [İşleme Boru Hattı](processing-pipeline.md).
+Çalıştırma sırasında, CLI, Server-Sent Events üzerinden aktarılan iş parçacığı başına canlı ilerleme durumunu (Algılama, Analiz, İşleme, Dışa Aktarma) gösterir — bu, İş Parçacığı 3’ün darboğaz olup olmadığını anlamak için pratik bir göstergedir. Bkz. [İşleme Boru Hattı](processing-pipeline.md).
 
 ***
 
@@ -242,8 +219,5 @@ ile başlatılan arka uç** | ayrıca `~/.chloros/backend.log` |
 
 * [İşleme Boru Hattı](processing-pipeline.md) — 4 iş parçacıklı boru hattı mimarisini anlama
 * [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md) — Jetson'a özgü dağıtım ve optimizasyon
-* [CLI
-: Komut Satırı](../CLI.md) — CLI
-kılavuzu
-* [CLI
-Referansı](../reference/cli-reference.md) — 1.3.0 sürümü için kapsamlı komut listesi
+* [CLI: Komut Satırı](../CLI.md) — CLI kılavuzu
+* [CLI Referansı](../reference/cli-reference.md) — 1.3.0 sürümü için kapsamlı komut listesi

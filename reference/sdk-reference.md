@@ -2345,8 +2345,7 @@ frame = cam.grab(processing="reflectance", bit_depth=8, refl_max=1.5)   # 0..1.5
 > doygunluktan uzak tutmak zaten AE’nin işidir ve bu, ρ’nin aralığından ziyade *geçerliliğini* korur.
 
 **`reflectance_clipped_fraction`’i okuyun, bayrağı değil.** `reflectance_clipped_at_1_0`,
-tek bir pikselde tetikleniyor — gerçek bir sahnede, oran `0.000001` iken (bir milyon piksel
-. Üst sınırı yükseltip yükseltmeyeceğinizi belirleyen şey bu kesirdir.
+tek bir pikselde tetikleniyor — gerçek bir sahnede, oran `0.000001` iken (bir milyon piksel. Üst sınırı yükseltip yükseltmeyeceğinizi belirleyen şey bu kesirdir.
 
 **`bit_depth=8` yalnızca yansıma değerini gösterir.** `radiance` için talep edildiğinde, bu istek karşılanmak yerine
 reddedilir: Yansıma, 8 bitlik kodlamada korunabilen sabit bir 0..1 aralığına sahipken, parlaklığın

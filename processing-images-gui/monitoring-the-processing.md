@@ -1,10 +1,6 @@
 # İşlemenin İzlenmesi
 
-İşleme başladıktan sonra, Chloros
-
-, ilerlemeyi izlemek, sorunları kontrol etmek ve veri kümenizde neler olup bittiğini anlamak için çeşitli yollar sunar. Bu sayfada, işlemenizi nasıl takip edeceğiniz ve Chloros
-
-’un sağladığı bilgileri nasıl yorumlayacağınız açıklanmaktadır.
+İşleme başladıktan sonra, Chloros, ilerlemeyi izlemek, sorunları kontrol etmek ve veri kümenizde neler olup bittiğini anlamak için çeşitli yollar sunar. Bu sayfada, işlemenizi nasıl takip edeceğiniz ve Chloros’un sağladığı bilgileri nasıl yorumlayacağınız açıklanmaktadır.
 
 ## İlerleme Çubuğuna Genel Bakış
 
@@ -12,9 +8,7 @@
 
 ### Ücretsiz Mod İlerleme Çubuğu
 
-Chloros
-
-+ lisansı olmayan kullanıcılar için:
+Chloros+ lisansı olmayan kullanıcılar için:
 
 **2 Aşamalı İlerleme Göstergesi:**
 
@@ -25,13 +19,9 @@ Chloros
 * Mevcut aşama adı
 * Basit yatay çubuk görselleştirmesi
 
-### Chloros
+### Chloros+ İlerleme Çubuğu
 
-+ İlerleme Çubuğu
-
-Chloros
-
-+ lisansına sahip kullanıcılar için:
+Chloros+ lisansına sahip kullanıcılar için:
 
 **4 Aşamalı İlerleme Göstergesi:**
 
@@ -42,11 +32,7 @@ Chloros
 * Her aşama ayrı ayrı ilerlemeyi gösterir (0-100%)
 
 {% hint style="info" %}
-**CLI
-
-'si uyumu**: `chloros-cli process` çalıştırması sırasında aynı dört iş parçacığı "Algılama", "Analiz", "İşleme" ve "Dışa Aktarma" olarak raporlanır; `chloros-cli export-status` ise başka bir terminalden İş Parçacığı-4'ün dışa aktarma ilerlemesini canlı olarak gösterir. [CLI
-
-Kılavuzu](../reference/cli-reference.md) bölümüne bakın.
+**CLI'si uyumu**: `chloros-cli process` çalıştırması sırasında aynı dört iş parçacığı "Algılama", "Analiz", "İşleme" ve "Dışa Aktarma" olarak raporlanır; `chloros-cli export-status` ise başka bir terminalden İş Parçacığı-4'ün dışa aktarma ilerlemesini canlı olarak gösterir. [CLI Kılavuzu](../reference/cli-reference.md) bölümüne bakın.
 {% endhint %}
 
 ***
@@ -61,9 +47,7 @@ Kılavuzu](../reference/cli-reference.md) bölümüne bakın.
 
 **Neler oluyor:**
 
-* Chloros
-
-, Hedef onay kutusunu işaretlediğiniz görüntüleri tarar (hiçbiri işaretlenmemişse tüm görüntüler taranır)
+* Chloros, Hedef onay kutusunu işaretlediğiniz görüntüleri tarar (hiçbiri işaretlenmemişse tüm görüntüler taranır)
 * Bilgisayar görme algoritmaları, kalibrasyon panellerini tanımlar
 * Her panelden yansıma değerleri çıkarılır
 * Doğru kalibrasyon planlaması için hedef zaman damgaları kaydedilir
@@ -92,9 +76,7 @@ Kılavuzu](../reference/cli-reference.md) bölümüne bakın.
 * Görüntü EXIF meta verilerinin okunması (zaman damgaları, pozlama ayarları)
 * Hedef zaman damgaları ve mevcut DAQ aşağı doğru akış verilerine dayalı olarak kalibrasyon stratejisinin belirlenmesi
 * Görüntü işleme kuyruğunun düzenlenmesi
-* Paralel işleme işçilerinin hazırlanması (Yalnızca Chloros
-
-+)
+* Paralel işleme işçilerinin hazırlanması (Yalnızca Chloros+)
 
 **Süre:** 5-30 saniye**İlerleme göstergesi:**
 
@@ -121,9 +103,7 @@ Kılavuzu](../reference/cli-reference.md) bölümüne bakın.
 * İşlem tamamlanan görüntüler / Toplam görüntü sayısı
 
 **İşleme davranışı:*** **Serbest mod**: Görüntüleri teker teker sırayla işler
-* **Chloros
-
-+ modu**: Donanıma uyarlanabilir bir işçi havuzu çalıştırır — GPU sistemlerinde (VRAM'e göre) 1-4 eşzamanlı işçi, yalnızca CPU'lu sistemlerde fiziksel çekirdek başına bir işçi (eksi bir). Bkz. [Dinamik Hesaplama Uyumlaştırma](../processing-architecture/dynamic-compute-adaptation.md)
+* **Chloros+ modu**: Donanıma uyarlanabilir bir işçi havuzu çalıştırır — GPU sistemlerinde (VRAM'e göre) 1-4 eşzamanlı işçi, yalnızca CPU'lu sistemlerde fiziksel çekirdek başına bir işçi (eksi bir). Bkz. [Dinamik Hesaplama Uyumlaştırma](../processing-architecture/dynamic-compute-adaptation.md)
 * **GPU hızlandırma**: Bu aşamayı önemli ölçüde hızlandırır**Dikkat edilmesi gerekenler:**
 
 * Görüntü sayısında istikrarlı ilerleme
@@ -169,17 +149,13 @@ simgesine tıklayın
 
 ### Günlük Mesajlarını Anlama
 
-Chloros
-
-'un günlük satırlarının başında, alt sistemi belirten köşeli parantez içindeki etiketler bulunur — örneğin `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Bilinmesi gereken en önemli şey, her çalıştırmanın sonunda (durdurulan çalıştırmalar dahil) yazdırılan **çalıştırma özeti**'dir:
+Chloros'un günlük satırlarının başında, alt sistemi belirten köşeli parantez içindeki etiketler bulunur — örneğin `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Bilinmesi gereken en önemli şey, her çalıştırmanın sonunda (durdurulan çalıştırmalar dahil) yazdırılan **çalıştırma özeti**'dir:
 
 ```
 [RUN-SUMMARY] 49 image(s) in 2 camera group(s); 4 target(s) detected; 45 image(s) calibrated; 180 file(s) written.
 ```
 
-Açıklama gerektiren durumlarda (örneğin, hiçbir sonuç üretmeyen bir çalıştırma veya ya da istenen ürünün uygun olmadığı için atlandığı bir kamera gibi. `[EXPORT-CHECK]` satırları, kamera bazında atlamaları açıklar (örneğin, bir RGB
-
-kameranın neden radyans ürünü alamadığını).
+Açıklama gerektiren durumlarda (örneğin, hiçbir sonuç üretmeyen bir çalıştırma veya ya da istenen ürünün uygun olmadığı için atlandığı bir kamera gibi. `[EXPORT-CHECK]` satırları, kamera bazında atlamaları açıklar (örneğin, bir RGB kameranın neden radyans ürünü alamadığını).
 
 Genel mesaj ciddiyet seviyeleri (aşağıdaki örnekler açıklayıcı niteliktedir, kelimesi kelimesine alıntı değildir):
 
@@ -210,17 +186,9 @@ Normal işleme güncellemeleri: işleme başladı, hedefler algılandı (panel s
 | Hedef bulunamadı                      | Kalibrasyon hedefi algılanmadı               | Hedef görüntüleri işaretleyin veya yansıma kalibrasyonunu devre dışı bırakın |
 | Yetersiz disk alanı               | Çıktı için yeterli depolama alanı yok                 | Disk alanını boşaltın                                    |
 | Bozuk dosya atlanıyor               | Görüntü dosyası hasarlı                         | Dosyayı SD karttan yeniden kopyalayın                             |
-| `[IMPORT-LEVEL] Skipping ... no raw source` | Raw karesi olmayan bir çekim işlenemez | Raw ile yeniden çekim yapın, veya CLI
-
-kullanın `--input-level`  |
+| `[IMPORT-LEVEL] Skipping ... no raw source` | Raw karesi olmayan bir çekim işlenemez | Raw ile yeniden çekim yapın, veya CLI kullanın `--input-level`  |
 | `[RUN-SUMMARY] ... 0 file(s) written` | İşlem sonucunda görüntü ürünü üretilmedi — ipuçlarıyla birlikte hata olarak bildirildi | İpucu satırlarını okuyun; nelerin atlandığını ve nedenini kontrol edin |
-| `[PROCESS] refused: The project folder is too deep for this computer…` | Windows
-
-'ta uzun yol özelliği kapalı ve proje klasörü 260 karakterlik yol sınırı için çok derin; hiçbir şey işlenmedi | Daha kısa bir proje klasörü kullanın (mesajda sığabilecek en uzun yol belirtilmiştir) veya Windows
-
-'ta uzun yol özelliğini etkinleştirin ve Chloros
-
-'u yeniden başlatın — bkz. [İşlemeyi Başlatma](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
+| `[PROCESS] refused: The project folder is too deep for this computer…` | Windows'ta uzun yol özelliği kapalı ve proje klasörü 260 karakterlik yol sınırı için çok derin; hiçbir şey işlenmedi | Daha kısa bir proje klasörü kullanın (mesajda sığabilecek en uzun yol belirtilmiştir) veya Windows'ta uzun yol özelliğini etkinleştirin ve Chloros'u yeniden başlatın — bkz. [İşlemeyi Başlatma](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
 | `[unmix-clamp-mask] …` | Bir LATTICE ürününün kelepçe maskesi yazılamadı; ürünün kendisi sorunsuz ve şunu belirtiyor: `Chloros:UnmixClampMask=unavailable` | Disk alanını ve klasör izinlerini kontrol edin, ardından maskeye ihtiyacınız varsa işlemi yeniden gerçekleştirin |
 
 ### Günlük Verilerini Kopyalama
@@ -230,32 +198,18 @@ Sorun giderme veya destek amacıyla günlüğü kopyalamak için:
 1. Hata Ayıklama Günlüğü panelini açın
 2. **Kopyala**düğmesine tıklayın (günlüğü panoya kopyalar) veya**İndir** düğmesine tıklayarak metin dosyası olarak kaydedin
 3. Metin dosyasına veya e-postaya yapıştırın
-4. Gerekirse MAPIR
-
-destek ekibine gönderin
+4. Gerekirse MAPIR destek ekibine gönderin
 
 ### Günlük sekmesinden hata bildirme
 
-1.3.0 sürümündeki yenilik: Hata Giderme Günlüğü sekmesinin üst kısmındaki hata simgesi (**Hata bildir**), raporu doğrudan MAPIR
-
-'e gönderir.
+1.3.0 sürümündeki yenilik: Hata Giderme Günlüğü sekmesinin üst kısmındaki hata simgesi (**Hata bildir**), raporu doğrudan MAPIR'e gönderir.
 
 1. Hata Giderme Günlüğü sekmesinin üst kısmındaki hata simgesine tıklayın
 2. Sorunu açıklayın: ne yapıyordunuz, ne bekliyordunuz ve bunun yerine ne oldu (gerekli)
 3. İsteğe bağlı olarak **Birkaç resim ekle (en fazla 10)**seçeneğini işaretleyin ve açık projeden resimler seçin veya diğer resim dosyaları için**Gözat...** seçeneğini kullanın
 4. **Gönder**'e tıklayın
 
-Rapor, açıklamanızı, eklediğiniz resimleri, Chloros
-
-günlüklerini ve sistem ayrıntılarını (Chloros
-
-sürümü, işletim sistemi, GPU ve proje ayarları) içerir. Rapor göndermek için Chloros
-
-'ta (Kullanıcı sekmesi) oturum açmış olmanız gerekir. Gönderim sırasında pencereyi kapatabilirsiniz; işlem bittiğinde, günlüğe `Bug report sent. Reference: BR-…` gibi bir referans yazılır — MAPIR
-
-ile iletişime geçtiğinizde bu referansı belirtin. Rapor yüklenemezse (örneğin, internet bağlantısı yoksa), Chloros
-
-raporu bilgisayarınıza kaydeder ve yolu gösterir; böylece raporu support@mapir.camera adresine e-posta ile gönderebilirsiniz.
+Rapor, açıklamanızı, eklediğiniz resimleri, Chloros günlüklerini ve sistem ayrıntılarını (Chloros sürümü, işletim sistemi, GPU ve proje ayarları) içerir. Rapor göndermek için Chloros'ta (Kullanıcı sekmesi) oturum açmış olmanız gerekir. Gönderim sırasında pencereyi kapatabilirsiniz; işlem bittiğinde, günlüğe `Bug report sent. Reference: BR-…` gibi bir referans yazılır — MAPIR ile iletişime geçtiğinizde bu referansı belirtin. Rapor yüklenemezse (örneğin, internet bağlantısı yoksa), Chloros raporu bilgisayarınıza kaydeder ve yolu gösterir; böylece raporu support@mapir.camera adresine e-posta ile gönderebilirsiniz.
 
 ***
 
@@ -269,22 +223,16 @@ raporu bilgisayarınıza kaydeder ve yolu gösterir; böylece raporu support@map
 * Diğer çekirdekler boşta veya kullanılabilir durumda
 * Sistem yanıt vermeye devam eder
 
-**Chloros
-
-+ Paralel Mod:**
+**Chloros+ Paralel Mod:**
 
 * Birden fazla çekirdek yüksek kullanımda — kaç tane olacağı [Dinamik Hesaplama Uyumlaştırması](../processing-architecture/dynamic-compute-adaptation.md) tarafından seçilen stratejiye bağlıdır
 * Sistem daha az duyarlı hissedilebilir
 
 **İzlemek için:**
 
-* Windows
-
-Görev Yöneticisi (Ctrl+Shift+Esc)
+* Windows Görev Yöneticisi (Ctrl+Shift+Esc)
 * Performans sekmesi → CPU bölümü
-* "Chloros
-
-" veya "chloros-backend" işlemlerini arayın
+* "Chloros" veya "chloros-backend" işlemlerini arayın
 
 ### Bellek (RAM) Kullanımı
 
@@ -293,9 +241,7 @@ Görev Yöneticisi (Ctrl+Shift+Esc)
 * Küçük projeler (< 100 görüntü): 2-4 GB
 * Orta ölçekli projeler (100-500 görüntü): 4-8 GB
 * Büyük projeler (500+ görüntü): 8-16 GB
-* Chloros
-
-+ paralel modu daha fazla RAM kullanır
+* Chloros+ paralel modu daha fazla RAM kullanır
 
 **Bellek yetersizse:**
 
@@ -303,9 +249,7 @@ Görev Yöneticisi (Ctrl+Shift+Esc)
 * Diğer uygulamaları kapatın
 * Düzenli olarak büyük veri kümelerini işliyorsanız RAM'i yükseltin
 
-### GPU Kullanımı (CUDA ile Chloros
-
-+)
+### GPU Kullanımı (CUDA ile Chloros+)
 
 GPU hızlandırma etkinleştirildiğinde:
 
@@ -343,9 +287,7 @@ GPU hızlandırma etkinleştirildiğinde:
 
 * Hata olup olmadığını görmek için Hata Güzelleme Günlüğünü kontrol edin
 * Kullanılabilir disk alanını doğrulayın
-* Chloros
-
-'un çalıştığından emin olmak için Görev Yöneticisi'ni kontrol edin
+* Chloros'un çalıştığından emin olmak için Görev Yöneticisi'ni kontrol edin
 
 **Hata mesajları sık sık görünüyor:**
 
@@ -355,9 +297,7 @@ GPU hızlandırma etkinleştirildiğinde:
 
 **Sistem yanıt vermiyor:**
 
-* Chloros
-
-'un paralel modu çok fazla kaynak tüketiyor
+* Chloros'un paralel modu çok fazla kaynak tüketiyor
 * Eşzamanlı görev sayısını azaltmayı veya donanımı yükseltmeyi düşünün
 * Serbest mod, daha az kaynak tüketir
 
@@ -396,9 +336,7 @@ Aşağıdakileri görürseniz işlemi durdurun:
 
 1. İşlem yeni başlamışsa ve Algılama aşamasındaysa: Durdurun, hedefleri işaretleyin, yeniden başlatın
 2. Gelecekte: SSD kullanın, dizin sayısını azaltın, donanımı yükseltin
-3. Büyük veri kümelerini toplu olarak işlemek için CLI
-
-'yi kullanmayı düşünün
+3. Büyük veri kümelerini toplu olarak işlemek için CLI'yi kullanmayı düşünün
 
 ### "Disk Alanı" Uyarıları
 
@@ -408,9 +346,7 @@ Aşağıdakileri görürseniz işlemi durdurun:
 2. Projeyi daha fazla alana sahip bir sürücüye taşıyın
 3. Dışa aktarılacak dizin sayısını azaltın
 4. İhtiyacınız olmayan LATTICE dışa aktarma ürünlerini devre dışı bırakın (Proje Ayarları → İşleme)
-5. TIFF
-
-yerine JPG formatını kullanın (daha küçük dosyalar)
+5. TIFF yerine JPG formatını kullanın (daha küçük dosyalar)
 
 ### Sık Görülen "Bozuk Dosya" Mesajları
 
@@ -427,9 +363,7 @@ yerine JPG formatını kullanın (daha küçük dosyalar)
 
 1. Yeterli havalandırma sağlayın
 2. Bilgisayar havalandırma deliklerindeki tozu temizleyin
-3. İşleme yükünü azaltın (Chloros
-
-+ yerine Free modunu kullanın)
+3. İşleme yükünü azaltın (Chloros+ yerine Free modunu kullanın)
 4. Günün daha serin saatlerinde işlemeyi gerçekleştirin
 
 ***

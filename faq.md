@@ -27,15 +27,9 @@ Evet. Chloros 1.3.0, LATTICE M3C ve M3M kamera modüllerini uçtan uca destekler
 
 <summary>Kalibrasyon hedefi olmadan görüntülerimi yansıma açısından kalibre edebilir miyim?</summary>
 
-**Survey3
+**Survey3:** Hayır. Hedef olmayan görüntüler çekilirken aynı anda çekilmiş bir kalibrasyon hedefi görüntüsü olmadan, görüntünün piksel değerlerini bilinen bir yansıma yüzdesiyle ilişkilendiremezsiniz. Ayrıca, bir MAPIR ışık sensöründen alınan kayıtları da eklemezseniz, ortam ışığı spektrumu ölçülmeyecek ve yansıma sonuçları doğru olmayacaktır.
 
-:** Hayır. Hedef olmayan görüntüler çekilirken aynı anda çekilmiş bir kalibrasyon hedefi görüntüsü olmadan, görüntünün piksel değerlerini bilinen bir yansıma yüzdesiyle ilişkilendiremezsiniz. Ayrıca, bir MAPIR
-
-ışık sensöründen alınan kayıtları da eklemezseniz, ortam ışığı spektrumu ölçülmeyecek ve yansıma sonuçları doğru olmayacaktır.
-
-**LATTICE:** Evet. Yansıma, bir panel yerine bir DAQ ışık sensörü tarafından ölçülen aşağıya doğru ışınım yoğunluğuna göre belirlenebilir (ρ = π·L/E). QA'dan geçen bir çerçeve içi hedef *mevcut* olduğunda, hedef ve DAQ zincirleri ölçülen puan konusunda rekabet halindeyken, bir bayrakla geçmediği sürece varsayılan olarak mutlak referans haline gelir (`--reflectance-source auto`). Tek istisna: "F988 yansıma oranı, sahnedeki bir yansıma paneli kullanılarak kalibre edilir: bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesindedir, bu nedenle Chloros
-
-, en son panel yakalamanızı uygular ve panel gözlemleri arasında bunu korur." Bkz. [Kalibrasyon Hedefleri](calibration-targets.md).
+**LATTICE:** Evet. Yansıma, bir panel yerine bir DAQ ışık sensörü tarafından ölçülen aşağıya doğru ışınım yoğunluğuna göre belirlenebilir (ρ = π·L/E). QA'dan geçen bir çerçeve içi hedef *mevcut* olduğunda, hedef ve DAQ zincirleri ölçülen puan konusunda rekabet halindeyken, bir bayrakla geçmediği sürece varsayılan olarak mutlak referans haline gelir (`--reflectance-source auto`). Tek istisna: "F988 yansıma oranı, sahnedeki bir yansıma paneli kullanılarak kalibre edilir: bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesindedir, bu nedenle Chloros, en son panel yakalamanızı uygular ve panel gözlemleri arasında bunu korur." Bkz. [Kalibrasyon Hedefleri](calibration-targets.md).
 
 </details>
 
@@ -43,9 +37,7 @@ Evet. Chloros 1.3.0, LATTICE M3C ve M3M kamera modüllerini uçtan uca destekler
 
 <summary>DAQ ışık sensörüne ihtiyacım var mı?</summary>
 
-Radyans için gerekmez: LATTICE radyans dışa aktarımları, her kameranın fabrika radyometrik kalibrasyonundan elde edilir ve ne bir DAQ sensörüne ne de bir hedefe ihtiyaç duyar. **Yansıma**için ortam ışığına ilişkin bir referansa ihtiyacınız vardır — bu, bir DAQ ışık sensörünün aşağı doğru ışık ölçümü veya çerçeve içi bir kalibrasyon hedefi olabilir. Bir DAQ sensörü,**sahneye herhangi bir panel yerleştirmeden** kalibre edilmiş yansıma değerleri elde etmenizi sağlar. Kaydedilen `.daq` dosyaları, zaman damgası aracılığıyla görüntülerinizle otomatik olarak eşleştirilir. [Kalibrasyon Hedefleri](calibration-targets.md) ve [CLI
-
-Referansı](reference/cli-reference.md) bölümlerine bakın.
+Radyans için gerekmez: LATTICE radyans dışa aktarımları, her kameranın fabrika radyometrik kalibrasyonundan elde edilir ve ne bir DAQ sensörüne ne de bir hedefe ihtiyaç duyar. **Yansıma**için ortam ışığına ilişkin bir referansa ihtiyacınız vardır — bu, bir DAQ ışık sensörünün aşağı doğru ışık ölçümü veya çerçeve içi bir kalibrasyon hedefi olabilir. Bir DAQ sensörü,**sahneye herhangi bir panel yerleştirmeden** kalibre edilmiş yansıma değerleri elde etmenizi sağlar. Kaydedilen `.daq` dosyaları, zaman damgası aracılığıyla görüntülerinizle otomatik olarak eşleştirilir. [Kalibrasyon Hedefleri](calibration-targets.md) ve [CLI Referansı](reference/cli-reference.md) bölümlerine bakın.
 
 </details>
 
@@ -143,9 +135,7 @@ Dosya tarayıcı tablosunda sağ sütunda hedef görüntüleri önceden seçmek,
 
 <summary>Görüntülerimi <a href="https://www.mapir.camera/collections/software/products/mapir-cloud-subscription">MAPIR Cloud</a>'a yükleyeceksem, yüklemeden önce Chloros'ta işlem yapmalı mıyım?</summary>
 
-Çevrimiçi işleme platformumuz [MAPIR
-
-Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription)'a yüklemeyi planlıyorsanız, yüklemeden önce görüntüleri düzenlemeyin. Cloud, aynı işlemleri ve daha fazlasını gerçekleştirecektir.
+Çevrimiçi işleme platformumuz [MAPIR Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription)'a yüklemeyi planlıyorsanız, yüklemeden önce görüntüleri düzenlemeyin. Cloud, aynı işlemleri ve daha fazlasını gerçekleştirecektir.
 
 </details>
 
@@ -185,9 +175,7 @@ Evet! Chloros, CPU'nuzu, GPU'nuzu, RAM'inizi ve (Jetson'da) termal sensörlerini
 
 <summary>4 iş parçacıklı işleme boru hattı nedir?</summary>
 
-Chloros
-, Chloros
-+ kullanıcıları için 4 iş parçacıklı bir ardışık mimari kullanır: İş parçacığı 1 (Algılama) görüntüleri yükler ve kalibrasyon hedeflerini algılar; İş parçacığı 2 (Kalibrasyon) yansıma kalibrasyonunu hesaplar; İş parçacığı 3 (İşleme) GPU hızlandırmalı debayering ve indeks hesaplamasını gerçekleştirir; İş parçacığı 4 (Dışa Aktarma) ise çıktı dosyalarını yazar. Maksimum verim için birden fazla görüntü aynı anda farklı iş parçacıklarında bulunabilir. Ayrıntılar için [İşleme Boru Hattı](processing-architecture/processing-pipeline.md) bölümüne bakın.
+Chloros, Chloros+ kullanıcıları için 4 iş parçacıklı bir ardışık mimari kullanır: İş parçacığı 1 (Algılama) görüntüleri yükler ve kalibrasyon hedeflerini algılar; İş parçacığı 2 (Kalibrasyon) yansıma kalibrasyonunu hesaplar; İş parçacığı 3 (İşleme) GPU hızlandırmalı debayering ve indeks hesaplamasını gerçekleştirir; İş parçacığı 4 (Dışa Aktarma) ise çıktı dosyalarını yazar. Maksimum verim için birden fazla görüntü aynı anda farklı iş parçacıklarında bulunabilir. Ayrıntılar için [İşleme Boru Hattı](processing-architecture/processing-pipeline.md) bölümüne bakın.
 
 </details>
 

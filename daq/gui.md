@@ -43,9 +43,7 @@ Bağlı her sensör için bir satır ayrılır (ayrıca her Ambient+Object grubu
 | Aktarım rozeti | `DAQ-U` / `DAQ-M` / `DAQ-E` veya Ambient+Object yansıma grubu için yeşil bir `REF` rozeti. |
 | Cihaz adı | Varsayılan olarak sensörün seri numarasıdır (kalibrasyon, `.daq` dosya adları ve içe aktarma eşleşmesi için sabit kimliği); özel adlar proje bazında korunur. |
 | **Kalibre Edildi** simgesi (yeşil) | Sensörün fabrika kalibrasyon paketi yüklendiğinde gösterilir; yani spektrumlar gerçek W/m²/nm değerlerindedir. |
-| **Güncelleme Mevcut** simgesi (kehribar rengi, yalnızca DAQ-E) | Çalışan ürün yazılımı, bu Chloros
-
-derlemesiyle birlikte gelen görüntüden daha eskidir. Güncelleme sırasında canlı ilerleme gösterir (`Flashing… N%`, `Restarting sensor…`, ardından `Updated X → Y` veya `Failed`). |
+| **Güncelleme Mevcut** simgesi (kehribar rengi, yalnızca DAQ-E) | Çalışan ürün yazılımı, bu Chloros derlemesiyle birlikte gelen görüntüden daha eskidir. Güncelleme sırasında canlı ilerleme gösterir (`Flashing… N%`, `Restarting sensor…`, ardından `Updated X → Y` veya `Failed`). |
 | Göz | Bu sensörün grafikteki görünürlüğünü değiştirir. |
 | Dişli | Sensör başına ayarlar penceresini açar (aşağıda). |
 | ✕ (kırmızı) | Sensörün bağlantısını keser veya bir Ortam+Nesne grubunu kaldırır. |
@@ -82,19 +80,13 @@ Bir sensör satırındaki dişli simgesiyle açın. İçerik sırasıyla:
 * **Ana Bilgisayar Adı / IP** — ünitenin geçerli adresi.
 * **Yazılım** — canlı yazılım sürümü ve bir eylem hücresi:<version\>
 
-Bu Chloros
-
-derlemesi daha yeni bir DAQ-E yazılım görüntüsü içeriyorsa,</version\>
+Bu Chloros derlemesi daha yeni bir DAQ-E yazılım görüntüsü içeriyorsa,</version\>
 
 **\'ne güncelle****<version\>
 
 düğmesi görünür. Güncelleme, ağ üzerinden yaklaşık 30 saniye içinde gerçekleştirilir; sensör otomatik olarak yeniden başlatılır ve yeniden bağlanır; aktarımın kesilmesi durumunda mevcut yazılım değişmeden kalır. İlerleme durumu canlı olarak aktarılır (`Flashing… N%` → `Restarting sensor…` → `Updated X → Y`) ve hücre, güncel olduğunda `Up to date` değerini gösterir.
-* **PTP Senkronizasyonu** — canlı PTP durumu (`unknown` değerine geri döner). DAQ-E ürün yazılımı v1.2.0+ sürümü, IEEE 1588 PTPv2 standardında yalnızca bağımlı saat olarak yer alır; Chloros
-
-ana bilgisayarının arka ucu PTP grandmaster'dır ve LAN üzerindeki her DAQ-E ve LATTICE kamera, etki alanı 0'da buna bağlanır ve zaman damgalarını yaklaşık 1 ms içinde tutar.
-* **Ağ**— ünitenin çalıştığı adres ve bu adresi nasıl aldığı (DHCP, bağlantı-yerel veya statik) ile yeniden başlatma sonrasında geçerli olacak kaydedilmiş bir ayar.**Değiştir…**seçeneği bir form açar:**Otomatik (DHCP)**veya**Statik IP**seçenekleri ile bir IP adresi, alt ağ maskesi ve isteğe bağlı bir ağ geçidi girilebilir.**Uygula ve yeniden başlat** seçeneği ayarları kaydeder, sensörü yeniden başlatır ve yeniden bağlar. Bu bilgisayarın ağı dışındaki statik bir adres reddedilir, çünkü Chloros
-
-yeniden başlatma sonrasında sensöre erişemez; adresi yeniden belirlenecek veya o ağa yönlendirilecek bir bilgisayar için, buna yine de izin veren bir kutucuk görüntülenir. **Güç açıldığında akış**seçeneği, sensörün herhangi bir yazılım bağlanmadan, güç verilir verilmez akışa başlayıp başlamayacağını belirler.**Sensörü yeniden başlat** seçeneği, sensörü yeniden başlatır ve mevcut ayarlarıyla yeniden bağlar. Sensör kayıt yaparken yeniden başlatma reddedilir. 1.3.0 sürümündeki yenilik.
+* **PTP Senkronizasyonu** — canlı PTP durumu (`unknown` değerine geri döner). DAQ-E ürün yazılımı v1.2.0+ sürümü, IEEE 1588 PTPv2 standardında yalnızca bağımlı saat olarak yer alır; Chloros ana bilgisayarının arka ucu PTP grandmaster'dır ve LAN üzerindeki her DAQ-E ve LATTICE kamera, etki alanı 0'da buna bağlanır ve zaman damgalarını yaklaşık 1 ms içinde tutar.
+* **Ağ**— ünitenin çalıştığı adres ve bu adresi nasıl aldığı (DHCP, bağlantı-yerel veya statik) ile yeniden başlatma sonrasında geçerli olacak kaydedilmiş bir ayar.**Değiştir…**seçeneği bir form açar:**Otomatik (DHCP)**veya**Statik IP**seçenekleri ile bir IP adresi, alt ağ maskesi ve isteğe bağlı bir ağ geçidi girilebilir.**Uygula ve yeniden başlat** seçeneği ayarları kaydeder, sensörü yeniden başlatır ve yeniden bağlar. Bu bilgisayarın ağı dışındaki statik bir adres reddedilir, çünkü Chloros yeniden başlatma sonrasında sensöre erişemez; adresi yeniden belirlenecek veya o ağa yönlendirilecek bir bilgisayar için, buna yine de izin veren bir kutucuk görüntülenir. **Güç açıldığında akış**seçeneği, sensörün herhangi bir yazılım bağlanmadan, güç verilir verilmez akışa başlayıp başlamayacağını belirler.**Sensörü yeniden başlat** seçeneği, sensörü yeniden başlatır ve mevcut ayarlarıyla yeniden bağlar. Sensör kayıt yaparken yeniden başlatma reddedilir. 1.3.0 sürümündeki yenilik.
 
 Bir Ambient+Object grubu için, dişli simgesine tıklandığında açılan pencerede yalnızca grubun kaynak sensörleri, Cihaz Adı ve Grafik Çizgi Rengi gösterilir.
 
@@ -104,9 +96,7 @@ Bir Ambient+Object grubu için, dişli simgesine tıklandığında açılan penc
 
 ### Kapak seçimi
 
-**Kapak** açılır menüsü, Chloros
-
-'a sensörün difüzörünün üzerine hangi fiziksel kapağın takılı olduğunu bildirir ve bu kapağın fabrikada ölçülen düzeltme profilini her spektruma uygular. Seçenekler modele göre değişir:
+**Kapak** açılır menüsü, Chloros'a sensörün difüzörünün üzerine hangi fiziksel kapağın takılı olduğunu bildirir ve bu kapağın fabrikada ölçülen düzeltme profilini her spektruma uygular. Seçenekler modele göre değişir:
 
 | Model | Kapak seçenekleri |
 | --- | --- |
@@ -114,9 +104,7 @@ Bir Ambient+Object grubu için, dişli simgesine tıklandığında açılan penc
 | DAQ-M | Yok (çıplak sensör), Sunshine (kosinüs düzeltici) |
 | DAQ-E | Yok (çıplak sensör), FOV 15°, FOV 45°, FOV 90°, Sunshine (kosinüs düzeltici) |
 
-**Her model için varsayılan ayar Güneş Işığı (kosinüs düzeltici)**'dir — MAPIR
-
-, her DAQ'yı Güneş Işığı kapağı takılı olarak gönderir ve bu, standart dış mekan yapılandırmasıdır: 60°'ye kadar kosinüs hatası ≤ ±4 % ve 70°'ye kadar ≤ ±4,5 % olan 180°'lik yarım küre görüş açısı (güneş yüksekliği ~15°'nin altında kullanılması önerilmez), tasarım gereği zayıflatma (~12×). Seçiminiz projede kalıcı olarak kaydedilir.
+**Her model için varsayılan ayar Güneş Işığı (kosinüs düzeltici)**'dir — MAPIR, her DAQ'yı Güneş Işığı kapağı takılı olarak gönderir ve bu, standart dış mekan yapılandırmasıdır: 60°'ye kadar kosinüs hatası ≤ ±4 % ve 70°'ye kadar ≤ ±4,5 % olan 180°'lik yarım küre görüş açısı (güneş yüksekliği ~15°'nin altında kullanılması önerilmez), tasarım gereği zayıflatma (~12×). Seçiminiz projede kalıcı olarak kaydedilir.
 
 {% hint style="warning" %}
 **Kapak seçimi, fiziksel kapakla eşleşmelidir.**Ne sensör ne de yazılım, hangi kapağın takılı olduğunu algılayamaz. Bu seçim, hem canlı düzeltmeyi hem de her `.daq` dosyasına yazılan damgayı belirler — Sunshine kapağının ~12× zayıflatma oranıyla, bildirilmemiş bir kapak değişikliği, spektrumları yaklaşık olarak bu faktör kadar yanlış düzeltir. (Aynı kapağın çıkarılıp yeniden takılması, yaklaşık %1,5'lik bir sapmaya neden olur.) Yalnızca kapak fiziksel olarak çıkarıldığında**Yok (çıplak sensör)** seçeneğini seçin; DAQ-E'de "None" seçeneği, gömülü cam difüzör için yine de fabrika geometri profilini uygular — bu bir "hiçbir işlem yapmama" durumu değildir — ve çıplak bir DAQ-E, desteklenen bir saha yapılandırması değil, laboratuvar yapılandırmasıdır.
@@ -154,13 +142,7 @@ Her sensör için **spektrum grafiği** şunları gösterir:
 Liste görünümündeki grafiğin altında, her 500 ms'de bir yenilenir:
 
 * **Tüm modeller**: Işık Rengi örneği (CIE XYZ'den sRGB), Doymuş (Evet/Hayır), CIE 1931 X/Y/Z, Renklik x/y, CIE u′/v′, CCT (K), CRI (Ra), Baskın Dalga Boyu (nm), Tepe Dalga Boyu (nm), Uyarma Saflığı, Duv, CIE L\*/a\*/b\* ve Munsell H/V/C.
-* **Yalnızca kalibre edilmiş sensörler**(fabrika kalibrasyon paketi yüklendikten sonra DAQ-U / DAQ-M / DAQ-E modellerinden herhangi biri — sensör satırındaki yeşil**Kalibre Edildi** etiketi bunu gösterir): Toplam Güç (W/m²), Fotopik Lüks (lx), Skotopik Lüks (lx), S/P Oranı, PPFD artı PPFD Red
-
-/Green
-
-/Blue
-
-(µmol/m²/s) ve opik ışık şiddetleri — S-konisi, Melanopik, Rodopik, M-konisi, L-konisi (tümü W/m²).
+* **Yalnızca kalibre edilmiş sensörler**(fabrika kalibrasyon paketi yüklendikten sonra DAQ-U / DAQ-M / DAQ-E modellerinden herhangi biri — sensör satırındaki yeşil**Kalibre Edildi** etiketi bunu gösterir): Toplam Güç (W/m²), Fotopik Lüks (lx), Skotopik Lüks (lx), S/P Oranı, PPFD artı PPFD Red /Green /Blue (µmol/m²/s) ve opik ışık şiddetleri — S-konisi, Melanopik, Rodopik, M-konisi, L-konisi (tümü W/m²).
 
 <!-- SCREENSHOT-NEEDED: list view live data table for a DAQ-E showing both the colorimetric rows and the power-calibrated rows (Total Power, Photopic/Scotopic Lux, PPFD, opic irradiances) -->
 
@@ -173,9 +155,7 @@ Bağlı iki sensör, kamera kullanılmadan canlı bir yansıma göstergesinde bi
 1. Izgara görünümünde, bir grafik kutucuğundaki **+**simgesine tıklayın ve**Ortam + Nesne'yi Birleştir** seçeneğini seçin.
 2. Bir **Ortam Işık Kaynağı**sensörü ve bir**Nesne Tarayıcı**sensörü (iki farklı sensör) seçin, ardından**Oluştur**'a tıklayın.
 
-Chloros
-
-, iki canlı akıştan dalga boyu başına R(λ) = nesne(λ) / ortam(λ) değerini hesaplar (ortam ≤ 0 olduğunda 0). Grubun etiketi, sensörlerin kalibrasyon sınıfına göre belirlenir:
+Chloros, iki canlı akıştan dalga boyu başına R(λ) = nesne(λ) / ortam(λ) değerini hesaplar (ortam ≤ 0 olduğunda 0). Grubun etiketi, sensörlerin kalibrasyon sınıfına göre belirlenir:
 
 * Her iki sensör de kalibre edilmiş (paket yüklenmiş) → **"Görünür Yansıtma"**.
 * Herhangi bir sensör kalibre edilmemişse → **"Göreceli Yansıtma"**.
@@ -190,34 +170,10 @@ Grup, kenar çubuğunda yeşil renkli bir `REF` satırı olarak ve kendi grafiğ
 
 ### Bitki örtüsü indeksi tablosu
 
-Liste görünümünde, bir bitki örtüsü indeksi tablosu, yansıma grubunun grafiğinin altında yer alır; bu tablo, bant merkezlerindeki canlı yansıma değerlerinden hesaplanır: **mavi 450 / yeşil 550 / kırmızı 670 / NIR
+Liste görünümünde, bir bitki örtüsü indeksi tablosu, yansıma grubunun grafiğinin altında yer alır; bu tablo, bant merkezlerindeki canlı yansıma değerlerinden hesaplanır: **mavi 450 / yeşil 550 / kırmızı 670 / NIR 800 nm** bant merkezlerindeki canlı yansıma değerlerinden hesaplanır (değerler 4 ondalık basamağa kadar gösterilir; hesaplanamadığında `---` olarak görünür; tam adı görmek için bir endeks adının üzerine fareyi getirin):
 
-800 nm** bant merkezlerindeki canlı yansıma değerlerinden hesaplanır (değerler 4 ondalık basamağa kadar gösterilir; hesaplanamadığında `---` olarak görünür; tam adı görmek için bir endeks adının üzerine fareyi getirin):
-
-* **Her zaman gösterilir** (ölçekten bağımsız, herhangi bir sensör kombinasyonu): NDVI
-
-, GNDVI
-
-, ENDVI, WDRVI
-
-, GRVI
-
-, CVI
-
-, GCI
-
-, MSR.
-* **Yalnızca her iki sensör de güç kalibrasyonundan geçmişse** (her iki paket de yüklenmişse): EVI
-
-, SAVI
-
-, OSAVI
-
-, GSAVI, GOSAVI, MSAVI2, RDVI, TDVI, LAI
-
-, NLI, MNLI, FCI, GEMI
-
-.
+* **Her zaman gösterilir** (ölçekten bağımsız, herhangi bir sensör kombinasyonu): NDVI, GNDVI, ENDVI, WDRVI, GRVI, CVI, GCI, MSR.
+* **Yalnızca her iki sensör de güç kalibrasyonundan geçmişse** (her iki paket de yüklenmişse): EVI, SAVI, OSAVI, GSAVI, GOSAVI, MSAVI2, RDVI, TDVI, LAI, NLI, MNLI, FCI, GEMI.
 
 <!-- SCREENSHOT-NEEDED: an Ambient+Object reflectance group in list view — reflectance chart labeled "Apparent Reflectance" with the vegetation index table below it showing live NDVI etc. -->
 
@@ -241,13 +197,9 @@ Nicel ışık şiddeti değerleri için en az 15 saniyelik verilerin ortalaması
 ## Çoklu sensör düzenleri ve proje kalıcılığı
 
 * Bir grafikte birkaç sensörü birleştirin (ortak eksenler), ayrı grafikler tutun (otomatik ızgara düzeni), sensörleri grafikler arasında taşıyın, satırları/kutucukları sürükleyerek yeniden sıralayın ve göz simgesini kullanarak tek tek sensörleri gizleyin.
-* Chloros
-
-, proje bazında şu bilgileri kalıcı olarak saklar: cihaz adları, grafik renkleri, grafik boyutu, görüntüleme modu ve her sensörün ayarları (entegrasyon süresi, kare ortalaması, AE durumu, kapak seçimi).
+* Chloros, proje bazında şu bilgileri kalıcı olarak saklar: cihaz adları, grafik renkleri, grafik boyutu, görüntüleme modu ve her sensörün ayarları (entegrasyon süresi, kare ortalaması, AE durumu, kapak seçimi).
 * **Bir proje yeniden açıldığında, sensörler adreslerine göre otomatik olarak yeniden bağlanır** — DAQ-U için COM bağlantı noktası, DAQ-M için BLE cihazı, DAQ-E için mDNS ana bilgisayar adı (cihazın IP adresi değişse bile çözümlenir)) — ve her sensörün kaydedilmiş kapak profili, kare ortalaması, AE durumu ve manuel entegrasyon süresini yeniden uygular.***
 
 ## Kamera eşleştirme (DLS)
 
-Eşleştirilecek bir şey yoktur. Işık sensörünü önceden kameraya bağlayan drone DLS iş akışlarının aksine, Chloros
-
-, DAQ verilerini görüntüyle son aşamada eşleştirir: içe aktarma/işleme sırasında, `.daq` okumaları her çekimin pozlama zaman damgasına göre enterpolasyon yoluyla hesaplanır. Bağlı herhangi bir sensörle kayıt yapın (`.daq`, projeye otomatik olarak eklenir) ve yansıma işleme, zamana göre doğru okumaları bulur — aşağı doğru gelen verilerin nasıl kullanıldığına ilişkin bilgi için [DAQ Işık Sensörleri](README.md) bölümüne bakın. **Canlı**LATTICE yakalamaları için, bunun yerine Kameralar sekmesindeki**Işık Sensörü** açılır menüsünden sensörü seçin; böylece her yakalama, yalnızca o yakalamanın kameralarıyla eşleşen, kullandığı okuma değerini kaydeder ([Yansıma İş Akışları](reflectance.md) bölümüne bakın).</version\>
+Eşleştirilecek bir şey yoktur. Işık sensörünü önceden kameraya bağlayan drone DLS iş akışlarının aksine, Chloros, DAQ verilerini görüntüyle son aşamada eşleştirir: içe aktarma/işleme sırasında, `.daq` okumaları her çekimin pozlama zaman damgasına göre enterpolasyon yoluyla hesaplanır. Bağlı herhangi bir sensörle kayıt yapın (`.daq`, projeye otomatik olarak eklenir) ve yansıma işleme, zamana göre doğru okumaları bulur — aşağı doğru gelen verilerin nasıl kullanıldığına ilişkin bilgi için [DAQ Işık Sensörleri](README.md) bölümüne bakın. **Canlı**LATTICE yakalamaları için, bunun yerine Kameralar sekmesindeki**Işık Sensörü** açılır menüsünden sensörü seçin; böylece her yakalama, yalnızca o yakalamanın kameralarıyla eşleşen, kullandığı okuma değerini kaydeder ([Yansıma İş Akışları](reflectance.md) bölümüne bakın).</version\>

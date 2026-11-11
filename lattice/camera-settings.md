@@ -1,12 +1,8 @@
 # Kamera Ayarları
 
-**Kameralar** sekmesi, Chloros
+**Kameralar** sekmesi, Chloros’un LATTICE kameraları için canlı kontrol arayüzüdür: bağlı tüm kameraları canlı kutucuklar halinde gösteren bir ana görüntü alanı ve üç sayfa arasında geçiş yapabilen bir kenar çubuğu — **kamera listesi**,**ayarlar paneli**(kamera başına, dizi veya yakalama ayarları — her seferinde bir tanesi) ve**Dizin Hesaplayıcı**. Bu sayfa, kamera listesindeki, kamera başına ayarlar panelindeki ve dizi ayarları panelindeki her bir kontrolü açıklamaktadır. Yakalama modları, dışa aktarma türü seçimi ve Tümünü Yakala akışı ise [Yakalama Ayarları ve Modları](capture.md) adlı ilgili sayfada yer almaktadır.
 
-’un LATTICE kameraları için canlı kontrol arayüzüdür: bağlı tüm kameraları canlı kutucuklar halinde gösteren bir ana görüntü alanı ve üç sayfa arasında geçiş yapabilen bir kenar çubuğu — **kamera listesi**,**ayarlar paneli**(kamera başına, dizi veya yakalama ayarları — her seferinde bir tanesi) ve**Dizin Hesaplayıcı**. Bu sayfa, kamera listesindeki, kamera başına ayarlar panelindeki ve dizi ayarları panelindeki her bir kontrolü açıklamaktadır. Yakalama modları, dışa aktarma türü seçimi ve Tümünü Yakala akışı ise [Yakalama Ayarları ve Modları](capture.md) adlı ilgili sayfada yer almaktadır.
-
-Chloros
-
-arka ucu hazır olduğunda Kameralar sekmesi kenar çubuğunda görünür. Aşağıdaki tüm kontroller, `127.0.0.1:5000` üzerinden yerel arka uçla iletişim kurar; aksi belirtilmedikçe değişiklikler canlı kamera görüntüsüne anında yansıtılır.
+Chloros arka ucu hazır olduğunda Kameralar sekmesi kenar çubuğunda görünür. Aşağıdaki tüm kontroller, `127.0.0.1:5000` üzerinden yerel arka uçla iletişim kurar; aksi belirtilmedikçe değişiklikler canlı kamera görüntüsüne anında yansıtılır.
 
 ## Bu sayfada kullanılan kamera türleri
 
@@ -14,40 +10,12 @@ Kontroller, seçilen kamera türüne göre görünür veya gizlenir. Kılavuzda 
 
 | Terim | Anlam | Filtre kanalları |
 | --- | --- | --- |
-| **RGB
-
-kamera** | FRGB filtreli LATTICE M3C (model numarası `-FRGB` içerir) | Red
-
-/ Green
-
-/ Blue
-
-|
-| **Bayer multispektral** | FRGN, FOCN veya FNGB özellikli LATTICE M3C | FRGN: Red
-
-/ Green
-
-/ NIR
-
-· FOCN: Orange
-
-/ Cyan
-
-/ NIR
-
-· FNGB: NIR
-
-/ Green
-
-/ Blue
-
-|
+| **RGB kamera** | FRGB filtreli LATTICE M3C (model numarası `-FRGB` içerir) | Red / Green / Blue |
+| **Bayer multispektral** | FRGN, FOCN veya FNGB özellikli LATTICE M3C | FRGN: Red / Green / NIR · FOCN: Orange / Cyan / NIR · FNGB: NIR / Green / Blue |
 | **Mono (M3M)** | LATTICE M3M — bir dar bant filtre, bir kalibre edilmiş bant | Tek bant |
 | **Dizi üyesi** | Senkronize bir dizinin parçası olarak bağlanmış bir kamera (birleşik veya ayrı ekran) | Filtresine göre |
 
- RGB
-
-kameralar fotometrik işleme tabi tutulur (beyaz dengesi, renk profilleri, gama); multispektral ve mono kameralar radyometrik işleme zincirinden geçer ve fotometrik kontrolleri atlar. Dizi üyeleri, akış düzeyindeki ayarları (piksel biçimi, çözünürlük, binning, tetikleme, kare hızı) ayarlarını diziye devreder — bu satırlar kamera başına bölmede salt okunur hale gelir ve bunun yerine dizi ayarları bölmesine taşınır.
+ RGB kameralar fotometrik işleme tabi tutulur (beyaz dengesi, renk profilleri, gama); multispektral ve mono kameralar radyometrik işleme zincirinden geçer ve fotometrik kontrolleri atlar. Dizi üyeleri, akış düzeyindeki ayarları (piksel biçimi, çözünürlük, binning, tetikleme, kare hızı) ayarlarını diziye devreder — bu satırlar kamera başına bölmede salt okunur hale gelir ve bunun yerine dizi ayarları bölmesine taşınır.
 
 ## Ana besleme alanı
 
@@ -55,9 +23,7 @@ kameralar fotometrik işleme tabi tutulur (beyaz dengesi, renk profilleri, gama)
 
 <!-- SCREENSHOT-NEEDED: Cameras tab with 2+ cameras connected in grid view — live tiles visible with name and fps overlays, sidebar camera list open on the right. -->
 
-Bağlı kamera olmadığında, besleme alanında iki düğme içeren **"Başlamak için bir kamera bağlayın"**açılış ekranı görüntülenir:**Kamera Bağla**(yeşil, tek kamera bağlantı iletişim kutusunu açar) ve**Diziyi Bağla** (mavi, dizi bağlantı iletişim kutusunu açar). Bağlantı iletişim kutuları [Kameraları Bağlama](connecting.md) bölümünde; dizi kavramları (senkronizasyon, katmanlar, bant genişliği) ise [Çoklu Kamera Dizileri](arrays.md) bölümünde açıklanmıştır. İçinde kamera bulunan kaydedilmiş bir projeyi açtığınızda, Chloros
-
-son oturumdan akışları geri yüklerken açılış ekranında "N adet kaydedilmiş kamera yeniden açılıyor…" yazan bir yükleme simgesi görüntülenir.
+Bağlı kamera olmadığında, besleme alanında iki düğme içeren **"Başlamak için bir kamera bağlayın"**açılış ekranı görüntülenir:**Kamera Bağla**(yeşil, tek kamera bağlantı iletişim kutusunu açar) ve**Diziyi Bağla** (mavi, dizi bağlantı iletişim kutusunu açar). Bağlantı iletişim kutuları [Kameraları Bağlama](connecting.md) bölümünde; dizi kavramları (senkronizasyon, katmanlar, bant genişliği) ise [Çoklu Kamera Dizileri](arrays.md) bölümünde açıklanmıştır. İçinde kamera bulunan kaydedilmiş bir projeyi açtığınızda, Chloros son oturumdan akışları geri yüklerken açılış ekranında "N adet kaydedilmiş kamera yeniden açılıyor…" yazan bir yükleme simgesi görüntülenir.
 
 <!-- SCREENSHOT-NEEDED: Cameras tab empty state — the "Connect a camera to get started" splash with the green Connect Camera and blue Connect Array buttons. -->
 
@@ -122,21 +88,11 @@ Bir kamera satırındaki **dişli** simgesine tıklayarak açın. Panel, kamera 
 
 ### Canlı histogram
 
-Pencerenin üst kısmında, ~8 Hz frekansında JPEG
+Pencerenin üst kısmında, ~8 Hz frekansında JPEG önizlemesinden hesaplanan canlı luma histogramı bulunur. Ortalama, kameranın kendi AE ölçümüne uyması için Bayer ağırlıklıdır — (R+2G+B)/4.
 
-önizlemesinden hesaplanan canlı luma histogramı bulunur. Ortalama, kameranın kendi AE ölçümüne uyması için Bayer ağırlıklıdır — (R+2G+B)/4.
-
-* **Turuncu (Orange
-
-) kesikli çizgi**= AE hedefi.**Yeniden hedeflemek için yatay olarak sürükleyin** — bırakıldığında bir komut gönderilir ve sürükleme işlemi AE hedef modunu Manuel'e geçirir.
-* **Yeşil (Green
-
-) kesintisiz çizgi** = gerçek ortalama luma (AE'nin şu anda sağladığı değer).
-* **RGB
-
-düğmesi** (sağ üst): kameranın filtresine göre renklendirilmiş bant başına üst üste bindirilmiş histogramları gösterir (örn. FRGN'de: gri NIR
-
-, yeşil, kırmızı). Mono (M3M) kameralarda düğme "MONO" olarak görünür ve devre dışıdır — mono modunda her zaman tek bantlı luma histogramı gösterilir.
+* **Turuncu (Orange) kesikli çizgi**= AE hedefi.**Yeniden hedeflemek için yatay olarak sürükleyin** — bırakıldığında bir komut gönderilir ve sürükleme işlemi AE hedef modunu Manuel'e geçirir.
+* **Yeşil (Green) kesintisiz çizgi** = gerçek ortalama luma (AE'nin şu anda sağladığı değer).
+* **RGB düğmesi** (sağ üst): kameranın filtresine göre renklendirilmiş bant başına üst üste bindirilmiş histogramları gösterir (örn. FRGN'de: gri NIR, yeşil, kırmızı). Mono (M3M) kameralarda düğme "MONO" olarak görünür ve devre dışıdır — mono modunda her zaman tek bantlı luma histogramı gösterilir.
 * X ekseni etiketleri, geçerli piksel formatının sensör bit derinliğine göre değişir: 0..255, 0..1023, 0..4095 veya 0..65535.
 
 ### Kamera bilgisi satırları
@@ -148,54 +104,22 @@ düğmesi** (sağ üst): kameranın filtresine göre renklendirilmiş bant baş�
 | Satır | Davranış |
 | --- | --- |
 | **Model** | Salt okunur (örn. `LATT-M3C-L87-FRGN`). |
-| **Radyometrik Kalibrasyon** | Kalibrasyon kademesini, hash değerini, kalibrasyon tarihini ve kamera kalibrasyon paketinden yüklenen bant listesini gösteren bir başlık içeren Green**"Aktif"**rozeti (bkz. [Fabrika Radyometrik Kalibrasyon](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration)).**RGB
-
-kameralar için gizlenmiştir** — bu kameralar, bant başına parlaklık değil, fotometrik beyaz dengesi kalibrasyonuna sahiptir. |
-| **Kalibrasyon Raporu**|**İndir** düğmesi — kameranın seri numarasına özgü NIST kalibrasyon sertifikasının PDF dosyasını işletim sisteminizin görüntüleyicisinde açar. Sertifika henüz önbelleğe alınmamışsa, Chloros
-
-bunun yerine bir ipucu gösterir. |
+| **Radyometrik Kalibrasyon** | Kalibrasyon kademesini, hash değerini, kalibrasyon tarihini ve kamera kalibrasyon paketinden yüklenen bant listesini gösteren bir başlık içeren Green**"Aktif"**rozeti (bkz. [Fabrika Radyometrik Kalibrasyon](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration)).**RGB kameralar için gizlenmiştir** — bu kameralar, bant başına parlaklık değil, fotometrik beyaz dengesi kalibrasyonuna sahiptir. |
+| **Kalibrasyon Raporu**|**İndir** düğmesi — kameranın seri numarasına özgü NIST kalibrasyon sertifikasının PDF dosyasını işletim sisteminizin görüntüleyicisinde açar. Sertifika henüz önbelleğe alınmamışsa, Chloros bunun yerine bir ipucu gösterir. |
 | **Seri Numarası** | Salt okunur. |
 | **Firmware**| Mevcut sürümü gösterir, ardından bu model için mevcut sürümü belirler (modele göre önbelleğe alınır — N kameralı bir dizi, sunucuyu bir kez kontrol eder). Durumlar: "Kontrol ediliyor…" →**"X'e güncelle"**düğmesi → "Yazılıyor…" → "A → B güncellendi" / "Başarısız: …" / "Atlandı: …" / yeşil**"Güncel"**. Güncelleme düğmesinin araç ipucu: "Fabrika ayarlarına sıfırla + yazılım yükle + UserSet1'i yeniden programla. ~2–3 dakika; bağlantıyı kesmeyin." |
 | **IP** | Salt okunur. |
 | **Sıcaklık** | Salt okunur, her 3 saniyede bir yenilenir. ≥65 °C'de turuncu, ≥75 °C'de ⚠ işaretiyle kırmızıya döner. |
-| **Kalibrasyon Hedefi** onay kutusu | Canlı akışın (liste görünümü) altındaki panel başına NDVI
-
-doğrulama tablosu ile ArUco yansıma hedefi algılamasını etkinleştirir — bkz. [Kalibrasyon Hedefi tablosu](#the-calibration-target-table). Yalnızca oturum süresince geçerlidir — her zaman kapalı olarak açılır. |
+| **Kalibrasyon Hedefi** onay kutusu | Canlı akışın (liste görünümü) altındaki panel başına NDVI doğrulama tablosu ile ArUco yansıma hedefi algılamasını etkinleştirir — bkz. [Kalibrasyon Hedefi tablosu](#the-calibration-target-table). Yalnızca oturum süresince geçerlidir — her zaman kapalı olarak açılır. |
 | **Işık Sensörü** açılır menüsü | Aşağıya doğru ışık (DLS) aydınlatma düzeltmesi ve tahmini otomatik pozlama için bir DAQ ışık sensörünü (DAQ-E/M/U, Işık Sensörleri sekmesindeki listeden) bu kameraya bağlar. ""Yok" seçeneği, bağlamayı siler. Bağlı sensör yoksa açılır menüde "(bağlı sensör yok — DAQ sekmesini açın)". Bağlantı, projeyle birlikte kaydedilir. |
 
 #### Kalibrasyon Hedefi tablosu
 
 Bu tablo **yalnızca doğrulama amaçlıdır** ("yalnızca doğrulama — kalibrasyonu değiştirmez"). Başlığında kameranın seri numarası, filtresi, hedef numarası ve piksel cinsinden işaretleyici boyutu belirtilir; her panel için bir satır bulunur:
 
-* **Panel**, ardından panelin değerini içeren her bant için bir sütun — bir Bayer kamera, üç bandını ad ve dalga boyu ile gösterir (örn. FRGN: Red
-
-660 nm / Green
-
-550 nm / NIR
-
-850 nm); bir **mono (M3M) kamera tek bandını** gösterir (örn. `F750`) ve NDVI
-
-sütunları yoktur.
+* **Panel**, ardından panelin değerini içeren her bant için bir sütun — bir Bayer kamera, üç bandını ad ve dalga boyu ile gösterir (örn. FRGN: Red 660 nm / Green 550 nm / NIR 850 nm); bir **mono (M3M) kamera tek bandını** gösterir (örn. `F750`) ve NDVI sütunları yoktur.
 * **Sat** — panelin doymuş piksellerinin oranı (%1'den itibaren kehribar, %5'ten itibaren kırmızı).
-* **NDVI
-
-Ölçüm**,**NDVI
-
-Teorik** (panelin referans yansıma NDVI
-
-değeri) ve **Δ**— yalnızca Bayer multispektral kameralar için geçerlidir. "NDVI
-
-Ölçüm" ifadesinden sonra yer alan küçük bir işaret, ölçülen NDVI
-
-değerinin neye göre hesaplandığını belirtir:**ρ**(yansıma — ışık sensörü okuması mevcuttur),**L**(radyans — ışık sensörü okuması yok) veya**DN**(ham kamera değerleri). Yalnızca**ρ** NDVI
-
-'si NDVI
-
-Theo ile karşılaştırılabilir: L ve DN için Δ sütunu gri renkte görünür ve bir notta şu açıklama yer alır ("Işık sensörü okuması yok: NDVI
-
-radyans değerinden hesaplandığından Δ, kalibrasyon kontrolü değildir" / "NDVI
-
-ham kamera değerlerinden hesaplandığından Δ, kalibrasyon kontrolü değildir"). ρ değerinde Δ, 0,02'nin altında yeşil, 0,05'in altında sarı, diğer durumlarda kırmızı renktedir.
+* **NDVI Ölçüm**,**NDVI Teorik** (panelin referans yansıma NDVI değeri) ve **Δ**— yalnızca Bayer multispektral kameralar için geçerlidir. "NDVI Ölçüm" ifadesinden sonra yer alan küçük bir işaret, ölçülen NDVI değerinin neye göre hesaplandığını belirtir:**ρ**(yansıma — ışık sensörü okuması mevcuttur),**L**(radyans — ışık sensörü okuması yok) veya**DN**(ham kamera değerleri). Yalnızca**ρ** NDVI'si NDVI Theo ile karşılaştırılabilir: L ve DN için Δ sütunu gri renkte görünür ve bir notta şu açıklama yer alır ("Işık sensörü okuması yok: NDVI radyans değerinden hesaplandığından Δ, kalibrasyon kontrolü değildir" / "NDVI ham kamera değerlerinden hesaplandığından Δ, kalibrasyon kontrolü değildir"). ρ değerinde Δ, 0,02'nin altında yeşil, 0,05'in altında sarı, diğer durumlarda kırmızı renktedir.
 
 <!-- SCREENSHOT-NEEDED: a 1.3.0 Calibration Target table under a live feed in list view — a Bayer camera's table showing the band columns, Sat, and "NDVI Meas ρ" / NDVI Theo / Δ; ideally next to a mono camera's single-band table with no NDVI columns. -->
 
@@ -216,21 +140,11 @@ Buradaki tüm sayısal girişler, basılı tutularak hızlandırılan ayar çark
 | **Vurgu Koruması** | Sıkı (1 %) / Normal (5 %) / Esnek (15 %) | Sıkı | Ayarı destekleyen kameralar | AE görüntüyü karartmadan önce karenin ne kadarının beyaza kırpılabileceğini belirler. |
 
 {% hint style="info" %}
-**Bayer multispektral kameralar (RGN
-
-/ OCN
-
-/ NGB
-
-) için ışık gereksinimi:** sahnenin üç kanalda da yeterli ışığa sahip olması gerekir, aksi takdirde kalibrasyon düzgün çalışmaz — tek bir sensör pozlaması üç spektrumu da kapsar. Işığı ölçmek için bir DAQ ışık sensörü kullanın veya her bandın kendi pozlamasını alması için tamamen mono (M3M) moduna geçin. Bir çekim bu kuralı ihlal ederse, Chloros
-
-bunu algılar ve sizi uyarır (unmix-clamp bildirimi). Canlı görüntüde, bir kanal bölünmüş döşeme, unmix o bandın piksellerinin %25'inde veya daha fazlasında kısıtlama uyguladığında **"Düşük güvenilirlikli bant verisi · N%"** mesajını gösterir.
+**Bayer multispektral kameralar (RGN / OCN / NGB) için ışık gereksinimi:** sahnenin üç kanalda da yeterli ışığa sahip olması gerekir, aksi takdirde kalibrasyon düzgün çalışmaz — tek bir sensör pozlaması üç spektrumu da kapsar. Işığı ölçmek için bir DAQ ışık sensörü kullanın veya her bandın kendi pozlamasını alması için tamamen mono (M3M) moduna geçin. Bir çekim bu kuralı ihlal ederse, Chloros bunu algılar ve sizi uyarır (unmix-clamp bildirimi). Canlı görüntüde, bir kanal bölünmüş döşeme, unmix o bandın piksellerinin %25'inde veya daha fazlasında kısıtlama uyguladığında **"Düşük güvenilirlikli bant verisi · N%"** mesajını gösterir.
 {% endhint %}
 
 {% hint style="info" %}
-**Otomatik pozlamanın pozlama süresini ve kazancı nasıl kullandığı (1.3.0).** Kazanç Otomatik ayarında, Chloros
-
-, pozlama izin verilen en uzun değere (AE üst sınırı, bir dizinin tetikleme süresi veya DAQ pozlama tavanı) ulaşana kadar kazancı 0 dB'de tutar; ancak o zaman kazanç artar. Bir dizide, tetikleme hızı önceliklidir: otomatik pozlama, hızın belirlediği süreyi doldurur, ardından kazancı artırır; böylece kararan bir sahne artık Otomatik tetikleme hızını düşürmez (1.2.0 sürümünde düşürürdü). Bir dizi elemanında tetikleme süresinden daha uzun süreli bir **manuel**pozlama, dizinin tetikleme hızını buna uyacak şekilde yavaşlatır; otomatik hız, onu yavaşlatan her üye tekrar otomatik pozlamaya döndüğünde geri gelir.**Pozlama**ve**AE Hedef Parlaklığı**'nın her ikisi de Otomatik konumda ve bir DAQ ışık sensörü okuma sağladığında, ölçülen ışık yaklaşık ±%25 aralığında kaldığı sürece, otomatik pozlama sabitlendiğinde her kameranın pozlaması sabit tutulur; daha büyük ve sürekli bir ışık değişimi, ayarların yeniden başlatılması (örneğin bir ROI değişikliği) veya sizin yaptığınız pozlama değişikliği, sistemi yeniden etkinleştirir.
+**Otomatik pozlamanın pozlama süresini ve kazancı nasıl kullandığı (1.3.0).** Kazanç Otomatik ayarında, Chloros, pozlama izin verilen en uzun değere (AE üst sınırı, bir dizinin tetikleme süresi veya DAQ pozlama tavanı) ulaşana kadar kazancı 0 dB'de tutar; ancak o zaman kazanç artar. Bir dizide, tetikleme hızı önceliklidir: otomatik pozlama, hızın belirlediği süreyi doldurur, ardından kazancı artırır; böylece kararan bir sahne artık Otomatik tetikleme hızını düşürmez (1.2.0 sürümünde düşürürdü). Bir dizi elemanında tetikleme süresinden daha uzun süreli bir **manuel**pozlama, dizinin tetikleme hızını buna uyacak şekilde yavaşlatır; otomatik hız, onu yavaşlatan her üye tekrar otomatik pozlamaya döndüğünde geri gelir.**Pozlama**ve**AE Hedef Parlaklığı**'nın her ikisi de Otomatik konumda ve bir DAQ ışık sensörü okuma sağladığında, ölçülen ışık yaklaşık ±%25 aralığında kaldığı sürece, otomatik pozlama sabitlendiğinde her kameranın pozlaması sabit tutulur; daha büyük ve sürekli bir ışık değişimi, ayarların yeniden başlatılması (örneğin bir ROI değişikliği) veya sizin yaptığınız pozlama değişikliği, sistemi yeniden etkinleştirir.
 {% endhint %}
 
 {% hint style="info" %}
@@ -271,34 +185,18 @@ Bu bölümdeki her şey **yalnızca görüntüleme tarafındadır**— canlı ya
 | --- | --- | --- | --- | --- |
 | **Render çözünürlüğü** | 360p (en hızlı) / 480p / 720p / 1080p / Orijinal sensör çözünürlüğü (en yavaş) | 720p | Tümü | Arka uçun radyometrik önizleme zincirini çalıştırdığı yükseklik. Daha düşük değer, görüş alanını değiştirmeden kare hızını artırır. |
 | **Endeks**| Etkinleştirme onay kutusu + dişli simgesi | Kapalı | Yalnızca Bayer multispektral,**kombine dizi üyeleri hariç** | Canlı bitki örtüsü endeksi önizlemesi. Dişli simgesi, kameranın filtre doğal bantlarıyla (örn. `Red_660_RGN`, `Green_550_RGN`, `NIR_850_RGN`). Özel ifade ve LUT (açık/kapalı, varsayılan seviye 7-stop, varsayılan min 0,2, varsayılan maks 1) her önizleme karesinde hesaplanır. Birleşik dizi üyeleri bu satırı gizler — dizi tek bir paylaşılan indekse sahiptir. |
-| **Beyaz Dengesi** | Kapalı / Tek Seferlik / Sürekli + yeniden yakalama düğmesi | Sürekli | Yalnızca RGB
-
-| Canlı beyaz dengesi. Yenile düğmesi, mevcut DLS spektrumundan beyaz dengesini yeniden yakalar (mod Kapalı olduğunda devre dışıdır). |
-| **Gama** | Açık / Kapalı | Açık | Yalnızca RGB
-
-| Canlı önizlemede gama (γ = 2,2 LUT) gösterilir. Kaydedilen çekimler doğrusal kalır. |
+| **Beyaz Dengesi** | Kapalı / Tek Seferlik / Sürekli + yeniden yakalama düğmesi | Sürekli | Yalnızca RGB | Canlı beyaz dengesi. Yenile düğmesi, mevcut DLS spektrumundan beyaz dengesini yeniden yakalar (mod Kapalı olduğunda devre dışıdır). |
+| **Gama** | Açık / Kapalı | Açık | Yalnızca RGB | Canlı önizlemede gama (γ = 2,2 LUT) gösterilir. Kaydedilen çekimler doğrusal kalır. |
 | **Gürültü Giderme** | Onay kutusu + güç 0–100 | Kapalı / 50 | Tüm (kamera başına, diziler içinde bile) | Canlı önizlemede iki yönlü filtre. Daha yüksek değer = daha pürüzsüz ancak daha yumuşak ayrıntılar. |
 | **Keskinlik** | Onay kutusu + güç 0–100 | Kapalı / 30 | Tüm | Canlı önizlemede keskinleştirme maskesi, en son uygulanır. Gürültüyü artırabilir. Yalnızca önizleme. |
 | **Vinyet**| Onay kutusu + güç 0–100 | Kapalı / 0 | Tüm | Manuel artık vinyet giderme (köşeleri aydınlatır), dizinin Akıllı Vinyet tahmininin üzerine eklenir.**Radyometrik — Gürültü Giderme/Keskinlik'ten farklı olarak canlı görüntüyü VE dışa aktarımları etkiler**. |
-| **Renk Profili** | Raw / Doğrusal / Doğal / Geliştirilmiş / Özel Sıcaklık | Doğal | Yalnızca RGB
-
-| Aşağıya bakın. |
-| **Renk Sıcaklığı** | 2000–10000 K, 100'lük adımlarla | 5500 K | Yalnızca RGB
-
-, Özel Sıcaklık profili | Beyaz dengesini sabit bir ilişkili renk sıcaklığına sabitler (DLS girişi yok sayılır). En son seçilen Kelvin değeri, profil değişiklikleri arasında hatırlanır. |
-| **Vurgular** | −100 ila 0, 1'lik adımlarla | 0 (kapalı) | Yalnızca RGB
-
-| 1.3.0 sürümünde yeni. Resmin en parlak, en beyaz alanlarını karartır (0 = değişmez, −100 = en güçlü). Canlı önizlemeye **ve ayarı kaydeden ekran düzeyindeki (Önizleme) yakalamalara**; bu yakalamalar ayarı kaydeder (`Chloros:DisplayHighlights`); parlaklık ve yansıma dışa aktarımları hiçbir zaman etkilenmez. Kırpılmış sensör verilerini kurtaramaz — bunun için pozlamayı azaltın. Zebra katmanı, karartılmış görüntüyü takip eder. Raw renk profiliyle devre dışı bırakılır ile devre dışı bırakılır ("Raw renk profiliyle uygulanmaz."). |
-| **Doygunluk** | 0–200 (100 = nötr) | 100 | Yalnızca RGB
-
-| Canlı önizlemede HSV doygunluğu. |
-| **Kontrast** | 0–200 (100 = nötr) | 100 | Yalnızca RGB
-
-| Canlı önizlemede orta gri civarında doğrusal kontrast. |
+| **Renk Profili** | Raw / Doğrusal / Doğal / Geliştirilmiş / Özel Sıcaklık | Doğal | Yalnızca RGB | Aşağıya bakın. |
+| **Renk Sıcaklığı** | 2000–10000 K, 100'lük adımlarla | 5500 K | Yalnızca RGB, Özel Sıcaklık profili | Beyaz dengesini sabit bir ilişkili renk sıcaklığına sabitler (DLS girişi yok sayılır). En son seçilen Kelvin değeri, profil değişiklikleri arasında hatırlanır. |
+| **Vurgular** | −100 ila 0, 1'lik adımlarla | 0 (kapalı) | Yalnızca RGB | 1.3.0 sürümünde yeni. Resmin en parlak, en beyaz alanlarını karartır (0 = değişmez, −100 = en güçlü). Canlı önizlemeye **ve ayarı kaydeden ekran düzeyindeki (Önizleme) yakalamalara**; bu yakalamalar ayarı kaydeder (`Chloros:DisplayHighlights`); parlaklık ve yansıma dışa aktarımları hiçbir zaman etkilenmez. Kırpılmış sensör verilerini kurtaramaz — bunun için pozlamayı azaltın. Zebra katmanı, karartılmış görüntüyü takip eder. Raw renk profiliyle devre dışı bırakılır ile devre dışı bırakılır ("Raw renk profiliyle uygulanmaz."). |
+| **Doygunluk** | 0–200 (100 = nötr) | 100 | Yalnızca RGB | Canlı önizlemede HSV doygunluğu. |
+| **Kontrast** | 0–200 (100 = nötr) | 100 | Yalnızca RGB | Canlı önizlemede orta gri civarında doğrusal kontrast. |
 | **Yatay Yansıtma / Dikey Yansıtma** | Onay kutuları | Kapalı | Tümü | Önizlemeyi yatay / dikey olarak çevirir. |
-| **Dönüş**| 0° / 90° / 180° / 270° | 0° | Tümü | Önizlemeyi döndürür. Yönlendirme, arka uç önizleme zincirinin sonunda uygulanır.**Kaydedilen çekimler (1.3.0):**bağımsız bir kameranın Önizleme, Parlaklık, Yansıma ve İndeks ürünleri Ayna/Dönüş ile döndürülürken,**Raw ve Debayered, kameranın kendi yönelimini korur**; her çekim dosyası bu ayarı XMP'sine kaydeder, böylece daha sonra bir raw dosyası işlendiğinde ayar aynı şekilde uygulanır.**Dizi üye dosyaları kendi yönelimlerini korur** (ayar kaydedilir, uygulanmaz) ve dizi birleştirilmiş görünümleri bunu göz ardı eder. |**Renk profili semantiği** (RGB
-
-kameralar):
+| **Dönüş**| 0° / 90° / 180° / 270° | 0° | Tümü | Önizlemeyi döndürür. Yönlendirme, arka uç önizleme zincirinin sonunda uygulanır.**Kaydedilen çekimler (1.3.0):**bağımsız bir kameranın Önizleme, Parlaklık, Yansıma ve İndeks ürünleri Ayna/Dönüş ile döndürülürken,**Raw ve Debayered, kameranın kendi yönelimini korur**; her çekim dosyası bu ayarı XMP'sine kaydeder, böylece daha sonra bir raw dosyası işlendiğinde ayar aynı şekilde uygulanır.**Dizi üye dosyaları kendi yönelimlerini korur** (ayar kaydedilir, uygulanmaz) ve dizi birleştirilmiş görünümleri bunu göz ardı eder. |**Renk profili semantiği** (RGB kameralar):
 
 * **Raw** — işleme zincirini tamamen atlar.
 * **Doğrusal** — karanlık sinyal + düz alan + beyaz dengesi; renk matrisi yok, gama yok.
@@ -323,20 +221,12 @@ Bunlar yalnızca ön uçtadır — videonun üzerine çizilir, akışa veya yaka
 | **Izgara** | Kapalı / 3 × 3 / 9 × 9 | Kapalı | Kompozisyon ızgarası. |
 | **Histogram** | Onay kutusu + kare genişliğinin 0,10–0,90'ı | Kapalı / 0,25 | Akış üzerinde bir histogram şeridi. |
 | **Odak Zirvesi** | Onay kutusu + eşik 20–200 + renk örneği | Kapalı / 80 / `#ff5722` | Odaklama için Sobel kenar vurgusu. |
-| **Kanal Bölünmeleri** | "Bölünmeleri Göster (Red
-
-/ Green
-
-/ NIR
-
-)" / "Bölümleri Gizle" düğmesi | Gizli | Kompozit görüntünün yanına kanal başına üç bağımsız gri tonlamalı döşeme ekler (düğme etiketi, kameranın filtre kanallarını takip eder). Her bir bölünmüş döşeme sürüklenebilir ve kameranın kenarlık rengini alır. Monokrom kameralarda kullanılamaz. Projeyle birlikte kaydedilir. |
+| **Kanal Bölünmeleri** | "Bölünmeleri Göster (Red / Green / NIR)" / "Bölümleri Gizle" düğmesi | Gizli | Kompozit görüntünün yanına kanal başına üç bağımsız gri tonlamalı döşeme ekler (düğme etiketi, kameranın filtre kanallarını takip eder). Her bir bölünmüş döşeme sürüklenebilir ve kameranın kenarlık rengini alır. Monokrom kameralarda kullanılamaz. Projeyle birlikte kaydedilir. |
 
 ### Nokta Ölçer
 
 * **Tıklayarak Örnek Al**onay kutusu: tek bir pikseli örneklemek için canlı görüntüyü tıklayın (bir artı işareti ile işaretlenir) veya piksel ortalaması almak için bir bölgeyi tıklayıp sürükleyin.**Temizle**, örneği ve artı işaretini siler. AE-ROI**Nişan** modu ile birbirini dışlar.
-* ****Göster**açılır menüsü:**Ham (bit derinliği)**— sensörün bit derinliğindeki doğal dijital sayılar (örn. 12 bit → 0..4095) — veya**Ekran (8 bit)** (varsayılan). Canlı indeks etkin olduğunda, Ekran yerine hesaplanan indeks değerini (örn. NDVI
-
-) gösterir.
+* ****Göster**açılır menüsü:**Ham (bit derinliği)**— sensörün bit derinliğindeki doğal dijital sayılar (örn. 12 bit → 0..4095) — veya**Ekran (8 bit)** (varsayılan). Canlı indeks etkin olduğunda, Ekran yerine hesaplanan indeks değerini (örn. NDVI) gösterir.
 * Okuma paneli, piksel koordinatlarını, kare boyutunu, piksel formatını, bit derinliğini ve bant etiketleri ile dalga boylarını içeren bir kanal tablosunu (Chan / Değer / %) listeler; Bayer yeşil çiftlerinin ortalaması alınır; bölge örnekleri "N px avg" olarak gösterilir.
 
 Nokta ölçer durumu yalnızca oturum süresince geçerlidir.
@@ -358,18 +248,10 @@ Bu bölüm, yalnızca **en az bir DAQ ışık sensörü bağlı olduğunda** gö
 | **Sahne yansıma oranı**|**ρ'yi Yeniden Kalibre Et** düğmesi | — | Çözücünün kullandığı sahne yansıma oranını yeniden tahmin eder. |
 
 {% hint style="info" %}
-**Dizi bağlantısı, varsayılan olarak öngörücü AE'yi devre dışı bırakır** — diziler için, Chloros
-
-'un akıllı AE'si ve kamera tarafındaki otomatik pozlama, pozlamayı (doygunluk korumasıyla) yönetir; öngörücü AE'nin tek sahneyansıma tahmini, karışık sahnelerde güvenilir değildir. Özellikle DLS tabanlı radyometrik pozlama istiyorsanız, buradan kamera bazında bu özelliği yeniden etkinleştirebilirsiniz.
+**Dizi bağlantısı, varsayılan olarak öngörücü AE'yi devre dışı bırakır** — diziler için, Chloros'un akıllı AE'si ve kamera tarafındaki otomatik pozlama, pozlamayı (doygunluk korumasıyla) yönetir; öngörücü AE'nin tek sahneyansıma tahmini, karışık sahnelerde güvenilir değildir. Özellikle DLS tabanlı radyometrik pozlama istiyorsanız, buradan kamera bazında bu özelliği yeniden etkinleştirebilirsiniz.
 {% endhint %}
 
-**DAQ tabanlı pozlama tavanı ve gelen ışığa sabitlenmiş AE.** Yukarıdaki onay kutusundan bağımsız olarak, bir DAQ ışık sensörü bir RGB
-
-kameraya atandığında, Chloros
-
-— ölçülen mutlak aşağıya doğru ışınım yoğunluğundan — %100 yansıtma oranına sahip bir yüzeyin kırpılma sınırının altında kalacağı maksimum pozlama×kazanç değerini hesaplar ve bunu otomatik pozlamada bir **sınır**olarak otomatik pozlamaya uygular. 1.3.0 sürümünden itibaren bu sınır, yalnızca bir kalibrasyon hedefi o kameranın görüş alanında (son 10 saniye içinde karesinde görülmüşse) bulunduğu sürece geçerlidir; görüş alanında hedef olmadığında ise, kameranın kendi parlaklık korumasına sahip normal otomatik pozlaması devreye girer; böylece sahnenin geri kalanı gerekenden daha karanlık kalmaz. Üst sınır aktifken kamera**gelen ışığa sabitlenir** modunda çalışır: kazanç 0 dB'deyken gelen ışık ölçümüne dayalı pozlamada açık döngüde çalışır — pozlama, sahnenin içeriğini değil, ölçülen ışığı takip eder. Üst sınır yalnızca pozlama süresini kısaltabileceğinden, kendi başına kırpma oluşturmaz. 1.3.0 sürümünden itibaren tavan değeri, kameranın kalibrasyon paketindeki kendi pozlama sabiti kullanılarak hesaplanır (paket bir değer içermediğinde yalnızca filo ortalaması kullanılır). Kalibrasyon hedefi görüş alanında olmadığında, DAQ okuması eksik, eski (>30 s) veya karanlıksa ya da karenin ≥%15’i sabitlenmiş pozlamada kırpılıyorsa (yani sensör ve kamera farklı aydınlatma görüyorlarsa). GUI’de bir anahtar yoktur; bu, bir RGB
-
-kameranın DAQ’ya bağlı olduğu her durumda standart davranıştır.
+**DAQ tabanlı pozlama tavanı ve gelen ışığa sabitlenmiş AE.** Yukarıdaki onay kutusundan bağımsız olarak, bir DAQ ışık sensörü bir RGB kameraya atandığında, Chloros — ölçülen mutlak aşağıya doğru ışınım yoğunluğundan — %100 yansıtma oranına sahip bir yüzeyin kırpılma sınırının altında kalacağı maksimum pozlama×kazanç değerini hesaplar ve bunu otomatik pozlamada bir **sınır**olarak otomatik pozlamaya uygular. 1.3.0 sürümünden itibaren bu sınır, yalnızca bir kalibrasyon hedefi o kameranın görüş alanında (son 10 saniye içinde karesinde görülmüşse) bulunduğu sürece geçerlidir; görüş alanında hedef olmadığında ise, kameranın kendi parlaklık korumasına sahip normal otomatik pozlaması devreye girer; böylece sahnenin geri kalanı gerekenden daha karanlık kalmaz. Üst sınır aktifken kamera**gelen ışığa sabitlenir** modunda çalışır: kazanç 0 dB'deyken gelen ışık ölçümüne dayalı pozlamada açık döngüde çalışır — pozlama, sahnenin içeriğini değil, ölçülen ışığı takip eder. Üst sınır yalnızca pozlama süresini kısaltabileceğinden, kendi başına kırpma oluşturmaz. 1.3.0 sürümünden itibaren tavan değeri, kameranın kalibrasyon paketindeki kendi pozlama sabiti kullanılarak hesaplanır (paket bir değer içermediğinde yalnızca filo ortalaması kullanılır). Kalibrasyon hedefi görüş alanında olmadığında, DAQ okuması eksik, eski (>30 s) veya karanlıksa ya da karenin ≥%15’i sabitlenmiş pozlamada kırpılıyorsa (yani sensör ve kamera farklı aydınlatma görüyorlarsa). GUI’de bir anahtar yoktur; bu, bir RGB kameranın DAQ’ya bağlı olduğu her durumda standart davranıştır.
 
 ### Veri Toplama ve Tetikleme
 
@@ -419,11 +301,7 @@ Hem birleştirilmiş hem de ayrı diziler için gösterilir:
 
 Hem birleştirilmiş hem de ayrı diziler için, Ortam Işık Sensörü'nün hemen ardından kendi grubu bulunur:
 
-* **Etkinleştir** onay kutusu — "MAPIR
-
-ArUco hedefini algıla ve NDVI
-
-ile panel yansıma LUT'unu doğrula"; birleştirilmiş döşemenin hedef katmanını ve doğrulama tablolarını yönlendirir. **Ayrı** bir dizide ise her üyenin kendi [Kalibrasyon Hedefi tablosunu](#the-calibration-target-table) açar (liste görünümünde her kamera satırı için bir tane).
+* **Etkinleştir** onay kutusu — "MAPIR ArUco hedefini algıla ve NDVI ile panel yansıma LUT'unu doğrula"; birleştirilmiş döşemenin hedef katmanını ve doğrulama tablolarını yönlendirir. **Ayrı** bir dizide ise her üyenin kendi [Kalibrasyon Hedefi tablosunu](#the-calibration-target-table) açar (liste görünümünde her kamera satırı için bir tane).
 
 ### Yakalama — tek tip sensör ayarları
 

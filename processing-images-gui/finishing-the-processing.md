@@ -1,7 +1,6 @@
 # İşlemin Tamamlanması
 
-Chloros
-işlemeyi tamamladığında, sonuçlarınızı gözden geçirme, çıktı kalitesini doğrulama ve iş akışınızda kullanmak üzere işlenmiş görüntülerinizi hazırlama zamanı gelmiştir. Bu sayfa, son adımlar ve sonraki işlemler konusunda size rehberlik eder.
+Chloros işlemeyi tamamladığında, sonuçlarınızı gözden geçirme, çıktı kalitesini doğrulama ve iş akışınızda kullanmak üzere işlenmiş görüntülerinizi hazırlama zamanı gelmiştir. Bu sayfa, son adımlar ve sonraki işlemler konusunda size rehberlik eder.
 
 ## İşlemin Tamamlandığına Dair Göstergeler
 
@@ -13,10 +12,7 @@ işlemeyi tamamladığında, sonuçlarınızı gözden geçirme, çıktı kalite
 * ✅ **Çıktı dosyaları**: İşlenen tüm görüntüler projenin çıktı dizinine kaydedilir (aşağıda)
 
 {% hint style="warning" %}
-**Görüntü yazmayan bir işleme, başarısızlık olarak değerlendirilir.** Görüntü ürünleri talep ettiyseniz ve işleme hiçbir görüntü yazmadıysa, Chloros
-bunu bir hata olarak bildirir — `[RUN-SUMMARY]`, günlük adındaki ipuçlarıyla olası nedeni belirtir (hiçbir şey içe aktarılmadı, hedef algılanmadı veya talep edilen tüm ürünler uygulanamaz olduğu için atlandı). CLI
-'deki karşılığı sıfırdan farklı bir değerle sonlanır. Kasıtlı olarak yalnızca meta veriye yönelik bir çalıştırma (tüm dışa aktarma ürünleri kapalı, dizin yok) yine de başarılı sayılır. Bkz. [CLI
-Referansı](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
+**Görüntü yazmayan bir işleme, başarısızlık olarak değerlendirilir.** Görüntü ürünleri talep ettiyseniz ve işleme hiçbir görüntü yazmadıysa, Chloros bunu bir hata olarak bildirir — `[RUN-SUMMARY]`, günlük adındaki ipuçlarıyla olası nedeni belirtir (hiçbir şey içe aktarılmadı, hedef algılanmadı veya talep edilen tüm ürünler uygulanamaz olduğu için atlandı). CLI'deki karşılığı sıfırdan farklı bir değerle sonlanır. Kasıtlı olarak yalnızca meta veriye yönelik bir çalıştırma (tüm dışa aktarma ürünleri kapalı, dizin yok) yine de başarılı sayılır. Bkz. [CLI Referansı](../reference/cli-reference.md#a-run-that-writes-no-images-fails).
 {% endhint %}
 
 ***
@@ -47,10 +43,8 @@ simgesine (sol üst) tıklayın
         └── Radiance_Images/             # float32 radiance always lands here
 ```
 
-* **Kamera klasörü**: LATTICE için `LATT-<sensor>-<lens>-F<filter>` (çekimin EXIF verisiyle eşleşir: `Model`), Survey3
-için `<model>_<filter>` (örn. `Survey3N_RGN`). Aynı sensörü ve filtreyi paylaşan ancak lensleri farklı olan iki kamera ayrı dizinler oluşturur — vinyet, görüş alanı ve distorsiyon farklılık gösterir.
-* **Biçim klasörü**: dışa aktarma biçimi ayarınıza göre belirlenir — `tiff16`, `tiff8`, `png8`, `jpg8`, veya TIFF
-(32 bit, Yüzde) için `tiff32`. Parlaklık her zaman float32 türündedir ve her zaman `tiff32` altında yer alır.
+* **Kamera klasörü**: LATTICE için `LATT-<sensor>-<lens>-F<filter>` (çekimin EXIF verisiyle eşleşir: `Model`), Survey3 için `<model>_<filter>` (örn. `Survey3N_RGN`). Aynı sensörü ve filtreyi paylaşan ancak lensleri farklı olan iki kamera ayrı dizinler oluşturur — vinyet, görüş alanı ve distorsiyon farklılık gösterir.
+* **Biçim klasörü**: dışa aktarma biçimi ayarınıza göre belirlenir — `tiff16`, `tiff8`, `png8`, `jpg8`, veya TIFF (32 bit, Yüzde) için `tiff32`. Parlaklık her zaman float32 türündedir ve her zaman `tiff32` altında yer alır.
 * **Ürün klasörleri**:
   * `Reflectance_Calibrated_Images/` — kalibre edilmiş yansıma
   * `Debayered_Images/` — doğrusal debayering uygulanmış (LATTICE): karanlık ofseti giderilmiş ve demosaicing yapılmış, düz alan düzeltmesi veya renk ayrıştırma yapılmamış, sensörün doğal yöneliminde
@@ -69,8 +63,7 @@ için `<model>_<filter>` (örn. `Survey3N_RGN`). Aynı sensörü ve filtreyi pay
 
 ### Kaç Dosya Olmalıdır?
 
-Formüle göre saymayın — çıktı sayısı, hangi ürünlerin etkinleştirildiğine ve her bir kameraya hangilerinin uygulandığına bağlıdır (ör. RGB
-kameralarda parlaklık/yansıtma değeri yoktur). Kesin sayı günlüğünde bulunur: son `[RUN-SUMMARY]` satırı, tam olarak kaç dosya yazıldığını bildirir ve ipucu satırları atlanan her şeyi açıklar.
+Formüle göre saymayın — çıktı sayısı, hangi ürünlerin etkinleştirildiğine ve her bir kameraya hangilerinin uygulandığına bağlıdır (ör. RGB kameralarda parlaklık/yansıtma değeri yoktur). Kesin sayı günlüğünde bulunur: son `[RUN-SUMMARY]` satırı, tam olarak kaç dosya yazıldığını bildirir ve ipucu satırları atlanan her şeyi açıklar.
 
 ***
 
@@ -78,32 +71,24 @@ kameralarda parlaklık/yansıtma değeri yoktur). Kesin sayı günlüğünde bul
 
 ### Dosya Gezgini'nde Hızlı Önizleme
 
-**Windows
-'un yerleşik önizleme özelliği:**
+**Windows'un yerleşik önizleme özelliği:**
 
 1. Bir ürün klasörüne gidin (örn. `tiff16/Reflectance_Calibrated_Images/`)
 2. Bir görüntü dosyası seçin
-3. Önizleme, Windows
-Gezgini'nin önizleme bölmesinde görünür
+3. Önizleme, Windows Gezgini'nin önizleme bölmesinde görünür
 4. Ok tuşlarını kullanarak görüntüler arasında gezinin
 
 ### Harici Görüntü Görüntüleyicilerinde Önizleme
 
 **Önerilen görüntüleyiciler:*** **QGIS** - Ücretsiz GIS yazılımı (coğrafi referanslı multispektral analiz için en iyisi)
-* **IrfanView** - Hızlı, hafif görüntü görüntüleyici (TIFF
-'i destekler)
-* **Adobe Photoshop** - Profesyonel düzenleme (TIFF
-desteği)
+* **IrfanView** - Hızlı, hafif görüntü görüntüleyici (TIFF'i destekler)
+* **Adobe Photoshop** - Profesyonel düzenleme (TIFF desteği)
 * **GIMP** - Photoshop'a ücretsiz alternatif
-* **Windows
-Fotoğraflar** - Temel görüntüleme (16 bit TIFF
-'i desteklemeyebilir)
+* **Windows Fotoğraflar** - Temel görüntüleme (16 bit TIFF'i desteklemeyebilir)
 
-### Chloros
-Görüntü Görüntüleyicisinde Önizleme
+### Chloros Görüntü Görüntüleyicisinde Önizleme
 
-Gelişmiş görselleştirme için Chloros
-'un yerleşik Görüntü Görüntüleyicisini kullanın:
+Gelişmiş görselleştirme için Chloros'un yerleşik Görüntü Görüntüleyicisini kullanın:
 
 1. Dosya Tarayıcısında bir görüntü küçük resmine tıklayın
 2. Görüntü ana önizleme alanında açılır
@@ -122,9 +107,7 @@ Yansıma, tamsayı DN olarak saklanır ve **ρ = 1,0'a karşılık gelen DN değ
 | Kaynak          | ρ = 1,0 değeridir | Nasıl anlaşılır                                        |
 | --------------- | ---------- | -------------------------------------------------- |
 | LATTICE (M3C/M3M) | **32768** (ρ 2,0'a kadar marj) | Dosyaya XMP etiketi `Chloros:PixelScale=32768` eklenmiştir |
-| Survey3
-         | **65535** (ρ 1,0'da kırpılmış)     | `Chloros:PixelScale` etiketi yok — bu yokluk bir işarettir (Survey3
-ürünleri diğer `Chloros:*` işleme etiketlerini taşır) |
+| Survey3          | **65535** (ρ 1,0'da kırpılmış)     | `Chloros:PixelScale` etiketi yok — bu yokluk bir işarettir (Survey3 ürünleri diğer `Chloros:*` işleme etiketlerini taşır) |
 
 **`Chloros:PixelScale` etiketini okuyun ve buna bölün**; genel olarak 65535 değerini varsaymak yerine — LATTICE yansıma değerini 65535'e bölmek, her değeri sessizce yarıya indirir. 1.3.0 sürümünden önce 8 bit olarak yazılmış bir yansıma dosyası kırpılmış, yeniden ölçeklendirilmemiştir ve ölçek etiketi içermez: bölmek yerine 16 bit veya 32 bit olarak yeniden dışa aktarın. Ayrıntılı bilgi için [Çıktı Görüntü Biçimleri](../output-image-formats.md) bölümüne bakın.***
 
@@ -152,11 +135,9 @@ LATTICE çıktısını bozar) ve `ExifImageWidth` / `ExifImageHeight` ise hariç
 çünkü bunlar orijinal yakalamayı tanımlar — boyutları değiştirilmiş bir dışa aktarım, aksi takdirde
 kendi rasteriyle çelişen boyutlar talep ederdi.
 
-Chloros
-, her ürüne ne yapıldığını açıklayan kendi `Chloros:*` XMP etiketlerini de yazar
+Chloros, her ürüne ne yapıldığını açıklayan kendi `Chloros:*` XMP etiketlerini de yazar
 (örneğin `Chloros:ProcessingLevel`, `Chloros:CalibrationApplied`,
-`Chloros:VignetteCorrected`). 1.3.0 sürümünden itibaren, Survey3
-ürünleri bunları her işleme
+`Chloros:VignetteCorrected`). 1.3.0 sürümünden itibaren, Survey3 ürünleri bunları her işleme
 modunda bu etiketleri taşır; indeks ürünleri, kaynak ham verinin etiketlerini tekrarlamak yerine
 indeksin kendisini (`Chloros:ProcessingLevel=index`),
 formülü ve yansıma veya parlaklıktan hesaplanıp hesaplanmadığını) açıklar; ayrıca 260 karakterden daha derin klasörlerdeki ürünler de meta verilerini
@@ -173,22 +154,18 @@ sekmesini açın
 2. Mesajları kaydırarak inceleyin
 3. Sarı renkli uyarıları veya kırmızı renkli hataları arayın
 4. `[RUN-SUMMARY]` satırlarını ve varsa ipuçlarını okuyun
-5. Yardım için MAPIR
-destek ekibiyle iletişime geçin
+5. Yardım için MAPIR destek ekibiyle iletişime geçin
 
 ### Günlüğü Kaydetme
 
-İşleme kaydını tutmak veya MAPIR
-Destek ekibine göndermek için:
+İşleme kaydını tutmak veya MAPIR Destek ekibine göndermek için:
 
 1. **"Kopyala"**veya**"İndir"** düğmesine tıklayın
 2. Proje klasörüne metin dosyası olarak kaydedin
 3. Proje belgelerine ekleyin
-4. Herhangi bir sorunla karşılaşırsanız MAPIR
-desteğine gönderin
+4. Herhangi bir sorunla karşılaşırsanız MAPIR desteğine gönderin
 
-Bir sorunu doğrudan MAPIR
-'e göndermek için, Hata Giderme Günlüğü sekmesinin üst kısmındaki hata simgesini (**Hata bildir**) kullanın — bkz. [Günlük sekmesinden hata bildirme](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
+Bir sorunu doğrudan MAPIR'e göndermek için, Hata Giderme Günlüğü sekmesinin üst kısmındaki hata simgesini (**Hata bildir**) kullanın — bkz. [Günlük sekmesinden hata bildirme](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
 
 ## Yaygın Çıktı Sorunları ve Çözümleri
 
@@ -196,8 +173,7 @@ Bir sorunu doğrudan MAPIR
 
 **Olası nedenler:**
 
-* Ürün o kameraya uygun değildir (örn. RGB
-kameralar için parlaklık/yansıtma — günlük dosyasında bu belirtilmiştir)
+* Ürün o kameraya uygun değildir (örn. RGB kameralar için parlaklık/yansıtma — günlük dosyasında bu belirtilmiştir)
 * Gerekli bir referans eksik (örn. hedef ve `.daq` aşağı doğru ışınım olmadan yansıma)
 * Proje Ayarları'nda ürünün dışa aktarma onay kutusu devre dışı bırakılmış
 * Dışa aktarma sırasında disk alanı doldu
@@ -214,16 +190,14 @@ kameralar için parlaklık/yansıtma — günlük dosyasında bu belirtilmiştir
 **Olası nedenler:**
 
 * Vinyet düzeltmesi devre dışı
-* Kamera/lens, Chloros
-profil veritabanında yok
+* Kamera/lens, Chloros profil veritabanında yok
 * Düzeltme kapasitesinin ötesinde aşırı vinyet
 
 **Çözümler:**
 
 1. Proje Ayarları'nda vinyet düzeltmesinin etkinleştirildiğini doğrulayın
 2. Kamera modelinin doğru algılandığını kontrol edin
-3. Vinyet sorunu devam ederse MAPIR
-destek ekibiyle iletişime geçin
+3. Vinyet sorunu devam ederse MAPIR destek ekibiyle iletişime geçin
 
 ### Sorun: Yanlış Renkler veya Değerler
 
@@ -241,11 +215,9 @@ destek ekibiyle iletişime geçin
 3. Hedef görüntü kalitesini inceleyin
 4. Uygun hedefler işaretlenerek yeniden işleyin
 
-### Sorun: NDVI
-Değerleri Yanlış Görünüyor
+### Sorun: NDVI Değerleri Yanlış Görünüyor
 
-**Beklenen NDVI
-aralıkları:*** **Su, kayalar, toprak**: -0,1 ila 0,2
+**Beklenen NDVI aralıkları:*** **Su, kayalar, toprak**: -0,1 ila 0,2
 * **Seyrek/sağlıksız bitki örtüsü**: 0,2 ila 0,4
 * **Orta yoğunlukta bitki örtüsü**: 0,4 ila 0,6
 * **Sağlıklı, yoğun bitki örtüsü**: 0,6 ile 0,9 arası**Değerler bu aralıkların dışındaysa:**
@@ -272,10 +244,8 @@ aralıkları:*** **Su, kayalar, toprak**: -0,1 ila 0,2
    * WebODM
 2. **EXIF meta verilerini koruyun**: Coğrafi etiketleme için GPS verilerinin korunmasını sağlayın
 3. **Kalibre edilmiş iş akışları**: Bilimsel doğruluk için yansıma görüntülerini kullanın — LATTICE yansıma görüntüleri, Pix4D tarafından okunan XMP kalibrasyon etiketlerini içerir
-4. **İndeks mozaiklerini işleyin**: Tek tek indeks görüntülerinden NDVI
-ortomozaikleri oluşturun
-5. **Coğrafi referanslı GeoTIFF
-dosyasını dışa aktarın**: GIS uygulamalarında kullanım için
+4. **İndeks mozaiklerini işleyin**: Tek tek indeks görüntülerinden NDVI ortomozaikleri oluşturun
+5. **Coğrafi referanslı GeoTIFF dosyasını dışa aktarın**: GIS uygulamalarında kullanım için
 
 ### GIS Analizi İçin
 
@@ -283,11 +253,8 @@ dosyasını dışa aktarın**: GIS uygulamalarında kullanım için
 
 1.**QGIS, ArcGIS veya benzeri bir programa yükleyin**
 
-2.**Çok bantlı analiz için 16 bit TIFF
-** yansıma görüntülerini kullanın (dosyanın `Chloros:PixelScale` değerine bölün)
-3. **İndeks görüntülerini** (NDVI
-, NDRE
-) kullanıma hazır bitki örtüsü katmanları olarak kullanın
+2.**Çok bantlı analiz için 16 bit TIFF** yansıma görüntülerini kullanın (dosyanın `Chloros:PixelScale` değerine bölün)
+3. **İndeks görüntülerini** (NDVI, NDRE) kullanıma hazır bitki örtüsü katmanları olarak kullanın
 4. **Raster hesaplayıcı**: Özel analizler için bantları birleştirin
 5. **Dışa aktarın**: Sınıflandırma haritaları, değişiklik tespiti ve bitki örtüsü sağlık haritaları oluşturun
 
@@ -334,27 +301,17 @@ Birden fazla oturum/veri kümesi için:**Seçenek 1: GUI - Birden Fazla Proje**
 * Tutarlı şablon ayarları kullanın
 * Tek tek işleyin
 
-**Seçenek 2: Chloros
-CLI
-(yalnızca Chloros
-+ için)**
+**Seçenek 2: Chloros CLI (yalnızca Chloros+ için)**
 
 * Toplu işlemeyi otomatikleştirin
 * Komut dosyalarıyla birden fazla klasörü işleyin
-* [CLI
-Belgeleri](../CLI.md) ve [CLI
-Referansı](../reference/cli-reference.md) bölümlerine bakın
+* [CLI Belgeleri](../CLI.md) ve [CLI Referansı](../reference/cli-reference.md) bölümlerine bakın
 
-**Seçenek 3: Python
-SDK
-(Yalnızca Chloros
-+)**
+**Seçenek 3: Python SDK (Yalnızca Chloros+)**
 
 * Programlı kontrol
 * Analiz iş akışlarıyla entegrasyon
-* [API
-Belgeleri](../api-python-sdk.md) ve [SDK
-Referansı](../reference/sdk-reference.md) bölümlerine bakın
+* [API Belgeleri](../api-python-sdk.md) ve [SDK Referansı](../reference/sdk-reference.md) bölümlerine bakın
 
 ***
 
@@ -365,8 +322,7 @@ Referansı](../reference/sdk-reference.md) bölümlerine bakın
 Sonuçlar tatmin edici değilse:
 
 1. Orijinal görüntüleri saklayın (asla silmeyin)
-2. Aynı projeyi Chloros
-'ta açın 3. Proje Ayarları panelinde ayarları değiştirin
+2. Aynı projeyi Chloros'ta açın 3. Proje Ayarları panelinde ayarları değiştirin
 4. Tekrar işleyin — çıktılar aynı ürün klasörlerine kaydedilir, bu nedenle önceki çalıştırmadan kalan aynı adlı dosyalar üzerine yazılır
 
 ### Görüntülerin Bir Kısmını İşleme
@@ -385,15 +341,13 @@ Sorun yaşarsanız:
 * 📧 **E-posta**: info@mapir.camera (Hata Giderme Günlüğünü ekleyin)
 * 🌐 **Destek**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **SSS**: [Sık Sorulan Sorular](../faq.md)
-* 📖 **Kılavuz**: [Chloros
-Kılavuzu](../)
+* 📖 **Kılavuz**: [Chloros Kılavuzu](../)
 
 ***
 
 ## Özet: Tam İş Akışı
 
-Chloros
-işleme iş akışının tamamını tamamladınız:
+Chloros işleme iş akışının tamamını tamamladınız:
 
 1. ✅ **Proje oluşturuldu** - Bkz. [Projeler](../projects.md)
 2. ✅ **Dosyalar eklendi** - Bkz. [Dosya Ekleme](adding-files-to-a-project.md)
@@ -415,13 +369,9 @@ işleme iş akışının tamamını tamamladınız:
 
 ### Otomasyon ve Entegrasyon
 
-* [**CLI
-Belgeleri**](../CLI.md) - Komut satırı toplu işleme
-* [**Python
-SDK
-**](../api-python-sdk.md) - Programlı otomasyon
-* [**Chloros
-+ Özellikleri**](../#chloros) - Gelişmiş işleme yetenekleri
+* [**CLI Belgeleri**](../CLI.md) - Komut satırı toplu işleme
+* [**Python SDK**](../api-python-sdk.md) - Programlı otomasyon
+* [**Chloros+ Özellikleri**](../#chloros) - Gelişmiş işleme yetenekleri
 
 ### Destek ve Öğrenme
 

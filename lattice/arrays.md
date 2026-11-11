@@ -1,8 +1,6 @@
 # Çoklu Kamera Dizileri
 
-Bir LATTICE **dizisi**, tek bir senkronize birim olarak bağlanmış iki veya daha fazla LATTICE kameradan oluşur. Kameralardan biri**ana**kameradır: bu kamera, paylaşılan bir senkronizasyon hattı (varsayılan**Line2**) üzerinden bir donanım GPIO tetikleme darbesi gönderir, böylece her üye aynı anı yakalar. Chloros
-
-, PTP zaman senkronizasyonu, canlı önizleme (kamera başına döşemeler veya tek bir hizalanmış çok bantlı bileşik) ve senkronize çekim özelliği ekler — her çekim geçişi, tüm kameraların aynı zaman damgası ve kare kimliğini paylaştığı bir **kare grubu** oluşturur (çekim çıktısında `fid:N` olarak bildirilir).
+Bir LATTICE **dizisi**, tek bir senkronize birim olarak bağlanmış iki veya daha fazla LATTICE kameradan oluşur. Kameralardan biri**ana**kameradır: bu kamera, paylaşılan bir senkronizasyon hattı (varsayılan**Line2**) üzerinden bir donanım GPIO tetikleme darbesi gönderir, böylece her üye aynı anı yakalar. Chloros, PTP zaman senkronizasyonu, canlı önizleme (kamera başına döşemeler veya tek bir hizalanmış çok bantlı bileşik) ve senkronize çekim özelliği ekler — her çekim geçişi, tüm kameraların aynı zaman damgası ve kare kimliğini paylaştığı bir **kare grubu** oluşturur (çekim çıktısında `fid:N` olarak bildirilir).
 
 Diziler, mono (M3M) kameraların bitki örtüsü indekslerini oluşturma yöntemidir — bir kamera bir bant sağlar ve dizi bunları çok bantlı bir yığın halinde hizalar. Bkz. [Tek Kanallı Kameralar ve Bitki Örtüsü Endeksleri](mono-indices.md).
 
@@ -11,23 +9,15 @@ Bir diziyi bağlamanın üç eşdeğer yolu vardır ve hepsi aynı "smart-prep" 
 | Yüzey | Giriş noktası |
 | --- | --- |
 | GUI | Kameralar sekmesi → **Diziyi Bağla** (mavi düğme) |
-| CLI
-
-| `chloros-cli lattice array-connect --serials SN1,SN2,…` (ilk seri numarası = ana) |
-| Python
-
-SDK
-
-| `connect_array(serials=[…])` → `ArraySession` (ilk seri numarası = ana cihaz) |
+| CLI | `chloros-cli lattice array-connect --serials SN1,SN2,…` (ilk seri numarası = ana) |
+| Python SDK | `connect_array(serials=[…])` → `ArraySession` (ilk seri numarası = ana cihaz) |
 
 Smart-prep şunları gerçekleştirir: ağ yetenek testi (ICMP DF ping + GVSP testi), senkronizasyon katmanı seçimi, istenen kare boyutunda kare hızı tahmini, paketlenmiş 12 bit aktarım kararı (bkz. [Sıkıştırılmış 12-bit aktarım](#packed-12-bit-transport)), PTP etkinleştirme, kamera başına piksel formatı otomatik seçimi, her kameranın kaydedilmiş durumundan otomatik pozlama başlangıç değeri belirleme ve Line2 üzerinde GPIO tetikleyici yapılandırması.
 
 **Varsayılan olarak tam sensör (1.3.0 sürümünde yeni).** Connect, talep ettiğiniz kare boyutunu korur — aksi bir seçim yapmadığınız sürece, tam 2048×1536 sensör, binning ve kırpma yapılmaz — ve kare hızının ana bilgisayar ile ağın sağladığı seviyeye düşmesine izin verir. Asla kendi başına birleştirme veya kırpma yapmaz (1.2.0 sürümünde 1,5 fps’nin altında otomatik birleştirme devreye giriyordu). Binning veya daha küçük bir ROI seçimi size kalmıştır: Connect iletişim kutusunda birini seçin; Projected Outcome, bunun sağlayacağı kare hızını gösterir; `array-connect`, daha hızlı seçenekleri öngörülen hızlarıyla birlikte yazdırır.
 
 {% hint style="info" %}
-Bunların herhangi birinin çalışabilmesi için kameralara bağlantı üzerinden erişilebilmesi gerekir — bkz. [Kameraları Bağlama](connecting.md) bölümüne bakın. Çoklu kamera kurulumlarında, ana bilgisayarın ağ kartının (NIC) alıcı halkası ayarları, bağlantı hızı kadar önemlidir; tam sorun→çözüm tablosu [CLI
-
-Referansı § Ana Bilgisayar Ağ Kartı Kurulumu ve Ayarlaması](../reference/cli-reference.md#host-nic-setup--tuning-lattice-arrays) bölümünde yer almaktadır.
+Bunların herhangi birinin çalışabilmesi için kameralara bağlantı üzerinden erişilebilmesi gerekir — bkz. [Kameraları Bağlama](connecting.md) bölümüne bakın. Çoklu kamera kurulumlarında, ana bilgisayarın ağ kartının (NIC) alıcı halkası ayarları, bağlantı hızı kadar önemlidir; tam sorun→çözüm tablosu [CLI Referansı § Ana Bilgisayar Ağ Kartı Kurulumu ve Ayarlaması](../reference/cli-reference.md#host-nic-setup--tuning-lattice-arrays) bölümünde yer almaktadır.
 {% endhint %}
 
 ## Dizi Bağlantısı iletişim kutusu
@@ -42,18 +32,12 @@ Kameralar sekmesi → **Diziyi Bağla**seçeneği, üç adımlı bir sihirbazı 
 
 İletişim kutusu açılır açılmaz ağı tarar ("Ağı tarıyor..."), ardından hangi kameraların M8 senkronizasyon hattında olduğunu bulmak için senkronizasyon kablolarını kontrol eder ("Senkronizasyon kablolarını kontrol ediyor..."). Bir dizi oluşturmak için en az **2 kamera** gerekir.
 
-M8 senkronizasyon kabloları tek bir bağlantı noktasında birleşir, bu nedenle **kablolanmış herhangi bir kamera ana kamera olabilir** olabilir. Tarama işlemi rolleri önceden doldurur — kablolu olduğunda RGB
-
-(`-FRGB`) kamera ana kamera olarak, aksi takdirde ilk kablolu kamera ana kamera olarak ve diğer kablolu kameralar da bağımlı kamera olarak belirlenir — ve üç başlıktan birini gösterir:
+M8 senkronizasyon kabloları tek bir bağlantı noktasında birleşir, bu nedenle **kablolanmış herhangi bir kamera ana kamera olabilir** olabilir. Tarama işlemi rolleri önceden doldurur — kablolu olduğunda RGB (`-FRGB`) kamera ana kamera olarak, aksi takdirde ilk kablolu kamera ana kamera olarak ve diğer kablolu kameralar da bağımlı kamera olarak belirlenir — ve üç başlıktan birini gösterir:
 
 | Başlık | Anlam |
 | --- | --- |
-| "{n} kamerada senkronizasyon kablosu bulundu. Bunlardan herhangi biri ana kamera olabilir; RGB
-
-kamera (aksi takdirde listedeki ilk kamera) önceden seçilmiştir." (yeşil) | Prob, senkronizasyon hattındaki kameraları buldu; ana radyo ve bağımlı kamera onay kutuları zaten işaretlenmiştir. |
-| "Ana kamera algılanmadı - GPIO kablosunu kontrol edin" (turuncu) | Hiçbir kamera tetikleme darbesi almadı; senkronizasyon kablolarını kontrol edin. Roller hâlâ önceden doldurulmuştur (RGB
-
-kamera, yoksa listedeki ilk kamera ana kamera olarak) ve bunları değiştirebilirsiniz. |
+| "{n} kamerada senkronizasyon kablosu bulundu. Bunlardan herhangi biri ana kamera olabilir; RGB kamera (aksi takdirde listedeki ilk kamera) önceden seçilmiştir." (yeşil) | Prob, senkronizasyon hattındaki kameraları buldu; ana radyo ve bağımlı kamera onay kutuları zaten işaretlenmiştir. |
+| "Ana kamera algılanmadı - GPIO kablosunu kontrol edin" (turuncu) | Hiçbir kamera tetikleme darbesi almadı; senkronizasyon kablolarını kontrol edin. Roller hâlâ önceden doldurulmuştur (RGB kamera, yoksa listedeki ilk kamera ana kamera olarak) ve bunları değiştirebilirsiniz. |
 | "Senkronizasyon Kablosu Yok: {seri numaraları}" (turuncu) | Listelenen kameralara senkronizasyon kablosu bağlı değil. |
 
 Kamera tablosunda **Kamera / Seri Numarası / IP / Ana (radyo) / Bağımlı (onay kutusu)**sütunları bulunur. Satırlar**kamera sırasına** göre listelenir — M3C (Bayer) kameralar M3M (mono) kameralardan önce gelir; M3C, FRGB, FRGN, FOCN ve ardından FNGB sırasıyla; M3M kameralar ise filtre dalga boyuna göre, en düşükten başlayarak sıralanır (F450, F808'den önce). Kenar çubuğundaki kamera listesi ve tablonun varsayılan düzeni de aynı sırayı kullanır.
@@ -65,9 +49,7 @@ Kamera tablosunda **Kamera / Seri Numarası / IP / Ana (radyo) / Bağımlı (ona
 **Sonraki: Görüntüleme Modu →**, bir ana kamera ve en az bir bağımlı kamera seçildiğinde etkinleşir.**Yeniden Tarama**, keşif ve kablolama taramasını yeniden çalıştırır.
 
 {% hint style="warning" %}
-**İptal**, bir tarama veya test devam ederken devre dışıdır — testin ortasında iptal etmek, LATTICE kamera donanım yazılımındaki kamera SDK
-
-'sinin çökmesine neden olabilir. Dönen simgenin tamamlanmasını bekleyin.
+**İptal**, bir tarama veya test devam ederken devre dışıdır — testin ortasında iptal etmek, LATTICE kamera donanım yazılımındaki kamera SDK'sinin çökmesine neden olabilir. Dönen simgenin tamamlanmasını bekleyin.
 {% endhint %}
 
 ### Adım 2 — Görüntüleme Modu
@@ -79,9 +61,7 @@ Kamera tablosunda **Kamera / Seri Numarası / IP / Ana (radyo) / Bağımlı (ona
 | Mod | Ne elde edersiniz |
 | --- | --- |
 | **Ayrı Kameralar** | Kamera başına bir canlı döşeme; tümü aynı anda tetiklenir, böylece kareler senkronize kalır. Her kamera kendi rengini ve ayarlarını korur. |
-| **Birleştirilmiş Kameralar** *(varsayılan)* | Hizalanmış çok bantlı NDVI
-
-/indeks bileşimini gösteren tek bir kutucuk. Kameralar dizi rengini paylaşır. |
+| **Birleştirilmiş Kameralar** *(varsayılan)* | Hizalanmış çok bantlı NDVI/indeks bileşimini gösteren tek bir kutucuk. Kameralar dizi rengini paylaşır. |
 
 Görüntüleme modu yalnızca canlı önizleme sunumunu değiştirir — her iki modda da çekim davranışı aynıdır.
 
@@ -91,9 +71,7 @@ Görüntüleme modu yalnızca canlı önizleme sunumunu değiştirir — her iki
 
 
 
-Bu sahneye girildiğinde Chloros
-
-, arka uçtan bir **öneri**ister ve bunu uygular:**tam sensör — binning yok, ROI kırpma yok — herhangi bir kare hızı bunu destekleyebiliyorsa**, ana bilgisayar ve kablo ne hızda iletirse o hızda. Yalnızca hiçbir hız tam sensörü iletemediğinde öneri, kareyi küçültür ve bu durumda ROI kırpma yerine birleştirmeyi tercih eder, çünkü birleştirme tam görüş alanını korur. Bu noktadan itibaren çözünürlük ile kare hızı arasında bir denge kurarsınız. Yaptığınız her değişiklik, analizi canlı olarak yeniden çalıştırır ve sağ taraftaki**Öngörülen Sonuç** panelini günceller.
+Bu sahneye girildiğinde Chloros, arka uçtan bir **öneri**ister ve bunu uygular:**tam sensör — binning yok, ROI kırpma yok — herhangi bir kare hızı bunu destekleyebiliyorsa**, ana bilgisayar ve kablo ne hızda iletirse o hızda. Yalnızca hiçbir hız tam sensörü iletemediğinde öneri, kareyi küçültür ve bu durumda ROI kırpma yerine birleştirmeyi tercih eder, çünkü birleştirme tam görüş alanını korur. Bu noktadan itibaren çözünürlük ile kare hızı arasında bir denge kurarsınız. Yaptığınız her değişiklik, analizi canlı olarak yeniden çalıştırır ve sağ taraftaki**Öngörülen Sonuç** panelini günceller.
 
 Sol sütun — ayarlar:
 
@@ -102,18 +80,14 @@ Sol sütun — ayarlar:
 | **ROI (Görüş Alanı)** | Tam (2048×1536) / Yarım (1024×768) / Çeyrek (512×384) | Tam | Sensör kırpma: Yarım/Çeyrek kırpma, doğal piksel aralığında daha küçük bir bölgeye yapılır. |
 | **Binning** | 1× / 2× (toplam 2×2) / 4× (toplam 4×4) | 1× | Donanım binningi: 2×2 = kablo maliyetinin dörtte birinde tam FoV; 4×4 = 1/16'sında tam FoV. Kameralar binning'i desteklemiyorsa gizlenir. |
 | **Kablo tarafı görüntü** (okuma) | — | — | Binning sonrası kablo üzerinden fiilen gönderilen genişlik×yükseklik, 16'nın katlarına (en az 64) yuvarlanır. |
-| **Tetikleme Hızı** | 0,5–60 fps, adım 0,1 | boş = otomatik | Ana cihazın tetikleme hızı. Chloros
-
-'un bunu hesaplamasına izin vermek için boş bırakın. |
+| **Tetikleme Hızı** | 0,5–60 fps, adım 0,1 | boş = otomatik | Ana cihazın tetikleme hızı. Chloros'un bunu hesaplamasına izin vermek için boş bırakın. |
 | **Kablo Bütçesi**| 20–2000 MB/s, adım 10 | boş = otomatik | Ana bilgisayarın gerçekte ne kadarını alabileceği, MB/s cinsinden —**tüm dizi tahsisinin dayandığı tek sayı.** Ağ adaptöründen otomatik olarak algılanır. Dizi bozuk çerçeveler bildiriyorsa bu değeri düşürün: algılanan değer, USB adaptörleri ve paylaşımlı anahtarları olduğundan fazla gösterir. Değiştirildiğinde tahmin canlı olarak yeniden çalıştırılır. Alan, dizinin en son bağlandığı bütçeyle açılır (projeyle birlikte kaydedilir), böylece bir kez düzelttiğiniz bütçe korunur. |
 
 1.2.0 sürümündeki **Pin çözünürlüğü** onay kutusu kaldırılmıştır: Bağlantı, seçtiğiniz çerçeve boyutunu her zaman korur ve bunun yerine kare hızını düşürür.
 
 Sağ sütun — **Tahmin Edilen Sonuç**:
 
-* **Senkronizasyon kademesi** — "Eşzamanlı yakalama" (yeşil), "Eşzamanlı yakalama (FTD-kademeli yayın)" (yeşil), "Kademeli yakalama (100 ms sapma)" (sarı) veya "Yapılandırma çok büyük" (kırmızı). Chloros
-
-, kademeyi seçer: kablonun, kameraların hızına uyarlanabilecek bir hızda paylaşılabildiği durumlarda eşzamanlı yakalama (her kameranın payı azaldıkça kare hızı düşer) ve paylaşılamadığı durumlarda ise kademeli yakalama — böylece bir dizi, herhangi bir ağa, o ağın izin verdiği kare hızında bağlanır.
+* **Senkronizasyon kademesi** — "Eşzamanlı yakalama" (yeşil), "Eşzamanlı yakalama (FTD-kademeli yayın)" (yeşil), "Kademeli yakalama (100 ms sapma)" (sarı) veya "Yapılandırma çok büyük" (kırmızı). Chloros, kademeyi seçer: kablonun, kameraların hızına uyarlanabilecek bir hızda paylaşılabildiği durumlarda eşzamanlı yakalama (her kameranın payı azaldıkça kare hızı düşer) ve paylaşılamadığı durumlarda ise kademeli yakalama — böylece bir dizi, herhangi bir ağa, o ağın izin verdiği kare hızında bağlanır.
 * **fps projeksiyonu** — dizinin çalışması beklenen kare hızı. Eşzamanlı yakalamada bu tek bir sayıdır: önce kare hızı gelir ve otomatik pozlama bunun sağladığı süreyi doldurur, ardından kazancı artırır; böylece loş bir sahne kare hızını düşürmez (bkz. [Otomatik pozlamanın pozlama ve kazancı nasıl kullandığı](camera-settings.md)). Kademeli çekimde ise bu, bir aralık olarak gösterilir (“loş → parlak”), çünkü loş bir sahnede her kameranın pozlama süresi kademelendirmeyi uzatır.
 * **NIC hattı** — bağlantı hızı ve sürekli veri aktarım hızı (“NIC {mbps} Mbps · sürekli {N} MB/s”).
 * **Sim-emit patlama kontrolü** — ana bilgisayarın NIC alıcı halkası, tüm kameralardan gelen eşzamanlı bir patlamayı alabilir mi ("Sim-emit patlama: X MB · kullanılabilir NIC halkası: Y MB ✓/✗").
@@ -131,32 +105,22 @@ Sağ sütun — **Tahmin Edilen Sonuç**:
 
 
 
-Bağlantı kurulurken, seri numarası başına bir ilerleme çubuğu içeren yeşil bir **kalibrasyon indirme paneli** görünebilir: Bir makineye ilk kez kamera bağlandığında, Chloros
-
-, GigE üzerinden kameradan ~3,8 MB'lık fabrika kalibrasyon paketini alır (kamera başına yaklaşık 70 saniye). Önbelleğe alınmış kameralarda bu panel asla görünmez; altıdan fazla kamera olduğunda satırlar kayar. Bkz. [Kameraları Bağlama](connecting.md).
+Bağlantı kurulurken, seri numarası başına bir ilerleme çubuğu içeren yeşil bir **kalibrasyon indirme paneli** görünebilir: Bir makineye ilk kez kamera bağlandığında, Chloros, GigE üzerinden kameradan ~3,8 MB'lık fabrika kalibrasyon paketini alır (kamera başına yaklaşık 70 saniye). Önbelleğe alınmış kameralarda bu panel asla görünmez; altıdan fazla kamera olduğunda satırlar kayar. Bkz. [Kameraları Bağlama](connecting.md).
 
 ### Sıkıştırılmış 12 bit aktarım
 
-12 bit formatlar (`BayerRG12`, `Mono12`) normalde 16 bitlik kelimeler halinde aktarılır. **Sıkıştırılmış**aktarım, aynı 12 biti piksel başına 1,5 bayt olarak gönderir ve bunları ana bilgisayarda açar; böylece her karenin gönderilmesi %25 daha az zaman alır — tam sensör kapasitesinde, saniyede yaklaşık üçte bir daha fazla kare elde edilir.**Kaydedilen veriler aynıdır.** Array Connect bunu otomatik olarak belirler (`auto`): yalnızca bunun faydalı olduğu ve ana bilgisayarda açma işlemi için yeterli CPU gücü olduğu durumlarda sıkıştırma yapar. GUI'de bunun için bir anahtar yoktur; CLI
-
-'den `array-connect --packed {auto,on,off}` komutunu kullanın (varsayılan `auto`). 8-bit ve 16-bit formatlar asla paketlenmez.
+12 bit formatlar (`BayerRG12`, `Mono12`) normalde 16 bitlik kelimeler halinde aktarılır. **Sıkıştırılmış**aktarım, aynı 12 biti piksel başına 1,5 bayt olarak gönderir ve bunları ana bilgisayarda açar; böylece her karenin gönderilmesi %25 daha az zaman alır — tam sensör kapasitesinde, saniyede yaklaşık üçte bir daha fazla kare elde edilir.**Kaydedilen veriler aynıdır.** Array Connect bunu otomatik olarak belirler (`auto`): yalnızca bunun faydalı olduğu ve ana bilgisayarda açma işlemi için yeterli CPU gücü olduğu durumlarda sıkıştırma yapar. GUI'de bunun için bir anahtar yoktur; CLI'den `array-connect --packed {auto,on,off}` komutunu kullanın (varsayılan `auto`). 8-bit ve 16-bit formatlar asla paketlenmez.
 
 ## Bant Genişliği: Kaç kamera sığar
 
-Bir dizinin taşıyabileceği kapasite, Chloros
+Bir dizinin taşıyabileceği kapasite, Chloros'un değil, hattın bir özelliğidir; bu nedenle planlama rakamları donanım kılavuzunda yer alır: **[Dizi Bant Genişliği Planlaması](https://mapir.gitbook.io/lattice-camera/setup/array-bandwidth-planning)**.
 
-'un değil, hattın bir özelliğidir; bu nedenle planlama rakamları donanım kılavuzunda yer alır: **[Dizi Bant Genişliği Planlaması](https://mapir.gitbook.io/lattice-camera/setup/array-bandwidth-planning)**.
-
-Chloros
-
-'un bunlarla yaptığı şey: bağlantı iletişim kutusu bir ağ taraması gerçekleştirir, ulaşılabilir kare hızını tahmin eder ve uygun bir seviye seçer. Bir dizi herhangi bir ağa bağlanabilir: yavaş bir bağlantıda, dizinin reddedilmesi veya karelerinin küçültülmesi yerine, her kamera kablo kapasitesindeki payına göre hızlandırılır ve kare hızı düşer. Yalnızca, hattın bir seferde tek bir kamerayı bile taşıyamayacağı bir dizi reddedilir (**Bu ağ için çok fazla kamera var**); paketler sessizce atılmaz — yukarıda açıklanan tahmini sonuç paneline bakınız.
+Chloros'un bunlarla yaptığı şey: bağlantı iletişim kutusu bir ağ taraması gerçekleştirir, ulaşılabilir kare hızını tahmin eder ve uygun bir seviye seçer. Bir dizi herhangi bir ağa bağlanabilir: yavaş bir bağlantıda, dizinin reddedilmesi veya karelerinin küçültülmesi yerine, her kamera kablo kapasitesindeki payına göre hızlandırılır ve kare hızı düşer. Yalnızca, hattın bir seferde tek bir kamerayı bile taşıyamayacağı bir dizi reddedilir (**Bu ağ için çok fazla kamera var**); paketler sessizce atılmaz — yukarıda açıklanan tahmini sonuç paneline bakınız.
 
 ## Kareler kaybolduğunda
 
 Bir kamera, tamamen farklı iki nedenden dolayı yayınlanan bir grupta yer almayabilir
-ve bu durumların çözümü birbirinin tam tersidir. Chloros
-
-, her ikisini de belirtmeyen tek bir
+ve bu durumların çözümü birbirinin tam tersidir. Chloros, her ikisini de belirtmeyen tek bir
 "eksik" sayı bildirmek yerine bunları ayrı ayrı sayar:
 
 | Ne oldu | Ne anlama geliyor | Nereye bakmalı |
@@ -189,11 +153,7 @@ sürdürebileceği hız, USB veriyolu ve sürücüsü tarafından sınırlandır
 yaklaşık 1000 MB/s veri aktarım hızı — ki bu rakam daha önce hiç ölçülmemişti — ve dört kamerayı bu hayali kapasiteye göre
 ayarlamak, karelerin %6–18’ini bozarken, dizi
 hala sağlıklı bir hedef kare hızı bildiriyordu. USB’ye bağlı adaptörler artık Windows ve NVIDIA Jetson’da
-Windows
-
-ve NVIDIA Jetson’da **200 MB/s**, Linux
-
-x86_64’te ise **400 MB/s** ile sınırlandırılmıştır. Bu sınır, yüzde değil mutlak bir değerdir; çünkü sınırlayıcı unsur
+Windows ve NVIDIA Jetson’da **200 MB/s**, Linux x86_64’te ise **400 MB/s** ile sınırlandırılmıştır. Bu sınır, yüzde değil mutlak bir değerdir; çünkü sınırlayıcı unsur
 veriyoludur: Bir USB 1 GbE adaptörü yaklaşık 80 MB/s hız sağlar ve bu sınırdan etkilenmez.
 
 Eğer ana bilgisayarınız sınırdan gerçekten daha hızlıysa, **Wire Budget** değerini buna göre artırın.
@@ -202,15 +162,9 @@ Eğer ana bilgisayarınız sınırdan gerçekten daha hızlıysa, **Wire Budget*
 
 Kare *senkronizasyonu* donanım tetikleyicisinden sağlanır; **PTP** (IEEE 1588 PTPv2) tüm cihazlar arasında karşılaştırılabilir *zaman damgaları* sağlar. Dizi bağlandığında varsayılan olarak etkindir:
 
-* **PTP grandmaster'ı Chloros
-
-ana bilgisayar arka ucu çalıştırır**. LATTICE kameralar ve DAQ-E ışık sensörleri, etki alanı 0'da buna bağlanır; böylece görüntü zaman damgaları ve DAQ spektrumları tek bir saat üzerinde (~1 ms) toplanır.
-* `--no-ptp` (CLI
-
-) komutu, laboratuvar çalışmaları için bunu devre dışı bırakır — bu durumda kameralar arası zaman damgaları **karşılaştırılamaz**.
-* CLI
-
-ile senkronizasyon durumunu kontrol edin:
+* **PTP grandmaster'ı Chloros ana bilgisayar arka ucu çalıştırır**. LATTICE kameralar ve DAQ-E ışık sensörleri, etki alanı 0'da buna bağlanır; böylece görüntü zaman damgaları ve DAQ spektrumları tek bir saat üzerinde (~1 ms) toplanır.
+* `--no-ptp` (CLI) komutu, laboratuvar çalışmaları için bunu devre dışı bırakır — bu durumda kameralar arası zaman damgaları **karşılaştırılamaz**.
+* CLI ile senkronizasyon durumunu kontrol edin:
 
 ```bash
 chloros-cli time-sync status     # grandmaster state, clock identity, health (OK, or why its packets are not reaching the network)
@@ -244,24 +198,16 @@ Kombine modla ilgili faydalı bilgiler:
 * Kompozit, **ana**kameranın karesine kayıtlıdır. Kompozit üzerindeki AE-ROI hedefleme ve nokta ölçümü, ana kamera için tam, bağımlı kameralar için ise yaklaşık değerlerdir; ekstra kamera bağlantıları açmadan kamera başına piksel hassasiyetinde döşemeler için**Bölünmüş Görünüm**'ü (dizi ayarları → "Üye kameraları göster") kullanın.
 * **Katmanları Göster**(dizi ayarları; varsayılan olarak kapalı) özelliği, ön plan ve arka plan katmanını seçmenize olanak tanır — herhangi bir üye kamera veya**Dizin**. Ön plan = Dizin olduğunda, LUT Min/Maks değerlerinin dışındaki pikseller arka plan katmanını gösterir.
 * **Render çözünürlüğü** (varsayılan 720p), canlı akış yüksekliğini *ve* kaydedilen kompozit dışa aktarım boyutunu belirler. Kamera başına görüntüler her zaman tam çözünürlükte dışa aktarılır.
-* Hizalama, oturum başına hesaplanır ve asla kalıcı olarak kaydedilmez. Chloros
-
-, üyelerin otomatik pozlaması sabitlendiğinde (5 dakikaya kadar denemeye devam eder), **her diziyi bağlandıktan sonra her iki görüntüleme modunda da otomatik olarak hizalar**. Dizi ayarları panelindeki**Hizalama**bölümü, RMS kalıntılarını ve**Hizalamayı yeniden kalibre et** düğmesini gösterir — bu, kompozit döşeme içermeyen ayrı diziler için de geçerlidir.
+* Hizalama, oturum başına hesaplanır ve asla kalıcı olarak kaydedilmez. Chloros, üyelerin otomatik pozlaması sabitlendiğinde (5 dakikaya kadar denemeye devam eder), **her diziyi bağlandıktan sonra her iki görüntüleme modunda da otomatik olarak hizalar**. Dizi ayarları panelindeki**Hizalama**bölümü, RMS kalıntılarını ve**Hizalamayı yeniden kalibre et** düğmesini gösterir — bu, kompozit döşeme içermeyen ayrı diziler için de geçerlidir.
 
 ## Yakalama: izleme ve analiz
 
 Dizi yakalama yüzeyleri, **izleme sınıfı**(gördüğünüzü kaydedin) ve**analiz sınıfı** (ham verileri kaydedin, daha sonra kalibre edin) olarak net bir şekilde ayrılır:
 
-| İş Akışı | Sınıf | Neyi kaydeder | GUI | CLI
-
-|
+| İş Akışı | Sınıf | Neyi kaydeder | GUI | CLI |
 | --- | --- | --- | --- | --- |
 | **Yakalama**(hareketsiz görüntüler) | Analiz | Her geçiş için senkronize bir kare grubu; seçilen her dışa aktarma düzeyinde kamera başına dosyalar (ham/debayered/parlaklık/yansıtma/önizleme/indeks) + `.daq` sidecar |**Tümünü Yakala** düğmesi + Yakalama Ayarları | `lattice array-capture` |
-| **Dizin videosu kaydet** | İzleme | Görüntülenen canlı birleştirilmiş dizin kompoziti — 8 bit, önizleme çözünürlüğü, LUT dahil. GUI görünümü açık olmadan CLI
-
-'den, dizi hizalandıktan sonra arka uç dizinin NDVI
-
-'sini (veya `--expr`) işler; kare yazmayan bir kayıt başarısız olur | ● İndeks videosu kaydet (birleştirilmiş diziler) | `lattice array-record` |
+| **Dizin videosu kaydet** | İzleme | Görüntülenen canlı birleştirilmiş dizin kompoziti — 8 bit, önizleme çözünürlüğü, LUT dahil. GUI görünümü açık olmadan CLI'den, dizi hizalandıktan sonra arka uç dizinin NDVI'sini (veya `--expr`) işler; kare yazmayan bir kayıt başarısız olur | ● İndeks videosu kaydet (birleştirilmiş diziler) | `lattice array-record` |
 | **Ham seri çekim → video oluşturma**| Analiz | Tam yakalama hızında ham sensör kareleri + manifest + `.daq`, ardından DAQ okumalarıyla zaman uyumlu hale getirilmiş, kalibre edilmiş parlaklık / yansıma / indeks videosuna çevrimdışı yeniden yapılandırma | ⦿ Ham seri çekim kaydet →**Video oluştur** | `lattice array-burst` → `lattice array-build-video` |
 
 Genel kural: pikseller *ölçümlere* kaynak olacaksa, yakalama veya seri çekim (analiz sınıfı) kullanın; dizinin gördüklerini sadece *izlemek veya göstermek* istiyorsanız, indeks videosunu kaydedin (izleme sınıfı).
@@ -275,19 +221,13 @@ Genel kural: pikseller *ölçümlere* kaynak olacaksa, yakalama veya seri çekim
 **Tümünü Yakala** seçeneğinin yanındaki dişli simgesi, Yakalama Ayarları penceresini açar (açık bir proje gerektirir — yakalamalar bu projeye kaydedilir):
 
 * **Yakalama modu**:**Tek**(tek geçiş) /**Sürekli**(arka arkaya; yakalama sayısı [varsayılan 1] veya süre [varsayılan 10 s] ile sınırlı) /**Aralıklı** (zaman atlamalı: X aralıklarla toplam Y çekim yapılır; varsayılan ayar 1 dakika boyunca her 5 saniyede bir).
-* **Kamera başına dışa aktarma türleri**: Ham, Debayered, Işılma, Yansıma, Önizleme, Dizin — geçerli olan tüm seçenekler varsayılan olarak etkindir. Işılma/Yansıma, RGB
-
-filtreli kameralar için gizlenmiştir; **Yansıma, yalnızca kamerada bir DAQ ışık sensörü olduğunda görünür** (kendi sensörü veya diziden devralınan); Dizin, yapılandırılmış bir dizin ifadesi gerektirir.
+* **Kamera başına dışa aktarma türleri**: Ham, Debayered, Işılma, Yansıma, Önizleme, Dizin — geçerli olan tüm seçenekler varsayılan olarak etkindir. Işılma/Yansıma, RGB filtreli kameralar için gizlenmiştir; **Yansıma, yalnızca kamerada bir DAQ ışık sensörü olduğunda görünür** (kendi sensörü veya diziden devralınan); Dizin, yapılandırılmış bir dizin ifadesi gerektirir.
 * **Hizalanmış**(dizi başına, varsayılan**açık**): üye dışa aktarımlarını dizinin hizalama profiline göre dönüştürür, böylece dışa aktarımlar piksel bazında hizalanır. Ham veriler her zaman hizalanmamış olarak kalır, ancak dönüşüm metaverdelerde taşınır. Dizi üye dosyaları, her kameranın kendi orijinal yöneliminde kaydedilir (herhangi bir Ayna/Dönüş ayarı dosyaya kaydedilir, uygulanmaz).
 * **En Hızlı Yakalama** (açma/kapama): yalnızca ham veriler + atanan DAQ okuma değeri + ücretsiz birleştirilmiş indeks kompoziti; maksimum hız için yakalama sırasında kalibrasyon hesaplamaları atlanır — parlaklık/yansıtma/indeks değerleri daha sonra kaydedilen `.daq` dosyasından yeniden oluşturulur.
 * Seçimler projeyle birlikte korunur. Gizlenmiş veya duraklatılmış kameralar atlanır.
-* Dizilerdeki **Sürekli** modu, Chloros
+* Dizilerdeki **Sürekli** modu, Chloros arka ucunda çalışır (1.3.0 sürümünde yeni): listedeki her kamera bir diziye ait olduğunda, arka uç yakalama döngüsünü kendisi çalıştırır; her yakalama için ayrı bir istek göndermeden bir grubu yazarken bir sonrakini seçer. Sürücünün dolması işlemi durdurur ("Durduruldu: sürücü dolu. N kaydedildi, F başarısız"). Yüksek yakalama hızlarıyla ilgili Microsoft Defender notu için [Yakalama Ayarları ve Modları](capture.md#capture-modes) bölümüne bakın.
 
-arka ucunda çalışır (1.3.0 sürümünde yeni): listedeki her kamera bir diziye ait olduğunda, arka uç yakalama döngüsünü kendisi çalıştırır; her yakalama için ayrı bir istek göndermeden bir grubu yazarken bir sonrakini seçer. Sürücünün dolması işlemi durdurur ("Durduruldu: sürücü dolu. N kaydedildi, F başarısız"). Yüksek yakalama hızlarıyla ilgili Microsoft Defender notu için [Yakalama Ayarları ve Modları](capture.md#capture-modes) bölümüne bakın.
-
-Eşdeğer CLI
-
-: (aynı arka uç, aynı anlam):
+Eşdeğer CLI: (aynı arka uç, aynı anlam):
 
 ```bash
 # One synced group, every applicable export level per camera (the default)
@@ -306,11 +246,7 @@ chloros-cli lattice array-record --duration 30 --fps 10 --gif -o monitoring/
 chloros-cli lattice array-burst --duration 5 --build --products combined:index --fps 10 -o capture/
 ```
 
-Yakalamalar için TIFF
-
-sıkıştırması `deflate` (kayıpsız, varsayılan) veya `none`'tir — tam bayrak tabloları, yakalama klasörü düzeni ve yeniden işleme kuralları [CLI
-
-Referansı](../reference/cli-reference.md#capture-modes-recorders--offline-reprocess) içinde yer almaktadır.
+Yakalamalar için TIFF sıkıştırması `deflate` (kayıpsız, varsayılan) veya `none`'tir — tam bayrak tabloları, yakalama klasörü düzeni ve yeniden işleme kuralları [CLI Referansı](../reference/cli-reference.md#capture-modes-recorders--offline-reprocess) içinde yer almaktadır.
 
 ## Bir DAQ ışık sensörünü eşleştirme
 
@@ -320,13 +256,9 @@ Yansıtma ve aydınlatma düzeltmeli önizlemeler için, bir DAQ sensöründen (
 * Dizi ayarlarında → **Ortam Işığı Sensörü**→**Işık Sensörü** açılır menüsünden dizi genelinde atama yapın. Seçim projeyle birlikte kalır, her üye kameraya yayılır ve tek tek kameralar yine de kendi sensörleriyle bu ayarı geçersiz kılabilir.
 * Altındaki durum satırı canlı durumu bildirir: **Kapalı**→ "İlk spektrum bekleniyor…" →**"Etkin — dizideki tüm kameraların aydınlatma düzeltmesi yapılmıştır"** → veya son 3 saniye içinde yeni bir spektrum gelmediyse, eski bir bildirim — son okuma değeri kullanılmaya devam eder (okuma değerleri yakalama yolunda asla geçerliliğini yitirmez).
 
-Bir sensör atandığında: Yansıtma (Reflectance) dışa aktarma türü kullanılabilir hale gelir, canlı önizlemeler aydınlatma düzeltmesine tabi tutulur, tahmini otomatik pozlama spektrumu kullanabilir ve her yansıtma yakalama işlemi, yakalamaların `daq/` klasörüne kaydedilir; böylece yakalama daha sonra yeniden işlenebilir. Bunun yanında, bir `.daq.cameras.json` dosyası, o okumanın hangi kameraların karelerini tanımladığını belirtir; yeniden işleme sırasında Chloros
+Bir sensör atandığında: Yansıtma (Reflectance) dışa aktarma türü kullanılabilir hale gelir, canlı önizlemeler aydınlatma düzeltmesine tabi tutulur, tahmini otomatik pozlama spektrumu kullanabilir ve her yansıtma yakalama işlemi, yakalamaların `daq/` klasörüne kaydedilir; böylece yakalama daha sonra yeniden işlenebilir. Bunun yanında, bir `.daq.cameras.json` dosyası, o okumanın hangi kameraların karelerini tanımladığını belirtir; yeniden işleme sırasında Chloros, okumayı yalnızca bu kameralardan gelen görüntülerle eşleştirir.
 
-, okumayı yalnızca bu kameralardan gelen görüntülerle eşleştirir.
-
-## `array-connect` CLI
-
-seçenekleri
+## `array-connect` CLI seçenekleri
 
 | Bayrak | Varsayılan | Açıklama |
 | --- | --- | --- |
@@ -336,18 +268,8 @@ seçenekleri
 | `--binning {1,2,4}` | otomatik | Donanım binningi. "Otomatik" seçeneği, herhangi bir kare hızında desteklendiğinde tam sensör (binning yok) anlamına gelir; hızı yüksek tutmak için "asla binleme" seçeneğini kullanın. |
 | `--packed {auto,on,off}` | `auto` | [Sıkıştırılmış 12-bit aktarım](#packed-12-bit-transport): `auto`, yalnızca faydalı olduğu ve ana bilgisayarın açma işlemini kaldırabileceği durumlarda paketler. |
 | `--force-tier {sim-capture-sim-emit, sim-capture-ftd-stagger, slip-emit-and-capture}` | otomatik | Senkronizasyon katmanı seçicisinin uzman tarafından geçersiz kılınması. |
-| `--wire-ceiling-mbps MB_PER_S` | otomatik algılama | Ana bilgisayar kablo bütçesi (MB/s) — **Kablo Bütçesi** alanının CLI
-
-biçimi. Dizi bozuk çerçeveler bildiriyorsa bu değeri düşürün. Projeyle birlikte kaydedilir, böylece daha sonra yeniden bağlandığında bu değer geri yüklenir. |
+| `--wire-ceiling-mbps MB_PER_S` | otomatik algılama | Ana bilgisayar kablo bütçesi (MB/s) — **Kablo Bütçesi** alanının CLI biçimi. Dizi bozuk çerçeveler bildiriyorsa bu değeri düşürün. Projeyle birlikte kaydedilir, böylece daha sonra yeniden bağlandığında bu değer geri yüklenir. |
 | `--no-recommend` | kapalı | Ağ analizi adımını atlayın. |
 | `--no-ptp` | kapalı | PTP'yi devre dışı bırakın (bu durumda kameralar arası zaman damgaları karşılaştırılamaz). |
 
-`lattice array-list`, `array-status` ve `array-disconnect`, kalıcı oturumu yönetir. Hizalama (`align-calibrate` / `align-apply`) ve ağ araçları dahil olmak üzere tam alt komut referansı, [CLI
-
-Referansı § chloros-cli lattice](../reference/cli-reference.md#chloros-cli-lattice)bölümünde yer almaktadır; SDK
-
-'daki karşılıkları (`connect_array`, `ArraySession`, `attach_array`, `analyze_array_network`) ise [SDK
-
-Referansı](../reference/sdk-reference.md) bölümünde yer almaktadır. Python
-
-'da kablo bütçesi `connect_array(..., wire_ceiling_mbps=120)`'tir ve canlı bozuk/hiç ulaşmamış ayrımı [`/api/camera/array/<id>/capability`](../reference/sdk-reference.md#array-health--which-subsystem-is-losing-frames) adresindedir.
+`lattice array-list`, `array-status` ve `array-disconnect`, kalıcı oturumu yönetir. Hizalama (`align-calibrate` / `align-apply`) ve ağ araçları dahil olmak üzere tam alt komut referansı, [CLI Referansı § chloros-cli lattice](../reference/cli-reference.md#chloros-cli-lattice)bölümünde yer almaktadır; SDK'daki karşılıkları (`connect_array`, `ArraySession`, `attach_array`, `analyze_array_network`) ise [SDK Referansı](../reference/sdk-reference.md) bölümünde yer almaktadır. Python'da kablo bütçesi `connect_array(..., wire_ceiling_mbps=120)`'tir ve canlı bozuk/hiç ulaşmamış ayrımı [`/api/camera/array/<id>/capability`](../reference/sdk-reference.md#array-health--which-subsystem-is-losing-frames) adresindedir.

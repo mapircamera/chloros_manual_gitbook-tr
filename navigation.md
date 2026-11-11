@@ -22,19 +22,7 @@ Chloros'u ilk kez başlattığınızda, işleme arka ucu çalışmaya başlar. A
 * **Işık Sensörüne Bağlan** — bir DAQ ışık sensörüne bağlanmak için [Işık Sensörleri sekmesine](daq/) atlar. Proje açık olmasa da çalışır.
 
 {% hint style="info" %}
-**Yalnızca Windows**: Chloros
-
-Masaüstü GUI'si Windows
-
-'ta kullanılabilir. Linux
-
-kullanıcıları, başlıksız işleme için [CLI
-
-](CLI.md) ve [Python
-
-SDK
-
-](api-python-sdk.md) belgelerine bakmalıdır.
+**Yalnızca Windows**: Chloros Masaüstü GUI'si Windows'ta kullanılabilir. Linux kullanıcıları, başlıksız işleme için [CLI](CLI.md) ve [Python SDK](api-python-sdk.md) belgelerine bakmalıdır.
 {% endhint %}
 
 ### <img src=".gitbook/assets/image (2) (1) (1).png" alt="" data-size="line">
@@ -49,15 +37,9 @@ Etkinleştirildiğinde, işleme başlat düğmesi görüntü işleme boru hattı
 
 
 
-Tüm dosyaları sırayla işleyen ücretsiz Chloros
+Tüm dosyaları sırayla işleyen ücretsiz Chloros modunda, ilerleme çubuğu 2 aşamayı gösterir: Hedef Algılama ve İşleme.
 
-modunda, ilerleme çubuğu 2 aşamayı gösterir: Hedef Algılama ve İşleme.
-
-Tüm dosyaları eşzamanlı olarak işleyen ücretli Chloros
-
-+ lisanslı modunda, ilerleme çubuğu 4 aşamayı gösterir: Algılama, Analiz, Kalibrasyon, Dışa Aktarma. Fare imlecini Chloros
-
-+ ilerleme çubuğunun üzerine getirdiğinizde, süreci takip edebilmeniz için genişletilmiş 4 aşamalı ilerleme çubuğu paneli açılır. Üstteki ilerleme çubuğuna tıkladığınızda açılır panel dondurulur, tekrar tıkladığınızda ise dondurma kaldırılır.
+Tüm dosyaları eşzamanlı olarak işleyen ücretli Chloros+ lisanslı modunda, ilerleme çubuğu 4 aşamayı gösterir: Algılama, Analiz, Kalibrasyon, Dışa Aktarma. Fare imlecini Chloros+ ilerleme çubuğunun üzerine getirdiğinizde, süreci takip edebilmeniz için genişletilmiş 4 aşamalı ilerleme çubuğu paneli açılır. Üstteki ilerleme çubuğuna tıkladığınızda açılır panel dondurulur, tekrar tıkladığınızda ise dondurma kaldırılır.
 
 <figure><img src=".gitbook/assets/plus_prog.JPG" alt=""><figcaption></figcaption></figure>
 

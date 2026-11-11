@@ -1,8 +1,6 @@
 # Kayıt ve .daq Biçimi
 
-`.daq` dosyası, Chloros
-
-’un ışık sensörü kayıt biçimidir: tek bir DAQ sensöründen alınan, kalibre edilmiş spektral karelerden oluşan bir **SQLite veritabanı**. Bir yakalama oturumu sırasında bir dosya kaydedildiğinde, yansıma işleme zinciri daha sonra her görüntüyü tam o anda ölçülen aşağıya doğru ışık şiddetine göre bölebilir.
+`.daq` dosyası, Chloros’un ışık sensörü kayıt biçimidir: tek bir DAQ sensöründen alınan, kalibre edilmiş spektral karelerden oluşan bir **SQLite veritabanı**. Bir yakalama oturumu sırasında bir dosya kaydedildiğinde, yansıma işleme zinciri daha sonra her görüntüyü tam o anda ölçülen aşağıya doğru ışık şiddetine göre bölebilir.
 
 ## Bir .daq dosyasının içeriği
 
@@ -16,15 +14,11 @@
 
 Biçim DAQ-U, DAQ-M, DAQ-E ve DAQ-E-S arasında aynıdır, bu nedenle sonraki işlemler sırasında kaydın hangi aktarım yoluyla yapıldığı önemli değildir. Bir DAQ-E-S kaydı ayrıca her spektrumun yanında ünitenin eğim, yuvarlanma ve dikleme açılarını da saklar.
 
-**Kayıtlar elektrik kesintisinden etkilenmez (1.3.0).**Canlı bir kayıt, her kaydetme işleminde bir günlük ve tam disk senkronizasyonu ile yazılır; bu nedenle, bir elektrik kesintisi veya sonlandırılan bir işlem, dosyanın tamamını değil, yalnızca son 3 saniyeyi kaybetmenize neden olur. Yazma işlemi yarıda kesilen bir kayıt, `.daq` dosyasının yanında bir `<name>.daq-journal` dosyası bırakabilir:**bu iki dosyayı birlikte saklayın ve kopyalayın.** Chloros
-
-, dosyayı ilk okuduğunda günlüğü geri alır. Disk meşgul olduğunda dosya gecikir, ancak sensör okumaları asla gecikmez.
+**Kayıtlar elektrik kesintisinden etkilenmez (1.3.0).**Canlı bir kayıt, her kaydetme işleminde bir günlük ve tam disk senkronizasyonu ile yazılır; bu nedenle, bir elektrik kesintisi veya sonlandırılan bir işlem, dosyanın tamamını değil, yalnızca son 3 saniyeyi kaybetmenize neden olur. Yazma işlemi yarıda kesilen bir kayıt, `.daq` dosyasının yanında bir `<name>.daq-journal` dosyası bırakabilir:**bu iki dosyayı birlikte saklayın ve kopyalayın.** Chloros, dosyayı ilk okuduğunda günlüğü geri alır. Disk meşgul olduğunda dosya gecikir, ancak sensör okumaları asla gecikmez.
 
 **Veri göndermeyi durduran bir DAQ-E yeniden bağlanır (1.3.0).** Bir DAQ-E'nin akışı kesildiğinde (anahtarının gücü kapatılıp açıldığında veya bağlantı kesildiğinde), arka uç onu önceki ayarlarıyla yeniden bağlar ve üzerindeki kayıt, dosyada boşluk işaretlenmiş olarak aynı `.daq` dosyasında devam eder.
 
-Kalibre edilmiş kayıt için sensörün fabrika kalibrasyon paketine ihtiyaç vardır. DAQ-U ve DAQ-M için arka uç, sensör kimliğine göre MAPIR
-
-'ın bulutundan paketi alır (bunu yapamazsa kayıt reddedilir); DAQ-E üniteleri, kalibrasyonlarını cihazda tuttukları için bu kuralın dışındadır.
+Kalibre edilmiş kayıt için sensörün fabrika kalibrasyon paketine ihtiyaç vardır. DAQ-U ve DAQ-M için arka uç, sensör kimliğine göre MAPIR'ın bulutundan paketi alır (bunu yapamazsa kayıt reddedilir); DAQ-E üniteleri, kalibrasyonlarını cihazda tuttukları için bu kuralın dışındadır.
 
 ## GUI'den Kayıt
 
@@ -41,15 +35,9 @@ Dosyalar `<project>/light_sensor/` dosyasına yazılır ve kayıt durduğunda �
 
 
 
-## CLI
+## CLI'den Kayıt
 
-'den Kayıt
-
-CLI
-
-, arka ucun sensör havuzu aracılığıyla kayıt yapar (arka uç çalışıyor olmalıdır — bu komutlar ince HTTP
-
-istemcileridir):
+CLI, arka ucun sensör havuzu aracılığıyla kayıt yapar (arka uç çalışıyor olmalıdır — bu komutlar ince HTTP istemcileridir):
 
 ```bash
 # Connect the sensor into the backend pool
@@ -69,40 +57,22 @@ chloros-cli daq pool-record --sensor-id daq-e-def330 --stop
 | Seçenek | Varsayılan |
 | --- | --- |
 | `--duration` | `0` — `pool-record --stop` değerine kadar kayıt yap |
-| `--output` / `-o` | CLI
+| `--output` / `-o` | CLI'nin değil, **arka uçun** dosya sistemindeki `~/Documents/DAQ Live View/` |
 
-'nin değil, **arka uçun** dosya sistemindeki `~/Documents/DAQ Live View/` |
+CLI'nin başka bir makinedeki bir arka uca yöneldiği durumlarda çıktı dizini ayrımı önemlidir: dosya, arka ucun çalıştığı yere kaydedilir. Arka uç aynı bilgisayarda ise, göreceli bir `-o` (yukarıdaki `./out` gibi) komutu çalıştırdığınız klasöre göre çözümlenir.
 
-CLI
+## Python'dan kayıt
 
-'nin başka bir makinedeki bir arka uca yöneldiği durumlarda çıktı dizini ayrımı önemlidir: dosya, arka ucun çalıştığı yere kaydedilir. Arka uç aynı bilgisayarda ise, göreceli bir `-o` (yukarıdaki `./out` gibi) komutu çalıştırdığınız klasöre göre çözümlenir.
-
-## Python
-
-'dan kayıt `DAQSensorSession` (`chloros_sdk.connect_daq_sensor()` tarafından döndürülür) aynı havuzlanmış kaydı gösterir: `record_start(output_dir=None, device_name=None)` dosya yolunu, `record_stop()` ise `{path, rows}`'i döndürür. Tam oturum API
-
-'si için [SDK
-
-Referansı](../reference/sdk-reference.md) bölümüne bakın. SDK
-
-'nin doğrudan donanım sınıfları (yalnızca masaüstü kurulumları), kayıtları varsayılan olarak `~/Documents/DAQ/`'e yazar; yayınlanmış sürümler için yukarıdaki havuzlanmış yol desteklenen yoldur.
+`DAQSensorSession` (`chloros_sdk.connect_daq_sensor()` tarafından döndürülür) aynı havuzlanmış kaydı gösterir: `record_start(output_dir=None, device_name=None)` dosya yolunu, `record_stop()` ise `{path, rows}`'i döndürür. Tam oturum API'si için [SDK Referansı](../reference/sdk-reference.md) bölümüne bakın. SDK'nin doğrudan donanım sınıfları (yalnızca masaüstü kurulumları), kayıtları varsayılan olarak `~/Documents/DAQ/`'e yazar; yayınlanmış sürümler için yukarıdaki havuzlanmış yol desteklenen yoldur.
 
 ## İşleme sırasında bir .daq dosyası kullanma
 
-Görüntülerden yansıma değeri elde etmek için Chloros
-
-'un her pozlamaya uygun aşağı doğru ışınım değerine ihtiyacı vardır:
+Görüntülerden yansıma değeri elde etmek için Chloros'un her pozlamaya uygun aşağı doğru ışınım değerine ihtiyacı vardır:
 
 * **`.daq` dosyasını görüntülerle birlikte saklayın.** İşleme sırasında iş akışı, kaydedilmiş bir `.daq` dosyasından (herhangi bir DAQ modeli) — veya görüntülerle birlikte bulunan bir DAQ-M yerel `.csv` — dosyasından otomatik olarak çözer. GUI kayıtları, durdukları anda projeye eklendikleri için bu koşulu otomatik olarak karşılar.
-* **Kalibrasyon, talep üzerine alınır.** Kamera başına veya DAQ başına fabrika kalibrasyon paketi henüz yerel olarak önbelleğe alınmamışsa, Chloros
-
-ilk kullanımda bunu MAPIR
-
-'ın bulutundan otomatik olarak alır (bir kez internet bağlantısı gerekir; `~/.chloros/` altında önbelleğe alınır).
+* **Kalibrasyon, talep üzerine alınır.** Kamera başına veya DAQ başına fabrika kalibrasyon paketi henüz yerel olarak önbelleğe alınmamışsa, Chloros ilk kullanımda bunu MAPIR'ın bulutundan otomatik olarak alır (bir kez internet bağlantısı gerekir; `~/.chloros/` altında önbelleğe alınır).
 * **Canlı yakalamalar kendi sidecar dosyalarını yazar.** Canlı olarak yakalanan herhangi bir yansıma karesi için, fiilen kullanılan DAQ okuma değeri, yakalamaların `daq/` klasöründe bir `.daq` dosyası olarak kaydedilir; böylece yakalama, orijinal kayıt olmadan daha sonra yeniden işlenebilir.
-* **`chloros_scripts` kayıt cihazlarından alınan kayıtlar (1.3.0).**Genel [`chloros_scripts`](https://github.com/mapircamera/chloros_scripts) kayıt cihazları tarafından yazılan bir `.daq` dosyası, onu oluşturan DAQ modeli olarak listelenir ve sınırı, diğer kayıtlar gibi**Proje Ayarları → DAQ Işık Sensörü** altında diğer kayıtlar gibi ayarlanabilir. Bu kayıt cihazları ham sensör sayımlarını yazar; Chloros
-
-, sensörün fabrika kalibrasyonunu seri bağlantı yoluyla alır ve uygular.
+* **`chloros_scripts` kayıt cihazlarından alınan kayıtlar (1.3.0).**Genel [`chloros_scripts`](https://github.com/mapircamera/chloros_scripts) kayıt cihazları tarafından yazılan bir `.daq` dosyası, onu oluşturan DAQ modeli olarak listelenir ve sınırı, diğer kayıtlar gibi**Proje Ayarları → DAQ Işık Sensörü** altında diğer kayıtlar gibi ayarlanabilir. Bu kayıt cihazları ham sensör sayımlarını yazar; Chloros, sensörün fabrika kalibrasyonunu seri bağlantı yoluyla alır ve uygular.
 * **Okumanın kime ait olduğu (1.3.0).**Her bir `.daq` yakalamasının yanında, `.daq.cameras.json` adı, o okumanın hangi kameranın/kameraların karelerini tanımladığını belirtir ve işleme**yalnızca bu kameralardan gelen görüntülerle** eşleştirilir. Bu nedenle, kendi ışık sensörü olmayan bağımsız bir kamera artık başka bir kameranın okuma değerini kullanmaz — bu kameraya bir sensör bağlayın veya bir sensör kaydı yapın. DAQ ile yapılan bir kayıt (GUI Record, `daq pool-record`) ve bu dosya içermeyen herhangi bir `.daq` (eski yakalamalar dahil), her kameraya hizmet etmeye devam eder.
 
 ## Işınım değerini geri alma
@@ -111,9 +81,7 @@ Bir projenin işlenmesi, içerdiği tüm ışık sensörü kayıtlarını da gö
 `Light Sensor/` klasörüne aktarır. Bunun için görüntü **gerekmez**:
 tek başına kaydedilmiş bir ışık sensörü kaydı tam bir yakalamadır ve yalnızca `.daq`
 dosyalarını içeren bir klasör geçerli bir girdidir. Yalnızca ışık sensörü kayıtlarını içeren bir proje, bunları listeler ve
-hem uygulamadan hem de CLI
-
-'den işlenir; ayrıca çalıştırma sonrasında da listede kalır. Çalıştırma,
+hem uygulamadan hem de CLI'den işlenir; ayrıca çalıştırma sonrasında da listede kalır. Çalıştırma,
 kaç adet ışık sensörü ürünü yazdığını bildirir.
 
 | Ürün | Nedir |
@@ -132,9 +100,7 @@ yerel olarak önbelleğe alınmış hiçbir şey olmadığında ihtiyaç duyar.
 **DAQ-A**, seri numarasına göre kalibrasyon paketi sisteminden daha eskidir ve alınacak
 bir paketi yoktur. Bu bir ihmal değildir: bir DAQ-A, sahada bir
 yansıtma hedefi kullanılarak kalibre edilir ve hedef tabanlı kalibrasyon için yalnızca sensörün *göreceli*
-tepkisi gereklidir — ki bu da tam olarak ham sayım değerleridir. Chloros
-
-, günümüzde bu değerlerle kalibrasyon yapmaktadır.
+tepkisi gereklidir — ki bu da tam olarak ham sayım değerleridir. Chloros, günümüzde bu değerlerle kalibrasyon yapmaktadır.
 
 Dolayısıyla bir DAQ-A kaydı dışa aktarılabilir, ancak farklı bir adla:
 
@@ -153,12 +119,8 @@ anlam ifade eden sütunlar — toplam güç, lüks, PPFD — sayımlardan hesapl
 boş bırakılır.
 
 Eski DAQ-A-SD kayıtları (şema v1.01 / v1.02), her okuma için ayrı bir
-zaman damgası değil, yalnızca dosyanın yazılma zamanını kaydeder. Chloros
-
-, görüntüleri bunlarla eşleştirmez — bir kareyi bir
+zaman damgası değil, yalnızca dosyanın yazılma zamanını kaydeder. Chloros, görüntüleri bunlarla eşleştirmez — bir kareyi bir
 yazma zamanıyla eşleştirmek, yanlış görünmese de yanlış olur — ancak dışa aktarım bunları sorunsuz okur ve
-CSV
-
-dosyası hangi saatte olduğunu belirtir.
+CSV dosyası hangi saatte olduğunu belirtir.
 
 Yansıma ile ilgili tüm ayrıntılar için — kamera ile tek sensör ve ortam/nesne için çift sensör — bkz. [Yansıma İş Akışları](reflectance.md).

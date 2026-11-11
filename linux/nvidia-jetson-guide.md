@@ -1,8 +1,6 @@
 # NVIDIA Jetson Kılavuzu NVIDIA Jetson üzerindeki
 
-Chloros
-, sahada, İHA’larda ve uzak kurulumlarda uç cihazlarda çok spektral görüntü işlemeyi mümkün kılar. Chloros
-1.3.0, başlangıçta Jetson modelinizi algılar ve bulduğu donanıma göre işleme stratejisini optimize eder. **Manuel ayar yapılması gerekmez.**
+Chloros, sahada, İHA’larda ve uzak kurulumlarda uç cihazlarda çok spektral görüntü işlemeyi mümkün kılar. Chloros 1.3.0, başlangıçta Jetson modelinizi algılar ve bulduğu donanıma göre işleme stratejisini optimize eder. **Manuel ayar yapılması gerekmez.**
 {% hint style="info" %}
 **
 
@@ -20,8 +18,7 @@ Chloros
 | **Jetson Orin Nano** | 8 GB paylaşımlı     | `GPU_SINGLE` (1 iş parçacığı, sıralı)                     | Giriş seviyesi uç bilgi işlem                                 |
 
 {% hint style="info" %}
-Linux
-arm64 paketi, Jetson Orin ailesinde bulunan **JetPack 6**'yı gerektirir. Eski modeller (Nano, TX2, Xavier NX) JetPack 6'yı çalıştıramaz ve mevcut paket tarafından desteklenmez.
+Linux arm64 paketi, Jetson Orin ailesinde bulunan **JetPack 6**'yı gerektirir. Eski modeller (Nano, TX2, Xavier NX) JetPack 6'yı çalıştıramaz ve mevcut paket tarafından desteklenmez.
 {% endhint %}
 
 ***
@@ -30,10 +27,7 @@ arm64 paketi, Jetson Orin ailesinde bulunan **JetPack 6**'yı gerektirir. Eski m
 
 * **JetPack 6.x** (en son sürüm önerilir)
 * JetPack 6'daki **NVIDIA CUDA ve cuDNN** (görüntünüzde bunlar yoksa `sudo apt install nvidia-jetpack`)
-* **Ücretli Chloros
-+ planı** — Copper kademesi veya üstü (tüm CLI
-/SDK
-erişimi için gereklidir; sunucu tarafında zorunludur)
+* **Ücretli Chloros+ planı** — Copper kademesi veya üstü (tüm CLI/SDK erişimi için gereklidir; sunucu tarafında zorunludur)
 
 ## Kurulum
 
@@ -50,17 +44,12 @@ python3 -c "import chloros_sdk; print(chloros_sdk.__version__)"   # the .deb ins
 chloros-cli selftest
 ```
 
-`.deb`, bu derlemeye uygun olarak `python3` sistemi için Python
-SDK
-'yi yükler. Yalnızca bir virtualenv'e, paket içinde bulunan wheel dosyasının yüklenmesi gerekir: `pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl` (tamamen çevrimdışı). Genel Linux
-kurulum ayrıntıları, dosya konumları ve sorun giderme için [Linux
-Kurulumu](linux-installation.md) bölümüne bakın.
+`.deb`, bu derlemeye uygun olarak `python3` sistemi için Python SDK'yi yükler. Yalnızca bir virtualenv'e, paket içinde bulunan wheel dosyasının yüklenmesi gerekir: `pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl` (tamamen çevrimdışı). Genel Linux kurulum ayrıntıları, dosya konumları ve sorun giderme için [Linux Kurulumu](linux-installation.md) bölümüne bakın.
 
 {% hint style="info" %}
 **Başlatma sırasında artık dosya açma işlemi yapılmaz.**
 
-1.3.0 sürümünden itibaren arka uç ve CLI
-, `/usr/lib/chloros/` altında sıkıştırılmamış olarak kurulur; bu nedenle artık her başlatıldıklarında kendilerini geçici bir dizine açmazlar. Geçici dosyalar, bu klasör mevcut olduğunda hâlâ otomatik olarak `/mnt/ssd/tmp` klasörüne kaydedilir; aksi takdirde, `TMPDIR`'i NVMe'nizdeki bir yola (`export TMPDIR=/mnt/nvme/tmp`) ayarlayabilirsiniz.
+1.3.0 sürümünden itibaren arka uç ve CLI, `/usr/lib/chloros/` altında sıkıştırılmamış olarak kurulur; bu nedenle artık her başlatıldıklarında kendilerini geçici bir dizine açmazlar. Geçici dosyalar, bu klasör mevcut olduğunda hâlâ otomatik olarak `/mnt/ssd/tmp` klasörüne kaydedilir; aksi takdirde, `TMPDIR`'i NVMe'nizdeki bir yola (`export TMPDIR=/mnt/nvme/tmp`) ayarlayabilirsiniz.
 {% endhint %}
 
 ***
@@ -69,8 +58,7 @@ Kurulumu](linux-installation.md) bölümüne bakın.
 
 ### Nasıl Çalışır?
 
-Başlangıçta, Chloros
-sisteminizin profilini oluşturur:
+Başlangıçta, Chloros sisteminizin profilini oluşturur:
 
 1. `/proc/device-tree/model` aracılığıyla **Jetson modelini algılar**
 
@@ -115,13 +103,10 @@ Hesaplama uyarlama kılavuzunun tamamı için bkz. [Dinamik Hesaplama Uyarlama](
 
 ## Nano ve Orin Nano'da Texture Aware için GPU Frekans Sınırı
 
-Texture Aware debayer, GPU sinir ağı çıkarımını çalıştırır; bu işlem, düşük güç tüketimli Jetson modellerinde (10-15 W sınıfı) GPU saat hızı tam kapasitedeyken **aşırı akım uyarılarını**tetikleyebilir.**Jetson Nano veya Orin Nano**'da**`--debayer texture-aware`** komutunu verdiğinizde, CLI
-, GPU'nun maksimum frekansını kontrol eder ve mevcut frekans daha yüksekse bunu **510 MHz** (510000000) ile sınırlar:
+Texture Aware debayer, GPU sinir ağı çıkarımını çalıştırır; bu işlem, düşük güç tüketimli Jetson modellerinde (10-15 W sınıfı) GPU saat hızı tam kapasitedeyken **aşırı akım uyarılarını**tetikleyebilir.**Jetson Nano veya Orin Nano**'da**`--debayer texture-aware`** komutunu verdiğinizde, CLI, GPU'nun maksimum frekansını kontrol eder ve mevcut frekans daha yüksekse bunu **510 MHz** (510000000) ile sınırlar:
 
-* Eğer CLI
-, GPU frekansı sysfs düğümüne yazabiliyorsa, sınır **otomatik olarak uygulanır** ve bir onay mesajı görüntülenir.
-* Aksi takdirde (root erişimi gerekiyorsa), CLI
-, sınırı manuel olarak uygulamak için tam `sudo` komutunu görüntüler, okumanız için bir süre bekler, ardından devam eder — işlemler devam eder ancak aşırı akım uyarıları görüntülenebilir.
+* Eğer CLI, GPU frekansı sysfs düğümüne yazabiliyorsa, sınır **otomatik olarak uygulanır** ve bir onay mesajı görüntülenir.
+* Aksi takdirde (root erişimi gerekiyorsa), CLI, sınırı manuel olarak uygulamak için tam `sudo` komutunu görüntüler, okumanız için bir süre bekler, ardından devam eder — işlemler devam eder ancak aşırı akım uyarıları görüntülenebilir.
 
 İşleme başlamadan önce sınırı kendiniz uygulamak için:
 
@@ -132,16 +117,14 @@ echo 510000000 | sudo tee /sys/devices/platform/bus@0/17000000.gpu/devfreq/17000
 Daha yüksek güçteki modeller (Orin NX 25W, AGX Orin 60W) tam GPU hızında çalışır; herhangi bir sınır uygulanmaz. Standart debayer, hiçbir modelde sınırı tetiklemez.
 
 {% hint style="info" %}
-**Jetson'da Texture Aware her zaman tek seferde bir görüntü işler.** Her işleyicinin kendi CUDA bağlamına (~1 GB) ve gürültü giderici modelinin kendi kopyasına ihtiyacı vardır; bu da birleşik bellek için yeterince kapasiteye sahip değildir — bu nedenle Jetson'da Texture Aware yolu, GPU erişimi sıralı hale getirilmiş tek bir işleyiciye sabitlenmiştir. Herhangi bir Jetson cihazında Texture Aware'in Standard'dan belirgin şekilde daha yavaş olacağını bekleyin. Texture Aware, Survey3
-görüntülerine uygulanır: LATTICE yakalamaları her zaman Standard debayer'ı kullanır. Kullanılabilir bir CUDA GPU olmadığında işlem Standard'ı kullanır ve arka uç, bunun nedenini açıklayan bir `[DEBAYER] … needs a CUDA GPU …` satırı günlüğe kaydeder (`chloros-cli --verbose` ile gösterilmiştir).
+**Jetson'da Texture Aware her zaman tek seferde bir görüntü işler.** Her işleyicinin kendi CUDA bağlamına (~1 GB) ve gürültü giderici modelinin kendi kopyasına ihtiyacı vardır; bu da birleşik bellek için yeterince kapasiteye sahip değildir — bu nedenle Jetson'da Texture Aware yolu, GPU erişimi sıralı hale getirilmiş tek bir işleyiciye sabitlenmiştir. Herhangi bir Jetson cihazında Texture Aware'in Standard'dan belirgin şekilde daha yavaş olacağını bekleyin. Texture Aware, Survey3 görüntülerine uygulanır: LATTICE yakalamaları her zaman Standard debayer'ı kullanır. Kullanılabilir bir CUDA GPU olmadığında işlem Standard'ı kullanır ve arka uç, bunun nedenini açıklayan bir `[DEBAYER] … needs a CUDA GPU …` satırı günlüğe kaydeder (`chloros-cli --verbose` ile gösterilmiştir).
 {% endhint %}
 
 ***
 
 ## Isı Yönetimi
 
-Jetson cihazlarının, özellikle kapalı ortamlarda veya havada kullanılan uygulamalarda, sınırlı bir ısıl marjı vardır. Chloros
-, SoC sıcaklığını izler ve işleme gruplarının boyutlarını otomatik olarak sınırlar:
+Jetson cihazlarının, özellikle kapalı ortamlarda veya havada kullanılan uygulamalarda, sınırlı bir ısıl marjı vardır. Chloros, SoC sıcaklığını izler ve işleme gruplarının boyutlarını otomatik olarak sınırlar:
 
 | Sıcaklık         | Eylem                                            |
 | ------------------- | ------------------------------------------------- |
@@ -162,8 +145,7 @@ Jetson cihazları **birleşik bellek** kullanır — GPU ve CPU aynı fiziksel R
 
 ### Takas Uyarısı ve Öneriler
 
-Jetson'da işleme başlamadan önce, CLI
-giriş klasörünüzdeki RAW görüntülerin sayısını sayar (`.tif`, `.tiff`, `.raw`, `.dng` — JPG önizlemeleri sayılmaz), işlemin gerektireceği en yüksek bellek miktarını tahmin eder ve RAM + takas alanı yetersiz kalma ihtimali varsa **işlemi başlatmadan önce uyarı verir**. Uyarı başlığı `LOW MEMORY WARNING - Jetson Detected` şeklindedir; görüntü sayınızı, RAM, mevcut takas alanı ve tahmini en yüksek değeri gösterir, ardından projenize göre boyutlandırılmış kesin `fallocate` / `chmod` / `mkswap` / `swapon` komutlarını verir (asla 8 GB'den küçük olmaz). Mesajın kaydırma geçmişinde kaybolmaması için birkaç saniye duraklar, ardından işleme devam eder.**Uyarıda kullanılan bellek tahminleri:**
+Jetson'da işleme başlamadan önce, CLI giriş klasörünüzdeki RAW görüntülerin sayısını sayar (`.tif`, `.tiff`, `.raw`, `.dng` — JPG önizlemeleri sayılmaz), işlemin gerektireceği en yüksek bellek miktarını tahmin eder ve RAM + takas alanı yetersiz kalma ihtimali varsa **işlemi başlatmadan önce uyarı verir**. Uyarı başlığı `LOW MEMORY WARNING - Jetson Detected` şeklindedir; görüntü sayınızı, RAM, mevcut takas alanı ve tahmini en yüksek değeri gösterir, ardından projenize göre boyutlandırılmış kesin `fallocate` / `chmod` / `mkswap` / `swapon` komutlarını verir (asla 8 GB'den küçük olmaz). Mesajın kaydırma geçmişinde kaybolmaması için birkaç saniye duraklar, ardından işleme devam eder.**Uyarıda kullanılan bellek tahminleri:**
 
 | Debayer modu | Temel | Görüntü başına |
 | --- | --- | --- |
@@ -193,8 +175,7 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 ### OOM (Bellek Yetersizliği) Yönetimi
 
-İşleme sırasında Chloros
-, GPU belleğini izler ve çökmek yerine performansı kademeli olarak düşürür:
+İşleme sırasında Chloros, GPU belleğini izler ve çökmek yerine performansı kademeli olarak düşürür:
 
 1. GPU bellek kullanımı **%85**'i aştığında, iş parçacığı boyutları önleyici olarak küçültülür
 2. Hala bir bellek yetersizliği olayı meydana gelirse, iş parçacığı boyutu **yarıya indirilir** ve ardışık her OOM durumunda tekrar yarıya indirilir; sonraki her başarılı iş parçacığı bu cezayı bir adım geri alır
@@ -225,8 +206,7 @@ Sürekli işleme için güç bütçenizi planlayın — en yüksek güç tüketi
 ### SSH
 Üzerinden Başsız Çalıştırma Chloros için
 
-Chloros
-, başsız Jetson dağıtımları için idealdir:
+Chloros, başsız Jetson dağıtımları için idealdir:
 
 ```bash
 # SSH into the Jetson
@@ -241,16 +221,14 @@ chloros-cli export-status
 
 ### LATTICE / DAQ-E Zaman Senkronizasyonu için Sürekli Çalışan Arka Uç
 
-Jetson'unuz LATTICE kameralarını veya DAQ-E ışık sensörlerini başsız olarak kontrol ediyorsa, PTP grandmaster'ın kesintisiz çalışması ve SDK
-komut dosyalarının çalışan bir arka uç bulabilmesi için arka uç systemd hizmetini **kullanıcı adınızla** etkinleştirin (birim yüklüdür ancak varsayılan olarak etkin değildir):
+Jetson'unuz LATTICE kameralarını veya DAQ-E ışık sensörlerini başsız olarak kontrol ediyorsa, PTP grandmaster'ın kesintisiz çalışması ve SDK komut dosyalarının çalışan bir arka uç bulabilmesi için arka uç systemd hizmetini **kullanıcı adınızla** etkinleştirin (birim yüklüdür ancak varsayılan olarak etkin değildir):
 
 ```bash
 sudo systemctl enable --now chloros-backend@$USER.service    # $USER expands to your user name
 chloros-cli time-sync status
 ```
 
-Arka uç bundan sonra sizin adınıza çalışır: kaydettiği veriler size aittir ve sizin `chloros-cli login`'inizi kullanır. Kök `chloros-backend.service` ve paketin PTP 319/320 bağlantı noktalarını kök erişimi olmadan bağlanabilir hale getirme yöntemi dahil olmak üzere ayrıntılar için [Linux
-Kurulumu](linux-installation.md#always-on-ptp-for-headless-hosts) bölümüne bakın.
+Arka uç bundan sonra sizin adınıza çalışır: kaydettiği veriler size aittir ve sizin `chloros-cli login`'inizi kullanır. Kök `chloros-backend.service` ve paketin PTP 319/320 bağlantı noktalarını kök erişimi olmadan bağlanabilir hale getirme yöntemi dahil olmak üzere ayrıntılar için [Linux Kurulumu](linux-installation.md#always-on-ptp-for-headless-hosts) bölümüne bakın.
 
 ### systemd ile Otomatik İşleme
 
@@ -310,8 +288,7 @@ chloros-cli process /data/flights/flight_042 \
     --indices NDVI GNDVI OSAVI
 ```
 
-### Jetson'da Python
-SDK
+### Jetson'da Python SDK
 
 
 ```python
@@ -356,27 +333,15 @@ Saha ve hava uygulamaları için şu Jetson Orin NX 16 GB taşıyıcı kart seç
 * **Zorlu saha koşulları**: PoE GigE kamera bağlantısına sahip IP67/IP69K su geçirmez muhafazalar
 * **Minimal/ekonomik**: Ek muhafazalı geliştirici kitleri
 
-Kurulum senaryonuz için özel donanım önerileri almak üzere [MAPIR
-Destek](https://www.mapir.camera/community/contact) ile iletişime geçin.
+Kurulum senaryonuz için özel donanım önerileri almak üzere [MAPIR Destek](https://www.mapir.camera/community/contact) ile iletişime geçin.
 
 ***
 
 ## Sonraki Adımlar
 
-* [Linux
-Kurulumu](linux-installation.md) — Genel Linux
-kurulum ayrıntıları
+* [Linux Kurulumu](linux-installation.md) — Genel Linux kurulum ayrıntıları
 * [Dinamik Hesaplama Uyumlaştırma](../processing-architecture/dynamic-compute-adaptation.md) — Tam hesaplama stratejisi referansı
 * [İşleme Boru Hattı](../processing-architecture/processing-pipeline.md) — 4 iş parçacıklı boru hattını anlama
-* [CLI
-: Komut Satırı](../CLI.md) — CLI
-kılavuzu
-* [API
-: Python
-SDK
-](../api-python-sdk.md) — SDK
-kılavuzu
-* [CLI
-Kılavuzu](../reference/cli-reference.md) ve [SDK
-Kılavuzu](../reference/sdk-reference.md) — 1.3.0 sürümü için kapsamlı komut/API
-listeleri
+* [CLI: Komut Satırı](../CLI.md) — CLI kılavuzu
+* [API: Python SDK](../api-python-sdk.md) — SDK kılavuzu
+* [CLI Kılavuzu](../reference/cli-reference.md) ve [SDK Kılavuzu](../reference/sdk-reference.md) — 1.3.0 sürümü için kapsamlı komut/API listeleri
