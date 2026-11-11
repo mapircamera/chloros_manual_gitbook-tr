@@ -7,7 +7,7 @@ Resimleri bir projeye aktardıktan sonra, bunların ana alanda bir ızgara halin
 Görüntü küçük resimlerinin boyutunu ayarlamak için sağ üstteki yakınlaştırma kaydırma çubuğunu kullanın. Kaydırma çubuğu **64 px ile 1200 px** arasında hareket eder.
 
 * **Ctrl + fare tekerleği** de küçük resimleri ölçeklendirir.
-* **Ctrl + `+`**/**Ctrl + `=`**ve**Ctrl + `−`** tuşları, her basışta boyutu 4 px artırır. Klavye kısayolu, küçük uçta 64 px&#x27;te, büyük uçta ise mevcut pencerede her satıra tam olarak iki küçük resim sığacak boyutta durur.
+* **Ctrl + `+`**/**Ctrl + `=`**ve**Ctrl + `−`** tuşları, her basışta boyutu 4 px artırır. Klavye kısayolu, küçük uçta 64 px'te, büyük uçta ise mevcut pencerede her satıra tam olarak iki küçük resim sığacak boyutta durur.
 * Seçtiğiniz boyut projeyle birlikte kaydedilir (`UI → Grid thumbnail size`, `project.json` içinde; varsayılan: `160`), böylece projeyi yeniden açtığınızda bu ayar geri yüklenir.
 
 <figure><img src="../.gitbook/assets/chloros_grid_zoom.gif" alt=""><figcaption></figcaption></figure>Küçük resim *çözünürlüğü*, küçük resim *boyutu*ndan ayrı bir ayardır: [Proje Ayarları](../project-settings/project-settings.md) içindeki **Ekran → Görüntü Küçük Resim Çözünürlüğü** bölümüne bakın (varsayılan olarak uzun kenarda 512 px). Boyut, döşemenin ne kadar büyük çizileceğini gösterir; çözünürlük ise döşemeyi doldurmak için ne kadar ayrıntı alınacağını belirler.***

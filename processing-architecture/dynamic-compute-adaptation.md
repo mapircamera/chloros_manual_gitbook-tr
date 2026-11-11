@@ -12,7 +12,7 @@ başlatıldığında, sisteminizin profilini çıkarır:
 
 1. **İşletim sistemini algılar** — Windows
 veya Linux
-2. **CPU çekirdeklerini ve toplam RAM&#x27;i belirler**
+2. **CPU çekirdeklerini ve toplam RAM'i belirler**
 
 3.**GPU varlığını algılar** — NVIDIA CUDA özelliği, VRAM, model
 4. **Jetson modelini belirler** (varsa) — `/proc/device-tree/model` aracılığıyla
@@ -25,7 +25,7 @@ Algılanan profil, oturum için bellekte ve diskte önbelleğe alınır, böylec
 | Platform | Önbelleğe alınmış profil |
 | --- | --- |
 | **Linux
-/ Jetson** | `~/.config/chloros/system_config.json` (`XDG_CONFIG_HOME`&#x27;i de destekler) |
+/ Jetson** | `~/.config/chloros/system_config.json` (`XDG_CONFIG_HOME`'i de destekler) |
 | **Windows** | `%LOCALAPPDATA%\Chloros\config\system_config.json` |
 
 Yeni bir algılama işlemini zorlamak için bu dosyayı silin — bu, bir GPU veya daha fazla RAM ekledikten sonra yararlıdır. Chloros
@@ -40,20 +40,20 @@ Chloros
 
 | Strateji | Ne Zaman Seçilir | İşçiler | Yürütücü | İş Akışı |
 | --- | --- | --- | --- | --- |
-| **`GPU_PARALLEL`**|**12 GB+ VRAM**bildiren CUDA GPU (Jetson birleşik belleğinde, ayrıca toplam 12 GB+ paylaşımlı RAM gerektirir) | `min(4, ⌊(VRAM − 0.5GB) × 0.9 ÷ 3.5GB⌋)`, en az 2 —**Jetson&#x27;da 2 ile sınırlı** | İşçi süreçleri (ayrı CUDA bağlamları) | `fused_gpu` |
-| **`GPU_SINGLE`**|**2-12GB VRAM**&#x27;e sahip CUDA GPU | 3 (G/Ç çakışması; GPU erişimi semaforla sıralanır).**12 GB&#x27;nin altında RAM&#x27;e sahip Jetson&#x27;larda 1 (sıralı)** | İşçi süreçleri (ayrı CUDA bağlamları); düşük RAM&#x27;li Jetson&#x27;larda süreç içi sıralı | `fused_gpu` / `tiled_gpu` |
-| **`CPU_PARALLEL`** | CUDA GPU yok veya 2 GB&#x27;nin altında VRAM | `max(2, physical cores − 1)` | `ThreadPoolExecutor` | `cpu_fallback` |
+| **`GPU_PARALLEL`**|**12 GB+ VRAM**bildiren CUDA GPU (Jetson birleşik belleğinde, ayrıca toplam 12 GB+ paylaşımlı RAM gerektirir) | `min(4, ⌊(VRAM − 0.5GB) × 0.9 ÷ 3.5GB⌋)`, en az 2 —**Jetson'da 2 ile sınırlı** | İşçi süreçleri (ayrı CUDA bağlamları) | `fused_gpu` |
+| **`GPU_SINGLE`**|**2-12GB VRAM**'e sahip CUDA GPU | 3 (G/Ç çakışması; GPU erişimi semaforla sıralanır).**12 GB'nin altında RAM'e sahip Jetson'larda 1 (sıralı)** | İşçi süreçleri (ayrı CUDA bağlamları); düşük RAM'li Jetson'larda süreç içi sıralı | `fused_gpu` / `tiled_gpu` |
+| **`CPU_PARALLEL`** | CUDA GPU yok veya 2 GB'nin altında VRAM | `max(2, physical cores − 1)` | `ThreadPoolExecutor` | `cpu_fallback` |
 
-`GPU_PARALLEL` işçi formülüne ilişkin örnekler: 12 GB VRAM → 2 işçi, 16 GB → 3 işçi, 20 GB+ → 4 işçi. Her işleyiciye, 0,5 GB&#x27;lık bir yedek ayrıldıktan sonra kalan VRAM&#x27;ın %90&#x27;ı dahilinde, Texture Aware görevinin ölçülen ihtiyacı olan 3,5 GB tahsis edilir.
+`GPU_PARALLEL` işçi formülüne ilişkin örnekler: 12 GB VRAM → 2 işçi, 16 GB → 3 işçi, 20 GB+ → 4 işçi. Her işleyiciye, 0,5 GB'lık bir yedek ayrıldıktan sonra kalan VRAM'ın %90'ı dahilinde, Texture Aware görevinin ölçülen ihtiyacı olan 3,5 GB tahsis edilir.
 
 {% hint style="info" %}
-**GPU stratejileri, CUDA kullanabilen bir PyTorch gerektirir.** PyTorch&#x27;unda kullanılabilir CUDA aygıtı bulunmayan bir makine, GPU&#x27;su ne olursa olsun `CPU_PARALLEL` değerini alır. 1.3.0 Jetson paketi, JetPack 6’nın CUDA sürümündeki PyTorch’u kullanır; bu nedenle, JetPack’in CUDA ve cuDNN kütüphaneleri yüklendiğinde bir Jetson uygun hale gelir. 12 GB’nin altında RAM’e sahip bir Jetson, işlem sırasında her zaman tek seferde bir görüntüyü işler (`GPU_SINGLE` olarak kaydedilir).
+**GPU stratejileri, CUDA kullanabilen bir PyTorch gerektirir.** PyTorch'unda kullanılabilir CUDA aygıtı bulunmayan bir makine, GPU'su ne olursa olsun `CPU_PARALLEL` değerini alır. 1.3.0 Jetson paketi, JetPack 6’nın CUDA sürümündeki PyTorch’u kullanır; bu nedenle, JetPack’in CUDA ve cuDNN kütüphaneleri yüklendiğinde bir Jetson uygun hale gelir. 12 GB’nin altında RAM’e sahip bir Jetson, işlem sırasında her zaman tek seferde bir görüntüyü işler (`GPU_SINGLE` olarak kaydedilir).
 {% endhint %}
 
 GPU stratejileri, her biri kendi CUDA bağlamına sahip ayrı bir işletim sistemi süreci olan bir işçi süreci havuzu çalıştırır; Chloros
 , bunu kendi kurulu arka uç programını yeniden başlatarak gerçekleştirir (Python
-&#x27;un `multiprocessing`&#x27;i aracılığıyla değil; çünkü bu programın işçi başlatma işlevi, paketlenmiş uygulama içinde çalışmaz). CPU stratejisi bir iş parçacığı havuzu kullanır (Python
-&#x27;un `ThreadPoolExecutor`&#x27;i). Chloros
+'un `multiprocessing`'i aracılığıyla değil; çünkü bu programın işçi başlatma işlevi, paketlenmiş uygulama içinde çalışmaz). CPU stratejisi bir iş parçacığı havuzu kullanır (Python
+'un `ThreadPoolExecutor`'i). Chloros
 , herhangi bir üçüncü taraf dağıtık çerçeve (Ray gibi) kullanmaz.
 
 ### İş Akışı Türleri
@@ -95,20 +95,20 @@ Kalıcı olarak ayarlamak yerine komut bazında ayarlamayı tercih edin, böylec
 | Platform | Strateji | İşçiler | İş Akışı | Notlar |
 | --- | --- | --- | --- | --- |
 | **Jetson Orin Nano 8GB** | `GPU_SINGLE` | 1 | `tiled_gpu` (sıralı) | Bellek verimli mod, her seferinde tek görüntü |
-| **Jetson Orin NX 8GB** | `GPU_SINGLE` | 1 | `tiled_gpu` (sıralı) | 12 GB&#x27;nin altındaki paylaşımlı RAM, sıralı işlemeyi zorunlu kılar |
-| **Jetson Orin NX 16 GB** | `GPU_PARALLEL` | 2 | `fused_gpu` (eşzamanlı) | Önerilen uç cihaz — Jetson&#x27;da 2 işçi ile sınırlı |
-| **Jetson AGX Orin 32-64 GB** | `GPU_PARALLEL` | 2 | `fused_gpu` (eşzamanlı) | Maksimum uç performansı (Jetson&#x27;da da 2 işçi ile sınırlı) |
-| **8 GB GPU&#x27;lu masaüstü** | `GPU_SINGLE` | 3 | `fused_gpu` / `tiled_gpu` | 3 işçi, semafor GPU erişimini sıralarken I/O işlemlerini çakıştırır |
-| **12 GB ve üzeri GPU&#x27;lu masaüstü** | `GPU_PARALLEL` | 2-4 | `fused_gpu` (eşzamanlı) | Optimum masaüstü performansı: 12 GB → 2 iş parçacığı, 16 GB → 3, 20 GB+ → 4 |
-| **Yalnızca CPU&#x27;lu sistem** | `CPU_PARALLEL` | fiziksel çekirdek sayısı − 1 (en az 2) | `cpu_fallback` | GPU gerekmez, iş parçacığı havuzu kullanır |
+| **Jetson Orin NX 8GB** | `GPU_SINGLE` | 1 | `tiled_gpu` (sıralı) | 12 GB'nin altındaki paylaşımlı RAM, sıralı işlemeyi zorunlu kılar |
+| **Jetson Orin NX 16 GB** | `GPU_PARALLEL` | 2 | `fused_gpu` (eşzamanlı) | Önerilen uç cihaz — Jetson'da 2 işçi ile sınırlı |
+| **Jetson AGX Orin 32-64 GB** | `GPU_PARALLEL` | 2 | `fused_gpu` (eşzamanlı) | Maksimum uç performansı (Jetson'da da 2 işçi ile sınırlı) |
+| **8 GB GPU'lu masaüstü** | `GPU_SINGLE` | 3 | `fused_gpu` / `tiled_gpu` | 3 işçi, semafor GPU erişimini sıralarken I/O işlemlerini çakıştırır |
+| **12 GB ve üzeri GPU'lu masaüstü** | `GPU_PARALLEL` | 2-4 | `fused_gpu` (eşzamanlı) | Optimum masaüstü performansı: 12 GB → 2 iş parçacığı, 16 GB → 3, 20 GB+ → 4 |
+| **Yalnızca CPU'lu sistem** | `CPU_PARALLEL` | fiziksel çekirdek sayısı − 1 (en az 2) | `cpu_fallback` | GPU gerekmez, iş parçacığı havuzu kullanır |
 
 {% hint style="info" %}
-**Jetson birleşik bellek**: Jetson cihazları, GPU ve CPU belleğini paylaşır. 16 GB&#x27;lık bir Jetson Orin NX, ~15,3 GB VRAM bildirir, ancak bu, işletim sistemi ve CPU işlemleri tarafından kullanılan fiziksel RAM ile aynıdır. Bu nedenle 16 GB ve üzeri Jetson&#x27;lar, 12 GB ve üzeri masaüstü GPU&#x27;lar gibi `GPU_PARALLEL` için uygun olurken, işçi sayısı 2 ile sınırlıdır — GPU, işçi süreçleri ve işçi başına CUDA bağlamları, hepsi aynı paylaşılan havuzdan yararlanır.
+**Jetson birleşik bellek**: Jetson cihazları, GPU ve CPU belleğini paylaşır. 16 GB'lık bir Jetson Orin NX, ~15,3 GB VRAM bildirir, ancak bu, işletim sistemi ve CPU işlemleri tarafından kullanılan fiziksel RAM ile aynıdır. Bu nedenle 16 GB ve üzeri Jetson'lar, 12 GB ve üzeri masaüstü GPU'lar gibi `GPU_PARALLEL` için uygun olurken, işçi sayısı 2 ile sınırlıdır — GPU, işçi süreçleri ve işçi başına CUDA bağlamları, hepsi aynı paylaşılan havuzdan yararlanır.
 {% endhint %}
 
-### VRAM&#x27;e Göre GPU Bütçesi (ayrı GPU&#x27;lar)
+### VRAM'e Göre GPU Bütçesi (ayrı GPU'lar)
 
-Ayrı bir NVIDIA GPU&#x27;ya sahip x86_64 ana bilgisayarlarda, algılanan VRAM, kartın ne kadar işlem kapasitesini kullanabileceğini ve iş parçacıklarının ne kadar büyüyebileceğini de belirler:
+Ayrı bir NVIDIA GPU'ya sahip x86_64 ana bilgisayarlarda, algılanan VRAM, kartın ne kadar işlem kapasitesini kullanabileceğini ve iş parçacıklarının ne kadar büyüyebileceğini de belirler:
 
 | Algılanan VRAM | GPU bütçe üst sınırı | Yığın boyutu çarpanı |
 | --- | --- | --- |
@@ -116,9 +116,9 @@ Ayrı bir NVIDIA GPU&#x27;ya sahip x86_64 ana bilgisayarlarda, algılanan VRAM, 
 | **6-8 GB** | %85 | ×1,75 |
 | **3,5-6 GB** | %80 | ×1,5 |
 | **2-3,5 GB** | %75 | ×1,25 |
-| **2 GB&#x27;nin altında** | %70 | ×1,0 |
+| **2 GB'nin altında** | %70 | ×1,0 |
 
-Ayrı GPU&#x27;lar, sistem RAM&#x27;ini paylaşmadıkları için sistem için yalnızca 0,5 GB ayırır. Jetson profilleri ise çok daha fazla bellek ayırır ve sınırı daha düşük tutar — bkz. [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md#per-model-gpu-budget).
+Ayrı GPU'lar, sistem RAM'ini paylaşmadıkları için sistem için yalnızca 0,5 GB ayırır. Jetson profilleri ise çok daha fazla bellek ayırır ve sınırı daha düşük tutar — bkz. [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md#per-model-gpu-budget).
 
 ***
 
@@ -140,7 +140,7 @@ Chloros
 | --- | --- | --- |
 | **Erken** | 1, 2, 3, 4 | Tüm iş parçacıkları arasında bölünür, çoğu İş Parçacığı 3’e ayrılır |
 | **Erken-Orta** | 2, 3, 4 | İş Parçacığı 1’in payı yeniden dağıtılır |
-| **Orta-Geç** | 3, 4 | İş parçacıkları 1 ve 2&#x27;nin payları 3 ve 4&#x27;e aktarılır |
+| **Orta-Geç** | 3, 4 | İş parçacıkları 1 ve 2'nin payları 3 ve 4'e aktarılır |
 | **Geç** | 3 veya 4 | Son aktif iş parçacığı, profilinin maksimum tahsis miktarını alır |
 
 Bu rakamları belirleyen iki kural vardır:
@@ -153,13 +153,13 @@ Bu rakamları belirleyen iki kural vardır:
 ## Doku Duyarlı İşleme
 
 Texture Aware debayer (**yalnızca Chloros
-+** — `--debayer texture-aware`), kopya başına FP16&#x27;da yaklaşık 1,75 GB VRAM gerektiren bir AI/ML gürültü giderme modeli çalıştırır; bu nedenle Standart yöntemden çok daha fazla GPU belleği kullanır:
++** — `--debayer texture-aware`), kopya başına FP16'da yaklaşık 1,75 GB VRAM gerektiren bir AI/ML gürültü giderme modeli çalıştırır; bu nedenle Standart yöntemden çok daha fazla GPU belleği kullanır:
 
-* **7 GB&#x27;nin altında VRAM**&#x27;e sahip sistemler, Doku Duyarlı işlemeyi**senkron bir döngüde, her seferinde tek bir görüntü** olarak gerçekleştirir — birden fazla model kopyası sığmaz ve bir işçi havuzu sadece çekişmeye neden olur
-* **7 GB ve üzeri VRAM**&#x27;e sahip sistemler, Texture Aware&#x27;i eşzamanlı olarak işleyebilir, ancak bu işlem Standart yönteme kıyasla daha az işçi sayısıyla gerçekleştirilir
-* **Jetson**&#x27;da Texture Aware her zaman tek bir işleyiciye sabitlenir
-* **Kullanılabilir CUDA GPU** olmadığında, işlem Standart debayer&#x27;ı kullanır ve arka uç, bunun nedenini belirten bir `[DEBAYER] … needs a CUDA GPU …` satırı günlüğe kaydeder
-* Düşük güç tüketimli Jetson&#x27;larda (Nano, Orin Nano), Texture Aware talep edildiğinde CLI
+* **7 GB'nin altında VRAM**'e sahip sistemler, Doku Duyarlı işlemeyi**senkron bir döngüde, her seferinde tek bir görüntü** olarak gerçekleştirir — birden fazla model kopyası sığmaz ve bir işçi havuzu sadece çekişmeye neden olur
+* **7 GB ve üzeri VRAM**'e sahip sistemler, Texture Aware'i eşzamanlı olarak işleyebilir, ancak bu işlem Standart yönteme kıyasla daha az işçi sayısıyla gerçekleştirilir
+* **Jetson**'da Texture Aware her zaman tek bir işleyiciye sabitlenir
+* **Kullanılabilir CUDA GPU** olmadığında, işlem Standart debayer'ı kullanır ve arka uç, bunun nedenini belirten bir `[DEBAYER] … needs a CUDA GPU …` satırı günlüğe kaydeder
+* Düşük güç tüketimli Jetson'larda (Nano, Orin Nano), Texture Aware talep edildiğinde CLI
 , GPU frekans sınırlaması uygular — bkz. [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md#gpu-frequency-cap-for-texture-aware-on-nano-and-orin-nano)
 
 ***
@@ -171,7 +171,7 @@ Jetson cihazlarında, özellikle kapalı ortamlarda veya havada kullanılan kuru
 
 | Sıcaklık | Tepki |
 | --- | --- |
-| **&lt; 70°C** | Normal çalışma — tam hız |
+| **< 70°C** | Normal çalışma — tam hız |
 | **70°C** (Uyarı) | İşlem grubu boyutu kademeli olarak küçülür (70°C ile 80°C arasında %100 → %50) |
 | **80°C** (Kritik) | Aşırı hız kısıtlaması (80°C ile 90°C arasında %50 → %0) |
 | **90°C** (Kapatma) | GPU işlemeyi tamamen durdurur |
@@ -186,15 +186,15 @@ Chloros
 , işleme sırasında GPU belleğini sürekli izler ve üç seviyede tepki verir.
 
 **Parti boyutlandırma.** Bir parti, yukarıdaki tablolardaki platform çarpanının 8 görüntü ile çarpımıyla başlar. Chloros
-daha sonra boş VRAM&#x27;i kontrol eder, bunun %20&#x27;sini PyTorch&#x27;un kendi ek yükü için ayırır ve 12 MP&#x27;lik bir görüntü başına yaklaşık 100 MB GPU belleği varsayar — parti, bellekten türetilen sınır ile platform taban değeri arasında hangisi daha küçükse o olur. Asla 1&#x27;in altına düşmez.
+daha sonra boş VRAM'i kontrol eder, bunun %20'sini PyTorch'un kendi ek yükü için ayırır ve 12 MP'lik bir görüntü başına yaklaşık 100 MB GPU belleği varsayar — parti, bellekten türetilen sınır ile platform taban değeri arasında hangisi daha küçükse o olur. Asla 1'in altına düşmez.
 
-**Önleyici azaltma.** **%85 VRAM kullanım** oranının üzerine çıkıldığında, herhangi bir hata oluşmadan önce parti boyutları küçültülür.**İş parçacığı başına ayırma kırpma.** Canlı kullanım oranı yükseldikçe, her iş parçacığının GPU bütçesi azaltılır: %80&#x27;in üzerindeki kullanımda ×0,75, %90&#x27;ın üzerindeki kullanımda ×0,5. İzleme aralıkları %70 (ihtiyatlı), %85 (normal çalışma sınırı) ve %95’tir (OOM riski).**OOM geri çekilme ve kurtarma.** Yine de bir bellek yetersizliği olayı meydana gelirse:
+**Önleyici azaltma.** **%85 VRAM kullanım** oranının üzerine çıkıldığında, herhangi bir hata oluşmadan önce parti boyutları küçültülür.**İş parçacığı başına ayırma kırpma.** Canlı kullanım oranı yükseldikçe, her iş parçacığının GPU bütçesi azaltılır: %80'in üzerindeki kullanımda ×0,75, %90'ın üzerindeki kullanımda ×0,5. İzleme aralıkları %70 (ihtiyatlı), %85 (normal çalışma sınırı) ve %95’tir (OOM riski).**OOM geri çekilme ve kurtarma.** Yine de bir bellek yetersizliği olayı meydana gelirse:
 
 * toplu iş boyutu **yarıya indirilir** ve ardışık her OOM durumunda tekrar yarıya indirilir — sonraki her başarılı toplu iş, bu cezayı bir adım geri alır
-* aktif iş parçacığı tahsisleri mevcut değerlerinin %70&#x27;ine düşürülür ve tahsis edici, ihtiyatlı stratejisine geçer; başarılı tahsislerin ardından tekrar esnekleşir
-* Aşırı yük altında, iş akışı `fused_gpu`&#x27;ten `tiled_gpu`&#x27;e, son çare olarak da `cpu_fallback`&#x27;e geri döner
+* aktif iş parçacığı tahsisleri mevcut değerlerinin %70'ine düşürülür ve tahsis edici, ihtiyatlı stratejisine geçer; başarılı tahsislerin ardından tekrar esnekleşir
+* Aşırı yük altında, iş akışı `fused_gpu`'ten `tiled_gpu`'e, son çare olarak da `cpu_fallback`'e geri döner
 
-**Ana Bilgisayar RAM&#x27;i (Jetson).** İşleme başlamadan önce, CLI
+**Ana Bilgisayar RAM'i (Jetson).** İşleme başlamadan önce, CLI
 , görüntü sayınız ve debayer moduna göre en yüksek ana bilgisayar belleği değerini tahmin eder ve RAM ile dosya tabanlı takas alanının yetersiz kalma ihtimali varsa uyarı verir; takas alanı eklemek için gerekli komutları tam olarak görüntüler — bkz. [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md#swap-warning-and-recommendations).
 
 ***
@@ -215,7 +215,7 @@ Bu komutun 7 kontrolü, sürüm, bağlantı noktası kullanılabilirliği, arka 
       GPU: NVIDIA RTX A4000, CUDA: True, PyTorch: 2.7.0
 ```
 
-7. kontrol, `CUDA: <bool>, Denoiser: <bool>` değerini yazdırır — Texture Aware&#x27;in kullanılabilmesi için her ikisinin de doğru olması gerekir.
+7. kontrol, `CUDA: <bool>, Denoiser: <bool>` değerini yazdırır — Texture Aware'in kullanılabilmesi için her ikisinin de doğru olması gerekir.
 
 ### Arka Uç Günlükleri
 
@@ -241,7 +241,7 @@ ile başlatılan arka uç** | ayrıca `~/.chloros/backend.log` |
 ## Sonraki Adımlar
 
 * [İşleme Boru Hattı](processing-pipeline.md) — 4 iş parçacıklı boru hattı mimarisini anlama
-* [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md) — Jetson&#x27;a özgü dağıtım ve optimizasyon
+* [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md) — Jetson'a özgü dağıtım ve optimizasyon
 * [CLI
 : Komut Satırı](../CLI.md) — CLI
 kılavuzu

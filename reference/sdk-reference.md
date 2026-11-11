@@ -1,8 +1,10 @@
 # Chloros Python SDK Referansı
 
-**Sürüm:**
-
-1.3.0**Oluşturulma Tarihi:**29 Temmuz 2026 19:19 ·**Güncelleme Tarihi:** 6 Kasım 2026**Paket:** `chloros-sdk` (PyPI)**Hedef Kitle:** LLM kullanımı için optimize edilmiştir; insan tarafından okunabilir.**Kapsam:** `import chloros_sdk` tarafından sunulan tüm genel sınıflar, işlevler ve yardımcı işlevler ile görüntü işleme, tek kamera kontrolü, senkronize diziler, DAQ sensörleri ve proje otomasyonunu kapsayan kopyala-yapıştır edilebilir örnekler ile AI asistanları için `chloros-mcp` sunucusu.
+**Sürüm:** 1.3.0
+**Oluşturulma Tarihi:** 29 Temmuz 2026 19:19 · **Güncelleme Tarihi:** 6 Kasım 2026
+**Paket:** `chloros-sdk` (PyPI)
+**Hedef Kitle:** LLM kullanımı için optimize edilmiştir; insan tarafından okunabilir.
+**Kapsam:** `import chloros_sdk` tarafından sunulan tüm genel sınıflar, işlevler ve yardımcı işlevler ile görüntü işleme, tek kamera kontrolü, senkronize diziler, DAQ sensörleri ve proje otomasyonunu kapsayan kopyala-yapıştır edilebilir örnekler ile AI asistanları için `chloros-mcp` sunucusu.
 
 Yalnızca önemli noktalara göz atmak istiyorsanız, şuraya atlayın:
 - [Kurulum ve Hızlı Başlangıç](#kurulum)

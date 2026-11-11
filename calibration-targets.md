@@ -23,13 +23,13 @@ Bu, kameralarımızla çektiğiniz her görüntüde, [T4-R50](https://www.mapir.
 
 **Survey3** çıktıları için, Chloros
 
-&#x27;ta kalibre edilmiş görüntüleri standart JPG veya TIFF
+'ta kalibre edilmiş görüntüleri standart JPG veya TIFF
 
-formatında dışa aktarırsanız, yansıma yüzdesi piksel değerinin görüntü formatının bit derinliğine bölünmesiyle hesaplanır. Yani JPG için 255&#x27;e, TIFF
+formatında dışa aktarırsanız, yansıma yüzdesi piksel değerinin görüntü formatının bit derinliğine bölünmesiyle hesaplanır. Yani JPG için 255'e, TIFF
 
-için ise 65.535&#x27;e bölünür. Chloros
+için ise 65.535'e bölünür. Chloros
 
-&#x27;ta PERCENT formatında çıktı seçeneğini de tercih edebilirsiniz; bu durumda her piksel, 0,0 ile 1,0 arasındaki bir yüzde değerinde (yüzde 0 ile yüzde 100 yansıtma) olacaktır. Bazı görüntü uygulamalarının yüzde (kayan nokta) formatındaki görüntüleri kabul edemediğini ve bu tür dosyaların depolama açısından büyük boyutlu olduğunu unutmayın.
+'ta PERCENT formatında çıktı seçeneğini de tercih edebilirsiniz; bu durumda her piksel, 0,0 ile 1,0 arasındaki bir yüzde değerinde (yüzde 0 ile yüzde 100 yansıtma) olacaktır. Bazı görüntü uygulamalarının yüzde (kayan nokta) formatındaki görüntüleri kabul edemediğini ve bu tür dosyaların depolama açısından büyük boyutlu olduğunu unutmayın.
 
 {% hint style="info" %}
 **LATTICE yansıtma değeri farklı bir piksel ölçeği kullanır.** LATTICE yansıtma değeri, DN 32768 = %100 yansıtma (65535 değil) olarak kaydedilir ve her dosya, ölçeğini belirten bir XMP `Chloros:PixelScale` etiketi taşır. Sabit bir değer varsaymak yerine etiketi okuyun ve bu değere bölün — bkz. [Çıktı Görüntü Formatları](output-image-formats.md).
@@ -39,13 +39,13 @@ için ise 65.535&#x27;e bölünür. Chloros
 
 LATTICE kameralarında yansıma oranı için bir kalibrasyon hedefi **isteğe bağlıdır**: Chloros
 
-, bunun yerine yansıma oranını bir DAQ ışık sensörü tarafından ölçülen aşağı doğru ışınım yoğunluğuna göre hesaplayabilir (ρ = π·L/E). Referans, `chloros-cli process --reflectance-source` ile ayarlanan projenin yansıma kaynağı ayarıyla seçilir (GUI&#x27;de bununla ilgili bir kontrol yoktur ve projenin kaydedilmiş değeri kullanılır; varsayılan olarak `auto` — bkz. [Proje Ayarları](project-settings/project-settings.md)):
+, bunun yerine yansıma oranını bir DAQ ışık sensörü tarafından ölçülen aşağı doğru ışınım yoğunluğuna göre hesaplayabilir (ρ = π·L/E). Referans, `chloros-cli process --reflectance-source` ile ayarlanan projenin yansıma kaynağı ayarıyla seçilir (GUI'de bununla ilgili bir kontrol yoktur ve projenin kaydedilmiş değeri kullanılır; varsayılan olarak `auto` — bkz. [Proje Ayarları](project-settings/project-settings.md)):
 
 | Değer | Davranış |
 | --- | --- |
-| `auto` *(varsayılan)* | QA&#x27;yı geçen çerçeve içi hedef, **mutlak referans** olarak kabul edilir; hedef bulunmadığında veya QA başarısız olduğunda, Chloros
+| `auto` *(varsayılan)* | QA'yı geçen çerçeve içi hedef, **mutlak referans** olarak kabul edilir; hedef bulunmadığında veya QA başarısız olduğunda, Chloros
 
-, DAQ aşağı yönlü bölünmesine geri döner. Bir bayrakla (bir panelin düşmesi veya bir bandın arızalı olması) QA&#x27;yı geçen bir hedef otomatik olarak tercih edilmez: hedef, hedef+DAQ ve sadece DAQ zincirleri, ayrılmış panellerde ölçülen puanlarına göre sırayla denenir. |
+, DAQ aşağı yönlü bölünmesine geri döner. Bir bayrakla (bir panelin düşmesi veya bir bandın arızalı olması) QA'yı geçen bir hedef otomatik olarak tercih edilmez: hedef, hedef+DAQ ve sadece DAQ zincirleri, ayrılmış panellerde ölçülen puanlarına göre sırayla denenir. |
 | `target` | Yalnızca hedef odaklı — DAQ ikamesi yok. |
 | `daq` | DAQ öncelikli — aşağı doğru ölçüm her zaman referans olarak alınır. |
 
@@ -59,13 +59,13 @@ nominal T3/T4P spektrumlarına geri döner.
 
 Bayrakların tam anlamları ve örnekleri [CLI
 
-Referansı](reference/cli-reference.md) içinde bulunur (bkz. &quot;Ürün Bazında Dışa Aktarma Anahtarları&quot;).
+Referansı](reference/cli-reference.md) içinde bulunur (bkz. "Ürün Bazında Dışa Aktarma Anahtarları").
 
 ### F988
 
-&quot;F988 yansıma değeri, sahne içi bir yansıma paneli kullanılarak kalibre edilir: bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesinde yer aldığından, Chloros
+"F988 yansıma değeri, sahne içi bir yansıma paneli kullanılarak kalibre edilir: bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesinde yer aldığından, Chloros
 
-en son panel yakalamanızı uygular ve panel gözlemleri arasında bunu korur.&quot;
+en son panel yakalamanızı uygular ve panel gözlemleri arasında bunu korur."
 
 F988, yalnızca DAQ kalibrasyonu ile çalıştırılırsa, Chloros
 

@@ -1,30 +1,30 @@
 # API: Python SDK
 
 {% hint style="info" %}
-**API&#x27;nin tamamını mı arıyorsunuz?** Bu sayfa, uygulamalı bir öğreticidir. Her bir genel sınıf, yöntem, tam imza ve kopyala-yapıştır yapılabilen örnek, AI asistanları için optimize edilmiş [SDK Referansı](reference/sdk-reference.md) içinde yer almaktadır.**Bir AI asistanıyla mı çalışıyorsunuz?** Bu URL&#x27;yi sohbete yapıştırın, böylece Chloros&#x27;nin 1.3.0 sürümüne ait güncel ve eksiksiz API&#x27;ye erişebilirsiniz:
+**API'nin tamamını mı arıyorsunuz?** Bu sayfa, uygulamalı bir öğreticidir. Her bir genel sınıf, yöntem, tam imza ve kopyala-yapıştır yapılabilen örnek, AI asistanları için optimize edilmiş [SDK Referansı](reference/sdk-reference.md) içinde yer almaktadır.**Bir AI asistanıyla mı çalışıyorsunuz?** Bu URL'yi sohbete yapıştırın, böylece Chloros'nin 1.3.0 sürümüne ait güncel ve eksiksiz API'ye erişebilirsiniz:
 
 `https://mapir.gitbook.io/chloros/reference/sdk-reference.md`
 
 Bu kılavuzun her sayfası, küçük harfli slug + `.md` adresinde ham markdown formatında mevcuttur ve kılavuzun tamamı `https://mapir.gitbook.io/chloros/llms.txt` adresinde indekslenmiştir.
 {% endhint %}
 
-**Chloros Python SDK** (PyPI&#x27;da `chloros-sdk`), masaüstü uygulamasının yapabileceği her şeyi Python üzerinden yönetir: toplu görüntü işleme, canlı LATTICE kamera ve dizi kontrolü, DAQ ışık sensörü oturumları ve kaydedilmiş proje otomasyonu. Bu, GUI ve CLI&#x27;nin kullandığı yerel arka uç (`127.0.0.1:5000`&#x27;te HTTP) üzerinde ince bir katmandır; dolayısıyla davranış, üç arayüzde de aynıdır.
+**Chloros Python SDK** (PyPI'da `chloros-sdk`), masaüstü uygulamasının yapabileceği her şeyi Python üzerinden yönetir: toplu görüntü işleme, canlı LATTICE kamera ve dizi kontrolü, DAQ ışık sensörü oturumları ve kaydedilmiş proje otomasyonu. Bu, GUI ve CLI'nin kullandığı yerel arka uç (`127.0.0.1:5000`'te HTTP) üzerinde ince bir katmandır; dolayısıyla davranış, üç arayüzde de aynıdır.
 
 ## Kurulum
 
 SDK, işleme arka ucunu ve donanım çalışma zamanlarını da sağlayan Chloros masaüstü paketi ile birlikte gelir ve sürümleri her zaman birbiriyle uyumludur.
 
-**Adım 1 — Chloros&#x27;u kurun.** Windows: [İndirme](download.md) sayfasından masaüstü yükleyicisini (varsayılan yol `C:\Program Files\Chloros\`) çalıştırın. Linux: `.deb` paketini `sudo apt install ./chloros_1.3.0_<arch>.deb` ile kurun ([Linux Kurulumu](linux/linux-installation.md)).**Adım 2 — SDK&#x27;yi kontrol edin** (Python 3.7+). Genellikle kurulacak bir şey yoktur:
+**Adım 1 — Chloros'u kurun.** Windows: [İndirme](download.md) sayfasından masaüstü yükleyicisini (varsayılan yol `C:\Program Files\Chloros\`) çalıştırın. Linux: `.deb` paketini `sudo apt install ./chloros_1.3.0_<arch>.deb` ile kurun ([Linux Kurulumu](linux/linux-installation.md)).**Adım 2 — SDK'yi kontrol edin** (Python 3.7+). Genellikle kurulacak bir şey yoktur:
 
-* **Windows:** Yükleyici, pakete dahil olan SDK tekerleğini sisteminizdeki Python&#x27;a yükler (Python yüklü değilse, bu adımı atlar).
-* **Linux:** `.deb`, sistem SDK&#x27;sini `python3`&#x27;e yükler. Gereksinimleri olan `python3-numpy` ve `python3-requests`, paket tarafından önerilmektedir: `apt install` bunları içerirken, `dpkg -i` içermez.
-* **Bir virtualenv**, sistem paketlerini görmez; pakete dahil olan wheel dosyasını içine yükleyin: Linux&#x27;ta `pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl`&#x27;i veya Windows kurulum klasörünün `sdk` klasöründeki `chloros_sdk-*.whl`&#x27;i (varsayılan olarak `C:\Program Files\Chloros\sdk\`) yükleyin.
+* **Windows:** Yükleyici, pakete dahil olan SDK tekerleğini sisteminizdeki Python'a yükler (Python yüklü değilse, bu adımı atlar).
+* **Linux:** `.deb`, sistem SDK'sini `python3`'e yükler. Gereksinimleri olan `python3-numpy` ve `python3-requests`, paket tarafından önerilmektedir: `apt install` bunları içerirken, `dpkg -i` içermez.
+* **Bir virtualenv**, sistem paketlerini görmez; pakete dahil olan wheel dosyasını içine yükleyin: Linux'ta `pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl`'i veya Windows kurulum klasörünün `sdk` klasöründeki `chloros_sdk-*.whl`'i (varsayılan olarak `C:\Program Files\Chloros\sdk\`) yükleyin.
 
 ```bash
 python3 -c "import chloros_sdk; print(chloros_sdk.__version__)"   # Windows: py -c "…"
 ```
 
-Chloros paketi bulunmayan ve SDK&#x27;si başka bir makinedeki arka ucu çalıştıran bir makinede ([Yalnızca pip ile kurulumda neler elde edilir](#what-a-pip-only-install-gets) bölümüne bakın), PyPI&#x27;dan şunu yükleyin: `pip install chloros-sdk`. PyPI, sürüm derlemelerinde güncellenir, böylece en son kararlı sürümle eşleşir.
+Chloros paketi bulunmayan ve SDK'si başka bir makinedeki arka ucu çalıştıran bir makinede ([Yalnızca pip ile kurulumda neler elde edilir](#what-a-pip-only-install-gets) bölümüne bakın), PyPI'dan şunu yükleyin: `pip install chloros-sdk`. PyPI, sürüm derlemelerinde güncellenir, böylece en son kararlı sürümle eşleşir.
 
 **Adım 3 — Her makinede bir kez oturum açın:**
 
@@ -32,11 +32,11 @@ Chloros paketi bulunmayan ve SDK&#x27;si başka bir makinedeki arka ucu çalış
 chloros-cli login user@example.com 'YourPassword'
 ```
 
-Kimlik bilgileri `~/.chloros/`&#x27;te önbelleğe alınır (her iki platformda da). Windows&#x27;ta, masaüstü uygulamasının Kullanıcı <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sekmesinden de aynı şekilde oturum açabilirsiniz. SDK, ücretli bir Chloros+ planı gerektirir — aşağıdaki [Lisans gereksinimi](#license-requirement) bölümüne bakın.
+Kimlik bilgileri `~/.chloros/`'te önbelleğe alınır (her iki platformda da). Windows'ta, masaüstü uygulamasının Kullanıcı <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> sekmesinden de aynı şekilde oturum açabilirsiniz. SDK, ücretli bir Chloros+ planı gerektirir — aşağıdaki [Lisans gereksinimi](#license-requirement) bölümüne bakın.
 
 | Gereksinim | Ayrıntılar |
 | --- | --- |
-| **Chloros&#x27;un kurulu olması** | Windows: masaüstü yükleyicisi; Linux: `.deb` paketi (arka uç ikili dosyasını ve SDK&#x27;yi sağlar) |
+| **Chloros'un kurulu olması** | Windows: masaüstü yükleyicisi; Linux: `.deb` paketi (arka uç ikili dosyasını ve SDK'yi sağlar) |
 | **Python** | 3.7 veya üzeri (3.10 sürümünde geliştirilmiş/test edilmiştir) |
 | **İşletim sistemi** | Windows 10/11 64-bit, Ubuntu 22.04 LTS veya daha yeni bir sürüm, ya da NVIDIA Jetson (JetPack 6) |
 | **Lisans** | Aktif Chloros+ oturumu, herhangi bir ücretli plan (Copper veya üstü) |
@@ -54,7 +54,7 @@ results = chloros_sdk.process_folder(
 )
 ```
 
-(Linux&#x27;te Linux yollarını kullanın: `/home/user/drone_images/flight001`. SDK her iki platformda da aynı şekilde çalışır.)
+(Linux'te Linux yollarını kullanın: `/home/user/drone_images/flight001`. SDK her iki platformda da aynı şekilde çalışır.)
 
 Bir LATTICE yakalama klasörünü mi işliyorsunuz? LATTICE ile uyumlu sarmalayıcıyı kullanın — doğru varsayılan ayarları uygular (panel hedefi algılaması yok, standart debayer):
 
@@ -67,7 +67,7 @@ results = chloros_sdk.process_lattice_capture(
 
 ## `ChlorosLocal` — tam iş akışı kontrolü
 
-Tek satırlık komutların ötesinde herhangi bir işlem için `ChlorosLocal`&#x27;i kullanın. Bu, halihazırda çalışmakta olan bir arka uç (masaüstü uygulamasınınki) kullanır veya ilk kullanımda yüklü olanı başlatır (`auto_start_backend=True`; Windows&#x27;ta Chloros kurulum klasörünün `backend` klasöründen, varsayılan olarak `C:\Program Files\Chloros\backend\`), projeleri oluşturur ve yapılandırır, ilerlemeyi izler ve işlem sonrası bir özet sunar.
+Tek satırlık komutların ötesinde herhangi bir işlem için `ChlorosLocal`'i kullanın. Bu, halihazırda çalışmakta olan bir arka uç (masaüstü uygulamasınınki) kullanır veya ilk kullanımda yüklü olanı başlatır (`auto_start_backend=True`; Windows'ta Chloros kurulum klasörünün `backend` klasöründen, varsayılan olarak `C:\Program Files\Chloros\backend\`), projeleri oluşturur ve yapılandırır, ilerlemeyi izler ve işlem sonrası bir özet sunar.
 
 ```python
 ChlorosLocal(
@@ -82,7 +82,7 @@ ChlorosLocal(
 ```
 
 {% hint style="info" %}
-`localhost` ile değiştirmeyin, varsayılan `http://127.0.0.1:5000`&#x27;i koruyun — Windows&#x27;ta, `localhost` önce `::1` olarak çözümlenir ve yalnızca IPv4 destekleyen arka uçta istek başına yaklaşık 2 saniye sürer.
+`localhost` ile değiştirmeyin, varsayılan `http://127.0.0.1:5000`'i koruyun — Windows'ta, `localhost` önce `::1` olarak çözümlenir ve yalnızca IPv4 destekleyen arka uçta istek başına yaklaşık 2 saniye sürer.
 {% endhint %}
 
 Bunu bir bağlam yöneticisi olarak kullanın. Bloktan çıkmak, bu örneğin arka uç kullanımını sonlandırır, arka ucun kendisini değil: arka uç bir sonraki komut dosyası için çalışmaya devam eder ve 30 dakika kullanılmadığında kendi kendine durur. `shutdown_backend()`, bu örneğin başlatılmasını durdurur.
@@ -118,7 +118,7 @@ print(results["summary"])
 "Texture Aware (Slow, Highest Quality)"  # neural debayer, Chloros+ only
 ```
 
-LATTICE&#x27;ye özgü ayar düğmeleri (`input_level`, `radiometric_output`, `array_alignment*` ailesi), tam değer tablolarıyla birlikte [SDK Referansı](reference/sdk-reference.md#supported-values) bölümünde tam değer tablolarıyla birlikte belgelenmiştir.
+LATTICE'ye özgü ayar düğmeleri (`input_level`, `radiometric_output`, `array_alignment*` ailesi), tam değer tablolarıyla birlikte [SDK Referansı](reference/sdk-reference.md#supported-values) bölümünde tam değer tablolarıyla birlikte belgelenmiştir.
 
 ### İlerlemeyi izleme
 
@@ -146,7 +146,7 @@ for hint in result.get("summary", {}).get("hints", []):
 ```
 
 {% hint style="warning" %}
-**Bir çalıştırma hiçbir görüntü üretmediğinde `process()` hatası ortaya çıkmaz.** Bu, SDK ile CLI’nin kasıtlı olarak farklılık gösterdiği tek noktadır: `chloros-cli process`, &quot;ürünler talep edildi, hiçbiri yazılmadı&quot; durumunu bir hata olarak değerlendirir ve sıfırdan farklı bir değerle sonlanır; oysa SDK normal şekilde geri döner ve durumu `summary` / ipuçları aracılığıyla bildirir. İş akışınızın boş bir çalıştırmada durması gerekiyorsa, bunu kendiniz kontrol edin — bir istisnaya güvenmek yerine `summary`&#x27;i inceleyin (veya proje klasörü altındaki dosya sayısını sayın).
+**Bir çalıştırma hiçbir görüntü üretmediğinde `process()` hatası ortaya çıkmaz.** Bu, SDK ile CLI’nin kasıtlı olarak farklılık gösterdiği tek noktadır: `chloros-cli process`, "ürünler talep edildi, hiçbiri yazılmadı" durumunu bir hata olarak değerlendirir ve sıfırdan farklı bir değerle sonlanır; oysa SDK normal şekilde geri döner ve durumu `summary` / ipuçları aracılığıyla bildirir. İş akışınızın boş bir çalıştırmada durması gerekiyorsa, bunu kendiniz kontrol edin — bir istisnaya güvenmek yerine `summary`'i inceleyin (veya proje klasörü altındaki dosya sayısını sayın).
 {% endhint %}
 
 ## Smart Connect — canlı donanım
@@ -165,7 +165,7 @@ with chloros_sdk.connect_camera("213800234") as cam:
 ```
 
 {% hint style="info" %}
-**Göreceli yollar, komut dosyanızın çalıştığı konuma göre belirlenir (1.3.0 sürümünde değiştirilmiştir).** Yerel bir arka uç kullanıldığında, göreceli bir `output_dir` (varsayılan `"output"` dahil) — ve arka ucun açtığı diğer yollar (`burst_dir`, `profile_path`, `save_path`, `mask_path`) — komut dosyanızın çalışma dizinine göre çözümlenir; bu nedenle `cam.capture("output/")`, `<current folder>/output/` dosyasına yazma işlemi gerçekleştirir. 1.2.0 sürümünde, kurulu bir arka uç bunları kendi kurulum klasörüne göre çözümlüyor ve &quot;Erişim reddedildi&quot; hatasıyla sonuçlanıyordu. Uzak bir arka uç söz konusu olduğunda, yollar yazıldığı gibi gönderilir.
+**Göreceli yollar, komut dosyanızın çalıştığı konuma göre belirlenir (1.3.0 sürümünde değiştirilmiştir).** Yerel bir arka uç kullanıldığında, göreceli bir `output_dir` (varsayılan `"output"` dahil) — ve arka ucun açtığı diğer yollar (`burst_dir`, `profile_path`, `save_path`, `mask_path`) — komut dosyanızın çalışma dizinine göre çözümlenir; bu nedenle `cam.capture("output/")`, `<current folder>/output/` dosyasına yazma işlemi gerçekleştirir. 1.2.0 sürümünde, kurulu bir arka uç bunları kendi kurulum klasörüne göre çözümlüyor ve "Erişim reddedildi" hatasıyla sonuçlanıyordu. Uzak bir arka uç söz konusu olduğunda, yollar yazıldığı gibi gönderilir.
 {% endhint %}
 
 ### Senkronize dizi — `connect_array`
@@ -184,7 +184,7 @@ Tetiklemeden önce tüm kameralarda otomatik pozlamanın sabitlenmesini beklemek
 
 * `arr.grab()`, tek bir tetiklemeden elde edilen her kamera için birer kareyi numpy dizileri (`{serial: array}`) olarak döndürür; `.group_id` ortak tetikleyicidir ve `.errors`, dışarıda kalan kameraları belirtir.
 * `arr.frame_stream(fps=5.0)`, kendi iş akışınızda canlı işleme için her tik başına böyle bir set üretir.
-* `arr.continuous("output/")`, arka ucun kendi sürekli yakalama işlevini (GUI&#x27;nin Sürekli modu) çalıştırır ve `ContinuousHandle` ile `status()`&#x27;i döndürür; `wait()` ve `stop()` ile birlikte bir `ContinuousHandle` döndürür — her tetiklemenin yüksek bir hızda kaydedilmesi gerektiğinde, yakalama döngüsü yerine bunu kullanın.
+* `arr.continuous("output/")`, arka ucun kendi sürekli yakalama işlevini (GUI'nin Sürekli modu) çalıştırır ve `ContinuousHandle` ile `status()`'i döndürür; `wait()` ve `stop()` ile birlikte bir `ContinuousHandle` döndürür — her tetiklemenin yüksek bir hızda kaydedilmesi gerektiğinde, yakalama döngüsü yerine bunu kullanın.
 
 Yakalama modları (Tekli / Sürekli / Aralık / En Hızlı), kaydediciler, videoya patlama ve dizi hizalama için [SDK Referansı](reference/sdk-reference.md#synchronized-array--arraysession-smart-prep) bölümüne bakın.
 
@@ -226,29 +226,29 @@ print("PROJECT_AVAILABLE =", chloros_sdk.PROJECT_AVAILABLE)  # True iff ChlorosP
 **Yalnızca** `pip install chloros-sdk` bulunan ve Chloros masaüstü paketi olmayan bir ana bilgisayarda:
 
 * `ChlorosLocal`, `process_folder` ve `process_lattice_capture` **çalışmaz** — bunlar, masaüstü yükleyicisi içinde bulunan arka uç ikili dosyasına ihtiyaç duyar.
-* Smart-connect yardımcıları (`connect_camera`, `connect_array`, `connect_daq_sensor`) tamamen HTTP istemcileridir, bu nedenle başka bir makinedeki arka uçla çalışırlar — ancak birlikte gelen arka uçlar yalnızca döngü geriye bağlanır; bu nedenle bağlantı noktasını kendiniz yönlendirmelisiniz (örn. `ssh -N -L 5000:127.0.0.1:5000 user@chloros-host`) ve `backend_url="http://127.0.0.1:5000"` ile `auto_start_backend=False`&#x27;i birlikte kullanmalısınız. Bkz. [Uzak Arka Uç Modu](reference/sdk-reference.md#remote-backend-mode-pip-only-host-via-tunnel).
+* Smart-connect yardımcıları (`connect_camera`, `connect_array`, `connect_daq_sensor`) tamamen HTTP istemcileridir, bu nedenle başka bir makinedeki arka uçla çalışırlar — ancak birlikte gelen arka uçlar yalnızca döngü geriye bağlanır; bu nedenle bağlantı noktasını kendiniz yönlendirmelisiniz (örn. `ssh -N -L 5000:127.0.0.1:5000 user@chloros-host`) ve `backend_url="http://127.0.0.1:5000"` ile `auto_start_backend=False`'i birlikte kullanmalısınız. Bkz. [Uzak Arka Uç Modu](reference/sdk-reference.md#remote-backend-mode-pip-only-host-via-tunnel).
 * Doğrudan donanımla çalışan LATTICE sınıfları (`LatticeCamera`, `CameraPool`, …) içe aktarılabilir, ancak masaüstü paketindeki Arena SDK çalışma zamanı gerektirir — bu olmadan `CAMERA_AVAILABLE`, `False` olur.
-* DAQ sensörleri yalnızca bir (tünellenmiş) arka uç — `connect_daq_sensor()` veya bir projenin `proj.sensors`&#x27;i — aracılığıyla çalıştırılır; arka uç, sensörü kendi makinesinde açar.
+* DAQ sensörleri yalnızca bir (tünellenmiş) arka uç — `connect_daq_sensor()` veya bir projenin `proj.sensors`'i — aracılığıyla çalıştırılır; arka uç, sensörü kendi makinesinde açar.
 
 ## AI asistanları — `chloros-mcp`
 
-SDK, Claude Desktop, Claude Code, Cursor ve diğer MCP istemcilerinin Chloros&#x27;u çalıştırmasına olanak tanıyan bir MCP sunucusu olan `chloros-mcp`&#x27;i içerir: görüntüleri işler ve LATTICE kameralarını, dizilerini ve DAQ ışık sensörlerini çalıştırır. Araçları, bu SDK&#x27;nin işlevlerini kapsar. SDK ile birlikte kurulur; bu nedenle Claude Code için kurulum tek satırlık bir komutla gerçekleştirilir:
+SDK, Claude Desktop, Claude Code, Cursor ve diğer MCP istemcilerinin Chloros'u çalıştırmasına olanak tanıyan bir MCP sunucusu olan `chloros-mcp`'i içerir: görüntüleri işler ve LATTICE kameralarını, dizilerini ve DAQ ışık sensörlerini çalıştırır. Araçları, bu SDK'nin işlevlerini kapsar. SDK ile birlikte kurulur; bu nedenle Claude Code için kurulum tek satırlık bir komutla gerçekleştirilir:
 
 ```bash
 claude mcp add chloros -- chloros-mcp
 ```
 
-Diğer istemciler: [Chloros&#x27;u AI Asistanlarıyla Kullanma](ai-assistants.md). Seçenekler ve tüm araçlar: [MCP Sunucusu (AI Asistanları)](reference/sdk-reference.md#mcp-server-ai-assistants).
+Diğer istemciler: [Chloros'u AI Asistanlarıyla Kullanma](ai-assistants.md). Seçenekler ve tüm araçlar: [MCP Sunucusu (AI Asistanları)](reference/sdk-reference.md#mcp-server-ai-assistants).
 
 ## Lisans gerekliliği
 
-SDK&#x27;ye erişim, herhangi bir ücretli kademede (**Copper veya üstü**; Copper / Bronze / Silver / Gold) aktif bir Chloros+ oturumu gerektirir; ücretsiz Iron kademesinde SDK/CLI erişimi yoktur. Uygulama**sunucu tarafında** gerçekleştirilir: her SDK isteği hem aktif bir oturum hem de ücretli bir plan içermelidir; aksi takdirde arka uç `403` / `PLAN_UPGRADE_REQUIRED` (`ChlorosLicenseError` kodu, `ChlorosLocal` tarafından; `ChlorosConnectError` kodu ise `connect_*` yardımcıları tarafından oluşturulur) hatası döndürür. Oturumu kapatılmış bir çağrı yapan kullanıcı, bunun yerine `401` / `AUTH_REQUIRED` (`ChlorosAuthenticationError`) alır — `chloros-cli login` komutunun yeniden çalıştırılması ilk durumu düzeltir ancak ikincisini düzeltmez.
+SDK'ye erişim, herhangi bir ücretli kademede (**Copper veya üstü**; Copper / Bronze / Silver / Gold) aktif bir Chloros+ oturumu gerektirir; ücretsiz Iron kademesinde SDK/CLI erişimi yoktur. Uygulama**sunucu tarafında** gerçekleştirilir: her SDK isteği hem aktif bir oturum hem de ücretli bir plan içermelidir; aksi takdirde arka uç `403` / `PLAN_UPGRADE_REQUIRED` (`ChlorosLicenseError` kodu, `ChlorosLocal` tarafından; `ChlorosConnectError` kodu ise `connect_*` yardımcıları tarafından oluşturulur) hatası döndürür. Oturumu kapatılmış bir çağrı yapan kullanıcı, bunun yerine `401` / `AUTH_REQUIRED` (`ChlorosAuthenticationError`) alır — `chloros-cli login` komutunun yeniden çalıştırılması ilk durumu düzeltir ancak ikincisini düzeltmez.
 
-Çevrimdışı kullanım, planın ek süre içinde çalışır: kademesi, sunucu doğrulama önbelleğinden (5 dakika) veya imzalanmış, cihaza bağlı lisans önbelleğinden (aylık planlar için 30 gün; yıllık planlar için abonelik süresinin sonuna kadar) okunur. Gecikme süresi dolduğunda, plan ücretsiz seviyeye geçer ve makine sunucuya bir kez bağlanana kadar SDK&#x27;ye erişim durur. `chloros-cli status`, ücretsiz seviyede erişilebilir kalır, böylece neden her zaman görülebilir. Bkz. [Chloros+ Giriş](chloros+-login.md).
+Çevrimdışı kullanım, planın ek süre içinde çalışır: kademesi, sunucu doğrulama önbelleğinden (5 dakika) veya imzalanmış, cihaza bağlı lisans önbelleğinden (aylık planlar için 30 gün; yıllık planlar için abonelik süresinin sonuna kadar) okunur. Gecikme süresi dolduğunda, plan ücretsiz seviyeye geçer ve makine sunucuya bir kez bağlanana kadar SDK'ye erişim durur. `chloros-cli status`, ücretsiz seviyede erişilebilir kalır, böylece neden her zaman görülebilir. Bkz. [Chloros+ Giriş](chloros+-login.md).
 
 ## İstisnalar
 
-&quot;Chloros&#x27;ta meydana gelen her türlü hata&quot;yı işlemek için temel sınıfı yakalayın:
+"Chloros'ta meydana gelen her türlü hata"yı işlemek için temel sınıfı yakalayın:
 
 ```python
 import chloros_sdk
@@ -263,11 +263,11 @@ except chloros_sdk.ChlorosError as e:
     print(f"Chloros error: {e}")
 ```
 
-Tüm boru hattı istisnaları (`ChlorosBackendError`, `ChlorosConnectionError`, `ChlorosLicenseError`, `ChlorosAuthenticationError`, `ChlorosConfigurationError`, `ChlorosProcessingError`) `ChlorosError`&#x27;ten türetilir. Bir dikkat edilmesi gereken nokta: `ChlorosConnectError` — yalnızca `connect_camera` / `connect_array` / `connect_daq_sensor` tarafından tetiklenir — basit `Exception`&#x27;ten türetilir, **`ChlorosError`&#x27;ten** **değil**; dolayısıyla `except ChlorosError` bunu yakalayamaz. Tam hiyerarşi [SDK Referansı](reference/sdk-reference.md#exceptions) bölümünde yer almaktadır.
+Tüm boru hattı istisnaları (`ChlorosBackendError`, `ChlorosConnectionError`, `ChlorosLicenseError`, `ChlorosAuthenticationError`, `ChlorosConfigurationError`, `ChlorosProcessingError`) `ChlorosError`'ten türetilir. Bir dikkat edilmesi gereken nokta: `ChlorosConnectError` — yalnızca `connect_camera` / `connect_array` / `connect_daq_sensor` tarafından tetiklenir — basit `Exception`'ten türetilir, **`ChlorosError`'ten** **değil**; dolayısıyla `except ChlorosError` bunu yakalayamaz. Tam hiyerarşi [SDK Referansı](reference/sdk-reference.md#exceptions) bölümünde yer almaktadır.
 
 ## Ayrıca bakınız
 
 * [SDK Referansı](reference/sdk-reference.md) — AI asistanları için optimize edilmiş eksiksiz API yüzeyi.
 * [CLI Referansı](reference/cli-reference.md) — her CLI alt komutu, bir SDK çağrısını yansıtır.
-* [Chloros&#x27;u AI Asistanlarıyla Kullanma](ai-assistants.md) — `chloros-mcp` kurulum ve komut istemi örnekleri.
+* [Chloros'u AI Asistanlarıyla Kullanma](ai-assistants.md) — `chloros-mcp` kurulum ve komut istemi örnekleri.
 * [İndir](download.md) — Windows ve Linux için yükleyiciler.

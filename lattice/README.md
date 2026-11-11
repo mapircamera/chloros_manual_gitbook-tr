@@ -1,6 +1,6 @@
 # LATTICE Kameralar
 
-LATTICE, MAPIR&#x27;ın tarım ve bilimsel görüntüleme amaçlı modüler multispektral kamera sistemidir. Her LATTICE kamera, Sony IMX265 global deklanşör sensörü (**3,1 MP, 3,45 µm pikseller**) üzerine kurulmuştur ve**GigE Vision** cihazı olarak Ethernet üzerinden bağlanır.
+LATTICE, MAPIR'ın tarım ve bilimsel görüntüleme amaçlı modüler multispektral kamera sistemidir. Her LATTICE kamera, Sony IMX265 global deklanşör sensörü (**3,1 MP, 3,45 µm pikseller**) üzerine kurulmuştur ve**GigE Vision** cihazı olarak Ethernet üzerinden bağlanır.
 
 Chloros 1.3.0, LATTICE kameralarını üç arayüz üzerinden canlı olarak kontrol eder — keşif, canlı önizleme, çekim ve senkronize çoklu kamera dizileri —:
 
@@ -10,9 +10,9 @@ Chloros 1.3.0, LATTICE kameralarını üç arayüz üzerinden canlı olarak kont
 | CLI        | `chloros-cli lattice` komut ailesi                           | Windows 10/11 x64, Linux x86\_64, Linux aarch64 (Jetson) |
 | Python SDK | `chloros_sdk.connect_camera()` / `chloros_sdk.connect_array()` | Windows 10/11 x64, Linux x86\_64, Linux aarch64 (Jetson) |
 
-> **Donanım mı arıyorsunuz?**Kamera modülleri, lensler, filtreler ve bantlar, çerçeveler ve montaj parçaları, kablolar, PoE ve tetikleme kabloları [**LATTICE kullanım kılavuzunda**](https://mapir.gitbook.io/lattice-camera) belgelenmiştir. Bu bölüm, Chloros&#x27;tan kameraların çalıştırılmasını ele almaktadır.
+> **Donanım mı arıyorsunuz?**Kamera modülleri, lensler, filtreler ve bantlar, çerçeveler ve montaj parçaları, kablolar, PoE ve tetikleme kabloları [**LATTICE kullanım kılavuzunda**](https://mapir.gitbook.io/lattice-camera) belgelenmiştir. Bu bölüm, Chloros'tan kameraların çalıştırılmasını ele almaktadır.
 
-LATTICE kayıtları standart `.tif`/`.tiff` dosyalarıdır ve Chloros bunları her zaman ham kayıt halinden başlayarak işler. Komutların ve API&#x27;nin tam listesi için [CLI Referansı](../reference/cli-reference.md) ve [SDK Referansı](../reference/sdk-reference.md) bölümlerine bakınız.
+LATTICE kayıtları standart `.tif`/`.tiff` dosyalarıdır ve Chloros bunları her zaman ham kayıt halinden başlayarak işler. Komutların ve API'nin tam listesi için [CLI Referansı](../reference/cli-reference.md) ve [SDK Referansı](../reference/sdk-reference.md) bölümlerine bakınız.
 
 ## İki sensör yapılandırması
 
@@ -43,15 +43,15 @@ Model dizesi, sonraki tüm işlemleri yönlendirir: Chloros, `DeviceUserID` + `D
 
 ## Filtreler ve bantlar
 
-Bant merkezleri, FWHM kenarları ve 23 SKU&#x27;luk tam M3M kataloğu ürün özellikleridir, bu nedenle donanım kılavuzunda yer alırlar: [**Filtreler ve Spektral Bantlar**](https://mapir.gitbook.io/lattice-camera/hardware/filters-and-bands).
+Bant merkezleri, FWHM kenarları ve 23 SKU'luk tam M3M kataloğu ürün özellikleridir, bu nedenle donanım kılavuzunda yer alırlar: [**Filtreler ve Spektral Bantlar**](https://mapir.gitbook.io/lattice-camera/hardware/filters-and-bands).
 
-Yazılım açısından önemli olan nokta şudur: model dizesindeki filtre kodu, Chloros&#x27;un hangi ürünleri oluşturabileceğini belirler. RGB filtreli kameralar (`FRGB`) yalnızca debayering işleminden geçirilmiş ve önizleme ürünleri üretir — geniş bantlı bir sensör için bant başına parlaklık ve yansıma değerleri anlamlı değildir, bu nedenle Chloros bunları atlar ve bunu belirtir. Diğer tüm filtreler tam parlaklık → yansıma → indeks zincirini sağlar.
+Yazılım açısından önemli olan nokta şudur: model dizesindeki filtre kodu, Chloros'un hangi ürünleri oluşturabileceğini belirler. RGB filtreli kameralar (`FRGB`) yalnızca debayering işleminden geçirilmiş ve önizleme ürünleri üretir — geniş bantlı bir sensör için bant başına parlaklık ve yansıma değerleri anlamlı değildir, bu nedenle Chloros bunları atlar ve bunu belirtir. Diğer tüm filtreler tam parlaklık → yansıma → indeks zincirini sağlar.
 
 ## Radyometrik kalibrasyona genel bakış
 
-Her LATTICE kamera, fabrikada NIST&#x27;e izlenebilir bir zincir kullanılarak ayrı ayrı kalibre edilir ve kamera başına bir sertifika ile birlikte gönderilir. Bunun kapsamı, nasıl ölçüldüğü ve belirtilebilecek doğruluk derecesi donanım kılavuzunda yer almaktadır: [**Fabrika Radyometrik Kalibrasyonu**](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration).
+Her LATTICE kamera, fabrikada NIST'e izlenebilir bir zincir kullanılarak ayrı ayrı kalibre edilir ve kamera başına bir sertifika ile birlikte gönderilir. Bunun kapsamı, nasıl ölçüldüğü ve belirtilebilecek doğruluk derecesi donanım kılavuzunda yer almaktadır: [**Fabrika Radyometrik Kalibrasyonu**](https://mapir.gitbook.io/lattice-camera/calibration/factory-radiometric-calibration).
 
-Yazılım açısından önemli olan, bir kamera bağlandığında Chloros&#x27;un doğru kalibrasyonu belirlemesi ve uygulanan katsayıları her dışa aktarımda sabitlemesidir — bkz. [Kameraları Bağlama](connecting.md).
+Yazılım açısından önemli olan, bir kamera bağlandığında Chloros'un doğru kalibrasyonu belirlemesi ve uygulanan katsayıları her dışa aktarımda sabitlemesidir — bkz. [Kameraları Bağlama](connecting.md).
 
 ## Bu bölümde
 

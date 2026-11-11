@@ -6,7 +6,7 @@ Harita sekmesi, görüntülerinizi GPS koordinatlarına göre etkileşimli bir 2
 
 ## Harita Sekmesine Erişme
 
-1. Chloros&#x27;te bir proje açın veya oluşturun
+1. Chloros'te bir proje açın veya oluşturun
 2. GPS meta verileri içeren görüntüleri içe aktarın
 3. Sol kenar çubuğundaki **Harita** <img src="../.gitbook/assets/image (3) (1).png" alt="" data-size="line"> sekmesine tıklayın
 4. Harita, her görüntünün GPS konumunda bir işaretçi gösterir
@@ -82,7 +82,7 @@ GPS verileri içeren her görüntünün koordinatlarına bir işaretçi eklenir.
 
 Düğmeleri kullanarak (soldan sağa doğru) harita katmanı türünü seçin:
 
-![](&lt;../.gitbook/assets/image (14).png&gt;)
+![](<../.gitbook/assets/image (14).png>)
 
 | Tür                 | Gösterilenler                                                                |
 | -------------------- | -------------------------------------------------------------------- |
@@ -114,7 +114,7 @@ Düğmeleri kullanarak (soldan sağa doğru) harita katmanı türünü seçin:
 ### Kalite kontrol
 
 * Beklenmedik bir yerde çekilmiş görüntüleri bulun ve işleme öncesinde bunları kaldırın
-* Yükseklik&#x27;e göre sıralayarak yanlış yükseklikte çekilmiş veya GPS sinyalinin zayıf olduğu bir kareyi tespit edin
+* Yükseklik'e göre sıralayarak yanlış yükseklikte çekilmiş veya GPS sinyalinin zayıf olduğu bir kareyi tespit edin
 * Görüntü konumlarını saha notlarıyla karşılaştırın
 
 ***
@@ -129,11 +129,11 @@ Düğmeleri kullanarak (soldan sağa doğru) harita katmanı türünü seçin:
 * Çekim sırasında kamerada GPS devre dışı bırakılmıştı
 * İçe aktarımdan önce EXIF verileri başka bir yazılım tarafından silinmiş
 
-**Ne yapmalı**: Kamerada GPS&#x27;in etkin olduğunu doğrulayın ve orijinal dosyaları yeniden içe aktarın. Harita sekmesindeki dosya tablosunda aradığınız dosyayı bularak, belirli bir dosyanın koordinatları olup olmadığını kontrol edebilirsiniz — koordinatları olmayan bir görüntünün bu tabloda satırı yoktur.
+**Ne yapmalı**: Kamerada GPS'in etkin olduğunu doğrulayın ve orijinal dosyaları yeniden içe aktarın. Harita sekmesindeki dosya tablosunda aradığınız dosyayı bularak, belirli bir dosyanın koordinatları olup olmadığını kontrol edebilirsiniz — koordinatları olmayan bir görüntünün bu tabloda satırı yoktur.
 
 ### İşaretçiler yanlış yerde
 
-**Olası nedenler**: çekim anında zayıf uydu sinyali veya oturum sırasında GPS sapması.**Ne yapmalı**: Bu, Chloros&#x27;in sonradan düzeltebileceği bir sorun değil, çekim anında ortaya çıkan bir sorundur. Hassas çalışmalar için bir PPK/RTK GPS iş akışı kullanın — [Proje Ayarları](../project-settings/project-settings.md) bölümündeki**PPK düzeltmelerini uygula** ayarına bakın.
+**Olası nedenler**: çekim anında zayıf uydu sinyali veya oturum sırasında GPS sapması.**Ne yapmalı**: Bu, Chloros'in sonradan düzeltebileceği bir sorun değil, çekim anında ortaya çıkan bir sorundur. Hassas çalışmalar için bir PPK/RTK GPS iş akışı kullanın — [Proje Ayarları](../project-settings/project-settings.md) bölümündeki**PPK düzeltmelerini uygula** ayarına bakın.
 
 ### Harita boş veya döşemeler yüklenmiyor
 

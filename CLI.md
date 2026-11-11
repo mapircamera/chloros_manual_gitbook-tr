@@ -1,10 +1,10 @@
 # CLI: Komut Satırı
 
-> **Tam referans:**[CLI Referansı](reference/cli-reference.md),**her alt komutun tüm bayraklarını** belgeler ve AI asistanları için optimize edilmiştir — URL&#x27;sini asistanınıza yapıştırın ve çalışan bir komut isteyin: `https://mapir.gitbook.io/chloros/reference/cli-reference`
+> **Tam referans:**[CLI Referansı](reference/cli-reference.md),**her alt komutun tüm bayraklarını** belgeler ve AI asistanları için optimize edilmiştir — URL'sini asistanınıza yapıştırın ve çalışan bir komut isteyin: `https://mapir.gitbook.io/chloros/reference/cli-reference`
 >
-> **AI araçları için ipucu:** Bu kılavuzun herhangi bir sayfası, URL&#x27;sine `.md` eklenerek ham Markdown biçiminde erişilebilir (örn. `https://mapir.gitbook.io/chloros/reference/cli-reference.md`), ve `https://mapir.gitbook.io/chloros/llms.txt`, LLM kullanımı için kılavuzun tamamını indeksler.
+> **AI araçları için ipucu:** Bu kılavuzun herhangi bir sayfası, URL'sine `.md` eklenerek ham Markdown biçiminde erişilebilir (örn. `https://mapir.gitbook.io/chloros/reference/cli-reference.md`), ve `https://mapir.gitbook.io/chloros/llms.txt`, LLM kullanımı için kılavuzun tamamını indeksler.
 
-> **Asistanınızın Chloros&#x27;u kendisi çalıştırmasını mı istiyorsunuz?** Python SDK ile kurulan bir MCP sunucusu olan `chloros-mcp`, Claude Desktop, Claude Code, Cursor ve diğer MCP istemcileriyle çalışır: bkz. [Chloros&#x27;u AI Asistanlarıyla Kullanma](ai-assistants.md).
+> **Asistanınızın Chloros'u kendisi çalıştırmasını mı istiyorsunuz?** Python SDK ile kurulan bir MCP sunucusu olan `chloros-mcp`, Claude Desktop, Claude Code, Cursor ve diğer MCP istemcileriyle çalışır: bkz. [Chloros'u AI Asistanlarıyla Kullanma](ai-assistants.md).
 
 <figure><img src=".gitbook/assets/cli.JPG" alt=""><figcaption></figcaption></figure>
 <!-- SCREENSHOT-UPDATE: banner shows CLI 1.1.0; reshoot the CLI welcome/banner output on the 1.3.0 build so the version line reads "Chloros CLI 1.3.0" -->
@@ -30,7 +30,7 @@ Komut gruplarına genel bakış:
 
 * **İşleme ve hesap** — `process`, `login`, `logout`, `status`, `export-status`, `language` (38 dil — bkz. [Desteklenen Diller](supported-languages.md)), `set-project-folder` / `get-project-folder` / `reset-project-folder`, `selftest`, `update` (Yalnızca Linux
 /Jetson)
-* **Canlı donanım** — `lattice` (LATTICE kamera kontrolü, 45&#x27;ten fazla alt komut), `daq pool-*` (DAQ ışık sensörleri), `time-sync` (PTP)
+* **Canlı donanım** — `lattice` (LATTICE kamera kontrolü, 45'ten fazla alt komut), `daq pool-*` (DAQ ışık sensörleri), `time-sync` (PTP)
 * **Otomasyon** — `project` (YAML yakalama tarifleri dahil olmak üzere, kaydedilmiş bir Chloros
 projesini başsız olarak çalıştırma)
 
@@ -50,7 +50,7 @@ indirme dosyası yoktur. Kurulum programını [İndirme](download.md) sayfasınd
 
 
 Yükleyici, CLI
-&#x27;yi şu konuma yerleştirir:
+'yi şu konuma yerleştirir:
 
 ```
 
@@ -59,14 +59,14 @@ C:\Program Files\Chloros\cli\chloros-cli.exe
 
 konumuna yerleştirir ve bu klasörü sisteminize `PATH` bir kez ekler (yükseltme işlemi, önceki yükleyiciler tarafından bırakılan yinelenen girdileri de kaldırır) — kurulumdan sonra **yeni bir terminal açın**, böylece güncellenmiş `PATH` algılanır. Yükleyici ayrıca kurulum kök dizinine başlatıcı komut dosyalarını (`Chloros_CLI.bat` / `Chloros_CLI.ps1`) ve**Chloros
 CLI
-** Başlat menüsü kısayolu yerleştirir; bunların her biri, `chloros-cli`&#x27;in kullanıma hazır olduğu bir terminal açar.
+** Başlat menüsü kısayolu yerleştirir; bunların her biri, `chloros-cli`'in kullanıma hazır olduğu bir terminal açar.
 
 ### Linux
 
 
 Mimarinize uygun `.deb` dosyasını, `apt` ile yükleyin (Python
 SDK
-&#x27;nin önerilen gereksinimlerini atlayan `dpkg -i` dosyasını kullanmayın):
+'nin önerilen gereksinimlerini atlayan `dpkg -i` dosyasını kullanmayın):
 
 ```bash
 # Linux x86_64
@@ -76,11 +76,11 @@ sudo apt install ./chloros_1.3.0_amd64.deb
 sudo apt install ./chloros_1.3.0_arm64_jp6.deb
 ```
 
-Bu, `chloros-cli`&#x27;i `/usr/bin/chloros-cli`&#x27;e (zaten `PATH`&#x27;te mevcuttur), arka uç ve CLI
-programları `/usr/lib/chloros/backend/` ve `/usr/lib/chloros/cli/`&#x27;e açılır (`/usr/lib/chloros/chloros-backend`, arka ucu başlatan bir başlatıcıdır), arka ucun LATTICE kameraları için ihtiyaç duyduğu Arena SDK
+Bu, `chloros-cli`'i `/usr/bin/chloros-cli`'e (zaten `PATH`'te mevcuttur), arka uç ve CLI
+programları `/usr/lib/chloros/backend/` ve `/usr/lib/chloros/cli/`'e açılır (`/usr/lib/chloros/chloros-backend`, arka ucu başlatan bir başlatıcıdır), arka ucun LATTICE kameraları için ihtiyaç duyduğu Arena SDK
 çalışma zamanı ve sistem için Python
 SDK
-&#x27;si `python3`&#x27;e yüklenir. Ayrıntılar için [Linux
+'si `python3`'e yüklenir. Ayrıntılar için [Linux
 Kurulumu](linux/linux-installation.md) bölümüne bakın.
 
 ### Doğrulama
@@ -120,7 +120,7 @@ chloros-cli status
 , 401 hatasında bunu algılar ve otomatik olarak yeniden dener, ancak tek tırnak işaretleri bu sorunu tamamen ortadan kaldırır).
 {% endhint %}
 
-Oturum, `~/.chloros/user_session.json`&#x27;te önbelleğe alınır ve planın ek süre boyunca çevrimdışı olarak çalışmaya devam eder (aylık planlar için 30 gün, yıllık planlar için son kullanma tarihine kadar). `chloros-cli status`, ücretli bir plan olmasa bile çalışır; bu nedenle reddedilme nedeni her zaman görülebilir.
+Oturum, `~/.chloros/user_session.json`'te önbelleğe alınır ve planın ek süre boyunca çevrimdışı olarak çalışmaya devam eder (aylık planlar için 30 gün, yıllık planlar için son kullanma tarihine kadar). `chloros-cli status`, ücretli bir plan olmasa bile çalışır; bu nedenle reddedilme nedeni her zaman görülebilir.
 
 {% hint style="danger" %}
 **Headless iş mi planlıyorsunuz? Önce oturum açın.**Arka uç oluşturma komutları (`process`, `status`, `export-status`, …)**önbelleğe alınmış oturum olmadan**çalıştırıldığında hızlı bir şekilde hata vermez — stdin üzerinde etkileşimli bir `Email:` / `Password:` komut istemine geçer. Bu nedenle, gözetimsiz bir cron işi veya CI adımı**giriş beklerken takılır**. Herhangi bir şey planlamadan önce makinede `chloros-cli login EMAIL 'PASSWORD'` komutunu bir kez çalıştırın.
@@ -131,7 +131,7 @@ Oturum, `~/.chloros/user_session.json`&#x27;te önbelleğe alınır ve planın e
 ## İlk İşleme Çalıştırmanız
 
 `process` komutunu yakalama dosyalarının bulunduğu bir klasöre yönlendirin — Survey3
-&#x27;ü (`.raw` + `.jpg`), LATTICE (`.tif`/`.tiff`), `.dng` veya bunların bir karışımını otomatik olarak algılar:
+'ü (`.raw` + `.jpg`), LATTICE (`.tif`/`.tiff`), `.dng` veya bunların bir karışımını otomatik olarak algılar:
 
 ```bash
 chloros-cli process "C:\Images\flight_001"          # Windows
@@ -144,27 +144,27 @@ chloros-cli process ~/images/flight_001              # Linux
 
 Chloros<!-- SCREENSHOT-NEEDED: terminal capture of a `chloros-cli process` run on a LATTICE captures folder completing successfully — per-thread progress lines visible and the final "Image products written: N (plus M clamp masks)" summary line -->
 arka ucu zaten çalışıyorsa (örneğin masaüstü uygulamasınınki), `process` bunu kullanır ve projesini bu arka uçta açar. Uygulama, kendi açtığı bir proje üzerindeyken işlem yapmayı reddeder: uygulamadan işlemi başlatın veya o projeyi kapatın. Önceki bir çalıştırma hâlâ tamamlanıyorsa, reddetmeden önce 15 saniyeye kadar bekler. `--restart` yeni bir arka uç başlatır. Linux
-&#x27;ta, bir systemd hizmeti tarafından çalıştırılan arka uç asla yeniden başlatılmaz: `process` onu olduğu gibi kullanır ve normalde yeniden başlatması gereken durumlarda (`--restart` veya hiçbir şey bulamayan bir içe aktarma), `sudo systemctl restart <unit>` mesajını yazdırır ve `1`&#x27;ten çıkar.
+'ta, bir systemd hizmeti tarafından çalıştırılan arka uç asla yeniden başlatılmaz: `process` onu olduğu gibi kullanır ve normalde yeniden başlatması gereken durumlarda (`--restart` veya hiçbir şey bulamayan bir içe aktarma), `sudo systemctl restart <unit>` mesajını yazdırır ve `1`'ten çıkar.
 
 ### Çıktıların nereye kaydedildiği
 
 `process`, girdi klasörünüze değil, bir **proje klasörüne** yazar:
 
 * `-o` belirtilmediğinde: proje, varsayılan proje klasörünüzün altında oluşturulur (GUI ile paylaşılır; `get-project-folder` / `set-project-folder` ile yönetilir; hiçbiri ayarlanmadığında, kullanıcı klasörünüzdeki `Documents/MAPIR/Chloros Projects`), adı `-n/--project-name` olarak belirlenir veya belirtilmezse bir zaman damgası (`YYYYMMDD_HHMMSS`) kullanılır.
-* `-o PATH` ile: bu klasör **proje klasörüdür**. Eğer içinde zaten bir `project.json` varsa, üzerine yazmak yerine `_1`/`_2`… sonekli bir alt klasör oluşturulur. Göreli bir `PATH`, `chloros-cli`&#x27;i çalıştırdığınız klasöre göre belirlenir.
+* `-o PATH` ile: bu klasör **proje klasörüdür**. Eğer içinde zaten bir `project.json` varsa, üzerine yazmak yerine `_1`/`_2`… sonekli bir alt klasör oluşturulur. Göreli bir `PATH`, `chloros-cli`'i çalıştırdığınız klasöre göre belirlenir.
 
 {% hint style="info" %}
-**Göreceli yollar (1.3.0 sürümünde değiştirilmiştir).** Arka uç tarafından açılan her yol — herhangi bir komutta (yakalama komutlarının varsayılan `output` komutu dahil) `-o`/`--output`, `--input`, `--burst-dir`, `--profile`, `--save` ve `--mask` — komutunun çözümlenmesi, `chloros-cli` komutunu çalıştırdığınız klasöre göre yapılır; dolayısıyla `-o captures/`, `<current folder>/captures/` dosyasına yazma işlemi gerçekleştirir. 1.2.0 sürümünde arka uç, bunları kendi kurulum klasöründe çözümlüyordu; bu da &quot;Erişim reddedildi&quot; hatasıyla sonuçlanıyordu. Uzak bir arka uca (`CHLOROS_BACKEND_URL`) karşı yollar, yazıldığı gibi gönderilir ve o makinede çözümlenir.
+**Göreceli yollar (1.3.0 sürümünde değiştirilmiştir).** Arka uç tarafından açılan her yol — herhangi bir komutta (yakalama komutlarının varsayılan `output` komutu dahil) `-o`/`--output`, `--input`, `--burst-dir`, `--profile`, `--save` ve `--mask` — komutunun çözümlenmesi, `chloros-cli` komutunu çalıştırdığınız klasöre göre yapılır; dolayısıyla `-o captures/`, `<current folder>/captures/` dosyasına yazma işlemi gerçekleştirir. 1.2.0 sürümünde arka uç, bunları kendi kurulum klasöründe çözümlüyordu; bu da "Erişim reddedildi" hatasıyla sonuçlanıyordu. Uzak bir arka uca (`CHLOROS_BACKEND_URL`) karşı yollar, yazıldığı gibi gönderilir ve o makinede çözümlenir.
 {% endhint %}
 
 {% hint style="warning" %}
 **Windows
 : Uzun yol seçeneği etkin değilse proje klasörünü kısa tutun.** Windows
-&#x27;ta uzun yol seçeneği kapalıyken (Windows
-&#x27;ın varsayılan ayarı), hiçbir dosya yolu 260 karakterden uzun olamaz ve ürünler, proje klasörünün yaklaşık 130 karakter altına yerleştirilir. `process`, başlamadan önce bunu kontrol eder: çok derin bir proje klasörü, **&quot;Proje klasörü bu bilgisayar için çok derin&quot;** hatasıyla reddedilir; sığabilecek en uzun proje klasörü belirlenir ve uzun yolların nasıl etkinleştirileceği gösterilir — hiçbir işlem gerçekleştirilmez. Daha kısa bir `-o` (veya `set-project-folder`) kullanın ya da Windows
+'ta uzun yol seçeneği kapalıyken (Windows
+'ın varsayılan ayarı), hiçbir dosya yolu 260 karakterden uzun olamaz ve ürünler, proje klasörünün yaklaşık 130 karakter altına yerleştirilir. `process`, başlamadan önce bunu kontrol eder: çok derin bir proje klasörü, **"Proje klasörü bu bilgisayar için çok derin"** hatasıyla reddedilir; sığabilecek en uzun proje klasörü belirlenir ve uzun yolların nasıl etkinleştirileceği gösterilir — hiçbir işlem gerçekleştirilmez. Daha kısa bir `-o` (veya `set-project-folder`) kullanın ya da Windows
 uzun yollarını etkinleştirin (yükleyicideki **Windows
 uzun yollarını etkinleştir** seçeneği, varsayılan olarak işaretlidir) ve Chloros
-&#x27;u yeniden başlatın.
+'u yeniden başlatın.
 {% endhint %}
 
 Proje içinde ürünler **önce kameraya, ardından dosya formatına göre** gruplandırılır:
@@ -183,8 +183,8 @@ Proje içinde ürünler **önce kameraya, ardından dosya formatına göre** gru
         └── Radiance_Images/             # float32 radiance always lands here
 ```
 
-LATTICE için kamera klasörü `LATT-<sensor>-<lens>-F<filter>`&#x27;tir (çekimin EXIF verisiyle eşleşir: `Model`) ve Survey3
-için `<model>_<filter>` (örn. `Survey3N_RGN`) şeklindedir. Biçim klasörü ise `--format`&#x27;ten sonra şu şekilde devam eder: `tiff16`, `tiff8`, `png8`, `jpg8` veya `tiff32`; `TIFF (32-bit, Percent)` için.
+LATTICE için kamera klasörü `LATT-<sensor>-<lens>-F<filter>`'tir (çekimin EXIF verisiyle eşleşir: `Model`) ve Survey3
+için `<model>_<filter>` (örn. `Survey3N_RGN`) şeklindedir. Biçim klasörü ise `--format`'ten sonra şu şekilde devam eder: `tiff16`, `tiff8`, `png8`, `jpg8` veya `tiff32`; `TIFF (32-bit, Percent)` için.
 
 Çok spektrumlu bir M3C kamera için, bir format klasöründe ürün klasörlerinin yanında bir `clamp_masks/` klasörü de görünebilir (örneğin, `tiff16/clamp_masks/Reflectance_Calibrated_Images/` ve `tiff32/clamp_masks/Radiance_Images/`). Bu klasör, bant ayrıştırma işleminin negatif bir değeri sıfıra sabitlediği parlaklık ve yansıma ürünlerinin piksel başına maskelerini içerir — bkz. [Sabitleme maskeleri](output-image-formats.md#clamp-masks). Hiçbir ürün klasörü maske içermez.
 
@@ -198,17 +198,17 @@ için `<model>_<filter>` (örn. `Survey3N_RGN`) şeklindedir. Biçim klasörü i
 | --- | --- | --- |
 | `-o, --output PATH` | varsayılan proje klasörü | Proje klasörünün konumu (yukarıya bakın). |
 | `-n, --project-name NAME` | zaman damgası | Proje adı. |
-| `--format FMT` | `TIFF (16-bit)` | `TIFF (16-bit)`, `TIFF (8-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)`&#x27;ten biri. Chloros
+| `--format FMT` | `TIFF (16-bit)` | `TIFF (16-bit)`, `TIFF (8-bit)`, `TIFF (32-bit, Percent)`, `PNG (8-bit)`, `JPG (8-bit)`'ten biri. Chloros
 , görüntüleri büyütmez: tüm 8 bitlik görüntülerde daha derin bir format `TIFF (8-bit)` olarak yazılır ve bu durum bir kez belirtilir. |
 | `--indices NAME [NAME ...]` | yok | Dışa aktarılacak bitki örtüsü indeksleri (bkz. [Bitki Örtüsü İndeksleri](#vegetation-indices)). |
 | `--debayer {standard,texture-aware}` | `standard` | `texture-aware` = sinir ağı tabanlı debayer, daha yavaş, en yüksek kalite (Chloros
 +, CUDA GPU gerektirir: CUDA GPU yoksa işlemde `standard` kullanılır; her zaman `standard` kullanılan LATTICE yakalamaları için reddedilir). |
 | `--vignette / --no-vignette` | açık | Vinyet düzeltmesi. |
 | `--reflectance / --no-reflectance` | açık | Yansıma kalibrasyonu; LATTICE için bu aynı zamanda yansıma ürünü anahtarıdır. |
-| `--input-level {auto,raw,debayered,processed}` | `auto` | LATTICE TIFF&#x27;leri için iş akışı giriş noktasını zorla. |
+| `--input-level {auto,raw,debayered,processed}` | `auto` | LATTICE TIFF'leri için iş akışı giriş noktasını zorla. |
 
 Diğer tüm öğeler için — hedef algılama ayarlaması, PPK, pozlama pimleri, dizi hizalama bayrakları — [CLI
-Referansı&#x27;ndaki `process` bölümüne](reference/cli-reference.md) bakın.
+Referansı'ndaki `process` bölümüne](reference/cli-reference.md) bakın.
 
 ***
 
@@ -218,7 +218,7 @@ LATTICE işleme, **tek bir geçişte tüm uygun ürünlere**yayılır. Ürün ba
 
 | Anahtar | Ürün |
 | --- | --- |
-| `--debayered` | Doğrusal demosaik → `Debayered_Images/`: kalibrasyon paketindeki karanlık ofseti kaldırılır, ardından kenar duyarlı demosaik uygulanır; doğrusallık düzeltmesi, düz alan veya renk ayrıştırma yapılmaz — bu, bir çekimin `debayered` seviyesinde kaydettiği dosya ile aynıdır. Sensörün doğal yönelimi korunur (XMP&#x27;ye kaydedilir). |
+| `--debayered` | Doğrusal demosaik → `Debayered_Images/`: kalibrasyon paketindeki karanlık ofseti kaldırılır, ardından kenar duyarlı demosaik uygulanır; doğrusallık düzeltmesi, düz alan veya renk ayrıştırma yapılmaz — bu, bir çekimin `debayered` seviyesinde kaydettiği dosya ile aynıdır. Sensörün doğal yönelimi korunur (XMP'ye kaydedilir). |
 | `--preview` | Ekran önizlemesi (beyaz dengesi + gama; multispektral için sahte renk genişletme) → `Preview_Images/` |
 | `--radiance` | float32 parlaklık, W/m²/sr/nm → `Radiance_Images/` (her zaman `tiff32/`) |
 | `--reflectance` | uint16 yansıma, Pix4D uyumlu → `Reflectance_Calibrated_Images/` |
@@ -232,15 +232,15 @@ ana kameralar her zaman yalnızca debayering işleminden geçirilmiş + önizlem
 chloros-cli process ~/captures/lattice_flight --no-debayered --no-preview --no-reflectance
 ```
 
-**`--reflectance-source {auto,target,daq}`** (varsayılan `auto`) yansıma referansını seçer: `auto`, QA&#x27;yı geçen çerçeve içi [kalibrasyon hedefi](calibration-targets.md)&#x27;ni mutlak referans olarak belirler ve hedef bulunmadığında DAQ ışık sensörünün aşağı doğru ışık bölünmesine (ρ = π·L/E) değerine geri döner; `target` katı bir kuraldır (DAQ ile değiştirme yapılmaz); `daq`, DAQ&#x27;ya göre geçerlidir. Birim başına ölçülen hedef taramaları, `--target-reflectance-dir` ile sağlanabilir.
+**`--reflectance-source {auto,target,daq}`** (varsayılan `auto`) yansıma referansını seçer: `auto`, QA'yı geçen çerçeve içi [kalibrasyon hedefi](calibration-targets.md)'ni mutlak referans olarak belirler ve hedef bulunmadığında DAQ ışık sensörünün aşağı doğru ışık bölünmesine (ρ = π·L/E) değerine geri döner; `target` katı bir kuraldır (DAQ ile değiştirme yapılmaz); `daq`, DAQ'ya göre geçerlidir. Birim başına ölçülen hedef taramaları, `--target-reflectance-dir` ile sağlanabilir.
 
 {% hint style="info" %}
-**Yansıma piksellerinin okunması:**ρ = 1,0 anlamına gelen DN**kaynak başına**dır — LATTICE dosyaları, XMP&#x27;ye `Chloros:PixelScale=32768` damgasını vurur; Survey3
+**Yansıma piksellerinin okunması:**ρ = 1,0 anlamına gelen DN**kaynak başına**dır — LATTICE dosyaları, XMP'ye `Chloros:PixelScale=32768` damgasını vurur; Survey3
 dosyaları 65535 değerini kullanır ve `Chloros:PixelScale` etiketini içermez (ancak diğer `Chloros:*` işleme etiketlerini içerir). Sabit bir değer varsaymak yerine etiketi okuyun ve ona bölün. Ayrıntılar ve kasıtlı olarak ölçeklendirilmemiş tek kenar durumu [CLI
 Referansı](reference/cli-reference.md) içinde yer almaktadır.
 {% endhint %}
 
-**İşleme her zaman `raw`&#x27;ten başlar.** Türetilmiş ürünler (debayering/parlaklık/yansıtma dışa aktarımları) asla işleme hattına geri beslenmez — bunların yeniden içe aktarılması ve işlenmesi, kalibrasyon hesaplamalarının iki kez uygulanmasına neden olur; bu nedenle Chloros
+**İşleme her zaman `raw`'ten başlar.** Türetilmiş ürünler (debayering/parlaklık/yansıtma dışa aktarımları) asla işleme hattına geri beslenmez — bunların yeniden içe aktarılması ve işlenmesi, kalibrasyon hesaplamalarının iki kez uygulanmasına neden olur; bu nedenle Chloros
 bunları atlar ve bunu belirtir. `--input-level`, gerçekten bir giriş noktasını zorla belirlemeniz gerektiğinde kullanılacak kasıtlı bir kaçış yoludur.
 
 ***
@@ -249,12 +249,12 @@ bunları atlar ve bunu belirtir. `--input-level`, gerçekten bir giriş noktası
 
 1.2.0 sürümünden itibaren, `process`, hiçbir sonuç göstermeden “başarılı” olmak yerine açıkça hata verir:
 
-* **Ürün talep eden ancak hiçbir ürün yazmayan**bir çalıştırma — yalnızca `project.json` ve `calibration_data.json` — `Processing finished but wrote no image products.` mesajını yazdırır ve**sıfırdan farklı bir değerle sonlanır**, böylece komut dosyaları bunu algılayabilir. Yaygın nedenler: giriş klasörü bir yakalama olarak tanınmadı (düzeni ve `--input-level`&#x27;i kontrol edin) veya istenen tüm ürünler o kameralar için uygun değildi (ör. yalnızca RGB
+* **Ürün talep eden ancak hiçbir ürün yazmayan**bir çalıştırma — yalnızca `project.json` ve `calibration_data.json` — `Processing finished but wrote no image products.` mesajını yazdırır ve**sıfırdan farklı bir değerle sonlanır**, böylece komut dosyaları bunu algılayabilir. Yaygın nedenler: giriş klasörü bir yakalama olarak tanınmadı (düzeni ve `--input-level`'i kontrol edin) veya istenen tüm ürünler o kameralar için uygun değildi (ör. yalnızca RGB
 kameralardan parlaklık/yansıtma değeri istenmesi).
 * **Kasıtlı olarak yalnızca meta verilerle yapılan bir çalıştırma** (tüm ürünler devre dışı, `--indices` yok) yine de başarılı sayılır — bu durumda boş bir görüntü çıktısı doğru sonuçtur.
 * `--verbose` ile yeniden çalıştırın ve arka uç günlüğünde, kamera başına atlamaları açıklayan `[LATTICE-EXPORT]` / `[EXPORT-CHECK]` satırlarını kontrol edin.
 * Uzun yolların devre dışı bırakıldığı Windows
-&#x27;da, 260 karakterlik yol sınırını aşan çok derin bir proje klasörü, işleme başlamadan **önce** reddedilir ve sığabilecek en uzun proje klasörü kullanılır (bkz. [Çıktıların nereye kaydedildiği](#where-the-outputs-land)).
+'da, 260 karakterlik yol sınırını aşan çok derin bir proje klasörü, işleme başlamadan **önce** reddedilir ve sığabilecek en uzun proje klasörü kullanılır (bkz. [Çıktıların nereye kaydedildiği](#where-the-outputs-land)).
 * Yakalama komutları (`lattice capture`, `lattice array-capture` ve diğer yakalama aileleri), yazamadıkları her dosyayı listeler ve `1` ile sonlandırılır; sürücü dolduğunda tekrarlanan yakalama işlemleri durur.
 
 Çıkış kodları: `0` başarı · `1` genel hata · `2` argüman hatası · `130` Ctrl+C ile kesildi.
@@ -269,7 +269,7 @@ kameralardan parlaklık/yansıtma değeri istenmesi).
 chloros-cli process ~/images/flight_001 --indices NDVI GNDVI OSAVI
 ```
 
-`process --indices`&#x27;in kabul ettiği 22 ön ayar adı:
+`process --indices`'in kabul ettiği 22 ön ayar adı:
 
 `NDVI` `GNDVI` `NDRE` `OSAVI` `SAVI` `MSAVI2` `EVI` `MSR` `TDVI` `LAI` `GCI` `GRVI` `GSAVI` `GOSAVI` `NLI` `MNLI` `RDVI` `WDRVI` `CVI` `ENDVI` `GLI` `VARI`
 
@@ -277,7 +277,7 @@ Projede henüz listelenmemiş bir ad projeye eklenir. Önceden ayarlanmış olma
 , projenin mevcut dizin listesini okuyamazsa, listeyi değiştirmek yerine olduğu gibi bırakır ve bir uyarı verir.
 
 {% hint style="warning" %}
-**Üç dizin listesi mevcuttur — bunları karıştırmayın.**GUI&#x27;nin Proje Ayarları açılır menüsünde 27 formül bulunur (`FCI1`, `FCI2`, `GARI`, `GEMI`, `LCI` — bu beş formül yalnızca GUI’ye özeldir ve `--indices` için**geçerli değildir**). Canlı/çevrimdışı `lattice index --preset` komutu, kendine ait ayrı bir 22 ön ayar listesi kullanır. Formüller ve bant hesaplamaları [Multispektral İndeks Formülleri](project-settings/multispectral-index-formulas.md) bölümünde belgelenmiştir.
+**Üç dizin listesi mevcuttur — bunları karıştırmayın.**GUI'nin Proje Ayarları açılır menüsünde 27 formül bulunur (`FCI1`, `FCI2`, `GARI`, `GEMI`, `LCI` — bu beş formül yalnızca GUI’ye özeldir ve `--indices` için**geçerli değildir**). Canlı/çevrimdışı `lattice index --preset` komutu, kendine ait ayrı bir 22 ön ayar listesi kullanır. Formüller ve bant hesaplamaları [Multispektral İndeks Formülleri](project-settings/multispectral-index-formulas.md) bölümünde belgelenmiştir.
 {% endhint %}
 
 ***
@@ -288,8 +288,8 @@ Projede henüz listelenmemiş bir ad projeye eklenir. Önceden ayarlanmış olma
 DAQ spektral sensörlerini (USB üzerinden DAQ-U, BLE üzerinden DAQ-M, Ethernet üzerinden DAQ-E) çalıştırır — GUI, CLI
 ve SDK
 hepsi tek bir canlı tanıtıcıyı paylaşır. **`pool-*`, ürünle birlikte gelen CLI
-&#x27;de desteklenen DAQ yoludur**; referans olarak görebileceğiniz diğer `daq` alt komutları, MAPIR
-&#x27;in dahili, yalnızca kaynak amaçlı bir yüzeydir ve sizi `pool-*`&#x27;e yönlendiren açık bir hata mesajıyla sonlanır.
+'de desteklenen DAQ yoludur**; referans olarak görebileceğiniz diğer `daq` alt komutları, MAPIR
+'in dahili, yalnızca kaynak amaçlı bir yüzeydir ve sizi `pool-*`'e yönlendiren açık bir hata mesajıyla sonlanır.
 
 ```bash
 # 1. Open a pooled session (pick the line matching your sensor)
@@ -313,17 +313,17 @@ chloros-cli daq pool-record --sensor-id CB-7C-A8-2E-5F --duration 60 \
 chloros-cli daq pool-disconnect --sensor-id CB-7C-A8-2E-5F
 ```
 
-`pool-record`, `--duration` olmadan `pool-record --stop`&#x27;e kadar çalışır; varsayılan çıktı dizini **arka uç makinesinde** `~/Documents/DAQ Live View/`&#x27;tir. Kapak düzeltme profili bağlantı anında seçilir (`--cap-id`, arka uç varsayılanı `sunshine_cosine`) ve canlı olarak `pool-set-cap` ile canlı olarak değiştirilebilir — kap profil ve sensörün kalibre edilmiş aralığı bu kılavuzun DAQ bölümlerinde ele alınmaktadır.
+`pool-record`, `--duration` olmadan `pool-record --stop`'e kadar çalışır; varsayılan çıktı dizini **arka uç makinesinde** `~/Documents/DAQ Live View/`'tir. Kapak düzeltme profili bağlantı anında seçilir (`--cap-id`, arka uç varsayılanı `sunshine_cosine`) ve canlı olarak `pool-set-cap` ile canlı olarak değiştirilebilir — kap profil ve sensörün kalibre edilmiş aralığı bu kılavuzun DAQ bölümlerinde ele alınmaktadır.
 
 {% hint style="warning" %}
-**Çoklu NIC&#x27;li bir ana bilgisayarda DAQ-E:** Önyüklemeden sonraki ilk `pool-connect --eth` otomatik keşif işlemi, sensör sağlam olsa bile başarısız olabilir. `--eth-host <ip-or-hostname>` güvenilir seçenektir — keşif işlemi sonuçsuz kaldığında bunu kullanın.
+**Çoklu NIC'li bir ana bilgisayarda DAQ-E:** Önyüklemeden sonraki ilk `pool-connect --eth` otomatik keşif işlemi, sensör sağlam olsa bile başarısız olabilir. `--eth-host <ip-or-hostname>` güvenilir seçenektir — keşif işlemi sonuçsuz kaldığında bunu kullanın.
 {% endhint %}
 
 ***
 
 ## LATTICE Kameralar, PTP ve Proje Otomasyonu
 
-`lattice` ailesi (45&#x27;ten fazla alt komut), LATTICE kameralarla ilgili işleri uçtan uca kapsar: keşif, tekli çekimler, GUI&#x27;nin akıllı hazırlık bağlantı akışıyla kalıcı senkronize diziler, canlı tarayıcı önizlemesi, hizalama, indeks hesaplamaları ve ana bilgisayar-NIC tanılama. Bir örnek:
+`lattice` ailesi (45'ten fazla alt komut), LATTICE kameralarla ilgili işleri uçtan uca kapsar: keşif, tekli çekimler, GUI'nin akıllı hazırlık bağlantı akışıyla kalıcı senkronize diziler, canlı tarayıcı önizlemesi, hizalama, indeks hesaplamaları ve ana bilgisayar-NIC tanılama. Bir örnek:
 
 ```bash
 chloros-cli lattice info                                          # discover cameras
@@ -333,7 +333,7 @@ chloros-cli lattice array-capture --processing reflectance -o out/
 ```
 
 Bunun yanı sıra: `chloros-cli time-sync`, Chloros
-ana bilgisayarının çalıştırdığı PTP grandmaster hakkında rapor verir (LATTICE kameralar ve DAQ-E sensörleri, cihazlar arası zaman damgaları için bu grandmaster&#x27;a bağlıdır), ve `chloros-cli project`, kaydedilmiş bir Chloros
+ana bilgisayarının çalıştırdığı PTP grandmaster hakkında rapor verir (LATTICE kameralar ve DAQ-E sensörleri, cihazlar arası zaman damgaları için bu grandmaster'a bağlıdır), ve `chloros-cli project`, kaydedilmiş bir Chloros
 projesini açar ve komut dosyası ile yazılmış YAML yakalama tarifleri de dahil olmak üzere kameralarını, dizilerini ve sensörlerini başlıksız olarak çalıştırır.
 
 Bu üç grup (`lattice`, `project`, `daq pool-*`) aynı zamanda **uzak** bir arka ucu çalıştırmak için `CHLOROS_BACKEND_URL` komutunu destekleyen tek ailelerdir; temel komutlar her zaman yerel makineyi hedefler.
@@ -350,11 +350,11 @@ Referansı](reference/cli-reference.md) bölümünde bulunur.
 | `Login required` veya zamanlanmış bir iş, `Email:` isteminde takılır | Bu makinede `chloros-cli login EMAIL 'PASSWORD'` komutunu bir kez çalıştırın — önbelleğe alınmış oturum olmayan komutlar, hızlı bir şekilde hata vermek yerine etkileşimli olarak çalışır. |
 | `backend unreachable` | Chloros
 masaüstü uygulamasını başlatın veya arka ucu kendiniz başlatın: Windows
-&#x27;ta `"C:\Program Files\Chloros\backend\chloros-backend.exe"` (kurulum klasörünüzün `backend` klasörü; `PATH`&#x27;te yoktur), Linux
-&#x27;ta `chloros-backend`. `chloros-cli backend status`, birinin çalışıp çalışmadığını gösterir; `lattice`/`project`/`daq pool-*` hiçbir zaman bir arka uç başlatmaz. Bunları uzak bir arka uca yönlendirirseniz, `CHLOROS_BACKEND_URL` dosyasını kontrol edin. |
+'ta `"C:\Program Files\Chloros\backend\chloros-backend.exe"` (kurulum klasörünüzün `backend` klasörü; `PATH`'te yoktur), Linux
+'ta `chloros-backend`. `chloros-cli backend status`, birinin çalışıp çalışmadığını gösterir; `lattice`/`project`/`daq pool-*` hiçbir zaman bir arka uç başlatmaz. Bunları uzak bir arka uca yönlendirirseniz, `CHLOROS_BACKEND_URL` dosyasını kontrol edin. |
 | Dizi bağlantısı engellendi: `FRAMES WILL DROP` / `Reduce ROI to enable` | Ana bilgisayarın ağ kartı (NIC) alım halkası varsayılan ayarlara sıfırlandı — bu, genellikle bir ağ kartı sürücüsü güncellemesinden sonra, daha önce çalışan bir sistemin bağlanmayı reddetmesinin en yaygın nedenidir. `chloros-cli lattice network --fix` komutunu **yükseltilmiş** bir terminalden çalıştırın (veya `ReceiveBufferLen=256`, `PendingReceives=64` ayarlarını yapın); referans kılavuzundaki *Ana Bilgisayar Ağ Kartı Kurulumu ve Ayarlaması* bölümüne bakın. |
-| `daq` alt komutu sonlandırılıyor: &quot;tam DAQ paketi gerektirir…&quot; | Arka uç üzerinden aynı sensörü yöneten `daq pool-*` komutlarını kullanın: bağlanma, akış, kayıt, kap seçimi ve bir DAQ-E için ağ ayarları, yeniden başlatma ve ürün yazılımı güncellemeleri (veya Python
-&#x27;dan `chloros_sdk.connect_daq_sensor()`). |
+| `daq` alt komutu sonlandırılıyor: "tam DAQ paketi gerektirir…" | Arka uç üzerinden aynı sensörü yöneten `daq pool-*` komutlarını kullanın: bağlanma, akış, kayıt, kap seçimi ve bir DAQ-E için ağ ayarları, yeniden başlatma ve ürün yazılımı güncellemeleri (veya Python
+'dan `chloros_sdk.connect_daq_sensor()`). |
 | Jetson, büyük klasörler öncesinde bir takas uyarısı görüntüler | Dosya tabanlı takas ekleyin — CLI
 , çalıştırılması gereken tam `fallocate`/`swapon` komutlarını görüntüler. |
 

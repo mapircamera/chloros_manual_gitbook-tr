@@ -6,7 +6,7 @@ Chloros
 {% hint style="info" %}
 **
 
-1.3.0 Jetson paketi, işlemleri Jetson’un GPU’su üzerinde gerçekleştirir.** `chloros_1.3.0_arm64_jp6.deb`, JetPack 6 için derlenmiştir ve JetPack 6’nın CUDA tabanlı PyTorch sürümünü kullanır; bu nedenle, işleme (Texture Aware debayer dahil) Orin’in GPU’su üzerinde çalışır. Paket, CUDA&#x27;yı kendisi içermez: JetPack 6&#x27;nın yüklediği CUDA ve cuDNN kütüphanelerini kullanır (bu kütüphanelerin bulunmadığı bir görüntüde `sudo apt install nvidia-jetpack`). Kullanılabilir bir CUDA GPU&#x27;nun olmadığı durumlarda, işlemler CPU üzerinde gerçekleştirilir ve Texture Aware, Standard debayer&#x27;ı kullanır.
+1.3.0 Jetson paketi, işlemleri Jetson’un GPU’su üzerinde gerçekleştirir.** `chloros_1.3.0_arm64_jp6.deb`, JetPack 6 için derlenmiştir ve JetPack 6’nın CUDA tabanlı PyTorch sürümünü kullanır; bu nedenle, işleme (Texture Aware debayer dahil) Orin’in GPU’su üzerinde çalışır. Paket, CUDA'yı kendisi içermez: JetPack 6'nın yüklediği CUDA ve cuDNN kütüphanelerini kullanır (bu kütüphanelerin bulunmadığı bir görüntüde `sudo apt install nvidia-jetpack`). Kullanılabilir bir CUDA GPU'nun olmadığı durumlarda, işlemler CPU üzerinde gerçekleştirilir ve Texture Aware, Standard debayer'ı kullanır.
 {% endhint %}
 
 ***
@@ -21,7 +21,7 @@ Chloros
 
 {% hint style="info" %}
 Linux
-arm64 paketi, Jetson Orin ailesinde bulunan **JetPack 6**&#x27;yı gerektirir. Eski modeller (Nano, TX2, Xavier NX) JetPack 6&#x27;yı çalıştıramaz ve mevcut paket tarafından desteklenmez.
+arm64 paketi, Jetson Orin ailesinde bulunan **JetPack 6**'yı gerektirir. Eski modeller (Nano, TX2, Xavier NX) JetPack 6'yı çalıştıramaz ve mevcut paket tarafından desteklenmez.
 {% endhint %}
 
 ***
@@ -29,7 +29,7 @@ arm64 paketi, Jetson Orin ailesinde bulunan **JetPack 6**&#x27;yı gerektirir. E
 ## Gereksinimler
 
 * **JetPack 6.x** (en son sürüm önerilir)
-* JetPack 6&#x27;daki **NVIDIA CUDA ve cuDNN** (görüntünüzde bunlar yoksa `sudo apt install nvidia-jetpack`)
+* JetPack 6'daki **NVIDIA CUDA ve cuDNN** (görüntünüzde bunlar yoksa `sudo apt install nvidia-jetpack`)
 * **Ücretli Chloros
 + planı** — Copper kademesi veya üstü (tüm CLI
 /SDK
@@ -52,7 +52,7 @@ chloros-cli selftest
 
 `.deb`, bu derlemeye uygun olarak `python3` sistemi için Python
 SDK
-&#x27;yi yükler. Yalnızca bir virtualenv&#x27;e, paket içinde bulunan wheel dosyasının yüklenmesi gerekir: `pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl` (tamamen çevrimdışı). Genel Linux
+'yi yükler. Yalnızca bir virtualenv'e, paket içinde bulunan wheel dosyasının yüklenmesi gerekir: `pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl` (tamamen çevrimdışı). Genel Linux
 kurulum ayrıntıları, dosya konumları ve sorun giderme için [Linux
 Kurulumu](linux-installation.md) bölümüne bakın.
 
@@ -60,12 +60,12 @@ Kurulumu](linux-installation.md) bölümüne bakın.
 **Başlatma sırasında artık dosya açma işlemi yapılmaz.**
 
 1.3.0 sürümünden itibaren arka uç ve CLI
-, `/usr/lib/chloros/` altında sıkıştırılmamış olarak kurulur; bu nedenle artık her başlatıldıklarında kendilerini geçici bir dizine açmazlar. Geçici dosyalar, bu klasör mevcut olduğunda hâlâ otomatik olarak `/mnt/ssd/tmp` klasörüne kaydedilir; aksi takdirde, `TMPDIR`&#x27;i NVMe&#x27;nizdeki bir yola (`export TMPDIR=/mnt/nvme/tmp`) ayarlayabilirsiniz.
+, `/usr/lib/chloros/` altında sıkıştırılmamış olarak kurulur; bu nedenle artık her başlatıldıklarında kendilerini geçici bir dizine açmazlar. Geçici dosyalar, bu klasör mevcut olduğunda hâlâ otomatik olarak `/mnt/ssd/tmp` klasörüne kaydedilir; aksi takdirde, `TMPDIR`'i NVMe'nizdeki bir yola (`export TMPDIR=/mnt/nvme/tmp`) ayarlayabilirsiniz.
 {% endhint %}
 
 ***
 
-## Jetson&#x27;da Dinamik Hesaplama Uyumlaştırması
+## Jetson'da Dinamik Hesaplama Uyumlaştırması
 
 ### Nasıl Çalışır?
 
@@ -75,14 +75,14 @@ sisteminizin profilini oluşturur:
 1. `/proc/device-tree/model` aracılığıyla **Jetson modelini algılar**
 
 2.**Kullanılabilir paylaşımlı GPU/CPU belleğini okur** (Jetson, birleşik bellek kullanır)
-3. **PyTorch&#x27;a CUDA&#x27;yı kullanıp kullanamayacağını sorar** — JetPack 6&#x27;nın CUDA ve cuDNN&#x27;si yüklü olduğunda, kullanabilir
+3. **PyTorch'a CUDA'yı kullanıp kullanamayacağını sorar** — JetPack 6'nın CUDA ve cuDNN'si yüklü olduğunda, kullanabilir
 4. **Bir işleme stratejisi** (`GPU_PARALLEL`, `GPU_SINGLE` veya `CPU_PARALLEL`) ve işçi sayısını otomatik olarak seçer
 
-Bu karar, model adına değil, **toplam paylaşımlı RAM**&#x27;e göre belirlenir:
+Bu karar, model adına değil, **toplam paylaşımlı RAM**'e göre belirlenir:
 
-* **Toplam RAM 12 GB&#x27;nin altında**(tüm 8 GB Jetson&#x27;lar):**1 işçi — kasıtlı sıralı işleme**. Bellek, eşzamanlı işçiler için yetersiz olduğundan görüntüler tek tek işlenir.**8 GB veya daha az** RAM&#x27;e sahip Jetson&#x27;larda, Thread 3 işçi havuzunu tamamen atlar ve görüntü başına işlerini işlem içinde yürütür. Arka uç günlüğü bu stratejiye `GPU_SINGLE` adını verir.
-* **12 GB veya daha fazla**(Orin NX 16 GB, AGX Orin): Birleşik bellek, `GPU_PARALLEL` için uygun olmakla birlikte, işçi sayısı**Jetson&#x27;da 2 ile sınırlıdır** — GPU, işçi süreçlerinin RAM&#x27;i ve işçi başına CUDA bağlamları aynı paylaşımlı havuzdan yararlanır; bu nedenle daha fazla işçi kullanılması, bellek yetersizliği hatalarına yol açma riski taşır.
-* **Kullanılabilir CUDA yok** (JetPack&#x27;in CUDA kütüphaneleri eksik): 12 GB veya üzeri kapasitede `CPU_PARALLEL`; 12 GB&#x27;nin altındaki kapasiteler için her seferinde tek bir görüntü.
+* **Toplam RAM 12 GB'nin altında**(tüm 8 GB Jetson'lar):**1 işçi — kasıtlı sıralı işleme**. Bellek, eşzamanlı işçiler için yetersiz olduğundan görüntüler tek tek işlenir.**8 GB veya daha az** RAM'e sahip Jetson'larda, Thread 3 işçi havuzunu tamamen atlar ve görüntü başına işlerini işlem içinde yürütür. Arka uç günlüğü bu stratejiye `GPU_SINGLE` adını verir.
+* **12 GB veya daha fazla**(Orin NX 16 GB, AGX Orin): Birleşik bellek, `GPU_PARALLEL` için uygun olmakla birlikte, işçi sayısı**Jetson'da 2 ile sınırlıdır** — GPU, işçi süreçlerinin RAM'i ve işçi başına CUDA bağlamları aynı paylaşımlı havuzdan yararlanır; bu nedenle daha fazla işçi kullanılması, bellek yetersizliği hatalarına yol açma riski taşır.
+* **Kullanılabilir CUDA yok** (JetPack'in CUDA kütüphaneleri eksik): 12 GB veya üzeri kapasitede `CPU_PARALLEL`; 12 GB'nin altındaki kapasiteler için her seferinde tek bir görüntü.
 
 `CHLOROS_STRATEGY` ortam değişkeniyle otomatik seçimi geçersiz kılabilirsiniz — bkz. [Dinamik Hesaplama Uyumlaştırma](../processing-architecture/dynamic-compute-adaptation.md#manual-strategy-override).
 
@@ -95,7 +95,7 @@ Bu karar, model adına değil, **toplam paylaşımlı RAM**&#x27;e göre belirle
 | **Jetson Orin NX 16 GB**     | `GPU_PARALLEL` | 2       | Eşzamanlı işçi süreçleri, `fused_gpu` yolu  |
 | **Jetson AGX Orin 32-64GB** | `GPU_PARALLEL` | 2       | Eşzamanlı işçi süreçleri, `fused_gpu` yolu  |
 
-Platformlar arasındaki temel fark **bellek**tir. 8 GB&#x27;lık bir Jetson, yük yüksek olduğunda bellek verimliliği sağlayan döşemeli bir yaklaşım kullanarak görüntüleri tek tek işlemek zorundadır; buna karşılık 16 GB ve üzeri Orin modelleri, daha yüksek verimli birleştirilmiş iş akışını kullanarak GPU üzerinden aynı anda 2 görüntüyü işleyebilir.
+Platformlar arasındaki temel fark **bellek**tir. 8 GB'lık bir Jetson, yük yüksek olduğunda bellek verimliliği sağlayan döşemeli bir yaklaşım kullanarak görüntüleri tek tek işlemek zorundadır; buna karşılık 16 GB ve üzeri Orin modelleri, daha yüksek verimli birleştirilmiş iş akışını kullanarak GPU üzerinden aynı anda 2 görüntüyü işleyebilir.
 
 ### Model Başına GPU Bütçesi
 
@@ -113,10 +113,10 @@ Hesaplama uyarlama kılavuzunun tamamı için bkz. [Dinamik Hesaplama Uyarlama](
 
 ***
 
-## Nano ve Orin Nano&#x27;da Texture Aware için GPU Frekans Sınırı
+## Nano ve Orin Nano'da Texture Aware için GPU Frekans Sınırı
 
-Texture Aware debayer, GPU sinir ağı çıkarımını çalıştırır; bu işlem, düşük güç tüketimli Jetson modellerinde (10-15 W sınıfı) GPU saat hızı tam kapasitedeyken **aşırı akım uyarılarını**tetikleyebilir.**Jetson Nano veya Orin Nano**&#x27;da**`--debayer texture-aware`** komutunu verdiğinizde, CLI
-, GPU&#x27;nun maksimum frekansını kontrol eder ve mevcut frekans daha yüksekse bunu **510 MHz** (510000000) ile sınırlar:
+Texture Aware debayer, GPU sinir ağı çıkarımını çalıştırır; bu işlem, düşük güç tüketimli Jetson modellerinde (10-15 W sınıfı) GPU saat hızı tam kapasitedeyken **aşırı akım uyarılarını**tetikleyebilir.**Jetson Nano veya Orin Nano**'da**`--debayer texture-aware`** komutunu verdiğinizde, CLI
+, GPU'nun maksimum frekansını kontrol eder ve mevcut frekans daha yüksekse bunu **510 MHz** (510000000) ile sınırlar:
 
 * Eğer CLI
 , GPU frekansı sysfs düğümüne yazabiliyorsa, sınır **otomatik olarak uygulanır** ve bir onay mesajı görüntülenir.
@@ -132,8 +132,8 @@ echo 510000000 | sudo tee /sys/devices/platform/bus@0/17000000.gpu/devfreq/17000
 Daha yüksek güçteki modeller (Orin NX 25W, AGX Orin 60W) tam GPU hızında çalışır; herhangi bir sınır uygulanmaz. Standart debayer, hiçbir modelde sınırı tetiklemez.
 
 {% hint style="info" %}
-**Jetson&#x27;da Texture Aware her zaman tek seferde bir görüntü işler.** Her işleyicinin kendi CUDA bağlamına (~1 GB) ve gürültü giderici modelinin kendi kopyasına ihtiyacı vardır; bu da birleşik bellek için yeterince kapasiteye sahip değildir — bu nedenle Jetson&#x27;da Texture Aware yolu, GPU erişimi sıralı hale getirilmiş tek bir işleyiciye sabitlenmiştir. Herhangi bir Jetson cihazında Texture Aware&#x27;in Standard&#x27;dan belirgin şekilde daha yavaş olacağını bekleyin. Texture Aware, Survey3
-görüntülerine uygulanır: LATTICE yakalamaları her zaman Standard debayer&#x27;ı kullanır. Kullanılabilir bir CUDA GPU olmadığında işlem Standard&#x27;ı kullanır ve arka uç, bunun nedenini açıklayan bir `[DEBAYER] … needs a CUDA GPU …` satırı günlüğe kaydeder (`chloros-cli --verbose` ile gösterilmiştir).
+**Jetson'da Texture Aware her zaman tek seferde bir görüntü işler.** Her işleyicinin kendi CUDA bağlamına (~1 GB) ve gürültü giderici modelinin kendi kopyasına ihtiyacı vardır; bu da birleşik bellek için yeterince kapasiteye sahip değildir — bu nedenle Jetson'da Texture Aware yolu, GPU erişimi sıralı hale getirilmiş tek bir işleyiciye sabitlenmiştir. Herhangi bir Jetson cihazında Texture Aware'in Standard'dan belirgin şekilde daha yavaş olacağını bekleyin. Texture Aware, Survey3
+görüntülerine uygulanır: LATTICE yakalamaları her zaman Standard debayer'ı kullanır. Kullanılabilir bir CUDA GPU olmadığında işlem Standard'ı kullanır ve arka uç, bunun nedenini açıklayan bir `[DEBAYER] … needs a CUDA GPU …` satırı günlüğe kaydeder (`chloros-cli --verbose` ile gösterilmiştir).
 {% endhint %}
 
 ***
@@ -145,7 +145,7 @@ Jetson cihazlarının, özellikle kapalı ortamlarda veya havada kullanılan uyg
 
 | Sıcaklık         | Eylem                                            |
 | ------------------- | ------------------------------------------------- |
-| **&lt; 70°C**          | Normal çalışma — tam işlem hızı          |
+| **< 70°C**          | Normal çalışma — tam işlem hızı          |
 | **70°C** (Uyarı)  | İşlem grubu boyutu kademeli olarak küçülür (70°C ile 80°C arasında %100 → %50) |
 | **80°C** (Kritik) | Aşırı kısıtlama (80°C ile 90°C arasında %50 → %0) |
 | **90°C** (Kapatma) | GPU işleme tamamen durdurulur — soğuma gereklidir |
@@ -158,19 +158,19 @@ Jetson cihazlarının, özellikle kapalı ortamlarda veya havada kullanılan uyg
 
 ## Bellek Yönetimi
 
-Jetson cihazları **birleşik bellek** kullanır — GPU ve CPU aynı fiziksel RAM&#x27;i paylaşır. Bildirilen VRAM (ör. Orin NX 16 GB&#x27;da ~15,3 GB), GPU&#x27;ya özel bir bellek değildir; işletim sisteminin ve diğer tüm işlemlerin kullandığı RAM&#x27;in aynısıdır.
+Jetson cihazları **birleşik bellek** kullanır — GPU ve CPU aynı fiziksel RAM'i paylaşır. Bildirilen VRAM (ör. Orin NX 16 GB'da ~15,3 GB), GPU'ya özel bir bellek değildir; işletim sisteminin ve diğer tüm işlemlerin kullandığı RAM'in aynısıdır.
 
 ### Takas Uyarısı ve Öneriler
 
-Jetson&#x27;da işleme başlamadan önce, CLI
-giriş klasörünüzdeki RAW görüntülerin sayısını sayar (`.tif`, `.tiff`, `.raw`, `.dng` — JPG önizlemeleri sayılmaz), işlemin gerektireceği en yüksek bellek miktarını tahmin eder ve RAM + takas alanı yetersiz kalma ihtimali varsa **işlemi başlatmadan önce uyarı verir**. Uyarı başlığı `LOW MEMORY WARNING - Jetson Detected` şeklindedir; görüntü sayınızı, RAM, mevcut takas alanı ve tahmini en yüksek değeri gösterir, ardından projenize göre boyutlandırılmış kesin `fallocate` / `chmod` / `mkswap` / `swapon` komutlarını verir (asla 8 GB&#x27;den küçük olmaz). Mesajın kaydırma geçmişinde kaybolmaması için birkaç saniye duraklar, ardından işleme devam eder.**Uyarıda kullanılan bellek tahminleri:**
+Jetson'da işleme başlamadan önce, CLI
+giriş klasörünüzdeki RAW görüntülerin sayısını sayar (`.tif`, `.tiff`, `.raw`, `.dng` — JPG önizlemeleri sayılmaz), işlemin gerektireceği en yüksek bellek miktarını tahmin eder ve RAM + takas alanı yetersiz kalma ihtimali varsa **işlemi başlatmadan önce uyarı verir**. Uyarı başlığı `LOW MEMORY WARNING - Jetson Detected` şeklindedir; görüntü sayınızı, RAM, mevcut takas alanı ve tahmini en yüksek değeri gösterir, ardından projenize göre boyutlandırılmış kesin `fallocate` / `chmod` / `mkswap` / `swapon` komutlarını verir (asla 8 GB'den küçük olmaz). Mesajın kaydırma geçmişinde kaybolmaması için birkaç saniye duraklar, ardından işleme devam eder.**Uyarıda kullanılan bellek tahminleri:**
 
 | Debayer modu | Temel | Görüntü başına |
 | --- | --- | --- |
 | Standart | ~1,5 GB | ~10 MB |
 | Doku Duyarlı | ~2,5 GB (model + Python çalışma zamanı) | ~15 MB |
 
-Tahmini tepe değeri, RAM + takas alanı eksi 1 GB&#x27;lık güvenlik marjını aştığında uyarı tetiklenir ve yalnızca **dosya destekli** takas alanı hesaba katılır — yalnızca zram içeren bir kurulumda da uyarı verilir.
+Tahmini tepe değeri, RAM + takas alanı eksi 1 GB'lık güvenlik marjını aştığında uyarı tetiklenir ve yalnızca **dosya destekli** takas alanı hesaba katılır — yalnızca zram içeren bir kurulumda da uyarı verilir.
 
 Takas alanını manuel olarak eklemek için (örnek: 8 GB):
 
@@ -196,9 +196,9 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 İşleme sırasında Chloros
 , GPU belleğini izler ve çökmek yerine performansı kademeli olarak düşürür:
 
-1. GPU bellek kullanımı **%85**&#x27;i aştığında, iş parçacığı boyutları önleyici olarak küçültülür
+1. GPU bellek kullanımı **%85**'i aştığında, iş parçacığı boyutları önleyici olarak küçültülür
 2. Hala bir bellek yetersizliği olayı meydana gelirse, iş parçacığı boyutu **yarıya indirilir** ve ardışık her OOM durumunda tekrar yarıya indirilir; sonraki her başarılı iş parçacığı bu cezayı bir adım geri alır
-3. Sürekli baskı altında, iş akışı `fused_gpu`&#x27;ten bellek verimliliği yüksek `tiled_gpu` yoluna geçer ve son çare olarak CPU işlemeye geçer
+3. Sürekli baskı altında, iş akışı `fused_gpu`'ten bellek verimliliği yüksek `tiled_gpu` yoluna geçer ve son çare olarak CPU işlemeye geçer
 
 GPU, Jetson’un RAM’ini paylaştığı için, RAM artı takas alanı hâlâ çalıştırma süresini sınırlamaktadır — yukarıdaki takas uyarısı, dikkat edilmesi gereken kontrol noktasıdır.
 
@@ -241,7 +241,7 @@ chloros-cli export-status
 
 ### LATTICE / DAQ-E Zaman Senkronizasyonu için Sürekli Çalışan Arka Uç
 
-Jetson&#x27;unuz LATTICE kameralarını veya DAQ-E ışık sensörlerini başsız olarak kontrol ediyorsa, PTP grandmaster&#x27;ın kesintisiz çalışması ve SDK
+Jetson'unuz LATTICE kameralarını veya DAQ-E ışık sensörlerini başsız olarak kontrol ediyorsa, PTP grandmaster'ın kesintisiz çalışması ve SDK
 komut dosyalarının çalışan bir arka uç bulabilmesi için arka uç systemd hizmetini **kullanıcı adınızla** etkinleştirin (birim yüklüdür ancak varsayılan olarak etkin değildir):
 
 ```bash
@@ -249,7 +249,7 @@ sudo systemctl enable --now chloros-backend@$USER.service    # $USER expands to 
 chloros-cli time-sync status
 ```
 
-Arka uç bundan sonra sizin adınıza çalışır: kaydettiği veriler size aittir ve sizin `chloros-cli login`&#x27;inizi kullanır. Kök `chloros-backend.service` ve paketin PTP 319/320 bağlantı noktalarını kök erişimi olmadan bağlanabilir hale getirme yöntemi dahil olmak üzere ayrıntılar için [Linux
+Arka uç bundan sonra sizin adınıza çalışır: kaydettiği veriler size aittir ve sizin `chloros-cli login`'inizi kullanır. Kök `chloros-backend.service` ve paketin PTP 319/320 bağlantı noktalarını kök erişimi olmadan bağlanabilir hale getirme yöntemi dahil olmak üzere ayrıntılar için [Linux
 Kurulumu](linux-installation.md#always-on-ptp-for-headless-hosts) bölümüne bakın.
 
 ### systemd ile Otomatik İşleme
@@ -273,7 +273,7 @@ StandardError=append:/var/log/chloros-process.log
 WantedBy=multi-user.target
 ```
 
-`chloros-cli process`, ürün talep eden bir çalıştırma sırasında hiçbir görüntü yazmadığında sıfırdan farklı bir değerle sonlanır; bu nedenle systemd&#x27;nin hata durumu izleme açısından anlamlıdır.
+`chloros-cli process`, ürün talep eden bir çalıştırma sırasında hiçbir görüntü yazmadığında sıfırdan farklı bir değerle sonlanır; bu nedenle systemd'nin hata durumu izleme açısından anlamlıdır.
 
 Zamanlanmış işleme için bir systemd zamanlayıcısıyla eşleştirin:
 
@@ -310,7 +310,7 @@ chloros-cli process /data/flights/flight_042 \
     --indices NDVI GNDVI OSAVI
 ```
 
-### Jetson&#x27;da Python
+### Jetson'da Python
 SDK
 
 
@@ -352,7 +352,7 @@ done
 
 Saha ve hava uygulamaları için şu Jetson Orin NX 16 GB taşıyıcı kart seçeneklerini değerlendirin:
 
-* **Hava/drone**: Titreşim dayanımı (MIL-STD) sertifikalı, hafif (300 g&#x27;dan az), pasif soğutmalı sistemler
+* **Hava/drone**: Titreşim dayanımı (MIL-STD) sertifikalı, hafif (300 g'dan az), pasif soğutmalı sistemler
 * **Zorlu saha koşulları**: PoE GigE kamera bağlantısına sahip IP67/IP69K su geçirmez muhafazalar
 * **Minimal/ekonomik**: Ek muhafazalı geliştirici kitleri
 

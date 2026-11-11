@@ -28,7 +28,7 @@ Her görüntü, dört iş parçacığının tümünden sırayla geçer. Chloros+
 * Kalibrasyon hedeflerini algılar: LATTICE çekimleri için ArUco işaretli hedef geometrileri ve Survey3 kalibrasyon hedefi fotoğrafları için klasik panel dedektörü
 * Çıktılar: görüntü verileri + meta veriler + hedef algılama sonuçları
 
-Öncelikle I/O ve CPU&#x27;ya bağlı bir iş parçacığıdır.
+Öncelikle I/O ve CPU'ya bağlı bir iş parçacığıdır.
 
 ### İş Parçacığı 2: Kalibrasyon
 
@@ -39,7 +39,7 @@ Her görüntü, dört iş parçacığının tümünden sırayla geçer. Chloros+
 * Bant başına kalibrasyon eğrilerini belirler
 * Çıktılar: her görüntü için kalibrasyon parametreleri
 
-CPU&#x27;ya bağlı bir hesaplama iş parçacığıdır. Survey3 veya karma bir çalışmada, yansıma kalibrasyonu etkinleştirildiğinde İş Parçacığı 3 bu iş parçacığını bekler; böylece katsayılar herhangi bir görüntü işlenmeden önce hazır hale gelir. Yalnızca LATTICE çalışmasında, İş Parçacığı 3 algılama sırasında çalışır: her kare, hedef bağlantı noktası kesinleştiğinde başlar. Bir kare, zaman açısından her iki tarafta da en yakın hedefi alır; bu nedenle, kamerasının mevcut en yakın hedefinden zaman açısından daha yakın olan her karesi taranana kadar bekler. Sonuçlar aynıdır, sadece daha erken elde edilir.
+CPU'ya bağlı bir hesaplama iş parçacığıdır. Survey3 veya karma bir çalışmada, yansıma kalibrasyonu etkinleştirildiğinde İş Parçacığı 3 bu iş parçacığını bekler; böylece katsayılar herhangi bir görüntü işlenmeden önce hazır hale gelir. Yalnızca LATTICE çalışmasında, İş Parçacığı 3 algılama sırasında çalışır: her kare, hedef bağlantı noktası kesinleştiğinde başlar. Bir kare, zaman açısından her iki tarafta da en yakın hedefi alır; bu nedenle, kamerasının mevcut en yakın hedefinden zaman açısından daha yakın olan her karesi taranana kadar bekler. Sonuçlar aynıdır, sadece daha erken elde edilir.
 
 ### İş Parçacığı 3: İşleme (GPU)
 
@@ -72,10 +72,10 @@ Esas olarak I/O sınırlı bir iş parçacığıdır — SSD depolama, performan
 
 İş Parçacığı 3 içinde, görüntü başına işler şu şekilde paralel hale getirilir:
 
-* **GPU stratejileri**(`GPU_SINGLE`, `GPU_PARALLEL`), her biri kendi CUDA bağlamına sahip ayrı bir işletim sistemi süreci olan bir**işçi süreçleri** havuzu kullanır. Chloros, her işleyicisini, kendi kurulu arka uç programını yeniden başlatarak çalıştırır — Python&#x27;un `multiprocessing`&#x27;i aracılığıyla değil, çünkü bu programın işleyici başlatma işlevi paketlenmiş uygulama içinde çalışmaz
-* **`CPU_PARALLEL`**, bir iş parçacığı havuzu (Python&#x27;un `ThreadPoolExecutor`&#x27;i) kullanır — NumPy ve OpenCV, GIL&#x27;i serbest bıraktığından iş parçacıkları yeterlidir
-* 8 GB veya daha az paylaşımlı RAM&#x27;e sahip Jetson cihazları, yürütücüyü tamamen atlar ve işlem içi, sıralı olarak işler
-* 7 GB&#x27;nin altında VRAM&#x27;e sahip bir GPU&#x27;da Texture Aware de sıralı olarak çalışır — gürültü giderici model birden fazla sığamaz
+* **GPU stratejileri**(`GPU_SINGLE`, `GPU_PARALLEL`), her biri kendi CUDA bağlamına sahip ayrı bir işletim sistemi süreci olan bir**işçi süreçleri** havuzu kullanır. Chloros, her işleyicisini, kendi kurulu arka uç programını yeniden başlatarak çalıştırır — Python'un `multiprocessing`'i aracılığıyla değil, çünkü bu programın işleyici başlatma işlevi paketlenmiş uygulama içinde çalışmaz
+* **`CPU_PARALLEL`**, bir iş parçacığı havuzu (Python'un `ThreadPoolExecutor`'i) kullanır — NumPy ve OpenCV, GIL'i serbest bıraktığından iş parçacıkları yeterlidir
+* 8 GB veya daha az paylaşımlı RAM'e sahip Jetson cihazları, yürütücüyü tamamen atlar ve işlem içi, sıralı olarak işler
+* 7 GB'nin altında VRAM'e sahip bir GPU'da Texture Aware de sıralı olarak çalışır — gürültü giderici model birden fazla sığamaz
 
 Chloros, herhangi bir üçüncü taraf dağıtık çerçeve (Ray gibi) kullanmaz. Stratejinin ve işçi sayısının nasıl seçildiğini öğrenmek için [Dinamik Hesaplama Uyumlaştırması](dynamic-compute-adaptation.md) bölümüne bakın.
 
@@ -85,7 +85,7 @@ Chloros, herhangi bir üçüncü taraf dağıtık çerçeve (Ray gibi) kullanmaz
 
 ### Serbest Mod (Sıralı)
 
-Chloros&#x27;un ücretsiz sürümünde, görüntüler **tek tek**, dört aşamanın tümünden sırayla işlenir:
+Chloros'un ücretsiz sürümünde, görüntüler **tek tek**, dört aşamanın tümünden sırayla işlenir:
 
 ```
 
@@ -107,14 +107,14 @@ Thread 3:                     [Image 1] [Image 2] ...
 Thread 4:                               [Image 1] ...
 ```
 
-GUI ilerleme çubuğu dört aşamayı gösterir; üzerine fareyi getirdiğinizde iş parçacığı başına ilerlemeyi görebilirsiniz. CLI&#x27;de aynı dört aşama **Algılama, Analiz, İşleme, Dışa Aktarma** olarak canlı olarak akıtılır.
+GUI ilerleme çubuğu dört aşamayı gösterir; üzerine fareyi getirdiğinizde iş parçacığı başına ilerlemeyi görebilirsiniz. CLI'de aynı dört aşama **Algılama, Analiz, İşleme, Dışa Aktarma** olarak canlı olarak akıtılır.
 
 {% hint style="info" %}
 **Tek etiket, iki isim.** CLI, 3. aşamayı _İşleme_ olarak adlandırır. Arka ucun premium mod ilerleme akışı — GUI ilerleme çubuğunun görüntülediği — aynı aşamayı _Kalibrasyon_ olarak etiketler. Bunlar, aynı işi yapan aynı iş parçacığıdır (İş Parçacığı 3: debayer, düzeltmeler, indeksler).
 {% endhint %}
 
 {% hint style="success" %}
-**Chloros+ ile ardışık işleme**, donanımınıza ve veri kümesi boyutuna bağlı olarak sıralı işlemeye göre 3-5 kat daha hızlı olabilir. Hız artışı, hızlı GPU&#x27;lara ve SSD&#x27;lere sahip sistemlerde en yüksek seviyededir.
+**Chloros+ ile ardışık işleme**, donanımınıza ve veri kümesi boyutuna bağlı olarak sıralı işlemeye göre 3-5 kat daha hızlı olabilir. Hız artışı, hızlı GPU'lara ve SSD'lere sahip sistemlerde en yüksek seviyededir.
 {% endhint %}
 
 ***
@@ -134,7 +134,7 @@ status = chloros.get_status()
 print(f"Export: {status['export']['percent']}% - Phase: {status['export']['phase']}")
 ```
 
-İşlem, İş Parçacığı 4 %100&#x27;e ulaştığında tamamlanır.
+İşlem, İş Parçacığı 4 %100'e ulaştığında tamamlanır.
 
 {% hint style="info" %}
 **Görüntü yazmayan bir çalıştırma, başarısızlık olarak kabul edilir.**Başarılı bir işlemde, `chloros-cli process` kaç adet görüntü ürünü yazdığını bildirir (`Image products written: N`). Ürünler talep edildiği halde**hiçbiri**yazılmadıysa — yalnızca `project.json` ve `calibration_data.json` — CLI, `Processing finished but wrote no image products.` mesajını yazdırır ve**sıfırdan farklı bir değerle sonlanır**, proje klasörünün adını ve olağan nedenleri belirtir (giriş klasörü bir yakalama olarak tanınmadı — düzeni kontrol edin ve `--input-level` — veya talep edilen tüm ürünler bu kameralar için uygun değildi). Komut dosyaları çıkış koduna güvenebilir.
@@ -144,19 +144,19 @@ print(f"Export: {status['export']['percent']}% - Phase: {status['export']['phase
 
 ## Dinamik Hesaplama Uyumuyla İlişkisi
 
-[Dinamik Hesaplama Uyumu](dynamic-compute-adaptation.md) öncelikle **İş Parçacığı 3 (İşleme)**&#x27;ü etkiler:
+[Dinamik Hesaplama Uyumu](dynamic-compute-adaptation.md) öncelikle **İş Parçacığı 3 (İşleme)**'ü etkiler:
 
 * **`GPU_PARALLEL`**: İş Parçacığı 3, `fused_gpu` iş akışını kullanarak GPU üzerinden aynı anda birden fazla görüntüyü işler
 * **`GPU_SINGLE`**: İş Parçacığı 3, `fused_gpu` veya bellek verimliliği yüksek `tiled_gpu` iş akışını kullanarak, işçi süreçleri I/O işlemlerini çakıştırırken semafor ile GPU erişimini sıralı hale getirir
 * **`CPU_PARALLEL`**: İş parçacığı 3, çok iş parçacıklı paralellik ile CPU tabanlı işleme kullanır
 
-İş parçacığı 3&#x27;ün GPU bellek tahsisi, iş parçacıkları 1 ve 2 tamamlandıkça da artar — bkz. [Dinamik GPU Bellek Tahsisi](dynamic-compute-adaptation.md#dynamic-gpu-memory-allocation).
+İş parçacığı 3'ün GPU bellek tahsisi, iş parçacıkları 1 ve 2 tamamlandıkça da artar — bkz. [Dinamik GPU Bellek Tahsisi](dynamic-compute-adaptation.md#dynamic-gpu-memory-allocation).
 
 ***
 
 ## Sonraki Adımlar
 
-* [Dinamik Hesaplama Uyumlaştırma](dynamic-compute-adaptation.md) — Chloros&#x27;un donanımınız için en uygun stratejiyi nasıl seçtiği
-* [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md) — Jetson&#x27;da platforma özgü iş akışı davranışı
+* [Dinamik Hesaplama Uyumlaştırma](dynamic-compute-adaptation.md) — Chloros'un donanımınız için en uygun stratejiyi nasıl seçtiği
+* [NVIDIA Jetson Kılavuzu](../linux/nvidia-jetson-guide.md) — Jetson'da platforma özgü iş akışı davranışı
 * [İşlemenin İzlenmesi](../processing-images-gui/monitoring-the-processing.md) — GUI üzerinden ilerleme izleme
 * [CLI Referansı](../reference/cli-reference.md) — `process`, `export-status`, çıkış kodları ve çıktı düzeni

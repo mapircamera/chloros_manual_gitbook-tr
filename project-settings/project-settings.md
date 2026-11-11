@@ -12,7 +12,7 @@ Proje Ayarlarına erişmek için:
 
 1. Chloros
 
-&#x27;ta bir proje açın
+'ta bir proje açın
 2. Sol kenar çubuğundaki **Proje Ayarları** <img src="../.gitbook/assets/icon_project-settings.JPG" alt="" data-size="line">
 
 sekmesine tıklayın
@@ -42,7 +42,7 @@ sekmesine tıklayın
 
 Bu ayarlar, Chloros
 
-&#x27;un görüntülerinizdeki kalibrasyon hedeflerini nasıl algıladığını ve işlediğini kontrol eder. Her ikisi de yalnızca **Yansıma kalibrasyonu / beyaz dengesi** etkinleştirildiğinde aktiftir (aksi takdirde, hedef algılama tamamen atlandığından gri renkte görünürler).
+'un görüntülerinizdeki kalibrasyon hedeflerini nasıl algıladığını ve işlediğini kontrol eder. Her ikisi de yalnızca **Yansıma kalibrasyonu / beyaz dengesi** etkinleştirildiğinde aktiftir (aksi takdirde, hedef algılama tamamen atlandığından gri renkte görünürler).
 
 ### Minimum kalibrasyon örnek alanı (px)
 
@@ -70,7 +70,7 @@ Bu ayarlar, Chloros
 
 Bu ayarlar, Chloros
 
-&#x27;un görüntülerinizi nasıl işleyip kalibre edeceğini kontrol eder.
+'un görüntülerinizi nasıl işleyip kalibre edeceğini kontrol eder.
 
 ### Vinyet düzeltme
 
@@ -103,7 +103,7 @@ LATTICE çekimleri içeren projelerde, içe aktarılan her LATTICE karesi, tek b
 
 | Ayar | Çıkış klasörü | Neyi dışa aktarır |
 | --- | --- | --- |
-| **Debayered olarak dışa aktar** | `Debayered_Images/` | Doğrusal debayered görüntü: kalibrasyon paketinin karanlık ofseti kaldırılmış, ardından kenar duyarlı demosaik uygulanmış, doğrusallık düzeltmesi, düz alan veya renk ayrıştırma yapılmamış — bir çekimin debayered düzeyinde kaydettiği dosyanın aynısı. Sensörün doğal yönelimi korunur (XMP&#x27;de kaydedilir). RGB
+| **Debayered olarak dışa aktar** | `Debayered_Images/` | Doğrusal debayered görüntü: kalibrasyon paketinin karanlık ofseti kaldırılmış, ardından kenar duyarlı demosaik uygulanmış, doğrusallık düzeltmesi, düz alan veya renk ayrıştırma yapılmamış — bir çekimin debayered düzeyinde kaydettiği dosyanın aynısı. Sensörün doğal yönelimi korunur (XMP'de kaydedilir). RGB
 
 ve multispektral kameralar için geçerlidir. |
 | **Önizlemeyi dışa aktar** | `Preview_Images/` | Ekran önizlemesi. RGB
@@ -119,7 +119,7 @@ olarak yazılır. |
 * RGB
 
 ana kameralar, debayering uygulanmış + önizleme verileri yayar; parlaklık/yansıtma değerleri bunlar için geçerli olmadığından atlanır.
-* Debayering uygulanmış/önizleme verilerinin bit derinliği, *Kalibre edilmiş görüntü formatı* ayarına göre belirlenir; parlaklık her zaman float32&#x27;dir.
+* Debayering uygulanmış/önizleme verilerinin bit derinliği, *Kalibre edilmiş görüntü formatı* ayarına göre belirlenir; parlaklık her zaman float32'dir.
 * Survey3
 
 işleme, bu dört anahtarın etkisinde kalmaz.
@@ -143,11 +143,11 @@ Aynı dört anahtar, `chloros-cli process --debayered / --preview / --radiance /
 
 Proje ayrıca, LATTICE yansıma ürününün hangi **yansıma referansını** kullandığını da saklar. Ayarlar panelinde buna özel bir kontrol yoktur; değer, proje yapılandırmasında `Processing → "Target reflectance source"` olarak saklanır ve `chloros-cli process --reflectance-source {auto,target,daq}` ile ayarlanır (SDK
 
-&#x27;daki `configure()`&#x27;te bunun için bir anahtar kelime yoktur):
+'daki `configure()`'te bunun için bir anahtar kelime yoktur):
 
-* **`auto`** (varsayılan): Kalite kontrolünden (QA) geçen çerçeve içi kalibrasyon hedefi mutlak referans olur; hedef bulunmadığında veya QA başarısız olduğunda DAQ aşağı doğru yayılım bölünmesine (ρ = πL/E) geri dönülür. Bir bayrakla (düşen bir panel veya arızalı bir bant) QA&#x27;yı geçen bir hedef otomatik olarak tercih edilmez: hedef, hedef+DAQ ve sadece DAQ zincirleri, ayrılmış panellerde ölçülen puanlarına göre sırayla denenir.
+* **`auto`** (varsayılan): Kalite kontrolünden (QA) geçen çerçeve içi kalibrasyon hedefi mutlak referans olur; hedef bulunmadığında veya QA başarısız olduğunda DAQ aşağı doğru yayılım bölünmesine (ρ = πL/E) geri dönülür. Bir bayrakla (düşen bir panel veya arızalı bir bant) QA'yı geçen bir hedef otomatik olarak tercih edilmez: hedef, hedef+DAQ ve sadece DAQ zincirleri, ayrılmış panellerde ölçülen puanlarına göre sırayla denenir.
 * **`target`**: katı hedef odaklı yansıma — DAQ ikamesi yoktur.
-* **`daq`**: DAQ&#x27;ya dayalı yansıma; çerçeve içi hedefler referans olarak kullanılmaz.
+* **`daq`**: DAQ'ya dayalı yansıma; çerçeve içi hedefler referans olarak kullanılmaz.
 
 Kaydedilen değer, büyük/küçük harf duyarlılığı gözetilmeden eşleştirilir ve birkaç farklı yazım şekli takma ad olarak kabul edilir: `target`, `target_image`, `empirical` ve `empirical_line` hepsi **hedef**anlamına gelir; `daq`, `dls`, `light_sensor` ve `sensor` hepsi**daq**anlamına gelir. Bunlar dışındaki her şey — mevcut olmayan bir anahtar dahil —**auto** olarak çözümlenir.
 
@@ -162,15 +162,15 @@ Birim başına **ölçülen** hedef taramaları, hedef birimin seri numarası/QR
 
 +]
 * **Varsayılan**: Standart (Hızlı, Orta Kalite)
-* **Açıklama**: Ham Bayer desenli sensör verilerini tam renkli görüntülere dönüştürmek için kullanılan demosaicing algoritmasını seçer. &quot;Standart (Hızlı, Orta Kalite)&quot; yöntemi, işleme hızı ile görüntü kalitesi arasında optimum bir denge sağlar. &quot;Doku Duyarlı (Yavaş, En Yüksek Kalite)&quot; \[Chloros
+* **Açıklama**: Ham Bayer desenli sensör verilerini tam renkli görüntülere dönüştürmek için kullanılan demosaicing algoritmasını seçer. "Standart (Hızlı, Orta Kalite)" yöntemi, işleme hızı ile görüntü kalitesi arasında optimum bir denge sağlar. "Doku Duyarlı (Yavaş, En Yüksek Kalite)" \[Chloros
 
-+] yöntemi, neredeyse tüm demosaicing gürültüsünü ortadan kaldıran bir AI/ML gürültü giderme modeliyle birleştirilmiş, yüksek kaliteli kenar duyarlı bir demosaicing algoritması kullanır. Doku Duyarlı modelin çalışması için GPU belleği (VRAM) gereklidir. Daha hızlı işleme için 4 GB&#x27;den fazla VRAM&#x27;iniz olduğunda bu modeli kullanmanızı öneririz.
++] yöntemi, neredeyse tüm demosaicing gürültüsünü ortadan kaldıran bir AI/ML gürültü giderme modeliyle birleştirilmiş, yüksek kaliteli kenar duyarlı bir demosaicing algoritması kullanır. Doku Duyarlı modelin çalışması için GPU belleği (VRAM) gereklidir. Daha hızlı işleme için 4 GB'den fazla VRAM'iniz olduğunda bu modeli kullanmanızı öneririz.
 * **Satır bir açılır menü olduğunda**: iki seçenekli açılır menü yalnızca**her ikisi** de geçerli olduğunda görünür — uygun bir Chloros
 
 + aboneliğiyle oturum açmış olmanız **ve** projenin LATTICE çekimleri içermemesi gerekir. Aksi takdirde satır, seçilebilecek hiçbir seçenek olmadan `Standard (Fast, Medium Quality)` şeklinde düz metin olarak görüntülenir.
 * **LATTICE notu**: LATTICE ile eğitilmiş Texture Aware modeli bulunmamaktadır ve iş akışı, depolanan değerden bağımsız olarak LATTICE kareleri için standart demosaik işlemini zorlar. Zaten Texture Aware seçeneğinin seçili olduğu bir projeye bir LATTICE klasörü eklerseniz, Chloros
 
-, `project.json` içinde eski bir değer bırakmak yerine ayarı tekrar &quot;Standart&quot; olarak yazar.
+, `project.json` içinde eski bir değer bırakmak yerine ayarı tekrar "Standart" olarak yazar.
 
 ### Minimum yeniden kalibrasyon aralığı
 
@@ -191,7 +191,7 @@ yalnızca aralarında en az bu kadar saniye olan kalibrasyon hedeflerini kullan�
 * **Tür**: Sayı
 * **Aralık**: -12 ila +12 saat
 * **Varsayılan**: 0 saat
-* **Açıklama**: Işık sensörü verilerinin zaman damgaları için saat dilimi kaymasını (UTC&#x27;ye göre saat cinsinden) belirtir; bu ayar, ışık sensörü günlüklerini görüntü yakalama zamanlarıyla eşleştirirken kullanılır. Daha yeni `.daq` kayıtları kendi saat dilimi bilgilerini içerir; bu nedenle bu ayar esas olarak yerel saatle kaydedilmiş eski günlükler için gereklidir.
+* **Açıklama**: Işık sensörü verilerinin zaman damgaları için saat dilimi kaymasını (UTC'ye göre saat cinsinden) belirtir; bu ayar, ışık sensörü günlüklerini görüntü yakalama zamanlarıyla eşleştirirken kullanılır. Daha yeni `.daq` kayıtları kendi saat dilimi bilgilerini içerir; bu nedenle bu ayar esas olarak yerel saatle kaydedilmiş eski günlükler için gereklidir.
 
 ### PPK düzeltmelerini uygula
 
@@ -208,12 +208,12 @@ DAQ kayıt cihazlarından alınan Sonradan İşlenmiş Kinematik (PPK) düzeltme
 ### Pozlama Pini 1
 
 * **Tür**: Açılır menü seçimi
-* **Görünürlük**: Yalnızca &quot;PPK düzeltmelerini uygula&quot; seçeneği etkinleştirildiğinde VE Pin 1 için pozlama verisi mevcut olduğunda görünür
+* **Görünürlük**: Yalnızca "PPK düzeltmelerini uygula" seçeneği etkinleştirildiğinde VE Pin 1 için pozlama verisi mevcut olduğunda görünür
 * **Seçenekler**:
   * Projede algılanan kamera modeli adları
-  * &quot;Kullanma&quot; - Bu pozlama pimini yok say
+  * "Kullanma" - Bu pozlama pimini yok say
 * **Varsayılan**: Proje yapılandırmasına göre otomatik olarak seçilir
-* **Açıklama**: PPK zaman senkronizasyonu için Pozlama Pini 1&#x27;e belirli bir kamera atar. Pozlama pini, kamera deklanşörünün tetiklendiği tam zamanlamayı kaydeder; bu, doğru PPK coğrafi konum belirleme için çok önemlidir.
+* **Açıklama**: PPK zaman senkronizasyonu için Pozlama Pini 1'e belirli bir kamera atar. Pozlama pini, kamera deklanşörünün tetiklendiği tam zamanlamayı kaydeder; bu, doğru PPK coğrafi konum belirleme için çok önemlidir.
 * **Otomatik seçim davranışı**:
   * Tek kamera + tek pin: Kamerayı otomatik olarak seçer
   * Tek kamera + iki pin: Pin 1, kameraya otomatik olarak atanır
@@ -222,21 +222,21 @@ DAQ kayıt cihazlarından alınan Sonradan İşlenmiş Kinematik (PPK) düzeltme
 ### Pozlama Pini 2
 
 * **Tür**: Açılır menüden seçim
-* **Görünürlük**: Yalnızca &quot;PPK düzeltmelerini uygula&quot; seçeneği etkinleştirildiğinde VE Pin 2 için pozlama verisi mevcut olduğunda görünür
+* **Görünürlük**: Yalnızca "PPK düzeltmelerini uygula" seçeneği etkinleştirildiğinde VE Pin 2 için pozlama verisi mevcut olduğunda görünür
 * **Seçenekler**:
   * Projede algılanan kamera model adları
-  * &quot;Kullanma&quot; - Bu pozlama pimini yok say
+  * "Kullanma" - Bu pozlama pimini yok say
 * **Varsayılan**: Proje yapılandırmasına göre otomatik olarak seçilir
-* **Açıklama**: Çift kamera kurulumunda PPK zaman senkronizasyonu için Pozlama Pini 2&#x27;ye belirli bir kamera atar.
+* **Açıklama**: Çift kamera kurulumunda PPK zaman senkronizasyonu için Pozlama Pini 2'ye belirli bir kamera atar.
 * **Otomatik seçim davranışı**:
-  * Tek kamera + tek pin: Pin 2 otomatik olarak &quot;Kullanma&quot; olarak ayarlanır
-  * Tek kamera + iki pin: Pin 2 otomatik olarak &quot;Kullanma&quot; olarak ayarlanır
+  * Tek kamera + tek pin: Pin 2 otomatik olarak "Kullanma" olarak ayarlanır
+  * Tek kamera + iki pin: Pin 2 otomatik olarak "Kullanma" olarak ayarlanır
   * Birden fazla kamera: Manuel seçim gereklidir
-* **Not**: Aynı kamera, Pin 1 ve Pin 2&#x27;ye aynı anda atanamaz.***
+* **Not**: Aynı kamera, Pin 1 ve Pin 2'ye aynı anda atanamaz.***
 
 ## DAQ Işık Sensörü
 
-Bu bölüm, Proje Ayarları&#x27;nda yer alır ve projedeki tüm DAQ aşağı doğru ışık dosyalarını listeler — `.daq` kayıtları ve DAQ-M `.csv` aşağı doğru ışık kayıtları. Işık Sensörleri sekmesinde yapılan kayıtlar, açık projeye otomatik olarak eklenir.
+Bu bölüm, Proje Ayarları'nda yer alır ve projedeki tüm DAQ aşağı doğru ışık dosyalarını listeler — `.daq` kayıtları ve DAQ-M `.csv` aşağı doğru ışık kayıtları. Işık Sensörleri sekmesinde yapılan kayıtlar, açık projeye otomatik olarak eklenir.
 
 <!-- SCREENSHOT-NEEDED: Project Settings "DAQ Light Sensor" section of a project containing at least one .daq file, showing the "Cap override (all files)" dropdown and a per-file row with its resolved cap. -->
 
@@ -252,7 +252,7 @@ Her satırda dosya, sensör modeli ve o dosya için geçerli olan difüzör kapa
 * **Kaydedilme şekli**: `Processing → "DAQ cap id"` (varsayılan `auto`)
 * **Açıklama**: `Auto`, her dosyanın kaydedilmiş kapağını kullanır (hiçbir şey kaydedilmemişse Sunshine kapağı varsayılır, ancak DAQ-U, DAQ-M ve DAQ-E, kapaksız olarak gönderilir ve Chloros
 
-, takılan kapağı göremez, bu nedenle işleme sırasında varsayılan sınır için uyarı verilir: takılan sınırı seçin). Belirli bir sınır seçilmesi, difüzörü kalibrasyonunun bir parçası olan DAQ-E-S&#x27;ler hariç, projedeki **tüm** aşağı yönlü dosyaları geçersiz kılar; yalnızca DAQ-E-S&#x27;lerden oluşan bir projede açılır menü görünmez: ham kayıtlar bununla düzeltilir, ve halihazırda bir kapak içeren kayıtlar yeniden referanslanır (kaydedilen düzeltme geri alınır ve seçilen düzeltme uygulanır).
+, takılan kapağı göremez, bu nedenle işleme sırasında varsayılan sınır için uyarı verilir: takılan sınırı seçin). Belirli bir sınır seçilmesi, difüzörü kalibrasyonunun bir parçası olan DAQ-E-S'ler hariç, projedeki **tüm** aşağı yönlü dosyaları geçersiz kılar; yalnızca DAQ-E-S'lerden oluşan bir projede açılır menü görünmez: ham kayıtlar bununla düzeltilir, ve halihazırda bir kapak içeren kayıtlar yeniden referanslanır (kaydedilen düzeltme geri alınır ve seçilen düzeltme uygulanır).
 * **Önemli**: Seçilen kapak, kayıt sırasında fiziksel olarak takılan kapakla eşleşmelidir. Ne sensör ne de yazılım fiziksel kapağı algılayamaz — uyumsuz bir kapak kimliği, spektrumları yanlış düzeltir.
 
 Dosya başına açılır menüler yerine kasıtlı olarak proje genelinde **tek** bir kontrol bulunur: bu ayar, projedeki her aşağı doğru yayılan kaynağa uygulanır.***
@@ -353,15 +353,15 @@ Eklediğiniz her endeks, formülünü matematiksel olarak işler ve her bant yuv
   * Bant yuvaları: `x`, `y`, `z`, `a`, `b`, `c` — sürükleyerek gerçek kanallara eşleştirebileceğiniz altı konum
   * Operatörler: `+`, `-`, `*`, `/`, `^` ve `()` (gruplama için)
   * İşlevler: `sqrt()`, `log()`, `ln()`, `abs()`, `sign()`, `log1p()`, `log2()`
-* **Neden grup isimleri değil de semboller?**: `(y-x)/(y+x)` şeklinde yazılmış bir formül her kamerada çalışır; çünkü sürükle-bırak eşlemesi, `y`&#x27;in bir RGN
+* **Neden grup isimleri değil de semboller?**: `(y-x)/(y+x)` şeklinde yazılmış bir formül her kamerada çalışır; çünkü sürükle-bırak eşlemesi, `y`'in bir RGN
 
 filtresinin 850 nm NIR
 
-&#x27;si mi yoksa bir OCN
+'si mi yoksa bir OCN
 
 filtresinin 808 nm NIR
 
-&#x27;si mi olduğuna karar verir. Yerleşik ön ayarlar da aynı şekilde saklanır — 27 formülün tümünün tam sembol biçimleri için [Multispektral İndeks Formülleri](multispectral-index-formulas.md) bölümüne bakın.
+'si mi olduğuna karar verir. Yerleşik ön ayarlar da aynı şekilde saklanır — 27 formülün tümünün tam sembol biçimleri için [Multispektral İndeks Formülleri](multispectral-index-formulas.md) bölümüne bakın.
 * **Nerede çalışırlar**: Özel formüller proje ayarlarıyla birlikte kaydedilir ve [İndeks/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) ile işleme sırasında kullanılabilir. CLI
 
 /SDK
@@ -414,7 +414,7 @@ biçimi
 (32 bit, Yüzde)**: Yansıma değerlerinin yüzde olarak (0-100%). Radyometrik ölçümler için maksimum hassasiyet sunar.
   * **PNG
 
-(8 bit)**: Web&#x27;de görüntüleme ve genel görselleştirme için uygundur. Kayıpsız sıkıştırma sayesinde dosya boyutları daha küçüktür, ancak dinamik aralık azalır.
+(8 bit)**: Web'de görüntüleme ve genel görselleştirme için uygundur. Kayıpsız sıkıştırma sayesinde dosya boyutları daha küçüktür, ancak dinamik aralık azalır.
   * **JPG (8 bit)**: En küçük dosya boyutlarına sahiptir; yalnızca önizlemeler ve web görüntülemesi için idealdir. Bilimsel analizler için uygun olmayan kayıplı sıkıştırma kullanır.
 * **Not**: LATTICE parlaklığı, bu ayardan bağımsız olarak her zaman 32 bit kayan noktalı TIFF
 
@@ -438,13 +438,13 @@ Bu özellik, mevcut proje ayarlarınızı yeniden kullanılabilir bir şablon ol
   * Ekip içinde tutarlı ayarları paylaşın
 * **Nasıl kullanılır**:
   1. İstediğiniz tüm proje ayarlarını yapılandırın
-  2. Bir şablon adı girin (örn., &quot;RedEdge
+  2. Bir şablon adı girin (örn., "RedEdge
 
 Survey3
 
 NDVI
 
-Standard&quot;)
+Standard")
   3. Kaydet simgesine tıklayın
   4. Artık yeni projeler oluştururken bu şablon yüklenebilir
 
@@ -465,7 +465,7 @@ Bu ayar, yeni projelerin varsayılan olarak nereye kaydedileceğini belirler.
 
 projelerinin oluşturulduğu mevcut varsayılan dizini gösterir. Farklı bir dizin seçmek için düzenle simgesine tıklayın. Bu ayar, `~/.chloros/working_directory.txt` dosyasında tek satırlık bir metin olarak saklanır — Windows
 
-&#x27;ta bu dosya `C:\Users\<Username>\.chloros\working_directory.txt`&#x27;tir. Bu dosya eksikse veya artık mevcut olmayan bir yol belirtiliyorsa, Chloros
+'ta bu dosya `C:\Users\<Username>\.chloros\working_directory.txt`'tir. Bu dosya eksikse veya artık mevcut olmayan bir yol belirtiliyorsa, Chloros
 
 yukarıdaki varsayılana geri döner. CLI
 
@@ -484,7 +484,7 @@ uzun yolları etkinleştirilmedikçe (yükleyicinin **Windows
 
 uzun yollarını etkinleştir** seçeneği), yaklaşık 130 karakterden daha derin bir proje klasörü, işleme alınmadan reddedilir; çünkü bu klasörün oluşturacağı yollar, Windows
 
-&#x27;ın 260 karakterlik yol sınırını aşacaktır. Bkz. [İşlemeyi Başlatma](../processing-images-gui/starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer).
+'ın 260 karakterlik yol sınırını aşacaktır. Bkz. [İşlemeyi Başlatma](../processing-images-gui/starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer).
 
 ***
 
@@ -494,7 +494,7 @@ Bir Chloros
 
 projesi bir **klasördür**. Tüm proje ayarları, projenin içindeki `project.json` dosyasına kaydedilir; bağlı donanımlar da `cameras.json` ve `sensors.json` içinde bu klasörle birlikte hatırlanır; böylece bir projeyi yeniden açtığınızda kameralar ve ışık sensörleri de yeniden bağlanır. Bir projeyi yeniden açtığınızda, tüm ayarlar tam olarak bıraktığınız haliyle geri yüklenir. Kaydedilen projeler, `chloros-cli project` veya SDK
 
-&#x27;nın `open_project` dosyası kullanılarak başlıksız olarak da çalıştırılabilir.
+'nın `open_project` dosyası kullanılarak başlıksız olarak da çalıştırılabilir.
 
 ### Ayar Hiyerarşisi
 
@@ -549,7 +549,7 @@ Otomasyon için (CLI
 | `Index → Add index` | dizin yapılandırmaları listesi | `[]` |
 | `Export → Calibrated image format` | `"TIFF (16-bit)" \| "TIFF (8-bit)" \| "TIFF (32-bit, Percent)" \| "PNG (8-bit)" \| "JPG (8-bit)"` | `"TIFF (16-bit)"` |
 
-`Array alignment` anahtarları, &quot;Dizi Hizalama&quot; bölümü ilk kez işlendiğinde veya bir otomasyon çağrısı bunları ayarladığında yazılır. Bunlar mevcut olmadığında, iş akışı yukarıda gösterilen değerlerin aynısını kullanır (`true`, `true`, bilineer) kullanır; dolayısıyla bu anahtarların bulunmadığı bir proje, bu anahtarların bulunduğu bir projeyle aynı şekilde davranır.
+`Array alignment` anahtarları, "Dizi Hizalama" bölümü ilk kez işlendiğinde veya bir otomasyon çağrısı bunları ayarladığında yazılır. Bunlar mevcut olmadığında, iş akışı yukarıda gösterilen değerlerin aynısını kullanır (`true`, `true`, bilineer) kullanır; dolayısıyla bu anahtarların bulunmadığı bir proje, bu anahtarların bulunduğu bir projeyle aynı şekilde davranır.
 
 ### Ayarlar panelinde kontrolü bulunmayan, `project.json` altında depolanan anahtarlar
 
@@ -561,12 +561,12 @@ Bunlar aynı `Project Settings` ağacı altında bulunur ve işleme sırasında 
 
 `input_level=`. LATTICE giriş TIFF
 
-&#x27;lerinin nasıl yorumlandığını geçersiz kılar; `auto`, her dosyanın `Chloros:ProcessingLevel` XMP etiketinden ve kanal sayısından çıkarım yapar. Survey3
+'lerinin nasıl yorumlandığını geçersiz kılar; `auto`, her dosyanın `Chloros:ProcessingLevel` XMP etiketinden ve kanal sayısından çıkarım yapar. Survey3
 
-`.raw` yakalamaları için göz ardı edilir. Kasıtlı olarak bir GUI ayarı değildir — normal her durumda &quot;auto&quot; doğru ayardır. |
+`.raw` yakalamaları için göz ardı edilir. Kasıtlı olarak bir GUI ayarı değildir — normal her durumda "auto" doğru ayardır. |
 | `Processing → Target reflectance dir` | yol dizesi | `""` | `chloros-cli process --target-reflectance-dir` veya proje hedef API
 
-&#x27;si |
+'si |
 | `Processing → Target reflectance config` | kamera seri numarasına göre sıralanmış sözlük | `{}` | Çerçeve içi bir hedefin kaydedilmesi (mod `fixed_block` / `fixed_strip` / `aruco`) |
 | `Processing → DAQ-U log path` | yol dizesi | `""` | SDK
 
@@ -576,7 +576,7 @@ Bunlar aynı `Project Settings` ağacı altında bulunur ve işleme sırasında 
 bayrağı yok |
 | `UI → Grid thumbnail size` | sayı | `160` | Görüntü ızgarasının kendi küçük resim yakınlaştırma kaydırıcısı |
 
-İki görüntüleyici tercihi, işleme ayarları değil görüntüleme durumu oldukları için **`project.json`&#x27;in en üst düzeyinde**, `Project Settings`&#x27;in tamamen dışında saklanır:
+İki görüntüleyici tercihi, işleme ayarları değil görüntüleme durumu oldukları için **`project.json`'in en üst düzeyinde**, `Project Settings`'in tamamen dışında saklanır:
 
 | Anahtar yolu | Tür | Varsayılan | Ayarlayan |
 | --- | --- | --- | --- |
@@ -591,9 +591,9 @@ bayrağı yok |
 kamera sistemi ve tipik iş akışları için iyi sonuç verir.
 2. **Şablonlar oluşturun**: Belirli bir iş akışı veya kamera için ayarları optimize ettikten sonra, projeler arasında tutarlılığı sağlamak amacıyla bunları bir şablon olarak kaydedin.
 3. **Tam işleme öncesinde test edin**: Yeni ayarları denerken, tüm veri kümenizi işlemeden önce küçük bir görüntü alt kümesinde test edin.
-4. **Ayarlarınızı belgelendirin**: Kamera sistemini, işleme türünü ve kullanım amacını belirten açıklayıcı şablon adları kullanın (ör. &quot;Survey3
+4. **Ayarlarınızı belgelendirin**: Kamera sistemini, işleme türünü ve kullanım amacını belirten açıklayıcı şablon adları kullanın (ör. "Survey3
 
-\_RGB\_NDVI\_Agriculture&quot;).
+\_RGB\_NDVI\_Agriculture").
 5. **Dışa aktarma biçimi seçimi**: Son kullanım amacınıza göre dışa aktarma biçiminizi seçin:
    * Bilimsel analiz → TIFF (16 bit veya 32 bit)
    * GIS işleme → TIFF
@@ -608,4 +608,4 @@ kamera sistemi ve tipik iş akışları için iyi sonuç verir.
 
 Chloros
 
-&#x27;taki multispektral indeksler hakkında daha fazla bilgi için [Multispektral İndeks Formülleri](multispectral-index-formulas.md) sayfasına bakın.
+'taki multispektral indeksler hakkında daha fazla bilgi için [Multispektral İndeks Formülleri](multispectral-index-formulas.md) sayfasına bakın.

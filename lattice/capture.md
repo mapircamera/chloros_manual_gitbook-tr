@@ -3,12 +3,12 @@
 “Kameralar” sekmesindeki çekim işlemi, tek bir kırmızı **Hepsini Çek**düğmesi ve bu düğmenin ne tür sonuçlar vereceğini belirleyen bir**Çekim Ayarları** bölmesi aracılığıyla gerçekleştirilir: hangi kameraların dahil olacağı, her kameranın hangi dışa aktarma türlerini kaydedeceği ve deklanşörün tek seferlik, sürekli veya belirli aralıklarla tetiklenip tetiklenmeyeceği gibi ayarlar bu bölmede belirlenir. Bu sayfa, yapılandırma, çekim işlemi, dosyaların diskte nereye kaydedileceği ve daha sonra bunların kalibre edilmiş ürünlere nasıl yeniden işleneceği dahil olmak üzere tüm akışı açıklamaktadır. Kamera ve dizi kontrolleri ise [Kamera Ayarları](camera-settings.md) sayfasında yer almaktadır.
 
 {% hint style="info" %}
-**Çekim yapmak için açık bir proje gerekir.** Bir proje açılana kadar &quot;Tümünü Yakala&quot; ve &quot;Yakalama Ayarları&quot; dişli simgesi devre dışıdır (&quot;Yakalamaları kaydetmek için bir proje oluşturun veya açın&quot;). Her yakalama, `captures/` içindeki proje klasörü altında kaydedilir.
+**Çekim yapmak için açık bir proje gerekir.** Bir proje açılana kadar "Tümünü Yakala" ve "Yakalama Ayarları" dişli simgesi devre dışıdır ("Yakalamaları kaydetmek için bir proje oluşturun veya açın"). Her yakalama, `captures/` içindeki proje klasörü altında kaydedilir.
 {% endhint %}
 
 ## Yakalama Ayarları bölmesi
 
-Bunu, kenar çubuğundaki kamera listesinde **&quot;Tümünü Yakala&quot;**seçeneğinin yanındaki**dişli simgesiyle**veya herhangi bir kamera ayarları bölmesinin altındaki**&quot;Yakalama Ayarlarını Aç…&quot;** düğmesiyle açabilirsiniz. Başlıkta &quot;Yakalama Ayarları&quot; yazmaktadır ve bir ← geri düğmesi bulunmaktadır.
+Bunu, kenar çubuğundaki kamera listesinde **"Tümünü Yakala"**seçeneğinin yanındaki**dişli simgesiyle**veya herhangi bir kamera ayarları bölmesinin altındaki**"Yakalama Ayarlarını Aç…"** düğmesiyle açabilirsiniz. Başlıkta "Yakalama Ayarları" yazmaktadır ve bir ← geri düğmesi bulunmaktadır.
 
 <!-- SCREENSHOT-NEEDED: the full Capture Settings pane — Single/Continuous/Interval mode buttons at top, the bulk export-type toggle rows (All Raw … All Index), the orange Fastest Capture toggle, an array group card with the Aligned checkbox and Record buttons, and an expanded per-camera row showing per-type checkboxes. -->
 
@@ -35,15 +35,15 @@ eskisi gibi geçiş bazında yakalama yapar.
 {% hint style="warning" %}
 **Windows
 
-&#x27;da hızlı yakalama: Chloros
+'da hızlı yakalama: Chloros
 
-arka ucunu Microsoft Defender&#x27;dan hariç tutun.** MAPIR
+arka ucunu Microsoft Defender'dan hariç tutun.** MAPIR
 
-&#x27;ın testlerinde, yüksek hızda yakalamanın yazdığı her dosyanın gerçek zamanlı taranması, yakalama hızının yaklaşık %30&#x27;una mal oluyor (küçük bir ROI&#x27;da saniyede yüzlerce dosya). Windows
+'ın testlerinde, yüksek hızda yakalamanın yazdığı her dosyanın gerçek zamanlı taranması, yakalama hızının yaklaşık %30'una mal oluyor (küçük bir ROI'da saniyede yüzlerce dosya). Windows
 
-yükleyicisi, varsayılan olarak işaretli olan **&quot;Chloros
+yükleyicisi, varsayılan olarak işaretli olan **"Chloros
 
-arka ucunu Microsoft Defender taramasından hariç tut (çok daha hızlı kamera yakalama; önerilir)&quot;** seçeneğini sunar ve program kaldırıldığında bu hariç tutmayı kaldırır. Bu seçeneğin işaretini kaldırdıysanız, yükleyiciyi bu seçenek işaretli olarak yeniden çalıştırın veya `chloros-backend.exe` için (Chloros
+arka ucunu Microsoft Defender taramasından hariç tut (çok daha hızlı kamera yakalama; önerilir)"** seçeneğini sunar ve program kaldırıldığında bu hariç tutmayı kaldırır. Bu seçeneğin işaretini kaldırdıysanız, yükleyiciyi bu seçenek işaretli olarak yeniden çalıştırın veya `chloros-backend.exe` için (Chloros
 
 kurulum klasöründeki `backend` klasöründe bulunan) bir Defender işlem hariç tutma kuralı ekleyin. Defender, bir dizinin Sürekli yakalama işlemi sırasında bir veya daha fazla CPU çekirdeği kullandığında, Chloros
 
@@ -57,11 +57,11 @@ arka ucu bunu günlüğüne bir kez kaydeder ve yine aynı iki çözüm yolunu s
 
 ### Kameraları ve dışa aktarma türlerini seçme
 
-Pencerenin yardım metni durumu şöyle özetler: &quot;Tümünü Yakala&quot; seçeneğinin hangi kameraları ve dışa aktarma türlerini üreteceğini seçin — varsayılan olarak her şey açıktır ve seçimler bu projeyle birlikte kaydedilir.
+Pencerenin yardım metni durumu şöyle özetler: "Tümünü Yakala" seçeneğinin hangi kameraları ve dışa aktarma türlerini üreteceğini seçin — varsayılan olarak her şey açıktır ve seçimler bu projeyle birlikte kaydedilir.
 
 * **Tümünü seç / Hiçbirini seçme** düğmeleri, her kameranın dahil etme onay kutusunu tek seferde değiştirir.
 * **Toplu dışa aktarma türü anahtarları**(iki sıra düğme):**Tüm Raw / Tüm Debayered / Tüm Önizleme / Tüm Radiance / Tüm Yansıma / Tüm İndeks**. Her birinin üç durumlu renk göstergesi vardır: yeşil ✓ = destekleyen tüm kameralar için etkin, sarı – = bazıları için etkin, gri = hiçbiri. Bağlı hiçbir kamera o türü desteklemediğinde anahtar devre dışı kalır. En Hızlı Yakalama açıkken hepsi gri renkte görünür.
-* **Kamera başına satırlar**: bir dahil et onay kutusu ve o kameraya uygulanabilir dışa aktarma türlerinin ayrı ayrı onay kutuları içeren genişletilebilir (▸/▾) bir liste. Satırda &quot;4/6&quot; gibi bir etkin durum sayısı gösterilir.
+* **Kamera başına satırlar**: bir dahil et onay kutusu ve o kameraya uygulanabilir dışa aktarma türlerinin ayrı ayrı onay kutuları içeren genişletilebilir (▸/▾) bir liste. Satırda "4/6" gibi bir etkin durum sayısı gösterilir.
 
 ### Dışa aktarım türleri ve bunları destekleyen kameralar
 
@@ -100,7 +100,7 @@ kameralar için radyans ve yansıma hiçbir zaman sunulmaz — geniş bantlı fo
 
 Bağlı her dizi, bölmede kendine ait bir grup kartına sahiptir:
 
-* **Dahil et** onay kutusu (üye arasında üç durumlu) ve dizinin adı ile görüntüleme modu: &quot;(birleştirilmiş | ayrı)&quot;.
+* **Dahil et** onay kutusu (üye arasında üç durumlu) ve dizinin adı ile görüntüleme modu: "(birleştirilmiş | ayrı)".
 * **Hizala**onay kutusu (varsayılan olarak**açık**): üye dışa aktarımlarını dizinin hizalama profiline göre dönüştürür, böylece dışa aktarımlar kameralar arasında piksel bazında hizalanır. Ham veriler warp işlemine tabi tutulmaz, ancak meta verilerinde dönüşüm bilgisini taşır. (Profilin kendisi [dizi ayarları bölmesinde](camera-settings.md#alignment-co-registration) hesaplanır.) Dizi üye dosyaları, her kameranın doğal yöneliminde kaydedilir; Ayna/Dönüş ayarları uygulanmak yerine dosyaya kaydedilir.
 * Üye kamera satırları kartın içine yerleştirilir.
 
@@ -108,8 +108,8 @@ Dizi kartı ayrıca iki kayıt cihazına da ev sahipliği yapar. Bunları **izle
 
 | Kayıt Cihazı | Sınıf | Neyi kaydeder |
 | --- | --- | --- |
-| **● İndeks videosu kaydet / ■ Kaydı durdur** *(yalnızca birleştirilmiş diziler)* | **İzleme** | 10 fps&#x27;de videoya dönüştürülmüş canlı birleştirilmiş indeks kompoziti — 8 bit, önizleme çözünürlüğü, LUT dahil. Açık bir proje ve canlı akış görünümü gerektirir. Kayıt sırasında kareleri ve geçen süreyi gösterir. |
-| **⦿ Ham seri kayıt / ■ Ham seri kaydı durdur** *(herhangi bir dizi)* | **Analiz**| Canlı yakalama hızında ham Bayer kareleri (işlenmemiş) artı kare başına manifest ve `.daq` okumaları, `captures/bursts/` formatında. Seri çekimden sonra, bir**Video Oluştur** düğmesi belirir: bu düğme, seri çekimi çevrimdışı olarak kalibre edilmiş videoya — birleştirilmiş indeks ve/veya kamera başına parlaklık / yansıma / indeks — artı isteğe bağlı TIFF&#x27;ler halinde yeniden işler. Birleştirilmiş indeks oluşturma işlemi, seri çekimi durdurduğunuzda otomatik olarak başlar. |
+| **● İndeks videosu kaydet / ■ Kaydı durdur** *(yalnızca birleştirilmiş diziler)* | **İzleme** | 10 fps'de videoya dönüştürülmüş canlı birleştirilmiş indeks kompoziti — 8 bit, önizleme çözünürlüğü, LUT dahil. Açık bir proje ve canlı akış görünümü gerektirir. Kayıt sırasında kareleri ve geçen süreyi gösterir. |
+| **⦿ Ham seri kayıt / ■ Ham seri kaydı durdur** *(herhangi bir dizi)* | **Analiz**| Canlı yakalama hızında ham Bayer kareleri (işlenmemiş) artı kare başına manifest ve `.daq` okumaları, `captures/bursts/` formatında. Seri çekimden sonra, bir**Video Oluştur** düğmesi belirir: bu düğme, seri çekimi çevrimdışı olarak kalibre edilmiş videoya — birleştirilmiş indeks ve/veya kamera başına parlaklık / yansıma / indeks — artı isteğe bağlı TIFF'ler halinde yeniden işler. Birleştirilmiş indeks oluşturma işlemi, seri çekimi durdurduğunuzda otomatik olarak başlar. |
 
 <!-- SCREENSHOT-NEEDED: an array group card in Capture Settings while a raw burst is recording — the ⦿/■ burst button in its recording state with frame count, and (in a second capture) the Build video button that appears after stopping. -->
 
@@ -124,8 +124,8 @@ Kenar çubuğundaki kamera listesinde **Tümünü Yakala** düğmesine basın:
 1. Dahil edilen, görünür ve duraklatılmamış tüm kameralar, seçilen dışa aktarma türleriyle çekim yapar. **Diziler, tek bir senkronize tetikleyici olarak çalışır** (tüm üyeler arasında tek bir senkronize grup — bkz. [Çoklu Kamera Dizileri](arrays.md)); bağımsız kameralar ise ayrı ayrı çekim yapar.
 2. Gizli (göz) veya duraklatılmış kameralar atlanır. Bir dizi, ancak *tüm* üyeleri gizli veya duraklatılmış olduğunda tamamen engellenir.
 3. Bir ışık sensörü atandığında, eşleşen DAQ aşağı doğru ışık okuma değeri, yakalamaların `daq/` klasörüne bir `.daq` dosyası olarak kaydedilir — yalnızca ham verili yakalamalar için bile — böylece radyometrik ürünler daha sonra her zaman türetilebilir.
-4. Düğme, canlı ilerleme durumunu gösterir — &quot;Yakalanıyor… tamamlandı/toplam&quot; — ve Sürekli/Aralıklı modda **Durdur (N)** haline gelir. Her yakalama öğesinin 300 saniyelik bir zaman aşımı süresi vardır.
-5. Geçiş bittiğinde, bir sonuç mesajı **&quot;N dosya kaydedildi&quot;**veya**&quot;N kaydedildi, F başarısız&quot;**şeklinde görüntülenir; ayrıca kameralar atlandığında &quot;(S gizli/duraklatıldı/atlandı)&quot; ifadesi de eklenir. Sürücü dolarsa, işlem durur ve**&quot;Durduruldu: sürücü dolu. N dosya kaydedildi, F başarısız&quot;** mesajı görüntülenir — yazılmayan her dosya başarısız olarak sayılır.
+4. Düğme, canlı ilerleme durumunu gösterir — "Yakalanıyor… tamamlandı/toplam" — ve Sürekli/Aralıklı modda **Durdur (N)** haline gelir. Her yakalama öğesinin 300 saniyelik bir zaman aşımı süresi vardır.
+5. Geçiş bittiğinde, bir sonuç mesajı **"N dosya kaydedildi"**veya**"N kaydedildi, F başarısız"**şeklinde görüntülenir; ayrıca kameralar atlandığında "(S gizli/duraklatıldı/atlandı)" ifadesi de eklenir. Sürücü dolarsa, işlem durur ve**"Durduruldu: sürücü dolu. N dosya kaydedildi, F başarısız"** mesajı görüntülenir — yazılmayan her dosya başarısız olarak sayılır.
 
 ## Yakalamaların kaydedildiği yer
 
@@ -150,11 +150,11 @@ Yakalamalar, açık projenin altında `<project>/captures/` dizininde kaydedilir
 * `<ts>`, yakalama zaman damgasıdır; `<serial>` ise kamera seri numarasıdır. Bağımsız yakalamalar `capture_<ts>_SN<serial>_<level>` olarak adlandırılır; senkronize edilmiş tek bir tetikleyiciden alınan dizi yakalamaları ise `sync_<ts>_SN<serial>_<level>` olarak adlandırılır ve **gruptaki tüm kameralar için tek bir zaman damgası paylaşır** (bir kamera yalnızca tek bir seviye kaydettiğinde seviye soneki atlanır).
 * **Bilmeniz gereken bir asimetri:** görüntüleme seviyesi, `preview/` adlı bir klasörde saklanırken, dosyaların adında `_display` kalır — klasör ve sonek yalnızca bu seviye için farklılık gösterir.
 * Bilinmeyen seviyeler, kendi adlarını taşıyan bir klasöre kaydedilir; bir alt klasör oluşturulamıyorsa, dosya kaybolmak yerine yakalama kök dizinine yazılır.
-* Yakalama TIFF&#x27;leri varsayılan olarak kayıpsız olarak sıkıştırılır (DEFLATE) ve tam kalibrasyon ve işleme meta verilerini **dosyanın XMP&#x27;si içinde** taşır — yakalamalar kendi kendilerini tanımlar; `.daq` dosyası (ve buna ait `.daq.cameras.json` dosyası) dışında herhangi bir yardımcı dosya içermez.
-* **Kısma maskeleri (1.3.0 sürümünde yeni).**3×3 spektral ayrıştırmanın bir bandı en az bir pikselde 0&#x27;a kısması gereken durumlarda, parlaklık, yansıma ve indeks ürünleri piksel başına bir maske alır: `clamp_masks/<product folder>/<product name>_clampmask.tif` (bit 0 = ürünün R kanalındaki bant, bit 1 = G, bit 2 = B); ürünün `Chloros:UnmixClampMask` XMP etiketi bu maskeyi işaret eder. Maskeler, ürün klasörlerinin**yanında** bulunur, asla içlerinde değil; bu nedenle `reflectance/` gibi bir ürün klasörü, olduğu gibi fotogrametri yazılımına aktarılabilir. Chloros
+* Yakalama TIFF'leri varsayılan olarak kayıpsız olarak sıkıştırılır (DEFLATE) ve tam kalibrasyon ve işleme meta verilerini **dosyanın XMP'si içinde** taşır — yakalamalar kendi kendilerini tanımlar; `.daq` dosyası (ve buna ait `.daq.cameras.json` dosyası) dışında herhangi bir yardımcı dosya içermez.
+* **Kısma maskeleri (1.3.0 sürümünde yeni).**3×3 spektral ayrıştırmanın bir bandı en az bir pikselde 0'a kısması gereken durumlarda, parlaklık, yansıma ve indeks ürünleri piksel başına bir maske alır: `clamp_masks/<product folder>/<product name>_clampmask.tif` (bit 0 = ürünün R kanalındaki bant, bit 1 = G, bit 2 = B); ürünün `Chloros:UnmixClampMask` XMP etiketi bu maskeyi işaret eder. Maskeler, ürün klasörlerinin**yanında** bulunur, asla içlerinde değil; bu nedenle `reflectance/` gibi bir ürün klasörü, olduğu gibi fotogrametri yazılımına aktarılabilir. Chloros
 
 ’un kendi içe aktarma işlevi maskeleri atlar.
-* **Yönlendirme (1.3.0).** Bağımsız bir kameranın Önizleme, Işılma, Yansıtma ve İndeks ürünleri, Ayna/Dönüş ayarıyla döndürülür; Raw ve Debayered dosyaları ise sensörün okuduğu haliyle kalır. Dizi üye dosyalarının tümü orijinal biçiminde kalır. Her dosya, ayarı kendi XMP&#x27;sinde kaydeder; bu sayede yeniden işleme sırasında ayar aynı şekilde uygulanır.
+* **Yönlendirme (1.3.0).** Bağımsız bir kameranın Önizleme, Işılma, Yansıtma ve İndeks ürünleri, Ayna/Dönüş ayarıyla döndürülür; Raw ve Debayered dosyaları ise sensörün okuduğu haliyle kalır. Dizi üye dosyalarının tümü orijinal biçiminde kalır. Her dosya, ayarı kendi XMP'sinde kaydeder; bu sayede yeniden işleme sırasında ayar aynı şekilde uygulanır.
 * **Bir `.daq` dosyasının hangi kameraya ait olduğu (1.3.0).** Bir çekimin `.daq` değeri, işleme sırasında yalnızca `.daq.cameras.json` değerinde belirtilen kameralardan gelen görüntülerle eşleştirilir. Bu nedenle, kendi ışık sensörü olmayan bağımsız bir kamera artık başka bir kameranın okuma değerini kullanmaz — bu kameraya bir sensör bağlayın veya Işık Sensörleri sekmesinde bir sensör kaydedin. Bir ışık sensörü kaydı (ve bu dosyaya sahip olmayan herhangi bir `.daq`, eski yakalamalar dahil) hala her kameraya hizmet eder.
 
 Bu, `chloros-cli lattice capture` / `array-capture` dosyalarının `-o` dizinine yazdığı düzenin aynısıdır — [CLI
@@ -176,10 +176,10 @@ chloros-cli process "C:/ChlorosProjects/MyField/captures"
 
 `process` normalde yalnızca belirttiğiniz klasörü içe aktarır, ancak bu klasörde görüntü bulunmadığında ve alt klasörler varsa otomatik olarak alt klasörlere iner — böylece seviye alt klasörleri ve `daq/` klasörü tek seferde alınır. Her yakalama, her seviye için ayrı bir resim olarak değil, diğer seviyeleri görüntülenebilir modlar olarak eklenmiş **tek bir resim** olarak içe aktarılır.
 
-Bir seviye alt klasörünü doğrudan adlandırmak (örn. `…/captures/raw/`) da işe yarar, ancak `daq/` klasörünü geride bırakır — yeniden-`raw/`&#x27;ten radyometrik bir ürün türetirken bu klasörü de yanına kopyalayın, aksi takdirde zaman damgası eşleşmesi için karşılaştırılacak bir şey kalmaz.
+Bir seviye alt klasörünü doğrudan adlandırmak (örn. `…/captures/raw/`) da işe yarar, ancak `daq/` klasörünü geride bırakır — yeniden-`raw/`'ten radyometrik bir ürün türetirken bu klasörü de yanına kopyalayın, aksi takdirde zaman damgası eşleşmesi için karşılaştırılacak bir şey kalmaz.
 
 {% hint style="warning" %}
-**İşleme her zaman `raw`&#x27;ten başlar.** Her bir yakalama içinde ham kare, iş akışının kaynağıdır; `debayered`, `radiance`, `reflectance`, ve `preview` görüntülenebilir modlar olarak gelir ancak iş akışına asla geri beslenmez — türetilmiş bir ürünün yeniden işlenmesi, piksellerine zaten işlenmiş olan vinyet, renk ve parlaklık hesaplamalarını yeniden uygulayacaktır; bu nedenle Chloros
+**İşleme her zaman `raw`'ten başlar.** Her bir yakalama içinde ham kare, iş akışının kaynağıdır; `debayered`, `radiance`, `reflectance`, ve `preview` görüntülenebilir modlar olarak gelir ancak iş akışına asla geri beslenmez — türetilmiş bir ürünün yeniden işlenmesi, piksellerine zaten işlenmiş olan vinyet, renk ve parlaklık hesaplamalarını yeniden uygulayacaktır; bu nedenle Chloros
 
 , çift işleme yapmak yerine bunu reddeder. `index/` ve `composite/` renderları ise hiçbir şekilde işlenmez (bunlar yakalama değil, çıktıdır). Raw içe aktarmaları **olmadan** kaydedilen bir yakalama klasörü normal şekilde görüntülenir, ancak `process` bunu atlar ve bunu belirtir; `--input-level {raw,debayered,processed}` ise bir giriş noktasını zorlayan kasıtlı bir kaçış yoludur. Kesin atlama mesajları için [CLI
 
@@ -193,7 +193,7 @@ Yeniden işleme komut dosyası yazarken bilinmesi gereken iki davranış daha:
 
 ## CLI
 
-&#x27;ye karşılık gelen komutlar
+'ye karşılık gelen komutlar
 
 Bu sayfadaki her şey başsız olarak çalıştırılabilir. GUI yakalama modları doğrudan `chloros-cli lattice array-capture` ile eşleşir:
 

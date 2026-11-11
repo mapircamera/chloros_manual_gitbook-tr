@@ -6,7 +6,7 @@ Görüntülerinizi içe aktardıktan, kalibrasyon hedeflerinizi işaretledikten 
 
 Başlat düğmesine tıklamadan önce her şeyin hazır olduğunu doğrulayın:
 
-* [ ] **Dosyalar içe aktarıldı** - Tüm görüntüler Dosya Tarayıcısı&#x27;nda görünüyor
+* [ ] **Dosyalar içe aktarıldı** - Tüm görüntüler Dosya Tarayıcısı'nda görünüyor
 * [ ] **Hedef görüntüler işaretlendi** - Kalibrasyon görüntüleri için Hedef sütunu işaretlendi (veya LATTICE için içe aktarılan bir `.daq` kaydı)
 * [ ] **Kamera modelleri algılandı** - Kamera Modeli sütununda doğru kameralar gösteriliyor
 * [ ] **Ayarlar yapılandırıldı** - Proje Ayarları gözden geçirildi ve ayarlandı
@@ -14,7 +14,7 @@ Başlat düğmesine tıklamadan önce her şeyin hazır olduğunu doğrulayın:
 * [ ] **Dışa aktarım biçimi seçildi** - İş akışınıza uygun çıktı biçimi
 
 {% hint style="info" %}
-**İpucu**: İşlemeye başlamadan önce Dosya Tarayıcısı&#x27;ndaki birkaç görüntüyü tıklayarak doğru şekilde yüklendiklerini doğrulayın.
+**İpucu**: İşlemeye başlamadan önce Dosya Tarayıcısı'ndaki birkaç görüntüyü tıklayarak doğru şekilde yüklendiklerini doğrulayın.
 {% endhint %}
 
 ***
@@ -23,7 +23,7 @@ Başlat düğmesine tıklamadan önce her şeyin hazır olduğunu doğrulayın:
 
 ### Başlat Düğmesini Bulma
 
-Başlat/Oynat düğmesi, Chloros&#x27;un üst başlık çubuğunda yer alır:
+Başlat/Oynat düğmesi, Chloros'un üst başlık çubuğunda yer alır:
 
 * Konum: Pencerenin üst orta kısmı
 * Simge: **Oynat/Başlat düğmesi** <img src="../.gitbook/assets/image (2) (1) (1).png" alt="" data-size="line">
@@ -62,7 +62,7 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 2. **İşleme** - Kalibrasyonu uygulama ve görüntüleri dışa aktarma**İşleme süresi:**
 
 * Chloros+ paralel moduna göre çok daha yavaştır
-* Küçük ve orta ölçekli veri kümeleri için uygundur (&lt; 200 görüntü)
+* Küçük ve orta ölçekli veri kümeleri için uygundur (< 200 görüntü)
 
 ### Chloros+ Modu (Paralel İşleme)
 
@@ -73,7 +73,7 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 * [4 iş parçacıklı işleme boru hattı](../processing-architecture/processing-pipeline.md) kullanarak birden fazla görüntüyü aynı anda işler
 * [Dinamik Hesaplama Uyumlaştırma](../processing-architecture/dynamic-compute-adaptation.md), çalıştırma başlangıcında donanımınız için en uygun stratejiyi otomatik olarak seçer
 * NVIDIA grafik kartlarıyla GPU (CUDA) hızlandırması
-* **İşçi sayısı donanıma göre uyarlanır**: GPU stratejileri**2-4 eşzamanlı işçi** çalıştırır (VRAM&#x27;e göre ölçeklenir — 2-12 GB&#x27;lık bir GPU&#x27;da 3, 12 GB ve üzeri bir GPU&#x27;da 2 ila 4); Yalnızca CPU içeren sistemlerde fiziksel çekirdek başına bir iş parçacığı çalıştırılır, ancak bir tanesi düşülür**İlerleme çubuğu 4 aşamayı gösterir** (4 iş akışı iş parçacığına karşılık gelir):
+* **İşçi sayısı donanıma göre uyarlanır**: GPU stratejileri**2-4 eşzamanlı işçi** çalıştırır (VRAM'e göre ölçeklenir — 2-12 GB'lık bir GPU'da 3, 12 GB ve üzeri bir GPU'da 2 ila 4); Yalnızca CPU içeren sistemlerde fiziksel çekirdek başına bir iş parçacığı çalıştırılır, ancak bir tanesi düşülür**İlerleme çubuğu 4 aşamayı gösterir** (4 iş akışı iş parçacığına karşılık gelir):
 
 1. **Algılama** (İş Parçacığı 1) - Kalibrasyon hedeflerinin bulunması
 2. **Analiz** (İş Parçacığı 2) - Görüntü meta verilerinin incelenmesi ve kalibrasyon hesaplanması
@@ -95,7 +95,7 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
 ### Aşama 1: Hedef Algılama
 
-**Chloros&#x27;un yaptığı işlemler:**
+**Chloros'un yaptığı işlemler:**
 
 * Hedef sütununda işaretlediğiniz görüntüleri tarar (hiçbiri işaretlenmemişse tüm görüntüleri tarar)
 * Her hedefteki kalibrasyon panellerini tanımlar
@@ -106,7 +106,7 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
 ### Aşama 2: Debayering (RAW Dönüştürme)
 
-**Chloros&#x27;un yaptığı işlemler:**
+**Chloros'un yaptığı işlemler:**
 
 * RAW Bayer desenli verileri tam 3 kanallı görüntülere dönüştürür (LATTICE mono modülleri tek bantlı kalır — bunlar için debayering atlanır ve günlüğe bir not eklenir)
 * Seçilen demosaicing algoritmasını uygular
@@ -116,7 +116,7 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
 ### Aşama 3: Kalibrasyon
 
-**Chloros&#x27;un yaptığı işlemler:*** **Vinyet düzeltme**: Kenarlardaki lens kararmasını giderir
+**Chloros'un yaptığı işlemler:*** **Vinyet düzeltme**: Kenarlardaki lens kararmasını giderir
 * **Yansıma kalibrasyonu**: Hedef yansıma değerleri ve/veya DAQ aşağı doğru ışınım verileri kullanılarak normalleştirir
 * Tüm bantlara/kanallara düzeltmeler uygular
 * Zaman damgasına göre her görüntü için uygun kalibrasyon referansını kullanır
@@ -125,7 +125,7 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
 ### Aşama 4: İndeks Hesaplama
 
-**Chloros&#x27;un yaptığı işlemler:**
+**Chloros'un yaptığı işlemler:**
 
 * Yapılandırılmış multispektral indeksleri (NDVI, NDRE vb.) hesaplar
 * Kalibre edilmiş görüntülere bant matematik işlemleri uygular
@@ -135,7 +135,7 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
 ### Aşama 5: Dışa Aktarma
 
-**Chloros&#x27;un yaptığı işlemler:**
+**Chloros'un yaptığı işlemler:**
 
 * İşlenmiş görüntüleri seçilen formatta kaydeder
 * **LATTICE fan-out**: Her bir ham LATTICE karesi, tek geçişte etkinleştirilmiş tüm ürünler olarak dışa aktarılır — debayering, önizleme, parlaklık (her zaman float32), yansıma
@@ -159,17 +159,17 @@ Başlatıldığında, tüm boru hattı otomatik olarak çalışır:
 
 * Nispeten düşük CPU kullanımı (tek iş parçacıklı)
 * Bilgisayar diğer görevler için yanıt vermeye devam eder
-* Chloros&#x27;u simge durumuna küçültüp diğer uygulamalarda çalışmak güvenlidir
+* Chloros'u simge durumuna küçültüp diğer uygulamalarda çalışmak güvenlidir
 
 **Chloros+ Paralel Mod:**
 
 * Stratejinin işçi havuzunda yüksek CPU kullanımı
 * GPU hızlandırması ile: Yüksek GPU kullanımı
 * İşlem sırasında bilgisayarın yanıt verme hızı düşebilir
-* CPU&#x27;yu yoğun şekilde kullanan diğer görevleri başlatmaktan kaçının
+* CPU'yu yoğun şekilde kullanan diğer görevleri başlatmaktan kaçının
 
 {% hint style="warning" %}
-**Performans İpucu**: En iyi Chloros+ performansı için diğer uygulamaları kapatın ve Chloros&#x27;un sistem kaynaklarını tam olarak kullanmasına izin verin.
+**Performans İpucu**: En iyi Chloros+ performansı için diğer uygulamaları kapatın ve Chloros'un sistem kaynaklarını tam olarak kullanmasına izin verin.
 {% endhint %}
 
 ### İşlem Duraklatılamaz (Ancak Durdurma İşlemi Sorunsuz Gerçekleşir)
@@ -180,7 +180,7 @@ Başlatıldığında, tüm boru hattı otomatik olarak çalışır:
 * Durdurulan bir işlem, tamamlanan kısımları doğru bir şekilde raporlar (günlükteki `[RUN-SUMMARY]` satırlarına bakın)
 * Yeni bir işlem, iş akışını baştan başlatır
 
-**Planlama ipucu:** Çok büyük projelerde, daha iyi kontrol için işlemleri gruplar halinde gerçekleştirmeyi veya CLI&#x27;yi kullanmayı düşünün.***
+**Planlama ipucu:** Çok büyük projelerde, daha iyi kontrol için işlemleri gruplar halinde gerçekleştirmeyi veya CLI'yi kullanmayı düşünün.***
 
 ## İşleminizi İzleme
 
@@ -202,7 +202,7 @@ Başlatıldığında, tüm boru hattı otomatik olarak çalışır:
 ### Nasıl Durdurulur
 
 1. **Durdur düğmesini** bulun (işleme sırasında Başlat düğmesinin yerini alır)
-2. Düğmeye bir kez tıklayın — işlenmekte olan görüntü tamamlanana kadar çubukta **&quot;Durduruluyor...&quot;** yazısı görünür
+2. Düğmeye bir kez tıklayın — işlenmekte olan görüntü tamamlanana kadar çubukta **"Durduruluyor..."** yazısı görünür
 3. İşlem kesin olarak durdurulmuş durumda sona erer ve günlüğe tamamlanan işlemlerin doğru bir özeti olan `[RUN-SUMMARY]` yazdırılır
 
 ### Ne Zaman Durdurulmalı
@@ -265,9 +265,9 @@ Gerçek işleme süresi aşağıdakilere bağlı olarak büyük ölçüde deği�
 **Çözümler:**
 
 1. Arka ucun tamamen başlatılmasını bekleyin (ana menü simgesini kontrol edin)
-2. Dosya Tarayıcı&#x27;da görüntülerin içe aktarıldığını doğrulayın
-3. Düğme devre dışı kalmaya devam ederse Chloros&#x27;u yeniden başlatın
-4. Hata mesajları için Hata Günülüğü&#x27;nü kontrol edin
+2. Dosya Tarayıcı'da görüntülerin içe aktarıldığını doğrulayın
+3. Düğme devre dışı kalmaya devam ederse Chloros'u yeniden başlatın
+4. Hata mesajları için Hata Günülüğü'nü kontrol edin
 
 ### İşleme Başlıyor, Ancak Hemen Hata Veriyor
 
@@ -290,7 +290,7 @@ Gerçek işleme süresi aşağıdakilere bağlı olarak büyük ölçüde deği�
 Görüntü ürünleri talep eden ancak hiçbirini yazmayan bir işlem, **başarı değil, hata** olarak değerlendirilir — Chloros bunu açıkça bildirir:
 
 * GUI günlüğünde, olası nedeni belirten `[RUN-SUMMARY]` uyarıları görüntülenir — görüntü içe aktarılmamış, hedef algılanmamış veya istenen tüm ürünler uygulanamaz olduğu için atlanmış (ör. yalnızca RGB kameralardan parlaklık/yansıtma değeri istenmesi)
-* CLI&#x27;deki karşılığı (`chloros-cli process`) ise `Processing finished but wrote no image products.` mesajını yazdırır ve **sıfırdan farklı bir değerle sonlanır**, böylece komut dosyaları bunu algılayabilir
+* CLI'deki karşılığı (`chloros-cli process`) ise `Processing finished but wrote no image products.` mesajını yazdırır ve **sıfırdan farklı bir değerle sonlanır**, böylece komut dosyaları bunu algılayabilir
 * Kasıtlı olarak yalnızca meta veriye yönelik bir çalıştırma (tüm dışa aktarma ürünleri devre dışı bırakılmış, indeks yok) yine de başarılı olarak kabul edilir
 
 Tam anlamı için [CLI Referansı](../reference/cli-reference.md#a-run-that-writes-no-images-fails) bölümüne bakın.
@@ -299,15 +299,15 @@ Tam anlamı için [CLI Referansı](../reference/cli-reference.md#a-run-that-writ
 
 **Yalnızca Windows, 1.3.0 sürümünde eklendi.** Windows, uzun yollar devre dışı bırakılmış olarak gelir ve bu durumda hiçbir dosya yolu 260 karakterden uzun olamaz. Chloros ürünleri, proje klasörünün yaklaşık 130 karakter altında yer alır; bu nedenle, bundan daha derin bir proje klasörü, ürünlerini alamaz. Chloros artık hiçbir şey yazmadan çalıştırmak yerine, işleme başlamadan önce bir kontrol yapar:
 
-* Başlat düğmesine tıklamak çalışmayı başlatmaz: ilerleme çubuğu nedeni gösterir ve Hata Ayıklama Günlüğü&#x27;nde `[PROCESS] refused: The project folder is too deep for this computer…` mesajı görünür. Mesaj, proje klasörünün uzunluğunu ve sığabilecek en uzun proje klasörünü belirtir.
+* Başlat düğmesine tıklamak çalışmayı başlatmaz: ilerleme çubuğu nedeni gösterir ve Hata Ayıklama Günlüğü'nde `[PROCESS] refused: The project folder is too deep for this computer…` mesajı görünür. Mesaj, proje klasörünün uzunluğunu ve sığabilecek en uzun proje klasörünü belirtir.
 * Projenin kendi dosyaları için bile çok derin bir klasörde proje oluşturmak veya açmak da reddedilir. Bir mesaj kutusu, bunun nedenini, sığabilecek en uzun proje klasör adını ve uzun yol seçeneğini nasıl etkinleştireceğinizi belirtir; hiçbir şey oluşturulmaz veya açılmaz; Hata Giderme Günlüğü bunu `[PROJECT] refused: …` olarak kaydeder. Bir projeyi daha uzun bir adla kopyalamak da sınırı aşabilir: kopyalama yapılır ancak proje açılmaz ve aynı mesaj bunun nedenini belirtir.
 
 **Çözümler:**
 
-1. Projeleri daha kısa bir klasörde tutun — [Proje Ayarları](../project-settings/project-settings.md) içindeki**Çalışma Dizini**&#x27;ni değiştirin ve projeyi yeniden oluşturun, veya
-2. Windows uzun yollarını etkinleştirin ve Chloros&#x27;u yeniden başlatın:**Windows uzun yollarını etkinleştir** seçeneği işaretli olarak (varsayılan olarak işaretlidir) Chloros kurulum programını yeniden çalıştırın veya Grup İlkesi&#x27;ni kullanın: *Bilgisayar Yapılandırması &gt; Yönetim Şablonları &gt; Sistem &gt; Dosya Sistemi &gt; Win32 uzun yollarını etkinleştir*.
+1. Projeleri daha kısa bir klasörde tutun — [Proje Ayarları](../project-settings/project-settings.md) içindeki**Çalışma Dizini**'ni değiştirin ve projeyi yeniden oluşturun, veya
+2. Windows uzun yollarını etkinleştirin ve Chloros'u yeniden başlatın:**Windows uzun yollarını etkinleştir** seçeneği işaretli olarak (varsayılan olarak işaretlidir) Chloros kurulum programını yeniden çalıştırın veya Grup İlkesi'ni kullanın: *Bilgisayar Yapılandırması > Yönetim Şablonları > Sistem > Dosya Sistemi > Win32 uzun yollarını etkinleştir*.
 
-### &quot;Hedef Tespit Edilmedi&quot; Uyarısı
+### "Hedef Tespit Edilmedi" Uyarısı
 
 **Olası nedenler:**
 
@@ -337,7 +337,7 @@ Tam anlamı için [CLI Referansı](../reference/cli-reference.md#a-run-that-writ
 ### İşleme Sırasında
 
 1. **Sistemin uyku moduna geçmesini önleyin** - Güç tasarrufu modlarını devre dışı bırakın
-2. **Chloros&#x27;u ön planda tutun** - Ya da en azından görev çubuğunda görünür olsun
+2. **Chloros'u ön planda tutun** - Ya da en azından görev çubuğunda görünür olsun
 3. **İlerlemeyi ara sıra izleyin** - Uyarı veya hata olup olmadığını kontrol edin
 4. **Başka ağır uygulamaları yüklemeyin** - Özellikle Chloros+ paralel modunda
 
@@ -346,8 +346,8 @@ Tam anlamı için [CLI Referansı](../reference/cli-reference.md#a-run-that-writ
 NVIDIA GPU hızlandırması kullanıyorsanız:
 
 1. NVIDIA sürücülerini en son sürüme güncelleyin
-2. GPU&#x27;nun 4 GB+ VRAM&#x27;e sahip olduğundan emin olun (eşzamanlı Texture Aware debayering için 7 GB+)
-3. GPU&#x27;yu yoğun şekilde kullanan uygulamaları kapatın (oyunlar, video düzenleme)
+2. GPU'nun 4 GB+ VRAM'e sahip olduğundan emin olun (eşzamanlı Texture Aware debayering için 7 GB+)
+3. GPU'yu yoğun şekilde kullanan uygulamaları kapatın (oyunlar, video düzenleme)
 4. GPU sıcaklığını izleyin (yeterli soğutma sağlandığından emin olun)
 
 ***

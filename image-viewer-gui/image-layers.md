@@ -6,9 +6,9 @@ Görüntü Görüntüleyicinin sağ üst köşesindeki **katman açılır menüs
 
 Chloros
 
-&#x27;ta bir &quot;katman&quot;, bir kaynak görüntüye kayıtlı bir **ürün dosyası**dır. İçe aktarma işlemi size kaynak dosyaları sağlar; işleme ise çalıştırma sırasında oluşturulan her ürün için bir katman ekler. Dışa aktarılan dosyalar kaynak dosya adını korur — ürünü tanımlayan**klasör** budur ve katman adı, Chloros
+'ta bir "katman", bir kaynak görüntüye kayıtlı bir **ürün dosyası**dır. İçe aktarma işlemi size kaynak dosyaları sağlar; işleme ise çalıştırma sırasında oluşturulan her ürün için bir katman ekler. Dışa aktarılan dosyalar kaynak dosya adını korur — ürünü tanımlayan**klasör** budur ve katman adı, Chloros
 
-&#x27;un o klasör için verdiği etikettir.
+'un o klasör için verdiği etikettir.
 
 <!-- SCREENSHOT-NEEDED: Image Viewer full screen with the layer dropdown open on a processed LATTICE multispectral image, showing the full list: TIFF base, RAW (Original), RAW (Debayered), RAW (Preview), RAW (Radiance), RAW (Reflectance), and one RAW (NDVI Index) entry. -->
 
@@ -37,7 +37,7 @@ Temel dosyası ham karesi **olan** bir LATTICE yakalaması için ayrı bir temel
 
 ### Survey3
 
-&#x27;ün işleme ürünleri
+'ün işleme ürünleri
 
 | Katman | Kaydedildiği yer | Ne zaman mevcut olur |
 | --- | --- | --- |
@@ -53,7 +53,7 @@ Temel dosyası ham karesi **olan** bir LATTICE yakalaması için ayrı bir temel
 
 ### LATTICE seviyeleri
 
-LATTICE, tek bir işleme aşamasında bunları fan out olarak yakalar. Hangi seviyelerin mevcut olduğu, Proje Ayarları&#x27;ndaki ürün başına dışa aktarma seçeneklerine ve kameraya neyin geçerli olduğuna bağlıdır.
+LATTICE, tek bir işleme aşamasında bunları fan out olarak yakalar. Hangi seviyelerin mevcut olduğu, Proje Ayarları'ndaki ürün başına dışa aktarma seçeneklerine ve kameraya neyin geçerli olduğuna bağlıdır.
 
 | Katman | Kaydedildiği yer | Uygulandığı |
 | --- | --- | --- |
@@ -76,7 +76,7 @@ RGB
 ana kameralarda bant başına radyometri bulunmadığından, parlaklık ve yansıma değerleri **uygulanamaz** olarak atlanır — günlük dosyasında bu durum, sessiz bir hata yerine açıkça belirtilir.
 
 {% hint style="info" %}
-**Ham ve debayered katmanlar ürünlerle hizalanır (1.3.0 sürümünde yeni).**LATTICE ham ve debayered dosyaları sensörün doğal yöneliminde kaydedilir ve kendilerine ait yönelimi XMP&#x27;ye kaydeder; diğer ürünler ise bu yönelim zaten uygulanmış olarak kaydedilir. Görüntüleyici ve görüntü ızgarası, görüntüleme amacıyla**RAW (Orijinal)**ve**RAW (Debayered)** katmanlarını bu kayda göre döndürür; böylece bir ürün katmanı ile ham katman arasında geçiş yaptığınızda kare artık ters dönmez. Bu yalnızca görüntülemeyle ilgilidir — dosyalar asla yeniden yazılmaz. Yön kaydı olmayan dosyalar (1.3.0 sürümünden önce çekilmiş veya başka bir yazılım tarafından yazılmış olanlar) kaydedildikleri şekilde gösterilir. Bkz. [Çıktı Görüntü Biçimleri](../output-image-formats.md#orientation).
+**Ham ve debayered katmanlar ürünlerle hizalanır (1.3.0 sürümünde yeni).**LATTICE ham ve debayered dosyaları sensörün doğal yöneliminde kaydedilir ve kendilerine ait yönelimi XMP'ye kaydeder; diğer ürünler ise bu yönelim zaten uygulanmış olarak kaydedilir. Görüntüleyici ve görüntü ızgarası, görüntüleme amacıyla**RAW (Orijinal)**ve**RAW (Debayered)** katmanlarını bu kayda göre döndürür; böylece bir ürün katmanı ile ham katman arasında geçiş yaptığınızda kare artık ters dönmez. Bu yalnızca görüntülemeyle ilgilidir — dosyalar asla yeniden yazılmaz. Yön kaydı olmayan dosyalar (1.3.0 sürümünden önce çekilmiş veya başka bir yazılım tarafından yazılmış olanlar) kaydedildikleri şekilde gösterilir. Bkz. [Çıktı Görüntü Biçimleri](../output-image-formats.md#orientation).
 {% endhint %}
 
 Sıkıştırma maskeleri (`*_clampmask.tif` klasöründeki `clamp_masks/` dosyası) katman değildir: Chloros
@@ -87,7 +87,7 @@ Sıkıştırma maskeleri (`*_clampmask.tif` klasöründeki `clamp_masks/` dosyas
 
 | Katman türü | Örnek | Kaynağı |
 | --- | --- | --- |
-| **RAW (`<INDEX>` Dizin)** | `RAW (NDVI Index)` | Proje Ayarları&#x27;nda yapılandırılan her dizin için bir tane, işleme sırasında hesaplanır |
+| **RAW (`<INDEX>` Dizin)** | `RAW (NDVI Index)` | Proje Ayarları'nda yapılandırılan her dizin için bir tane, işleme sırasında hesaplanır |
 | **`<INDEX>` LUT** | `NDVI LUT` | Bir indeksin renk eşlemeli versiyonu |
 | **Sandbox (`<Name>` `<Index\|LUT>` `<NNN>`)** | `Sandbox (NDVI LUT 003)` | Her [Dizin/LUT Sandbox](index-lut-sandbox.md) dışa aktarma işlemi |
 
@@ -108,7 +108,7 @@ Açılır menüde **JPG, RAW (Orijinal), RAW (Hedef), RAW (Yansıma)** seçenekl
 **←**/**→** tuşlarına basmak bir sonraki resme geçer ve sizi aynı katmanda tutmaya çalışır:
 
 1. **Önce tam eşleşme** — bir sonraki resimde aynı adlı bir katman varsa, o katman açılır. Bu, tüm seti tek tek incelerken sizi `RAW (NDVI Index)` katmanında tutan özelliktir
-2. **Ardından türe göre eşleşme** — bir indeks katmanı herhangi bir indeks katmanını, bir LUT herhangi bir LUT&#x27;u, yansıma herhangi bir yansıma katmanını, hedef herhangi bir hedef katmanını, orijinal herhangi bir orijinal katmanını, temel herhangi bir temel katmanını arar
+2. **Ardından türe göre eşleşme** — bir indeks katmanı herhangi bir indeks katmanını, bir LUT herhangi bir LUT'u, yansıma herhangi bir yansıma katmanını, hedef herhangi bir hedef katmanını, orijinal herhangi bir orijinal katmanını, temel herhangi bir temel katmanını arar
 3. **Ardından, yalnızca dışa aktarma katmanları için** — katman listesi henüz güncellenmemiş olsa bile isim korunur, çünkü dosya diskte zaten mevcuttur. Bu sayede, bir işleme hâlâ ürünleri yazarken bunları inceleyebilirsiniz
 4. **Aksi takdirde** — mevcut ilk katman, ki bu genellikle temel görüntüdür
 
@@ -149,19 +149,19 @@ bileşenlerini bildirir |
 ### Yansıtma: ölçek dosya bazındadır
 
 {% hint style="warning" %}
-**&quot;65.535&#x27;e böl&quot; seçeneği yalnızca Survey3
+**"65.535'e böl" seçeneği yalnızca Survey3
 
 için doğrudur.** LATTICE yansıtma değeri farklı bir ölçekte saklanır ve bu iki bölücüyü karıştırmak, yansıtma değerlerinin olması gerekenin tam yarısı kadar çıkmasına neden olan en yaygın hatadır.
 {% endhint %}
 
-| Kaynak | Yansıma değeri 1,0&#x27;a eşit DN | Tanımlayıcı |
+| Kaynak | Yansıma değeri 1,0'a eşit DN | Tanımlayıcı |
 | --- | --- | --- |
-| **LATTICE**(M3C / M3M) |**32768** | Her LATTICE yansıma dışa aktarımına damgalanan `Chloros:PixelScale=32768` XMP etiketi. 2× başlık payı, 1,0&#x27;ın üzerindeki ρ değerlerinin kırpılmak yerine temsil edilebileceği anlamına gelir |
+| **LATTICE**(M3C / M3M) |**32768** | Her LATTICE yansıma dışa aktarımına damgalanan `Chloros:PixelScale=32768` XMP etiketi. 2× başlık payı, 1,0'ın üzerindeki ρ değerlerinin kırpılmak yerine temsil edilebileceği anlamına gelir |
 | **Survey3**| **65535** | Chloros
 
 XMP ölçek etiketi yoktur — Survey3
 
-kalibrasyonu ρ × dtype-max değerini yazar ve 1,0&#x27;da kırpar |
+kalibrasyonu ρ × dtype-max değerini yazar ve 1,0'da kırpar |
 
 GIS ve komut dosyası oluşturma için: dosyadan `Chloros:PixelScale` değerini okuyun ve buna bölün. Etiket yoksa, dosya Survey3
 
@@ -214,7 +214,7 @@ Her ön ayarın arkasındaki kesin formül için [Multispektral İndeks Formüll
 
 ### Öncesi / sonrası karşılaştırması
 
-1. **RAW (Orijinal)**&#x27;i seçin ve vinyetlemeyi ve kalibre edilmemiş değerleri not edin
+1. **RAW (Orijinal)**'i seçin ve vinyetlemeyi ve kalibre edilmemiş değerleri not edin
 2. **RAW (Yansıtma)** seçeneğine geçin
 3. Karşılaştırın — vinyetleme giderildi, değerler kalibre edildi. Yakınlaştırma ve kaydırma sabit kalır, böylece aynı zemine bakarsınız
 
@@ -226,13 +226,13 @@ Her ön ayarın arkasındaki kesin formül için [Multispektral İndeks Formüll
 
 ### Kalibrasyon hedeflerini doğrulama
 
-1. Bir hedef karede **RAW (Hedef)**&#x27;i seçin
+1. Bir hedef karede **RAW (Hedef)**'i seçin
 2. Hedefin net bir şekilde görülebilir ve algılanabilir olduğunu doğrulayın
 3. Bir sonraki hedef kareye geçin — hedef katmanı sizi takip eder
 
 ### Yansıma değerlerinin doğruluğunu kontrol edin
 
-1. **RAW (Yansıma)**&#x27;i seçin
+1. **RAW (Yansıma)**'i seçin
 2. İmleç Değerleri panelindeki **%** sütununu okuyun — bu sütun, söz konusu dosya için zaten doğru şekilde ölçeklendirilmiştir
 3. Karedeki bilinen malzemelerle karşılaştırarak doğruluğu kontrol edin: sağlıklı bitki örtüsünde NIR
 
@@ -247,11 +247,11 @@ değeri yüksek, kırmızı değeri düşüktür; bir kalibrasyon hedefinin okun
 **Olası nedenler**
 
 * Görüntü hiç işlenmemiş — sadece temel ve `RAW (Original)` mevcut
-* Proje Ayarları&#x27;nda ürünün dışa aktarma seçeneği işaretli değil
+* Proje Ayarları'nda ürünün dışa aktarma seçeneği işaretli değil
 * Ürün o kameraya uygulanmıyor (RGB
 
 ana görüntüde radyans ve yansıma; tek bantlı M3M mono kamerada herhangi bir indeks)
-* Yansıma kalibrasyonu için kullanılacak veri yoktu — `.daq` aşağı yönlü kapsama alanı yoktu ve QA&#x27;dan geçen çerçeve içi hedef yoktu — bu nedenle çerçeve, Vignette Corrected veya Sensor Response moduna geri döndü
+* Yansıma kalibrasyonu için kullanılacak veri yoktu — `.daq` aşağı yönlü kapsama alanı yoktu ve QA'dan geçen çerçeve içi hedef yoktu — bu nedenle çerçeve, Vignette Corrected veya Sensor Response moduna geri döndü
 
 **Ne Yapmalı**
 
@@ -270,7 +270,7 @@ Chloros
 
 ### Yansıma değerleri olması gerekenin yarısı kadar görünüyor
 
-Neredeyse kesin olarak bir LATTICE dosyasını 65535&#x27;e bölüyorsunuz. `Chloros:PixelScale` (32768) kullanın veya bu değerin zaten uygulanmış olduğu **%** sütununu okuyun.
+Neredeyse kesin olarak bir LATTICE dosyasını 65535'e bölüyorsunuz. `Chloros:PixelScale` (32768) kullanın veya bu değerin zaten uygulanmış olduğu **%** sütununu okuyun.
 
 ### Dizin katmanı mevcut ancak görüntü boş
 

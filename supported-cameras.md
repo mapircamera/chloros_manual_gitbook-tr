@@ -17,7 +17,7 @@ kamera ailesinden gelen görüntüleri işler:
 (geniş) ve Survey3N
 (dar) kameralar. Giriş: `RAW+JPG`.
 * **LATTICE** — M3C ve M3M multispektral kamera modülleri. Giriş: `.tif`/`.tiff` çekimleri. LATTICE kameraları, senkronize çoklu kamera dizileri dahil olmak üzere, Chloros
-üzerinden — GUI&#x27;deki Kameralar sekmesi (Windows
+üzerinden — GUI'deki Kameralar sekmesi (Windows
 ) veya `chloros-cli lattice` / Python
 SDK
 (Windows
@@ -49,7 +49,7 @@ Chloros
 
 ### M3C (Bayer) filtre seçenekleri
 
-| Filtre | Bantlar (merkez nm&#x27;deki adı / FWHM
+| Filtre | Bantlar (merkez nm'deki adı / FWHM
 
 nm)       |
 | ------ | ---------------------------------------- |
@@ -86,7 +86,7 @@ nm)       |
 
 1.3.0 ve sonraki sürümler; önceki sürümlerde teknik özellik tablosundaki değerler 615/21 · 490/38 · 808/14) değerlerini kullanırdı. Bant adları `Orange_615`, `Cyan_490` ve `NIR_808` olarak kalır ve ölçülen merkez ile genişlik, Chloros
 
-&#x27;un her kalibre edilmiş dışa aktarımına damgaladığı değerlerdir.
+'un her kalibre edilmiş dışa aktarımına damgaladığı değerlerdir.
 
 ### M3M (mono) filtre kataloğu — 23 SKU
 
@@ -120,14 +120,14 @@ kenarları (nm) | Genişlik (nm) |
 | F950   | 945,1                 | 929–961         | 32         |
 | F988 † | 985,3                 | 968–1003        | 35         |
 
-_&quot;Bant kenarları, MAPIR
+_"Bant kenarları, MAPIR
 
-&#x27;ın parti bazında yaptığı filtre taramalarından elde edilen yarı maksimum genişlik değerleri olarak ölçülür — bu değerler, Chloros
+'ın parti bazında yaptığı filtre taramalarından elde edilen yarı maksimum genişlik değerleri olarak ölçülür — bu değerler, Chloros
 
-&#x27;ın kalibre edilmiş her dışa aktarımına eklediği değerlerle aynıdır.&quot;_ &quot;— (nominal)&quot; = henüz parti taraması yapılmamıştır; bu SKU&#x27;lar için belirtilen merkez SKU numarasıdır ve genişlik ise üreticinin verdiği değerdir.
+'ın kalibre edilmiş her dışa aktarımına eklediği değerlerle aynıdır."_ "— (nominal)" = henüz parti taraması yapılmamıştır; bu SKU'lar için belirtilen merkez SKU numarasıdır ve genişlik ise üreticinin verdiği değerdir.
 
-† &quot;F988 yansıma oranı, sahadaki bir yansıma paneli kullanılarak kalibre edilir: bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesinde yer aldığından, Chloros
+† "F988 yansıma oranı, sahadaki bir yansıma paneli kullanılarak kalibre edilir: bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesinde yer aldığından, Chloros
 
-en son panel yakalamanızı uygular ve panel gözlemleri arasında bu değeri korur.&quot; Bkz. [Kalibrasyon Hedefleri](calibration-targets.md).
+en son panel yakalamanızı uygular ve panel gözlemleri arasında bu değeri korur." Bkz. [Kalibrasyon Hedefleri](calibration-targets.md).
 
 Canlı kamera kontrolü, diziler, ağ kurulumu ve radyometrik işleme zinciri için [LATTICE kılavuzuna](lattice/) bakın.

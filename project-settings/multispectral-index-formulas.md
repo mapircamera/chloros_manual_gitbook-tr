@@ -12,7 +12,7 @@ Aşağıdaki indeks formülleri, Survey3 filtresinin ortalama geçirgenlik aral�
 
 <table><thead><tr><th align="center">Survey3 Filtresi Rengi</th><th width="196.199951171875" align="center">Survey3 Filtresi Adı</th><th width="159.800048828125" align="center">Geçiş Aralığı (FWHM)</th><th align="center">Ortalama Geçiş</th></tr></thead><tbody><tr><td align="center">Blue</td><td align="center">NGB - Blue</td><td align="center">468-483 nm</td><td align="center">475 nm</td></tr><tr><td align="center">Cyan</td><td align="center">OCN- Cyan</td><td align="center">476-512 nm</td><td align="center">494 nm</td></tr><tr><td align="center">Green</td><td align="center">RGN | NGB - Green</td><td align="center">543-558 nm</td><td align="center">547 nm</td></tr><tr><td align="center">Orange</td><td align="center">OCN - Orange</td><td align="center">598-640 nm</td><td align="center">619 nm</td></tr><tr><td align="center">Red</td><td align="center">RGN - Red</td><td align="center">653-668 nm</td><td align="center">661 nm</td></tr><tr><td align="center">RedEdge</td><td align="center">Re-RedEdge</td><td align="center">712-735 nm</td><td align="center">724 nm</td></tr><tr><td align="center">NIR1</td><td align="center">OCN - NIR1</td><td align="center">798-848 nm</td><td align="center">823 nm</td></tr><tr><td align="center">NIR2</td><td align="center">RGN | NGB | NIR - NIR2</td><td align="center">835-865 nm</td><td align="center">850 nm</td></tr></tbody></table>
 
-Bu formüller kullanıldığında, adın sonu &quot;\_1&quot; veya &quot;\_2&quot; ile bitebilir; bu, hangi NIR filtresinin (NIR1 veya NIR2) kullanıldığına karşılık gelir.
+Bu formüller kullanıldığında, adın sonu "\_1" veya "\_2" ile bitebilir; bu, hangi NIR filtresinin (NIR1 veya NIR2) kullanıldığına karşılık gelir.
 
 LATTICE M3C (Bayer üçlü bant geçidi) kameralar için, aynı indeks motoru M3C filtre bantlarını kullanır:
 
@@ -23,13 +23,13 @@ LATTICE M3C (Bayer üçlü bant geçidi) kameralar için, aynı indeks motoru M3
 | FOCN | Orange 615 nm / 21 nm | Cyan 490 nm / 38 nm | NIR 808 nm / 14 nm |
 | FNGB | Blue 475 nm / 30 nm | Green 550 nm / 30 nm | NIR 850 nm / 30 nm |
 
-LATTICE M3M kameraları tek bantlıdır (kamera başına bir dar bant filtresi), bu nedenle tek bir M3M görüntüsü için çok bantlı indeksler hesaplanmaz. M3M ile indeksleri hesaplamak için, iki veya daha fazla kamerayı hizalanmış bir çok bantlı yığın halinde birleştirin ve LATTICE indeks motorunu (`chloros-cli lattice index` veya GUI&#x27;nin canlı İndeks Hesaplayıcısı) kullanın.
+LATTICE M3M kameraları tek bantlıdır (kamera başına bir dar bant filtresi), bu nedenle tek bir M3M görüntüsü için çok bantlı indeksler hesaplanmaz. M3M ile indeksleri hesaplamak için, iki veya daha fazla kamerayı hizalanmış bir çok bantlı yığın halinde birleştirin ve LATTICE indeks motorunu (`chloros-cli lattice index` veya GUI'nin canlı İndeks Hesaplayıcısı) kullanın.
 
 ***
 
 ## Her bir indeks adının nerede çalıştığı
 
- Chloros&#x27;un **üç** indeks yüzeyi vardır ve bunların ön ayar listeleri birbiriyle aynı değildir. Bu bölümü, bir adın kullanmayı planladığınız yerde çalışıp çalışmayacağını kontrol etmek için kullanın.
+ Chloros'un **üç** indeks yüzeyi vardır ve bunların ön ayar listeleri birbiriyle aynı değildir. Bu bölümü, bir adın kullanmayı planladığınız yerde çalışıp çalışmayacağını kontrol etmek için kullanın.
 
 | Bulunduğunuz yer | Hangi liste geçerlidir | Sayı |
 | --- | --- | --- |
@@ -48,11 +48,11 @@ Açılır menü bunları şu sırayla listeler (alfabetik sıraya göre değil, 
 
 `NDVI, GNDVI, CVI, ENDVI, EVI, MSR, OSAVI, TDVI, LAI, FCI1, FCI2, GARI, GCI, GEMI, GLI, GOSAVI, GRVI, GSAVI, LCI, MNLI, MSAVI2, NDRE, NLI, RDVI, SAVI, VARI, WDRVI`
 
-GUI&#x27;de kameranızın filtre kanallarını formülün bant yuvalarına sürükleyerek, kameranızın desteklediği herhangi bir bant atamasıyla herhangi bir formülü kullanabilirsiniz. Kaydettiğiniz özel formüller bu listenin altına eklenir.
+GUI'de kameranızın filtre kanallarını formülün bant yuvalarına sürükleyerek, kameranızın desteklediği herhangi bir bant atamasıyla herhangi bir formülü kullanabilirsiniz. Kaydettiğiniz özel formüller bu listenin altına eklenir.
 
-**Yalnızca GUI&#x27;ye özel** beş formül — CLI/SDK&#x27;deki `--indices` listesinin kabul etmediği formüller — şu şekilde uygulanır:
+**Yalnızca GUI'ye özel** beş formül — CLI/SDK'deki `--indices` listesinin kabul etmediği formüller — şu şekilde uygulanır:
 
-| Yalnızca GUI&#x27;ye özel ön ayar | Formül (uygulandığı şekliyle) | Yuvalar |
+| Yalnızca GUI'ye özel ön ayar | Formül (uygulandığı şekliyle) | Yuvalar |
 | --- | --- | --- |
 | FCI1 | `x*y` | x, y |
 | FCI2 | `x*y` | x, y |
@@ -60,7 +60,7 @@ GUI&#x27;de kameranızın filtre kanallarını formülün bant yuvalarına sür�
 | GEMI | `((2*(y*y-x*x)+1.5*y+0.5*x)/(y+x+0.5))*(1-0.25*((2*(y*y-x*x)+1.5*y+0.5*x)/(y+x+0.5)))-((x-0.125)/(1-x))` | x, y |
 | LCI | `(y-x)/(y+z)` | x, y, z |
 
-Her biri için amaçlanan eşleme, bu sayfanın ilerleyen kısımlarında kendi bölümünde verilmiştir (örneğin GARI, x=Green, y=NIR, z=Blue, a=Red değerlerini bekler). GARI, Chloros&#x27;ta dördüncü yuvayı kullanan tek formüldür.
+Her biri için amaçlanan eşleme, bu sayfanın ilerleyen kısımlarında kendi bölümünde verilmiştir (örneğin GARI, x=Green, y=NIR, z=Blue, a=Red değerlerini bekler). GARI, Chloros'ta dördüncü yuvayı kullanan tek formüldür.
 
 ### 2. CLI / SDK `--indices` ad genişletme — 22 ön ayar
 
@@ -69,7 +69,7 @@ Her biri için amaçlanan eşleme, bu sayfanın ilerleyen kısımlarında kendi 
 `NDVI, GNDVI, NDRE, OSAVI, SAVI, MSAVI2, EVI, MSR, TDVI, LAI, GCI, GRVI, GSAVI, GOSAVI, NLI, MNLI, RDVI, WDRVI, CVI, ENDVI, GLI, VARI`
 
 {% hint style="warning" %}
-**Bilinmeyen dizin adları, herhangi bir uyarı vermeden atlanır.** Bu listenin dışında kalan bir ad (yalnızca GUI&#x27;ye özgü beş formül olan `FCI1`, `FCI2`, `GARI`, `GEMI`, `LCI` ve GUI&#x27;de kaydettiğiniz tüm özel formüller dahil) yalnızca bir günlük bildirimi ile atlanır — çalıştırma o dizin olmadan devam eder ve çalıştırma işlemi yine de başarılı olarak raporlanır. Bildirim şu şekilde yazdırılır:
+**Bilinmeyen dizin adları, herhangi bir uyarı vermeden atlanır.** Bu listenin dışında kalan bir ad (yalnızca GUI'ye özgü beş formül olan `FCI1`, `FCI2`, `GARI`, `GEMI`, `LCI` ve GUI'de kaydettiğiniz tüm özel formüller dahil) yalnızca bir günlük bildirimi ile atlanır — çalıştırma o dizin olmadan devam eder ve çalıştırma işlemi yine de başarılı olarak raporlanır. Bildirim şu şekilde yazdırılır:
 
 ```
 [INDEX_EXPAND] skipping unknown preset 'LCI'; known: ['CVI', 'ENDVI', 'EVI', ...]
@@ -118,13 +118,13 @@ Uygulandıkları şekliyle tam formüller (`x`/`y`/`z` sembolleri bant yuvaları
 | RE | RE 0 |
 | NIR | NIR 0 |
 
-Projede o filtreye sahip görüntüler varsa, ön ayarın **varsayılan filtresi** (yukarıdaki &quot;Varsayılan filtre&quot; sütunu) kullanılır. Eğer içermiyorsa, Chloros, projede fiilen bulunan filtreleri `RGN, OCN, NGB, RGB, RE, NIR` sırasına göre tarar ve ön ayarın ihtiyaç duyduğu her kanalı sağlayabilen ilk filtreyi seçer. Hiçbiri sağlayamıyorsa, ön ayar o çalıştırma için devre dışı bırakılır. Bu nedenle, yalnızca OCN içeren bir veri setinde talep edilen `NDVI` yine de mantıklı bir sonuç üretir — bu filtre, OCN&#x27;nin Orange ve NIR konumlarına bağlanır.
+Projede o filtreye sahip görüntüler varsa, ön ayarın **varsayılan filtresi** (yukarıdaki "Varsayılan filtre" sütunu) kullanılır. Eğer içermiyorsa, Chloros, projede fiilen bulunan filtreleri `RGN, OCN, NGB, RGB, RE, NIR` sırasına göre tarar ve ön ayarın ihtiyaç duyduğu her kanalı sağlayabilen ilk filtreyi seçer. Hiçbiri sağlayamıyorsa, ön ayar o çalıştırma için devre dışı bırakılır. Bu nedenle, yalnızca OCN içeren bir veri setinde talep edilen `NDVI` yine de mantıklı bir sonuç üretir — bu filtre, OCN'nin Orange ve NIR konumlarına bağlanır.
 
 LATTICE M3C model dizeleri, `F` önekine sahip filtreyi taşır (`LATT-M3C-L41-FRGN`), ancak filtre kodu görüntüden okunduğunda önek atılır; bu nedenle bir FRGN kamerası, yukarıdaki `RGN` satırını çözümler ve özel bir işlem gerektirmez.
 
 ### 3. LATTICE indeks motoru (`lattice index --preset`, canlı İndeks Hesaplayıcı) — 22 ön ayar
 
-LATTICE motoru, hizalanmış çok bantlı yığınlar (canlı diziler veya dışa aktarılmış çok bantlı TIFF&#x27;ler) üzerinde çalışır ve küçük harfli kanal adları kullanır (`red`, `green`, `blue`, `red_edge`, `nir`). Ön ayar listesi yukarıdaki ikisinden farklıdır:
+LATTICE motoru, hizalanmış çok bantlı yığınlar (canlı diziler veya dışa aktarılmış çok bantlı TIFF'ler) üzerinde çalışır ve küçük harfli kanal adları kullanır (`red`, `green`, `blue`, `red_edge`, `nir`). Ön ayar listesi yukarıdaki ikisinden farklıdır:
 
 | Ön Ayar | Formül | Kanallar |
 | --- | --- | --- |
@@ -163,9 +163,9 @@ $$
 CVI = NIR * {Red \over Green^{2}}
 $$
 
-GUI ve CLI/SDK ön ayar listesinde sembol formülü `(z/y)*(x/y)` şeklindedir; burada x=Red, y=Green, z=NIR (RGN kameranın bantları); LATTICE endeks motorunun ön ayarı ise `nir * red / green**2`&#x27;tir. Her yüzey aynı endeksi hesaplar.
+GUI ve CLI/SDK ön ayar listesinde sembol formülü `(z/y)*(x/y)` şeklindedir; burada x=Red, y=Green, z=NIR (RGN kameranın bantları); LATTICE endeks motorunun ön ayarı ise `nir * red / green**2`'tir. Her yüzey aynı endeksi hesaplar.
 
-_Kaynak: Vincini, M., E. Frazzi ve P. D&#x27;Alessio. &quot;A Broad-Band Leaf Chlorophyll Vegetation Index at the Canopy Scale.&quot; Precision Agriculture 9 (2008): 303-319._
+_Kaynak: Vincini, M., E. Frazzi ve P. D'Alessio. "A Broad-Band Leaf Chlorophyll Vegetation Index at the Canopy Scale." Precision Agriculture 9 (2008): 303-319._
 
 ***
 
@@ -183,7 +183,7 @@ Uygulama, `((x+y)-(2*z))/((x+y)+(2*z))` sembol formülüyle gerçekleştirilir �
 
 ## EVI - Geliştirilmiş Bitki Örtüsü Endeksi
 
-Bu endeks, yüksek yaprak alanı indeksi (LAI) olan bölgelerde bitki örtüsü sinyalini optimize ederek NDVI&#x27;ye bir iyileştirme olarak MODIS verileriyle kullanılmak üzere geliştirilmiştir. NDVI&#x27;nin doygunluğa ulaşabileceği yüksek LAI bölgelerinde en yararlıdır. Mavi yansıma bölgesini, toprak arka plan sinyallerini düzeltmek ve aerosol saçılımı dahil atmosferik etkileri azaltmak için kullanır.
+Bu endeks, yüksek yaprak alanı indeksi (LAI) olan bölgelerde bitki örtüsü sinyalini optimize ederek NDVI'ye bir iyileştirme olarak MODIS verileriyle kullanılmak üzere geliştirilmiştir. NDVI'nin doygunluğa ulaşabileceği yüksek LAI bölgelerinde en yararlıdır. Mavi yansıma bölgesini, toprak arka plan sinyallerini düzeltmek ve aerosol saçılımı dahil atmosferik etkileri azaltmak için kullanır.
 
 $$
 EVI = 2.5 *  {(NIR - Red) \over (NIR + 6 * Red - 7.5 * Blue + 1)}
@@ -191,7 +191,7 @@ $$
 
 EVI değerleri, bitki örtüsü pikselleri için 0 ile 1 arasında olmalıdır. Bulutlar ve beyaz binalar gibi parlak özellikler ile su gibi koyu özellikler, bir EVI görüntüsünde anormal piksel değerlerine neden olabilir. Bir EVI görüntüsü oluşturmadan önce, yansıma görüntüsünden bulutları ve parlak özellikleri maskelemeli ve isteğe bağlı olarak piksel değerleri için 0 ile 1 arasında bir eşik değeri belirlemelisiniz.
 
-_Kaynak: Huete, A. ve ark. &quot;MODIS Bitki Örtüsü Endekslerinin Radyometrik ve Biyofiziksel Performansına Genel Bakış.&quot; Remote Sensing of Environment 83 (2002):195–213._
+_Kaynak: Huete, A. ve ark. "MODIS Bitki Örtüsü Endekslerinin Radyometrik ve Biyofiziksel Performansına Genel Bakış." Remote Sensing of Environment 83 (2002):195–213._
 
 ***
 
@@ -207,7 +207,7 @@ $$
 
 Ormanlık alanlar, ağaçların daha düşük yansıma değeri ve taç yapısı içindeki gölgelerin varlığı nedeniyle daha düşük FCI1 değerlerine sahip olacaktır.
 
-_Kaynak: Becker, Sarah J., Craig S.T. Daughtry ve Andrew L. Russ. &quot;Multispektral görüntüler için sağlam orman örtüsü indeksleri.&quot; Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505-512._
+_Kaynak: Becker, Sarah J., Craig S.T. Daughtry ve Andrew L. Russ. "Multispektral görüntüler için sağlam orman örtüsü indeksleri." Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505-512._
 
 ***
 
@@ -223,7 +223,7 @@ $$
 
 Ormanlık alanlar, ağaçların daha düşük yansıma değeri ve taç yapısı içindeki gölgelerin varlığı nedeniyle daha düşük FCI2 değerlerine sahip olacaktır.
 
-_Kaynak: Becker, Sarah J., Craig S.T. Daughtry ve Andrew L. Russ. &quot;Multispektral görüntüler için sağlam orman örtüsü indeksleri.&quot; Photogrammetric Engineering &amp; Remote Sensing 84.8 (2018): 505-512._
+_Kaynak: Becker, Sarah J., Craig S.T. Daughtry ve Andrew L. Russ. "Multispektral görüntüler için sağlam orman örtüsü indeksleri." Photogrammetric Engineering & Remote Sensing 84.8 (2018): 505-512._
 
 ***
 
@@ -259,7 +259,7 @@ $$
 
 Gama sabiti, atmosferdeki aerosol koşullarına bağlı bir ağırlıklandırma fonksiyonudur. ENVI, Gitelson, Kaufman ve Merzylak’ın önerdiği 1,7 değerini kullanır (1996, sayfa 296) tarafından önerilen değerdir.
 
-_Kaynak: Gitelson, A., Y. Kaufman ve M. Merzylak. &quot;EOS-MODIS&#x27;ten Küresel Bitki Örtüsünün Uzaktan Algılanmasında Yeşil Kanalın Kullanımı.&quot; Remote Sensing of Environment 58 (1996): 289-298._
+_Kaynak: Gitelson, A., Y. Kaufman ve M. Merzylak. "EOS-MODIS'ten Küresel Bitki Örtüsünün Uzaktan Algılanmasında Yeşil Kanalın Kullanımı." Remote Sensing of Environment 58 (1996): 289-298._
 
 ***
 
@@ -273,13 +273,13 @@ $$
 
 Geniş NIR ve yeşil dalga boylarına sahip olmak, klorofil içeriğinin daha iyi tahmin edilmesini sağlarken, daha fazla hassasiyet ve daha yüksek bir sinyal-gürültü oranı sunar.
 
-_Kaynak: Gitelson, A., Y. Gritz ve M. Merzlyak. &quot;Yaprak Klorofil İçeriği ile Spektral Yansıtma Arasındaki İlişkiler ve Yüksek Bitki Yapraklarında Tahribatsız Klorofil Değerlendirmesi için Algoritmalar.&quot; Journal of Plant Physiology 160 (2003): 271-282._
+_Kaynak: Gitelson, A., Y. Gritz ve M. Merzlyak. "Yaprak Klorofil İçeriği ile Spektral Yansıtma Arasındaki İlişkiler ve Yüksek Bitki Yapraklarında Tahribatsız Klorofil Değerlendirmesi için Algoritmalar." Journal of Plant Physiology 160 (2003): 271-282._
 
 ***
 
 ## GLI - Yeşil Yaprak Endeksi
 
-Bu endeks, başlangıçta buğday örtüsünü ölçmek üzere dijital RGB kamera ile kullanılmak üzere tasarlanmıştır; burada kırmızı, yeşil ve mavi dijital sayılar (DN&#x27;ler) 0 ile 255 arasında değişmektedir.
+Bu endeks, başlangıçta buğday örtüsünü ölçmek üzere dijital RGB kamera ile kullanılmak üzere tasarlanmıştır; burada kırmızı, yeşil ve mavi dijital sayılar (DN'ler) 0 ile 255 arasında değişmektedir.
 
 $$
 GLI = {(Green - Red) + (Green - Blue)  \over (2 * Green) + Red + Blue }
@@ -287,7 +287,7 @@ $$
 
 GLI değerleri -1 ile +1 arasında değişir. Negatif değerler toprağı ve cansız unsurları temsil ederken, pozitif değerler yeşil yaprakları ve sapları temsil eder.
 
-_Kaynak: Louhaichi, M., M. Borman ve D. Johnson. &quot;Buğday Üzerindeki Otlatma Etkilerinin Belgelendirilmesi için Mekansal Konumlandırılmış Platform ve Hava Fotoğrafçılığı.&quot; Geocarto International 16, Sayı 1 (2001): 65-70._
+_Kaynak: Louhaichi, M., M. Borman ve D. Johnson. "Buğday Üzerindeki Otlatma Etkilerinin Belgelendirilmesi için Mekansal Konumlandırılmış Platform ve Hava Fotoğrafçılığı." Geocarto International 16, Sayı 1 (2001): 65-70._
 
 ***
 
@@ -299,7 +299,7 @@ $$
 GNDVI = {(NIR - Green) \over (NIR + Green)  }
 $$
 
-_Kaynak: Gitelson, A. ve M. Merzlyak. &quot;Yüksek Bitki Yapraklarındaki Klorofil Konsantrasyonunun Uzaktan Algılanması.&quot; Advances in Space Research 22 (1998): 689-692._
+_Kaynak: Gitelson, A. ve M. Merzlyak. "Yüksek Bitki Yapraklarındaki Klorofil Konsantrasyonunun Uzaktan Algılanması." Advances in Space Research 22 (1998): 689-692._
 
 ***
 
@@ -311,7 +311,7 @@ $$
 GOSAVI = {NIR - Green \over NIR + Green + 0.16)  }
 $$
 
-_Kaynak: Sripada, R. ve ark. &quot;Havadan Renkli Kızılötesi Fotoğrafçılık Kullanılarak Mısır İçin Sezon İçi Azot İhtiyaçlarının Belirlenmesi.&quot; Doktora tezi, Kuzey Carolina Eyalet Üniversitesi, 2005._
+_Kaynak: Sripada, R. ve ark. "Havadan Renkli Kızılötesi Fotoğrafçılık Kullanılarak Mısır İçin Sezon İçi Azot İhtiyaçlarının Belirlenmesi." Doktora tezi, Kuzey Carolina Eyalet Üniversitesi, 2005._
 
 ***
 
@@ -323,7 +323,7 @@ $$
 GRVI = {NIR \over Green }
 $$
 
-_Kaynak: Sripada, R. ve ark. &quot;Mısırda Sezonun Erken Dönemindeki Azot İhtiyaçlarını Belirlemek için Havadan Renkli Kızılötesi Fotoğrafçılık.&quot; Agronomy Journal 98 (2006): 968-977._
+_Kaynak: Sripada, R. ve ark. "Mısırda Sezonun Erken Dönemindeki Azot İhtiyaçlarını Belirlemek için Havadan Renkli Kızılötesi Fotoğrafçılık." Agronomy Journal 98 (2006): 968-977._
 
 ***
 
@@ -335,7 +335,7 @@ $$
 GSAVI = 1.5 * {(NIR - Green) \over (NIR + Green + 0.5)  }
 $$
 
-_Kaynak: Sripada, R. ve ark. &quot;Havadan Renkli Kızılötesi Fotoğrafçılık Kullanılarak Mısır İçin Sezon İçi Azot İhtiyaçlarının Belirlenmesi.&quot; Doktora tezi, Kuzey Carolina Eyalet Üniversitesi, 2005._
+_Kaynak: Sripada, R. ve ark. "Havadan Renkli Kızılötesi Fotoğrafçılık Kullanılarak Mısır İçin Sezon İçi Azot İhtiyaçlarının Belirlenmesi." Doktora tezi, Kuzey Carolina Eyalet Üniversitesi, 2005._
 
 ***
 
@@ -353,9 +353,9 @@ $$
 EVI = 2.5 *  {(NIR - Red) \over (NIR + 6 * Red - 7.5 * Blue + 1)}
 $$
 
-Yüksek LAI değerleri genellikle yaklaşık 0 ile 3,5 arasında değişir. Ancak, sahnede doymuş pikseller oluşturan bulutlar ve diğer parlak özellikler bulunduğunda, LAI değerleri 3,5&#x27;i aşabilir. İdeal olarak, bir LAI görüntüsü oluşturmadan önce sahnedeki bulutları ve parlak özellikleri maskelemelisiniz.
+Yüksek LAI değerleri genellikle yaklaşık 0 ile 3,5 arasında değişir. Ancak, sahnede doymuş pikseller oluşturan bulutlar ve diğer parlak özellikler bulunduğunda, LAI değerleri 3,5'i aşabilir. İdeal olarak, bir LAI görüntüsü oluşturmadan önce sahnedeki bulutları ve parlak özellikleri maskelemelisiniz.
 
-_Kaynak: Boegh, E., H. Soegaard, N. Broge, C. Hasager, N. Jensen, K. Schelde ve A. Thomsen. &quot;Tarımda Yaprak Alan İndeksi, Azot Konsantrasyonu ve Fotosentetik Verimliliği Ölçmek için Havadan Toplanan Çok Spektral Veriler.&quot; Remote Sensing of Environment 81, no. 2-3 (2002): 179-193._
+_Kaynak: Boegh, E., H. Soegaard, N. Broge, C. Hasager, N. Jensen, K. Schelde ve A. Thomsen. "Tarımda Yaprak Alan İndeksi, Azot Konsantrasyonu ve Fotosentetik Verimliliği Ölçmek için Havadan Toplanan Çok Spektral Veriler." Remote Sensing of Environment 81, no. 2-3 (2002): 179-193._
 
 ***
 
@@ -369,7 +369,7 @@ $$
 LCI = {NIR2 - RedEdge \over NIR2 + Red}
 $$
 
-_Kaynak: Datt, B. &quot;Eucalyptus Yapraklarındaki Su İçeriğinin Uzaktan Algılanması.&quot; Journal of Plant Physiology 154, no. 1 (1999): 30-36._
+_Kaynak: Datt, B. "Eucalyptus Yapraklarındaki Su İçeriğinin Uzaktan Algılanması." Journal of Plant Physiology 154, no. 1 (1999): 30-36._
 
 ***
 
@@ -381,7 +381,7 @@ $$
 MNLI = {(NIR^{2} - Red) * (1 + L) \over (NIR^{2} + Red + L)  }
 $$
 
-_Kaynak: Yang, Z., P. Willis ve R. Mueller. &quot;Bant Oranı İyileştirilmiş AWIFS Görüntüsünün Mahsul Sınıflandırma Doğruluğuna Etkisi.&quot; Pecora 17 Uzaktan Algılama Sempozyumu Bildirileri (2008), Denver, CO._
+_Kaynak: Yang, Z., P. Willis ve R. Mueller. "Bant Oranı İyileştirilmiş AWIFS Görüntüsünün Mahsul Sınıflandırma Doğruluğuna Etkisi." Pecora 17 Uzaktan Algılama Sempozyumu Bildirileri (2008), Denver, CO._
 
 ***
 
@@ -393,7 +393,7 @@ $$
 MSAVI2 = {2 * NIR + 1 - \sqrt{(2 * NIR + 1)^{2} - 8(NIR - Red)} \over 2}
 $$
 
-_Kaynak: Qi, J., A. Chehbouni, A. Huete, Y. Kerr ve S. Sorooshian. &quot;A Modified Soil Adjusted Vegetation Index.&quot; Remote Sensing of Environment 48 (1994): 119-126._
+_Kaynak: Qi, J., A. Chehbouni, A. Huete, Y. Kerr ve S. Sorooshian. "A Modified Soil Adjusted Vegetation Index." Remote Sensing of Environment 48 (1994): 119-126._
 
 ***
 
@@ -405,13 +405,13 @@ $$
 MSR = {(NIR / Red) - 1 \over \sqrt{NIR / Red} + 1}
 $$
 
-_Kaynak: Chen, J. &quot;Boreal Uygulamalar için Bitki Örtüsü Endekslerinin ve Modifiye Edilmiş Basit Oranın Değerlendirilmesi.&quot; Canadian Journal of Remote Sensing 22 (1996): 229-242._
+_Kaynak: Chen, J. "Boreal Uygulamalar için Bitki Örtüsü Endekslerinin ve Modifiye Edilmiş Basit Oranın Değerlendirilmesi." Canadian Journal of Remote Sensing 22 (1996): 229-242._
 
 ***
 
 ## NDRE - Normalleştirilmiş Fark RedEdge
 
-Bu endeks NDVI&#x27;ye benzerdir ancak Red yerine NIR ile RedEdge arasındaki kontrastı karşılaştırır; bu da genellikle bitki örtüsü stresini daha erken tespit eder.
+Bu endeks NDVI'ye benzerdir ancak Red yerine NIR ile RedEdge arasındaki kontrastı karşılaştırır; bu da genellikle bitki örtüsü stresini daha erken tespit eder.
 
 $$
 NDRE = {NIR - RedEdge \over NIR + RedEdge  }
@@ -441,7 +441,7 @@ $$
 NLI = {NIR^{2} - Red \over NIR^{2} + Red  }
 $$
 
-_Kaynak: Goel, N. ve W. Qin. &quot;Çeşitli Bitki Örtüsü İndeksleri ile LAI ve Fpar Arasındaki İlişkiler Üzerine Taç Yapısının Etkileri: Bir Bilgisayar Simülasyonu.&quot; Remote Sensing Reviews 10 (1994): 309-347._
+_Kaynak: Goel, N. ve W. Qin. "Çeşitli Bitki Örtüsü İndeksleri ile LAI ve Fpar Arasındaki İlişkiler Üzerine Taç Yapısının Etkileri: Bir Bilgisayar Simülasyonu." Remote Sensing Reviews 10 (1994): 309-347._
 
 ***
 
@@ -453,7 +453,7 @@ $$
 OSAVI = {(NIR - Red) \over (NIR + Red + 0.16)  }
 $$
 
-_Kaynak: Rondeaux, G., M. Steven ve F. Baret. &quot;Toprak Düzeltmeli Bitki Örtüsü Endekslerinin Optimizasyonu.&quot; Remote Sensing of Environment 55 (1996): 95-107._
+_Kaynak: Rondeaux, G., M. Steven ve F. Baret. "Toprak Düzeltmeli Bitki Örtüsü Endekslerinin Optimizasyonu." Remote Sensing of Environment 55 (1996): 95-107._
 
 ***
 
@@ -465,7 +465,7 @@ $$
 RDVI = {(NIR- Red) \over \sqrt{(NIR + Red)}  }
 $$
 
-_Kaynak: Roujean, J. ve F. Breon. &quot;Çift Yönlü Yansıma Ölçümlerinden Bitki Örtüsünün Emdiği PAR&#x27;ın Tahmin Edilmesi.&quot; Remote Sensing of Environment 51 (1995): 375-384._
+_Kaynak: Roujean, J. ve F. Breon. "Çift Yönlü Yansıma Ölçümlerinden Bitki Örtüsünün Emdiği PAR'ın Tahmin Edilmesi." Remote Sensing of Environment 51 (1995): 375-384._
 
 ***
 
@@ -477,7 +477,7 @@ $$
 SAVI = {1.5 * (NIR- Red) \over (NIR + Red + 0.5)  }
 $$
 
-_Kaynak: Huete, A. &quot;A Soil-Adjusted Vegetation Index (SAVI).&quot; Remote Sensing of Environment 25 (1988): 295-309._
+_Kaynak: Huete, A. "A Soil-Adjusted Vegetation Index (SAVI)." Remote Sensing of Environment 25 (1988): 295-309._
 
 ***
 
@@ -489,7 +489,7 @@ $$
 TDVI = 1.5 * {(NIR- Red) \over \sqrt{NIR^{2} + Red + 0.5}  }
 $$
 
-_Kaynak: Bannari, A., H. Asalhi ve P. Teillet. &quot;Bitki Örtüsü Haritalaması için Dönüştürülmüş Fark Bitki Örtüsü İndeksi (TDVI)&quot; Geoscience and Remote Sensing Symposium Bildirileri, IGARSS &#x27;02, IEEE International, Cilt 5 (2002)._
+_Kaynak: Bannari, A., H. Asalhi ve P. Teillet. "Bitki Örtüsü Haritalaması için Dönüştürülmüş Fark Bitki Örtüsü İndeksi (TDVI)" Geoscience and Remote Sensing Symposium Bildirileri, IGARSS '02, IEEE International, Cilt 5 (2002)._
 
 ***
 
@@ -501,13 +501,13 @@ $$
 VARI = {Green - Red \over Green + Red - Blue  }
 $$
 
-_Kaynak: Gitelson, A., ve diğerleri. &quot;Görünür Spektral Uzayda Bitki Örtüsü ve Toprak Çizgileri: Bitki Örtüsü Oranının Uzaktan Tahminine Yönelik Bir Kavram ve Teknik. Uluslararası Uzaktan Algılama Dergisi 23 (2002): 2537−2562._
+_Kaynak: Gitelson, A., ve diğerleri. "Görünür Spektral Uzayda Bitki Örtüsü ve Toprak Çizgileri: Bitki Örtüsü Oranının Uzaktan Tahminine Yönelik Bir Kavram ve Teknik. Uluslararası Uzaktan Algılama Dergisi 23 (2002): 2537−2562._
 
 ***
 
 ## WDRVI - Geniş Dinamik Aralık Bitki Örtüsü Endeksi
 
-Bu endeks NDVI’ye benzerdir, ancak NDVI’ye yakın kızılötesi ve kırmızı sinyallerin katkıları arasındaki farkı azaltmak için bir ağırlık katsayısı (_a_) kullanır. WDRVI, NDVI’nin 0,6’yı aştığı orta ila yüksek bitki örtüsü yoğunluğuna sahip sahnelerde özellikle etkilidir. NDVI, bitki örtüsü oranı ve yaprak alanı indeksi (LAI) arttıkça sabit bir seviyeye gelme eğilimindeyken, WDRVI daha geniş bir bitki örtüsü oranı aralığına ve LAI&#x27;deki değişikliklere karşı daha duyarlıdır.
+Bu endeks NDVI’ye benzerdir, ancak NDVI’ye yakın kızılötesi ve kırmızı sinyallerin katkıları arasındaki farkı azaltmak için bir ağırlık katsayısı (_a_) kullanır. WDRVI, NDVI’nin 0,6’yı aştığı orta ila yüksek bitki örtüsü yoğunluğuna sahip sahnelerde özellikle etkilidir. NDVI, bitki örtüsü oranı ve yaprak alanı indeksi (LAI) arttıkça sabit bir seviyeye gelme eğilimindeyken, WDRVI daha geniş bir bitki örtüsü oranı aralığına ve LAI'deki değişikliklere karşı daha duyarlıdır.
 
 $$
 WDRVI = {(\alpha * NIR- Red) \over (\alpha * NIR + Red)}
@@ -517,6 +517,6 @@ Ağırlık katsayısı (_a_) 0,1 ile 0,2 arasında değişebilir. Henebry, Viña
 
 _Kaynakça_
 
-_Gitelson, A. &quot;Bitki Örtüsünün Biyofiziksel Özelliklerinin Uzaktan Nicelleştirilmesi için Geniş Dinamik Aralık Bitki Örtüsü Endeksi.&quot; Journal of Plant Physiology 161, Sayı 2 (2004): 165-173._
+_Gitelson, A. "Bitki Örtüsünün Biyofiziksel Özelliklerinin Uzaktan Nicelleştirilmesi için Geniş Dinamik Aralık Bitki Örtüsü Endeksi." Journal of Plant Physiology 161, Sayı 2 (2004): 165-173._
 
-_Henebry, G., A. Viña ve A. Gitelson. &quot;Geniş Dinamik Aralık Bitki Örtüsü Endeksi ve Boşluk Analizi için Potansiyel Kullanımı.&quot; Gap Analysis Bulletin 12: 50-56._
+_Henebry, G., A. Viña ve A. Gitelson. "Geniş Dinamik Aralık Bitki Örtüsü Endeksi ve Boşluk Analizi için Potansiyel Kullanımı." Gap Analysis Bulletin 12: 50-56._

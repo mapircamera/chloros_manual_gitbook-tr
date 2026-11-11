@@ -25,23 +25,23 @@ ve SDK
 
 * **Aynı yayın etki alanı.** Chloros
 
-&#x27;u çalıştıran makine, sensörle aynı L2 ağ segmentinde olmalıdır — mDNS keşfi yönlendiricilerden geçmez.
+'u çalıştıran makine, sensörle aynı L2 ağ segmentinde olmalıdır — mDNS keşfi yönlendiricilerden geçmez.
 * **Güvenlik duvarı.** Windows
 
-&#x27;da yükleyici, her ağ profiline arka uç için **Chloros
+'da yükleyici, her ağ profiline arka uç için **Chloros
 
 Backend (UDP-In)**güvenlik duvarı kuralını ekler; bu kural DAQ-E verilerini (UDP 5002), mDNS (UDP 5353) ve PTP (UDP 319/320) verilerini kapsar; ayrıca, bir DAQ-E cihazının ürün yazılımı güncellemesi sırasında bilgisayara geri bağlanması için yerel alt ağla sınırlı bir**Chloros
 
 Arka Ucu (TCP-In)** kuralı da eklenir. Linux
 
-&#x27;ta, kurulum sırasında bu güvenlik duvarı etkinse, `.deb`, `ufw` veya `firewalld`&#x27;teki UDP bağlantı noktalarını açar. Üçüncü taraf bir güvenlik duvarı veya daha sonra etkinleştirilen bir güvenlik duvarında da aynı bağlantı noktalarının izin verilmesi gerekir.
-* **PoE güç kaynağı, durum LED&#x27;i yoktur.** DAQ-E&#x27;nin kendine ait bir LED&#x27;i yoktur — gücü, anahtar veya enjektör bağlantı noktasındaki bağlantı/PoE göstergesinden kontrol edin ve cihazın açıldıktan sonra önyükleme yapıp ağa katılabilmesi için birkaç saniye bekleyin.
+'ta, kurulum sırasında bu güvenlik duvarı etkinse, `.deb`, `ufw` veya `firewalld`'teki UDP bağlantı noktalarını açar. Üçüncü taraf bir güvenlik duvarı veya daha sonra etkinleştirilen bir güvenlik duvarında da aynı bağlantı noktalarının izin verilmesi gerekir.
+* **PoE güç kaynağı, durum LED'i yoktur.** DAQ-E'nin kendine ait bir LED'i yoktur — gücü, anahtar veya enjektör bağlantı noktasındaki bağlantı/PoE göstergesinden kontrol edin ve cihazın açıldıktan sonra önyükleme yapıp ağa katılabilmesi için birkaç saniye bekleyin.
 
 ## Bağlantı Kurma
 
-**GUI:** Işık Sensörleri sekmesi → Sensörü Bağla → Cihaz Türü &quot;DAQ-E (Ethernet)&quot;. Keşif işlemi yalnızca bağlantı iletişim kutusu ekranda açıkken (Windows
+**GUI:** Işık Sensörleri sekmesi → Sensörü Bağla → Cihaz Türü "DAQ-E (Ethernet)". Keşif işlemi yalnızca bağlantı iletişim kutusu ekranda açıkken (Windows
 
-&#x27;te mDNS taraması ve ARP taraması) çalışır ve her 15 saniyede bir tekrarlanır; Yenile düğmesi basıldığında tarama hemen yeniden yapılır. Tespit edilen sensörler açılır menüde görünür; algılanan ilk sensör otomatik olarak seçilir.
+'te mDNS taraması ve ARP taraması) çalışır ve her 15 saniyede bir tekrarlanır; Yenile düğmesi basıldığında tarama hemen yeniden yapılır. Tespit edilen sensörler açılır menüde görünür; algılanan ilk sensör otomatik olarak seçilir.
 
 <!-- SCREENSHOT-NEEDED: DAQ connect dialog with Device Type set to "DAQ-E (Ethernet)" and at least one discovered sensor listed in the Hostname/IP dropdown (e.g. daq-e-xxxxxx.local), Connect button enabled. -->
 
@@ -55,7 +55,7 @@ chloros-cli daq pool-connect --eth-host 192.168.1.57            # a plain IP wor
 
 Havuzda zaten bulunan bir DAQ-E, hem ana bilgisayar adıyla hem de IP adresiyle tanınır: başka bir adres üzerinden yeniden bağlanıldığında, ünite ikinci kez açılmak yerine mevcut havuz girdisi döndürülür.
 
-### Çoklu NIC&#x27;li ana bilgisayarlar ve önyüklemeden sonraki ilk bağlantı
+### Çoklu NIC'li ana bilgisayarlar ve önyüklemeden sonraki ilk bağlantı
 
 Birden fazla aktif ağ arabirimi bulunan ana bilgisayarlarda, önyüklemeden sonraki **ilk** `pool-connect --eth`, sensör çalışır durumda olsa bile boş çıkabilir — ARP önbelleği henüz ısınmamışken, keşif taraması sensörün bulunduğu arabirimi gözden kaçırabilir. Bundan güvenilir bir şekilde kurtulmanın yolu, keşif işlemini atlayıp adresi açıkça belirtmektir:
 
@@ -67,7 +67,7 @@ chloros-cli daq pool-connect --eth-host daq-e-def330.local
 
 ## Cihaz ayarları ve ürün yazılımı
 
-Sensörün kendisi ağ ayarını tutar: DHCP (fabrika ayarı; DHCP sunucusu yanıt vermediğinde 169.254.x.x bağlantı yerel adresine geri döner) veya statik bir adres. Ayrıca, açıldığında akışa başlayıp başlamayacağını da belirler. Bu ayarları GUI&#x27;de (sensörün dişli simgesindeki ayarlar, **Ağ**:**Değiştir…**,**Açıldığında akış başlat**,**Sensörü yeniden başlat**; bkz. [DAQ Sekmesi](gui.md)) veya CLI
+Sensörün kendisi ağ ayarını tutar: DHCP (fabrika ayarı; DHCP sunucusu yanıt vermediğinde 169.254.x.x bağlantı yerel adresine geri döner) veya statik bir adres. Ayrıca, açıldığında akışa başlayıp başlamayacağını da belirler. Bu ayarları GUI'de (sensörün dişli simgesindeki ayarlar, **Ağ**:**Değiştir…**,**Açıldığında akış başlat**,**Sensörü yeniden başlat**; bkz. [DAQ Sekmesi](gui.md)) veya CLI
 
 ve SDK
 
@@ -77,23 +77,23 @@ Referansı](../reference/cli-reference.md#daq-e-device-settings)). Sensör, ağ 
 
 sensörü yeniden bağlar. Chloros
 
-&#x27;un çalıştığı bilgisayarın ağında statik bir adres bulunmalıdır: Chloros
+'un çalıştığı bilgisayarın ağında statik bir adres bulunmalıdır: Chloros
 
 , yeniden başlatma sonrasında erişemediği bir adresi reddeder. Sensörün kimliği ve `daq-e-<id>.local` ana bilgisayar adı asla değişmez. 1.3.0 sürümündeki yenilikler.
 
-**Firmware güncellemeleri GUI&#x27;ye entegre edilmiştir.** Bağlı bir DAQ-E, Chloros
+**Firmware güncellemeleri GUI'ye entegre edilmiştir.** Bağlı bir DAQ-E, Chloros
 
-derlemenizle birlikte gelen görüntüden daha eski bir firmware çalıştırıyorsa, sensör satırında turuncu renkli bir **Güncelleme Mevcut** simgesi görünür ve dişli ayarları penceresinde &quot;Şu sürüme güncelle<version>&quot; düğmesi</version>
+derlemenizle birlikte gelen görüntüden daha eski bir firmware çalıştırıyorsa, sensör satırında turuncu renkli bir **Güncelleme Mevcut** simgesi görünür ve dişli ayarları penceresinde "Şu sürüme güncelle<version>" düğmesi</version>
 
-sunulur<version>. Güncelleme, ağ üzerinden yaklaşık 30 saniye içinde yüklenir; sensör otomatik olarak yeniden başlatılır ve yeniden bağlanır; aktarımın kesilmesi durumunda mevcut donanım yazılımı değişmeden kalır. CLI veya SDK üzerinden ve GUI&#x27;si olmayan Linux&#x27;de `chloros-cli daq pool-update-firmware --sensor-id <id>` (`DAQSensorSession.update_firmware()`) komutunu çalıştırın.
+sunulur<version>. Güncelleme, ağ üzerinden yaklaşık 30 saniye içinde yüklenir; sensör otomatik olarak yeniden başlatılır ve yeniden bağlanır; aktarımın kesilmesi durumunda mevcut donanım yazılımı değişmeden kalır. CLI veya SDK üzerinden ve GUI'si olmayan Linux'de `chloros-cli daq pool-update-firmware --sensor-id <id>` (`DAQSensorSession.update_firmware()`) komutunu çalıştırın.
 
 <!-- SCREENSHOT-NEEDED: DAQ-E per-sensor settings modal showing the DAQ-E-only rows: Hostname/IP, Firmware row with the "Update to <ver>" button (or "Up to date"), and the PTP Sync row with a live state value. -->
 
 ## PTP zaman senkronizasyonu
 
-DAQ-E ürün yazılımı v1.2.0+, IEEE 1588 PTPv2&#x27;ye sıradan (sadece bağımlı) bir saat olarak katılır. **Chloros ana bilgisayarının arka ucu, PTP grandmaster&#x27;dır** — LAN üzerindeki her DAQ-E ve her LATTICE kamera, etki alanı 0&#x27;da buna bağlanır ve tüm cihaz zaman damgalarını ~1 ms tolerans aralığında tutar. Bu paylaşılan saat, DAQ okumalarının kamera pozlamalarıyla zaman damgası açısından eşleştirilebilmesini sağlar (bkz. [Kayıt ve .daq Biçimi](recording.md)).
+DAQ-E ürün yazılımı v1.2.0+, IEEE 1588 PTPv2'ye sıradan (sadece bağımlı) bir saat olarak katılır. **Chloros ana bilgisayarının arka ucu, PTP grandmaster'dır** — LAN üzerindeki her DAQ-E ve her LATTICE kamera, etki alanı 0'da buna bağlanır ve tüm cihaz zaman damgalarını ~1 ms tolerans aralığında tutar. Bu paylaşılan saat, DAQ okumalarının kamera pozlamalarıyla zaman damgası açısından eşleştirilebilmesini sağlar (bkz. [Kayıt ve .daq Biçimi](recording.md)).
 
-CLI&#x27;den senkronizasyonu kontrol edin:
+CLI'den senkronizasyonu kontrol edin:
 
 | Komut | Gösterir |
 | --- | --- |
@@ -102,7 +102,7 @@ CLI&#x27;den senkronizasyonu kontrol edin:
 | `chloros-cli time-sync cameras` | Kamera başına PTP durumu (`PtpStatus`, `PtpOffsetFromMaster`, `PtpMeanPathDelay`) |
 | `chloros-cli time-sync restart` | Grandmaster işlemini yeniden başlat |
 
-GUI&#x27;de, DAQ-E ayarları modali, sensörün mevcut PTP durumunu gösteren canlı bir **PTP Senkronizasyonu** satırı gösterir.**PTP&#x27;si kapalı olan bir DAQ-E, kapalı kalır.** Ünite, PTP açık/kapalı ayarını kendi belleğinde saklar; bu nedenle, PTP&#x27;si kapatılmış bir ünite, yeniden bağlandıktan veya güç döngüsünden sonra da kapalı kalır ve zaman damgaları PTP ile senkronize edilmez. `chloros-cli daq pool-list`, böyle bir üniteyi işaretler (`!! PTP is switched OFF on this unit …`) ve sorunu gideren komutu yazdırır:
+GUI'de, DAQ-E ayarları modali, sensörün mevcut PTP durumunu gösteren canlı bir **PTP Senkronizasyonu** satırı gösterir.**PTP'si kapalı olan bir DAQ-E, kapalı kalır.** Ünite, PTP açık/kapalı ayarını kendi belleğinde saklar; bu nedenle, PTP'si kapatılmış bir ünite, yeniden bağlandıktan veya güç döngüsünden sonra da kapalı kalır ve zaman damgaları PTP ile senkronize edilmez. `chloros-cli daq pool-list`, böyle bir üniteyi işaretler (`!! PTP is switched OFF on this unit …`) ve sorunu gideren komutu yazdırır:
 
 ```bash
 chloros-cli daq pool-enable-ptp --sensor-id daq-e-def330
@@ -113,14 +113,14 @@ Chloros, üniteyi asla kendi kendine yeniden açmaz; çünkü kapalı durum kas�
 Sıkı hizalama gerektiren kullanıcılar için ayrıntılar:
 
 * Aktarılan her datagram bir bayrak alanı taşır; **zaman damgası PTP ile senkronize olan çerçevelerde 2. bit ayarlanır**. Sıkı kamera/DAQ hizalaması gerektiren iş akışları bu bite göre kontrol edilmelidir.
-* Senkronize bir yakalama işleminden önce, sensörün `chloros-cli time-sync peers`&#x27;te göründüğünü ve `chloros-cli daq pool-list`&#x27;in PTP&#x27;sini kapalı olarak işaretlemediğini doğrulayın. (MAPIR’ın dahili doğrudan donanım araçları, sensörün SLAVE durumuna ulaşması için 15 saniyeye kadar bekleyen bir `--wait-ptp` bayrağıyla PTP kilidi üzerine kaydı kontrol edebilir; bu araçlar, dağıtılan CLI’nin bir parçası değildir.)
-* PTP aktif olarak slave modundayken, sensör manuel saat gönderimlerini reddeder (&quot;PTP saat sağlıyor&quot;). Bu tasarım gereğidir — PTP&#x27;ye güvenin.
+* Senkronize bir yakalama işleminden önce, sensörün `chloros-cli time-sync peers`'te göründüğünü ve `chloros-cli daq pool-list`'in PTP'sini kapalı olarak işaretlemediğini doğrulayın. (MAPIR’ın dahili doğrudan donanım araçları, sensörün SLAVE durumuna ulaşması için 15 saniyeye kadar bekleyen bir `--wait-ptp` bayrağıyla PTP kilidi üzerine kaydı kontrol edebilir; bu araçlar, dağıtılan CLI’nin bir parçası değildir.)
+* PTP aktif olarak slave modundayken, sensör manuel saat gönderimlerini reddeder ("PTP saat sağlıyor"). Bu tasarım gereğidir — PTP'ye güvenin.
 
 ## Linux notları
 
-* **Root erişimi gerektirmeyen PTP bağlantı noktaları.** PTP, UDP 319/320 bağlantı noktalarını kullanır. `.deb`, `/etc/sysctl.d/60-chloros-ptp.conf` (`net.ipv4.ip_unprivileged_port_start = 319`) değerini yazar; bu nedenle arka uç, bunları sizin kullanıcı kimliğinizle çalışacak şekilde bağlar. 1.3.0 sürümünden itibaren paket, arka uçta herhangi bir dosya yeteneği (`setcap`) ayarlamaz ve `libcap2-bin`&#x27;e ihtiyaç duymaz; yeteneği kendiniz eklemeyin, çünkü aksi takdirde paketi açılmış arka uç çalışmaz. PTP, 319 numaralı bağlantı noktasına bağlanamıyorsa, [Linux Kurulumu](../linux/linux-installation.md#ptp-will-not-start--cannot-bind-port-319) bölümüne bakın.
+* **Root erişimi gerektirmeyen PTP bağlantı noktaları.** PTP, UDP 319/320 bağlantı noktalarını kullanır. `.deb`, `/etc/sysctl.d/60-chloros-ptp.conf` (`net.ipv4.ip_unprivileged_port_start = 319`) değerini yazar; bu nedenle arka uç, bunları sizin kullanıcı kimliğinizle çalışacak şekilde bağlar. 1.3.0 sürümünden itibaren paket, arka uçta herhangi bir dosya yeteneği (`setcap`) ayarlamaz ve `libcap2-bin`'e ihtiyaç duymaz; yeteneği kendiniz eklemeyin, çünkü aksi takdirde paketi açılmış arka uç çalışmaz. PTP, 319 numaralı bağlantı noktasına bağlanamıyorsa, [Linux Kurulumu](../linux/linux-installation.md#ptp-will-not-start--cannot-bind-port-319) bölümüne bakın.
 
-* **Headless Jetson / Linux ana bilgisayarı:** Paket, arka uç hizmetlerini yükler ancak hiçbirini etkinleştirmez. Kimsenin bir komut çalıştırmadığı durumlarda PTP&#x27;nin (ve DAQ&#x27;nın) sürekli çalışır durumda olması için, hizmetinizi kendi kullanıcı adınızla etkinleştirin:
+* **Headless Jetson / Linux ana bilgisayarı:** Paket, arka uç hizmetlerini yükler ancak hiçbirini etkinleştirmez. Kimsenin bir komut çalıştırmadığı durumlarda PTP'nin (ve DAQ'nın) sürekli çalışır durumda olması için, hizmetinizi kendi kullanıcı adınızla etkinleştirin:
 
   ```bash
   sudo systemctl enable --now chloros-backend@$USER.service    # $USER expands to your user name
@@ -128,12 +128,12 @@ Sıkı hizalama gerektiren kullanıcılar için ayrıntılar:
 
   Bu yapılmazsa, PTP yalnızca arka uç hizmetini başlatan bir işlem (`chloros-cli` komutu veya bir SDK komut dosyası) varken çalışır. Kök `chloros-backend.service` hesabı ve bu hesaptan nasıl çıkılacağı hakkında bilgi için [Linux Kurulumu](../linux/linux-installation.md#always-on-ptp-for-headless-hosts) bölümüne bakın.
 
-## Sorun Giderme: &quot;DAQ-E cihazı bulunamadı&quot;
+## Sorun Giderme: "DAQ-E cihazı bulunamadı"
 
 | Kontrol | Ayrıntı |
 | --- | --- |
 | Güç | Sensörde LED yanmıyor — anahtar/enjektör bağlantı noktasının PoE ve bağlantı göstergelerini kontrol edin; güç açıldıktan sonra birkaç saniye bekleyin |
 | Yayın alanı | Ana bilgisayar ve sensör aynı L2 segmentinde; mDNS yönlendirme yapmıyor |
-| Güvenlik duvarı | Windows: Yükleyicinin **Chloros Backend (UDP-In)** kuralı, DAQ-E akışının (UDP 5002), mDNS (5353) ve PTP (319/320) bağlantılarının içeri girmesine izin verir; üçüncü taraf bir güvenlik duvarında da aynısı gereklidir. Linux: `.deb`, bu bağlantı noktalarını yalnızca kurulum sırasında güvenlik duvarı etkinse `ufw` / `firewalld`&#x27;te açar — daha sonra etkinleştirilen bir güvenlik duvarında bunları kendiniz izin verin |
-| Çoklu ağ kartı (Multi-NIC) ana bilgisayar | Keşif işlemi, ARP yedeği ile mDNS&#x27;yi tarar; `--eth-host <ip-or-hostname>` keşif işlemini atlar ve doğrudan bağlanır |
+| Güvenlik duvarı | Windows: Yükleyicinin **Chloros Backend (UDP-In)** kuralı, DAQ-E akışının (UDP 5002), mDNS (5353) ve PTP (319/320) bağlantılarının içeri girmesine izin verir; üçüncü taraf bir güvenlik duvarında da aynısı gereklidir. Linux: `.deb`, bu bağlantı noktalarını yalnızca kurulum sırasında güvenlik duvarı etkinse `ufw` / `firewalld`'te açar — daha sonra etkinleştirilen bir güvenlik duvarında bunları kendiniz izin verin |
+| Çoklu ağ kartı (Multi-NIC) ana bilgisayar | Keşif işlemi, ARP yedeği ile mDNS'yi tarar; `--eth-host <ip-or-hostname>` keşif işlemini atlar ve doğrudan bağlanır |
 | GUI yeniden taraması | Keşif işlemi yalnızca bağlantı iletişim kutusu açıkken çalışır; Yenile seçeneğini kullanın |</version>

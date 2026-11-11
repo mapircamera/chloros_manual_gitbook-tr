@@ -1,10 +1,10 @@
 # Bir Projeye Dosya Ekleme
 
-Chloros&#x27;ta bir proje oluşturduktan veya açtıktan sonra, işleme başlamak için multispektral görüntülerinizi eklemeniz gerekir. Dosya Tarayıcı<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> sekmesi, görüntüleri içe aktarmanızı ve veri kümenizi yönetmenizi kolaylaştırır.
+Chloros'ta bir proje oluşturduktan veya açtıktan sonra, işleme başlamak için multispektral görüntülerinizi eklemeniz gerekir. Dosya Tarayıcı<img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> sekmesi, görüntüleri içe aktarmanızı ve veri kümenizi yönetmenizi kolaylaştırır.
 
 ## Dosya Tarayıcıya Erişme
 
-1. Chloros&#x27;ta bir proje açın veya oluşturun
+1. Chloros'ta bir proje açın veya oluşturun
 2. Sol kenar çubuğundaki **Dosya Tarayıcı** <img src="../.gitbook/assets/icon_file-browser.JPG" alt="" data-size="line"> simgesine tıklayın
 3. Dosya Tarayıcı paneli, projenizin dosya listesini gösterecektir
 
@@ -12,7 +12,7 @@ Chloros&#x27;ta bir proje oluşturduktan veya açtıktan sonra, işleme başlama
 **Desteklenen Dosya Türleri**:
 
 * **Survey3W / Survey3N**: RAW+JPG çiftleri ve JPG görüntüler (RAW+JPG önerilir)
-* **LATTICE**: `.tif` / `.tiff` kayıtları — Chloros kamera kontrolü veya bir LATTICE hub&#x27;ı tarafından yazılmış
+* **LATTICE**: `.tif` / `.tiff` kayıtları — Chloros kamera kontrolü veya bir LATTICE hub'ı tarafından yazılmış
 * **Işık sensörü verileri**: `.daq` kayıtları (DAQ-U/M/E) ve DAQ-M `.csv` aşağı doğru ışık kayıtları — yansıma kalibrasyonunu gerçekleştirmek için görüntülerle birlikte içe aktarılır
 {% endhint %}
 
@@ -26,21 +26,21 @@ Projenize görüntü eklemenin iki temel yolu vardır:
 
 Tek tek görüntü dosyalarını veya az sayıda dosyayı içe aktarmak için bu seçeneği kullanın.
 
-1. Dosya Tarayıcı panelinin üst kısmındaki **&quot;Dosya Ekle&quot;** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> düğmesine tıklayın
+1. Dosya Tarayıcı panelinin üst kısmındaki **"Dosya Ekle"** <img src="../.gitbook/assets/image (3).png" alt="" data-size="line"> düğmesine tıklayın
 2. Görüntülerinizin bulunduğu klasöre gidin
 3. Bir veya daha fazla görüntü dosyası seçin (birden fazla dosya seçmek için **Ctrl** tuşunu basılı tutun)
-4. Seçilen dosyaları içe aktarmak için **&quot;Aç&quot;** düğmesine tıklayın
+4. Seçilen dosyaları içe aktarmak için **"Aç"** düğmesine tıklayın
 
 ### Yöntem 2: Klasör Ekle
 
 Bir klasördeki tüm resimleri tek seferde içe aktarmak için bu seçeneği kullanın. Tek bir iletişim kutusunda **birden fazla klasör** seçebilirsiniz.
 
-1. Dosya Tarayıcı panelinin üst kısmındaki **&quot;Klasör Ekle&quot;** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> düğmesine tıklayın
+1. Dosya Tarayıcı panelinin üst kısmındaki **"Klasör Ekle"** <img src="../.gitbook/assets/image (1) (1).png" alt="" data-size="line"> düğmesine tıklayın
 2. Yakalama oturumu resimlerinizi içeren klasör(ler)e gidin ve seçin
-3. Desteklenen tüm resimleri içe aktarmak için **&quot;Klasörü Seç&quot;** düğmesine tıklayın
+3. Desteklenen tüm resimleri içe aktarmak için **"Klasörü Seç"** düğmesine tıklayın
 
 {% hint style="info" %}
-**Yüklenemeyen dosyalar bildirilir.** Bir klasör, Chloros&#x27;un tanıdığı ancak yükleyemediği dosyalar içeriyorsa, bir uyarı ile bilgilendirilirsiniz — görüntüler ızgaradan sessizce kaybolmaz.
+**Yüklenemeyen dosyalar bildirilir.** Bir klasör, Chloros'un tanıdığı ancak yükleyemediği dosyalar içeriyorsa, bir uyarı ile bilgilendirilirsiniz — görüntüler ızgaradan sessizce kaybolmaz.
 {% endhint %}
 
 ***
@@ -57,12 +57,12 @@ output/
 └── *.daq          the downwelling reading matched to the capture
 ```
 
-**&quot;Klasör Ekle&quot; seçeneğiyle yakalama klasörünün kök dizinini belirtin** (yukarıdaki `output/`). Seçilen klasörün içinde görüntü bulunmuyor ancak alt klasörleri varsa, Chloros otomatik olarak bu alt klasörlere iner — aynı seviyedeki alt klasörler ve kök `.daq` tek seferde alınır.**Yakalamaların içe aktarılma şekli:*** Her yakalama, yakalama bazında gruplandırılmış **tek bir görüntü** olarak içe aktarılır (her seviye için ayrı bir giriş değil). Aynı yakalamanın diğer seviyeleri, o tek görüntünün görüntüleme modları olarak görünür.
+**"Klasör Ekle" seçeneğiyle yakalama klasörünün kök dizinini belirtin** (yukarıdaki `output/`). Seçilen klasörün içinde görüntü bulunmuyor ancak alt klasörleri varsa, Chloros otomatik olarak bu alt klasörlere iner — aynı seviyedeki alt klasörler ve kök `.daq` tek seferde alınır.**Yakalamaların içe aktarılma şekli:*** Her yakalama, yakalama bazında gruplandırılmış **tek bir görüntü** olarak içe aktarılır (her seviye için ayrı bir giriş değil). Aynı yakalamanın diğer seviyeleri, o tek görüntünün görüntüleme modları olarak görünür.
 * **İşleme her zaman ham kareden başlar.** Diğer seviyeler görüntülenebilir, ancak işleme sürecine yalnızca `raw` dahil edilir — halihazırda işlenmiş bir ürünü yeniden işlemek, düzeltmelerin iki kez uygulanmasına neden olacağından Chloros bunu reddeder. Yeniden içe aktarılan bir dışa aktarım, hiçbir zaman bir çekimin ham verisi yuvasını işgal edemez.
 * Ham veriler **olmadan** kaydedilen bir çekim klasörü normal şekilde görüntülenir, ancak işleme bu klasörü atlar ve bunu günlüğe kaydeder. (CLI bayrağı `--input-level`, bu durum için bir giriş noktasını zorlayabilir — bkz. [CLI Referansı](../reference/cli-reference.md#what-a-captures-folder-looks-like).)
 * 1.3.0 sürümünden itibaren bir yakalama klasörü, bir `clamp_masks/` klasörü de içerebilir (parlaklık ve yansıma düzeyleri için piksel başına maskeler — bkz. [Çıktı Görüntü Biçimleri](../output-image-formats.md#clamp-masks)). Maskeler sahnenin görüntüleri değildir ve Chloros, içe aktarma sırasında nerede olurlarsa olsunlar bunları atlar.
 
-**LATTICE hub oturumları** da aynı şekilde içe aktarılır: hub&#x27;dan kopyalanan oturum klasörüne (`raw/` ve `previews/` içerir) ve varsa herhangi bir DAQ-M `.csv` aşağı yönlü kayıt dosyasına &quot;Klasör Ekle&quot; seçeneğini işaretleyin. Kameranın veya DAQ&#x27;nın kalibrasyonu henüz bilgisayarınızda önbelleğe alınmamışsa, Chloros içe aktarma sırasında seri numarasına göre bunu otomatik olarak alır (bir kez internet bağlantısı gerekir).***
+**LATTICE hub oturumları** da aynı şekilde içe aktarılır: hub'dan kopyalanan oturum klasörüne (`raw/` ve `previews/` içerir) ve varsa herhangi bir DAQ-M `.csv` aşağı yönlü kayıt dosyasına "Klasör Ekle" seçeneğini işaretleyin. Kameranın veya DAQ'nın kalibrasyonu henüz bilgisayarınızda önbelleğe alınmamışsa, Chloros içe aktarma sırasında seri numarasına göre bunu otomatik olarak alır (bir kez internet bağlantısı gerekir).***
 
 ## Dosya Tarayıcı Tablosunu Anlama
 
@@ -112,7 +112,7 @@ Tablonun sağ üst köşesindeki geçiş düğmesine tıkladığınızda, seçil
 Projenizden istenmeyen görüntüleri kaldırmak için:
 
 1. Dosya Tarayıcı tablosunda bir veya daha fazla görüntü seçin
-2. **&quot;Seçilenleri Kaldır&quot;** <img src="../.gitbook/assets/image (2) (1).png" alt="" data-size="line"> düğmesine tıklayın
+2. **"Seçilenleri Kaldır"** <img src="../.gitbook/assets/image (2) (1).png" alt="" data-size="line"> düğmesine tıklayın
 3. Kaldırma işlemini onaylayın (dosyalar diskten silinmez, yalnızca projeden kaldırılır)
 
 ### Sıralama ve Filtreleme
@@ -169,7 +169,7 @@ Projeniz birden fazla MAPIR kamerasından alınan görüntüler içeriyorsa:
 
 * Kalibrasyon hedef görüntülerini, anket görüntüleriyle aynı klasörde tutun
 * Her çekim oturumuna ait `.daq` / `.csv` ışık sensörü dosyalarını o oturumun görüntüleriyle birlikte saklayın
-* Kameranızdan/SD kartınızdan/hub&#x27;ınızdan gelen orijinal klasör yapısını koruyun
+* Kameranızdan/SD kartınızdan/hub'ınızdan gelen orijinal klasör yapısını koruyun
 * Farklı oturumlara ait veri kümelerini tek bir projede karıştırmayın
 
 ### Dosya Adlandırma
@@ -183,7 +183,7 @@ Projeniz birden fazla MAPIR kamerasından alınan görüntüler içeriyorsa:
 * Her oturumda mutlaka 1-2 adet kalibrasyon hedef görüntüsü ekleyin (Survey3; LATTICE için bir DAQ kaydı bunun yerine kullanılabilir — bkz. [Hedef Görüntülerin Seçilmesi](choosing-target-images.md))
 * Çekim oturumundan önce ve sonra hedef görüntüleri çekin
 * Hedefleri, çekim alanıyla aynı aydınlatma koşullarına yerleştirin
-* Hedef görüntülerini &quot;Hedef&quot; onay kutusunu kullanarak işaretleyin
+* Hedef görüntülerini "Hedef" onay kutusunu kullanarak işaretleyin
 
 ***
 
@@ -220,7 +220,7 @@ Projeniz birden fazla MAPIR kamerasından alınan görüntüler içeriyorsa:
 
 ### Yeniden Açılan Proje Eksik Dosyalar Bildiriyor
 
-Proje en son açıldığından beri kaynak dosyalar taşınmış veya silinmişse, Chloros boş bir ızgaraya açmak yerine **hangi**dosyaların kaybolduğunu size bildirir. Proje klasörünün kendisi taşınmışsa, Chloros kaynak yollarını `project.json` klasörünün şu anda bulunduğu konuma yeniden yönlendirir ve bir yedek (`project.json.before-relink-<date>-<time>`) tutar. Dosyalar bu şekilde bulunamadığında,**Kaynak dosyalar bulunamadı**penceresi yeni konuma**Gözat** seçeneğini sunar; ardından Yeni Proje veya Projeyi Sil seçenekleri gelir. CLI&#x27;den `chloros-cli project open PATH --relink FOLDER` komutunu, SDK&#x27;den ise `open_project(path, relink=...)` komutunu kullanın.***
+Proje en son açıldığından beri kaynak dosyalar taşınmış veya silinmişse, Chloros boş bir ızgaraya açmak yerine **hangi**dosyaların kaybolduğunu size bildirir. Proje klasörünün kendisi taşınmışsa, Chloros kaynak yollarını `project.json` klasörünün şu anda bulunduğu konuma yeniden yönlendirir ve bir yedek (`project.json.before-relink-<date>-<time>`) tutar. Dosyalar bu şekilde bulunamadığında,**Kaynak dosyalar bulunamadı**penceresi yeni konuma**Gözat** seçeneğini sunar; ardından Yeni Proje veya Projeyi Sil seçenekleri gelir. CLI'den `chloros-cli project open PATH --relink FOLDER` komutunu, SDK'den ise `open_project(path, relink=...)` komutunu kullanın.***
 
 ## Sonraki Adımlar
 

@@ -21,7 +21,7 @@ metaLinks:
 11 (64 bit)                                  |
 | **İşlemci**        | Intel Core i5 veya eşdeğeri                          | Intel Core i7 veya üstü                              |
 | **Bellek (RAM)**     | 8 GB                                                  | 16 GB veya daha fazla                                         |
-| **Grafik Kartı**    | DirectX 11 uyumlu                                | 4 GB+ VRAM&#x27;e sahip NVIDIA GPU                            |
+| **Grafik Kartı**    | DirectX 11 uyumlu                                | 4 GB+ VRAM'e sahip NVIDIA GPU                            |
 | **Depolama**          | 6 GB boş alan                                       | 10 GB+ boş alana sahip SSD                            |
 | **Ekran**          | 1920x1080                                            | 2560x1440 veya daha yüksek                                  |
 | **İnternet**         | \[isteğe bağlı] Chloros
@@ -36,7 +36,7 @@ amd64 (x86\_64)
 | **Dağıtım**  | Ubuntu 22.04 LTS+ / Debian 12+ | Ubuntu 24.04 LTS      |
 | **İşlemci**     | x86\_64 (Intel/AMD)        | Intel Core i7 veya daha üstü   |
 | **Bellek (RAM)**  | 8 GB                        | 16 GB veya daha fazla              |
-| **Grafik Kartı** | Yok (CPU ile işleme)      | 4 GB+ VRAM&#x27;e sahip NVIDIA GPU |
+| **Grafik Kartı** | Yok (CPU ile işleme)      | 4 GB+ VRAM'e sahip NVIDIA GPU |
 | **Depolama**       | 2 GB boş alan             | 10 GB+ boş alana sahip SSD       |
 | **Python**        | Python
 3.7+ (SDK
@@ -57,28 +57,28 @@ için)        | Python
 3.10+                    |
 
 {% hint style="info" %}
-**GPU Hızlandırma**: NVIDIA GPU&#x27;lara sahip Chloros
+**GPU Hızlandırma**: NVIDIA GPU'lara sahip Chloros
 + kullanıcıları, işleme hızını önemli ölçüde artırmak için CUDA hızlandırmasını kullanabilir. Bu özellik, Windows
 ve Linux
-amd64 üzerinde NVIDIA masaüstü GPU&#x27;larıyla ve JetPack 6 yüklü NVIDIA Jetson&#x27;da çalışır. Chloros
+amd64 üzerinde NVIDIA masaüstü GPU'larıyla ve JetPack 6 yüklü NVIDIA Jetson'da çalışır. Chloros
 + kullanıcıları ayrıca maksimum hız için çok iş parçacıklı işleme özelliğinden de yararlanır.
 {% endhint %}
 
 ***
 
 ## Chloros
-&#x27;u İndirin
+'u İndirin
 
 ### En Son Kararlı Sürüm: Sürüm 1.3.0 (11 Kasım 2026)
 
 ### <a href="https://drive.google.com/uc?export=download&#x26;id=1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4" class="button primary">Windows</a>
-<a href="https://drive.google.com/uc?export=download&#x26;id=1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4" class="button primary">için Chloros&#x27;u İndirin (.exe)</a>
+<a href="https://drive.google.com/uc?export=download&#x26;id=1HjwrUY4M7HGxDbMybO7iPe_6JoHnUGr4" class="button primary">için Chloros'u İndirin (.exe)</a>
 
 
-### <a href="https://drive.google.com/uc?export=download&#x26;id=1dB8-ke3wxNXpw_e1qJ4BhwBpCoNd4kLS" class="button primary">Linux amd64 için Chloros&#x27;u İndirin (.deb)</a>
+### <a href="https://drive.google.com/uc?export=download&#x26;id=1dB8-ke3wxNXpw_e1qJ4BhwBpCoNd4kLS" class="button primary">Linux amd64 için Chloros'u İndirin (.deb)</a>
 
 
-### <a href="https://drive.google.com/uc?export=download&#x26;id=1d1OwdcYA4Rf4jkuPi2IBeWT2772_HnyO" class="button primary">Linux arm64 / Jetson için Chloros&#x27;u indirin (.deb)</a>
+### <a href="https://drive.google.com/uc?export=download&#x26;id=1d1OwdcYA4Rf4jkuPi2IBeWT2772_HnyO" class="button primary">Linux arm64 / Jetson için Chloros'u indirin (.deb)</a>
 
 
 #### Windows
@@ -98,7 +98,7 @@ Yükleyicisi)
 6. Kurulumu tamamlayın ve Chloros
 veya Chloros
 CLI
-&#x27;yi başlatın 7. [MAPIR
+'yi başlatın 7. [MAPIR
 Cloud Chloros
 + hesabınızla](https://cloud.mapir.camera/pricing) oturum açın (veya ücretsiz sürümüyle devam edin)
 
@@ -108,17 +108,17 @@ Cloud Chloros
 | --- | --- | --- |
 | **Windows
 uzun yollarını etkinleştir** (proje klasörlerinin 260 karakterden daha derin konumlarda bulunmasına izin verir; önerilir) | Windows
-&#x27;un sistem genelindeki `LongPathsEnabled` ayarını 1 olarak ayarlar. Windows
+'un sistem genelindeki `LongPathsEnabled` ayarını 1 olarak ayarlar. Windows
 bu ayar kapalı olarak gelir ve bu durumda hiçbir dosya yolu 260 karakterden uzun olamaz; Chloros
 ürünleri proje klasörünün yaklaşık 130 karakter altına kadar yer alır, bu nedenle uzun yollar devre dışı bırakıldığında daha derin bir proje klasörü kabul edilmez. Yüklemeden sonra başlatılan programlar için geçerli olur. Diğer programlar bu ayara bağlı olabileceğinden, program kaldırıldıktan sonra da ayar etkin kalır. | `/MERGETASKS="!longpaths"` |
 | **Chloros
-arka ucunu Microsoft Defender taramasından hariç tut** (çok daha hızlı kamera yakalama; önerilir) | Kurulum klasöründeki `chloros-backend.exe` için bir Microsoft Defender işlem hariç tutma kuralı ekler; böylece gerçek zamanlı koruma, arka ucun yazdığı her dosyayı, nereye yazarsa yazsın taramaz. Yüksek yakalama hızlarında, tarama işlemi yakalama hızının yaklaşık %30&#x27;u kadar zaman alır (9 kameralı sürekli yakalamada saniyede 77,7&#x27;ye karşı 52,7 yakalama). Başka hiçbir program hariç tutulmaz ve bu hariç tutma, programın kaldırılmasıyla birlikte kaldırılır. Defender&#x27;ın bulunmadığı veya bir ilke tarafından kilitlendiği durumlarda, bu adım sessizce başarısız olur ve kurulum devam eder. | `/MERGETASKS="!defenderexclusion"` |
+arka ucunu Microsoft Defender taramasından hariç tut** (çok daha hızlı kamera yakalama; önerilir) | Kurulum klasöründeki `chloros-backend.exe` için bir Microsoft Defender işlem hariç tutma kuralı ekler; böylece gerçek zamanlı koruma, arka ucun yazdığı her dosyayı, nereye yazarsa yazsın taramaz. Yüksek yakalama hızlarında, tarama işlemi yakalama hızının yaklaşık %30'u kadar zaman alır (9 kameralı sürekli yakalamada saniyede 77,7'ye karşı 52,7 yakalama). Başka hiçbir program hariç tutulmaz ve bu hariç tutma, programın kaldırılmasıyla birlikte kaldırılır. Defender'ın bulunmadığı veya bir ilke tarafından kilitlendiği durumlarda, bu adım sessizce başarısız olur ve kurulum devam eder. | `/MERGETASKS="!defenderexclusion"` |
 
 Gizli bir kurulum (`/SILENT` veya `/VERYSILENT`), gösterilen `/MERGETASKS` değeriyle devre dışı bırakmadığınız sürece her iki seçeneği de uygular.
 
 {% hint style="success" %}
 Yükleyici, CLI
-klasörünü (`C:\Program Files\Chloros\cli\`) sisteminize bir kez ekler `PATH` — yeniden yükleme veya yükseltme işlemlerinde artık yinelenen bir giriş eklenmez ve önceki yükleyicilerin eklediği yinelenen girişler kaldırılır. `chloros-cli`&#x27;i kullanmak için kurulumdan sonra yeni bir terminal açın. Yükleyici ayrıca, her ağ profilinde arka uç için iki adet Windows
+klasörünü (`C:\Program Files\Chloros\cli\`) sisteminize bir kez ekler `PATH` — yeniden yükleme veya yükseltme işlemlerinde artık yinelenen bir giriş eklenmez ve önceki yükleyicilerin eklediği yinelenen girişler kaldırılır. `chloros-cli`'i kullanmak için kurulumdan sonra yeni bir terminal açın. Yükleyici ayrıca, her ağ profilinde arka uç için iki adet Windows
 Güvenlik Duvarı kuralı ekler: **Chloros
 Arka Ucu (UDP-In)**, kamera akışları, PTP, mDNS ve DAQ-E veri akışı için;**Chloros
 Arka Ucu (TCP-In)** ise yerel alt ağla sınırlı olup, sensörün görüntüyü toplamak için bu bilgisayara yeniden bağlandığı DAQ-E ürün yazılımı güncellemesi içindir. Her ikisi de program kaldırıldığında silinir.
@@ -153,22 +153,22 @@ SDK
 gereksinimlerini de yükler; `dpkg -i` ise bunları atlar. 1.3.0 sürümünden itibaren arka uç ve CLI
 , `/usr/lib/chloros/` altında sıkıştırılmamış olarak kurulur; bu sayede önce kendilerini açmaya gerek kalmadan çalışmaya başlarlar.
 
-Jetson paketi, JetPack 6&#x27;nın CUDA sürümündeki PyTorch&#x27;u kullanır; bu nedenle, dahil edilen Texture Aware debayer de dahil olmak üzere işleme, Jetson&#x27;un GPU&#x27;sunda çalışır. JetPack 6&#x27;nın yüklediği CUDA ve cuDNN kütüphanelerini kullanır (bu kütüphanelerin bulunmadığı bir görüntüde `sudo apt install nvidia-jetpack`).
+Jetson paketi, JetPack 6'nın CUDA sürümündeki PyTorch'u kullanır; bu nedenle, dahil edilen Texture Aware debayer de dahil olmak üzere işleme, Jetson'un GPU'sunda çalışır. JetPack 6'nın yüklediği CUDA ve cuDNN kütüphanelerini kullanır (bu kütüphanelerin bulunmadığı bir görüntüde `sudo apt install nvidia-jetpack`).
 
 Ayrıntılı kurulum talimatları için [Linux
-Kurulumu](linux/linux-installation.md) bölümüne, Jetson&#x27;a özgü kılavuz için ise [NVIDIA Jetson Kılavuzu](linux/nvidia-jetson-guide.md) bölümüne bakın.
+Kurulumu](linux/linux-installation.md) bölümüne, Jetson'a özgü kılavuz için ise [NVIDIA Jetson Kılavuzu](linux/nvidia-jetson-guide.md) bölümüne bakın.
 
 #### Python
 SDK
 (Tüm Platformlar)
 
-Her yükleyici, uygun bir `chloros_sdk` wheel&#x27;i içerir; bu sayede SDK
+Her yükleyici, uygun bir `chloros_sdk` wheel'i içerir; bu sayede SDK
 sürümü her zaman yüklü olan GUI/CLI
 /arka uç ile uyumludur. Windows
-&#x27;da yükleyici, bunu sistem Python
-&#x27;inize otomatik olarak yükler. Linux
-&#x27;ta `.deb`, sistem `python3` için SDK
-&#x27;yi (`/usr/lib/python3/dist-packages` içine) yükler, böylece `import chloros_sdk`, kurulumdan hemen sonra pip ve ağ bağlantısı olmadan çalışır. Yalnızca sistem paketlerini görmeyen bir virtualenv için, pakete dahil olan wheel dosyasının içine yüklenmesi gerekir:
+'da yükleyici, bunu sistem Python
+'inize otomatik olarak yükler. Linux
+'ta `.deb`, sistem `python3` için SDK
+'yi (`/usr/lib/python3/dist-packages` içine) yükler, böylece `import chloros_sdk`, kurulumdan hemen sonra pip ve ağ bağlantısı olmadan çalışır. Yalnızca sistem paketlerini görmeyen bir virtualenv için, pakete dahil olan wheel dosyasının içine yüklenmesi gerekir:
 
 ```bash
 pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl
@@ -177,7 +177,7 @@ pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl
 Yalnızca pip kullanan ana bilgisayarlarda (Chloros
 paketi yüklü değil; bu durumda SDK
 başka bir makinedeki arka ucu çalıştırır), SDK
-PyPI&#x27;da da mevcuttur:
+PyPI'da da mevcuttur:
 
 ```bash
 pip install chloros-sdk
@@ -192,9 +192,9 @@ Referansı](reference/sdk-reference.md) sayfalarına bakın.
 {% hint style="info" %}
 **Linux
 kullanıcıları**: `.deb` paketi, CLI
-&#x27;yi, arka ucu ve Python
+'yi, arka ucu ve Python
 SDK
-&#x27;yi yükler. Linux
+'yi yükler. Linux
 için bir GUI yoktur — tüm etkileşim CLI
 veya SDK
 aracılığıyla gerçekleşir.
@@ -213,9 +213,9 @@ Python
 SDK
 her yükleyiciyle birlikte gelir: Windows
 yükleyicisi bunu Python
-&#x27;unuza yükler; Linux
+'unuza yükler; Linux
 `.deb` ise sistem `python3` için yükler. Chloros
-paketi bulunmayan bir makinede (başka bir makinede bir arka ucu çalıştıran bir makine), PyPI&#x27;dan yükleyin:
+paketi bulunmayan bir makinede (başka bir makinede bir arka ucu çalıştıran bir makine), PyPI'dan yükleyin:
 
 ```bash
 pip install chloros-sdk
@@ -284,13 +284,13 @@ paketi olmayan makineler için)
 SDK
 ** - Python
 API
-&#x27;si (Chloros
+'si (Chloros
 + lisansı gerektirir)
 
 ***
 
 ## Chloros
-+&#x27;ya Yükseltme
++'ya Yükseltme
 
 Chloros
 + aboneliği ile gelişmiş özelliklerin kilidini açın:
@@ -329,7 +329,7 @@ erişimi
 * Grafik sürücülerini güncelleyin
 * Hata ayrıntıları için Windows
 
-Olay Görüntüleyicisi&#x27;ni kontrol edin
+Olay Görüntüleyicisi'ni kontrol edin
 * Hata günlükleriyle birlikte destek ekibine başvurun
 
 **CLI
@@ -349,7 +349,7 @@ başlatılamıyor (Linux
 * [https://cloud.mapir.camera](https://cloud.mapir.camera) adresinden kimlik bilgilerinizi doğrulayın
 * Güvenlik duvarının Chloros
 
-&#x27;u engellemediğinden emin olun* Ayrıntılı talimatlar için [Chloros
+'u engellemediğinden emin olun* Ayrıntılı talimatlar için [Chloros
 
 + Giriş](chloros+-login.md) sayfasına bakın
 
@@ -368,17 +368,17 @@ Chloros
 
 , güncellemeleri kontrol eder, yeni bir sürüm çıktığında bunu bildirir ve bu indirme sayfasına bağlantı verir — yeni imzalı yükleyiciyi çalıştırarak güncelleme yapabilirsiniz. Ayarlarınız, projeleriniz ve oturum açma bilgileriniz güncellemelerden sonra da korunur. Linux
 
-ve Jetson&#x27;da, `chloros-cli update` daha yeni bir sürüm olup olmadığını kontrol eder ve uygun olan `.deb`&#x27;i indirip yüklemeyi önerir (bu komut yalnızca Linux
+ve Jetson'da, `chloros-cli update` daha yeni bir sürüm olup olmadığını kontrol eder ve uygun olan `.deb`'i indirip yüklemeyi önerir (bu komut yalnızca Linux
 
-&#x27;ta kullanılabilir).
+'ta kullanılabilir).
 
 ***
 
 ## Değişiklik Günlüğü**Sürüm 1.3.0 (En Son, 11 Kasım 2026)**— tam liste için [Başlangıç](./) sayfasındaki**Chloros
 
-1.3.0&#x27;daki Yenilikler** bölümüne bakın.**Sürüm 1.2.0**— tam liste için [Başlangıç](./) sayfasındaki**Chloros
+1.3.0'daki Yenilikler** bölümüne bakın.**Sürüm 1.2.0**— tam liste için [Başlangıç](./) sayfasındaki**Chloros
 
-1.2.0&#x27;daki Yenilikler** bölümüne bakın.
+1.2.0'daki Yenilikler** bölümüne bakın.
 
 <details>
 
@@ -412,7 +412,7 @@ bilgisayarlarda çalışmalıdır.
   * Google Haritalar ve ESRI harita döşemelerini destekler (yakınlaştırma düzeyine göre en uygun döşeme hizmetini otomatik olarak seçer)
   * Harita işaretçilerinin üzerine fareyi getirdiğinizde küçük resim önizlemesi görüntülenir
 
-**Hata Düzeltmeleri*** İngilizce dışı dillerde çalışan bilgisayarlarda Chloros&#x27;un kurulumuna yönelik destek iyileştirildi
+**Hata Düzeltmeleri*** İngilizce dışı dillerde çalışan bilgisayarlarda Chloros'un kurulumuna yönelik destek iyileştirildi
 
 </details>
 

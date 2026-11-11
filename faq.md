@@ -11,7 +11,7 @@ metaLinks:
 
 <summary>Chloros ile MAPIR markası olmayan kameralardan gelen görüntüleri işleyebilir miyim?</summary>
 
-Hayır, Chloros yalnızca MAPIR kamera görüntülerini (Survey3 ve LATTICE serileri) işleyebilir. Daha fazla bilgi için lütfen [desteklenen kamera modelleri](supported-cameras.md) listesine bakın. MAPIR Cloud&#x27;da diğer kameraların görüntülerini de işliyoruz; tam listeye [buradan](https://mapir.gitbook.io/mapir-cloud/supported-cameras) ulaşabilirsiniz.
+Hayır, Chloros yalnızca MAPIR kamera görüntülerini (Survey3 ve LATTICE serileri) işleyebilir. Daha fazla bilgi için lütfen [desteklenen kamera modelleri](supported-cameras.md) listesine bakın. MAPIR Cloud'da diğer kameraların görüntülerini de işliyoruz; tam listeye [buradan](https://mapir.gitbook.io/mapir-cloud/supported-cameras) ulaşabilirsiniz.
 
 </details>
 
@@ -33,9 +33,9 @@ Evet. Chloros 1.3.0, LATTICE M3C ve M3M kamera modüllerini uçtan uca destekler
 
 ışık sensöründen alınan kayıtları da eklemezseniz, ortam ışığı spektrumu ölçülmeyecek ve yansıma sonuçları doğru olmayacaktır.
 
-**LATTICE:** Evet. Yansıma, bir panel yerine bir DAQ ışık sensörü tarafından ölçülen aşağıya doğru ışınım yoğunluğuna göre belirlenebilir (ρ = π·L/E). QA&#x27;dan geçen bir çerçeve içi hedef *mevcut* olduğunda, hedef ve DAQ zincirleri ölçülen puan konusunda rekabet halindeyken, bir bayrakla geçmediği sürece varsayılan olarak mutlak referans haline gelir (`--reflectance-source auto`). Tek istisna: &quot;F988 yansıma oranı, sahnedeki bir yansıma paneli kullanılarak kalibre edilir: bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesindedir, bu nedenle Chloros
+**LATTICE:** Evet. Yansıma, bir panel yerine bir DAQ ışık sensörü tarafından ölçülen aşağıya doğru ışınım yoğunluğuna göre belirlenebilir (ρ = π·L/E). QA'dan geçen bir çerçeve içi hedef *mevcut* olduğunda, hedef ve DAQ zincirleri ölçülen puan konusunda rekabet halindeyken, bir bayrakla geçmediği sürece varsayılan olarak mutlak referans haline gelir (`--reflectance-source auto`). Tek istisna: "F988 yansıma oranı, sahnedeki bir yansıma paneli kullanılarak kalibre edilir: bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesindedir, bu nedenle Chloros
 
-, en son panel yakalamanızı uygular ve panel gözlemleri arasında bunu korur.&quot; Bkz. [Kalibrasyon Hedefleri](calibration-targets.md).
+, en son panel yakalamanızı uygular ve panel gözlemleri arasında bunu korur." Bkz. [Kalibrasyon Hedefleri](calibration-targets.md).
 
 </details>
 
@@ -51,15 +51,15 @@ Referansı](reference/cli-reference.md) bölümlerine bakın.
 
 <details>
 
-<summary>Chloros&#x27;u bir AI asistanıyla (Claude, ChatGPT vb.) kullanabilir miyim?</summary>
+<summary>Chloros'u bir AI asistanıyla (Claude, ChatGPT vb.) kullanabilir miyim?</summary>
 
 Evet — bu kılavuz ve CLI/SDK bunun için tasarlanmıştır:
 
 * AI asistanlarının her sayfayı bulabilmesi için kılavuzun tam dizinine `https://mapir.gitbook.io/chloros/llms.txt` adresinden erişilebilir.
-* Her sayfanın ham markdown kodu, sayfanın küçük harfli URL&#x27;sine `.md` eklenmiş haliyle (örneğin `https://mapir.gitbook.io/chloros/reference/cli-reference.md`) erişilebilir.
-* [CLI Referansı](reference/cli-reference.md) ve [SDK Referansı](reference/sdk-reference.md), LLM&#x27;ler tarafından kullanılmak üzere yazılmıştır: kesin bayraklar, varsayılan ayarlar, çıkış semantiği ve kopyala-yapıştır edilebilir komutlar.
+* Her sayfanın ham markdown kodu, sayfanın küçük harfli URL'sine `.md` eklenmiş haliyle (örneğin `https://mapir.gitbook.io/chloros/reference/cli-reference.md`) erişilebilir.
+* [CLI Referansı](reference/cli-reference.md) ve [SDK Referansı](reference/sdk-reference.md), LLM'ler tarafından kullanılmak üzere yazılmıştır: kesin bayraklar, varsayılan ayarlar, çıkış semantiği ve kopyala-yapıştır edilebilir komutlar.
 
-Asistanınızı Chloros&#x27;a nasıl yönlendireceğiniz konusunda [AI Asistanları](ai-assistants.md) bölümüne bakın.
+Asistanınızı Chloros'a nasıl yönlendireceğiniz konusunda [AI Asistanları](ai-assistants.md) bölümüne bakın.
 
 </details>
 
@@ -92,14 +92,14 @@ Bunlar sahnenin görüntüleri değildir: Chloros’un kendi içe aktarma işlem
 
 <details>
 
-<summary>Chloros neden &quot;Proje klasörü bu bilgisayar için çok derin&quot; uyarısını veriyor?</summary>
+<summary>Chloros neden "Proje klasörü bu bilgisayar için çok derin" uyarısını veriyor?</summary>
 
-Bu durum yalnızca Windows&#x27;ta geçerlidir. Windows, uzun yollar devre dışı bırakılmış olarak gelir ve hiçbir dosya yolu 260 karakterden uzun olamaz. Chloros ürünleri, proje klasörünün yaklaşık 130 karakter aşağısında yer alır; bu nedenle Chloros, işleme başlamadan önce daha derin bir proje klasörünü reddeder — 1.3.0 sürümünden önce olabileceği gibi, hiçbir şey yazmadan çalışmak yerine. Mesaj, sığabilecek en uzun proje klasörünü gösterir.
+Bu durum yalnızca Windows'ta geçerlidir. Windows, uzun yollar devre dışı bırakılmış olarak gelir ve hiçbir dosya yolu 260 karakterden uzun olamaz. Chloros ürünleri, proje klasörünün yaklaşık 130 karakter aşağısında yer alır; bu nedenle Chloros, işleme başlamadan önce daha derin bir proje klasörünü reddeder — 1.3.0 sürümünden önce olabileceği gibi, hiçbir şey yazmadan çalışmak yerine. Mesaj, sığabilecek en uzun proje klasörünü gösterir.
 
 Bu sorunu şu iki yoldan biriyle çözebilirsiniz:
 
-* Daha kısa bir proje klasörü kullanın (Proje Ayarları&#x27;ndaki **Çalışma Dizini** veya CLI için `-o` / `chloros-cli set-project-folder`).
-* Windows uzun yol özelliğini etkinleştirin ve Chloros&#x27;u yeniden başlatın. Chloros yükleyicisindeki **Windows uzun yollarını etkinleştir** seçeneği (varsayılan olarak işaretlidir) bunu sağlar; bu seçeneğin işaretini kaldırdıysanız yükleyiciyi yeniden çalıştırın.
+* Daha kısa bir proje klasörü kullanın (Proje Ayarları'ndaki **Çalışma Dizini** veya CLI için `-o` / `chloros-cli set-project-folder`).
+* Windows uzun yol özelliğini etkinleştirin ve Chloros'u yeniden başlatın. Chloros yükleyicisindeki **Windows uzun yollarını etkinleştir** seçeneği (varsayılan olarak işaretlidir) bunu sağlar; bu seçeneğin işaretini kaldırdıysanız yükleyiciyi yeniden çalıştırın.
 
 [İşlemeyi Başlatma](processing-images-gui/starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) bölümüne bakın.
 
@@ -107,7 +107,7 @@ Bu sorunu şu iki yoldan biriyle çözebilirsiniz:
 
 <details>
 
-<summary>Chloros&#x27;ta işleme başlamadan önce görüntülerimi düzenleyebilir miyim?</summary>
+<summary>Chloros'ta işleme başlamadan önce görüntülerimi düzenleyebilir miyim?</summary>
 
 Hayır. Chloros, girdi verilerinin değiştirilmediğini varsayar. Dosya adlarını değiştirmeyin.
 
@@ -115,7 +115,7 @@ Hayır. Chloros, girdi verilerinin değiştirilmediğini varsayar. Dosya adları
 
 <details>
 
-<summary>MAPIR Survey3 kameralarımı otomatik pozlamaya ayarlayıp görüntüleri Chloros&#x27;ta işleyebilir miyim?</summary>
+<summary>MAPIR Survey3 kameralarımı otomatik pozlamaya ayarlayıp görüntüleri Chloros'ta işleyebilir miyim?</summary>
 
 Hayır. Survey3 görüntü veri kümelerinin sabit/kilitli bir pozlamaya sahip olması gerekir; bu nedenle otomatik enstantane hızı veya otomatik ISO kullanılamaz. Aynı kamera modeline ait tüm görüntülerde enstantane hızı ve ISO (pozlama) değerleri aynı olmalıdır.
 
@@ -133,25 +133,25 @@ Hayır. Yalnızca tek tek MAPIR kamera görüntüleri desteklenir; ortomozaik ha
 
 <details>
 
-<summary>Chloros&#x27;un hedef algılama adımını nasıl hızlandırabilirim?</summary>
+<summary>Chloros'un hedef algılama adımını nasıl hızlandırabilirim?</summary>
 
-Dosya tarayıcı tablosunda sağ sütunda hedef görüntüleri önceden seçmek, Chloros&#x27;a kalibrasyon hedeflerini yalnızca bu görüntülerde aramasını söyler ve işlemeyi büyük ölçüde hızlandırır.
+Dosya tarayıcı tablosunda sağ sütunda hedef görüntüleri önceden seçmek, Chloros'a kalibrasyon hedeflerini yalnızca bu görüntülerde aramasını söyler ve işlemeyi büyük ölçüde hızlandırır.
 
 </details>
 
 <details>
 
-<summary>Görüntülerimi <a href="https://www.mapir.camera/collections/software/products/mapir-cloud-subscription">MAPIR Cloud</a>&#x27;a yükleyeceksem, yüklemeden önce Chloros&#x27;ta işlem yapmalı mıyım?</summary>
+<summary>Görüntülerimi <a href="https://www.mapir.camera/collections/software/products/mapir-cloud-subscription">MAPIR Cloud</a>'a yükleyeceksem, yüklemeden önce Chloros'ta işlem yapmalı mıyım?</summary>
 
 Çevrimiçi işleme platformumuz [MAPIR
 
-Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription)&#x27;a yüklemeyi planlıyorsanız, yüklemeden önce görüntüleri düzenlemeyin. Cloud, aynı işlemleri ve daha fazlasını gerçekleştirecektir.
+Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscription)'a yüklemeyi planlıyorsanız, yüklemeden önce görüntüleri düzenlemeyin. Cloud, aynı işlemleri ve daha fazlasını gerçekleştirecektir.
 
 </details>
 
 <details>
 
-<summary>MAPIR, X özelliğini destekleyecek mi? MAPIR&#x27;ın X özelliğini sunmasını gerçekten çok isterim.</summary>
+<summary>MAPIR, X özelliğini destekleyecek mi? MAPIR'ın X özelliğini sunmasını gerçekten çok isterim.</summary>
 
 Ürünlerimizle ilgili geri bildirimleri her zaman memnuniyetle karşılıyoruz. Ürünlerimizle ilgili bir sorunla karşılaşırsanız veya ürünlerimizi nasıl iyileştirebileceğimize dair bir öneriniz varsa, lütfen [BİZE ULAŞIN](https://www.mapir.camera/community/contact) ve düşüncelerinizi bizimle paylaşın. Ar-Ge çalışmalarımızın çoğu, müşterilerimizin en önemli ihtiyaçlarını dinlemeye dayalıdır.
 
@@ -161,15 +161,15 @@ Cloud](https://www.mapir.camera/collections/software/products/mapir-cloud-subscr
 
 <summary>Chloros, Linux için kullanılabilir mi?</summary>
 
-Evet! Chloros 1.3.0, `.deb` paketleri aracılığıyla Linux amd64 (x86\_64) ve arm64 (NVIDIA Jetson JetPack 6) platformlarını desteklemektedir. CLI ve Python SDK, canlı LATTICE kamera ve DAQ sensör kontrolü dahil olmak üzere Linux&#x27;te tam olarak desteklenmektedir. Linux için bir GUI bulunmamaktadır — tüm etkileşim [CLI](CLI.md) veya [Python SDK](api-python-sdk.md) aracılığıyla gerçekleşir. Ayrıntılar için [Linux Genel Bakış](linux/linux-overview.md) bölümüne bakın.
+Evet! Chloros 1.3.0, `.deb` paketleri aracılığıyla Linux amd64 (x86\_64) ve arm64 (NVIDIA Jetson JetPack 6) platformlarını desteklemektedir. CLI ve Python SDK, canlı LATTICE kamera ve DAQ sensör kontrolü dahil olmak üzere Linux'te tam olarak desteklenmektedir. Linux için bir GUI bulunmamaktadır — tüm etkileşim [CLI](CLI.md) veya [Python SDK](api-python-sdk.md) aracılığıyla gerçekleşir. Ayrıntılar için [Linux Genel Bakış](linux/linux-overview.md) bölümüne bakın.
 
 </details>
 
 <details>
 
-<summary>Chloros&#x27;u NVIDIA Jetson üzerinde çalıştırabilir miyim?</summary>
+<summary>Chloros'u NVIDIA Jetson üzerinde çalıştırabilir miyim?</summary>
 
-Evet! Chloros, JetPack 6 çalıştıran NVIDIA Jetson **Orin ailesini** — Orin Nano, Orin NX ve AGX Orin — destekler. Eski modeller (Jetson Nano, TX2, Xavier NX) JetPack 6&#x27;yı çalıştıramaz ve mevcut paket tarafından desteklenmez. Chloros, Jetson modelinizi otomatik olarak algılar ve işleme stratejisini optimize eder. Jetson paketi, JetPack 6’nın CUDA sürümündeki PyTorch’u kullanır; bu sayede işlemler Jetson’un GPU’su üzerinde gerçekleştirilir. Kurulum ve dağıtım talimatları için [NVIDIA Jetson Kılavuzu](linux/nvidia-jetson-guide.md) sayfasına bakın.
+Evet! Chloros, JetPack 6 çalıştıran NVIDIA Jetson **Orin ailesini** — Orin Nano, Orin NX ve AGX Orin — destekler. Eski modeller (Jetson Nano, TX2, Xavier NX) JetPack 6'yı çalıştıramaz ve mevcut paket tarafından desteklenmez. Chloros, Jetson modelinizi otomatik olarak algılar ve işleme stratejisini optimize eder. Jetson paketi, JetPack 6’nın CUDA sürümündeki PyTorch’u kullanır; bu sayede işlemler Jetson’un GPU’su üzerinde gerçekleştirilir. Kurulum ve dağıtım talimatları için [NVIDIA Jetson Kılavuzu](linux/nvidia-jetson-guide.md) sayfasına bakın.
 
 </details>
 
@@ -177,7 +177,7 @@ Evet! Chloros, JetPack 6 çalıştıran NVIDIA Jetson **Orin ailesini** — Orin
 
 <summary>Chloros, donanımım için otomatik olarak optimizasyon yapar mı?</summary>
 
-Evet! Chloros, CPU&#x27;nuzu, GPU&#x27;nuzu, RAM&#x27;inizi ve (Jetson&#x27;da) termal sensörlerinizi otomatik olarak algılayan [Dinamik İşlem Uyumlaştırma](processing-architecture/dynamic-compute-adaptation.md) özelliğini içerir. Ardından, yüksek bellekli GPU&#x27;larda `GPU_PARALLEL`&#x27;ten daha küçük GPU&#x27;larda `GPU_SINGLE`&#x27;e kadar en uygun işleme stratejisini seçer — yüksek bellekli GPU&#x27;larda `GPU_PARALLEL`&#x27;ten, daha küçük GPU&#x27;larda `GPU_SINGLE`&#x27;e ve PyTorch&#x27;un kullanabileceği bir CUDA GPU&#x27;su olmayan sistemlerde `CPU_PARALLEL`&#x27;e kadar. Manuel yapılandırma gerekmez.
+Evet! Chloros, CPU'nuzu, GPU'nuzu, RAM'inizi ve (Jetson'da) termal sensörlerinizi otomatik olarak algılayan [Dinamik İşlem Uyumlaştırma](processing-architecture/dynamic-compute-adaptation.md) özelliğini içerir. Ardından, yüksek bellekli GPU'larda `GPU_PARALLEL`'ten daha küçük GPU'larda `GPU_SINGLE`'e kadar en uygun işleme stratejisini seçer — yüksek bellekli GPU'larda `GPU_PARALLEL`'ten, daha küçük GPU'larda `GPU_SINGLE`'e ve PyTorch'un kullanabileceği bir CUDA GPU'su olmayan sistemlerde `CPU_PARALLEL`'e kadar. Manuel yapılandırma gerekmez.
 
 </details>
 
@@ -201,6 +201,6 @@ Chloros
 chloros-cli selftest
 ```
 
-Bu, özellikle Linux sistemlerinde GPU ve CUDA kurulumunu doğrulamak için kullanışlıdır. Jetson&#x27;da, `CUDA: False` genellikle JetPack 6&#x27;nın CUDA ve cuDNN kütüphanelerinin eksik olduğu anlamına gelir: bunları `sudo apt install nvidia-jetpack` komutuyla yükleyin.
+Bu, özellikle Linux sistemlerinde GPU ve CUDA kurulumunu doğrulamak için kullanışlıdır. Jetson'da, `CUDA: False` genellikle JetPack 6'nın CUDA ve cuDNN kütüphanelerinin eksik olduğu anlamına gelir: bunları `sudo apt install nvidia-jetpack` komutuyla yükleyin.
 
 </details>

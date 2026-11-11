@@ -1,6 +1,6 @@
 # GUI: Gezinme
 
-Chloros&#x27;u ilk kez başlattığınızda, işleme arka ucu çalışmaya başlar. Arka uç hazır hale geldiğinde, sol üstteki ana menü simgesi görünür hale gelir <img src=".gitbook/assets/image (1) (1) (1) (1).png" alt="" data-size="line"> ve sol kenar çubuğundaki “Kameralar” ile “Işık Sensörleri” sekmeleri etkinleşir (o ana kadar bu sekmeler gri renkte görünür).
+Chloros'u ilk kez başlattığınızda, işleme arka ucu çalışmaya başlar. Arka uç hazır hale geldiğinde, sol üstteki ana menü simgesi görünür hale gelir <img src=".gitbook/assets/image (1) (1) (1) (1).png" alt="" data-size="line"> ve sol kenar çubuğundaki “Kameralar” ile “Işık Sensörleri” sekmeleri etkinleşir (o ana kadar bu sekmeler gri renkte görünür).
 
 <figure><img src=".gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
 
@@ -14,7 +14,7 @@ Chloros&#x27;u ilk kez başlattığınızda, işleme arka ucu çalışmaya başl
 
 * **Yeni Proje**— yeni bir proje oluşturun. Kaydedilmiş proje şablonlarınız varsa,**Şablon Seç** açılır menüsü görünür ve yeni proje, bir şablonun ayarlarından başlar.
 * **Projeyi Aç**— mevcut bir projeyi açın. Listede, dosya gezgininizde proje klasörünü açan bir**Proje Klasörünü Aç** düğmesi bulunur.
-* **Projeyi Çoğalt** — şu anda açık olan projeyi yeni bir adla kopyalar (örneğin &quot;MyProject (2)&quot; gibi serbest bir ad önerilir) ve kopyayı açar. _(proje açıldıktan sonra görünür)_
+* **Projeyi Çoğalt** — şu anda açık olan projeyi yeni bir adla kopyalar (örneğin "MyProject (2)" gibi serbest bir ad önerilir) ve kopyayı açar. _(proje açıldıktan sonra görünür)_
 * **Dosya Ekle** — mevcut projeye tek tek görüntü dosyaları ekleyin _(proje açıldıktan sonra görünür)_
 * **Klasör Ekle** — mevcut projeye bir veya daha fazla görüntü klasörü ekleyin _(proje açıldıktan sonra görünür)_
 * **İşlemeyi Başlat / İşlemeyi Durdur** — görüntü işleme akışını başlatır veya durdurur _(dosyalar eklendikten sonra etkinleşir)_
@@ -24,9 +24,9 @@ Chloros&#x27;u ilk kez başlattığınızda, işleme arka ucu çalışmaya başl
 {% hint style="info" %}
 **Yalnızca Windows**: Chloros
 
-Masaüstü GUI&#x27;si Windows
+Masaüstü GUI'si Windows
 
-&#x27;ta kullanılabilir. Linux
+'ta kullanılabilir. Linux
 
 kullanıcıları, başlıksız işleme için [CLI
 
@@ -83,7 +83,7 @@ Görüntülerinizi GPS koordinatlarına göre etkileşimli bir 2D harita üzerin
 
 #### <img src=".gitbook/assets/image (17).png" alt="" data-size="line"> [Kameralar](lattice/)
 
-LATTICE kameralarını canlı olarak bağlayın ve kontrol edin — tek tek veya senkronize çoklu kamera dizileri olarak. Bu sekme, üst üste bindirmeler ve histogramlar içeren canlı önizleme döşemelerini, kamera başına ve dizi başına ayarları ile &quot;Tümünü Yakala&quot; seçeneğinin hangi kameraları ve dışa aktarma türlerini seçeceğini belirleyen Yakalama Ayarlarını gösterir. Arka uç hazır olduğunda kullanılabilir; tam kılavuz için [LATTICE bölümüne](lattice/) bakın.
+LATTICE kameralarını canlı olarak bağlayın ve kontrol edin — tek tek veya senkronize çoklu kamera dizileri olarak. Bu sekme, üst üste bindirmeler ve histogramlar içeren canlı önizleme döşemelerini, kamera başına ve dizi başına ayarları ile "Tümünü Yakala" seçeneğinin hangi kameraları ve dışa aktarma türlerini seçeceğini belirleyen Yakalama Ayarlarını gösterir. Arka uç hazır olduğunda kullanılabilir; tam kılavuz için [LATTICE bölümüne](lattice/) bakın.
 
 #### <img src=".gitbook/assets/image (23).png" alt="" data-size="line"> [Işık Sensörleri](daq/)
 
@@ -93,8 +93,8 @@ DAQ ışık sensörlerini — DAQ-U (USB), DAQ-M (Bluetooth) ve DAQ-E (Ethernet)
 
 Sorun yaşandığında, hata giderme çıktılarını içeren günlüğü inceleyin. Günlüğü kopyalayın/indirin ve yardım almak için [MAPIR Desteği](https://www.mapir.camera/community/contact) adresine gönderin.
 
-1.3.0 sürümündeki yenilik: Günlük sekmesinin üst kısmındaki hata simgesi (**Hata bildir**), açıklamanız, en fazla 10 resim, MAPIR günlükleri ve sistem ayrıntılarını içeren bir raporu MAPIR&#x27;a gönderir. Rapor göndermek için oturum açmış olmanız gerekir. Bkz. [Günlük sekmesinden hata bildirme](processing-images-gui/monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).
+1.3.0 sürümündeki yenilik: Günlük sekmesinin üst kısmındaki hata simgesi (**Hata bildir**), açıklamanız, en fazla 10 resim, MAPIR günlükleri ve sistem ayrıntılarını içeren bir raporu MAPIR'a gönderir. Rapor göndermek için oturum açmış olmanız gerekir. Bkz. [Günlük sekmesinden hata bildirme](processing-images-gui/monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).
 
 #### <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> [Kullanıcı Girişi](chloros+-login.md)
 
-Kullanıcı girişi kenar çubuğu, Chloros+ hesabınıza giriş yapmanızı ve gelişmiş özelliklerin kilidini açmanızı sağlar. Ayrıca, uygulamanın güncel sürümünü görüntüleyebilir ve Chloros GUI ile CLI&#x27;de görüntülenen metnin dilini ayarlayabilirsiniz.
+Kullanıcı girişi kenar çubuğu, Chloros+ hesabınıza giriş yapmanızı ve gelişmiş özelliklerin kilidini açmanızı sağlar. Ayrıca, uygulamanın güncel sürümünü görüntüleyebilir ve Chloros GUI ile CLI'de görüntülenen metnin dilini ayarlayabilirsiniz.

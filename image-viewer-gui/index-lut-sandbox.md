@@ -2,7 +2,7 @@
 
 İndeks/LUT Sandbox, Chloros Görüntü Görüntüleyici’nin kenar çubuğunda yer alan etkileşimli çalışma alanıdır. Bir formül seçin, kameranızın kanallarını bu formüle bağlayın, bir degrade ile renklendirin ve değer aralığını ayarlayın — siz bunları yaparken görüntü anında güncellenir. 1.2.0 sürümünden itibaren, yeniden işleme gerek kalmadan tek bir görüntü veya tüm proje için **oluşturduğunuz içeriği kaydedebilirsiniz**.
 
-## Sandbox&#x27;ın Amacı
+## Sandbox'ın Amacı
 
 | Index/LUT Sandbox (etkileşimli)        | Proje İşleme (toplu)       |
 | -------------------------------------- | -------------------------------- |
@@ -17,7 +17,7 @@
 
 ***
 
-## Sandbox&#x27;ı açma
+## Sandbox'ı açma
 
 1. Izgaradaki bir görüntüye tıklayın — görüntü, **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> sekmesinde tam ekran olarak açılır
 2. Henüz açık değilse, **Görüntü Görüntüleyici** <img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> simgesine tıklayarak sol kenar çubuğunu açın
@@ -32,7 +32,7 @@ Kenar çubuğunda yukarıdan aşağıya doğru şunlar gösterilir:
 * okuma, histogram ve GSD kontrolünü içeren **İmleç Değerleri** paneli
 
 {% hint style="warning" %}
-**Mono kameralar için kullanılamaz.** Tek bantlı bir LATTICE M3M görüntüsünde her iki onay kutusu da devre dışıdır ve araç ipucu olarak _&quot;Mono (M3M) sensörler için kullanılamaz&quot;_ mesajı görüntülenir — tek bir bantta çok bantlı bir indeks tanımlanamaz. M3M kameralardan indeks hesaplamak için, iki veya daha fazla görüntüyü hizalanmış çok bantlı bir yığın halinde birleştirin ve LATTICE indeks motorunu kullanın.
+**Mono kameralar için kullanılamaz.** Tek bantlı bir LATTICE M3M görüntüsünde her iki onay kutusu da devre dışıdır ve araç ipucu olarak _"Mono (M3M) sensörler için kullanılamaz"_ mesajı görüntülenir — tek bir bantta çok bantlı bir indeks tanımlanamaz. M3M kameralardan indeks hesaplamak için, iki veya daha fazla görüntüyü hizalanmış çok bantlı bir yığın halinde birleştirin ve LATTICE indeks motorunu kullanın.
 {% endhint %}
 
 ***
@@ -73,13 +73,13 @@ Tam formül referansı için — üç ön ayar listesinin tümü ve hangi isimle
 
 Görüntü, iki eşik değeri arasında uzatılmış olarak **gri tonlamalı** olarak çizilir. Bu kasıtlıdır: indeks görüntüsü skaler veridir ve gri tonlamalı görüntü, bunun en doğru şekilde işlenmiş halidir. Renk istiyorsanız bir LUT ekleyin.***
 
-## LUT&#x27;larla (Arama Tabloları) Çalışma
+## LUT'larla (Arama Tabloları) Çalışma
 
 Bir **Arama Tablosu**, indeks değerlerini renklere eşler: NDVI 0,65 girdiğinde, belirli bir yeşil renk çıktısı verir. Verileri değiştirmez — verileri okuma şeklinizi değiştirir.
 
 ### LUT Ekleme
 
-1. Formülün altındaki **<img src="../.gitbook/assets/image (1) (1) (1).png" alt="" data-size="line">&quot;+ LUT Ekle&quot;** düğmesine tıklayın
+1. Formülün altındaki **<img src="../.gitbook/assets/image (1) (1) (1).png" alt="" data-size="line">"+ LUT Ekle"** düğmesine tıklayın
 2. Bir renk gradyanı seçin
 3. Kırpma minimum ve maksimum değerlerini ayarlayın
 4. Bir Kırpma Modu seçin
@@ -101,7 +101,7 @@ LUT, indeks üzerinde gerçekten yapılandırılana kadar devre dışı kalır.
 | 6 | Mor → Blue → Green → Sarı      | Sıralı, koyudan açıka                                           |
 | 7 | Orange → Beyaz → Mor             | Açık renkli bir orta nokta etrafında ıraksayan                                   |
 
-**Iraksayan**bir degrade, pencerenizin ortasına nötr bir renk yerleştirir; bu, orta noktanın bir anlam ifade ettiği durumlarda (bir eşik değeri, bir başlangıç tarihi) iyi bir okunabilirlik sağlar.**Sıralı** bir gradyan, monoton bir şekilde koyudan açıka doğru ilerler; bu, yalnızca &quot;daha fazla&quot; ve &quot;daha az&quot; gibi değerlere sahip bir miktar için iyi bir okunabilirlik sağlar.
+**Iraksayan**bir degrade, pencerenizin ortasına nötr bir renk yerleştirir; bu, orta noktanın bir anlam ifade ettiği durumlarda (bir eşik değeri, bir başlangıç tarihi) iyi bir okunabilirlik sağlar.**Sıralı** bir gradyan, monoton bir şekilde koyudan açıka doğru ilerler; bu, yalnızca "daha fazla" ve "daha az" gibi değerlere sahip bir miktar için iyi bir okunabilirlik sağlar.
 
 Her ön ayarın yedi renk durağı vardır. Bir ön ayara tıkladığınızda, LUT kutusu işaretliyse görüntü anında güncellenir.
 
@@ -171,7 +171,7 @@ Yapılandırma panelinin altındaki **İmleç Değerleri** paneli, Sandbox için
 * İmleci görüntünün üzerine getirin ve kanal başına kaynak değerleri ile kendi satırındaki indeks değerini okuyun
 * Histogramın üstündeki **INDEX** düğmesini etkinleştirerek karedeki indeks değerlerinin dağılımını görüntüleyin; iki klip eşik değeri turuncu kesikli çizgilerle, imlecin değeri ise beyaz bir çizgiyle gösterilir — bu, verilerinizi gerçekten içeren bir pencere seçmenin en hızlı yoludur
 * **CURSOR** seçeneğini etkinleştirerek imlecin altındaki değerlerde işaret çizgilerini görüntüleyin
-* 60×&#x27;ten fazla yakınlaştırın (GSD blok boyutu ayarlanmışsa daha az) ve değişken değere sahip tek tek görüntülenen pikselleri vurgulayın
+* 60×'ten fazla yakınlaştırın (GSD blok boyutu ayarlanmışsa daha az) ve değişken değere sahip tek tek görüntülenen pikselleri vurgulayın
 
 Pratik bir yöntem:
 
@@ -182,7 +182,7 @@ Pratik bir yöntem:
 
 ***
 
-## Sandbox&#x27;tan Dışa Aktarma
+## Sandbox'tan Dışa Aktarma
 
 Yukarıdaki her şey, kaydetene kadar canlı bir önizlemedir. Kenar çubuğunun üst kısmındaki **Görüntüleri Dışa Aktar/Kaydet** düğmesi, kenar çubuğunun üzerine kayan bir pencere açar (görüntüyü kapatmaz, böylece karar verdiğiniz şeyi hâlâ görebilirsiniz).
 
@@ -195,7 +195,7 @@ Yukarıdaki her şey, kaydetene kadar canlı bir önizlemedir. Kenar çubuğunun
 | **Dizin/LUT gradyan çubuğu**      | Ayrıca, her dışa aktarım için değer aralığı etiketlenmiş ayrı bir açıklama görüntüsü yazar                                                                     |
 | **Dizin histogramı**             | Ayrıca, her dışa aktarım için verilerin minimum/maksimum değerlerini ve kırpma eşiklerini gösteren ayrı bir histogram görüntüsü yazar                                               |
 
-Görüntü sekmesindeki **GSD blok boyutu** 1&#x27;den büyükse, işlemi onaylamadan önce panelde bu durum belirtilir: dışa aktarma, blok ortalaması dahil olmak üzere, o anda gördüğünüz görüntüyü kaydeder. Tam çözünürlük istiyorsanız, önce GSD ayarını tekrar 1&#x27;e getirin.
+Görüntü sekmesindeki **GSD blok boyutu** 1'den büyükse, işlemi onaylamadan önce panelde bu durum belirtilir: dışa aktarma, blok ortalaması dahil olmak üzere, o anda gördüğünüz görüntüyü kaydeder. Tam çözünürlük istiyorsanız, önce GSD ayarını tekrar 1'e getirin.
 
 ### Dosyalar nereye kaydedilir?
 
@@ -223,7 +223,7 @@ Tüm projenin dışa aktarımı birkaç dakika sürer; bu nedenle işlem, sistem
 
 * Bir ilerleme çubuğu, `current / total` yazısını ve yazılmakta olan dosyayı gösterir
 * İşlem bittiğinde, bölmede kaç adet görüntünün dışa aktarıldığı, kaç tanesinin atlandığı ve çıktı klasörünün yolu bildirilir
-* Atlanan görüntüler, nedenleriyle birlikte listelenir (en fazla beş tane gösterilir, ardından &quot;+N daha fazla&quot; satırı gelir). Genellikle bunun nedeni, bu indeksin ihtiyaç duyduğu kanallara sahip olmayan bir katmandır
+* Atlanan görüntüler, nedenleriyle birlikte listelenir (en fazla beş tane gösterilir, ardından "+N daha fazla" satırı gelir). Genellikle bunun nedeni, bu indeksin ihtiyaç duyduğu kanallara sahip olmayan bir katmandır
 * Projedeki **hiçbir** görüntü dizinini kullanamıyorsa, işlem size boş bir klasör bırakmak yerine hata bildirir
 
 Aynı anda yalnızca bir sandbox dışa aktarma işlemi çalışabilir. Bir işlem devam ederken ikincisinin başlatılması, iki işlemin aynı proje dosyası üzerinde çakışmasına izin vermek yerine net bir mesajla reddedilir.
@@ -237,7 +237,7 @@ Tamamlanan her çalışma, [görüntü ızgarası](image-grid.md) araç çubuğu
 ## Özel indeks formülleri (Chloros+)
 
 {% hint style="info" %}
-**Nerede oluşturulur**: Sandbox kenar çubuğunda veya işleme öncesinde**Proje Ayarları**&#x27;nda. Her ikisi de aynı proje düzeyindeki listeye yazılır.
+**Nerede oluşturulur**: Sandbox kenar çubuğunda veya işleme öncesinde**Proje Ayarları**'nda. Her ikisi de aynı proje düzeyindeki listeye yazılır.
 {% endhint %}
 
 1. Dizin formülü açılır menüsünden özel formül hesaplayıcısını açın (uygun bir Chloros+ aboneliği ile oturum açmanız gerekir)
@@ -255,18 +255,18 @@ Squared ratio:                  (y/x)^2
 ```
 
 {% hint style="warning" %}
-**Özel formüller yalnızca GUI&#x27;de kullanılabilir.** CLI/SDK `--indices` seçeneği, 22 yerleşik ön ayar adını genişletir ve özel formülleriniz dahil olmak üzere diğer her şeyi sessizce atlar. Özel bir formülü toplu olarak işlemek için, bunu Proje Ayarları&#x27;nda yapılandırıp işlemeyi çalıştırın veya Sandbox&#x27;ın &quot;Tüm proje görüntülerine uygula&quot; dışa aktarma özelliğini kullanın.
+**Özel formüller yalnızca GUI'de kullanılabilir.** CLI/SDK `--indices` seçeneği, 22 yerleşik ön ayar adını genişletir ve özel formülleriniz dahil olmak üzere diğer her şeyi sessizce atlar. Özel bir formülü toplu olarak işlemek için, bunu Proje Ayarları'nda yapılandırıp işlemeyi çalıştırın veya Sandbox'ın "Tüm proje görüntülerine uygula" dışa aktarma özelliğini kullanın.
 {% endhint %}
 
 ***
 
 ## Sorun Giderme
 
-### &quot;Bu katmanda bu indeksin ihtiyaç duyduğu kanallar yok&quot;
+### "Bu katmanda bu indeksin ihtiyaç duyduğu kanallar yok"
 
 Formül, geçerli katmanda bulunmayan bir kanal konumunu okur — örneğin, tek veya iki kanallı bir dosyada üç yuvalı bir indeks. Çok bantlı bir katmana (yansıma veya debayered) geçin veya kameranızın filtresine uygun bir indeks seçin.
 
-### &quot;Görüntü işleme arka ucuna ulaşılamadı&quot;
+### "Görüntü işleme arka ucuna ulaşılamadı"
 
 Arka uç yanıt vermiyor. Günlük sekmesini kontrol edin; arka uç yeniden başlatılıyorsa, geri döndüğünde Sandbox kendi kendine düzelir.
 

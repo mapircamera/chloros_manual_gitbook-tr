@@ -54,7 +54,7 @@ Chloros aşağıdaki dilleri destekler:
 3. Listeden tercih ettiğiniz dili seçin
 4. Arayüz anında güncellenecektir
 
-### Chloros ve CLI&#x27;te
+### Chloros ve CLI'te
 
 `language` komutunu kullanarak CLI arayüz dilini görüntüleyin veya değiştirin:
 

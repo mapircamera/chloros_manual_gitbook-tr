@@ -35,7 +35,7 @@ Görüntüler arasında geçiş yaparken yakınlaştırma ve kaydırma ayarları
 
 ### Yakınlaştırma
 
-Yakınlaştırma, **fare tekerleği** ile 15&#x27;lik adımlarla gerçekleştirilir ve imleç merkezli çalışır — imlecin altındaki nokta, imlecin altında kalır. Aralık, görüntü ve pencere boyutuyla sınırlıdır: pencereye sığdırma durumunun ötesine kadar uzaklaştırma yapamazsınız ve üst sınır, görüntünün doğal çözünürlüğüyle belirlenir.
+Yakınlaştırma, **fare tekerleği** ile 15'lik adımlarla gerçekleştirilir ve imleç merkezli çalışır — imlecin altındaki nokta, imlecin altında kalır. Aralık, görüntü ve pencere boyutuyla sınırlıdır: pencereye sığdırma durumunun ötesine kadar uzaklaştırma yapamazsınız ve üst sınır, görüntünün doğal çözünürlüğüyle belirlenir.
 
 Tam ekran görüntüleyicide özel yakınlaştırma tuşları yoktur. (Izgarada, **Ctrl + `+` / `−`** tuşları küçük resimleri yeniden boyutlandırır — bu farklı bir işlevdir.)
 
@@ -45,9 +45,9 @@ Görüntünün üzerinde sol fare düğmesini tıklayıp basılı tutun ve sür�
 
 ### Yüksek yakınlaştırmada piksel bazında inceleme
 
-Etkili büyütme oranı **60×**&#x27;i aştığında, Chloros, imlecin altındaki görüntülenen tek tek piksellerin etrafına bir vurgu kutusu çizer ve yanına bir değer gösterir.
+Etkili büyütme oranı **60×**'i aştığında, Chloros, imlecin altındaki görüntülenen tek tek piksellerin etrafına bir vurgu kutusu çizer ve yanına bir değer gösterir.
 
-&quot;Etkin&quot; büyütme, GSD blok boyutunu dikkate alır: blok boyutu 8 olduğunda, vurgulama 60× yerine 7,5× yakınlaştırmada görünür; çünkü görüntülenen bir piksel zaten 8 × 8 kaynak piksele karşılık gelir. Eşik değerinin altına geri yakınlaştırdığınızda vurgu kaybolur.
+"Etkin" büyütme, GSD blok boyutunu dikkate alır: blok boyutu 8 olduğunda, vurgulama 60× yerine 7,5× yakınlaştırmada görünür; çünkü görüntülenen bir piksel zaten 8 × 8 kaynak piksele karşılık gelir. Eşik değerinin altına geri yakınlaştırdığınızda vurgu kaybolur.
 
 ### Klavye kısayolları
 
@@ -64,7 +64,7 @@ Etkili büyütme oranı **60×**&#x27;i aştığında, Chloros, imlecin altında
 İmleci görüntünün üzerine getirdiğinizde, **İmleç Değerleri** paneli altındaki her kanalın değerini gösterir.
 
 {% hint style="success" %}
-**Bunlar dosyanın gerçek sayılarıdır.** Ekrandaki tuval, 8 bitlik uzatılmış bir önizlemedir ve bu değerleri sağlayamaz; bu nedenle Chloros, okuma işlemi için gerçek ürün dosyasından örnek alır. Bu nedenle 12 bitlik ham kare 255&#x27;in üzerindeki değerleri gösterir ve float32 radiance katmanı fiziksel birimleri gösterir.
+**Bunlar dosyanın gerçek sayılarıdır.** Ekrandaki tuval, 8 bitlik uzatılmış bir önizlemedir ve bu değerleri sağlayamaz; bu nedenle Chloros, okuma işlemi için gerçek ürün dosyasından örnek alır. Bu nedenle 12 bitlik ham kare 255'in üzerindeki değerleri gösterir ve float32 radiance katmanı fiziksel birimleri gösterir.
 {% endhint %}
 
 ### Sütunların Anlamı
@@ -74,7 +74,7 @@ Panel, görüntülediğiniz katmana göre uyum sağlar:
 | Görüntülediğiniz katman              | Görüntülenen sütunlar    | Notlar                                                                                           |
 | ---------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------- |
 | Yansıma                        | **DN**ve**%** | Yüzde, dosyanın kendi ölçeği kullanılarak hesaplanır — aşağıya bakın                                      |
-| Parlaklık                           | **W/m²/sr/nm**   | Kayan noktalı fiziksel değerler; burada DN&#x27;nin bir anlamı olmadığı için DN sütunu yoktur                           |
+| Parlaklık                           | **W/m²/sr/nm**   | Kayan noktalı fiziksel değerler; burada DN'nin bir anlamı olmadığı için DN sütunu yoktur                           |
 | Ham / Debayered / önizleme / JPG    | **DN**           | Tamsayı dijital değerler                                                                         |
 | 32-bit yüzde yansıtma dışa aktarımları | Yalnızca **%**       | Depolanan kayan noktalı sayı bir DN değildir; bu nedenle tamsayıya yuvarlanması, anlamsız bir `0` veya `1` çıktısı verecektir |
 
@@ -82,7 +82,7 @@ Her satır, kameranızın filtresinin kanal adıyla etiketlenmiştir — RGN iç
 
 Kaydedilmiş **dizin ve LUT** görüntüleri özel bir durumdur: spektral bantlar yerine renk haritası bileşenlerini içerirler, bu nedenle satırları kameranın filtre adlarıyla değil, `Red / Green / Blue` (veya tek kanallı bir dizin dosyası için `Index`) şeklinde etiketlenir.
 
-Sandbox&#x27;ta bir indeks etkin olduğunda, kanalların altında imlecin bulunduğu yerdeki **indeks değerini** gösteren ek bir satır belirir; bu satırda indeksin adı ve histogramdaki işaretçisiyle eşleşen beyaz bir nokta bulunur.
+Sandbox'ta bir indeks etkin olduğunda, kanalların altında imlecin bulunduğu yerdeki **indeks değerini** gösteren ek bir satır belirir; bu satırda indeksin adı ve histogramdaki işaretçisiyle eşleşen beyaz bir nokta bulunur.
 
 ### Yansıma yüzdesi, her dosyanın kendi ölçeğini kullanır
 
@@ -90,16 +90,16 @@ Sandbox&#x27;ta bir indeks etkin olduğunda, kanalların altında imlecin bulund
 **65535 = %100 olduğunu varsaymayın.** Chloros, yansıma değerini hangi kameranın ürettiğine bağlı olarak farklı ölçeklerde depolar ve görüntüleyici, her dosya için doğru olanı belirler.
 {% endhint %}
 
-| Kaynak                  | Yansıma oranı 1,0&#x27;a eşit DN | Nasıl tanımlanır                                                                                                                               |
+| Kaynak                  | Yansıma oranı 1,0'a eşit DN | Nasıl tanımlanır                                                                                                                               |
 | ----------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **LATTICE**(M3C / M3M) |**32768**                      | Her LATTICE yansıma dışa aktarımına yazılan XMP etiketi `Chloros:PixelScale=32768`. 2×&#x27;lik başlık payı, dosyanın kırpılma olmadan 1,0&#x27;ın üzerindeki ρ değerlerini taşımasına olanak tanır |
-| **Survey3**|**65535**                      | Chloros XMP ölçek etiketi yoktur — Survey3 kalibrasyonu, ρ × dtype-max değerini yazar ve 1,0&#x27;da kırpma yapar                                                               |
+| **LATTICE**(M3C / M3M) |**32768**                      | Her LATTICE yansıma dışa aktarımına yazılan XMP etiketi `Chloros:PixelScale=32768`. 2×'lik başlık payı, dosyanın kırpılma olmadan 1,0'ın üzerindeki ρ değerlerini taşımasına olanak tanır |
+| **Survey3**|**65535**                      | Chloros XMP ölçek etiketi yoktur — Survey3 kalibrasyonu, ρ × dtype-max değerini yazar ve 1,0'da kırpma yapar                                                               |
 
 Görüntüleyici, dizin/LUT test ortamı ve dizin dışa aktarımı, ölçeği aynı tek bir uygulama aracılığıyla çözer; bu nedenle imleçte okuduğunuz değer, dizin hesaplamalarında kullanılan değerle aynıdır.
 
 Bilmeniz gereken iki sonuç:
 
-* **32 bitlik yüzde**TIFF, DN/65535&#x27;i float olarak depolar;**8 bitlik** PNG/JPG dışa aktarımı ise DN × 255/65535&#x27;i depolar olarak depolar; görüntüleyici, yüzde değerini yazdırmadan önce her ikisini de geri dönüştürür.
+* **32 bitlik yüzde**TIFF, DN/65535'i float olarak depolar;**8 bitlik** PNG/JPG dışa aktarımı ise DN × 255/65535'i depolar olarak depolar; görüntüleyici, yüzde değerini yazdırmadan önce her ikisini de geri dönüştürür.
 * Kurtarılamayan bir durum vardır: **8-bit kaynaklı bir yakalamanın 8-bit TIFF dışa aktarımı**, yeniden ölçeklendirilmek yerine 0–255 aralığına kırpılır ve kasıtlı olarak ölçek etiketi taşımaz. Bu dosyalar için panel, yüzde sütunu olmadan yalnızca DN değerini yazdırır. Bu, bir hata değil, gerçek durumdur.***
 
 ## Katman histogramı
@@ -110,7 +110,7 @@ Yatay eksen, katmanın kendi birimindedir:
 
 | Katman       | Eksen birimi  | Eksen maksimum değeri                                               |
 | ----------- | ---------- | ---------------------------------------------------------- |
-| Yansıtma | yüzde    | %125 — ürünün başlık aralığı, ρ değerinin 1,0&#x27;ın üzerine çıkmasına izin verir           |
+| Yansıtma | yüzde    | %125 — ürünün başlık aralığı, ρ değerinin 1,0'ın üzerine çıkmasına izin verir           |
 | Parlaklık    | W/m²/sr/nm | Karenin kendi tepe değeri, iki anlamlı basamağa yuvarlanmış |
 | 8 bit veri  | DN         | 255                                                        |
 | 12 bit veri | DN         | 4095                                                       |
@@ -135,12 +135,12 @@ Panelin altında **GSD (px)**kontrolü bulunur: bir sayı kutusu,**1 ile 256**ar
 Bu kontrol, N × N boyutundaki bir kaynak piksel bloğunun ortalamasını alarak _görüntülenen_ görüntüyü bir pikselde birleştirir. `1`, doğal çözünürlüktür.
 
 * Bu ayar, **tam ekran görünümünü, ızgara küçük resimlerini, imleç gösterimini ve her iki histogramı** etkiler — görüntüyü gösteren her şey aynı temel çözünürlükte uyumlu hale gelir.
-* Bu ayar **sadece görüntüleme** ile ilgilidir. İşleme ve dışa aktarma işlemleri etkilenmez. Tek istisna kasıtlı olarak yapılmıştır: bir [Dizin/LUT Sandbox](index-lut-sandbox.md) dışa aktarımı, baktığınız görüntüyü kaydeder; bu nedenle mevcut blok boyutunu taşır ve blok boyutu 1&#x27;in üzerine çıktığında dışa aktarma paneli sizi uyarır.
+* Bu ayar **sadece görüntüleme** ile ilgilidir. İşleme ve dışa aktarma işlemleri etkilenmez. Tek istisna kasıtlı olarak yapılmıştır: bir [Dizin/LUT Sandbox](index-lut-sandbox.md) dışa aktarımı, baktığınız görüntüyü kaydeder; bu nedenle mevcut blok boyutunu taşır ve blok boyutu 1'in üzerine çıktığında dışa aktarma paneli sizi uyarır.
 * Değer, `viewer_display.gsd_bin` dosyasında **proje başına** `project.json` olarak saklanır; bu sayede programın kapatılıp yeniden açılması durumunda da korunur.
-* Blok boyutu 1&#x27;in üzerinde olduğunda imleç göstergesi kaynak pikseli değil, bloğu bildirir — gösterilen değer, imlecinizin altındaki bloğun ortalamasıdır.
+* Blok boyutu 1'in üzerinde olduğunda imleç göstergesi kaynak pikseli değil, bloğu bildirir — gösterilen değer, imlecinizin altındaki bloğun ortalamasıdır.
 
 {% hint style="info" %}
-**Neden &quot;blok boyutu&quot; da piksel başına santimetre değil?** cm/px değeri için yerden yükseklik bilgisi gereklidir. Tek bir karenin EXIF verileri, kameranın yöneldiği arazinin değil, ortalama deniz seviyesinin üzerindeki GPS rakımını içerir; bu nedenle Chloros, doğru bir şekilde hesaplayamadığı yer mesafesini yazdırmaz. Kaynak pikseller cinsinden blok boyutu, yer örnekleme mesafesi bilinmediğinde MAPIR bulut araçlarının kullandığı yedek yöntemdir.
+**Neden "blok boyutu" da piksel başına santimetre değil?** cm/px değeri için yerden yükseklik bilgisi gereklidir. Tek bir karenin EXIF verileri, kameranın yöneldiği arazinin değil, ortalama deniz seviyesinin üzerindeki GPS rakımını içerir; bu nedenle Chloros, doğru bir şekilde hesaplayamadığı yer mesafesini yazdırmaz. Kaynak pikseller cinsinden blok boyutu, yer örnekleme mesafesi bilinmediğinde MAPIR bulut araçlarının kullandığı yedek yöntemdir.
 {% endhint %}
 
 ***
@@ -180,7 +180,7 @@ Işınım ve yansıma değerleri yalnızca multispektral görüntüler içindir:
 
 Yan çubuktan multispektral indeksleri ve renk Arama Tablolarını (LUT) uygulayın:
 
-1. **Görüntü Görüntüleyici**&#x27;n<img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> yan çubuğunu açın
+1. **Görüntü Görüntüleyici**'n<img src="../.gitbook/assets/icon_image-viewer.JPG" alt="" data-size="line"> yan çubuğunu açın
 2. **İndeks** seçeneğini işaretleyin
 3. Kameranızın filtresini ve bir indeks formülünü seçin, ardından kanal dairelerini formülün yuvalarına sürükleyin
 4. Bir LUT ekleyin ve bir gradyan, eşik değerleri ve kırpma modu seçin
@@ -214,7 +214,7 @@ Tam adım adım kılavuz için [İndeks/LUT Sandbox](index-lut-sandbox.md) sayfa
 
 1. Açılır menüden seçilen katmanı doğrulayın — panelin birimleri katmana göre belirlenir
 2. Yansıtma değeri için, DN değerini kendiniz bölmek yerine **%** sütununu kullanın; bölmeniz gerekiyorsa, o dosyanın `Chloros:PixelScale` değerini kullanın (LATTICE için 32768; yoksa Survey3 için 65535 anlamına gelir)
-3. GSD blok boyutunu tekrar 1&#x27;e ayarlayın — 1&#x27;den büyük değerlerde piksel değil, blok ortalamasını okursunuz
+3. GSD blok boyutunu tekrar 1'e ayarlayın — 1'den büyük değerlerde piksel değil, blok ortalamasını okursunuz
 4. O kare için yansıma kalibrasyonunun gerçekten çalıştırıldığını kontrol edin; kalibre edilmemiş yedek ürün (Sensör Tepkisi / Vinyet Düzeltmeli) yansıma değildir
 
 ***

@@ -17,7 +17,7 @@ DAQ okuması her zaman **pozlama zaman damgasıyla eşleştirilir** — bu neden
 
 ### Canlı yakalama
 
-DAQ&#x27;ı Kameralar sekmesinden bir kameraya bağlayın: her kameranın ayarlar panelinde, Işık Sensörleri sekmesinden bağlı tüm DAQ&#x27;ları (DAQ-U/M/E) listeleyen bir **Işık Sensörü** açılır menüsü bulunur; senkronize bir dizi için, dizi genelinde yapılan Işık Sensörü seçimi her üyeye yayılır (tek tek kameralar yine de bu ayarı geçersiz kılabilir). Bağlandıktan sonra, sensörün spektrumları kameranın DLS yuvasına beslenir ve yansıma dışa aktarımları eşleşen okuma değerine bölünür. Bir dizide, kendi sensörüne sahip bir üye kendi okumasını kullanır — canlı kompozit içindeki bantları, dışa aktarımları ve otomatik pozlaması için — diğer üyeler ise dizinin okumasını kullanır.
+DAQ'ı Kameralar sekmesinden bir kameraya bağlayın: her kameranın ayarlar panelinde, Işık Sensörleri sekmesinden bağlı tüm DAQ'ları (DAQ-U/M/E) listeleyen bir **Işık Sensörü** açılır menüsü bulunur; senkronize bir dizi için, dizi genelinde yapılan Işık Sensörü seçimi her üyeye yayılır (tek tek kameralar yine de bu ayarı geçersiz kılabilir). Bağlandıktan sonra, sensörün spektrumları kameranın DLS yuvasına beslenir ve yansıma dışa aktarımları eşleşen okuma değerine bölünür. Bir dizide, kendi sensörüne sahip bir üye kendi okumasını kullanır — canlı kompozit içindeki bantları, dışa aktarımları ve otomatik pozlaması için — diğer üyeler ise dizinin okumasını kullanır.
 
 
 
@@ -31,13 +31,13 @@ Bilmeniz gereken iki davranış:
 ### Kaydedilen Görüntülerin İşlenmesi
 
 Uçuş sonrası işleme için, oturum sırasında bir `.daq` kaydı yapın ve bunu görüntülerle birlikte saklayın — işleme akışı, zaman damgası eşleşen aşağı doğru ışınımı otomatik olarak çözümler ve ilk kullanımda MAPIR
-&#x27;in bulutundan eksik fabrika kalibrasyonlarını alır. GUI kayıtları, durduklarında açık projeye otomatik olarak eklenir.
+'in bulutundan eksik fabrika kalibrasyonlarını alır. GUI kayıtları, durduklarında açık projeye otomatik olarak eklenir.
 
 Yansıtma referansı, işleme sırasında seçilebilir — `--reflectance-source` üzerinde `chloros-cli process` veya GUI’deki Proje Ayarları’ndaki yansıtma kaynağı ayarı:
 
 | Değer | Davranış |
 | --- | --- |
-| `auto` (varsayılan) | Kalite kontrolünden geçen çerçeve içi kalibrasyon hedefi mutlak referanstır; DAQ aşağı doğru ışınlama (ρ = π·L/E) yedek seçenektir. Bir bayrakla (düşen bir panel veya arızalı bir bant) QA&#x27;yı geçen bir hedef otomatik olarak tercih edilmez: hedef, hedef+DAQ ve yalnızca DAQ zincirleri, ayrılmış panellerde ölçülen puanlarına göre sırayla denenir. |
+| `auto` (varsayılan) | Kalite kontrolünden geçen çerçeve içi kalibrasyon hedefi mutlak referanstır; DAQ aşağı doğru ışınlama (ρ = π·L/E) yedek seçenektir. Bir bayrakla (düşen bir panel veya arızalı bir bant) QA'yı geçen bir hedef otomatik olarak tercih edilmez: hedef, hedef+DAQ ve yalnızca DAQ zincirleri, ayrılmış panellerde ölçülen puanlarına göre sırayla denenir. |
 | `daq` | DAQ yetkili |
 | `target` | Katı çerçeve içi hedef; DAQ ikamesi yok |
 
@@ -45,10 +45,10 @@ Hedef iş akışları için [Kalibrasyon Hedefleri](../calibration-targets.md) b
 Referansı](../reference/cli-reference.md) bölümlerine bakınız. Dışa aktarılan yansıma piksellerini okurken, damgalı ölçeği kullanın (LATTICE: 32768 = ρ 1,0, XMP `Chloros:PixelScale`; Survey3
 : 65535) kullanın — bkz. [Çıktı Görüntü Biçimleri](../output-image-formats.md).
 
-### DAQ&#x27;nın kalibre edilmiş aralığı dışındaki bantlar
+### DAQ'nın kalibre edilmiş aralığı dışındaki bantlar
 
-DAQ&#x27;ın radyometrik olarak kalibre edilmiş aralığı ~374–974 nm&#x27;dir. Chloros
-, spektral ağırlığının yarısından azı bu aralıkta bulunan herhangi bir kamera bandı için DAQ tabanlı yansıma değerlerini reddeder ve atlama nedeni olarak `dls-uncalibrated-band-<nm>`&#x27;i bildirir. Satışta olan ürün kodları arasında bu durum yalnızca F988&#x27;i etkiler: F988&#x27;in yansıma değeri, sahne içi yansıma paneli kullanılarak kalibre edilir; bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesinde yer aldığından, Chloros
+DAQ'ın radyometrik olarak kalibre edilmiş aralığı ~374–974 nm'dir. Chloros
+, spektral ağırlığının yarısından azı bu aralıkta bulunan herhangi bir kamera bandı için DAQ tabanlı yansıma değerlerini reddeder ve atlama nedeni olarak `dls-uncalibrated-band-<nm>`'i bildirir. Satışta olan ürün kodları arasında bu durum yalnızca F988'i etkiler: F988'in yansıma değeri, sahne içi yansıma paneli kullanılarak kalibre edilir; bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesinde yer aldığından, Chloros
 en son panel yakalama verinizi uygular ve panel gözlemleri arasında bu değeri korur. Bir F988 kamerası yalnızca DAQ modunda çalıştırılırsa, Chloros
 o bant için DAQ tabanlı yansıma değerini `dls-uncalibrated-band-988` atlama nedeni ile reddeder — panel iş akışı desteklenen yoldur.
 
@@ -61,9 +61,9 @@ o bant için DAQ tabanlı yansıma değerini `dls-uncalibrated-band-988` atlama 
 
 (ortam ≤ 0 olduğunda sıfır).
 
-### GUI&#x27;de
+### GUI'de
 
-Her iki sensör de Işık Sensörleri sekmesine bağlandıktan sonra, sensör ekleme katmanını açın (ızgara görünümündeki bir grafik kutucuğundaki &quot;+&quot; düğmesi) ve **Ortam + Nesne&#x27;yi Birleştir**seçeneğini seçin. Ortam Işık Kaynağı ve Nesne Tarayıcı açılır menülerinden iki sensörü seçin ve Oluştur&#x27;a tıklayın. Grup, kendi grafiği olarak ve yeşil**REF** rozetine sahip bir kenar çubuğu satırı olarak görünür.
+Her iki sensör de Işık Sensörleri sekmesine bağlandıktan sonra, sensör ekleme katmanını açın (ızgara görünümündeki bir grafik kutucuğundaki "+" düğmesi) ve **Ortam + Nesne'yi Birleştir**seçeneğini seçin. Ortam Işık Kaynağı ve Nesne Tarayıcı açılır menülerinden iki sensörü seçin ve Oluştur'a tıklayın. Grup, kendi grafiği olarak ve yeşil**REF** rozetine sahip bir kenar çubuğu satırı olarak görünür.
 
 
 
@@ -97,10 +97,10 @@ Chloros
 Üç modelin tümü radyometrik niteliktedir: Bir sensörün fabrika kalibrasyon paketi yüklendiğinde spektrumları mutlak W/m²/nm değerindedir; dolayısıyla kalibre edilmiş bir sensör çifti, mutlak bir görünür yansıtma değerine oranlanır — bu değer, aktarım tarafından belirlenmez. Hala ham sayım verisi aktaran bir sensör (pakete erişilemiyorsa), sonucu göreceli bir eğriye indirger (spektral şekil yine de geçerlidir). Her iki sensör de doğru şekilde tanımlanmış sınırlara sahip olmalıdır ([Sınır Profilleri ve Kalibre Edilmiş Aralık](caps-and-range.md)).
 
 ### Python
-&#x27;dan
+'dan
 
 Birleştirilmiş SDK
 arayüzünde özel bir çift sensör çağrısı yoktur: `chloros_sdk.connect_daq_sensor()` ile iki oturum açın ve aynı etiketleme kuralını uygulayarak `latest()` spektrumlarını kendiniz oranlayın. (MAPIR
-&#x27;in dahili doğrudan donanım arayüzünde de bir çift sensör kayıt aracı mevcuttur; eksiksizlik amacıyla [CLI
+'in dahili doğrudan donanım arayüzünde de bir çift sensör kayıt aracı mevcuttur; eksiksizlik amacıyla [CLI
 Referansı](../reference/cli-reference.md) içinde listelenmiştir — bu, gönderilen CLI
-&#x27;nin bir parçası değildir; yukarıdaki GUI iş akışı desteklenen canlı yoldur.)
+'nin bir parçası değildir; yukarıdaki GUI iş akışı desteklenen canlı yoldur.)

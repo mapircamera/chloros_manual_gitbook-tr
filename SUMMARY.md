@@ -1,7 +1,7 @@
 # İçindekiler
 
 * [Başlangıç](README.md)
-* [Chloros&#x27;i Yapay Zeka Asistanlarıyla Kullanma](ai-assistants.md)
+* [Chloros'i Yapay Zeka Asistanlarıyla Kullanma](ai-assistants.md)
 * [GUI: Gezinme](navigation.md)
 * [GUI: Projeler](projects.md)
 * [CLI: Komut Satırı](CLI.md)
@@ -48,7 +48,7 @@
 ## DAQ Işık Sensörleri
 
 * [DAQ Işık Sensörleri](daq/README.md)
-* [Chloros&#x27;teki DAQ Sekmesi](daq/gui.md)
+* [Chloros'teki DAQ Sekmesi](daq/gui.md)
 * [CLI Hızlı Başlangıç (pool-\*)](daq/cli-quick-start.md)
 * [Cap Profilleri ve Kalibre Edilmiş Aralık](daq/caps-and-range.md)
 * [Kayıt ve .daq Biçimi](daq/recording.md)
@@ -66,7 +66,7 @@
 * [Dinamik Hesaplama Uyumlaştırma](processing-architecture/dynamic-compute-adaptation.md)
 * [İşleme Boru Hattı](processing-architecture/processing-pipeline.md)
 
-## Referans (CLI &amp; SDK)
+## Referans (CLI & SDK)
 
 * [Chloros CLI Referansı](reference/cli-reference.md)
 * [Chloros Python SDK Referans](reference/sdk-reference.md)

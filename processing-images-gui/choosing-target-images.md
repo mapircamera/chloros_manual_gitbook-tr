@@ -30,14 +30,14 @@ Hedef sütununda belirli görüntüleri işaretlediğinizde:
 
 ### Adım 1: Hedef Görüntülerinizi Belirleyin
 
-Dosya Tarayıcısı&#x27;nda içe aktardığınız görüntüleri inceleyin ve hangi görüntülerde kalibrasyon hedefleri bulunduğunu belirleyin.
+Dosya Tarayıcısı'nda içe aktardığınız görüntüleri inceleyin ve hangi görüntülerde kalibrasyon hedefleri bulunduğunu belirleyin.
 
 **Yaygın senaryolar:*** **Çekim öncesi hedef**: Oturum başlamadan önce çekilen
 * **Çekim sonrası hedef**: Oturum tamamlandıktan sonra çekilen
 * **Sahada bulunan hedefler**: Çekim alanı içine yerleştirilen hedefler
 * **Birden fazla hedef**: Oturum başına 2-3 hedef görüntü (önerilir)
 
-### Adım 2: <img src="../.gitbook/assets/image (33).png" alt="" data-size="original">&#x27;de Hedef Sütununu Kontrol Edin
+### Adım 2: <img src="../.gitbook/assets/image (33).png" alt="" data-size="original">'de Hedef Sütununu Kontrol Edin
 
 Kalibrasyon hedefi içeren her görüntü için:
 
@@ -63,7 +63,7 @@ LATTICE multispektral kameralar için, kare içi kalibrasyon hedefi **iki**olas�
 * **Çerçeve içi hedef**: İşaretlenmiş bir hedef görüntü, Chloros adresindeki kalite (QA) kontrollerinden geçtiğinde, hedef, çevresindeki görüntüler için**mutlak yansıma referansı** haline gelir.
 * **DAQ aşağı doğru ışınımı**: Hedef bulunmadığında (veya QA başarısız olduğunda), Chloros bunun yerine DAQ ışık sensörünün aşağı doğru ışınım yoğunluğundan yansıma oranını hesaplar (ρ = π·L/E). `.daq` veya DAQ-M `.csv` kaydı, yakaladığınız görüntüleri kapsıyorsa,**hiçbir hedef görüntü olmadan** kalibre edilmiş yansıma değeri elde edersiniz.
 
-Bu otomatik davranış varsayılan ayardır. CLI / SDK dosyasında bu, `--reflectance-source auto`&#x27;e karşılık gelir; ayrıca `target` (katı — DAQ ikamesi yok) veya `daq` (DAQ öncelikli) seçeneklerini de zorlayabilirsiniz. [CLI Referansı](../reference/cli-reference.md#per-product-export-toggles-lattice-multispectral) bölümüne bakınız.
+Bu otomatik davranış varsayılan ayardır. CLI / SDK dosyasında bu, `--reflectance-source auto`'e karşılık gelir; ayrıca `target` (katı — DAQ ikamesi yok) veya `daq` (DAQ öncelikli) seçeneklerini de zorlayabilirsiniz. [CLI Referansı](../reference/cli-reference.md#per-product-export-toggles-lattice-multispectral) bölümüne bakınız.
 
 **LATTICE hedef geometrileri**: Survey3 için kullanılan klasik panel algılamanın yanı sıra, LATTICE işleme, projeye göre yapılandırılan**ArUco işaretli hedefleri**,**sabit ROI hedefleri**ve**şerit hedefleri**destekler. Birim başına**ölçülen** hedef yansıma taramaları, seri numarasıyla (CLI: `--target-reflectance-dir`, her hedef birimi için bir adet `<serial>.csv`) sağlanabilir; yedek olarak nominal T3/T4P spektrumları kullanılır.
 
@@ -85,7 +85,7 @@ Bu otomatik davranış varsayılan ayardır. CLI / SDK dosyasında bu, `--reflec
 
 **Kamera Konumu:**
 
-* Kamerayı, hedefin ortalanmış ve görüntü merkezinin yaklaşık %40-60&#x27;ını kaplayacak şekilde tutun.
+* Kamerayı, hedefin ortalanmış ve görüntü merkezinin yaklaşık %40-60'ını kaplayacak şekilde tutun.
 * Kamerayı hedef yüzeye paralel/nadir konumda tutun
 
 **Aydınlatma:**
@@ -98,7 +98,7 @@ Bu otomatik davranış varsayılan ayardır. CLI / SDK dosyasında bu, `--reflec
 **Hedef Durumu:**
 
 * Hedef panellerini temiz ve kuru tutun.
-* Hedefinizin tüm panelleri (ör. bir T4&#x27;teki 4 panelin tamamı) net bir şekilde görünür ve engelsiz olmalıdır.
+* Hedefinizin tüm panelleri (ör. bir T4'teki 4 panelin tamamı) net bir şekilde görünür ve engelsiz olmalıdır.
 * Mümkünse hedefleri ışık kaynağına dik/nadir konumda tutun.
 
 ### Kaç Adet Hedef Görüntüsü?
@@ -119,7 +119,7 @@ Bu otomatik davranış varsayılan ayardır. CLI / SDK dosyasında bu, `--reflec
 
 1. Hedef görüntüleri **her iki kamerayla** aynı anda çekin
 2. Her iki kamera için de **aynı fiziksel hedefi** kullanın
-3. Dosya Tarayıcı&#x27;da **her iki kamera türü** için hedef görüntüleri işaretleyin
+3. Dosya Tarayıcı'da **her iki kamera türü** için hedef görüntüleri işaretleyin
 4. Chloros, her kameranın kalibrasyonu için uygun hedefleri kullanacaktır
 
 ### Kamera Modeli Sütunu
@@ -146,7 +146,7 @@ Chloros, hedeflerinizi doğru şekilde algılamıyorsa, [Proje Ayarları](adjust
 **Minimum Hedef Kümelenmesi (0-100):*** **Varsayılan**: 60
 * Hedefler birden fazla algılamaya bölünüyor ise **artırın*** Renk farklılığı olan hedefler tam olarak algılanmıyorsa **azaltın**
 {% hint style="info" %}
-**CLI ipucu**: `chloros-cli process` aynı ayarları (`--min-target-size`, `--target-clustering`) kabul eder ve `--target`/`--targets` bayrağı, tüm bir giriş klasörünü &quot;sadece hedef paneli&quot; olarak işaretler. [CLI Referansı](../reference/cli-reference.md) bölümüne bakın.
+**CLI ipucu**: `chloros-cli process` aynı ayarları (`--min-target-size`, `--target-clustering`) kabul eder ve `--target`/`--targets` bayrağı, tüm bir giriş klasörünü "sadece hedef paneli" olarak işaretler. [CLI Referansı](../reference/cli-reference.md) bölümüne bakın.
 {% endhint %}
 
 ***
@@ -157,8 +157,8 @@ Chloros, hedeflerinizi doğru şekilde algılamıyorsa, [Proje Ayarları](adjust
 
 **Olası nedenler:**
 
-* Hedef görüntüler Dosya Tarayıcı&#x27;da işaretlenmemiş
-* Çerçeve içindeki hedef çok küçük (&lt; görüntünün %30&#x27;u)
+* Hedef görüntüler Dosya Tarayıcı'da işaretlenmemiş
+* Çerçeve içindeki hedef çok küçük (< görüntünün %30'u)
 * Yetersiz aydınlatma (gölgeler, parlama)
 * Hedef algılama ayarları çok katı
 
@@ -216,12 +216,12 @@ LATTICE çekimleriniz sırasında bir DAQ ışık sensörü aşağıya doğru ı
 Hedefler ve DAQ olmadan da işleme yapabilirsiniz:
 
 1. Hedef sütunundaki tüm onay kutularını işaretlemeyin
-2. Proje Ayarları&#x27;nda &quot;Yansıtma kalibrasyonu / beyaz dengesi&quot; seçeneğini **devre dışı bırakın** — bu durumda hedef algılama işlemi tamamen atlanır
+2. Proje Ayarları'nda "Yansıtma kalibrasyonu / beyaz dengesi" seçeneğini **devre dışı bırakın** — bu durumda hedef algılama işlemi tamamen atlanır
 3. Vinyet düzeltmesi yine de uygulanacaktır
 4. Çıktı, mutlak yansıtma değeri açısından kalibre edilmeyecektir (LATTICE multispektral, yine de debayering uygulanmış, önizleme ve radyans ürünlerini dışa aktarır)
 
 {% hint style="warning" %}
-**Survey3&#x27;in bilimsel çalışmaları için önerilmez**: Yansıma kalibrasyonu olmadan, Survey3 piksel değerleri yalnızca göreceli parlaklığı temsil eder, bilimsel yansıma ölçümlerini değil. Doğru ve tekrarlanabilir sonuçlar için kalibrasyon hedeflerini (veya LATTICE için bir DAQ ışık sensörünü) kullanın.
+**Survey3'in bilimsel çalışmaları için önerilmez**: Yansıma kalibrasyonu olmadan, Survey3 piksel değerleri yalnızca göreceli parlaklığı temsil eder, bilimsel yansıma ölçümlerini değil. Doğru ve tekrarlanabilir sonuçlar için kalibrasyon hedeflerini (veya LATTICE için bir DAQ ışık sensörünü) kullanın.
 {% endhint %}
 
 ***

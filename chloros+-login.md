@@ -4,7 +4,7 @@
 
 Kullanıcının <img src=".gitbook/assets/icon_user.JPG" alt="" data-size="line"> kenar çubuğu menüsü, Chloros+ hesabınıza oturum açmanıza ve ek özelliklerin kilidini açmanıza olanak tanır.
 
-**Her makine için yalnızca bir kez oturum açmanız yeterlidir.** GUI, CLI ve Python SDK aynı önbelleğe alınmış oturumu paylaşır — masaüstü GUI üzerinden oturum açmak, o cihazdaki CLI ve SDK&#x27;yi de etkinleştirir (ve `chloros-cli login` aracılığıyla bunun tersi de geçerlidir).
+**Her makine için yalnızca bir kez oturum açmanız yeterlidir.** GUI, CLI ve Python SDK aynı önbelleğe alınmış oturumu paylaşır — masaüstü GUI üzerinden oturum açmak, o cihazdaki CLI ve SDK'yi de etkinleştirir (ve `chloros-cli login` aracılığıyla bunun tersi de geçerlidir).
 
 Oturum açtığınızda hesap bilgileriniz gösterilecektir:
 
@@ -83,7 +83,7 @@ işlemeyi etkinleştirmek için Chloros
 
 + kimlik bilgilerinizle oturum açın. Linux
 
-&#x27;ta (GUI yok), lisansınızı etkinleştirmenin tek yolu budur.
+'ta (GUI yok), lisansınızı etkinleştirmenin tek yolu budur.
 
 **Sözdizimi:**
 
@@ -98,7 +98,7 @@ Kullanıcıları**: Python
 
 SDK
 
-&#x27;si, önbelleğe alınmış kimlik bilgilerini temizlemek için programlı bir `logout()` yöntemi de sunar. Ayrıntılar için [SDK
+'si, önbelleğe alınmış kimlik bilgilerini temizlemek için programlı bir `logout()` yöntemi de sunar. Ayrıntılar için [SDK
 
 Referansı](reference/sdk-reference.md) bölümüne bakın.
 {% endhint %}
@@ -129,17 +129,17 @@ chloros-cli login user@example.com 'MyP@ssw0rd123'
 
 Mevcut sürümün üzerine daha yeni bir sürüm yüklediğinizde, Windows
 
-&#x27;ta (yükleyici) ve Linux
+'ta (yükleyici) ve Linux
 
-&#x27;ta (`.deb`, `chloros-cli update` dahil) oturum açma bilgileriniz korunur. Chloros
+'ta (`.deb`, `chloros-cli update` dahil) oturum açma bilgileriniz korunur. Chloros
 
-&#x27;u kaldırmak — veya Linux
+'u kaldırmak — veya Linux
 
 paketini silmek — önbellekteki oturum açma bilgilerini siler; bu nedenle, yeni bir kurulumdan sonra tekrar oturum açmanız gerekir.
 
 ### Planın Süresinin Dolması ve Çevrimdışı Geçiş Süresi
 
-GUI&#x27;de gösterilen planın süresi dolumu, lisansınızın ne zaman geçersiz hale geleceğini gösterir. Aylık tekrarlayan aboneliklerde son kullanma tarihi ayın sonudur; yıllık aboneliklerde ise aboneliği başlattığınız tarihten bir yıl sonradır.
+GUI'de gösterilen planın süresi dolumu, lisansınızın ne zaman geçersiz hale geleceğini gösterir. Aylık tekrarlayan aboneliklerde son kullanma tarihi ayın sonudur; yıllık aboneliklerde ise aboneliği başlattığınız tarihten bir yıl sonradır.
 
 Chloros
 

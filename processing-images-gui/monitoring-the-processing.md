@@ -44,7 +44,7 @@ Chloros
 {% hint style="info" %}
 **CLI
 
-&#x27;si uyumu**: `chloros-cli process` çalıştırması sırasında aynı dört iş parçacığı &quot;Algılama&quot;, &quot;Analiz&quot;, &quot;İşleme&quot; ve &quot;Dışa Aktarma&quot; olarak raporlanır; `chloros-cli export-status` ise başka bir terminalden İş Parçacığı-4&#x27;ün dışa aktarma ilerlemesini canlı olarak gösterir. [CLI
+'si uyumu**: `chloros-cli process` çalıştırması sırasında aynı dört iş parçacığı "Algılama", "Analiz", "İşleme" ve "Dışa Aktarma" olarak raporlanır; `chloros-cli export-status` ise başka bir terminalden İş Parçacığı-4'ün dışa aktarma ilerlemesini canlı olarak gösterir. [CLI
 
 Kılavuzu](../reference/cli-reference.md) bölümüne bakın.
 {% endhint %}
@@ -83,7 +83,7 @@ Kılavuzu](../reference/cli-reference.md) bölümüne bakın.
 
 * Hedefler doğru şekilde işaretlenmişse işlem hızlı bir şekilde tamamlanmalıdır
 * İşlem çok uzun sürüyorsa, hedefler işaretlenmemiş olabilir
-* Hata Giderme Günlüğü&#x27;nde &quot;Hedef bulundu&quot; mesajlarını kontrol edin
+* Hata Giderme Günlüğü'nde "Hedef bulundu" mesajlarını kontrol edin
 
 ### Aşama 2: Analiz
 
@@ -104,7 +104,7 @@ Kılavuzu](../reference/cli-reference.md) bölümüne bakın.
 **Dikkat edilmesi gerekenler:**
 
 * Duraklamalar olmadan istikrarlı bir şekilde ilerlemelidir
-* Eksik meta verilerle ilgili uyarılar Hata Giderme Günlüğü&#x27;nde görünecektir
+* Eksik meta verilerle ilgili uyarılar Hata Giderme Günlüğü'nde görünecektir
 
 ### Aşama 3: Kalibrasyon
 
@@ -123,7 +123,7 @@ Kılavuzu](../reference/cli-reference.md) bölümüne bakın.
 **İşleme davranışı:*** **Serbest mod**: Görüntüleri teker teker sırayla işler
 * **Chloros
 
-+ modu**: Donanıma uyarlanabilir bir işçi havuzu çalıştırır — GPU sistemlerinde (VRAM&#x27;e göre) 1-4 eşzamanlı işçi, yalnızca CPU&#x27;lu sistemlerde fiziksel çekirdek başına bir işçi (eksi bir). Bkz. [Dinamik Hesaplama Uyumlaştırma](../processing-architecture/dynamic-compute-adaptation.md)
++ modu**: Donanıma uyarlanabilir bir işçi havuzu çalıştırır — GPU sistemlerinde (VRAM'e göre) 1-4 eşzamanlı işçi, yalnızca CPU'lu sistemlerde fiziksel çekirdek başına bir işçi (eksi bir). Bkz. [Dinamik Hesaplama Uyumlaştırma](../processing-architecture/dynamic-compute-adaptation.md)
 * **GPU hızlandırma**: Bu aşamayı önemli ölçüde hızlandırır**Dikkat edilmesi gerekenler:**
 
 * Görüntü sayısında istikrarlı ilerleme
@@ -139,7 +139,7 @@ Kılavuzu](../reference/cli-reference.md) bölümüne bakın.
 * LUT renkleriyle multispektral indeks görüntüleri dışa aktarılıyor
 * `<project>/<camera>/<format>/<Product>_Images/` çıktı ağacı oluşturuluyor — dışa aktarılan dosyalar kaynak dosya adını korur; klasör ürünü tanımlar
 
-**Süre:** Toplam işleme süresinin %10-20&#x27;si**İlerleme göstergesi:**
+**Süre:** Toplam işleme süresinin %10-20'si**İlerleme göstergesi:**
 
 * Dışa aktarma: %0 → %100
 * Dosyalar yazılıyor
@@ -171,7 +171,7 @@ simgesine tıklayın
 
 Chloros
 
-&#x27;un günlük satırlarının başında, alt sistemi belirten köşeli parantez içindeki etiketler bulunur — örneğin `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Bilinmesi gereken en önemli şey, her çalıştırmanın sonunda (durdurulan çalıştırmalar dahil) yazdırılan **çalıştırma özeti**&#x27;dir:
+'un günlük satırlarının başında, alt sistemi belirten köşeli parantez içindeki etiketler bulunur — örneğin `[PROCESSING]`, `[RUN-SUMMARY]`, `[LATTICE-EXPORT]`, `[EXPORT-CHECK]`, `[IMPORT-LEVEL]`. Bilinmesi gereken en önemli şey, her çalıştırmanın sonunda (durdurulan çalıştırmalar dahil) yazdırılan **çalıştırma özeti**'dir:
 
 ```
 [RUN-SUMMARY] 49 image(s) in 2 camera group(s); 4 target(s) detected; 45 image(s) calibrated; 180 file(s) written.
@@ -216,11 +216,11 @@ kullanın `--input-level`  |
 | `[RUN-SUMMARY] ... 0 file(s) written` | İşlem sonucunda görüntü ürünü üretilmedi — ipuçlarıyla birlikte hata olarak bildirildi | İpucu satırlarını okuyun; nelerin atlandığını ve nedenini kontrol edin |
 | `[PROCESS] refused: The project folder is too deep for this computer…` | Windows
 
-&#x27;ta uzun yol özelliği kapalı ve proje klasörü 260 karakterlik yol sınırı için çok derin; hiçbir şey işlenmedi | Daha kısa bir proje klasörü kullanın (mesajda sığabilecek en uzun yol belirtilmiştir) veya Windows
+'ta uzun yol özelliği kapalı ve proje klasörü 260 karakterlik yol sınırı için çok derin; hiçbir şey işlenmedi | Daha kısa bir proje klasörü kullanın (mesajda sığabilecek en uzun yol belirtilmiştir) veya Windows
 
-&#x27;ta uzun yol özelliğini etkinleştirin ve Chloros
+'ta uzun yol özelliğini etkinleştirin ve Chloros
 
-&#x27;u yeniden başlatın — bkz. [İşlemeyi Başlatma](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
+'u yeniden başlatın — bkz. [İşlemeyi Başlatma](starting-the-processing.md#the-project-folder-is-too-deep-for-this-computer) |
 | `[unmix-clamp-mask] …` | Bir LATTICE ürününün kelepçe maskesi yazılamadı; ürünün kendisi sorunsuz ve şunu belirtiyor: `Chloros:UnmixClampMask=unavailable` | Disk alanını ve klasör izinlerini kontrol edin, ardından maskeye ihtiyacınız varsa işlemi yeniden gerçekleştirin |
 
 ### Günlük Verilerini Kopyalama
@@ -238,12 +238,12 @@ destek ekibine gönderin
 
 1.3.0 sürümündeki yenilik: Hata Giderme Günlüğü sekmesinin üst kısmındaki hata simgesi (**Hata bildir**), raporu doğrudan MAPIR
 
-&#x27;e gönderir.
+'e gönderir.
 
 1. Hata Giderme Günlüğü sekmesinin üst kısmındaki hata simgesine tıklayın
 2. Sorunu açıklayın: ne yapıyordunuz, ne bekliyordunuz ve bunun yerine ne oldu (gerekli)
 3. İsteğe bağlı olarak **Birkaç resim ekle (en fazla 10)**seçeneğini işaretleyin ve açık projeden resimler seçin veya diğer resim dosyaları için**Gözat...** seçeneğini kullanın
-4. **Gönder**&#x27;e tıklayın
+4. **Gönder**'e tıklayın
 
 Rapor, açıklamanızı, eklediğiniz resimleri, Chloros
 
@@ -251,7 +251,7 @@ günlüklerini ve sistem ayrıntılarını (Chloros
 
 sürümü, işletim sistemi, GPU ve proje ayarları) içerir. Rapor göndermek için Chloros
 
-&#x27;ta (Kullanıcı sekmesi) oturum açmış olmanız gerekir. Gönderim sırasında pencereyi kapatabilirsiniz; işlem bittiğinde, günlüğe `Bug report sent. Reference: BR-…` gibi bir referans yazılır — MAPIR
+'ta (Kullanıcı sekmesi) oturum açmış olmanız gerekir. Gönderim sırasında pencereyi kapatabilirsiniz; işlem bittiğinde, günlüğe `Bug report sent. Reference: BR-…` gibi bir referans yazılır — MAPIR
 
 ile iletişime geçtiğinizde bu referansı belirtin. Rapor yüklenemezse (örneğin, internet bağlantısı yoksa), Chloros
 
@@ -282,15 +282,15 @@ raporu bilgisayarınıza kaydeder ve yolu gösterir; böylece raporu support@map
 
 Görev Yöneticisi (Ctrl+Shift+Esc)
 * Performans sekmesi → CPU bölümü
-* &quot;Chloros
+* "Chloros
 
-&quot; veya &quot;chloros-backend&quot; işlemlerini arayın
+" veya "chloros-backend" işlemlerini arayın
 
 ### Bellek (RAM) Kullanımı
 
 **Tipik kullanım:**
 
-* Küçük projeler (&lt; 100 görüntü): 2-4 GB
+* Küçük projeler (< 100 görüntü): 2-4 GB
 * Orta ölçekli projeler (100-500 görüntü): 4-8 GB
 * Büyük projeler (500+ görüntü): 8-16 GB
 * Chloros
@@ -301,7 +301,7 @@ Görev Yöneticisi (Ctrl+Shift+Esc)
 
 * Daha küçük gruplar halinde işleyin
 * Diğer uygulamaları kapatın
-* Düzenli olarak büyük veri kümelerini işliyorsanız RAM&#x27;i yükseltin
+* Düzenli olarak büyük veri kümelerini işliyorsanız RAM'i yükseltin
 
 ### GPU Kullanımı (CUDA ile Chloros
 
@@ -309,7 +309,7 @@ Görev Yöneticisi (Ctrl+Shift+Esc)
 
 GPU hızlandırma etkinleştirildiğinde:
 
-* NVIDIA GPU&#x27;da yüksek kullanım oranı görülür (%60-90)
+* NVIDIA GPU'da yüksek kullanım oranı görülür (%60-90)
 * VRAM kullanımı artar (4 GB+ VRAM gerektirir; eşzamanlı Texture Aware debayering için 7 GB+)
 * Kalibrasyon aşaması önemli ölçüde daha hızlıdır
 
@@ -325,7 +325,7 @@ GPU hızlandırma etkinleştirildiğinde:
 
 * Analiz aşamasında yüksek disk okuma
 * Dışa aktarma aşamasında yüksek disk yazma
-* SSD, HDD&#x27;den önemli ölçüde daha hızlıdır
+* SSD, HDD'den önemli ölçüde daha hızlıdır
 
 **Performans ipucu:**
 
@@ -345,7 +345,7 @@ GPU hızlandırma etkinleştirildiğinde:
 * Kullanılabilir disk alanını doğrulayın
 * Chloros
 
-&#x27;un çalıştığından emin olmak için Görev Yöneticisi&#x27;ni kontrol edin
+'un çalıştığından emin olmak için Görev Yöneticisi'ni kontrol edin
 
 **Hata mesajları sık sık görünüyor:**
 
@@ -357,7 +357,7 @@ GPU hızlandırma etkinleştirildiğinde:
 
 * Chloros
 
-&#x27;un paralel modu çok fazla kaynak tüketiyor
+'un paralel modu çok fazla kaynak tüketiyor
 * Eşzamanlı görev sayısını azaltmayı veya donanımı yükseltmeyi düşünün
 * Serbest mod, daha az kaynak tüketir
 
@@ -365,7 +365,7 @@ GPU hızlandırma etkinleştirildiğinde:
 
 Aşağıdakileri görürseniz işlemi durdurun:
 
-* ❌ &quot;Disk dolu&quot; veya &quot;Dosya yazılmıyor&quot; hataları
+* ❌ "Disk dolu" veya "Dosya yazılmıyor" hataları
 * ❌ Tekrarlanan görüntü dosyası bozulma hataları
 * ❌ Sistem tamamen donmuş (yanıt vermiyor)
 * ❌ Yanlış ayarların yapılandırıldığını fark ettiyseniz
@@ -374,7 +374,7 @@ Aşağıdakileri görürseniz işlemi durdurun:
 **Nasıl durdurulur:**
 
 1.**Durdur düğmesine** tıklayın (Başlat düğmesinin yerine geçer) — bir kez tıklamak yeterlidir
-2. İşlem halindeki görüntü tamamlanana kadar çubukta &quot;Durduruluyor...&quot; yazısı görünür, ardından işlem durdurulmuş durumda sona erer
+2. İşlem halindeki görüntü tamamlanana kadar çubukta "Durduruluyor..." yazısı görünür, ardından işlem durdurulmuş durumda sona erer
 3. Zaten dışa aktarılmış ürünler diskte kalır; günlük dosyasında tamamlanan işlemlerin doğru bir özeti olan `[RUN-SUMMARY]` yazısı görüntülenir
 4. Sorunları giderin ve yeniden başlatın — işlem baştan başlar
 
@@ -398,9 +398,9 @@ Aşağıdakileri görürseniz işlemi durdurun:
 2. Gelecekte: SSD kullanın, dizin sayısını azaltın, donanımı yükseltin
 3. Büyük veri kümelerini toplu olarak işlemek için CLI
 
-&#x27;yi kullanmayı düşünün
+'yi kullanmayı düşünün
 
-### &quot;Disk Alanı&quot; Uyarıları
+### "Disk Alanı" Uyarıları
 
 **Çözümler:**
 
@@ -412,7 +412,7 @@ Aşağıdakileri görürseniz işlemi durdurun:
 
 yerine JPG formatını kullanın (daha küçük dosyalar)
 
-### Sık Görülen &quot;Bozuk Dosya&quot; Mesajları
+### Sık Görülen "Bozuk Dosya" Mesajları
 
 **Çözümler:**
 
@@ -438,7 +438,7 @@ yerine JPG formatını kullanın (daha küçük dosyalar)
 
 İşleme bittiğinde:
 
-* İlerleme çubuğu %100&#x27;e ulaşır
+* İlerleme çubuğu %100'e ulaşır
 * Hata Ayıklama Günlüğünde son sayılarla birlikte `[RUN-SUMMARY]` satırları görünür
 * Başlat düğmesi tekrar etkin hale gelir
 * Tüm çıktı dosyaları, projenin kamera başına çıktı ağacında bulunur: `<project>/<camera>/<format>/<Product>_Images/`
