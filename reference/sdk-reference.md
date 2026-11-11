@@ -2105,7 +2105,7 @@ daha düşük kaliteli bir ürünü sessizce iade etmek yerine,
 > **Yansıma DN ölçeği — bunu sabit kodlamayın.** LATTICE yansıma, `32768` = ρ 1,0 değerini kullanır ve
 > XMP `Chloros:PixelScale=32768` olarak işaretler; Survey3 yansıma, `65535` = ρ 1,0 değerini kullanır ve
 > `Chloros:*` etiketleri içermez. Etiketi okuyun ve ona bölün. uint16 alanında tanımlandığından, yeniden ölçeklendirme yapılan her formatta (16-bit TIFF, 8-bit TIFF,
-> `32768` olarak kalır (8-bit PNG/JPG, 32-bit yüzde) 8-bit PNG/JPG, yüzde bazında 32-bit)
+> 8-bit PNG/JPG, 32-bit yüzde) `32768` olarak kalır
 > — önce depolanan veri türünü uint16&#x27;ya normalize edin (8-bit&#x27;ten ×257, float&#x27;tan ×65535). Tek
 > istisna, 1.3.0&#x27;dan önceki bir derlemeden gelen dosyalardır: o zamanlar 8-bit TIFF dosyaları yeniden ölçeklendirilmez, *kırpılırdı*, bu nedenle
 > bu dosyayı tanımlayan bir ölçek yoktur ve `PixelScale` veya MicaSense tuple&#x27;ı içermez. Bir
