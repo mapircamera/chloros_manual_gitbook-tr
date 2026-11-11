@@ -144,7 +144,9 @@ Chloros, hedeflerinizi doğru şekilde algılamıyorsa, [Proje Ayarları](adjust
 * Küçük nesnelerde yanlış algılamalar alıyorsanız **artırın*** Hedefler algılanmıyorsa **azaltın**
 
 **Minimum Hedef Kümelenmesi (0-100):*** **Varsayılan**: 60
-* Hedefler birden fazla algılamaya bölünüyor ise **artırın*** Renk farklılığı olan hedefler tam olarak algılanmıyorsa **azaltın**{% hint style="info" %}**CLI ipucu**: `chloros-cli process` aynı ayarları (`--min-target-size`, `--target-clustering`) kabul eder ve `--target`/`--targets` bayrağı, tüm bir giriş klasörünü &quot;sadece hedef paneli&quot; olarak işaretler. [CLI Referansı](../reference/cli-reference.md) bölümüne bakın.
+* Hedefler birden fazla algılamaya bölünüyor ise **artırın*** Renk farklılığı olan hedefler tam olarak algılanmıyorsa **azaltın**
+{% hint style="info" %}
+**CLI ipucu**: `chloros-cli process` aynı ayarları (`--min-target-size`, `--target-clustering`) kabul eder ve `--target`/`--targets` bayrağı, tüm bir giriş klasörünü &quot;sadece hedef paneli&quot; olarak işaretler. [CLI Referansı](../reference/cli-reference.md) bölümüne bakın.
 {% endhint %}
 
 ***

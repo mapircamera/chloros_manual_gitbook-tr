@@ -1,31 +1,71 @@
-# Chloros’i Yapay Zeka Asistanlarıyla Kullanma
+# Chloros’u Yapay Zeka Asistanlarıyla Kullanma
 
-Bu kılavuz iki hedef kitleye yönelik olarak hazırlanmıştır: insanlar ve insanların giderek daha fazla işlerini yürütmek için kullandığı yapay zeka asistanları. Her sayfada kesin değerler, varsayılan ayarlar ve kopyala-yapıştır yapılabilen komutlar yer almaktadır; böylece bir asistan (Claude, ChatGPT, Copilot, bir kodlama ajanı vb.) ilk denemede çalışan bir Chloros otomasyonu yazabilir.
+Bu kılavuz iki hedef kitleye yönelik olarak yazılmıştır: insanlar ve insanların giderek daha fazla kullandığı AI asistanları. Her sayfada kesin değerler, varsayılan ayarlar ve kopyala-yapıştır edilebilir komutlar yer almaktadır; böylece bir asistan (Claude, ChatGPT, Copilot, bir kodlama ajanı, …) ilk denemede çalışan bir Chloros otomasyonu yazabilir.
 
 Chloros sürümü: **
 
-1.2.0**. CLI/SDK platformları: Windows 10/11 x64 ve Linux (x86_64 / Jetson aarch64).
+1.3.0**. CLI/SDK platformları: Windows 10/11 x64 ve Linux (x86\_64 / Jetson aarch64).
 
-## Asistanınıza ne vermeniz gerekir
+## Asistanınıza ne vermelisiniz?
 
 | Kaynak | URL | Ne için kullanılır |
 | --- | --- | --- |
 | **llms.txt** | `https://mapir.gitbook.io/chloros/llms.txt` | Bu kılavuzdaki her sayfanın makine tarafından okunabilir dizini. |
-| **CLI Referansı** | `https://mapir.gitbook.io/chloros/reference/cli-reference` | Tam `chloros-cli` komut yüzeyi: her komut, bayrak, varsayılan değer, çıkış kodu ve çıktı klasörü kuralı. LLM kullanımı için yazılmıştır. |
-| **SDK Referansı** | `https://mapir.gitbook.io/chloros/reference/sdk-reference` | Tam `chloros_sdk` Python API: sınıflar, imzalar, istisnalar ve uygulamalı örnekler. LLM kullanımı için yazılmıştır. |
-| **Herhangi bir sayfa ham Markdown olarak** | `.md`&#x27;i URL sayfasına ekleyin | ör. `https://mapir.gitbook.io/chloros/reference/sdk-reference.md`, sayfayı ham Markdown olarak döndürür — bir bağlam penceresine yapıştırmak veya bir ajandan almak için idealdir. |
+| **CLI Kılavuzu** | `https://mapir.gitbook.io/chloros/reference/cli-reference` | `chloros-cli` komut arayüzünün tamamı: tüm komutlar, bayraklar, varsayılan değerler, çıkış kodları ve çıktı klasörü kuralları. LLM kullanımı için yazılmıştır. |
+| **SDK Referansı** | `https://mapir.gitbook.io/chloros/reference/sdk-reference` | Tam `chloros_sdk` Python API&#x27;si: sınıflar, imzalar, istisnalar ve uygulamalı örnekler. LLM kullanımı için yazılmıştır. |
+| **Herhangi bir sayfa ham Markdown olarak** | sayfanın URL&#x27;sine `.md` ekleyin | örn. `https://mapir.gitbook.io/chloros/reference/sdk-reference.md`, sayfayı ham Markdown olarak döndürür — bir bağlam penceresine yapıştırmak veya bir ajandan almak için idealdir. |
 
 Kılavuz içi bağlantılar: [CLI Referansı](reference/cli-reference.md) · [SDK Referansı](reference/sdk-reference.md).
 
 {% hint style="info" %}
-Bu iki referans sayfası kendi başına eksiksizdir: bunlardan birini okumuş bir asistan, doğru bir komut dosyası yazmak için kılavuzun geri kalanına ihtiyaç duymaz.
+Bu iki referans sayfası tek başına yeterlidir: bunlardan birini okumuş bir asistan, doğru bir komut dosyası yazmak için kılavuzun geri kalanına ihtiyaç duymaz.
 {% endhint %}
 
-## Hazır komut örnekleri
+## Asistanınızın Chloros&#x27;u doğrudan çalıştırmasını sağlayın: `chloros-mcp`
+
+Yukarıdaki tüm örneklerde asistanınızın bir komut dosyası veya komut *yazması* söz konusudur. `chloros-mcp` ile, Claude Desktop, Claude Code veya Cursor gibi [Model Bağlam Protokolü](https://modelcontextprotocol.io) (MCP) ile iletişim kuran bir asistan, Chloros&#x27;u kendisi çalıştırır. Siz sade bir dille talimat verirsiniz ve asistan, sunucunun araçlarını çağırır:
+
+* **Görüntüleri işleme:** bir proje oluşturur, yakalanan görüntülerin bulunduğu bir klasörü içe aktarır, ayarları seçer, işlemeyi gerçekleştirir ve işlemin sonucunda elde edilen verileri raporlar.
+* **Donanımı çalıştırma:** LATTICE kameralarını, dizilerini ve DAQ ışık sensörlerini bağlayın, önizleme yapın, pozlama ve rengi ayarlayın, yakalayın, kaydedin ve ürün yazılımını güncelleyin.
+
+```text
+You:  Process the flight in D:\Flights\2026-10-17 to reflectance and NDVI.
+
+You:  Show me what the array sees, then capture reflectance every 10 seconds
+      for 5 minutes.
+```
+
+Sunucunun araçları, [Python SDK](api-python-sdk.md) tarafından yapılan işlemleri kapsar. SDK ile birlikte kurulur, bu nedenle genellikle başka bir şey yüklemeye gerek yoktur: Windows&#x27;da Chloros yükleyicisi, `chloros-mcp.exe` dosyasını Python&#x27;unuzun `Scripts` klasörüne yerleştirir, Linux&#x27;ta ise `.deb`, `chloros-mcp` dosyasını `/usr/bin` klasörüne yerleştirir.
+
+**Claude Kodu:**
+
+```bash
+claude mcp add chloros -- chloros-mcp
+```
+
+**Claude Desktop:**bunu `claude_desktop_config.json` dosyasına ekleyin (**Ayarlar &gt; Geliştirici &gt; Yapılandırmayı Düzenle**seçeneği ile açabilirsiniz), ardından Claude Desktop&#x27;ı yeniden başlatın.**Cursor** için de `~/.cursor/mcp.json` dosyasına aynı girişi yapın.
+
+```json
+{
+  "mcpServers": {
+    "chloros": {"command": "chloros-mcp"}
+  }
+}
+```
+
+İstemci, sunucunun başlatılamadığını söylüyorsa, `chloros-mcp` muhtemelen gördüğü `PATH`&#x27;te yer almıyordur: bunun yerine tam yolu girin (Windows&#x27;ta `where chloros-mcp`, Linux&#x27;ta `which chloros-mcp`).
+
+Aynı bilgisayarda Chloros&#x27;un kurulu olması ve orada, uygulamada veya `chloros-cli login` ile herhangi bir ücretli Chloros+ kademesinde (Copper veya üstü) oturum açılmış olması gerekir. Sunucu sizin adınıza oturum açamaz.
+
+{% hint style="info" %}
+Her uygulama, seçenekler, her araç ve bir çalıştırmanın nasıl davrandığına ilişkin istemci kurulumu: SDK Referansı&#x27;ndaki [MCP Sunucusu (AI Asistanları)](reference/sdk-reference.md#mcp-server-ai-assistants).
+{% endhint %}
+
+## Komut şablonları
 
 `<placeholders>`&#x27;i kopyalayın, gerekli bilgileri girin ve asistanınıza yapıştırın.
 
-### 1. Bir uçuş klasörünü NDVI&#x27;e işleyin
+### 1. Bir uçuş klasörünü NDVI&#x27;ye dönüştürün
 
 ```
 
@@ -49,7 +89,7 @@ After each run, print every hint from result["summary"]["hints"] and treat
 a run with zero image products as a failure for that folder.
 ```
 
-### 3. Bir LATTICE dizisini bağlayın ve yakalama yapın
+### 3. LATTICE dizisini bağlama ve yakalama
 
 ```
 
@@ -73,23 +113,24 @@ Read https://mapir.gitbook.io/chloros/reference/cli-reference.md (section
 ```
 
 {% hint style="warning" %}
-Komut satırından DAQ komut dosyası çalıştırma işlemi her zaman `daq pool-*` ailesi (`pool-connect`, `pool-list`, `pool-latest`, `pool-stream`, `pool-record`, `pool-set-cap`, `pool-disconnect`) üzerinden gerçekleştirilir. Asistanınızın uydurabileceği diğer `daq` alt komutları, piyasaya sürülen sürümlerde mevcut değildir ve bir hata ile sonlanır.
+Komut satırından DAQ komut dosyası çalıştırma işlemi her zaman `daq pool-*` ailesi (`pool-connect`, `pool-list`, `pool-latest`, `pool-stream`, `pool-record`, `pool-set-cap`, `pool-disconnect`) üzerinden gerçekleştirilir. Asistanınızın uydurabileceği diğer `daq` alt komutları, dağıtılan sürümlerde mevcut değildir ve bir hata ile sonlanır.
 {% endhint %}
 
 ## AI tarafından yazılan komut dosyaları neden Chloros ile iyi çalışıyor?
 
-Bunların her biri, Chloros 1.2.0 sürümünün gerçek ve doğrulanmış davranışlarıdır — bunlar, makine tarafından yazılan otomasyonların klasik hata modlarını ortadan kaldırır:
+Bunların her biri, Chloros 1.3.0&#x27;ın gerçek ve doğrulanmış davranışlarıdır — bunlar, makine tarafından yazılan otomasyonların klasik hata modlarını ortadan kaldırır:
 
-* **Kurulum karmaşası yok.**SDK&#x27;in akıllı bağlantı yardımcıları (`connect_camera`, `connect_array`, `connect_daq_sensor`) ve işleme giriş noktaları (`ChlorosLocal`, `process_folder`)**yerel arka ucu otomatik olarak başlatır**. Oluşturulan bir komut dosyasının çalışması için GUI&#x27;nin açık olması veya sunucunun manuel olarak başlatılması gerekmez — yalnızca desktop/CLI paketinin yüklü olması yeterlidir.
+* **Kurulumla uğraşmaya gerek yok.**SDK’nın akıllı bağlantı yardımcıları (`connect_camera`, `connect_array`, `connect_daq_sensor`) ve işleme giriş noktaları (`ChlorosLocal`, `process_folder`)**yerel arka ucu otomatik olarak başlatır**. Oluşturulan bir komut dosyasının GUI&#x27;nin açık olması veya sunucunun manuel olarak başlatılması gerekmez — yalnızca masaüstü/CLI paketinin kurulu olması yeterlidir.
 * **Tüm iş akışı tek bir çağrıdır.** `chloros_sdk.process_folder("path", indices=["NDVI"])`, içe aktarma → kalibrasyon → yansıma → indeks dışa aktarma işlemlerini uçtan uca yürütür. Yüzey alanı daha az olduğundan, oluşturulan komut dosyasının hata verebileceği noktalar da daha azdır.
-* **Çıktı alınmayan çalıştırmalar kendi kendini teşhis eder.** `process()`&#x27;ten sonra, çalıştırmanın özeti sonuca eklenir ve her işleme ipucu (örn. *neden* bir işlem çıktısı üretmedi) de bir Python `UserWarning` olarak yeniden gönderilir — böylece sonucu asla incelemese bile bir komut dosyası teşhisi ortaya çıkarır.
-* **CLI açıkça hata verir.**Ürün talep eden ancak hiçbir şey yazmayan bir `chloros-cli process` çalıştırması, `Processing finished but wrote no image products.` kodunu yazdırır ve**sıfırdan farklı bir kodla sonlanır**; böylece kabuk komut dosyaları ve CI, basit bir çıkış kodu kontrolüyle bunu algılar. Başarılı çalıştırmalar `Image products written: N` kodunu bildirir.
+* **Çıktı alınamayan çalıştırmalar kendi kendini teşhis eder.** `process()`&#x27;ten sonra, çalıştırmanın özeti sonuca eklenir ve her işleme ipucu (örn. *neden* bir işlem çıktısı üretmedi) de bir Python `UserWarning` olarak yeniden gönderilir — böylece sonuç sözlüğünü asla incelemeyen bir komut dosyası bile tanıyı ortaya çıkarır.
+* **CLI, açıkça hata verir.**Ürün talep eden ancak hiçbir şey yazmayan bir `chloros-cli process` çalışması, `Processing finished but wrote no image products.` mesajını yazdırır ve**sıfırdan farklı bir kodla sonlanır**; böylece kabuk betikleri ve CI, basit bir çıkış kodu kontrolüyle bunu algılar. Başarılı çalıştırmalar `Image products written: N` kodunu bildirir; maskeler yazıldığında ise buna ek olarak `(plus M clamp masks)` kodu da eklenir. Yakalama komutları da aynı şekilde yazamadıkları her dosyanın adını belirtir ve `1` koduyla sonlanır.
+* **Göreceli yollar, betiğin beklediği anlamı taşır.** Yerel bir arka uç kullanıldığında, göreceli bir çıktı yolu (CLI&#x27;de `-o out/`, SDK&#x27;de `output_dir="out/"`), komutun veya betiğin çalıştırıldığı klasöre göre çözümlenir.
 
-Bir asistanın bilmesi gereken bir asimetri: SDK&#x27;in `process()`&#x27;i, sıfır ürün içeren bir çalışmada kasıtlı olarak **hata** vermez — bunun yerine özet/ipuçları yoluyla rapor eder. Bir Python iş akışı boş bir çalıştırmada durmak zorunda kalırsa, özeti kontrol edin (reçete 2 bunu yapar).
+Bir asistanın bilmesi gereken bir asimetri: SDK&#x27;nin `process()` komutu, sıfır çıktı veren bir çalıştırmada kasıtlı olarak **hata** vermez — bunun yerine özet/ipuçları aracılığıyla raporlar. Bir Python ardışık düzeni boş bir çalıştırmada durmak zorundaysa, özeti kontrol edin (2. tarif bunu yapar).
 
 ## Dikkat Edilmesi Gerekenler
 
-* **Chloros+ için oturum açılması gerekir.**CLI ve SDK,**ücretli** Chloros+ kademesi gerektirir; bu kısıtlama sunucu tarafında uygulanır: oturum açılmadığında istekler `401 AUTH_REQUIRED` hatasıyla, ücretsiz kademede ise `403 PLAN_UPGRADE_REQUIRED` hatasıyla sonuçlanır. Oluşturulan komut dosyalarını çalıştırmadan önce her makine için bir kez `chloros-cli login` komutunu çalıştırın. Bkz. [Chloros+ Oturum Açma](chloros+-login.md).
-* **Yakalama komutları gerçek donanımı kontrol eder.** `lattice` / `daq` / `project` komutları ve SDK oturum nesneleri, fiziksel kameralara ve sensörlere bağlanır, bunlardan veri akışı alır ve bunları tetikler. Oluşturulan komut dosyasını ilk çalıştırmadan önce gözden geçirin ve donanım başında olarak çalıştırın.
-* **Çıktıları rastgele kontrol edin.** Sonuçları yayınlamadan önce ürün klasörlerini ve birkaç piksel değerini doğrulayın. Özellikle, yansıma TIFF&#x27;leri kaynağa göre ölçeklenir — bir bölücü varsaymak yerine `Chloros:PixelScale` XMP etiketini (LATTICE: 32768 = 1,0 yansıma; Survey3: 65535) bir bölücü varsaymak yerine. Her iki referans sayfası da bunu &quot;Yansıma piksellerini okuma&quot; başlığı altında belgelemektedir.
-* **Oluşturulan kodu aksatan küçük tuzaklar:**`pool-record`,**arka uç ana bilgisayarın** dosya sistemine yazar (varsayılan `~/Documents/DAQ Live View/`); birden fazla ağ arabirimine sahip makinelerde, otomatik keşif yerine `daq pool-connect --eth-host <ip-or-hostname>`&#x27;i tercih edin; ve arka uç URL&#x27;in geçtiği her yerde `http://127.0.0.1:5000`&#x27;i (asla `localhost`&#x27;i) kullanın.
+* **Chloros+ oturumu gereklidir.**CLI ve SDK, sunucu tarafında uygulanan**ücretli** bir Chloros+ kademesi gerektirir: oturum açılmadığında istekler `401 AUTH_REQUIRED` hatasıyla, ücretsiz kademede ise `403 PLAN_UPGRADE_REQUIRED` hatasıyla başarısız olur. Oluşturulan komut dosyalarını çalıştırmadan önce her makine için bir kez `chloros-cli login` komutunu çalıştırın. Bkz. [Chloros+ Oturum Açma](chloros+-login.md).
+* **Yakalama komutları gerçek donanımı kontrol eder.** `lattice` / `daq` / `project` komutları, SDK oturum nesneleri ve `chloros-mcp` araçları, fiziksel kameralara ve sensörlere bağlanır, bunlardan veri akışı sağlar ve bunları tetikler. Oluşturulan komut dosyasını ilk çalıştırmadan önce gözden geçirin ve donanım başında olarak çalıştırın.
+* **Çıktıları rastgele kontrol edin.** Sonuçları yayınlamadan önce ürün klasörlerini ve birkaç piksel değerini doğrulayın. Özellikle, yansıma TIFF&#x27;leri kaynağa göre ölçeklenir — `Chloros:PixelScale` XMP etiketini okuyun (LATTICE dosyaları bunu içerir: 32768 = 1,0 yansıma; Survey3 dosyaları taşımaz ve 65535 = 1,0 değerini kullanır) yerine bir bölücü varsaymayın. Her iki referans sayfası da bunu &quot;Yansıma pikselini okuma&quot; başlığı altında belgelemektedir.
+* **Oluşturulan kodu aksatan küçük tuzaklar:**`pool-record`,**arka uç ana bilgisayarın** dosya sistemine yazar (varsayılan `~/Documents/DAQ Live View/`); birden fazla ağ arabirimine sahip makinelerde, otomatik keşif yerine `daq pool-connect --eth-host <ip-or-hostname>`&#x27;i tercih edin; arka uç URL&#x27;sinin geçtiği her yerde `http://127.0.0.1:5000`&#x27;i kullanın (asla `localhost`&#x27;i kullanmayın); bir projenin çıktı ağacını tarayan bir komut dosyası, `clamp_masks/` klasörlerini atlamalıdır (bu klasörlerdeki `*_clampmask.tif` dosyaları görüntüler değil, maskeleridir — bkz. [Çıktı Görüntü Biçimleri](output-image-formats.md#clamp-masks)); ve uzun yol özelliği devre dışı bırakılmış Windows sistemlerinde proje klasörlerini kısa tutun — yaklaşık 130 karakterden daha derin bir proje klasörü, işleme başlamadan önce reddedilir.

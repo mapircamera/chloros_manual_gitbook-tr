@@ -1,8 +1,14 @@
 # Linux Kurulumu
 
-Chloros, Linux adresi üzerinden, CLI ve arka uç sunucusunu kuran `.deb` paketleri olarak dağıtılmaktadır. Python SDK adresindeki dosya ise ayrı bir pip paketidir (aynı zamanda sürüm uyumlu bir wheel dosyası olarak `.deb` paketinin içinde de yer almaktadır).
+Chloros, Linux için CLI’yi, arka uç sunucusunu ve Python SDK’yi kuran `.deb` paketleri olarak dağıtılmaktadır (`python3` sistemi için, ayrıca virtualenv’ler için sürüm uyumlu bir wheel dosyası da bulunmaktadır).
 
-Paket dosya adları sürüm ve mimari bilgilerini içerir: x86_64 için `chloros_1.2.0_amd64.deb` ve JetPack 6 Jetson derlemeleri için `chloros_1.2.0_arm64_jp6.deb`. Aşağıdaki komutlarda, gerçekte indirdiğiniz dosyayı kullanın.
+Paket dosya adları sürüm ve mimari bilgilerini içerir: x86_64 için `chloros_1.3.0_amd64.deb`, ve arm64 (NVIDIA Jetson, JetPack 6) için `chloros_1.3.0_arm64_jp6.deb`. Aşağıdaki komutlarda, gerçekte indirdiğiniz dosyayı kullanın.
+
+{% hint style="info" %}
+**
+
+1.3.0 sürümündeki yenilik: programlar sıkıştırılmamış olarak dağıtılmaktadır.** Arka uç ve CLI, tek tek kendiliğinden açılan dosyalar yerine `/usr/lib/chloros/backend/` ve `/usr/lib/chloros/cli/` adlı klasörler olarak kurulur. tek bir kendiliğinden açılan dosya yerine. Artık her başlatıldığında geçici bir klasöre kendiliğinden açılmadıkları için çok daha hızlı başlıyorlar (x86_64&#x27;te arka uç eskiden her başlatmada açılmak için yaklaşık 100 saniye harcıyordu) ve artık `/tmp` içinde birkaç GB boş alana ihtiyaç duymuyorlar. amd64 `.deb` de eski boyutunun yaklaşık yarısı kadar.
+{% endhint %}
 
 ***
 
@@ -20,31 +26,29 @@ Paket dosya adları sürüm ve mimari bilgilerini içerir: x86_64 için `chloros
 | **Python** | Python 3.7+ (SDK için) | Python 3.10+ |
 
 > **Ubuntu 20.04 ve Debian 11 desteklenmemektedir.** `.deb`&#x27;in bağımlılık listesi,
-> Chloros arka ucunun gerçekte hangi kütüphanelere bağlandığından türetilmiştir ve buna
-> `libc6 (>= 2.34)` da dahildir. Focal ve bullseye sürümleri glibc 2.31 ile birlikte gelir; bu nedenle `apt`,
-> kurulumun daha sonra çalışma zamanında başarısız olmasına izin vermek yerine, kurulumu
-> doğrudan reddeder.
+> Chloros arka ucunun gerçekte bağlandığı öğelerden türetilmiştir ve buna
+> focal ve bullseye sürümlerinde bulunan glibc 2.31&#x27;den daha yeni bir `libc6` içerir; bu nedenle `apt`,
+> kurulumun daha sonra çalışma zamanında başarısız olmasına izin vermek yerine, kurulumu doğrudan reddeder.
 
 ### Kurulum
 
 ```bash
-sudo dpkg -i chloros_1.2.0_amd64.deb
-sudo apt-get install -f    # pulls the declared dependencies (libibverbs1, libcap2-bin)
+sudo apt install ./chloros_1.3.0_amd64.deb
 ```
 
 {% hint style="info" %}
-`dpkg -i`, bağımlılıkları çözmez. Eksik paketler bildirirse, `sudo apt-get install -f` (veya `sudo apt --fix-broken install`) kurulumu tamamlar — bu normal bir süreçtir, bir hata değildir.
+**`dpkg -i` yerine `apt install ./…`&#x27;i kullanın.** `apt`, paketin bağımlılıklarını çözer ve ayrıca önerdiği öğeleri de yükler: Python SDK&#x27;nin gereksinimleri, `python3-numpy` ve `python3-requests`. `dpkg -i` ise ikisini de yüklemez. CLI ve arka uç kendi kendine yeterlidir ve bunlar olmadan çalışır, ancak `import chloros_sdk` bunlara ihtiyaç duyar; kurulum çıktısı eksik olanları listeler. `./`&#x27;i koruyun, böylece `apt`, bu isimde bir paket aramak yerine dosyayı yükleyebilir. Paket ayrıca, birlikte gelen OpenCV tarafından yüklenen ve minimal bir sunucu görüntüsünde bulunmayabilecek olan `libgl1`&#x27;i de bildirir.
 {% endhint %}
 
 Kurulumu doğrulayın:
 
 ```bash
-chloros-cli --version    # prints "Chloros CLI 1.2.0"
+chloros-cli --version    # prints "Chloros CLI 1.3.0"
 ```
 
+<!-- SCREENSHOT-NEEDED: Terminal on Ubuntu 22.04 immediately after `sudo apt install ./chloros_1.3.0_amd64.deb`, showing the full postinst output: the "Chloros installed successfully!" banner, the Usage lines, the "Python SDK:" block ("chloros_sdk 1.3.0 for python3" and the "In a virtualenv: pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl" line), any "GPU Acceleration:" detection line, and the closing "Systemd Service (optional): sudo systemctl enable --now chloros-backend@<user>.service" hint -->
 
-
-<!-- SCREENSHOT-NEEDED: Terminal on Ubuntu 22.04 immediately after `sudo dpkg -i chloros_1.2.0_amd64.deb`, showing the full postinst output: the "Chloros installed successfully!" banner, the Usage lines, the "Python SDK:" block naming the bundled wheel path under /usr/lib/chloros/sdk/, any "GPU Acceleration:" detection line, and the closing "Systemd Service (optional): sudo systemctl enable --now chloros-backend.service" hint -->***
+***
 
 ## Linux arm64 (NVIDIA Jetson)
 
@@ -53,56 +57,51 @@ chloros-cli --version    # prints "Chloros CLI 1.2.0"
 | Gereksinim | Minimum | Önerilen |
 | --- | --- | --- |
 | **Platform** | JetPack 6 yüklü NVIDIA Jetson | Jetson Orin NX 16 GB veya AGX Orin |
-| **JetPack** | JetPack 6.x | En yeni JetPack 6 |
-| **Bellek (RAM)** | 8 GB (GPU/CPU paylaşımlı) | 16 GB+ paylaşımlı (paralel GPU işleyicileri için eşik değer 12 GB+&#x27;dır) |
+| **JetPack** | JetPack 6.x | En son JetPack 6 |
+| **Bellek (RAM)** | 8 GB (GPU/CPU paylaşımlı) | 16 GB+ paylaşımlı (paralel işleme için eşik değer 12 GB+&#x27;dır) |
 | **Depolama** | 2GB boş alan | 10GB+ boş alana sahip NVMe SSD |
 | **Python** | Python 3.7+ (SDK için) | Python 3.10+ |
 
 ### Kurulum
 
 ```bash
-sudo dpkg -i chloros_1.2.0_arm64_jp6.deb
-sudo apt-get install -f
+sudo apt install ./chloros_1.3.0_arm64_jp6.deb
 chloros-cli --version
 ```
 
-amd64 `.deb` ile aynı yapıya sahiptir; Jetson Orin / Orin NX / Orin Nano için optimize edilmiş bir CUDA derlemesi içerir. Jetson bellek, termal ve sahada kullanım davranışları hakkında bilgi için [NVIDIA Jetson Kılavuzu](nvidia-jetson-guide.md).
+amd64 `.deb` ile aynı düzen (Python SDK, alım tamponları ve arka uç hizmetleri dahil), **JetPack 6** (L4T R36) üzerinde Jetson Orin / Orin NX / Orin Nano için. PyTorch, JetPack 6&#x27;nın Orin için CUDA derlemesidir; bu nedenle GPU işleme ve Texture Aware debayer, Jetson&#x27;ın GPU&#x27;sunda çalışır. Paket, CUDA&#x27;yı kendisi içermez: JetPack 6&#x27;nın yüklediği CUDA ve cuDNN kütüphanelerini kullanır (bu kütüphanelerin bulunmadığı bir görüntüde `sudo apt install nvidia-jetpack`). CUDA GPU&#x27;sunun kullanılamadığı durumlarda, işleme CPU üzerinde gerçekleştirilir ve `--debayer texture-aware`, Standard debayer&#x27;ı kullanır (arka uç, bunun nedenini açıklayan bir `[DEBAYER] … needs a CUDA GPU …` satırı günlüğüne kaydeder). Jetson&#x27;un bellek, termal ve sahada kullanım davranışları hakkında bilgi için [NVIDIA Jetson Kılavuzu](nvidia-jetson-guide.md) bölümüne bakın.***
 
-***
+## Python SDK Kurulumu (Tüm Linux Sürümleri)**`.deb`, SDK&#x27;yi sizin için kurar.** Her iki paket de (amd64 ve Jetson) bunu sistem için `python3` kurar; bu sayede `import chloros_sdk`, kurulumdan hemen sonra pip ve ağ bağlantısı olmadan çalışır. Paketleri (`chloros_sdk`, `lattice_sdk`, `lattice_cam`, `arena_api` ve proje yükleyicileri) `/usr/lib/python3/dist-packages`&#x27;e eklenir; bu paket, paketin sahibi olarak işlev görür: bir yükseltme bunları değiştirir ve paketin kaldırılmasıyla birlikte bunlar da kaldırılır. Sürüm, her zaman kurduğunuz CLI ve arka uç ile eşleşir.
 
-## Python SDK Kurulumu (Tüm Linux)
+SDK&#x27;nin kendi gereksinimleri olan `python3-numpy` ve `python3-requests`, **önerilir, zorunlu değildir** `sudo apt install ./chloros_<version>_<arch>.deb` bunları yükler, `dpkg -i` ise yüklemez. Yükleme çıktısı, `python3`&#x27;in içe aktardığı SDK sürümünü, eksik olan tüm gereksinimleri ve `python3`&#x27;in yolunda, paketin kopyasını gölgeleyen başka bir yerdeki `chloros_sdk`&#x27;leri (örneğin, daha önce `pip install --user` ile yüklenmiş olanlar gibi) bildirir.
 
-SDK, arka uç için saf Python HTTP istemcisidir; bu nedenle aynı paket hem amd64 hem de arm64 üzerinde çalışır. İki kaynak:**PyPI&#x27;dan** — yayınlanmış kararlı sürüm:
+Sistemin paketlerini görmeyen **bir virtualenv** içinde, pakete dahil olan wheel dosyasını buraya yükleyin (tamamen çevrimdışı olarak):
+
+```bash
+pip install /usr/lib/chloros/sdk/chloros_sdk-*.whl
+```
+
+**PyPI&#x27;dan** — yalnızca Chloros paketi yüklü olmayan ve SDK&#x27;si başka bir makinedeki arka ucu çalıştıran makineler için (bkz. [Uzak Arka Uç Modu](../reference/sdk-reference.md#remote-backend-mode-pip-only-host-via-tunnel)):
 
 ```bash
 pip install chloros-sdk
 ```
 
-**Paket içindeki wheel dosyasından** — az önce kurduğunuz CLI /backend ile uyumlu olduğu garanti edilir (`.deb` sürümünüz PyPI&#x27;dakinden daha yeni ise bunu kullanın):
-
-```bash
-pip install --user /usr/lib/chloros/sdk/chloros_sdk-*.whl
-```
-
-{% hint style="warning" %}
-**PEP 668 dağıtımları** (Ubuntu 23.10+, Debian 12+) sistem genelinde pip kurulumlarını reddeder. `pip install --user …`&#x27;i, bir sanal ortamı veya `sudo pip install --break-system-packages …`&#x27;i kullanın. Paket yükleyici, SDK dosyasını sisteminize Python asla otomatik olarak yüklemez — bu seçim size kalmıştır.
-{% endhint %}
-
-İsteğe bağlı ekler:
+Pip yüklemesi için isteğe bağlı ekler (bir virtualenv veya PyPI):
 
 | Ek | Komut | Eklenenler |
 | --- | --- | --- |
 | `progress` | `pip install chloros-sdk[progress]` | Canlı ilerleme akışı için `sseclient-py` |
 | `camera` | `pip install chloros-sdk[camera]` | BLE (DAQ-M) aktarımı için `bleak` |
 
-SDK&#x27;i doğrulayın:
+SDK&#x27;yi doğrulayın:
 
 ```bash
-python -c "import chloros_sdk; print(chloros_sdk.__version__)"
+python3 -c "import chloros_sdk; print(chloros_sdk.__version__)"
 ```
 
 {% hint style="info" %}
-`.deb`, Chloros CLI ve arka ucu yükler. Python SDK, yerel bir HTTP API (`http://127.0.0.1:5000`) üzerinden bu arka uçla iletişim kurar ve gerektiğinde onu otomatik olarak başlatır. Her zaman `localhost` yerine tam IPv4 adresini kullanın — çünkü `localhost`, `::1` olarak çözümlenebilir ve istek başına yaklaşık iki saniye sürebilir.
+Python SDK, `.deb`&#x27;in kurduğu arka uçla yerel bir HTTP API (`http://127.0.0.1:5000`) üzerinden iletişim kurar. `ChlorosLocal` ve bağlantı yardımcıları, gerektiğinde arka ucu otomatik olarak başlatır; kaydedilmiş bir projenin `connect_all()`&#x27;i ise bunu asla yapmaz, bu nedenle başsız bir makinede arka ucu bir [hizmet](#always-on-ptp-for-headless-hosts) olarak çalıştırınolarak çalıştırın. Her zaman `localhost` yerine tam IPv4 adresini kullanın — `localhost`, `::1`&#x27;e çözümlenebilir ve istek başına yaklaşık iki saniye sürebilir.
 {% endhint %}
 
 ***
@@ -111,7 +110,7 @@ python -c "import chloros_sdk; print(chloros_sdk.__version__)"
 
 ### 1. Giriş Yapın
 
-CLI ve SDK adreslerine erişim, sunucu tarafında uygulanan ücretli bir Chloros+ kademesi (**Copper** veya üstü) gerektirir: oturumu kapatılmış bir çağrı yapan kişiye `401 AUTH_REQUIRED`, ücretsiz kademedeki (Iron) bir çağrı yapan kişiye ise `403 PLAN_UPGRADE_REQUIRED` verilir.
+CLI ve SDK erişimi, sunucu tarafında zorunlu kılınan ücretli bir Chloros+ kademesi (**Copper** veya üstü) gerektirir: oturumu kapatılmış bir çağrı yapan kullanıcıya `401 AUTH_REQUIRED`, ücretsiz kademedeki (Iron) bir çağrı yapan kullanıcıya ise `403 PLAN_UPGRADE_REQUIRED` verilir.
 
 ```bash
 chloros-cli login your@email.com 'your-password'
@@ -119,8 +118,8 @@ chloros-cli login your@email.com 'your-password'
 
 Kimlik bilgileri `~/.chloros/user_session.json`&#x27;te önbelleğe alınır.
 
-{% hint style="warning" %}
-**Her kurulum veya yükseltme işleminden sonra yeniden oturum açmanız gerekir.** Paketin `prerm` komut dosyası, makinedeki her kullanıcı için `~/.chloros/user_session.json` dosyasını ve önbelleğe alınmış lisansı kasıtlı olarak temizler; böylece yeni bir derleme, eski bir önbelleğe güvenmek yerine lisansı her zaman yeniden doğrular.
+{% hint style="info" %}
+**Yükseltme işlemlerinde oturum açma bilgilerinizi korursunuz; kaldırma işlemi ise bunları siler.** Mevcut bir yüklemenin üzerine daha yeni bir `.deb` sürümü yüklemek (`chloros-cli update` aracılığıyla da dahil), `~/.chloros/user_session.json`&#x27;i ve önbelleğe alınmış lisansı korur; böylece başlıksız CLI/SDK işleri çalışmaya devam eder. Paketi (`sudo apt remove chloros`) kaldırmak, makinedeki her kullanıcı için kaydedilmiş oturum açma bilgilerini ve lisans önbelleğini siler; bu nedenle yeni bir kurulum için tekrar `chloros-cli login` gerekir.
 {% endhint %}
 
 ### 2. Lisans Durumunuzu Kontrol Edin
@@ -129,7 +128,7 @@ Kimlik bilgileri `~/.chloros/user_session.json`&#x27;te önbelleğe alınır.
 chloros-cli status
 ```
 
-`chloros-cli status`, tüm kademelerde (ücretsiz dahil) çalışır; böylece erişimin neden mevcut olup olmadığını her zaman görebilirsiniz.
+`chloros-cli status` her seviyede (ücretsiz dahil) çalışır; böylece erişimin neden mevcut olup olmadığını her zaman görebilirsiniz.
 
 ### 3. Sistem Tanılama İşlemini Çalıştırın
 
@@ -141,15 +140,15 @@ Yedi kontrol sırayla çalıştırılır ve bunlardan herhangi biri başarısız
 
 | # | Kontrol | Neyi doğrular |
 | --- | --- | --- |
-| 1 | **Sürüm** | CLI, sürümünü bildirir (`v1.2.0`). |
-| 2 | **Bağlantı noktası kullanılabilir** | 5000 numaralı bağlantı noktası boş *veya* halihazırda çalışır durumdaki bir Chloros arka ucu tarafından yanıtlanıyor (bu, testin başarılı olduğu anlamına gelir). |
-| 3 | **Arka uç başlatma** | Arka uç ikili dosyası başlatılır. |
+| 1 | **Sürüm** | CLI, sürümünü bildirir (`v1.3.0`). |
+| 2 | **Bağlantı Noktası Kullanılabilir** | 5000 numaralı bağlantı noktası boş *veya* halihazırda çalışır durumdaki bir Chloros arka ucu tarafından yanıtlanıyor (bu, başarılı sayılır). |
+| 3 | **Arka Uç Başlatma** | Arka uç ikili dosyası başlatılır. |
 | 4 | **API testi (`/api/test`)** | Arka uç, `status: ok` yanıtını verir. |
-| 5 | **Sistem bilgisi** | `/api/system-info`&#x27;ten `GPU: <name>, CUDA: <bool>, PyTorch: <version>`&#x27;i yazdırır. |
-| 6 | **Gürültü giderici modeller** | `*.pth.enc` modellerini bulur (Linux&#x27;da: `/usr/lib/chloros/models`). |
+| 5 | **Sistem bilgisi** | `/api/system-info`&#x27;ten `GPU: <name>, CUDA: <bool>, PyTorch: <version>` çıktısı verir. |
+| 6 | **Gürültü giderici modeller** | `*.pth.enc` modellerini bulur (Linux&#x27;te: `/usr/lib/chloros/models`). |
 | 7 | **CUDA + Gürültü Giderici**| Texture Aware aslında kullanılabilir — CUDA**ve** en az bir model dosyası gerektirir. |
 
-Çalıştırma, `N/7 checks passed` ile sona erer ve tüm hataları adlarına göre listeler.
+Çalıştırma, `N/7 checks passed` ile sona erer ve hataları adlarına göre listeler.
 
 ### 4. İlk Veri Kümenizi İşleyin
 
@@ -163,65 +162,72 @@ chloros-cli process ~/datasets/flight001
 
 ### Kullanıcı Başına
 
-Chloros, kimlik bilgilerini ve CLI yapılandırmasını tek bir platformlar arası dizinde, **`~/.chloros/`** (Windows&#x27;da `%USERPROFILE%\.chloros\`) saklar. Buna karşılık, Linux&#x27;a özgü iki önbellek XDG kurallarına uyar — bunlar, ayarlandığında `XDG_CONFIG_HOME` / `XDG_CACHE_HOME` adlarını kullanır.
+Chloros, kimlik bilgilerini ve CLI yapılandırmasını tek bir platformlar arası dizinde, **`~/.chloros/`** (Windows&#x27;ta `%USERPROFILE%\.chloros\`). Buna karşılık, Linux&#x27;a özgü iki önbellek XDG kurallarına uyar — bunlar, ayarlandığında `XDG_CONFIG_HOME` / `XDG_CACHE_HOME` adlarını kullanır.
 
 | Yol | Amaç |
 | --- | --- |
-| `~/.chloros/user_session.json` | `chloros-cli login` tarafından yazılan oturum önbelleği (her paket yüklemesi/güncellemesinde temizlenir) |
+| `~/.chloros/user_session.json` | `chloros-cli login` tarafından yazılan oturum önbelleği (paket güncellemeleri sırasında korunur; paket kaldırıldığında temizlenir) |
 | `~/.chloros/working_directory.txt` | Varsayılan proje klasörü geçersiz kılma (`chloros-cli set-project-folder` / `get-project-folder` / `reset-project-folder`) |
 | `~/.chloros/cli_language.json` | CLI dil tercihi (`chloros-cli language <code>`) |
 | `~/.chloros/user.json` | Windows GUI ile paylaşılan dil ayarı — buradaki bir `language`, `cli_language.json`&#x27;e göre önceliklidir |
-| `~/.chloros/update_cache.json` | Linux /Jetson başlangıç güncelleme kontrolü için bir saatlik önbellek |
+| `~/.chloros/update_cache.json` | Linux/Jetson başlangıç güncelleme kontrolü için bir saatlik önbellek |
 | `~/.chloros/backend.log` | Arka uç, CLI tarafından başlatıldığında arka uç günlüğü |
 | `~/.chloros/camera_cal/<serial>/<bundle_sha>/` | Seri numarası ve paket hash&#x27;ine göre anahtarlanmış, kamera başına önbelleğe alınmış LATTICE kalibrasyon paketleri |
-| `~/.chloros/daq_cap_profiles/<u\|m\|e>/<cap_id>.json` | DAQ kapasite düzeltme profilleri için isteğe bağlı kullanıcı geçersiz kılmaları |
+| `~/.chloros/daq_cap_profiles/<u\|m\|e>/<cap_id>.json` | DAQ kapak düzeltme profilleri için isteğe bağlı kullanıcı geçersiz kılmaları |
 | `~/.config/chloros/system_config.json` | Dinamik Hesaplama Uyumlaştırma&#x27;dan önbelleğe alınmış donanım profili — yeni bir donanım algılamasını zorlamak için silin |
 | `~/.cache/chloros/logs/backend_<YYYYMMDD_HHMMSS>.log` | Arka uç sunucu günlükleri, her başlatma için bir dosya |
-| `~/Chloros Projects/` | Herhangi bir geçersiz kılma ayarlanmadığında varsayılan proje klasörü |
+| `~/Documents/MAPIR/Chloros Projects/` | Geçersiz kılma ayarlanmadığında varsayılan proje klasörü |
 
 ### Sistem Genelinde
 
 | Yol | Amaç |
 | --- | --- |
-| `/usr/bin/chloros-cli` | Sarma betiği — paketlenmiş yerel kütüphaneler için `LD_LIBRARY_PATH`&#x27;i ayarlar, ardından asıl ikili dosyayı çalıştırır |
-| `/usr/bin/chloros-backend` | Sarma betiği — aynı, ayrıca `CHLOROS_PRODUCTION=1` değerini de içerir; böylece arka ucun kimlik doğrulama kapısı hiçbir zaman sessizce kendini devre dışı bırakamaz |
-| `/usr/lib/chloros/chloros-cli`, `/usr/lib/chloros/chloros-backend` | Derlenmiş ikili dosyalar |
+| `/usr/bin/chloros-cli` | Sarmalayıcı komut dosyası — paketlenmiş yerel kütüphaneler için `LD_LIBRARY_PATH`&#x27;i ayarlar (ve bu klasör mevcut olduğunda `TMPDIR` değerini `/mnt/ssd/tmp` olarak ayarlar), ardından gerçek ikili dosyayı çalıştırır |
+| `/usr/bin/chloros-backend` | Sarma betiği — arka uç için de aynısı geçerlidir; bunu yüklü bir üretim derlemesi olarak işaretler |
+| `/usr/lib/chloros/cli/`, `/usr/lib/chloros/backend/` | Derlenmiş CLI ve arka uç, açılmış halde kurulur (1.3.0 sürümünde yeni); programlar `cli/chloros-cli` ve `backend/chloros-backend`&#x27;tir |
+| `/usr/lib/chloros/chloros-cli`, `/usr/lib/chloros/chloros-backend` | Yukarıdaki asıl programları başlatan iki satırlık başlatıcı komut dosyaları — SDK, CLI ve eski komut dosyaları bunları burada aradığı için bu yollarda tutulur |
 | `/usr/lib/chloros/arena_runtime/` | LATTICE kameralar için gerekli olan Arena SDK çalışma zamanı |
 | `/usr/lib/chloros/models/*.pth.enc` | Texture Aware debayer tarafından kullanılan şifreli gürültü giderici modeller |
-| `/usr/lib/chloros/sdk/chloros_sdk-*.whl` | Bu derlemeyle tam olarak eşleşen Python SDK tekerleği |
-| `/usr/lib/chloros/exiftool` | Paket içinde bulunan exiftool (sadece sistemde exiftool yoksa `/usr/local/bin/exiftool`&#x27;e sembolik bağlantı verilir) |
+| `/usr/lib/python3/dist-packages/chloros_sdk/` (ve `lattice_sdk`, `lattice_cam`, `arena_api`, proje yükleyicileri) | Sistem için kurulan ve pakete ait olan Python SDK&#x27;si |
+| `/usr/lib/chloros/sdk/chloros_sdk-*.whl` | Bir virtualenv için, tam olarak bu derlemeye uyan Python SDK wheel&#x27;i |
+| `/usr/lib/chloros/exiftool` | Birlikte gelen ExifTool başlatıcısı (sadece sistemde exiftool yoksa `/usr/local/bin/exiftool`&#x27;e sembolik bağlantı verilir). 1.3.0 sürümünden itibaren ExifTool betiği, `/usr/lib/chloros/exiftool-dist/` içinde kendi Perl kütüphanesiyle birlikte gelir; bu nedenle sistem `libimage-exiftool-perl` paketi olmadan çalışır |
 | `/etc/chloros/update.conf` | `chloros-cli update` tarafından okunan güncelleme kanalı yapılandırması |
-| `/etc/sysctl.d/60-chloros-ptp.conf` | Arka uçun root izni olmadan PTP bağlantı noktalarını bağlayabilmesi için `net.ipv4.ip_unprivileged_port_start = 319`&#x27;i ayarlar |
-| `/etc/ld.so.conf.d/Arena_SDK.conf` | Dinamik yükleyiciyi `/usr/lib/chloros/arena_runtime`&#x27;e yönlendirir |
-| `/lib/udev/rules.d/70-chloros-daq.rules` | Oturum açmış kullanıcıya DAQ-U USB seri köprüsüne (CP2102N, `10c4:ea60`) erişim izni verir |
-| `/lib/systemd/system/chloros-backend.service` | Her zaman açık arka uç hizmetini etkinleştir (yüklü, **etkinleştirilmemiş**) |
-| `/usr/share/applications/chloros-cli.desktop` | Terminali açan &quot;Chloros CLI&quot; uygulama menüsü girişi |
+| `/etc/sysctl.d/60-chloros-ptp.conf` | Arka ucun root izni olmadan PTP bağlantı noktalarını bağlayabilmesi için `net.ipv4.ip_unprivileged_port_start = 319`&#x27;i ayarlar |
+| `/etc/sysctl.d/60-chloros-gige.conf` | LATTICE kamera akışları için çekirdeğin soket alım tamponlarını (`net.core.rmem_max`, `net.core.rmem_default`) 32 MB&#x27;a yükseltir ve bunları kurulum sırasında uygular (daha yüksek bir değer zaten ayarlanmışsa değiştirilmez). Çekirdeğin varsayılan ayarında, kamera paketleri çekirdekte atılır ve dizi, kareleri ve kare hızını kaybeder; `chloros-cli lattice network`, tamponlar azaldığında bunu bildirir. Bkz. [Linux ana bilgisayarları — soket alım tamponları](../reference/cli-reference.md#linux-hosts--socket-receive-buffers) |
+| `/etc/ld.so.conf.d/Arena_SDK.conf` | Dinamik yükleyiciyi `/usr/lib/chloros/arena_runtime` adresine yönlendirir |
+| `/lib/udev/rules.d/70-chloros-daq.rules` | Oturum açmış kullanıcıya DAQ-U USB seri köprüsüne erişim izni verir (CP2102N, `10c4:ea60`) |
+| `/lib/systemd/system/chloros-backend@.service` | Arka ucu, belirttiğiniz kullanıcı olarak çalıştıran, isteğe bağlı her zaman açık arka uç hizmeti (yüklü, **etkinleştirilmemiş**) — etkinleştirilmesi gereken hizmet için bkz. [Her Zaman Açık PTP](#always-on-ptp-for-headless-hosts) |
+| `/lib/systemd/system/chloros-backend.service` | Arka ucu **root**olarak çalıştıran aynı hizmet (yüklü,**etkinleştirilmemiş**); bunu etkinleştiren bir makinenin çalışmaya devam etmesi için tutulur |
+| `/var/log/chloros/` | root hizmetinin ayrıntılı günlüğü; `adm` grubu tarafından okunabilir (paket tamamen kaldırıldığında silinir) |
+| `/usr/share/applications/chloros-cli.desktop` | Bir terminal açan &quot;Chloros CLI&quot; uygulama menüsü girişi |
+
+**Güvenlik duvarı (1.3.0 sürümünde yeni eklenmiştir).** Yükleme sırasında `ufw` veya `firewalld` etkinse, paket UDP bağlantı noktalarını açar: `5002` (DAQ-E verileri), `5353` (mDNS keşfi), `319` ve `320` (PTP) UDP bağlantı noktalarını açar ve paket kaldırıldığında bu kuralları siler. Bir güvenlik duvarı kurulu ancak etkin değilse, hiçbir şey eklemez ve daha sonra etkinleştirmeniz durumunda izin verilmesi gereken bağlantı noktalarını görüntüler. Hiçbir TCP bağlantı noktası açmaz: Sensörün görüntüyü toplamak için TCP üzerinden bu bilgisayara yeniden bağlandığı bir DAQ-E ürün yazılımı güncellemesi, etkin bir güvenlik duvarı bu bağlantıyı engellediğinde `… device never connected back on TCP <port> …` hatasıyla başarısız olur.
 
 ## Arka Uç Yürütülebilir Dosyasının Konumu
 
-CLIu ve SDK, arka ucu otomatik olarak algılar:
+CLI ve SDK, arka ucu otomatik olarak algılar:
 
 | Bileşen | Yol |
 | --- | --- |
 | CLI | `/usr/bin/chloros-cli` |
-| Arka Uç | `/usr/lib/chloros/chloros-backend` |
+| Arka Uç | `/usr/lib/chloros/chloros-backend` (`/usr/lib/chloros/backend/chloros-backend` için bir başlatıcı) |
 
-Arka uç yolunu `--backend-exe` CLI bayrağıyla veya `backend_exe` SDK yapıcı parametresiyle, bağlantı noktasını ise `--port` (varsayılan `5000`) ile geçersiz kılın.
+Arka uç yolunu, `--backend-exe` CLI bayrağı veya `backend_exe` SDK oluşturucu parametresi ile geçersiz kılın ve bağlantı noktasını `--port` (varsayılan `5000`) ile geçersiz kılın.
 
 {% hint style="info" %}
-`CHLOROS_BACKEND_URL`, uzak bir arka uçta **`lattice`**,**`project`**ve**`daq pool-*`** komut ailelerine yönlendirir. Temel komutlar (`process`, `login`, `logout`, `status`, `export-status`, `time-sync`, `selftest`) bunu kasıtlı olarak göz ardı eder ve her zaman `http://127.0.0.1:<port>`&#x27;i hedefler.
+`CHLOROS_BACKEND_URL`, uzak bir arka uçta **`lattice`**,**`project`**ve**`daq pool-*`** komut ailelerini uzak bir arka uca yönlendirir. Temel komutlar (`process`, `login`, `logout`, `status`, `export-status`, `time-sync`, `selftest`) bunu kasıtlı olarak yok sayar ve her zaman `http://127.0.0.1:<port>`&#x27;i hedefler.
 {% endhint %}
 
 ***
 
-## Linux Üzerindeki LATTICE Kameraları ve DAQ Işık Sensörleri
+## Linux&#x27;te LATTICE Kameraları ve DAQ Işık Sensörleri
 
-Tüm canlı donanım komut aileleri Linux (amd64 ve Jetson) üzerinde çalışır:
+live-hardware komut ailelerinin tümü Linux&#x27;te (amd64 ve Jetson) çalışır:
 
-* **`chloros-cli lattice`** — LATTICE kameralarını ve senkronize dizileri keşfedin, bağlayın, yapılandırın ve bunlardan görüntü yakalayın. `.deb`, bunların gerektirdiği Arena SDK çalışma zamanını bir araya getirir ve bunu dinamik yükleyiciye kaydeder.
-* **`chloros-cli daq pool-*`** — DAQ-U/M/E ışık sensörlerini arka uç havuzu üzerinden bağlayın, kalibre edilmiş spektrumları aktarın ve `.daq` dosyalarını kaydedin. Derlenmiş CLI, yalnızca `pool-*` ailesini içerir: `pool-connect`, `pool-disconnect`, `pool-list`, `pool-latest`, `pool-stream`, `pool-record`, `pool-set-cap`.
-* **`chloros-cli project`** — kaydedilmiş bir projeyi (kameralarını, sensörlerini ve işleme ayarlarını) başsız olarak çalıştırır.
-* **`chloros-cli time-sync`** — Chloros arka ucunun LATTICE kameraları ve DAQ-E sensörleri için çalıştırdığı PTP grandmaster&#x27;ı inceleyin.
+* **`chloros-cli lattice`** — LATTICE kameralarını ve senkronize dizileri algılar, bağlanır, yapılandırır ve bunlardan görüntü yakalar. `.deb`, bunların ihtiyaç duyduğu Arena SDK çalışma zamanını bir araya getirir ve dinamik yükleyiciye kaydeder.
+* **`chloros-cli daq pool-*`** — DAQ-U/M/E ışık sensörlerini arka uç havuzu üzerinden bağlayın, kalibre edilmiş spektrumları aktarın, `.daq` dosyalarını kaydedin ve kap profilini değiştirin; ayrıca bir DAQ-E için ağ ayarlarını değiştirin, cihazı yeniden başlatın ve donanım yazılımını güncelleyin. `chloros-cli daq discover`, bağlanabileceğiniz sensörleri tarar ve `chloros-cli daq --help`, `pool-*` alt komutlarını listeler.
+* **`chloros-cli project`** — kaydedilmiş bir projeyi (kameraları, sensörleri ve işleme ayarlarını) başlıksız olarak çalıştırır.
+* **`chloros-cli time-sync`** — Chloros arka ucunun LATTICE kameraları ve DAQ-E sensörleri için çalıştırdığı PTP grandmaster&#x27;ı inceler.
 
 ```bash
 # DAQ-E at a known address — the reliable path on multi-homed hosts
@@ -235,40 +241,49 @@ chloros-cli daq pool-list
 chloros-cli daq pool-latest --sensor-id daq-e-a1b2c3 --json
 ```
 
-`--sensor-id`, `pool-latest`, `pool-stream`, `pool-record` ve `pool-set-cap` tarafından gereklidir; `pool-list`, havuzda şu anda bulunan kimlikleri gösterir.
+`--sensor-id`, `pool-latest`, `pool-stream`, `pool-record` ve `pool-set-cap` tarafından gereklidir; `pool-list`, havuzda bulunan mevcut kimlikleri gösterir.
 
 {% hint style="info" %}
-**Çoklu ağ bağlantılı bir makinede ilk DAQ-E bağlantısı için `--eth-host`&#x27;i tercih edin.** Otomatik keşif, mDNS&#x27;yi tarar ve boş bir ARP önbelleği nedeniyle sensörün arayüzünü gözden kaçırabilir; bu nedenle, sensör tamamen sağlam olsa bile önyüklemeden sonraki ilk `pool-connect --eth` denemesi başarısız olabilir. Sensörün IP adresini veya ana bilgisayar adını belirtmek, keşif işlemini tamamen atlar.
+**`--eth-host`, keşif işlemini atlar.** `pool-connect --eth`, mDNS yoluyla bir DAQ-E bulur; bu işlem, boş ARP önbelleğinden çalışan bir ARP yedekleme mekanizmasına sahiptir; sensörün IP adresini veya ana bilgisayar adını `--eth-host` ile ileterek sensöre doğrudan bağlanılır.
 {% endhint %}
 
-**DAQ-U seri izinleri**, kurulu udev kuralı (`uaccess` + `dialout` grubu) tarafından yönetilir. Daha önce takılmış olan bir sensöre erişilemiyorsa, kuralları yeniden yükleyin veya sensörü yeniden takın:
+**DAQ-U seri izinleri**, kurulu udev kuralı (`uaccess` + grup `dialout`) tarafından yönetilir. Zaten takılı olan bir sensöre erişilemiyorsa, kuralları yeniden yükleyin veya sensörü yeniden takın:
 
 ```bash
 sudo udevadm control --reload-rules
 sudo udevadm trigger --subsystem-match=tty
 ```
 
-Komutların tam listesi için [CLI referansına](../CLI.md) bakın.
+Tam komut seti için [CLI referansına](../CLI.md) bakın.
 
-### Başlıksız Ana Bilgisayarlar için Sürekli Etkin PTP
+### Başlıksız Ana Bilgisayarlar için Sürekli Çalışan PTP
 
-İlk kurulumda systemd birimi `chloros-backend.service` oluşturulur ancak **etkinleştirilmez**. DAQ-E sensörleri ve LATTICE kameralar için PTP zaman senkronizasyonunun sürekli çalışmasını sağlaması gereken başlıksız bir Jetson veya sunucuda, bunu etkinleştirin:
+Paket, arka uç için iki systemd hizmeti yükler; bunların hiçbiri etkinleştirilmez. DAQ-E sensörleri ve LATTICE kameraları için PTP zaman senkronizasyonunu sürekli çalışır durumda tutması gereken başlıksız bir Jetson veya sunucuda ya da SDK komut dosyalarının kaydedilmiş projeleri bağladığı durumlarda (`connect_all()` hiçbir zaman bir arka uç başlatmaz), hizmeti **kullanıcı olarak** etkinleştirin:
 
 ```bash
-sudo systemctl enable --now chloros-backend.service
-sudo systemctl status chloros-backend.service
+sudo systemctl enable --now chloros-backend@$USER.service    # $USER expands to your user name
+systemctl status chloros-backend@$USER.service
 ```
 
-Bu birim olmadan, PTP yalnızca Chloros arka ucu çalışırken — yani aktif bir CLI / SDK oturumu sırasında — çalışır.
+`chloros-backend@<user>.service`, arka ucu o kullanıcı olarak çalıştırır: yazdığı yakalamalar o kullanıcıya aittir, ayrıntılı günlüğü o kullanıcının `~/.cache/chloros/logs` dosyasında bulunur ve o kullanıcının `chloros-cli login` (`~/.chloros`) kullanır; bu nedenle önce o kullanıcı olarak bir kez oturum açın. Paketi yüklediğinizde, kullanıcı adınız doldurulmuş olarak bu komut görüntülenir.
 
-Ünite, arka ucu `127.0.0.1:5000`&#x27;e bağlar (ünite içindeki `CHLOROS_HOST` / `CHLOROS_PORT` ortam ayarları; `sudo systemctl edit chloros-backend.service` ile geçersiz kılınabilir) ve hata durumunda 5 saniye sonra yeniden başlatır.
+Bir hizmet olmadan, arka uç (ve bununla birlikte PTP grandmaster) yalnızca bir şey tarafından başlatıldığında çalışır — bir `chloros-cli` komutu veya bir SDK komut dosyası.
 
-**PTP&#x27;nin bağlantı noktalarını nasıl aldığı.** PTP, her ikisi de normal 1024 ayrıcalıklı bağlantı noktası sınırının altında olan UDP 319/320&#x27;yi kullanır. Paketin `postinst` ayarı, `/etc/sysctl.d/60-chloros-ptp.conf`&#x27;i `net.ipv4.ip_unprivileged_port_start = 319` ile yazar; bu da arka uçun sizin kullanıcı kimliğinizle çalışırken bu bağlantı noktalarına bağlanmasına olanak tanır. Ayrıca, ek bir güvenlik önlemi olarak arka uç ikili dosyasına `setcap cap_net_bind_service,cap_net_raw=+ep`&#x27;i de uygular — işte bu nedenle `libcap2-bin`, paketin beyan edilmiş bir bağımlılığıdır.***
+Birim, arka ucu birim içindeki `127.0.0.1:5000` (birim içindeki `CHLOROS_HOST` / `CHLOROS_PORT` ortam ayarları; `sudo systemctl edit chloros-backend@.service` ile geçersiz kılın) ve hata durumunda 5 saniye sonra yeniden başlatır.
+
+**Root hizmeti.**`chloros-backend.service`, arka ucu**root** olarak çalıştırır. Bu hizmet, etkinleştirilen bir makinenin çalışmaya devam etmesi için hala yüklüdür, ancak root arka ucunun yazdığı her şey root&#x27;a aittir; bu nedenle bir kullanıcı kendi yakalamalarını silemez; günlüğü `/var/log/chloros`&#x27;te bulunur ve `adm` grubu tarafından okunabilir. Kendi kullanıcınıza geçmek için:
+
+```bash
+sudo systemctl disable --now chloros-backend.service
+sudo systemctl enable --now chloros-backend@$USER.service
+```
+
+**Bir hizmetin arka ucu paylaşımlıdır ve hiçbir zaman bir istemci tarafından durdurulmaz.** `chloros-cli` ve SDK komut dosyaları onu buldukları haliyle kullanır: `process` üzerinde çalışır ve son projenin yerine kendi projesini yükler. CLI&#x27;nin normalde arka ucu yeniden başlatacağı durumlarda (`--restart` veya içe aktarma işlemi hiçbir şey bulamayan bir `process`), birim adını belirtir, `sudo systemctl restart <unit>` mesajını yazdırır ve `1`&#x27;ten çıkar; çünkü bu şekilde durdurulan bir arka uç çalışmaz durumda kalır. `sudo systemctl restart chloros-backend@$USER.service` komutuyla kendiniz yeniden başlatın. Bir hizmetin arka ucu boşta kaldığında asla kendi kendine durmaz ve `chloros-cli backend stop` bunu reddeder, `systemctl stop` komutunu belirtir.**PTP&#x27;nin bağlantı noktalarını nasıl aldığı.** PTP, her ikisi de normal 1024 ayrıcalıklı bağlantı noktası sınırının altında olan UDP 319/320&#x27;yi kullanır. Paketin `postinst` komutu, `/etc/sysctl.d/60-chloros-ptp.conf`&#x27;i `net.ipv4.ip_unprivileged_port_start = 319` ile yazar; bu da arka ucun sizin kullanıcı kimliğinizle çalışırken bu bağlantı noktalarına bağlanmasına olanak tanır. 1.3.0 sürümünden itibaren paket, arka uçta herhangi bir dosya yeteneği (`setcap`) ayarlamaz ve `libcap2-bin` artık bir bağımlılık değildir: paketi açılmış arka uçta bir dosya yeteneği, arka ucun başlamasını engeller, bu nedenle kendiniz bir tane eklemeyin.***
 
 ## Bash Komut Dosyası Örnekleri
 
 {% hint style="info" %}
-**Komut dosyası ile uyumlu çıkış kodları.**`chloros-cli process`, başarılı olduğunda `0` ile sonlanır ve**başarısızlık durumunda sıfırdan farklı bir değer döndürür — görüntü ürünleri talep eden ancak hiçbirini yazmayan çalıştırmalar da dahil** (`Processing finished but wrote no image products.` kodunu yazdırır ve proje klasörünün adını ile olağan nedenleri belirtir). Başarılı çalıştırmalarda kaç adet görüntü ürününün yazdırıldığı bildirilir (`Image products written: N`). Çıkış kodları: `0` başarı, `1` hata, `2` argüman hatası, `130` kesinti.
+**Komut dosyası dostu çıkış kodları.**`chloros-cli process`, başarılı olduğunda `0` ile sonlanır ve**başarısızlık durumunda sıfırdan farklı bir değer döndürür — görüntü ürünleri talep eden ancak hiçbirini yazmayan çalıştırmalar da dahil** (`Processing finished but wrote no image products.` kodunu yazdırır ve proje klasörünün adını ile olağan nedenleri belirtir). Başarılı çalıştırmalarda kaç adet görüntü ürünü yazdırıldığı bildirilir (`Image products written: N`; maskeler yazdırıldığında buna `(plus M clamp masks)` eklenir). Çıkış kodları: `0` başarı, `1` hata, `2` argüman hatası, `130` kesinti.
 {% endhint %}
 
 ### Birden Fazla Veri Kümesini İşleme
@@ -292,7 +307,7 @@ done
 chloros-cli process ~/datasets/field_a \
     --output ~/output/field_a \
     --format "TIFF (32-bit, Percent)" \
-    --indices NDVI NDRE GNDVI \
+    --indices NDVI GNDVI OSAVI \
     --debayer texture-aware \
     --no-vignette
 ```
@@ -302,6 +317,7 @@ Geçerli `--format` değerlerinin sayısı tam olarak dörttür ve bu değerler 
 | `--format` değeri | Çıktı klasörü |
 | --- | --- |
 | `TIFF (16-bit)` *(varsayılan)* | `tiff16` |
+| `TIFF (8-bit)` | `tiff8` |
 | `TIFF (32-bit, Percent)` | `tiff32` |
 | `PNG (8-bit)` | `png8` |
 | `JPG (8-bit)` | `jpg8` |
@@ -323,7 +339,7 @@ from chloros_sdk import process_folder
 # One-line processing
 result = process_folder(
     "/home/user/datasets/flight001",
-    indices=["NDVI", "NDRE"],
+    indices=["NDVI", "OSAVI"],
     export_format="TIFF (32-bit, Percent)"
 )
 ```
@@ -350,16 +366,15 @@ source ~/.bashrc
 
 ```bash
 sudo chmod +x /usr/bin/chloros-cli
-sudo chmod +x /usr/lib/chloros/chloros-backend
+sudo chmod +x /usr/lib/chloros/chloros-backend /usr/lib/chloros/backend/chloros-backend
 ```
 
-### Kurulum Sırasında &quot;setcap başarısız&quot; Hatası
+### Dosya Yetkileri Eklendikten Sonra Arka Uç Başlamıyor
 
-`.deb`, root izni olmadan PTP 319/320 numaralı bağlantı noktalarını bağlayabilmek için `cap_net_bind_service`&#x27;i `/usr/lib/chloros/chloros-backend`&#x27;e uygular. Yükleme sırasında `libcap2-bin` eksikse, çağrı atlanır. Bunu yükleyin ve paketi yeniden yükleyin:
+Arka uçta `setcap` komutunu çalıştırmayın. 1.3.0 sürümünden itibaren paket herhangi bir dosya yeteneği ayarlamaz ve PTP&#x27;nin 319/320 numaralı bağlantı noktaları, [PTP bağlantı noktalarını nasıl alır?](#always-on-ptp-for-headless-hosts) başlığı altında açıklanan `sysctl` ayarından gelir. Bir dosya yetkisi, paketi açılmış arka ucu, kendi kütüphanelerini bulamadığı ve dolayısıyla başlatılamadığı bir güvenli yürütme moduna geçirir. Eğer bir dosya yetkisi eklediyseniz, bunu kaldırın:
 
 ```bash
-sudo apt install libcap2-bin
-sudo apt reinstall chloros
+sudo setcap -r /usr/lib/chloros/backend/chloros-backend
 ```
 
 ### PTP Başlamıyor / 319 Numaralı Bağlantı Noktasına Bağlanamıyor
@@ -378,13 +393,12 @@ chloros-cli time-sync status
 chloros-cli time-sync peers
 ```
 
-### &quot;LATTICE kamera sürücüleri bulunamadı&quot;
+### `lattice` Komutları &quot;LATTICE kamera sürücüleri bulunamadı&quot; Hatasıyla Başarısız Oluyor
 
-Arena SDK çalışma zamanı çözülemiyor. Paketin yazdığı yükleyici yapılandırmasının mevcut ve güncellenmiş olduğunu doğrulayın:
+Arka uç, birlikte kurulmuş olan LATTICE kamera çalışma zamanını yükleyemedi. Her `lattice` komutu arka uçta çalışır; CLI&#x27;nin kendisi herhangi bir kamera sürücüsü barındırmaz. Chloros&#x27;u (`sudo apt install --reinstall ./chloros_1.3.0_<arch>.deb`) yeniden yükleyin: `.deb`, çalışma zamanını arka ucun yanına, `/usr/lib/chloros/arena_runtime` konumuna yükler ve dinamik yükleyiciye kaydeder. Bu kaydı kontrol etmek için:
 
 ```bash
 cat /etc/ld.so.conf.d/Arena_SDK.conf     # expect /usr/lib/chloros/arena_runtime
-sudo ldconfig
 ls /usr/lib/chloros/arena_runtime | head
 ```
 
@@ -401,19 +415,20 @@ kill $(lsof -t -i :5000)
 chloros-cli --port 5001 process ~/datasets/flight001
 ```
 
-Başlatma hatasına ilişkin arka uç günlükleri `~/.cache/chloros/logs/` dosyasında bulunur.
+Başlatma hatasına ilişkin arka uç günlükleri `~/.cache/chloros/logs/` dosyasında bulunur. 5000 numaralı bağlantı noktası bir arka uç hizmetine aitse (`systemctl status chloros-backend@$USER.service`), işlemini sonlandırmak yerine hizmeti yeniden başlatın.
 
 ### CUDA Algılanmadı
 
 ```bash
-# Check NVIDIA driver installation
+# Check NVIDIA driver installation (x86_64)
 nvidia-smi
 
 # Check CUDA availability
 nvcc --version
 
-# On Jetson, check JetPack version
+# On Jetson, check the L4T release (JetPack 6 is R36) and that JetPack's CUDA libraries are installed
 cat /etc/nv_tegra_release
+sudo apt install nvidia-jetpack
 ```
 
 `chloros-cli selftest`, aynı durumu tek bir satırda bildirir: `GPU: <name>, CUDA: <bool>, PyTorch: <version>`.
@@ -424,13 +439,13 @@ cat /etc/nv_tegra_release
 sudo apt-get update
 sudo apt-get install -f
 
-# Check for missing libraries
-ldd /usr/lib/chloros/chloros-backend | grep "not found"
+# Check for missing libraries (the program itself, not the launcher script)
+ldd /usr/lib/chloros/backend/chloros-backend | grep "not found"
 ```
 
 ### SD Kartlı Sistemlerde Yavaş Başlatma
 
-Derlenmiş ikili dosyalar, her başlatmada kendilerini geçici bir dizine çıkarır. `/mnt/ssd/tmp` varsa, Chloros bunu otomatik olarak kullanır; aksi takdirde `TMPDIR`&#x27;i hızlı bir dosya sistemine ayarlayın:
+1.3.0 sürümünden itibaren arka uç ve CLI, sıkıştırılmamış olarak yüklenmektedir; bu nedenle artık her başlatıldığında geçici bir dizine kendiliğinden açılmamaktadır. Geçici dosyalar, `/mnt/ssd/tmp` klasörü mevcutsa otomatik olarak bu klasöre kaydedilir; aksi takdirde, dosyaları hızlı bir dosya sistemine yönlendirebilirsiniz:
 
 ```bash
 export TMPDIR=/mnt/nvme/tmp
@@ -438,9 +453,9 @@ export TMPDIR=/mnt/nvme/tmp
 
 ***
 
-## Linux adresinde Chloros dosyasını güncelleme
+## Chloros&#x27;u Linux&#x27;ta
 
-`update` komutu yalnızca Linux /Jetson için geçerlidir. Bu komut, `/etc/chloros/update.conf`&#x27;te yapılandırılan güncelleme kanalında yayınlanan sürümü kontrol eder ve eşleşen `.deb`&#x27;i indirip yüklemeyi önerir:
+`update` komutu yalnızca Linux/Jetson&#x27;da kullanılabilir. Bu komut, `/etc/chloros/update.conf`&#x27;te yapılandırılan güncelleme kanalında yayınlanan sürümü kontrol eder ve eşleşen `.deb`&#x27;i indirip yüklemeyi önerir:
 
 ```bash
 # Check for updates without installing
@@ -450,7 +465,9 @@ chloros-cli update --check
 chloros-cli update
 ```
 
-Linux /Jetson&#x27;da CLI adresi, her başlatmada engellemesiz bir güncelleme kontrolü de gerçekleştirir (sonuç, `~/.chloros/update_cache.json`&#x27;te bir saat süreyle önbelleğe alınır) ve daha yeni bir sürüm mevcut olduğunda `Update available: vX.Y.Z` mesajını görüntüler. Ayarlarınız ve projeleriniz güncelleme sonrasında korunur; güncelleme sonrasında tekrar oturum açmanız gerekecektir.
+Linux/Jetson&#x27;da CLI, her başlatmada engellemesiz bir güncelleme kontrolü de gerçekleştirir (sonuç, `~/.chloros/update_cache.json`&#x27;te bir saat süreyle önbelleğe alınır) ve daha yeni bir sürüm mevcut olduğunda `Update available: vX.Y.Z` mesajını görüntüler. Ayarlarınız, projeleriniz ve oturum açma bilgileriniz güncelleme sonrasında korunur.
+
+Paketin yükseltilmesi sırasında kurulum süresince tüm arka uç hizmetleri durdurulur; bu nedenle çalışan bir komut dosyası kamera ve sensör bağlantılarını kaybeder, ardından etkinleştirilmiş olan her bir hizmet yeniden başlatılır (elle başlatılmış ancak hiçbir zaman etkinleştirilmemiş bir hizmet, yeniden başlatma sonrası olduğu gibi durdurulmuş halde kalır).
 
 ## Kaldırma
 
@@ -458,14 +475,14 @@ Linux /Jetson&#x27;da CLI adresi, her başlatmada engellemesiz bir güncelleme k
 sudo apt remove chloros
 ```
 
-Kaldırma işlemi, `chloros-backend.service`&#x27;i durdurur, varsayılan ayrıcalıksız bağlantı noktası alt sınırını (1024) geri yükler, pakete dahil edilen exiftool sembolik bağlantısını ve Arena yükleyici yapılandırmasını kaldırır ve önbelleğe alınmış kimlik bilgilerini siler. Projeleriniz ve `~/.chloros/` veri dosyalarınız etkilenmez.
+Kaldırma işlemi, tüm arka uç hizmetlerini durdurur ve devre dışı bırakır; varsayılan ayrıcalıksız bağlantı noktası alt sınırını (1024) geri yükler; alıcı tampon ayar dosyasını (çalışan değerler yeniden başlatılana kadar kalır), pakete dahil exiftool sembolik bağlantısını, Arena yükleyici yapılandırmasını, paketin eklediği güvenlik duvarı kurallarını ve yüklediği Python SDK&#x27;yi kaldırır ve önbelleğe alınmış kimlik bilgilerini temizler. Projeleriniz ve `~/.chloros/` veri dosyalarınız olduğu gibi kalır. `sudo apt purge chloros` ayrıca `/var/log/chloros`&#x27;i de siler.
 
 ***
 
 ## Sonraki Adımlar
 
 * [NVIDIA Jetson Kılavuzu](nvidia-jetson-guide.md) — Jetson&#x27;a özgü optimizasyon ve dağıtım
-* [CLI : Komut Satırı](../CLI.md) — CLI kılavuzu
-* [API : Python SDK](../api-python-sdk.md) — SDK kılavuzu
-* [CLI Referansı](../reference/cli-reference.md) ve [SDK Referansı](../reference/sdk-reference.md) — 1.2.0 sürümü için kapsamlı komut/API listeleri
+* [CLI: Komut Satırı](../CLI.md) — CLI kılavuzu
+* [API: Python SDK](../api-python-sdk.md) — SDK kılavuzu
+* [CLI Referansı](../reference/cli-reference.md) ve [SDK Referansı](../reference/sdk-reference.md) — 1.3.0 sürümü için kapsamlı komut/API listeleri
 * [Dinamik Hesaplama Uyumlaştırma](../processing-architecture/dynamic-compute-adaptation.md) — Chloros&#x27;un donanımınıza nasıl uyum sağladığı

@@ -6,12 +6,25 @@ metaLinks:
 
 # Desteklenen Kameralar
 
-Chloros, **tüm platformlarda** iki MAPIR kamera ailesinden gelen görüntüleri işler (Windows, Linux amd64 ve Linux arm64/Jetson) üzerinde işler:
+Chloros
+, **tüm platformlarda** (Windows
+, Linux
+amd64 ve Linux
+arm64/Jetson) iki MAPIR
+kamera ailesinden gelen görüntüleri işler:
 
-* **Survey3** — Survey3W (geniş) ve Survey3N (dar) kameralar. Giriş: `RAW+JPG`.
-* **LATTICE** — M3C ve M3M multispektral kamera modülleri. Giriş: `.tif`/`.tiff` çekimleri. LATTICE kameraları ayrıca Chloros üzerinden — GUI’deki Kameralar sekmesi (Windows) veya `chloros-cli lattice` / Python ile SDK (Windows ve Linux) — senkronize çoklu kamera dizileri dahil. [LATTICE kılavuzuna](lattice/) bakınız.
+* **Survey3** — Survey3W
+(geniş) ve Survey3N
+(dar) kameralar. Giriş: `RAW+JPG`.
+* **LATTICE** — M3C ve M3M multispektral kamera modülleri. Giriş: `.tif`/`.tiff` çekimleri. LATTICE kameraları, senkronize çoklu kamera dizileri dahil olmak üzere, Chloros
+üzerinden — GUI&#x27;deki Kameralar sekmesi (Windows
+) veya `chloros-cli lattice` / Python
+SDK
+(Windows
+ve Linux
+) aracılığıyla — **canlı olarak kontrol edilebilir**. [LATTICE kılavuzuna](lattice/) bakınız.
 
-İşleme boru hattı ayrıca `.dng` giriş dosyalarını da kabul eder.
+İşleme boru hattı, `.dng` giriş dosyalarını da kabul eder.
 
 ## Survey3
 
@@ -23,7 +36,9 @@ LATTICE serisi, Sony IMX265 global deklanşör sensörü (3,1 MP, 3,45 µm pikse
 <sensor>-<lens>-F<filter>        e.g.  M3C-L41-FRGN,  M3M-L87-F550
 ```
 
-Chloros bunu `LATT-` önekiyle gösterir (örneğin `LATT-M3M-L41-F550`) ve model dizesi, sensör profili, bant düzeni ve kalibrasyon gibi tüm sonraki işlemleri otomatik olarak belirler; kamera başına yapılandırılması gereken hiçbir şey yoktur. Lens numarası, **derece cinsinden yatay görüş açısı**&#x27;dır: `L41` = dar 41°, `L87` = geniş 87°.
+Chloros
+
+, bunu `LATT-` önekiyle görüntüler (örneğin `LATT-M3M-L41-F550`) ve model dizesi, sensör profili, bant düzeni ve kalibrasyon gibi tüm sonraki işlemleri otomatik olarak belirler; kamera başına yapılandırılması gereken hiçbir şey yoktur. Lens numarası, **derece cinsinden yatay görüş açısı**dır: `L41` = dar 41°, `L87` = geniş 87°.
 
 İki sensör yapılandırması mevcuttur:
 
@@ -34,18 +49,52 @@ Chloros bunu `LATT-` önekiyle gösterir (örneğin `LATT-M3M-L41-F550`) ve mode
 
 ### M3C (Bayer) filtre seçenekleri
 
-| Filtre | Bantlar (merkezdeki isim @ nm / FWHM nm)       |
+| Filtre | Bantlar (merkez nm&#x27;deki adı / FWHM
+
+nm)       |
 | ------ | ---------------------------------------- |
-| `FRGB` | Blue 475/30 · Green 550/30 · Red 625/30  |
-| `FRGN` | Red 660/21 · Green 550/30 · NIR 850/30   |
-| `FOCN` | Orange 615/21 · Cyan 490/38 · NIR 808/14 |
-| `FNGB` | Blue 475/30 · Green 550/30 · NIR 850/30  |
+| `FRGB` | Blue
+
+475/30 · Green
+
+550/30 · Red
+
+625/30  |
+| `FRGN` | Red
+
+660/21 · Green
+
+550/30 · NIR
+
+850/30   |
+| `FOCN` | Orange
+
+618,4/46 · Cyan
+
+494,1/40 · NIR
+
+821,6/54 (ölçülmüş — aşağıya bakın) |
+| `FNGB` | Blue
+
+475/30 · Green
+
+550/30 · NIR
+
+850/30  |
+
+`FOCN` için değerler, filtrenin **ölçülen** yarı maksimum bant genişliğidir (Chloros
+
+1.3.0 ve sonraki sürümler; önceki sürümlerde teknik özellik tablosundaki değerler 615/21 · 490/38 · 808/14) değerlerini kullanırdı. Bant adları `Orange_615`, `Cyan_490` ve `NIR_808` olarak kalır ve ölçülen merkez ile genişlik, Chloros
+
+&#x27;un her kalibre edilmiş dışa aktarımına damgaladığı değerlerdir.
 
 ### M3M (mono) filtre kataloğu — 23 SKU
 
-F-sayısı, SKU etiketidir; ölçülen bant (kalibre edilmiş her bir ihraç ürününe damgalanmıştır), parti başına filtre taramasıdır:
+F-numarası, SKU etiketidir; ölçülen bant (kalibre edilmiş her bir ihraç ürününe damgalanır), parti başına filtre taramasıdır:
 
-| SKU    | Merkez (nm, ölçülmüş) | FWHM kenarları (nm) | Genişlik (nm) |
+| SKU    | Merkez (nm, ölçülmüş) | FWHM
+
+kenarları (nm) | Genişlik (nm) |
 | ------ | --------------------- | --------------- | ---------- |
 | F385   | 379,4                 | 367–392         | 25         |
 | F405   | 403,9                 | 390–417         | 27         |
@@ -71,8 +120,14 @@ F-sayısı, SKU etiketidir; ölçülen bant (kalibre edilmiş her bir ihraç ür
 | F950   | 945,1                 | 929–961         | 32         |
 | F988 † | 985,3                 | 968–1003        | 35         |
 
-_&quot;Bant kenarları, MAPIR&#x27;in lot başına filtre taramalarından elde edilen yarı maksimum genişlik değerleri olarak ölçülür — bu değerler, Chloros&#x27;in her kalibre edilmiş dışa aktarımına eklediği değerlerle aynıdır.&quot;_ &quot;— (nominal)&quot; = henüz parti taraması yapılmamıştır; bu SKU&#x27;lar için belirtilen merkez SKU numarasıdır ve genişlik ise üreticinin verdiği değerdir.
+_&quot;Bant kenarları, MAPIR
 
-† &quot;F988 yansıma değeri, sahne içi yansıma paneli kullanılarak kalibre edilir: bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesinde yer aldığından, Chloros en son panel yakalamanızı uygular ve panel gözlemleri arasında bu değeri korur.&quot; Bkz. [Kalibrasyon Hedefleri](calibration-targets.md).
+&#x27;ın parti bazında yaptığı filtre taramalarından elde edilen yarı maksimum genişlik değerleri olarak ölçülür — bu değerler, Chloros
 
-Canlı kamera kontrolü, diziler, ağ kurulumu ve radyometrik işleme zinciri için [LATTICE kılavuzuna](lattice/) bakınız.
+&#x27;ın kalibre edilmiş her dışa aktarımına eklediği değerlerle aynıdır.&quot;_ &quot;— (nominal)&quot; = henüz parti taraması yapılmamıştır; bu SKU&#x27;lar için belirtilen merkez SKU numarasıdır ve genişlik ise üreticinin verdiği değerdir.
+
+† &quot;F988 yansıma oranı, sahadaki bir yansıma paneli kullanılarak kalibre edilir: bant, DAQ ışık sensörünün kalibre edilmiş aralığının ötesinde yer aldığından, Chloros
+
+en son panel yakalamanızı uygular ve panel gözlemleri arasında bu değeri korur.&quot; Bkz. [Kalibrasyon Hedefleri](calibration-targets.md).
+
+Canlı kamera kontrolü, diziler, ağ kurulumu ve radyometrik işleme zinciri için [LATTICE kılavuzuna](lattice/) bakın.
