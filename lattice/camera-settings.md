@@ -228,7 +228,7 @@ Bunlar yalnızca ön uçtadır — videonun üzerine çizilir, akışa veya yaka
 ### Nokta Ölçer
 
 * **Tıklayarak Örnek Al**onay kutusu: tek bir pikseli örneklemek için canlı görüntüyü tıklayın (bir artı işareti ile işaretlenir) veya piksel ortalaması almak için bir bölgeyi tıklayıp sürükleyin.**Temizle**, örneği ve artı işaretini siler. AE-ROI**Nişan** modu ile birbirini dışlar.
-* ****Göster**açılır menüsü:**Ham (bit derinliği)**— sensörün bit derinliğindeki doğal dijital sayılar (örn. 12 bit → 0..4095) — veya**Ekran (8 bit)** (varsayılan). Canlı indeks etkin olduğunda, Ekran yerine hesaplanan indeks değerini (örn. NDVI) gösterir.
+* **Göster** açılır menüsü:**Ham (bit derinliği)**— sensörün bit derinliğindeki doğal dijital sayılar (örn. 12 bit → 0..4095) — veya**Ekran (8 bit)** (varsayılan). Canlı indeks etkin olduğunda, Ekran yerine hesaplanan indeks değerini (örn. NDVI) gösterir.
 * Okuma paneli, piksel koordinatlarını, kare boyutunu, piksel formatını, bit derinliğini ve bant etiketleri ile dalga boylarını içeren bir kanal tablosunu (Chan / Değer / %) listeler; Bayer yeşil çiftlerinin ortalaması alınır; bölge örnekleri "N px avg" olarak gösterilir.
 
 Nokta ölçer durumu yalnızca oturum süresince geçerlidir.

@@ -32,7 +32,9 @@ Hedef sütununda belirli görüntüleri işaretlediğinizde:
 
 Dosya Tarayıcısı'nda içe aktardığınız görüntüleri inceleyin ve hangi görüntülerde kalibrasyon hedefleri bulunduğunu belirleyin.
 
-**Yaygın senaryolar:*** **Çekim öncesi hedef**: Oturum başlamadan önce çekilen
+**Yaygın senaryolar:**
+
+* **Çekim öncesi hedef**: Oturum başlamadan önce çekilen
 * **Çekim sonrası hedef**: Oturum tamamlandıktan sonra çekilen
 * **Sahada bulunan hedefler**: Çekim alanı içine yerleştirilen hedefler
 * **Birden fazla hedef**: Oturum başına 2-3 hedef görüntü (önerilir)
@@ -140,11 +142,19 @@ Projenizdeki her kamera türü için hedefleri işaretlediğinizi doğrulamak ü
 
 ### Algılama Hassasiyetini Ayarlama
 
-Chloros, hedeflerinizi doğru şekilde algılamıyorsa, [Proje Ayarları](adjusting-project-settings.md) bölümünden şu ayarları değiştirin:**Minimum kalibrasyon örnek alanı (px):*** **Varsayılan**: 25 piksel
-* Küçük nesnelerde yanlış algılamalar alıyorsanız **artırın*** Hedefler algılanmıyorsa **azaltın**
+Chloros, hedeflerinizi doğru şekilde algılamıyorsa, [Proje Ayarları](adjusting-project-settings.md) bölümünden şu ayarları değiştirin:
 
-**Minimum Hedef Kümelenmesi (0-100):*** **Varsayılan**: 60
-* Hedefler birden fazla algılamaya bölünüyor ise **artırın*** Renk farklılığı olan hedefler tam olarak algılanmıyorsa **azaltın**
+**Minimum kalibrasyon örnek alanı (px):**
+
+* **Varsayılan**: 25 piksel
+* Küçük nesnelerde yanlış algılamalar alıyorsanız **artırın**
+* Hedefler algılanmıyorsa **azaltın**
+
+**Minimum Hedef Kümelenmesi (0-100):**
+
+* **Varsayılan**: 60
+* Hedefler birden fazla algılamaya bölünüyor ise **artırın**
+* Renk farklılığı olan hedefler tam olarak algılanmıyorsa **azaltın**
 {% hint style="info" %}
 **CLI ipucu**: `chloros-cli process` aynı ayarları (`--min-target-size`, `--target-clustering`) kabul eder ve `--target`/`--targets` bayrağı, tüm bir giriş klasörünü "sadece hedef paneli" olarak işaretler. [CLI Referansı](../reference/cli-reference.md) bölümüne bakın.
 {% endhint %}

@@ -80,7 +80,9 @@ Formüle göre saymayın — çıktı sayısı, hangi ürünlerin etkinleştiril
 
 ### Harici Görüntü Görüntüleyicilerinde Önizleme
 
-**Önerilen görüntüleyiciler:*** **QGIS** - Ücretsiz GIS yazılımı (coğrafi referanslı multispektral analiz için en iyisi)
+**Önerilen görüntüleyiciler:**
+
+* **QGIS** - Ücretsiz GIS yazılımı (coğrafi referanslı multispektral analiz için en iyisi)
 * **IrfanView** - Hızlı, hafif görüntü görüntüleyici (TIFF'i destekler)
 * **Adobe Photoshop** - Profesyonel düzenleme (TIFF desteği)
 * **GIMP** - Photoshop'a ücretsiz alternatif
@@ -221,7 +223,9 @@ Bir sorunu doğrudan MAPIR'e göndermek için, Hata Giderme Günlüğü sekmesin
 
 ### Sorun: NDVI Değerleri Yanlış Görünüyor
 
-**Beklenen NDVI aralıkları:*** **Su, kayalar, toprak**: -0,1 ila 0,2
+**Beklenen NDVI aralıkları:**
+
+* **Su, kayalar, toprak**: -0,1 ila 0,2
 * **Seyrek/sağlıksız bitki örtüsü**: 0,2 ila 0,4
 * **Orta yoğunlukta bitki örtüsü**: 0,4 ila 0,6
 * **Sağlıklı, yoğun bitki örtüsü**: 0,6 ile 0,9 arası**Değerler bu aralıkların dışındaysa:**
@@ -277,12 +281,18 @@ Bir sorunu doğrudan MAPIR'e göndermek için, Hata Giderme Günlüğü sekmesin
 
 ### Önerilen Yedekleme Stratejisi
 
-**Neler kaydedilmeli:*** ✅ **Orijinal RAW/JPG görüntüler veya LATTICE ham yakalamaları** - Ayrı bir sürücüde/bulutta arşivleyin; ham veriler işleme sürecinin kaynağıdır ve diğer her şey bunlardan yeniden oluşturulabilir
+**Neler kaydedilmeli:**
+
+* ✅ **Orijinal RAW/JPG görüntüler veya LATTICE ham yakalamaları** - Ayrı bir sürücüde/bulutta arşivleyin; ham veriler işleme sürecinin kaynağıdır ve diğer her şey bunlardan yeniden oluşturulabilir
 * ✅ **`.daq` / `.csv` ışık sensörü dosyaları** - Daha sonra yansıma değerlerini yeniden hesaplamak için gereklidir
 * ✅ **İşlenmiş çıktılar** - Kalibre edilmiş görüntüleri ve endeksleri saklayın
 * ✅ **Proje klasörü** (`project.json` ve ilgili dosyalar) - Gerekirse yeniden işleme için tüm ayarları içerir
 * ✅ **Hata Giderme Günlüğü** - İşleme ayrıntılarını belgeler
-* ✅ **Kalibrasyon hedef görüntüleri** - Doğrulama ve yeniden işleme için**Depolama önerileri:*** **Hemen yedekleme**: Harici sabit sürücü
+* ✅ **Kalibrasyon hedef görüntüleri** - Doğrulama ve yeniden işleme için
+
+**Depolama önerileri:**
+
+* **Hemen yedekleme**: Harici sabit sürücü
 * **Uzun vadeli arşivleme**: Bulut depolama (Google Drive, Dropbox vb.)
 * **Kritik veriler**: Farklı konumlarda 2-3 kopya saklayın***
 

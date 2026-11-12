@@ -251,10 +251,15 @@ Chloros, güncellemeleri kontrol eder, yeni bir sürüm çıktığında bunu bil
 
 **Yayın Tarihi: 10 Şubat 2026**
 
-**Yeni Özellikler*** **Dokuya Duyarlı Debayer Yöntemi \[Yalnızca Chloros+] -** Dokuya Duyarlı, neredeyse tüm debayering gürültüsünü ortadan kaldıran bir AI/ML gürültü giderme modeliyle birleştirilmiş, yüksek kaliteli, kenar farkındalıklı bir debayer kullanır.
-* **T4P Kalibrasyon Hedefleri desteği*** **Daha hızlı Chloros+ GPU işleme, daha iyi bellek yönetimi**
+**Yeni Özellikler**
 
-**Hata Düzeltmeleri*** Tamamen yeni bir ön yüz (GUI); artık tüm Windows bilgisayarlarda çalışmalıdır.
+* **Dokuya Duyarlı Debayer Yöntemi \[Yalnızca Chloros+] -** Dokuya Duyarlı, neredeyse tüm debayering gürültüsünü ortadan kaldıran bir AI/ML gürültü giderme modeliyle birleştirilmiş, yüksek kaliteli, kenar farkındalıklı bir debayer kullanır.
+* **T4P Kalibrasyon Hedefleri desteği**
+* **Daha hızlı Chloros+ GPU işleme, daha iyi bellek yönetimi**
+
+**Hata Düzeltmeleri**
+
+* Tamamen yeni bir ön yüz (GUI); artık tüm Windows bilgisayarlarda çalışmalıdır.
 
 </details>
 
@@ -264,14 +269,18 @@ Chloros, güncellemeleri kontrol eder, yeni bir sürüm çıktığında bunu bil
 
 **Yayın Tarihi: 5 Ocak 2026**
 
-**Yeni Özellikler*** **Görüntü/Meta Veri Geçişi**: Seçilen görüntünün meta verilerini görüntü ızgarası yerine bir tabloda görüntülemek için Dosya Tarayıcısına bir geçiş seçeneği eklendi
+**Yeni Özellikler**
+
+* **Görüntü/Meta Veri Geçişi**: Seçilen görüntünün meta verilerini görüntü ızgarası yerine bir tabloda görüntülemek için Dosya Tarayıcısına bir geçiş seçeneği eklendi
 * **Görüntü Izgarası Yakınlaştırma Kaydırıcısı**: Küçük resim boyutunu ayarlamak için yeni bir kullanıcı arayüzü kaydırıcısı (ayrıca CTRL + fare tekerleği de desteklenir)
 * **Görüntü Izgarası Dışa Aktarma Düğmeleri**: Küçük resimleri JPG formatından işlenmiş dışa aktarma formatlarına (Hedefler, Yansıma, İndeks, LUT) geçirmek için üst satırda bulunan düğmeler
 * **Harita Sekmesi**: Görüntülerin GPS konum işaretlerini gösteren yeni etkileşimli 2D harita
   * Google Haritalar ve ESRI harita döşemelerini destekler (yakınlaştırma düzeyine göre en uygun döşeme hizmetini otomatik olarak seçer)
   * Harita işaretçilerinin üzerine fareyi getirdiğinizde küçük resim önizlemesi görüntülenir
 
-**Hata Düzeltmeleri*** İngilizce dışı dillerde çalışan bilgisayarlarda Chloros'un kurulumuna yönelik destek iyileştirildi
+**Hata Düzeltmeleri**
+
+* İngilizce dışı dillerde çalışan bilgisayarlarda Chloros'un kurulumuna yönelik destek iyileştirildi
 
 </details>
 
@@ -281,13 +290,21 @@ Chloros, güncellemeleri kontrol eder, yeni bir sürüm çıktığında bunu bil
 
 **Yayın Tarihi: 20 Aralık 2025**
 
-**Yeni Özellikler*** İlk Sürüm
+**Yeni Özellikler**
 
-**İyileştirmeler*** İlk Sürüm
+* İlk Sürüm
 
-**Hata Düzeltmeleri*** İlk Sürüm
+**İyileştirmeler**
 
-**Bilinen Sorunlar*** İlk Sürüm
+* İlk Sürüm
+
+**Hata Düzeltmeleri**
+
+* İlk Sürüm
+
+**Bilinen Sorunlar**
+
+* İlk Sürüm
 
 </details>
 

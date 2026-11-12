@@ -57,7 +57,11 @@ output/
 └── *.daq          the downwelling reading matched to the capture
 ```
 
-**"Klasör Ekle" seçeneğiyle yakalama klasörünün kök dizinini belirtin** (yukarıdaki `output/`). Seçilen klasörün içinde görüntü bulunmuyor ancak alt klasörleri varsa, Chloros otomatik olarak bu alt klasörlere iner — aynı seviyedeki alt klasörler ve kök `.daq` tek seferde alınır.**Yakalamaların içe aktarılma şekli:*** Her yakalama, yakalama bazında gruplandırılmış **tek bir görüntü** olarak içe aktarılır (her seviye için ayrı bir giriş değil). Aynı yakalamanın diğer seviyeleri, o tek görüntünün görüntüleme modları olarak görünür.
+**"Klasör Ekle" seçeneğiyle yakalama klasörünün kök dizinini belirtin** (yukarıdaki `output/`). Seçilen klasörün içinde görüntü bulunmuyor ancak alt klasörleri varsa, Chloros otomatik olarak bu alt klasörlere iner — aynı seviyedeki alt klasörler ve kök `.daq` tek seferde alınır.
+
+**Yakalamaların içe aktarılma şekli:**
+
+* Her yakalama, yakalama bazında gruplandırılmış **tek bir görüntü** olarak içe aktarılır (her seviye için ayrı bir giriş değil). Aynı yakalamanın diğer seviyeleri, o tek görüntünün görüntüleme modları olarak görünür.
 * **İşleme her zaman ham kareden başlar.** Diğer seviyeler görüntülenebilir, ancak işleme sürecine yalnızca `raw` dahil edilir — halihazırda işlenmiş bir ürünü yeniden işlemek, düzeltmelerin iki kez uygulanmasına neden olacağından Chloros bunu reddeder. Yeniden içe aktarılan bir dışa aktarım, hiçbir zaman bir çekimin ham verisi yuvasını işgal edemez.
 * Ham veriler **olmadan** kaydedilen bir çekim klasörü normal şekilde görüntülenir, ancak işleme bu klasörü atlar ve bunu günlüğe kaydeder. (CLI bayrağı `--input-level`, bu durum için bir giriş noktasını zorlayabilir — bkz. [CLI Referansı](../reference/cli-reference.md#what-a-captures-folder-looks-like).)
 * 1.3.0 sürümünden itibaren bir yakalama klasörü, bir `clamp_masks/` klasörü de içerebilir (parlaklık ve yansıma düzeyleri için piksel başına maskeler — bkz. [Çıktı Görüntü Biçimleri](../output-image-formats.md#clamp-masks)). Maskeler sahnenin görüntüleri değildir ve Chloros, içe aktarma sırasında nerede olurlarsa olsunlar bunları atlar.
@@ -91,7 +95,8 @@ Görüntüler içe aktarıldıktan sonra, aşağıdaki sütunları içeren bir t
 ### Hedef Sütunu (Onay Kutusu)
 
 * Kalibrasyon hedefleri içeren görüntüler için bu kutuyu işaretleyin
-* En az bir görüntü işaretlendiğinde, hedefler için **yalnızca işaretlenen görüntüler taranır*** Ayrıntılar için [Hedef Görüntüleri Seçme](choosing-target-images.md) bölümüne bakın
+* En az bir görüntü işaretlendiğinde, hedefler için **yalnızca işaretlenen görüntüler taranır**
+* Ayrıntılar için [Hedef Görüntüleri Seçme](choosing-target-images.md) bölümüne bakın
 
 ### Görüntü Meta Verilerini Görüntüleme
 

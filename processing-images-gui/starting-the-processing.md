@@ -78,7 +78,13 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 1. **Algılama** (İş Parçacığı 1) - Kalibrasyon hedeflerinin bulunması
 2. **Analiz** (İş Parçacığı 2) - Görüntü meta verilerinin incelenmesi ve kalibrasyon hesaplanması
 3. **Kalibrasyon** (İş Parçacığı 3) - Debayering, vinyet düzeltme, kalibrasyon, indeks hesaplama
-4. **Dışa Aktarma** (İş Parçacığı 4) - İşlenmiş görüntülerin ve indekslerin kaydedilmesi**İlerleme çubuğu etkileşimi:*** Ayrıntılı 4 aşamalı açılır paneli görmek için fareyi çubuğun üzerine **getirin*** Açılır paneli sabitlemek için ilerleme çubuğuna **tıklayın*** Sabitlemeyi kaldırmak ve paneli gizlemek için **tekrar tıklayın**
+4. **Dışa Aktarma** (İş Parçacığı 4) - İşlenmiş görüntülerin ve indekslerin kaydedilmesi
+
+**İlerleme çubuğu etkileşimi:**
+
+* Ayrıntılı 4 aşamalı açılır paneli görmek için fareyi çubuğun üzerine **getirin**
+* Açılır paneli sabitlemek için ilerleme çubuğuna **tıklayın**
+* Sabitlemeyi kaldırmak ve paneli gizlemek için **tekrar tıklayın**
 
 **İşleme süresi:**
 
@@ -116,7 +122,9 @@ Chloros, lisansınıza bağlı olarak iki farklı işleme modunda çalışır:
 
 ### Aşama 3: Kalibrasyon
 
-**Chloros'un yaptığı işlemler:*** **Vinyet düzeltme**: Kenarlardaki lens kararmasını giderir
+**Chloros'un yaptığı işlemler:**
+
+* **Vinyet düzeltme**: Kenarlardaki lens kararmasını giderir
 * **Yansıma kalibrasyonu**: Hedef yansıma değerleri ve/veya DAQ aşağı doğru ışınım verileri kullanılarak normalleştirir
 * Tüm bantlara/kanallara düzeltmeler uygular
 * Zaman damgasına göre her görüntü için uygun kalibrasyon referansını kullanır

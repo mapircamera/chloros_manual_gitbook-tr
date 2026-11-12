@@ -44,7 +44,9 @@ Proje Ayarları paneli aşağıdaki bölümlere ayrılmıştır. Projeniz ilgili
 
 Chloros'un görüntülerinizdeki kalibrasyon hedeflerini nasıl tanımladığını kontrol eder.
 
-**Önemli ayarlar:*** **Minimum kalibrasyon örnek alanı (px)**: Hedef algılama için boyut eşiği (varsayılan:**25**, aralık 0–10000)
+**Önemli ayarlar:**
+
+* **Minimum kalibrasyon örnek alanı (px)**: Hedef algılama için boyut eşiği (varsayılan:**25**, aralık 0–10000)
 * **Minimum Hedef Kümeleme (0-100)**: Hedef bölgeleri gruplandırmak için benzerlik eşiği (varsayılan:**60**)**Ne zaman ayarlamalısınız:**
 
 * Yanlış algılamalar alıyorsanız örnekleme alanını artırın
@@ -59,7 +61,9 @@ Chloros'un görüntülerinizdeki kalibrasyon hedeflerini nasıl tanımladığın
 
 Ana görüntü işleme ve kalibrasyon seçenekleri.
 
-**Önemli ayarlar:*** **Vinyet düzeltme**: Kenarlardaki lens kararmasını telafi eder ✅ Önerilir
+**Önemli ayarlar:**
+
+* **Vinyet düzeltme**: Kenarlardaki lens kararmasını telafi eder ✅ Önerilir
 * **Yansıma kalibrasyonu / beyaz dengesi**: Algılanan hedefleri (Survey3) ve/veya DAQ ışık sensörü verilerini (LATTICE) kullanarak görüntüleri kalibre eder ✅ Önerilir
 * **Debayer yöntemi**: RAW'ı 3 kanallı multispektral formata dönüştürmek için kullanılan algoritma
 * **Minimum yeniden kalibrasyon aralığı**: Kalibrasyon hedefinin kullanımı arasındaki minimum süre (saniye cinsinden) (varsayılan:**0** = tümünü kullan, aralık 0–3600)**Kalibre edilmemiş yedek ürünler:**Bir karenin yansıma kalibrasyonu yapılamadığında (hedef mevcut değilse veya kalibrasyon devre dışıysa), Vignette düzeltme anahtarı tarafından seçilen iki yedek üründen biri olarak dışa aktarılır —**her çalıştırma için bu ikiliden tam olarak biri mevcuttur**:
@@ -76,7 +80,11 @@ Etkin olmayan onay kutusu gri renkte görünür. Etkin olanın işaretini kaldı
 * **Işınım dışa aktarma**: float32 spektral ışınım (`Radiance_Images`, W/m²/sr/nm). Yalnızca multispektral modüller için geçerlidir — RGB ana dosyalarına uygulanmaz.
 * **Yansıma Dışa Aktar**: uint16 yansıma (`Reflectance_Calibrated_Images`, DN 32768 = ρ 1,0); bir `.daq` aşağı doğru ışık okuma değeri veya çerçeve içi hedef, çerçeveyi kapladığında. Yalnızca multispektral modüller için geçerlidir.
 
-Dördünün de **varsayılan olarak açık**durumdadır — içe aktarılan bir LATTICE ham çerçevesi, tek bir işleme aşamasında etkinleştirilmiş ve geçerli tüm ürünlere dağıtılır.**Yansıma değerini dışa aktar** onay kutusu, Yansıma kalibrasyonu kapalıyken gri renkte görünür. Üst düğme nedeniyle kullanılamayan ayarlar her zaman gri renkte görünür ve değiştirilmesi gereken düğmenin adı bir araç ipucu olarak gösterilir.**Gelişmiş ayarlar:*** **Işık sensörü saat dilimi kayması**: Işık sensörü saat eşleştirmesi için UTC'den saat farkı (varsayılan: 0, aralık −12 ila +12)
+Dördünün de **varsayılan olarak açık**durumdadır — içe aktarılan bir LATTICE ham çerçevesi, tek bir işleme aşamasında etkinleştirilmiş ve geçerli tüm ürünlere dağıtılır.**Yansıma değerini dışa aktar** onay kutusu, Yansıma kalibrasyonu kapalıyken gri renkte görünür. Üst düğme nedeniyle kullanılamayan ayarlar her zaman gri renkte görünür ve değiştirilmesi gereken düğmenin adı bir araç ipucu olarak gösterilir.
+
+**Gelişmiş ayarlar:**
+
+* **Işık sensörü saat dilimi kayması**: Işık sensörü saat eşleştirmesi için UTC'den saat farkı (varsayılan: 0, aralık −12 ila +12)
 * **PPK düzeltmelerini uygula**: `.daq` dosyalarındaki GPS/pozlama pimi verilerini kullanır (varsayılan: kapalı)
 * **Pozlama Pimi 1/2**: Çift kamera kurulumları için kameraları pozlama pimlerine atar
 
@@ -109,7 +117,9 @@ Hangi bitki örtüsü indekslerinin hesaplanıp dışa aktarılacağını yapıl
 3. Görselleştirme ayarlarını yapılandırın (LUT renkleri, değer aralıkları)
 4. Gerektiği kadar birden fazla endeks ekleyin
 
-**Popüler endeksler:*** **NDVI**: Genel bitki örtüsü sağlığı (en yaygın)
+**Popüler endeksler:**
+
+* **NDVI**: Genel bitki örtüsü sağlığı (en yaygın)
 * **NDRE**: RedEdge ile erken stres tespiti* **GNDVI**: Klorofil konsantrasyonuna duyarlı
 * **OSAVI**: Görünür toprakta iyi sonuç verir
 * **EVI**: Yüksek yaprak alanı indeksi (LAI) bölgeleri
@@ -218,7 +228,11 @@ Hassas coğrafi konum belirleme için GPS özellikli MAPIR DAQ kayıt cihazları
 3. Gerekirse **"Işık sensörü saat dilimi kayması"** ayarını yapın (varsayılan: UTC için 0)
 4. Kameraları pozlama pinlerine atayın:
    * **Tek kamera**: Otomatik olarak Pin 1'e atanır
-   * **Çift kamera**: Her kamerayı doğru pime manuel olarak atayın**Pozlama Pini Ataması:*** **Pozlama Pini 1**: Açılır menüden kamera modelini seçin
+   * **Çift kamera**: Her kamerayı doğru pime manuel olarak atayın
+
+**Pozlama Pini Ataması:**
+
+* **Pozlama Pini 1**: Açılır menüden kamera modelini seçin
 * **Pozlama Pini 2**: İkinci kamerayı veya "Kullanma" seçeneğini seçin
 * Aynı kamera her iki pime de atanamaz
 

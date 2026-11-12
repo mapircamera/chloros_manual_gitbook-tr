@@ -28,7 +28,13 @@ Chloros+ lisansına sahip kullanıcılar için:
 1.**Algılama** - Kalibrasyon hedeflerini bulma
 2. **Analiz** - Görüntüleri inceleme ve iş akışını hazırlama
 3. **Kalibrasyon** - Vinyet ve yansıma düzeltmelerinin uygulanması
-4. **Dışa Aktarma** - İşlenmiş dosyaların kaydedilmesi**Etkileşimli Özellikler:*** Genişletilmiş 4 aşamalı paneli görmek için ilerleme çubuğunun **üzerine gelin*** Genişletilmiş paneli dondurmak/sabitlemek için ilerleme çubuğuna **tıklayın*** **Tekrar tıklayın**; dondurmayı kaldırın ve fareyi uzaklaştırdığınızda panel otomatik olarak gizlensin
+4. **Dışa Aktarma** - İşlenmiş dosyaların kaydedilmesi
+
+**Etkileşimli Özellikler:**
+
+* Genişletilmiş 4 aşamalı paneli görmek için ilerleme çubuğunun **üzerine gelin**
+* Genişletilmiş paneli dondurmak/sabitlemek için ilerleme çubuğuna **tıklayın**
+* **Tekrar tıklayın**; dondurmayı kaldırın ve fareyi uzaklaştırdığınızda panel otomatik olarak gizlensin
 * Her aşama ayrı ayrı ilerlemeyi gösterir (0-100%)
 
 {% hint style="info" %}
@@ -90,7 +96,9 @@ Chloros+ lisansına sahip kullanıcılar için:
 
 ### Aşama 3: Kalibrasyon
 
-**Neler oluyor:*** **Debayering**: RAW Bayer desenini 3 kanala dönüştürme (LATTICE mono modülleri için atlanır, bir not ile birlikte)
+**Neler oluyor:**
+
+* **Debayering**: RAW Bayer desenini 3 kanala dönüştürme (LATTICE mono modülleri için atlanır, bir not ile birlikte)
 * **Vinyet düzeltme**: Lens kenarlarında oluşan kararmaların giderilmesi
 * **Yansıtma kalibrasyonu**: Hedef değerler ve/veya DAQ aşağı yönlü akışı ile normalleştirme
 * **İndeks hesaplama**: Multispektral indekslerin hesaplanması
@@ -102,7 +110,9 @@ Chloros+ lisansına sahip kullanıcılar için:
 * İşlenmekte olan görüntü
 * İşlem tamamlanan görüntüler / Toplam görüntü sayısı
 
-**İşleme davranışı:*** **Serbest mod**: Görüntüleri teker teker sırayla işler
+**İşleme davranışı:**
+
+* **Serbest mod**: Görüntüleri teker teker sırayla işler
 * **Chloros+ modu**: Donanıma uyarlanabilir bir işçi havuzu çalıştırır — GPU sistemlerinde (VRAM'e göre) 1-4 eşzamanlı işçi, yalnızca CPU'lu sistemlerde fiziksel çekirdek başına bir işçi (eksi bir). Bkz. [Dinamik Hesaplama Uyumlaştırma](../processing-architecture/dynamic-compute-adaptation.md)
 * **GPU hızlandırma**: Bu aşamayı önemli ölçüde hızlandırır**Dikkat edilmesi gerekenler:**
 

@@ -45,7 +45,11 @@ CPU'ya bağlı bir hesaplama iş parçacığıdır. Survey3 veya karma bir çal�
 
 ### İş Parçacığı 3: İşleme (GPU)
 
-**Amaç**: Düzeltmeleri uygulamak ve bitki örtüsü indekslerini hesaplamak.**Bu, en fazla hesaplama gerektiren iş parçacığıdır.*** **Debayering**: RAW Bayer verilerini çok kanallı görüntülere dönüştürür
+**Amaç**: Düzeltmeleri uygulamak ve bitki örtüsü indekslerini hesaplamak.
+
+**Bu, en fazla hesaplama gerektiren iş parçacığıdır.**
+
+* **Debayering**: RAW Bayer verilerini çok kanallı görüntülere dönüştürür
   * Standart (Hızlı, Orta Kalite) — varsayılan, `--debayer standard`
   * Doku Duyarlı (Yavaş, En Yüksek Kalite) — yalnızca Chloros+, `--debayer texture-aware`, bir AI/ML gürültü giderme modeli kullanır
   * LATTICE mono (M3M) çekimleri tek bantlıdır: bunlar için demosaik ve beyaz dengesi adımları atlanır (tek satırlık bir günlük mesajıyla), ancak aynı işleme dahil olan M3C/Bayer görüntüleri bu işlemlerden geçmeye devam eder

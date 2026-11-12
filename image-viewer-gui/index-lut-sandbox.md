@@ -113,7 +113,8 @@ Degrade çubuğunun altında, her durak için birer tane olmak üzere bir dizi r
 
 * **Rengi değiştirme**: Bir renk örneğine tıklayarak renk seçiciyi açın (renk çarkı, RGB/HSV kaydırıcıları veya `#FF0000` gibi bir onaltılık kod)
 * **Bir durak ekleyin**: satırın sonundaki**+** düğmesine tıklayın — beyaz bir durak eklenir
-* **Bir durağı kaldırın**: renk örneğine**çift tıklayın*** **Düzenlenmiş gradyanı saklayın**: Düzenlediğiniz gradyanı ön ayar listesine eklemek ve daha sonra tekrar seçebilmek için gradyan çubuğunun yanındaki kaydet simgesine tıklayın
+* **Bir durağı kaldırın**: renk örneğine**çift tıklayın**
+* **Düzenlenmiş gradyanı saklayın**: Düzenlediğiniz gradyanı ön ayar listesine eklemek ve daha sonra tekrar seçebilmek için gradyan çubuğunun yanındaki kaydet simgesine tıklayın
 
 Bir indeks üzerinde yapılandırdığınız gradyan, projenin ayarlarında o indeksle birlikte saklanır; böylece proje kapatılıp yeniden açıldığında da korunur.
 
