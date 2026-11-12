@@ -684,7 +684,7 @@ False         # export in native sensor geometry / skip the common-overlap crop
 
 #### Radyometrik Çıktı (LATTICE multispektral işleme hattı)
 
-`process` iş akışının LATTICE multispektral (M3C/M3M) dışa aktarma seviyesi — `reflectance` (varsayılan), `radiance`, `sensor-response` veya `all` (görüntü başına geçerli tüm modlar) — projenin **"Işınım dışa aktarımı"**ve**"Yansıma dışa aktarımı"**** ürünlerini ayarlar: `radiance` yalnızca parlaklığı, `reflectance` yalnızca yansıma derecesini, `sensor-response` ise ikisini de dışa aktarmaz (yalnızca debayered ve önizleme ürünleri), `all` her ikisini de dışa aktarır. Debayering uygulanmış ve önizleme ürünleri bu seviyede değiştirilemez. `configure()` için özel bir anahtar kelime vardır:
+`process` iş akışının LATTICE multispektral (M3C/M3M) dışa aktarma seviyesi — `reflectance` (varsayılan), `radiance`, `sensor-response` veya `all` (görüntü başına geçerli tüm modlar) — projenin **"Işınım dışa aktarımı"** ve **"Yansıma dışa aktarımı"** ürünlerini ayarlar: `radiance` yalnızca parlaklığı, `reflectance` yalnızca yansıma derecesini, `sensor-response` ise ikisini de dışa aktarmaz (yalnızca debayered ve önizleme ürünleri), `all` her ikisini de dışa aktarır. Debayering uygulanmış ve önizleme ürünleri bu seviyede değiştirilemez. `configure()` için özel bir anahtar kelime vardır:
 
 ```python
 with chloros_sdk.ChlorosLocal() as cl:

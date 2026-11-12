@@ -170,7 +170,7 @@ chloros-cli daq pool-reboot --sensor-id daq-e-def330
 chloros-cli daq pool-update-firmware --sensor-id daq-e-def330
 ```
 
-`pool-info`, sensörün donanım yazılımını (ve bu Chloros sürümünün daha yeni bir sürüm içerip içermediğini), adresini ve bu adresi nasıl aldığını, çalışmakta olandan farklıysa kaydedilmiş ağ ayarını, açılış akışını ve PTP'yi gösterir. `pool-set-network`, değişikliği uygulamak için sensörü yeniden başlatır ve sensörü önceki ayarlarıyla yeniden bağlar; `--no-reboot` ise yalnızca ayarları kaydeder. Bu bilgisayarın ağında statik bir adres bulunmalıdır, aksi takdirde Chloros bunu reddeder; `--force`, yalnızca yeniden adreslendirilecek veya bu adrese yönlendirilecek bir bilgisayar için bu kuralı geçersiz kılar. Sensör kayıt yaparken yeniden başlatma işlemleri reddedilir. `pool-update-firmware`<version\>, komut satırı için</version\> GUI'deki **\**'e Güncelle** komutunun karşılığıdır <version\>ve GUI'si olmayan Linux üzerinde bir DAQ-E'yi güncellemenin yoludur. 1.3.0 sürümünde eklenmiştir.
+`pool-info`, sensörün donanım yazılımını (ve bu Chloros sürümünün daha yeni bir sürüm içerip içermediğini), adresini ve bu adresi nasıl aldığını, çalışmakta olandan farklıysa kaydedilmiş ağ ayarını, açılış akışını ve PTP'yi gösterir. `pool-set-network`, değişikliği uygulamak için sensörü yeniden başlatır ve sensörü önceki ayarlarıyla yeniden bağlar; `--no-reboot` ise yalnızca ayarları kaydeder. Bu bilgisayarın ağında statik bir adres bulunmalıdır, aksi takdirde Chloros bunu reddeder; `--force`, yalnızca yeniden adreslendirilecek veya bu adrese yönlendirilecek bir bilgisayar için bu kuralı geçersiz kılar. Sensör kayıt yaparken yeniden başlatma işlemleri reddedilir. `pool-update-firmware`, komut satırı için GUI'deki **\<version\>'e Güncelle** komutunun karşılığıdır ve GUI'si olmayan Linux üzerinde bir DAQ-E'yi güncellemenin yoludur. 1.3.0 sürümünde eklenmiştir.
 
 ***
 
@@ -206,4 +206,3 @@ chloros-cli daq pool-update-firmware --sensor-id daq-e-def330
 {% hint style="info" %}
 **AI asistanları için ipucu.** Bu kılavuzun her sayfası ham Markdown biçimi olarak sunulur — bir sayfanın küçük harfli URL'sine `.md` ekleyin (bu sayfa: `https://mapir.gitbook.io/chloros/daq/cli-quick-start.md`); makine tarafından okunabilir dizin `https://mapir.gitbook.io/chloros/llms.txt`'tir. `chloros-cli daq` ve diğer tüm komut ailelerinin eksiksiz bayrak düzeyinde belgelerine ulaşmak için [CLI Referansı](../reference/cli-reference.md) (`https://mapir.gitbook.io/chloros/reference/cli-reference.md`) sayfasını inceleyin; Python yolu, [SDK Referansı](../reference/sdk-reference.md) içinde `chloros_sdk.connect_daq_sensor()` şeklindedir.
 {% endhint %}
-</version\>
