@@ -15,7 +15,9 @@ Images In → [Thread 1: Detection] → [Thread 2: Calibration] → [Thread 3: P
 
 Her görüntü, dört iş parçacığının tümünden sırayla geçer. Chloros+ çok iş parçacıklı işleme özelliği sayesinde, birden fazla görüntü aynı anda farklı iş parçacıklarında işlenir — 3. iş parçacığı bir görüntüyü işlerken, 1. iş parçacığı bir sonrakini algılayabilir, 2. iş parçacığı başka bir görüntüyü kalibre edebilir ve 4. iş parçacığı tamamlanmış bir görüntüyü diske yazabilir.
 
-İlerleme durumu her iş parçacığı için ayrı ayrı raporlanır ve Server-Sent Events üzerinden aktarılır (arka uç bunları `/api/events` üzerinde yayınlar). CLI’deki canlı ilerleme ekranında dört aşama **Algılama, Analiz, İşleme, Dışa Aktarma** olarak etiketlenmiştir.***
+İlerleme durumu her iş parçacığı için ayrı ayrı raporlanır ve Server-Sent Events üzerinden aktarılır (arka uç bunları `/api/events` üzerinde yayınlar). CLI’deki canlı ilerleme ekranında dört aşama **Algılama, Analiz, İşleme, Dışa Aktarma** olarak etiketlenmiştir.
+
+***
 
 ## İş Parçacığı Ayrıntıları
 

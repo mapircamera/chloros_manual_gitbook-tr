@@ -198,7 +198,9 @@ Nicel ışık şiddeti değerleri için en az 15 saniyelik verilerin ortalaması
 
 * Bir grafikte birkaç sensörü birleştirin (ortak eksenler), ayrı grafikler tutun (otomatik ızgara düzeni), sensörleri grafikler arasında taşıyın, satırları/kutucukları sürükleyerek yeniden sıralayın ve göz simgesini kullanarak tek tek sensörleri gizleyin.
 * Chloros, proje bazında şu bilgileri kalıcı olarak saklar: cihaz adları, grafik renkleri, grafik boyutu, görüntüleme modu ve her sensörün ayarları (entegrasyon süresi, kare ortalaması, AE durumu, kapak seçimi).
-* **Bir proje yeniden açıldığında, sensörler adreslerine göre otomatik olarak yeniden bağlanır** — DAQ-U için COM bağlantı noktası, DAQ-M için BLE cihazı, DAQ-E için mDNS ana bilgisayar adı (cihazın IP adresi değişse bile çözümlenir)) — ve her sensörün kaydedilmiş kapak profili, kare ortalaması, AE durumu ve manuel entegrasyon süresini yeniden uygular.***
+* **Bir proje yeniden açıldığında, sensörler adreslerine göre otomatik olarak yeniden bağlanır** — DAQ-U için COM bağlantı noktası, DAQ-M için BLE cihazı, DAQ-E için mDNS ana bilgisayar adı (cihazın IP adresi değişse bile çözümlenir)) — ve her sensörün kaydedilmiş kapak profili, kare ortalaması, AE durumu ve manuel entegrasyon süresini yeniden uygular.
+
+***
 
 ## Kamera eşleştirme (DLS)
 

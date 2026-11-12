@@ -62,7 +62,9 @@ output/
 * Ham veriler **olmadan** kaydedilen bir çekim klasörü normal şekilde görüntülenir, ancak işleme bu klasörü atlar ve bunu günlüğe kaydeder. (CLI bayrağı `--input-level`, bu durum için bir giriş noktasını zorlayabilir — bkz. [CLI Referansı](../reference/cli-reference.md#what-a-captures-folder-looks-like).)
 * 1.3.0 sürümünden itibaren bir yakalama klasörü, bir `clamp_masks/` klasörü de içerebilir (parlaklık ve yansıma düzeyleri için piksel başına maskeler — bkz. [Çıktı Görüntü Biçimleri](../output-image-formats.md#clamp-masks)). Maskeler sahnenin görüntüleri değildir ve Chloros, içe aktarma sırasında nerede olurlarsa olsunlar bunları atlar.
 
-**LATTICE hub oturumları** da aynı şekilde içe aktarılır: hub'dan kopyalanan oturum klasörüne (`raw/` ve `previews/` içerir) ve varsa herhangi bir DAQ-M `.csv` aşağı yönlü kayıt dosyasına "Klasör Ekle" seçeneğini işaretleyin. Kameranın veya DAQ'nın kalibrasyonu henüz bilgisayarınızda önbelleğe alınmamışsa, Chloros içe aktarma sırasında seri numarasına göre bunu otomatik olarak alır (bir kez internet bağlantısı gerekir).***
+**LATTICE hub oturumları** da aynı şekilde içe aktarılır: hub'dan kopyalanan oturum klasörüne (`raw/` ve `previews/` içerir) ve varsa herhangi bir DAQ-M `.csv` aşağı yönlü kayıt dosyasına "Klasör Ekle" seçeneğini işaretleyin. Kameranın veya DAQ'nın kalibrasyonu henüz bilgisayarınızda önbelleğe alınmamışsa, Chloros içe aktarma sırasında seri numarasına göre bunu otomatik olarak alır (bir kez internet bağlantısı gerekir).
+
+***
 
 ## Dosya Tarayıcı Tablosunu Anlama
 
@@ -103,7 +105,9 @@ Tablonun sağ üst köşesindeki geçiş düğmesine tıkladığınızda, seçil
 
 * `.daq` ve `.csv` dosyaları Dosya Tarayıcı listesinde görünür, ancak tıklanabilir görüntüler değildir — bu dosyalar, yansıma kalibrasyonu için aşağı doğru ışık şiddetini sağlar.
 * İçe aktarılan her `.daq`/`.csv` dosyası, **Proje Ayarları → DAQ Işık Sensörü** bölümünde listelenir; burada her dosya için geçerli olan difüzör kapağı düzeltmesini inceleyebilirsiniz. Bkz. [Proje Ayarlarını Düzenleme](adjusting-project-settings.md).
-* **Işık Sensörleri** sekmesinde yaptığınız kayıtlar, açık projeye otomatik olarak eklenir — manuel olarak içe aktarmanıza gerek yoktur.***
+* **Işık Sensörleri** sekmesinde yaptığınız kayıtlar, açık projeye otomatik olarak eklenir — manuel olarak içe aktarmanıza gerek yoktur.
+
+***
 
 ## Projenizdeki Dosyaları Yönetme
 
@@ -220,7 +224,9 @@ Projeniz birden fazla MAPIR kamerasından alınan görüntüler içeriyorsa:
 
 ### Yeniden Açılan Proje Eksik Dosyalar Bildiriyor
 
-Proje en son açıldığından beri kaynak dosyalar taşınmış veya silinmişse, Chloros boş bir ızgaraya açmak yerine **hangi**dosyaların kaybolduğunu size bildirir. Proje klasörünün kendisi taşınmışsa, Chloros kaynak yollarını `project.json` klasörünün şu anda bulunduğu konuma yeniden yönlendirir ve bir yedek (`project.json.before-relink-<date>-<time>`) tutar. Dosyalar bu şekilde bulunamadığında,**Kaynak dosyalar bulunamadı**penceresi yeni konuma**Gözat** seçeneğini sunar; ardından Yeni Proje veya Projeyi Sil seçenekleri gelir. CLI'den `chloros-cli project open PATH --relink FOLDER` komutunu, SDK'den ise `open_project(path, relink=...)` komutunu kullanın.***
+Proje en son açıldığından beri kaynak dosyalar taşınmış veya silinmişse, Chloros boş bir ızgaraya açmak yerine **hangi**dosyaların kaybolduğunu size bildirir. Proje klasörünün kendisi taşınmışsa, Chloros kaynak yollarını `project.json` klasörünün şu anda bulunduğu konuma yeniden yönlendirir ve bir yedek (`project.json.before-relink-<date>-<time>`) tutar. Dosyalar bu şekilde bulunamadığında,**Kaynak dosyalar bulunamadı**penceresi yeni konuma**Gözat** seçeneğini sunar; ardından Yeni Proje veya Projeyi Sil seçenekleri gelir. CLI'den `chloros-cli project open PATH --relink FOLDER` komutunu, SDK'den ise `open_project(path, relink=...)` komutunu kullanın.
+
+***
 
 ## Sonraki Adımlar
 

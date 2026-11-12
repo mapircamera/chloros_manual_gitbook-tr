@@ -66,7 +66,9 @@ Tam kılavuz: [Chloros'u AI Asistanlarıyla Kullanma](ai-assistants.md).
 * **Dürüst hata semantiği.** Ürünleri talep eden ancak hiçbirini yazmayan bir `chloros-cli process` çalıştırması artık açıkça hata verir ve sıfırdan farklı bir değerle sonlanır; başarılı çalıştırmalar ise kaç tane görüntü ürünü yazdıklarını bildirir.
 * **Yeni çıktı düzeni.** Ürünler `<project>/<camera>/<format>/<Product>_Images/` klasörlerine yerleştirilir ve kaynak dosya adını korur — ürünü tanımlayan, dosya adı son eki değil, klasördür. Bkz. [Çıktı Görüntü Biçimleri](output-image-formats.md).
 * **Daha fazla giriş, plan ve dil.** `.dng` giriş desteği; 38 arayüz dilinin tamamı eksiksiz olarak eklenmiştir; plan başına donanım sınırları kapsamında, ücretsiz (giriş gerektirmeyen) kullanımda en fazla 4 kamera ve 2 ışık sensörü desteklenir.
-* **Güvenilirlik.** İşlemeyi Durdur seçeneği, doğru bir çalışma özetiyle sorunsuz bir şekilde sonlandırılır; çoklu kamera projelerinde her kamera dışa aktarılır ve yükleyici güncellemeleri artık oturumunuzu kapatmaz.***
+* **Güvenilirlik.** İşlemeyi Durdur seçeneği, doğru bir çalışma özetiyle sorunsuz bir şekilde sonlandırılır; çoklu kamera projelerinde her kamera dışa aktarılır ve yükleyici güncellemeleri artık oturumunuzu kapatmaz.
+
+***
 
 Chloros, 3 farklı uygulama arayüzünde kullanılabilir:
 

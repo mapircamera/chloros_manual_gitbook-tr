@@ -190,7 +190,9 @@ Chloros+ aboneliği ile gelişmiş özelliklerin kilidini açın:
 * **🐻 Gelişmiş Doku Duyarlı Debayer Yöntemi** - Neredeyse tüm debayering gürültüsünü ortadan kaldıran bir AI/ML gürültü giderme modeliyle birleştirilmiş, yüksek kaliteli, kenar duyarlı bir debayer.
 * 🧮 **Özel Formüller** - Özel multispektral indeksler oluşturun
 
-<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Chloros+ Planlarını ve Fiyatlarını Görüntüleyin</a></p>***
+<p align="center"><a href="https://cloud.mapir.camera/pricing" class="button primary">Chloros+ Planlarını ve Fiyatlarını Görüntüleyin</a></p>
+
+***
 
 ## Kurulum Yardımı
 
@@ -229,7 +231,9 @@ Kurulum veya ayarlama konusunda yardıma mı ihtiyacınız var?
 * 📧 **E-posta**: info@mapir.camera
 * 🌐 **Web sitesi**: [https://www.mapir.camera/community/contact](https://www.mapir.camera/community/contact)
 * 📚 **Kılavuz**: [Başlangıç Kılavuzu](./)
-* ❓ **SSS**: [Sık Sorulan Sorular](faq.md)***
+* ❓ **SSS**: [Sık Sorulan Sorular](faq.md)
+
+***
 
 ## Yazılım Güncellemeleri
 

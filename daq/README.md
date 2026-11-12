@@ -17,7 +17,9 @@ MAPIR'ın **DAQ** ışık sensörleri, ortam ışığını radyometrik olarak ka
 | --- | --- | --- |
 | **DAQ-U** | USB (seri) | seri bağlantı noktası taraması |
 | **DAQ-M** | Bluetooth Low Energy | isme göre BLE taraması |
-| **DAQ-E** | Ethernet (IPv4, PoE ile beslenir) | mDNS `_daq-e._tcp` (ana bilgisayar adı `daq-e-<id>.local`) |**DAQ-E-S (1.3.0 sürümünde yeni).** Kalıcı difüzör ve eğim sensörüne sahip bir DAQ-E. Chloros, bunu `DAQ-E-S` olarak listeler ve DAQ-E ile tamamen aynı şekilde çalıştırır; ancak kapak düzeltmesi yapmaz ve her okumada ünitenin eğim, yuvarlanma ve dikleme değerleri yer alır. Bkz. [DAQ-E-S: sabit difüzör ve eğim](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt).
+| **DAQ-E** | Ethernet (IPv4, PoE ile beslenir) | mDNS `_daq-e._tcp` (ana bilgisayar adı `daq-e-<id>.local`) |
+
+**DAQ-E-S (1.3.0 sürümünde yeni).** Kalıcı difüzör ve eğim sensörüne sahip bir DAQ-E. Chloros, bunu `DAQ-E-S` olarak listeler ve DAQ-E ile tamamen aynı şekilde çalıştırır; ancak kapak düzeltmesi yapmaz ve her okumada ünitenin eğim, yuvarlanma ve dikleme değerleri yer alır. Bkz. [DAQ-E-S: sabit difüzör ve eğim](caps-and-range.md#daq-e-s-fixed-diffuser-and-tilt).
 
 Üçü de aynı kablo protokolünü kullanır ve aynı verileri sağlar:
 

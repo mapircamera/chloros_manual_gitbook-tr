@@ -109,7 +109,9 @@ Yansıma, tamsayı DN olarak saklanır ve **ρ = 1,0'a karşılık gelen DN değ
 | LATTICE (M3C/M3M) | **32768** (ρ 2,0'a kadar marj) | Dosyaya XMP etiketi `Chloros:PixelScale=32768` eklenmiştir |
 | Survey3          | **65535** (ρ 1,0'da kırpılmış)     | `Chloros:PixelScale` etiketi yok — bu yokluk bir işarettir (Survey3 ürünleri diğer `Chloros:*` işleme etiketlerini taşır) |
 
-**`Chloros:PixelScale` etiketini okuyun ve buna bölün**; genel olarak 65535 değerini varsaymak yerine — LATTICE yansıma değerini 65535'e bölmek, her değeri sessizce yarıya indirir. 1.3.0 sürümünden önce 8 bit olarak yazılmış bir yansıma dosyası kırpılmış, yeniden ölçeklendirilmemiştir ve ölçek etiketi içermez: bölmek yerine 16 bit veya 32 bit olarak yeniden dışa aktarın. Ayrıntılı bilgi için [Çıktı Görüntü Biçimleri](../output-image-formats.md) bölümüne bakın.***
+**`Chloros:PixelScale` etiketini okuyun ve buna bölün**; genel olarak 65535 değerini varsaymak yerine — LATTICE yansıma değerini 65535'e bölmek, her değeri sessizce yarıya indirir. 1.3.0 sürümünden önce 8 bit olarak yazılmış bir yansıma dosyası kırpılmış, yeniden ölçeklendirilmemiştir ve ölçek etiketi içermez: bölmek yerine 16 bit veya 32 bit olarak yeniden dışa aktarın. Ayrıntılı bilgi için [Çıktı Görüntü Biçimleri](../output-image-formats.md) bölümüne bakın.
+
+***
 
 ## Dışa Aktarımlara Aktarılan Meta Veriler
 
@@ -165,7 +167,9 @@ sekmesini açın
 3. Proje belgelerine ekleyin
 4. Herhangi bir sorunla karşılaşırsanız MAPIR desteğine gönderin
 
-Bir sorunu doğrudan MAPIR'e göndermek için, Hata Giderme Günlüğü sekmesinin üst kısmındaki hata simgesini (**Hata bildir**) kullanın — bkz. [Günlük sekmesinden hata bildirme](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).***
+Bir sorunu doğrudan MAPIR'e göndermek için, Hata Giderme Günlüğü sekmesinin üst kısmındaki hata simgesini (**Hata bildir**) kullanın — bkz. [Günlük sekmesinden hata bildirme](monitoring-the-processing.md#reporting-a-bug-from-the-log-tab).
+
+***
 
 ## Yaygın Çıktı Sorunları ve Çözümleri
 

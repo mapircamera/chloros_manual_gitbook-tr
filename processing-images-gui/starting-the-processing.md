@@ -180,7 +180,9 @@ Başlatıldığında, tüm boru hattı otomatik olarak çalışır:
 * Durdurulan bir işlem, tamamlanan kısımları doğru bir şekilde raporlar (günlükteki `[RUN-SUMMARY]` satırlarına bakın)
 * Yeni bir işlem, iş akışını baştan başlatır
 
-**Planlama ipucu:** Çok büyük projelerde, daha iyi kontrol için işlemleri gruplar halinde gerçekleştirmeyi veya CLI'yi kullanmayı düşünün.***
+**Planlama ipucu:** Çok büyük projelerde, daha iyi kontrol için işlemleri gruplar halinde gerçekleştirmeyi veya CLI'yi kullanmayı düşünün.
+
+***
 
 ## İşleminizi İzleme
 

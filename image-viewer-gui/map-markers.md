@@ -76,7 +76,9 @@ GPS verileri içeren her görüntünün koordinatlarına bir işaretçi eklenir.
 | Sağlayıcı        | Notlar                                                                                                                                                             |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Google Haritalar** | Dünya çapında geniş kapsama alanı; dört döşeme türünün tümünü destekler                                                                                                            |
-| **Esri ArcGIS**| Belirli bölgelerde genellikle daha yüksek çözünürlüklü hava görüntüleri sunar.**Arazi** döşeme türü Esri için sunulmaz ve Esri seçiliyken ilgili düğme devre dışıdır |***
+| **Esri ArcGIS**| Belirli bölgelerde genellikle daha yüksek çözünürlüklü hava görüntüleri sunar.**Arazi** döşeme türü Esri için sunulmaz ve Esri seçiliyken ilgili düğme devre dışıdır |
+
+***
 
 ## Harita Döşeme Türleri
 
@@ -89,7 +91,11 @@ Düğmeleri kullanarak (soldan sağa doğru) harita katmanı türünü seçin:
 | **Arazi**          | Harita ayrıntılarıyla (yollar, etiketler) birlikte yükseklik gölgelendirmesi. Yalnızca Google       |
 | **Harita**              | Standart sokak haritası döşemeleri — en düşük bant genişliği seçeneği              |
 | **Uydu**        | Ayrıntılı uydu görüntüleri, etiket yok — en yüksek bant genişliği gerektiren seçenek |
-| **Hibrit** (varsayılan) | Üzerine yollar ve etiketler çizilmiş uydu görüntüleri                |**Harita**sekmesi**Hibrit** modunda açılır. Seçiminiz, sağlayıcının desteklediği durumlarda sağlayıcı değişikliğine de yansır.***
+| **Hibrit** (varsayılan) | Üzerine yollar ve etiketler çizilmiş uydu görüntüleri                |
+
+**Harita**sekmesi**Hibrit** modunda açılır. Seçiminiz, sağlayıcının desteklediği durumlarda sağlayıcı değişikliğine de yansır.
+
+***
 
 ## Harita Gezinme
 
@@ -137,7 +143,9 @@ Düğmeleri kullanarak (soldan sağa doğru) harita katmanı türünü seçin:
 
 ### Harita boş veya döşemeler yüklenmiyor
 
-Döşeme sağlayıcıları çevrimiçi hizmetlerdir. Döşemeler gelmezse, cihazın ağ bağlantısını kontrol edin, ardından sağlayıcıyı değiştirmeyi deneyin. Çok fazla yakınlaştırmışsanız, **×** sıfırlama düğmesine basarak normal yakınlaştırma düzeyine dönün ve haritanın döşemeleri yeniden talep etmesini bekleyin.***
+Döşeme sağlayıcıları çevrimiçi hizmetlerdir. Döşemeler gelmezse, cihazın ağ bağlantısını kontrol edin, ardından sağlayıcıyı değiştirmeyi deneyin. Çok fazla yakınlaştırmışsanız, **×** sıfırlama düğmesine basarak normal yakınlaştırma düzeyine dönün ve haritanın döşemeleri yeniden talep etmesini bekleyin.
+
+***
 
 ## İlgili sayfalar
 

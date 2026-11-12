@@ -136,7 +136,9 @@ Bu rakamları belirleyen iki kural vardır:
 * **Tek** aktif olan iş parçacığına, profilinin maksimum tahsisi verilir.
 * Birden fazla *ağır* GPU görevi aktif olduğunda, her bir ağır görevin temel tahsisi bunlar arasında bölüşülür (asla yapılandırılmış minimum değerin altına düşmez).
 
-Çalışma sırasında fiilen kullanılan değer, platform profilindeki tahsis ile GPU bellek monitöründen gelen canlı öneri arasında **daha düşük** olanıdır; bu nedenle, yoğun çalışan bir kart her zaman iyimser bir profilden önceliklidir.***
+Çalışma sırasında fiilen kullanılan değer, platform profilindeki tahsis ile GPU bellek monitöründen gelen canlı öneri arasında **daha düşük** olanıdır; bu nedenle, yoğun çalışan bir kart her zaman iyimser bir profilden önceliklidir.
+
+***
 
 ## Doku Duyarlı İşleme
 

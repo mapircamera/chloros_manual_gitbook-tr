@@ -157,7 +157,9 @@ Bu bölüm, **yalnızca** projedeki en az bir görüntünün, LATTICE dizilerini
 
 * **Dizi hizalaması uygula** (varsayılan: açık): işlenmiş her ürünü (debayering / önizleme / parlaklık / yansıma / indeks) dizinin ortak referans geometrisine göre hizalar. Kapalı = orijinal sensör geometrisinde dışa aktarır.
 * **Ortak örtüşme alanına kırp** (varsayılan: açık): hizalanmış dışa aktarımları, tüm modüllerin paylaştığı bölgeye kırpar; böylece her bant aynı kaplama alanına sahip olur. Kapalı seçeneği, sensörün tam tuvalini korur (kaynağın dışını siyahla doldurur).
-* **Yeniden örnekleme**:**Bilineer (pürüzsüz, varsayılan)**,**En yakın (kesin değerleri korur)**— sıkı radyometrik analiz için piksel arası karıştırma yok — veya**Kübik (en keskin)**.***
+* **Yeniden örnekleme**:**Bilineer (pürüzsüz, varsayılan)**,**En yakın (kesin değerleri korur)**— sıkı radyometrik analiz için piksel arası karıştırma yok — veya**Kübik (en keskin)**.
+
+***
 
 ## Ayarları Kaydetme ve Yükleme
 

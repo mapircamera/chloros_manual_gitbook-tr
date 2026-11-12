@@ -102,4 +102,4 @@ Sıkı hizalama gerektiren kullanıcılar için ayrıntılar:
 | Yayın alanı | Ana bilgisayar ve sensör aynı L2 segmentinde; mDNS yönlendirme yapmıyor |
 | Güvenlik duvarı | Windows: Yükleyicinin **Chloros Backend (UDP-In)** kuralı, DAQ-E akışının (UDP 5002), mDNS (5353) ve PTP (319/320) bağlantılarının içeri girmesine izin verir; üçüncü taraf bir güvenlik duvarında da aynısı gereklidir. Linux: `.deb`, bu bağlantı noktalarını yalnızca kurulum sırasında güvenlik duvarı etkinse `ufw` / `firewalld`'te açar — daha sonra etkinleştirilen bir güvenlik duvarında bunları kendiniz izin verin |
 | Çoklu ağ kartı (Multi-NIC) ana bilgisayar | Keşif işlemi, ARP yedeği ile mDNS'yi tarar; `--eth-host <ip-or-hostname>` keşif işlemini atlar ve doğrudan bağlanır |
-| GUI yeniden taraması | Keşif işlemi yalnızca bağlantı iletişim kutusu açıkken çalışır; Yenile seçeneğini kullanın |</version>
+| GUI yeniden taraması | Keşif işlemi yalnızca bağlantı iletişim kutusu açıkken çalışır; Yenile seçeneğini kullanın |

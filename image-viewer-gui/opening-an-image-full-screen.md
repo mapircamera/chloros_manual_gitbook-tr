@@ -57,7 +57,9 @@ Etkili büyütme oranı **60×**'i aştığında, Chloros, imlecin altındaki g�
 | **←**                           | Tam ekran | Önceki görüntü                      |
 | **Ctrl + R**                    | Tam ekran | Dizin/LUT sanal alanını sıfırla         |
 | **Ctrl + `+`**/**Ctrl + `=`** | Izgara        | Daha büyük küçük resimler (her basışta 4 piksel)  |
-| **Ctrl + `−`**                  | Izgara        | Daha küçük küçük resimler (her basışta 4 px) |***
+| **Ctrl + `−`**                  | Izgara        | Daha küçük küçük resimler (her basışta 4 px) |
+
+***
 
 ## İmleç Değerleri
 
@@ -100,7 +102,9 @@ Görüntüleyici, dizin/LUT test ortamı ve dizin dışa aktarımı, ölçeği a
 Bilmeniz gereken iki sonuç:
 
 * **32 bitlik yüzde**TIFF, DN/65535'i float olarak depolar;**8 bitlik** PNG/JPG dışa aktarımı ise DN × 255/65535'i depolar olarak depolar; görüntüleyici, yüzde değerini yazdırmadan önce her ikisini de geri dönüştürür.
-* Kurtarılamayan bir durum vardır: **8-bit kaynaklı bir yakalamanın 8-bit TIFF dışa aktarımı**, yeniden ölçeklendirilmek yerine 0–255 aralığına kırpılır ve kasıtlı olarak ölçek etiketi taşımaz. Bu dosyalar için panel, yüzde sütunu olmadan yalnızca DN değerini yazdırır. Bu, bir hata değil, gerçek durumdur.***
+* Kurtarılamayan bir durum vardır: **8-bit kaynaklı bir yakalamanın 8-bit TIFF dışa aktarımı**, yeniden ölçeklendirilmek yerine 0–255 aralığına kırpılır ve kasıtlı olarak ölçek etiketi taşımaz. Bu dosyalar için panel, yüzde sütunu olmadan yalnızca DN değerini yazdırır. Bu, bir hata değil, gerçek durumdur.
+
+***
 
 ## Katman histogramı
 
@@ -126,7 +130,9 @@ Histogramın üzerinde üç düğme bulunur:
 | **INDEX**| Açık      | Yalnızca bir indeks etkinken görünür. Histogramı kaynak bantlardan**indeks değeri dağılımına** geçirir; iki kırpma eşiği turuncu kesikli çizgilerle, imlecin indeks değeri ise beyaz bir çizgiyle gösterilir                                                          |
 | **RGB**| Kapalı     | Birleştirilmiş eğriden kanal başına eğrilere geçer. Mono sensörde bu düğme**MONO** olarak görünür ve devre dışıdır — gösterilecek tek bir kanal vardır                                                                                                                                  |
 
-Histogram, arkasındaki kaynak pikseller üzerinden değil, **gördüğünüz bloklar** üzerinden hesaplanır: GSD blok boyutunu değiştirdiğinizde dağılım yeniden hesaplanır; böylece histogram, imleç işareti ve görüntülenen resim her zaman birbiriyle uyumlu olur.***
+Histogram, arkasındaki kaynak pikseller üzerinden değil, **gördüğünüz bloklar** üzerinden hesaplanır: GSD blok boyutunu değiştirdiğinizde dağılım yeniden hesaplanır; böylece histogram, imleç işareti ve görüntülenen resim her zaman birbiriyle uyumlu olur.
+
+***
 
 ## GSD blok boyutu
 

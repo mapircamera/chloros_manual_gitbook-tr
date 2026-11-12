@@ -71,7 +71,9 @@ Tam formül referansı için — üç ön ayar listesinin tümü ve hangi isimle
 
 ### İndeks işaretli ancak LUT yok
 
-Görüntü, iki eşik değeri arasında uzatılmış olarak **gri tonlamalı** olarak çizilir. Bu kasıtlıdır: indeks görüntüsü skaler veridir ve gri tonlamalı görüntü, bunun en doğru şekilde işlenmiş halidir. Renk istiyorsanız bir LUT ekleyin.***
+Görüntü, iki eşik değeri arasında uzatılmış olarak **gri tonlamalı** olarak çizilir. Bu kasıtlıdır: indeks görüntüsü skaler veridir ve gri tonlamalı görüntü, bunun en doğru şekilde işlenmiş halidir. Renk istiyorsanız bir LUT ekleyin.
+
+***
 
 ## LUT'larla (Arama Tabloları) Çalışma
 
@@ -136,7 +138,9 @@ Eşik kontrolü, −1 ile +1 arasında değişen, her iki ucunda kesin değerler
 | Yalnızca sağlıklı bitki örtüsü                 | 0,5  | 0,9 |
 | Stresi vurgula                        | 0,2  | 0,5 |
 
-Aralığı daraltmak, ilgilendiğiniz alanın içindeki kontrastı artırır ve geri kalan her şeyi aralığın dışına iter — burada **Kırpma Modu**, bu öğelere ne olacağına karar verir.***
+Aralığı daraltmak, ilgilendiğiniz alanın içindeki kontrastı artırır ve geri kalan her şeyi aralığın dışına iter — burada **Kırpma Modu**, bu öğelere ne olacağına karar verir.
+
+***
 
 ## Kırpma modları
 

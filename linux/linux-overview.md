@@ -23,7 +23,9 @@ Chloros 1.3.0, Linux iş istasyonlarında, sunucularda ve NVIDIA Jetson uç ciha
 | **Doku Duyarlı debayer** (CUDA GPU gerektirir) | Evet (Chloros+) | Evet (Chloros+) | Evet (Chloros+) | Evet (Chloros+) |
 | **Dinamik Hesaplama Uyumlaştırma** | Evet | Evet | Evet | Evet |
 | **Sistem hizmeti olarak arka uç** (`chloros-backend@<user>.service`) | Hayır | Hayır | Evet (isteğe bağlı) | Evet (isteğe bağlı) |
-| **Yerinde güncelleyici** (`chloros-cli update`) | Hayır (yükleyiciyi çalıştırın) | Hayır (yükleyiciyi çalıştırın) | Evet | Evet |***
+| **Yerinde güncelleyici** (`chloros-cli update`) | Hayır (yükleyiciyi çalıştırın) | Hayır (yükleyiciyi çalıştırın) | Evet | Evet |
+
+***
 
 ## Desteklenen Mimariler
 
@@ -36,7 +38,9 @@ Chloros 1.3.0, Linux iş istasyonlarında, sunucularda ve NVIDIA Jetson uç ciha
 
 * **Ubuntu 22.04 LTS veya daha yeni** (amd64)
 * **Debian 12 veya daha yeni** (amd64)
-* **NVIDIA JetPack 6** (arm64 — Jetson Orin platformları)***
+* **NVIDIA JetPack 6** (arm64 — Jetson Orin platformları)
+
+***
 
 ## Linux Kullanıcılarına Sunulanlar
 
@@ -55,7 +59,9 @@ Chloros 1.3.0, Linux iş istasyonlarında, sunucularda ve NVIDIA Jetson uç ciha
 
 * **Masaüstü GUI** — grafik arayüz yoktur; tüm etkileşim CLI veya Python SDK aracılığıyla gerçekleşir
 * **Görüntü Görüntüleyici** — etkileşimli görüntü görüntüleyici, ızgara görünümü veya harita işaretçileri yoktur
-* **Görsel proje yönetimi** — projeler, CLI komutları ve SDK çağrıları aracılığıyla oluşturulur ve yürütülür (donanımın kendisi — kameralar, sensörler, yakalama — terminal üzerinden tamamen kontrol edilebilir)***
+* **Görsel proje yönetimi** — projeler, CLI komutları ve SDK çağrıları aracılığıyla oluşturulur ve yürütülür (donanımın kendisi — kameralar, sensörler, yakalama — terminal üzerinden tamamen kontrol edilebilir)
+
+***
 
 ## Lisans Gereksinimi
 

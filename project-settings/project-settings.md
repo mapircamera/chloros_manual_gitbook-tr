@@ -32,7 +32,9 @@ sekmesine tıklayın
 * **Seçenekler**: `Default (512 px)`, `1024 px`, `2048 px`, `Full resolution`
 * **Varsayılan**: Varsayılan (512 px)
 * **Açıklama**: Görüntü ızgarasındaki küçük resimlerin işlendiği çözünürlük (en uzun kenar, piksel cinsinden). Daha yüksek değerler, yakınlaştırıldığında daha net görünür ancak yükleme süresi uzar ve daha fazla bellek kullanılır. Tam çözünürlük, orijinal görüntü boyutunu kullanır.
-* **Not**: Yalnızca görüntüleme amaçlıdır — bu ayar, işleme veya dışa aktarılan dosyaları asla etkilemez.***
+* **Not**: Yalnızca görüntüleme amaçlıdır — bu ayar, işleme veya dışa aktarılan dosyaları asla etkilemez.
+
+***
 
 ## Hedef Algılama
 
@@ -188,7 +190,9 @@ Birim başına **ölçülen** hedef taramaları, hedef birimin seri numarası/QR
   * Tek kamera + tek pin: Pin 2 otomatik olarak "Kullanma" olarak ayarlanır
   * Tek kamera + iki pin: Pin 2 otomatik olarak "Kullanma" olarak ayarlanır
   * Birden fazla kamera: Manuel seçim gereklidir
-* **Not**: Aynı kamera, Pin 1 ve Pin 2'ye aynı anda atanamaz.***
+* **Not**: Aynı kamera, Pin 1 ve Pin 2'ye aynı anda atanamaz.
+
+***
 
 ## DAQ Işık Sensörü
 
@@ -209,7 +213,9 @@ Her satırda dosya, sensör modeli ve o dosya için geçerli olan difüzör kapa
 * **Açıklama**: `Auto`, her dosyanın kaydedilmiş kapağını kullanır (hiçbir şey kaydedilmemişse Sunshine kapağı varsayılır, ancak DAQ-U, DAQ-M ve DAQ-E, kapaksız olarak gönderilir ve Chloros, takılan kapağı göremez, bu nedenle işleme sırasında varsayılan sınır için uyarı verilir: takılan sınırı seçin). Belirli bir sınır seçilmesi, difüzörü kalibrasyonunun bir parçası olan DAQ-E-S'ler hariç, projedeki **tüm** aşağı yönlü dosyaları geçersiz kılar; yalnızca DAQ-E-S'lerden oluşan bir projede açılır menü görünmez: ham kayıtlar bununla düzeltilir, ve halihazırda bir kapak içeren kayıtlar yeniden referanslanır (kaydedilen düzeltme geri alınır ve seçilen düzeltme uygulanır).
 * **Önemli**: Seçilen kapak, kayıt sırasında fiziksel olarak takılan kapakla eşleşmelidir. Ne sensör ne de yazılım fiziksel kapağı algılayamaz — uyumsuz bir kapak kimliği, spektrumları yanlış düzeltir.
 
-Dosya başına açılır menüler yerine kasıtlı olarak proje genelinde **tek** bir kontrol bulunur: bu ayar, projedeki her aşağı doğru yayılan kaynağa uygulanır.***
+Dosya başına açılır menüler yerine kasıtlı olarak proje genelinde **tek** bir kontrol bulunur: bu ayar, projedeki her aşağı doğru yayılan kaynağa uygulanır.
+
+***
 
 ## Dizi Hizalama
 
@@ -280,7 +286,9 @@ Eklediğiniz her endeks, formülünü matematiksel olarak işler ve her bant yuv
   * Operatörler: `+`, `-`, `*`, `/`, `^` ve `()` (gruplama için)
   * İşlevler: `sqrt()`, `log()`, `ln()`, `abs()`, `sign()`, `log1p()`, `log2()`
 * **Neden grup isimleri değil de semboller?**: `(y-x)/(y+x)` şeklinde yazılmış bir formül her kamerada çalışır; çünkü sürükle-bırak eşlemesi, `y`'in bir RGN filtresinin 850 nm NIR'si mi yoksa bir OCN filtresinin 808 nm NIR'si mi olduğuna karar verir. Yerleşik ön ayarlar da aynı şekilde saklanır — 27 formülün tümünün tam sembol biçimleri için [Multispektral İndeks Formülleri](multispectral-index-formulas.md) bölümüne bakın.
-* **Nerede çalışırlar**: Özel formüller proje ayarlarıyla birlikte kaydedilir ve [İndeks/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) ile işleme sırasında kullanılabilir. CLI/SDK `--indices` ad listesi tarafından **kabul edilmez**; bu liste yalnızca 22 yerleşik ön ayar adını gösterir.***
+* **Nerede çalışırlar**: Özel formüller proje ayarlarıyla birlikte kaydedilir ve [İndeks/LUT Sandbox](../image-viewer-gui/index-lut-sandbox.md) ile işleme sırasında kullanılabilir. CLI/SDK `--indices` ad listesi tarafından **kabul edilmez**; bu liste yalnızca 22 yerleşik ön ayar adını gösterir.
+
+***
 
 ## Dışa Aktarma
 

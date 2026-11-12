@@ -196,7 +196,9 @@ Bu bölümdeki her şey **yalnızca görüntüleme tarafındadır**— canlı ya
 | **Doygunluk** | 0–200 (100 = nötr) | 100 | Yalnızca RGB | Canlı önizlemede HSV doygunluğu. |
 | **Kontrast** | 0–200 (100 = nötr) | 100 | Yalnızca RGB | Canlı önizlemede orta gri civarında doğrusal kontrast. |
 | **Yatay Yansıtma / Dikey Yansıtma** | Onay kutuları | Kapalı | Tümü | Önizlemeyi yatay / dikey olarak çevirir. |
-| **Dönüş**| 0° / 90° / 180° / 270° | 0° | Tümü | Önizlemeyi döndürür. Yönlendirme, arka uç önizleme zincirinin sonunda uygulanır.**Kaydedilen çekimler (1.3.0):**bağımsız bir kameranın Önizleme, Parlaklık, Yansıma ve İndeks ürünleri Ayna/Dönüş ile döndürülürken,**Raw ve Debayered, kameranın kendi yönelimini korur**; her çekim dosyası bu ayarı XMP'sine kaydeder, böylece daha sonra bir raw dosyası işlendiğinde ayar aynı şekilde uygulanır.**Dizi üye dosyaları kendi yönelimlerini korur** (ayar kaydedilir, uygulanmaz) ve dizi birleştirilmiş görünümleri bunu göz ardı eder. |**Renk profili semantiği** (RGB kameralar):
+| **Dönüş**| 0° / 90° / 180° / 270° | 0° | Tümü | Önizlemeyi döndürür. Yönlendirme, arka uç önizleme zincirinin sonunda uygulanır.**Kaydedilen çekimler (1.3.0):**bağımsız bir kameranın Önizleme, Parlaklık, Yansıma ve İndeks ürünleri Ayna/Dönüş ile döndürülürken,**Raw ve Debayered, kameranın kendi yönelimini korur**; her çekim dosyası bu ayarı XMP'sine kaydeder, böylece daha sonra bir raw dosyası işlendiğinde ayar aynı şekilde uygulanır.**Dizi üye dosyaları kendi yönelimlerini korur** (ayar kaydedilir, uygulanmaz) ve dizi birleştirilmiş görünümleri bunu göz ardı eder. |
+
+**Renk profili semantiği** (RGB kameralar):
 
 * **Raw** — işleme zincirini tamamen atlar.
 * **Doğrusal** — karanlık sinyal + düz alan + beyaz dengesi; renk matrisi yok, gama yok.
